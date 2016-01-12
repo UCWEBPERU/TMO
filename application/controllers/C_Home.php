@@ -16,12 +16,6 @@ class C_Home extends CI_Controller {
 			$this->load->view('home');
 		}
 	}
-	public function SignAdmin() {
-
-	}	
-
-	public function SignStore() {
-
-	}
+	
 
 }

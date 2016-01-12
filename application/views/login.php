@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<p class="login-box-msg">Iniciar sesion</p>
 			<form id="formLogin" name="formLogin" method="post">
 				<div class="form-group has-feedback">
-					<input id="nombre_usuario" type="email" name="nombre_usuario" class="form-control" placeholder="Email" value="admin@megarepresentaciones.com.pe">
+					<input id="email_usuario" type="email" name="nombre_usuario" class="form-control" placeholder="Email" value="admin@megarepresentaciones.com.pe">
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
@@ -61,10 +61,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<button id="btnSignIn" type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
 					</div><!-- /.col -->
 				</div>
-				<div class="row">
+				
 					<a href="#">I forgot my password</a><br>
 					<a href="#" class="text-center">Register a new membership</a>
-				</div>
+				
 			</form>
 
 			
@@ -138,16 +138,16 @@ increaseArea: '20%' // optional
 				$("#btnSignIn").on("click", function(evt){
 					evt.preventDefault();
 
-					if ( $("#nombre_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
+					if ( $("#email_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
 						var request = $.ajax({
-							url: "<?php echo base_url().'login'; ?>",
+							url: "<?php echo base_url().'SignIn'; ?>",
 							method: "POST",
 							data: $("#formLogin").serialize(),
 							dataType: "json"
 						});
 
 						request.done(function( response ) {
-							// $( ".modal-body" ).html( "<p>" + msg["message"] + "<p>");
+							
 							if (response.status) {
 								$(location).attr("href", "<?php echo base_url().'admin'; ?>");
 							} else {
