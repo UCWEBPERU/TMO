@@ -5,6 +5,12 @@ class M_Login extends CI_Model{
 		parent::__construct();
 		
 	}
+	public function index()	{
+		
+		
+			$this->load->view('login');
+				
+	}
 
 	
 }

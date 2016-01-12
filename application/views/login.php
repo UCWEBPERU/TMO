@@ -34,6 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="login-box">
 		<div class="login-logo">
 			<a href="#"><b>TMO</b> <b></b></a>
+
 		</div><!-- /.login-logo -->
 		<div class="login-box-body">
 			<p class="login-box-msg">Iniciar sesion</p>
@@ -46,28 +47,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<input id="contrasenia_usuario" type="password" name="contrasenia_usuario" class="form-control" placeholder="Password" value="MegaRepresentaciones2015">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
+
 				<div class="row">
 					<div class="col-xs-8">
 						<div class="checkbox icheck">
 							<label>
 								<input type="checkbox"> Recordarme
 							</label>
+							
 						</div>
 					</div><!-- /.col -->
 					<div class="col-xs-4">
 						<button id="btnSignIn" type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
 					</div><!-- /.col -->
 				</div>
+				<div class="row">
+					<a href="#">I forgot my password</a><br>
+					<a href="#" class="text-center">Register a new membership</a>
+				</div>
 			</form>
 
-			<div class="social-auth-links text-center hide">
-				<p>- OR -</p>
-				<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-				<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-			</div><!-- /.social-auth-links -->
-
-			<a class="hide" href="#">I forgot my password</a><br>
-			<a href="register.html" class="text-center hide">Register a new membership</a>
+			
+			
 
 		</div><!-- /.login-box-body -->
 	</div><!-- /.login-box -->

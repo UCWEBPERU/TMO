@@ -15,4 +15,9 @@ class C_Admin extends CI_Controller {
 		
 	}
 
+	
+
+
+
+
 }
