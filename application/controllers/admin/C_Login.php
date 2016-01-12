@@ -7,6 +7,9 @@ class C_Login extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
+        $this->load->library('utils/UserSession');
+        
+        $this->usersession->validateSessionEntry("/admin");
 		
 	}
 	

@@ -9,8 +9,7 @@ class C_Admin extends CI_Controller {
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
         
-        $this->usersession->loadSession($this->session);
-        $this->usersession->validateSession("/admin");
+        $this->usersession->validateSessionBack("admin");
 		
 	}
 
