@@ -12,11 +12,11 @@ class C_Admin extends CI_Controller {
 
 	public function index()	{
 		
-		if ($this->session->has_userdata('nombre_usuario')) {
-			 redirect('/admin/');
-		} else {
+		// if ($this->session->has_userdata('nombre_usuario')) {
+		// 	 redirect('/admin/');
+		// } else {
 			$this->load->view('login');
-		}
+		// }
 		
 	}
 

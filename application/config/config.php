@@ -35,7 +35,7 @@ $config['base_url'] = 'http://www.uc-web.mobi/TMO/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
