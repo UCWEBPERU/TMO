@@ -37,7 +37,7 @@ class C_Login extends CI_Controller {
 
 			if ( sizeof($result) > 0 ) {
 				$Usuario = $result[0];
-				if ($this->cryptography->validateHash($Usuario->contrasenia, trim($this->input->post("contrasenia_usuario", TRUE)))) {
+				if ($this->cryptography->validateHash($Usuario->password_usuario, trim($this->input->post("contrasenia_usuario", TRUE)))) {
 					$sessionUser = array(
 						'nombre_usuario'	=> $Usuario->nombres_persona,
 						'email'				=> $Usuario->email_usuario,
