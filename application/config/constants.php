@@ -87,9 +87,9 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 /* <---------------> MY CONSTANTS <---------------> */
 
-define('PATH_RESOURCE_BOOTSTRAP', 	'resource/bootstrap/');
-define('PATH_RESOURCE_DIST', 		'resource/dist/');
-define('PATH_RESOURCE_PLUGINS', 	'resource/plugins/');
-define('PATH_RESOURCE_ADMIN', 		'resource/admin/');
+define('PATH_RESOURCE_BOOTSTRAP', 	'resources/bootstrap/');
+define('PATH_RESOURCE_DIST', 		'resources/dist/');
+define('PATH_RESOURCE_PLUGINS', 	'resources/plugins/');
+define('PATH_RESOURCE_ADMIN', 		'resources/admin/');
 
 /* <--------------------> END <-------------------> */
