@@ -8,8 +8,11 @@ class C_Login extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-
-        $this->usersession->validateSessionEntry("/admin");
+        
+        $this->usersession->loadSession($this->session);
+        if ($this->usersession->validateSession()) {
+            redirect("/admin");
+        }
 
 	}
 	

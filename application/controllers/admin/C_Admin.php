@@ -9,19 +9,15 @@ class C_Admin extends CI_Controller {
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
         
-<<<<<<< HEAD
-        $this->usersession->validateSessionBack("admin");
-=======
         $this->usersession->loadSession($this->session);
-        $this->usersession->validateSession();
->>>>>>> e768217b2db5318ee04e1d9959e90391cee280f2
+        if (!$this->usersession->validateSession()) {
+            redirect("/login");
+        }
 		
 	}
 
 	public function index()	{	
-		$this->load->view('login');
+        $this->load->view('admin');
 	}
-
-	
 
 }
