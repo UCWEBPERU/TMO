@@ -23,8 +23,8 @@ class C_Email extends CI_Controller {
 			'_smtp_auth'=> TRUE,
 			'smtp_host' => 'ssl://smtp.gmail.com',
 			'smtp_port' => 465,
-			'smtp_user' => 'mickhve@gmail.com',
-			'smtp_pass' => 'd0ntf0rg3t@',
+			'smtp_user' => 'demo@gmail.com',
+			'smtp_pass' => '1234567',
 			'mailtype' 	=> 'html',
 			'charset' 	=> 'utf-8',
 			'newline' 	=> "\r\n"
