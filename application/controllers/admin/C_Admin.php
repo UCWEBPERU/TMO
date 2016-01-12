@@ -7,11 +7,14 @@ class C_Admin extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
+        $this->load->library('utils/UserSession');
+        
+        $this->usersession->loadSession($this->session);
+        $this->usersession->validateSession("/admin");
 		
 	}
 
-	public function index()	{		
-		$this->load->view('admin');		
+	public function index()	{	
 		
 	}
 

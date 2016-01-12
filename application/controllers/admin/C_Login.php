@@ -11,13 +11,7 @@ class C_Login extends CI_Controller {
 	}
 	
 	public function index()	{
-		
-		if ($this->session->has_userdata('nombre_usuario')) {
-			 redirect('/admin/');
-		} else {
-			$this->load->view('login');
-		}
-		
+        $this->load->view('login');
 	}
 
 	public function signIn() {
