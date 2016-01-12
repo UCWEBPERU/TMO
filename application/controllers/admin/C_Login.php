@@ -8,12 +8,9 @@ class C_Login extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-<<<<<<< HEAD
-        
+
         $this->usersession->validateSessionEntry("/admin");
-=======
->>>>>>> e768217b2db5318ee04e1d9959e90391cee280f2
-		
+
 	}
 	
 	public function index()	{
