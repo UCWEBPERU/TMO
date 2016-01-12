@@ -8,8 +8,11 @@ class C_Login extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
+<<<<<<< HEAD
         
         $this->usersession->validateSessionEntry("/admin");
+=======
+>>>>>>> e768217b2db5318ee04e1d9959e90391cee280f2
 		
 	}
 	
@@ -28,16 +31,17 @@ class C_Login extends CI_Controller {
 		$json->data 		= array();
 		$json->status 		= FALSE;
 		
-		if ($this->input->post("nombre_usuario") && $this->input->post("contrasenia_usuario")) {
+		if ($this->input->post("email_usuario") && $this->input->post("contrasenia_usuario")) {
 
-			$result = $this->M_Login->signIn(trim($this->input->post("nombre_usuario", TRUE)));
+			$result = $this->M_Login->signIn(trim($this->input->post("email_usuario", TRUE)));
 
 			if ( sizeof($result) > 0 ) {
 				$Usuario = $result[0];
 				if ($this->cryptography->validateHash($Usuario->contrasenia, trim($this->input->post("contrasenia_usuario", TRUE)))) {
 					$sessionUser = array(
-						'nombre_usuario'	=> $Usuario->nombre,
-						'email'				=> $Usuario->nombre,
+						'nombre_usuario'	=> $Usuario->nombres_persona,
+						'email'				=> $Usuario->email_usuario,
+						'user_session'		=> TRUE,
 						'logged_in' 		=> TRUE
 					);
 					

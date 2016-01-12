@@ -34,40 +34,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="login-box">
 		<div class="login-logo">
 			<a href="#"><b>TMO</b> <b></b></a>
+
 		</div><!-- /.login-logo -->
 		<div class="login-box-body">
 			<p class="login-box-msg">Iniciar sesion</p>
 			<form id="formLogin" name="formLogin" method="post">
 				<div class="form-group has-feedback">
-					<input id="nombre_usuario" type="email" name="nombre_usuario" class="form-control" placeholder="Email" value="admin@megarepresentaciones.com.pe">
+					<input id="email_usuario" type="email" name="nombre_usuario" class="form-control" placeholder="Email" value="admin@megarepresentaciones.com.pe">
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
 					<input id="contrasenia_usuario" type="password" name="contrasenia_usuario" class="form-control" placeholder="Password" value="MegaRepresentaciones2015">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
+
 				<div class="row">
 					<div class="col-xs-8">
 						<div class="checkbox icheck">
 							<label>
 								<input type="checkbox"> Recordarme
 							</label>
+							
 						</div>
 					</div><!-- /.col -->
 					<div class="col-xs-4">
 						<button id="btnSignIn" type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
 					</div><!-- /.col -->
 				</div>
+				
+					<a href="#">I forgot my password</a><br>
+					<a href="#" class="text-center">Register a new membership</a>
+				
 			</form>
 
-			<div class="social-auth-links text-center hide">
-				<p>- OR -</p>
-				<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-				<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-			</div><!-- /.social-auth-links -->
-
-			<a class="hide" href="#">I forgot my password</a><br>
-			<a href="register.html" class="text-center hide">Register a new membership</a>
+			
+			
 
 		</div><!-- /.login-box-body -->
 	</div><!-- /.login-box -->
@@ -137,16 +138,16 @@ increaseArea: '20%' // optional
 				$("#btnSignIn").on("click", function(evt){
 					evt.preventDefault();
 
-					if ( $("#nombre_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
+					if ( $("#email_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
 						var request = $.ajax({
-							url: "<?php echo base_url().'login'; ?>",
+							url: "<?php echo base_url().'SignIn'; ?>",
 							method: "POST",
 							data: $("#formLogin").serialize(),
 							dataType: "json"
 						});
 
 						request.done(function( response ) {
-							// $( ".modal-body" ).html( "<p>" + msg["message"] + "<p>");
+							
 							if (response.status) {
 								$(location).attr("href", "<?php echo base_url().'admin'; ?>");
 							} else {

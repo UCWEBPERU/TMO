@@ -53,8 +53,16 @@ $route['default_controller'] = 'C_Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+<<<<<<< HEAD
 $route['login']					= 'admin/C_Login';
 $route['signIn']				= 'admin/C_Login/signIn';
 $route['signOut']				= 'admin/C_Login/signOut';
 $route['admin']					= 'admin/C_Admin';
 $route['email']					= 'C_Email/sendMailGmail';
+=======
+$route['login']     	= 'admin/C_Login';
+$route['signIn']    	= 'admin/C_Login/signIn';
+$route['signOut']    	= 'admin/C_Login/signOut';
+$route['admin']     	= 'admin/C_Admin';
+$route['email']     	= 'C_Email/sendMailGmail';
+>>>>>>> e768217b2db5318ee04e1d9959e90391cee280f2
