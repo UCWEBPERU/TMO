@@ -67,9 +67,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 			</form>
 
-			
-			
-
 		</div><!-- /.login-box-body -->
 	</div><!-- /.login-box -->
 
@@ -131,9 +128,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$(function () {
 				$('input').iCheck({
 					checkboxClass: 'icheckbox_square-blue',
-					radioClass: 'iradio_square-blue',
-increaseArea: '20%' // optional
-});
+					radioClass:    'iradio_square-blue',
+                    increaseArea:   '20%' // optional
+                });
 
 				$("#btnSignIn").on("click", function(evt){
 					evt.preventDefault();
@@ -149,9 +146,14 @@ increaseArea: '20%' // optional
 						request.done(function( response ) {
 							
 							if (response.status) {
+<<<<<<< HEAD:application/views/V_Login.php
 								$(location).attr("href", "<?php echo base_url().'admin/login'; ?>");
+=======
+                                alert("OK");
+								$(location).attr("href", "<?php echo base_url().'admin'; ?>");
+>>>>>>> f7891663054359606c1194c07eb741d68fc17169:application/views/login.php
 							} else {
-								$( ".modal-body" ).html( "<p>" + response.message + "<p>");
+								$( ".modal-body" ).html("<p>" + response.message + "<p>");
 								$('#myModal').modal('show');
 							}
 						});
