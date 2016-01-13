@@ -8,15 +8,14 @@ class C_Login extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        
+	}
+	
+	public function index()	{
         $this->usersession->loadSession($this->session);
         if ($this->usersession->validateSession()) {
             redirect("/admin");
         }
-
-	}
-	
-	public function index()	{
+        
         $this->load->view('login');
 	}
 
