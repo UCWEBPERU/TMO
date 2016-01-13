@@ -35,12 +35,13 @@ class C_Login extends CI_Controller {
 
 			$result = $this->M_Login->signIn(trim($this->input->post("email_usuario", TRUE)));
 
-			if ( sizeof($result) > 0 ) {
+			if (sizeof($result) > 0 ) {
 				$Usuario = $result[0];
 				if ($this->cryptography->validateHash($Usuario->password_usuario, trim($this->input->post("contrasenia_usuario", TRUE)))) {
 					$sessionUser = array(
 						'nombre_usuario'	=> $Usuario->nombres_persona,
 						'email'				=> $Usuario->email_usuario,
+						'tipo'				=> $Usuario->id_tipo_usuario,
 						'user_session'		=> TRUE,
 						'logged_in' 		=> TRUE
 					);
@@ -56,7 +57,7 @@ class C_Login extends CI_Controller {
 				$json->message = "La cuenta de usuario no existe.";
 			}
 
-		} else {
+		}else {
 			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
 		}
 

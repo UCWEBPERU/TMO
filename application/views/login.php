@@ -40,11 +40,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<p class="login-box-msg">Iniciar sesion</p>
 			<form id="formLogin" name="formLogin" method="post">
 				<div class="form-group has-feedback">
-					<input id="email_usuario" type="email" name="nombre_usuario" class="form-control" placeholder="Email" value="admin@megarepresentaciones.com.pe">
+					<input id="email_usuario" type="email" name="email_usuario" class="form-control" placeholder="Email" value="admin@tmo.com">
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input id="contrasenia_usuario" type="password" name="contrasenia_usuario" class="form-control" placeholder="Password" value="MegaRepresentaciones2015">
+					<input id="contrasenia_usuario" type="password" name="contrasenia_usuario" class="form-control" placeholder="Password" value="12345">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 
@@ -140,7 +140,7 @@ increaseArea: '20%' // optional
 
 					if ( $("#email_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
 						var request = $.ajax({
-							url: "<?php echo base_url().'SignIn'; ?>",
+							url: "<?php echo base_url().'signIn'; ?>",
 							method: "POST",
 							data: $("#formLogin").serialize(),
 							dataType: "json"
@@ -149,7 +149,7 @@ increaseArea: '20%' // optional
 						request.done(function( response ) {
 							
 							if (response.status) {
-								$(location).attr("href", "<?php echo base_url().'admin'; ?>");
+								$(location).attr("href", "<?php echo base_url().'store'; ?>");
 							} else {
 								$( ".modal-body" ).html( "<p>" + response.message + "<p>");
 								$('#myModal').modal('show');
