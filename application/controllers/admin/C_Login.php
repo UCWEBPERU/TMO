@@ -51,7 +51,7 @@ class C_Login extends CI_Controller {
         
         $data["modulo"] = $modulo;
         
-        $this->load->view('V_Login', $data);
+        $this->load->view('v_login', $data);
 	}
 
 	public function signIn() {
