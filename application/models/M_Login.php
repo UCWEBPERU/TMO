@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class M_Admin_Login extends CI_Model{
+class M_Login extends CI_Model{
 	public function __construct()
 	{
 		parent::__construct();
