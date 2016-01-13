@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$(function () {
 				$("#btnAdmin").on("click", function(evt){
 					evt.preventDefault();
-					$(location).attr("href", "<?php echo base_url().'admin'; ?>");
+					$(location).attr("href", "<?php echo base_url().'admin/login'; ?>");
 					
 				});
 				$("#btnStore").on("click", function(evt){

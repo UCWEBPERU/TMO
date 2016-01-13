@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Admin_Login extends CI_Controller {
+class C_Login extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -51,7 +51,7 @@ class C_Admin_Login extends CI_Controller {
         
         $data["modulo"] = $modulo;
         
-        $this->load->view('login', $data);
+        $this->load->view('V_Login', $data);
 	}
 
 	public function signIn() {
