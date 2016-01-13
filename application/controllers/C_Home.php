@@ -13,7 +13,7 @@ class C_Home extends CI_Controller {
 		if ($this->session->has_userdata('nombre_usuario')) {
 			 redirect('/admin/');
 		} else {
-			$this->load->view('home');
+			$this->load->view('V_Home');
 		}
 	}
 	

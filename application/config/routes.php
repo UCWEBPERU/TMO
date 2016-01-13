@@ -53,7 +53,6 @@ $route['default_controller'] = 'C_Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-
 /*
 | ------------------------------
 | URL -> ADMIN 

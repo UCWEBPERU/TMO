@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Login extends CI_Controller {
+class C_Admin_Login extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -69,7 +69,7 @@ class C_Login extends CI_Controller {
 
 			$result = $this->M_Login->signIn(trim($this->input->post("email_usuario", TRUE)));
 
-			if ( sizeof($result) > 0 ) {
+			if (sizeof($result) > 0 ) {
 				$Usuario = $result[0];
 				if ($this->cryptography->validateHash($Usuario->password_usuario, trim($this->input->post("contrasenia_usuario", TRUE)))) {
 					$sessionUser = array(
@@ -99,7 +99,7 @@ class C_Login extends CI_Controller {
 				$json->message = "La cuenta de usuario no existe.";
 			}
 
-		} else {
+		}else {
 			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
 		}
 
