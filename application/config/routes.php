@@ -54,12 +54,11 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['login']					= 'admin/C_Login';
-$route['signIn']				= 'admin/C_Login/signIn';
-$route['signOut']				= 'admin/C_Login/signOut';
+$route['admin/login']				= 'admin/C_Login';
+$route['admin/signIn']				= 'admin/C_Login/signIn';
+$route['admin/signOut']				= 'admin/C_Login/signOut'
+
+
 $route['admin']					= 'admin/C_Admin';
-$route['email']					= 'C_Email/sendMailGmail';
 
 
-
-$route['store']					= 'shop/C_Store';

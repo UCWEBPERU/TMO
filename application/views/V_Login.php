@@ -149,7 +149,7 @@ increaseArea: '20%' // optional
 						request.done(function( response ) {
 							
 							if (response.status) {
-								$(location).attr("href", "<?php echo base_url().'store'; ?>");
+								$(location).attr("href", "<?php echo base_url().'admin/login'; ?>");
 							} else {
 								$( ".modal-body" ).html( "<p>" + response.message + "<p>");
 								$('#myModal').modal('show');
