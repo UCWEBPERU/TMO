@@ -21,6 +21,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo PATH_RESOURCE_DIST; ?>css/AdminLTE.min.css">
 	<!-- iCheck -->
 	<link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/square/blue.css">
+    
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_ADMIN; ?>css/style.css">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,8 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- <body class="hold-transition" style="background: #4CAF50;"> -->
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="#"><b>TMO</b> <b></b></a>
-
+             <img class="img-circle" src="<?php echo $modulo->url_logo; ?>" alt="User Avatar">
 		</div><!-- /.login-logo -->
 		<div class="login-box-body">
 			<p class="login-box-msg">Iniciar sesion</p>
@@ -62,12 +63,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div><!-- /.col -->
 				</div>
 				
-					<a href="#">I forgot my password</a><br>
-					<a href="#" class="text-center">Register a new membership</a>
-				
+                <a href="#">I forgot my password</a><br>
+                <a href="#" class="text-center">Register a new membership</a>
+
 			</form>
+            
+            
 
 		</div><!-- /.login-box-body -->
+
 	</div><!-- /.login-box -->
 
 	<div class="example-modal">
@@ -124,7 +128,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script src="<?php echo PATH_RESOURCE_BOOTSTRAP; ?>js/bootstrap.min.js"></script>
 		<!-- iCheck -->
 		<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/icheck.min.js"></script>
+        <!-- Loading Modal -->
+        <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/LoadingModal.js"></script>
 		<script>
+            	
 			$(function () {
 				$('input').iCheck({
 					checkboxClass: 'icheckbox_square-blue',
@@ -136,18 +143,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					evt.preventDefault();
 
 					if ( $("#email_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
+                        waitingDialog.show('Iniciando sesion...');
 						var request = $.ajax({
-							url: "<?php echo base_url().'signIn'; ?>",
+							url: "<?php echo base_url().'admin/signIn'; ?>",
 							method: "POST",
 							data: $("#formLogin").serialize(),
 							dataType: "json"
 						});
 
 						request.done(function( response ) {
-							
+							waitingDialog.hide();
 							if (response.status) {
-                                alert("OK");
-								$(location).attr("href", "<?php echo base_url().'admin'; ?>");
+								$(location).attr("href", response.data.url_redirect);
 							} else {
 								$( ".modal-body" ).html("<p>" + response.message + "<p>");
 								$('#myModal').modal('show');
@@ -155,6 +162,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						});
 
 						request.fail(function( jqXHR, textStatus ) {
+                            waitingDialog.hide();
 							$( ".modal-body" ).html( "<p>" + textStatus + " FAIL<p>");
 							$('#myModal').modal('show');
 						});
@@ -166,6 +174,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				});
 
 			});
+            
 		</script>
 	</body>
 	</html>

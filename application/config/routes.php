@@ -53,8 +53,34 @@ $route['default_controller'] = 'C_Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['login']					= 'admin/C_Login';
-$route['signIn']				= 'admin/C_Login/signIn';
-$route['signOut']				= 'admin/C_Login/signOut';
+
+/*
+| ------------------------------
+| URL -> ADMIN 
+| ------------------------------
+*/
 $route['admin']					= 'admin/C_Admin';
-$route['email']					= 'C_Email/sendMailGmail';
+$route['admin/login']			= 'admin/C_Login';
+$route['admin/signIn']			= 'admin/C_Login/signIn';
+$route['admin/signOut']			= 'admin/C_Login/signOut';
+
+
+
+/*
+| ------------------------------
+| URL -> STORE ADMIN 
+| ------------------------------
+*/
+$route['store/(:num)/admin']	   = 'store-admin/C_StoreAdmin';
+$route['store/(:num)/admin/login'] = 'admin/C_Login';
+// $route['store/signIn']			   = 'store-admin/C_Login/signIn';
+// $route['store/signOut']			   = 'store-admin/C_Login/signOut';
+
+
+
+/*
+| ------------------------------
+| URL -> NOT FOUND PAGE
+| ------------------------------
+*/
+$route['not-found/store'] = 'C_Not_Found/store';

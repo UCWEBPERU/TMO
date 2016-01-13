@@ -10,7 +10,13 @@ class UserSession {
 	public function validateSession() {
                 
 		if ($this->session->has_userdata('user_session')) {
-			return TRUE;
+            
+            if ($this->session->nombre_tipo_usuario == "SuperAdministrador") {
+                return 1;
+            } else if ($this->session->nombre_tipo_usuario == "Administrador") {
+                return 2;
+            }
+            
 		} else {
             return FALSE;
         }

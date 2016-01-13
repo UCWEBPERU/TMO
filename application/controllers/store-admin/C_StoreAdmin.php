@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Admin extends CI_Controller {
+class C_StoreAdmin extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -12,10 +12,10 @@ class C_Admin extends CI_Controller {
         $this->usersession->loadSession($this->session);
         
         if (!$this->usersession->validateSession()) {
-            redirect("/admin/login");
+            redirect("/store/".$this->uri->segment(2)."/admin/login");
         } else {
-            if ($this->usersession->validateSession() == 2) {
-                redirect("/store/".$this->uri->segment(2)."/admin");
+            if ($this->usersession->validateSession() == 1) {
+                redirect("admin");
             }
         }
 		
