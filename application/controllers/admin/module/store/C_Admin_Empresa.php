@@ -8,6 +8,7 @@ class C_Admin_Store extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
+        $this->load->model('admin/M_Admin_Empresa');
         
         $this->usersession->loadSession($this->session);
         if (!$this->usersession->validateSession()) {
@@ -58,6 +59,184 @@ class C_Admin_Store extends CI_Controller {
 		
 		$data["modulo"] = $modulo;
 		$this->load->view('admin/template/module/module-panel', $data);
+	}
+
+	public function agregarEmpresa() {
+		$data["nombreSeccion"] 	= "Agregar";
+		$this->load->view('admin/template/module/cliente/cliente-agregar', $data);
+	}
+
+	public function edit($idEmpresa) {
+		
+		if (isset($idEmpresa)) {
+			$result = $this->M_Admin_Empresa->getEmpresaByID($idEmpresa);
+			if (count($result) > 0) {
+				$data["dataEmpresa"] 	= $result[0];
+				$data["existeEmpresa"]	= TRUE;
+			} else {
+				$data["dataEmpresa"] 	= NULL;
+				$data["existeEmpresa"]	= FALSE;
+			}
+			$data["id_empresa"] 		= $idEmpresa;
+			$data["nombreSeccion"]		= "Editar";
+			$this->load->view('admin/template/module/cliente/cliente-agregar', $data);
+		} else {
+			redirect('/');
+		}
+		
+	}
+
+	public function insert() {
+		$json 				= new stdClass();
+		$json->type 		= "Empresa";
+		$json->presentation = "";
+		$json->action 		= "insert";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+		
+		if ( $this->input->method(TRUE) == "POST" ) {
+			if ( $this->input->post("id_tipo_empresa") &&
+				 $this->input->post("id_usuario") &&
+				 $this->input->post("id_pay_account") &&
+				 $this->input->post("id_archivo_logo") &&
+				 $this->input->post("nombre_empresa") //&&
+				 //$this->input->post("descripcion_empresa") &&
+				 //$this->input->post("direccion_empresa") &&
+				 //$this->input->post("pais_region_empresa") &&
+				 //$this->input->post("estado_region_empresa") &&
+				 //$this->input->post("codigo_postal_empresa") &&
+				 //$this->input->post("telefono_empresa") &&
+				 //$this->input->post("movil_empresa") 
+				 ) {
+					 
+				 //$existRow = $this->M_Admin_Empresa->getByID(trim($this->input->post("ruc", TRUE)));
+				
+				//if (count($existRow) <= 0) {
+					
+					$result = $this->M_Admin_Empresa->insert(
+					trim($this->input->post("id_tipo_empresa", TRUE)), 
+					trim($this->input->post("id_usuario", TRUE)), 
+					trim($this->input->post("id_pay_account", TRUE)), 
+					trim($this->input->post("id_archivo_logo", TRUE)), 
+					trim($this->input->post("nombre_empresa", TRUE)), 
+					trim($this->input->post("descripcion_empresa", TRUE)), 
+					trim($this->input->post("direccion_empresa", TRUE)), 
+					trim($this->input->post("pais_region_empresa", TRUE)), 
+					trim($this->input->post("estado_region_empresa", TRUE)), 
+					trim($this->input->post("codigo_postal_empresa", TRUE)), 
+					trim($this->input->post("telefono_empresa", TRUE)), 
+					trim($this->input->post("movil_empresa", TRUE)) 
+					);
+			
+					if (is_int($result)) {
+						$json->message = "La Empresa se Agrego Correctamente.";
+						array_push($json->data, array("id_empresa" => $result));
+						$json->status 	= TRUE;
+					} else {
+						$json->message = "Ocurrio un error al agregar la empresa, intente de nuevo.";
+					}
+					
+				//} else {
+					//$json->message = "Lo sentimos el cliente que desea agregar tiene un ruc que ya existe.";
+				//}
+				
+			} else {
+				$json->message = "No se recibio ningun dato.";
+			}
+			
+		} else {
+			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+		}
+		
+		echo json_encode($json);
+		
+	}
+
+	public function delete() {
+		$json 				= new stdClass();
+		$json->type 		= "Empresa";
+		$json->presentation = "";
+		$json->action 		= "delete";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+		
+		if ( $this->input->post("id_empresa") ) {
+			$result = $this->M_Admin_Empresa->delete(trim($this->input->post("id_empresa", TRUE)));
+		
+			if ($result) {
+				$json->message = "Empresa eliminado correctamente.";
+				$json->status 	= TRUE;
+			} else {
+				$json->message = "Ocurrio un error al eliminar la Empresa, intente de nuevo.";
+			}
+			
+		} else {
+			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+		}
+		
+		echo json_encode($json);
+	}
+
+	public function update() {
+		
+		$json 				= new stdClass();
+		$json->type 		= "Empresa";
+		$json->presentation = "";
+		$json->action 		= "update";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+		
+		if ( 	$this->input->post("id_tipo_empresa") &&
+				$this->input->post("id_usuario") &&
+				$this->input->post("id_pay_account") &&
+				$this->input->post("id_archivo_logo") &&
+				$this->input->post("nombre_empresa") &&
+				$this->input->post("descripcion_empresa") &&
+				$this->input->post("direccion_empresa") &&
+				$this->input->post("pais_region_empresa") &&
+				$this->input->post("estado_region_empresa") &&
+				$this->input->post("codigo_postal_empresa") &&
+				$this->input->post("telefono_empresa") &&
+				$this->input->post("movil_empresa") 
+				 ) {
+					
+			$result = $this->M_Admin_Empresa->getByID(trim($this->input->post("id_empresa", TRUE)));
+			
+			if (count($result) > 0) {
+				
+				$result = $this->M_Admin_Empresa->update(
+					trim($this->input->post("id_tipo_empresa", TRUE)), 
+					trim($this->input->post("id_usuario", TRUE)), 
+					trim($this->input->post("id_pay_account", TRUE)), 
+					trim($this->input->post("id_archivo_logo", TRUE)), 
+					trim($this->input->post("nombre_empresa", TRUE)), 
+					trim($this->input->post("descripcion_empresa", TRUE)), 
+					trim($this->input->post("direccion_empresa", TRUE)), 
+					trim($this->input->post("pais_region_empresa", TRUE)), 
+					trim($this->input->post("estado_region_empresa", TRUE)), 
+					trim($this->input->post("codigo_postal_empresa", TRUE)), 
+					trim($this->input->post("telefono_empresa", TRUE)), 
+					trim($this->input->post("movil_empresa", TRUE)) 
+					);
+			
+				if ($result) {
+					$json->message = "La Empresa se actualizo correctamente.";
+					array_push($json->data, array("id_empresa" => $result));
+					$json->status 	= TRUE;
+				} else {
+					$json->message = "Ocurrio un error al actualizar la Empresa, intente de nuevo.";
+				}
+				
+			} else {
+				$json->message = "Lo sentimos la Empresa que desea editar no existe.";
+			}
+			
+		} else {
+			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+		}
+		
+		echo json_encode($json);
+		
 	}
 
 }
