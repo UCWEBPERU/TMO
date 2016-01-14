@@ -32,7 +32,7 @@
                 <div class="info-box">
                   <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
                   <div class="info-box-content">
-                    <span class="info-box-text">Empresa s</span>
+                    <span class="info-box-text">Empresas</span>
                     <span class="info-box-number"></span>
                   </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
