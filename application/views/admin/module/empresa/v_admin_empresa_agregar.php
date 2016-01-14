@@ -126,7 +126,7 @@
       } 
 
       $(function () {
-        listarTipoEmpresa();
+       
 
         $("#btnAgregar").on("click", function(evt){
           evt.preventDefault();

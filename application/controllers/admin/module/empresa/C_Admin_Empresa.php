@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class C_Admin_Empresa extends CI_Controller {
+	
 
 	public function __construct() {
 		parent::__construct();
@@ -88,7 +89,7 @@ class C_Admin_Empresa extends CI_Controller {
         $modulo->nombreSeccion = "Agregar";
         $modulo->base_url 		= "admin/empresa/";
 
-		$modulo->tipo_empresa		=$this->M_Admin_Empresa->getTipoEmpresa();
+		$tipo_empresa		=$this->M_Admin_Empresa->getTipoEmpresa();
 
 		$data["modulo"] 		= $modulo;
 
