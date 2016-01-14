@@ -63,10 +63,11 @@ $route['admin/login']			= 'admin/C_Login';
 $route['admin/signIn']			= 'admin/C_Login/signIn';
 $route['admin/signOut']			= 'admin/C_Login/signOut';
 
-$route['admin/empresa']				= 'admin/module/store/C_Admin_Empresa/index';
-$route['admin/empresa/crear']		= 'admin/module/store/C_Admin_Empresa/insert';
-$route['admin/empresa/editar']		= 'admin/module/store/C_Admin_Empresa/update';
-$route['admin/empresa/eliminar']	= 'admin/module/store/C_Admin_Empresa/delete';
+$route['admin/empresa']				= 'admin/module/empresa/C_Admin_Empresa/index';
+$route['admin/empresa/agregar']		= 'admin/module/empresa/C_Admin_Empresa/agregar';
+$route['admin/empresa/crear']		= 'admin/module/empresa/C_Admin_Empresa/insert';
+$route['admin/empresa/editar']		= 'admin/module/empresa/C_Admin_Empresa/update';
+$route['admin/empresa/eliminar']	= 'admin/module/empresa/C_Admin_Empresa/delete';
 
 
 /*
