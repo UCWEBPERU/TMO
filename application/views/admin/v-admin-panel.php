@@ -30,7 +30,7 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <a class="link-shorcut" href="admin/cliente">
                 <div class="info-box">
-                  <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
+                  <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Empresas</span>
                     <span class="info-box-number"></span>
@@ -41,9 +41,9 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <a class="link-shorcut" href="admin/vehiculo/tipo-equipo">
                 <div class="info-box">
-                  <span class="info-box-icon bg-green"><i class="fa fa-truck"></i></span>
+                  <span class="info-box-icon bg-green"><i class="fa fa-building-o"></i></span>
                   <div class="info-box-content">
-                    <span class="info-box-text">Vehiculo - Tipo Equipos</span>
+                    <span class="info-box-text">Tipo Empresa</span>
                     <span class="info-box-number"></span>
                   </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
@@ -52,9 +52,9 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <a class="link-shorcut" href="admin/vehiculo/marca">
                 <div class="info-box">
-                  <span class="info-box-icon bg-yellow"><i class="fa fa-tag"></i></span>
+                  <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
                   <div class="info-box-content">
-                    <span class="info-box-text">Vehiculo - Marcas</span>
+                    <span class="info-box-text">Usuarios</span>
                     <span class="info-box-number"></span>
                   </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
@@ -63,9 +63,9 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <a class="link-shorcut" href="admin/vehiculo/modelo">
                 <div class="info-box">
-                  <span class="info-box-icon bg-red"><i class="fa fa-car"></i></span>
+                  <span class="info-box-icon bg-red"><i class="fa fa-user"></i></span>
                   <div class="info-box-content">
-                    <span class="info-box-text">Vehiculo - Modelo</span>
+                    <span class="info-box-text">Perfil</span>
                     <span class="info-box-number"></span>
                   </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
@@ -73,42 +73,6 @@
             </div><!-- /.col -->
           </div><!-- /.row -->
           
-          <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="admin/neumatico/marca">
-                <div class="info-box">
-                  <span class="info-box-icon bg-purple"><i class="fa fa-tag"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Neumatico - Marcas</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="admin/neumatico/modelo">
-                <div class="info-box">
-                  <span class="info-box-icon bg-maroon"><i class="fa fa-dot-circle-o"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Neumatico - Modelo</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="admin/neumatico/medida">
-                <div class="info-box">
-                  <span class="info-box-icon bg-teal"><i class="fa fa-arrows-h"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Neumatico - Medida</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-
           <!-- =========================================================== -->
 
         </section><!-- /.content -->
