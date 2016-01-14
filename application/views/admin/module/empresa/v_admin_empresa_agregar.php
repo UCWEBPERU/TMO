@@ -77,15 +77,16 @@
                         if (isset($existeEmpresa) && $existeEmpresa ) { ?>
                           
                           <select id="txtTipo"  name="id_tipo_empresa" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
-                            <option selected="selected">Alabama</option>
+                            <option selected="selected"></option>
                             <option>Alaska</option>
                             
                           </select>
                       <?php } else { ?>
                           <select id="txtTipo"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
-                            <option selected="selected">Alabama</option>
-                            <option>Alaska</option>
-                            
+                            <option selected="selected">Seleccione un Tipo de Empresa</option>
+                            <?php foreach($tipo_empresa as $tipo_empresa): ?>
+                                <option value="<?php echo $tipo_empresa->id_tipo_empresa; ?>"><?php echo $tipo_empresa->nombre_tipo_empresa; ?></option>
+                            <?php endforeach; ?>  
                           </select>
                       <?php } ?>
                     </div>
@@ -114,14 +115,7 @@
 
     <script>
       
-      function listarTipoEmpresa() {
-        var request = $.ajax({
-                  url: urlApi,
-                  method: "POST",
-                  data: $("#formEmpresa").serialize(),
-                  dataType: "json"
-                });  
-      } 
+      
 
       function mostrarErrorInputText(id) {
           if ( $(id).val().length == 0) {
