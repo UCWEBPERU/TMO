@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Admin_Store extends CI_Controller {
+class C_Admin_Empresa extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();

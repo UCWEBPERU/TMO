@@ -63,6 +63,8 @@ $route['admin/login']			= 'admin/C_Login';
 $route['admin/signIn']			= 'admin/C_Login/signIn';
 $route['admin/signOut']			= 'admin/C_Login/signOut';
 
+$route['admin/empresa']			= 'admin/module/store/C_Admin_Empresa';
+
 
 
 /*
