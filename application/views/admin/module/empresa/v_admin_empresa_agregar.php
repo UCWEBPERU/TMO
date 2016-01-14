@@ -82,13 +82,9 @@
                       <?php } else { ?>
                           <select id="txtTipo"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
                             <option selected="selected">Seleccione un Tipo de Empresa</option>
-<<<<<<< HEAD
-                            <?php foreach($modulo->n$tipo_empresa as $tipo): ?>
+                            <?php foreach($modulo->$tipo_empresa as $tipo): ?>
                                 <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-=======
-                            <?php foreach($tipo_empresa as $tipo_empresa): ?>
-                                <option value="<?php echo $tipo_empresa->id_tipo_empresa; ?>"><?php echo $tipo_empresa->nombre_tipo_empresa; ?></option>
->>>>>>> 3070b6e5826be23b88e284b7495cdc2c0da01bb6
+
                             <?php endforeach; ?>  
                           </select>
                       <?php } ?>
