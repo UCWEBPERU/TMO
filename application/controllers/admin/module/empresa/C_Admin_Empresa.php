@@ -270,10 +270,3 @@ class C_Admin_Empresa extends CI_Controller {
 		echo json_encode($json);
 		
 	}
-
-<<<<<<< HEAD
-}
-
-=======
-}
->>>>>>> 3070b6e5826be23b88e284b7495cdc2c0da01bb6
