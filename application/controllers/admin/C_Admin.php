@@ -21,8 +21,20 @@ class C_Admin extends CI_Controller {
 		
 	}
 
-	public function index()	{	
-        $this->load->view('admin');
+	public function index()	{
+        $modulo = new stdClass();
+        $modulo->titulo_pagina = "TMO | Panel Principal";
+        
+        $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
+        $modulo->nombres_usuario = "Nombres";
+        $modulo->tipo_usuario = "Super Administrador";
+        $modulo->nombre_empresa_largo = "Take My Order";
+        $modulo->nombre_empresa_corto = "TMO";
+        
+        $modulo->url_signout = "/admin/signOut";
+        
+        $data["modulo"] = $modulo;
+        $this->load->view('admin/v-admin-panel', $data);
 	}
 
 }

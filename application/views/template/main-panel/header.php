@@ -3,10 +3,10 @@
   <!-- Logo -->
   <a href="<?php echo base_url(); ?>admin" class="logo" style="">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>TMO</b></span>
-    <!--<img src="<?php echo PATH_RESOURCE_ADMIN; ?>img/icon/icon_app.png" class="logo-mini" alt="App Icon">-->
+    <span class="logo-mini"><b><?php echo $modulo->nombre_empresa_corto; ?></b></span>
+    <!--<img src="<?php echo $modulo->icono_empresa; ?>" class="logo-mini" alt="App Icon">-->
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>TMO</b><b></b></span>
+    <span class="logo-lg"><b><?php echo $modulo->nombre_empresa_largo; ?></b><b></b></span>
   </a>
 
   <!-- Header Navbar -->
@@ -24,16 +24,16 @@
           <!-- Menu Toggle Button -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!-- The user image in the navbar-->
-            <img src="<?php echo PATH_RESOURCE_ADMIN; ?>img/icon/icon_app_144.png" class="user-image" alt="User Image">
+            <img src="<?php echo $modulo->icono_empresa; ?>" class="user-image" alt="User Image">
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-            <span class="hidden-xs">Administrador</span>
+            <span class="hidden-xs"><?php echo $modulo->nombres_usuario; ?></span>
           </a>
           <ul class="dropdown-menu">
             <!-- The user image in the menu -->
             <li class="user-header">
-              <img src="<?php echo PATH_RESOURCE_ADMIN; ?>img/icon/icon_app_144.png" class="img-circle" alt="User Image">
+              <img src="<?php echo $modulo->icono_empresa; ?>" class="img-circle" alt="User Image">
               <p>
-                Administrador - Mega Representaciones
+                <?php echo $modulo->tipo_usuario; ?> - <?php echo $modulo->nombre_empresa_largo; ?>
                 <!--<small>Member since Nov. 2012</small>-->
               </p>
             </li>
@@ -55,7 +55,7 @@
                 <a href="#" class="btn btn-default btn-flat">Profile</a>
               </div>-->
               <div class="pull-right">
-                <a href="logout" class="btn btn-default btn-flat">Cerrar sesion</a>
+                <a href="<?php echo $modulo->url_signout; ?>" class="btn btn-default btn-flat">Cerrar sesion</a>
               </div>
             </li>
           </ul>
