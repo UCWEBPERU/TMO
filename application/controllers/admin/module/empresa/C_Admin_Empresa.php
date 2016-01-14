@@ -84,11 +84,14 @@ class C_Admin_Empresa extends CI_Controller {
         $modulo->tipo_usuario = "Super Administrador";
         $modulo->nombre_empresa_largo = "Take My Order";
         $modulo->nombre_empresa_corto = "TMO";      
-        $modulo->url_signout = "/admin/signOut";
+        $modulo->url_signout = base_url()."/admin/signOut";
         $modulo->nombreSeccion = "Agregar";
         $modulo->base_url 		= "admin/empresa/";
 
+
 		$modulo->tipo_empresa		=$this->M_Admin_Empresa->getTipoEmpresa();
+
+
 
 		$data["modulo"] 		= $modulo;
 
@@ -267,5 +270,5 @@ class C_Admin_Empresa extends CI_Controller {
 		echo json_encode($json);
 		
 	}
-
+	
 }
