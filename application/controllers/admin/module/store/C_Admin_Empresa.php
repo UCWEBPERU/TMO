@@ -86,10 +86,12 @@ class C_Admin_Empresa extends CI_Controller {
         $modulo->nombre_empresa_corto = "TMO";      
         $modulo->url_signout = "/admin/signOut";
         $modulo->nombreSeccion = "Agregar";
+        $modulo->base_url 		= "admin/empresa/";
 
-        $modulo->base_url 					= "admin/empresa/";
+		$modulo->tipo_empresa		=$this->M_Admin_Empresa->getTipoEmpresa();
 
-		$data["modulo"] 	= $modulo;
+		$data["modulo"] 		= $modulo;
+
 		$this->load->view('admin/module/empresa/v_admin_empresa_agregar', $data);
 	}
 

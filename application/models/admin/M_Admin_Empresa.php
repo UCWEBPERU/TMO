@@ -23,6 +23,16 @@ class M_Admin_Empresa extends CI_Model{
 		return $query->result();
 	}
 
+	public function getTipoEmpresa() {
+		$this->db->select(" Tipo_Empresa.id_tipo_empresa, 
+							Tipo_Empresa.nombre_tipo_empresa, 
+							");
+		
+		$this->db->where('Tipo_Empresa.estado', '1');
+		$query = $this->db->get('Tipo_Empresa');
+		return $query->result();
+	}
+
 	public function fetchEmpresas($limit, $start) {
 		$this->db->select("Empresa.id_empresa, 
 							Persona.nombres_persona, 
