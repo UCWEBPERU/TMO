@@ -39,14 +39,14 @@
                   <h3 class="box-title"><?php echo $modulo->nombreSeccion; ?> Empresa</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form id="formCliente" role="form">
+                <form id="formEmpresa" role="form">
                   <?php 
-                  if ( isset($idCliente) ) { ?>
-                    <input type="hidden" name="id_cliente" value="<?php echo $idCliente; ?>">
+                  if ( isset($idEmpresa) ) { ?>
+                    <input type="hidden" name="id_empresa" value="<?php echo $idEmpresa; ?>">
                   <?php } ?>
                  <div class="box-body">
                     <?php
-                      if (isset($existeCliente) && !$existeCliente ) { ?>
+                      if (isset($existeEmpresa) && !$existeEmpresa ) { ?>
                         <div class="alert alert-danger alert-dismissible">
                           <h4><i class="icon fa fa-ban"></i> No existe el cliente!</h4>
                           Lo sentimos el cliente que desea editar no existe.<br>
@@ -54,30 +54,39 @@
                         </div>
                     <?php } ?>
                     <div class="form-group">
-                      <label for="txtCodigoSigne">Codigo Signe</label>
+                      <label for="txtnombre_empresa">Nombre</label>
                       <?php
-                        if (isset($existeCliente) && $existeCliente ) { ?>
-                          <input type="text" class="form-control" id="txtCodigoSigne" name="codigo_signe" maxlength="10" value="<?php echo $dataCliente->codigo_signe; ?>">
+                        if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                          <input type="text" class="form-control" id="txtnombre_empresa" name="nombre_empresa" maxlength="10" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                       <?php } else { ?>
-                          <input type="text" class="form-control" id="txtCodigoSigne" name="codigo_signe" maxlength="10">
+                          <input type="text" class="form-control" id="txtnombre_empresa" name="nombre_empresa" maxlength="10">
                       <?php } ?>
                     </div>
                     <div class="form-group">
-                      <label for="txtRazonSocial">Razon Social</label>
+                      <label for="txtDescripcion">Descripcion</label>
                       <?php
-                        if (isset($existeCliente) && $existeCliente ) { ?>
-                          <input type="text" class="form-control" id="txtRazonSocial" name="razon_social" maxlength="150" value="<?php echo $dataCliente->razon_social; ?>">
+                        if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                          <input type="text" class="form-control" id="txtDescripcion" name="descripcion_empresa" maxlength="150" value="<?php echo $dataEmpresa->descripcion_empresa; ?>">
                       <?php } else { ?>
-                          <input type="text" class="form-control" id="txtRazonSocial" name="razon_social" maxlength="150">
+                          <input type="text" class="form-control" id="txtDescripcion" name="descripcion_empresa" maxlength="150">
                       <?php } ?>
                     </div>
                     <div class="form-group">
-                      <label for="txtRUC">RUC</label>
+                      <label for="txtTipo">Tipo Empresa</label>
                       <?php
-                        if (isset($existeCliente) && $existeCliente ) { ?>
-                          <input type="text" class="form-control" id="txtRUC" name="ruc" maxlength="11" value="<?php echo $dataCliente->ruc; ?>">
+                        if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                          
+                          <select id="txtTipo"  name="id_tipo_empresa" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option selected="selected">Alabama</option>
+                            <option>Alaska</option>
+                            
+                          </select>
                       <?php } else { ?>
-                          <input type="text" class="form-control" id="txtRUC" name="ruc" maxlength="11">
+                          <select id="txtTipo"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option selected="selected">Alabama</option>
+                            <option>Alaska</option>
+                            
+                          </select>
                       <?php } ?>
                     </div>
                   </div><!-- /.box-body -->
@@ -102,5 +111,89 @@
 
     </div><!-- ./wrapper -->
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
+
+    <script>
+      
+      function listarTipoEmpresa() {
+        var request = $.ajax({
+                  url: urlApi,
+                  method: "POST",
+                  data: $("#formEmpresa").serialize(),
+                  dataType: "json"
+                });  
+      } 
+
+      function mostrarErrorInputText(id) {
+          if ( $(id).val().length == 0) {
+            $(id).parent().addClass("has-error");
+          } else {
+            $(id).parent().removeClass("has-error");
+          }
+      } 
+
+      $(function () {
+        listarTipoEmpresa();
+
+        $("#btnAgregar").on("click", function(evt){
+          evt.preventDefault();
+          
+          var baseUrl   = "<?php echo base_url(); ?>";
+          var urlApi    = baseUrl + <?php if (isset($idCliente)) { echo '"admin/cliente/update";'; } else { echo '"admin/cliente/insert";'; } ?>
+          var formData  = new FormData();
+          
+          var element = this;
+          
+          mostrarErrorInputText("#txtCodigoSigne");
+          mostrarErrorInputText("#txtRazonSocial");
+          mostrarErrorInputText("#txtRUC");
+          
+          ManagerModal.config("#modalAdmin", "");
+          
+          if ( $("#txtCodigoSigne").val().length > 0 &&
+               $("#txtRazonSocial").val().length > 0 &&
+               $("#txtRUC").val().length > 0 ) {
+                 
+                $(".overlay").removeClass("hide");
+                 
+                var request = $.ajax({
+                  url: urlApi,
+                  method: "POST",
+                  data: $("#formCliente").serialize(),
+                  dataType: "json"
+                });
+      
+                request.done(function( response ) {
+                  
+                  $(".overlay").addClass("hide");
+                  
+                  if (response.status) {
+                    
+                    ManagerModal.show("default", response.message);
+                    if (response.action == "insert") {
+                      $("#txtCodigoSigne").val("");
+                      $("#txtRazonSocial").val("");
+                      $("#txtRUC").val("");
+                    }
+                    
+                  } else {
+                    ManagerModal.show("danger", response.message);
+                  }
+                  
+                });
+      
+                request.fail(function( jqXHR, textStatus ) {
+                  $(".overlay").addClass("hide");
+                  ManagerModal.show("danger", textStatus);
+                });
+            
+          } else {
+            ManagerModal.show("danger", "Ingrese los datos de cliente correctamente.");
+          }
+          
+        });
+
+      });
+      
+    </script> 
   </body>
 </html>
