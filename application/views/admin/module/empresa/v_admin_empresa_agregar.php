@@ -1,5 +1,3 @@
-
-
 <?php $this->load->view('template/main-panel/main-head', $modulo); ?>
     <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
