@@ -31,7 +31,7 @@ class C_Admin extends CI_Controller {
         $modulo->nombre_empresa_largo = "Take My Order";
         $modulo->nombre_empresa_corto = "TMO";
         
-        $modulo->url_signout = base_url()."/admin/signOut";
+        $modulo->url_signout = base_url()."admin/signOut";
         
         $data["modulo"] = $modulo;
         $this->load->view('admin/v-admin-panel', $data);
