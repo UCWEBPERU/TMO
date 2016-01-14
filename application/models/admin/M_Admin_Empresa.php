@@ -48,13 +48,13 @@ class M_Admin_Store extends CI_Model{
 		return FALSE;
 	}
 
-	public function getTotalEmpresas() {
+	public function getTotal() {
 		$this->db->where('Empresa.estado', '1');
 		$query = $this->db->get('Empresa');
 		return $query->num_rows();
 	}
 
-	public function getEmpresaByID($id_empresa) {
+	public function getByID($id_empresa) {
 		$this->db->select("Empresa.id_empresa, 
 							Persona.nombres_persona, 
 							Pay_Account.pay_id, 
@@ -70,6 +70,9 @@ class M_Admin_Store extends CI_Model{
 		$query = $this->db->get('Empresa');
 		return $query->result();
 	}
+
+	
+
 
 	public function insert($id_tipo_empresa, $id_usuario, $id_pay_account, $id_archivo_logo, 
 							$nombre_empresa, $descripcion_empresa, $direccion_empresa, 
