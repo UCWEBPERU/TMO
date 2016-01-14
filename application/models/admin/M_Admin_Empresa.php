@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class M_Admin_Store extends CI_Model{
+class M_Admin_Empresa extends CI_Model{
 	public function __construct()
 	{
 		parent::__construct();
@@ -48,7 +48,7 @@ class M_Admin_Store extends CI_Model{
 		return FALSE;
 	}
 
-	public function getTotal() {
+	public function getTotalEmpresas() {
 		$this->db->where('Empresa.estado', '1');
 		$query = $this->db->get('Empresa');
 		return $query->num_rows();

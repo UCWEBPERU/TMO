@@ -21,11 +21,21 @@ class C_Admin_Empresa extends CI_Controller {
 	public function index()	{
 		$this->load->library('pagination');
 		$modulo = new stdClass();
+
+		$modulo->titulo_pagina = "TMO | Panel Principal";      
+        $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
+        $modulo->nombres_usuario = "Nombres";
+        $modulo->tipo_usuario = "Super Administrador";
+        $modulo->nombre_empresa_largo = "Take My Order";
+        $modulo->nombre_empresa_corto = "TMO";      
+        $modulo->url_signout = "/admin/signOut";
+
+
 		$modulo->nombre 					= "Empresa";
 		$modulo->titulo 					= "Empresa";
 		$modulo->titulo_registro 			= "Registro de Empresas";
 		$modulo->cabecera_registro 			= array("Nombre Empresa", "Representante", "Cuenta", "Tipo Empresa", "Direccion", "Telefono");
-		$modulo->ruta_plantilla_registro 	= "admin/template/module/module-panel-rows-c";
+		$modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-store";
 		$modulo->base_url 					= "admin/empresa/";
 		$modulo->api_rest_params 			= array("delete" => "id_empresa");
 		$modulo->menu 						= array("menu" => 1, "submenu" => 0);
@@ -34,10 +44,13 @@ class C_Admin_Empresa extends CI_Controller {
 													"url" => "",
 													"activo" => TRUE)
 											);
-		
+
+
+
+        		
 		$config 							= array();
 		$config["base_url"] 				= base_url() . "admin/empresa/page";
-		$total_row 							= $this->M_Admin_Store->getTotalEmpresas();
+		$total_row 							= $this->M_Admin_Empresa->getTotalEmpresas();
 		$config["total_rows"] 				= $total_row;
 		$config["per_page"] 				= 15;
 		$config['use_page_numbers'] 		= TRUE;
@@ -53,13 +66,14 @@ class C_Admin_Empresa extends CI_Controller {
 		
 		$page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 1;
 		
-		$modulo->registros = $this->M_Admin_Store->fetchEmpresas($config["per_page"], ($page - 1) * 15);
+		$modulo->registros = $this->M_Admin_Empresa->fetchEmpresas($config["per_page"], ($page - 1) * 15);
 		$str_links = $this->pagination->create_links();
 		$modulo->links = explode('&nbsp;',$str_links );
 		
 		$data["modulo"] = $modulo;
-		$this->load->view('admin/template/module/module-panel', $data);
+		$this->load->view('template/module/module-panel', $data);
 	}
+
 
 	public function agregarEmpresa() {
 		$data["nombreSeccion"] 	= "Agregar";

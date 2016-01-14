@@ -8,7 +8,7 @@
 			<li class="treeview <?php echo ($menu == 1) ? 'active' : '';?>">
 				<a href="admin/empresa"><i class="fa fa-car"></i> <span>Empresa</span> <i class="fa fa-angle-left pull-right"></i></a>
 				<ul class="treeview-menu">
-					<li <?php echo ($submenu == 1) ? 'class="active"' : '';?>><a href="admin/empresa/crear"><i class="fa fa-circle-o"></i>Crear Empresa</a></li>
+					<li <?php echo ($submenu == 1) ? 'class="active"' : '';?>><a href="admin/empresa"><i class="fa fa-circle-o"></i>Crear Empresa</a></li>
 				</ul>
 			</li>
             <li <?php echo ($menu == 2) ? 'class="active"' : ''; ?>><a href="admin/tipo-empresa"><i class="fa fa-user"></i> <span>Tipo Empresa</span></a></li>

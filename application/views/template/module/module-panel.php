@@ -1,55 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TMO | Panel Administrativo - <?php 
-      for ($i = 0; $i < count($modulo->navegacion); $i++) {
-        if ($i == count($modulo->navegacion) - 1) {
-          echo $modulo->navegacion[$i]["nombre"];
-        } else {
-          echo $modulo->navegacion[$i]["nombre"]." - ";
-        }
-      } ?></title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    
-    <base href="<?php echo base_url();?>">
-    <link rel="icon" href="<?php echo PATH_RESOURCE_ADMIN; ?>img/icon/icon_app.png" type="image/png">
-    
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_BOOTSTRAP; ?>css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_DIST; ?>css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <!--<link rel="stylesheet" href="<?php echo PATH_RESOURCE_DIST; ?>css/skins/_all-skins.min.css">-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_DIST; ?>css/skins/skin-green.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body class="hold-transition skin-green sidebar-mini">
+<?php $this->load->view('template/main-panel/main-head', $modulo); ?>
+    <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-
-      <?php $this->load->view('admin/template/main-panel/header'); ?>
+        
       <?php 
-        $data["menu"]     = $modulo->menu["menu"];
-        $data["submenu"]  = $modulo->menu["submenu"];
-        $this->load->view('admin/template/main-panel/menu', $data); 
-      ?>
+        $data["modulo"] = $modulo;
+        $this->load->view('template/main-panel/header', $data); ?>
+      
+      <?php 
+        $data["menu"]     = 0;
+        $data["submenu"]  = 0;
+        $this->load->view('admin/v-admin-menu', $data); ?>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        
+        <!-- Content Header (Page header) -->
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
@@ -116,66 +80,12 @@
             </div>
           </div>
         </section><!-- /.content -->
+        
       </div><!-- /.content-wrapper -->
       
-      <?php $this->load->view('admin/template/main-panel/footer'); ?>
-      
+      <?php $this->load->view('template/main-panel/footer'); ?>
+
     </div><!-- ./wrapper -->
-    
-    <?php $this->load->view('admin/template/main-panel/modal-admin'); ?>
-    <?php $this->load->view('admin/template/main-panel/scripts-footer'); ?>
-    
-    <script>
-			$(function () {
-        ManagerModal.config("#modalAdmin", "");
-				$(".btnActionRow").on("click", function(evt){
-          
-          var baseUrl   = "<?php echo base_url(); ?>";
-          var urlApi    = "";
-          var formData  = new FormData();
-          
-          var element = this;
-          
-          if ( $(this).attr("data-row-action") == "edit") {
-            
-          } else if ( $(this).attr("data-row-action") == "delete") {
-            evt.preventDefault();
-            $(".overlay").removeClass("hide");
-            urlApi = baseUrl + "<?php echo $modulo->base_url; ?>delete";
-            formData.append("<?php echo $modulo->api_rest_params["delete"]; ?>", $(this).attr("data-row-id"));
-          }
-          
-          var request = $.ajax({
-            url: urlApi,
-            method: "POST",
-            processData: false,
-            contentType: false,
-            data: formData
-          });
-
-          request.done(function( response ) {
-            $(".overlay").addClass("hide");
-            var json = JSON.parse(response);
-            if (json.status) {
-              $(element).parent().parent().fadeOut("slow", function() {
-                $(element).parent().parent().remove();
-              });
-            } else {
-              ManagerModal.show("danger", json.message);
-            }
-            
-          });
-
-          request.fail(function( jqXHR, textStatus ) {
-            $(".overlay").addClass("hide");
-            var json = JSON.parse(textStatus);
-            ManagerModal.show("danger", json.message);
-          });
-          
-				});
-
-			});
-		</script>
-    
+    <?php $this->load->view('template/main-panel/scripts-footer'); ?>
   </body>
 </html>
