@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class C_Admin_Empresa extends CI_Controller {
-	
 
 	public function __construct() {
 		parent::__construct();
@@ -29,7 +28,7 @@ class C_Admin_Empresa extends CI_Controller {
         $modulo->tipo_usuario = "Super Administrador";
         $modulo->nombre_empresa_largo = "Take My Order";
         $modulo->nombre_empresa_corto = "TMO";      
-        $modulo->url_signout = "/admin/signOut";
+        $modulo->url_signout = base_url()."admin/signOut";
 
 
 		$modulo->nombre 					= "Empresa";
@@ -85,11 +84,14 @@ class C_Admin_Empresa extends CI_Controller {
         $modulo->tipo_usuario = "Super Administrador";
         $modulo->nombre_empresa_largo = "Take My Order";
         $modulo->nombre_empresa_corto = "TMO";      
-        $modulo->url_signout = "/admin/signOut";
+        $modulo->url_signout = base_url()."/admin/signOut";
         $modulo->nombreSeccion = "Agregar";
         $modulo->base_url 		= "admin/empresa/";
 
-		$modulo->$tipo_empresa		=$this->M_Admin_Empresa->getTipoEmpresa();
+
+		$modulo->tipo_empresa		=$this->M_Admin_Empresa->getTipoEmpresa();
+
+
 
 		$data["modulo"] 		= $modulo;
 
@@ -269,5 +271,9 @@ class C_Admin_Empresa extends CI_Controller {
 		
 	}
 
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> 3070b6e5826be23b88e284b7495cdc2c0da01bb6
