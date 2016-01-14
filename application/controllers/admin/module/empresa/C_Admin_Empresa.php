@@ -95,7 +95,7 @@ class C_Admin_Empresa extends CI_Controller {
 
 		$data["modulo"] 		= $modulo;
 
-		$this->load->view('admin/module/empresa/v_admin_empresa_agregar', $data);
+		$this->load->view('admin/module/empresa/v-admin-empresa-agregar', $data);
 	}
 
 	public function edit($idEmpresa) {

@@ -84,8 +84,7 @@
                             <option selected="selected">Seleccione un Tipo de Empresa</option>
                             <?php foreach($modulo->$tipo_empresa as $tipo): ?>
                                 <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-
-                            <?php endforeach; ?>  
+                            <?php endforeach; ?>
                           </select>
                       <?php } ?>
                     </div>
