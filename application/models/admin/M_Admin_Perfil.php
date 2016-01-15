@@ -43,13 +43,13 @@ class M_Admin_Perfil extends CI_Model{
     
     public function updatePerfilUsuario($datosUsuario) {
 		$data = array(
-			'nombres_persona'		=> $datosUsuario->nombres,
-			'apellidos_persona'		=> $datosUsuario->apellidos,
-			'pais_region_persona'	=> $datosUsuario->pais_region,
-			'estado_region_persona'	=> $datosUsuario->estado_Region,
-			'direccion_persona'		=> $datosUsuario->direccion,
-			'movil_persona'			=> $datosUsuario->movil,
-			'telefono_persona'		=> $datosUsuario->telefono
+			'nombres_persona'		=> $datosUsuario["nombres"],
+			'apellidos_persona'		=> $datosUsuario["apellidos"],
+			'pais_region_persona'	=> $datosUsuario["pais_region"],
+			'estado_region_persona'	=> $datosUsuario["estado_Region"],
+			'direccion_persona'		=> $datosUsuario["direccion"],
+			'movil_persona'			=> $datosUsuario["movil"],
+			'telefono_persona'		=> $datosUsuario["telefono"]
 		);
 
 		$this->db->where('Persona.id_usuario', $datosUsuario->id);
