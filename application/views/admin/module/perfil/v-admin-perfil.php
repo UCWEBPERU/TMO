@@ -121,7 +121,7 @@
       <?php $this->load->view('template/main-panel/footer'); ?>
 
     </div><!-- ./wrapper -->
-    <?php $this->load->view('admin/template/main-panel/modal-admin'); ?>
+    <?php $this->load->view('template/main-panel/modal-admin'); ?>
     
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>
