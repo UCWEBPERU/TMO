@@ -127,45 +127,39 @@
         
         
         $(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass:    'iradio_square-blue',
-                increaseArea:   '20%' // optional
-            });
-
-            $("#btnSignIn").on("click", function(evt){
-                evt.preventDefault();
-
-                if ( $("#email_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
-                    waitingDialog.show('Iniciando sesion...');
-                    var request = $.ajax({
-                        url: "<?php echo base_url().'admin/signIn'; ?>",
-                        method: "POST",
-                        data: $("#formLogin").serialize(),
-                        dataType: "json"
-                    });
-
-                    request.done(function( response ) {
-                        waitingDialog.hide();
-                        if (response.status) {
-                            $(location).attr("href", response.data.url_redirect);
-                        } else {
-                            $( ".modal-body" ).html("<p>" + response.message + "<p>");
-                            $('#myModal').modal('show');
-                        }
-                    });
-
-                    request.fail(function( jqXHR, textStatus ) {
-                        waitingDialog.hide();
-                        $( ".modal-body" ).html( "<p>" + textStatus + " FAIL<p>");
-                        $('#myModal').modal('show');
-                    });
-                } else {
-                    $( ".modal-body" ).html( "<p>Ingrese sus datos de usuario correctamente.<p>");
-                    $('#myModal').modal('show');
-                }
-
-            });
+//             $("#btnSignIn").on("click", function(evt){
+//                 evt.preventDefault();
+// 
+//                 if ( $("#email_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
+//                     waitingDialog.show('Iniciando sesion...');
+//                     var request = $.ajax({
+//                         url: "<?php echo base_url().'admin/signIn'; ?>",
+//                         method: "POST",
+//                         data: $("#formLogin").serialize(),
+//                         dataType: "json"
+//                     });
+// 
+//                     request.done(function( response ) {
+//                         waitingDialog.hide();
+//                         if (response.status) {
+//                             $(location).attr("href", response.data.url_redirect);
+//                         } else {
+//                             $( ".modal-body" ).html("<p>" + response.message + "<p>");
+//                             $('#myModal').modal('show');
+//                         }
+//                     });
+// 
+//                     request.fail(function( jqXHR, textStatus ) {
+//                         waitingDialog.hide();
+//                         $( ".modal-body" ).html( "<p>" + textStatus + " FAIL<p>");
+//                         $('#myModal').modal('show');
+//                     });
+//                 } else {
+//                     $( ".modal-body" ).html( "<p>Ingrese sus datos de usuario correctamente.<p>");
+//                     $('#myModal').modal('show');
+//                 }
+// 
+//             });
             
             $("#btnGuardarUsuario").on("click", function(evt){
                 evt.preventDefault();
