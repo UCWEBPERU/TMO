@@ -97,8 +97,8 @@
                             <input type="email" class="form-control" id="txtPassword" data-parsley-required data-parsley-type="integer"/>
                         </div>
                         <div class="form-group">
-                            <label for="txtPassword">Confirmar Contraseña</label>
-                            <input type="email" class="form-control" id="txtPassword" />
+                            <label for="txtPasswordS">Confirmar Contraseña</label>
+                            <input type="email" class="form-control" id="txtPasswordS" />
                         </div>
                     </div>
                     <!-- /.box-body -->
