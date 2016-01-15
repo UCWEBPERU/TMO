@@ -53,7 +53,7 @@ class C_Admin_Perfil extends CI_Controller {
 		$json->presentation = "";
 		$json->data 		= array();
 		$json->status 		= FALSE;
-		var_dump();
+		var_dump($this->input->post());
 		if ($this->input->post("emailUsuario") 
                 && $this->input->post("passwordUsuario")
                 && $this->input->post("repeatPasswordUsuario") ) {
@@ -67,7 +67,7 @@ class C_Admin_Perfil extends CI_Controller {
 				$json->message = "Ocurrio un error al intentar actualizar los datos de su cuenta de usuario. Intentelo de nuevo o mas tarde.";
 			}
 
-		}else {
+		} else {
 			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
 		}
 
