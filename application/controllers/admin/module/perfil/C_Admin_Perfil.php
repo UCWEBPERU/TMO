@@ -53,10 +53,8 @@ class C_Admin_Perfil extends CI_Controller {
 		$json->presentation = "";
 		$json->data 		= array();
 		$json->status 		= FALSE;
-		var_dump($this->input->post());
-		if ($this->input->post("emailUsuario") 
-                && $this->input->post("passwordUsuario")
-                && $this->input->post("repeatPasswordUsuario") ) {
+        
+		if ($this->input->post("passwordUsuario") && $this->input->post("repeatPasswordUsuario") ) {
 
             $result = $this->M_Admin_Perfil->updatePassWordUsuario($this->session->id_usuario, $this->cryptography->Encrypt(trim($this->input->post("passwordUsuario", TRUE))));
             
