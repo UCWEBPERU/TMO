@@ -40,31 +40,31 @@
                     <div class="box-body">
                         <div class="form-group">
                         <label for="txtNombres">Nombres</label>
-                        <input type="email" class="form-control" id="txtNombres" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" />
+                        <input type="email" class="form-control" id="txtNombres" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
                         </div>
                         <div class="form-group">
                         <label for="txtApellidos">Apellidos</label>
-                        <input type="email" class="form-control" id="txtApellidos" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" />
+                        <input type="email" class="form-control" id="txtApellidos" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
                         </div>
                         <div class="form-group">
                         <label for="txtPais">Pais</label>
-                        <input type="email" class="form-control" id="txtPais" value="<?php echo $modulo->datos_usuario->pais_region_persona; ?>" />
+                        <input type="email" class="form-control" id="txtPais" value="<?php echo $modulo->datos_usuario->pais_region_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
                         </div>
                         <div class="form-group">
                         <label for="txtEstado">Estado</label>
-                        <input type="email" class="form-control" id="txtEstado" value="<?php echo $modulo->datos_usuario->estado_region_persona; ?>" />
+                        <input type="email" class="form-control" id="txtEstado" value="<?php echo $modulo->datos_usuario->estado_region_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
                         </div>
                         <div class="form-group">
                         <label for="txtDireccion">Direccion</label>
-                        <input type="email" class="form-control" id="txtDireccion" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" />
+                        <input type="email" class="form-control" id="txtDireccion" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroCelular">Numero Celular</label>
-                        <input type="email" class="form-control" id="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->movil_persona; ?>" />
+                        <input type="email" class="form-control" id="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->movil_persona; ?>" data-parsley-required data-parsley-type="integer"/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroTelefonico">Numero Telefonico</label>
-                        <input type="email" class="form-control" id="txtNumeroTelefonico" value="<?php echo $modulo->datos_usuario->telefono_persona; ?>" />
+                        <input type="email" class="form-control" id="txtNumeroTelefonico" value="<?php echo $modulo->datos_usuario->telefono_persona; ?>" data-parsley-required data-parsley-type="integer"/>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -94,11 +94,11 @@
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Contraseña</label>
-                            <input type="text" class="form-control" id="txtPassword" data-parsley-required data-parsley-type="integer"/>
+                            <input type="text" class="form-control" id="txtPassword" data-parsley-required data-parsley-type="alphanum"/>
                         </div>
                         <div class="form-group">
-                            <label for="txtPasswordS">Confirmar Contraseña</label>
-                            <input type="email" class="form-control" id="txtPasswordS" />
+                            <label for="txtPasswordRepeat">Confirmar Contraseña</label>
+                            <input type="email" class="form-control" id="txtPasswordRepeat" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword"/>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -171,11 +171,20 @@
             
             $("#btnGuardarUsuario").on("click", function(evt){
                 evt.preventDefault();
-                // $('#txtPassword').parsley().on('field:success', function() {
-                //     // In here, `this` is the parlsey instance of #some-input
-                //     alert("OK PASSWORD");
-                // });
-                alert($('#txtPassword').parsley().isValid());
+                
+                if ($('#txtPassword').parsley().isValid()) {
+                    $("#txtPassword").parent().removeClass("has-error");
+                    alert("OK PASS");
+                } else {
+                    $("#txtPassword").parent().addClass("has-error");
+                }
+                
+                if ($('#txtPasswordRepeat').parsley().isValid()) {
+                    $("#txtPasswordRepeat").parent().removeClass("has-error");
+                    alert("OK PASS REPEAT");
+                } else {
+                    $("#txtPasswordRepeat").parent().addClass("has-error");
+                }
             });
             
             
