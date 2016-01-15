@@ -130,11 +130,11 @@
          function validateInputsForm(selectorInputsForm) {
             var messagesError = "";
             for (var i = 0; i < selectorInputsForm.length; i++) {
-                if ($(selectorInputsForm).parsley().isValid()) {
-                    $(selectorInputsForm).parent().removeClass("has-error");
+                if ($(selectorInputsForm[i]).parsley().isValid()) {
+                    $(selectorInputsForm[i]).parent().removeClass("has-error");
                 } else {
-                    $(selectorInputsForm).parent().addClass("has-error");
-                    message = "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm).parsley()) + "</li>";
+                    $(selectorInputsForm[i]).parent().addClass("has-error");
+                    message = "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
                 }
             }
             
