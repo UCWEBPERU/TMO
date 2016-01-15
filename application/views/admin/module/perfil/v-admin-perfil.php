@@ -157,7 +157,7 @@
         
         
         $(function () {
-            ManagerModal.config("#modalAdmin", "");
+            ManagerModal.config("#genericModal", "");
 //             $("#btnSignIn").on("click", function(evt){
 //                 evt.preventDefault();
 // 
@@ -202,12 +202,12 @@
             
             $("#btnGuardarUsuario").on("click", function(evt){
                 evt.preventDefault();
-                
+                var message = "";
                 if ($('#txtPassword').parsley().isValid()) {
                     $("#txtPassword").parent().removeClass("has-error");
-                    alert("OK PASS");
                 } else {
                     $("#txtPassword").parent().addClass("has-error");
+                    message = "<p>" + ParsleyUI.getErrorsMessages($('#txtPassword').parsley()) + "<p><br>";
                 }
                 
                 if ($('#txtPasswordRepeat').parsley().isValid()) {
@@ -215,8 +215,8 @@
                     alert("OK PASS REPEAT");
                 } else {
                     $("#txtPasswordRepeat").parent().addClass("has-error");
-                    alert(ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()));
-                    ManagerModal.show("danger", json.message);
+                    message += "<p>" + ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()) + "<p><br>";
+                    ManagerModal.show("danger", message);
                 }
             });
             
