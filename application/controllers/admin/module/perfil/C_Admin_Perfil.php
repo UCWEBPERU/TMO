@@ -53,7 +53,7 @@ class C_Admin_Perfil extends CI_Controller {
 		$json->presentation = "";
 		$json->data 		= array();
 		$json->status 		= FALSE;
-		
+		var_dump();
 		if ($this->input->post("emailUsuario") 
                 && $this->input->post("passwordUsuario")
                 && $this->input->post("repeatPasswordUsuario") ) {

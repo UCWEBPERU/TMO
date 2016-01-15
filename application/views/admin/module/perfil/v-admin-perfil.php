@@ -86,7 +86,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form id="frmDatosUsuario" name="frmDatosUsuario" role="form">
+                <form id="frmDatosUsuario" name="frmDatosUsuario" role="form" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="txtEmailUsuario">Email Usuario</label>
