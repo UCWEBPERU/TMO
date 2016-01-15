@@ -163,8 +163,7 @@
             
             $("#btnGuardarUsuario").on("click", function(evt){
                 evt.preventDefault();
-                window.ParsleyValidator
-                .addValidator('username', function (value, requirement) {
+                Parsley.addValidator('username', function (value, requirement) {
                     var response = false;
                     // Your code to perform the ajax, like before
                     console.log(response);
