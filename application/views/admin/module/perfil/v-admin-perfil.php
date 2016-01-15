@@ -161,22 +161,23 @@
 // 
 //             });
 
-                Parsley.addValidator('username', function (value, requirement) {
-                    var response = false;
-                    // Your code to perform the ajax, like before
-                    console.log(response);
-                    return response;
-                }, 32)
-                .addMessage('en', 'username', 'Your username is already taken.');
+                // Parsley.addValidator('username', function (value, requirement) {
+                //     var response = false;
+                //     // Your code to perform the ajax, like before
+                //     console.log(response);
+                //     return response;
+                // }, 32)
+                // .addMessage('en', 'username', 'Your username is already taken.');
             
             $("#btnGuardarUsuario").on("click", function(evt){
                 evt.preventDefault();
+                $('#txtPassword').parsley().on('field:success', function() {
+                    // In here, `this` is the parlsey instance of #some-input
+                    alert("OK PASSWORD");
+                });
             });
             
-            $('#txtPassword').parsley().on('field:success', function() {
-                // In here, `this` is the parlsey instance of #some-input
-                alert("OK PASSWORD");
-            });
+            
 
         });
         
