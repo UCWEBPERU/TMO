@@ -86,19 +86,19 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form id="frmPerfilUsuario" name="frmPerfilUsuario" role="form">
+                <form id="frmDatosUsuario" name="frmDatosUsuario" role="form">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="txtNombreUsuario">Nombre Usuario</label>
-                            <input type="email" class="form-control" id="txtNombreUsuario" value="<?php echo $modulo->datos_usuario->email_usuario; ?>" disabled />
+                            <label for="txtEmailUsuario">Email Usuario</label>
+                            <input type="email" class="form-control" id="txtEmailUsuario" name="emailUsuario" value="<?php echo $modulo->datos_usuario->email_usuario; ?>" disabled />
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Contraseña</label>
-                            <input type="text" class="form-control" id="txtPassword" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
+                            <input type="text" class="form-control" id="txtPassword" name="passwordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
                         </div>
                         <div class="form-group">
                             <label for="txtPasswordRepeat">Confirmar Contraseña</label>
-                            <input type="text" class="form-control" id="txtPasswordRepeat" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
+                            <input type="text" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -126,7 +126,9 @@
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>
     <script>
+        
          ManagerModal.config("#genericModal", "");
+         
          function validateInputsForm(selectorInputsForm) {
             var messagesError = "";
             for (var i = 0; i < selectorInputsForm.length; i++) {
@@ -181,29 +183,34 @@
 //                 }
 // 
 //             });
+            var selectorInputsFormPerfilUsuario = ["#txtPassword", "#txtPasswordRepeat"];
             
             $("#btnGuardarUsuario").on("click", function(evt){
                 evt.preventDefault();
                 
-                var selectorInputsForm = ["#txtPassword", "#txtPasswordRepeat"];
-                validateInputsForm(selectorInputsForm);
-                
-                // var message = "";
-                // 
-                // if ($('#txtPassword').parsley().isValid()) {
-                //     $("#txtPassword").parent().removeClass("has-error");
-                // } else {
-                //     $("#txtPassword").parent().addClass("has-error");
-                //     message = "<li>" + ParsleyUI.getErrorsMessages($('#txtPassword').parsley()) + "</li>";
-                // }
-                // 
-                // if ($('#txtPasswordRepeat').parsley().isValid()) {
-                //     $("#txtPasswordRepeat").parent().removeClass("has-error");
-                // } else {
-                //     $("#txtPasswordRepeat").parent().addClass("has-error");
-                //     message += "<li>" + ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()) + "</li>";
-                //     ManagerModal.show("danger", "<ul>" + message + "</ul>");
-                // }
+                if (validateInputsForm(selectorInputsFormPerfilUsuario)) {
+                    waitingDialog.show('Actualizando Datos de Usuario...');
+                    var request = $.ajax({
+                        url: "<?php echo base_url().'admin/perfil/actualizar-cuenta-usuario'; ?>",
+                        method: "POST",
+                        data: $("#frmPerfilUsuario").serialize(),
+                        dataType: "json"
+                    });
+
+                    request.done(function( response ) {
+                        waitingDialog.hide();
+                        if (response.status) {
+                            ManagerModal.show("default", "<p>" + response.message + "<p>");
+                        } else {
+                            ManagerModal.show("danger", "<p>" + response.message + "<p>");
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        waitingDialog.hide();
+                        ManagerModal.show("danger", "<p>" + response.message + "<p>");
+                    });
+                }
                 
             });
             

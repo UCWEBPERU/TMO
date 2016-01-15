@@ -42,5 +42,36 @@ class C_Admin_Perfil extends CI_Controller {
         $data["modulo"] = $modulo;
         $this->load->view('admin/module/perfil/v-admin-perfil', $data);
 	}
+    
+    public function updateCuentaUsuario() {
+        $this->load->helper('security');
+		$this->load->model('M_Admin_Perfil');
+		$this->load->library('security/Cryptography');
+		
+		$json 				= new stdClass();
+		$json->type 		= "Actualizar Datos de Usuario";
+		$json->presentation = "";
+		$json->data 		= array();updatePassWordUsuario
+		$json->status 		= FALSE;
+		
+		if ($this->input->post("emailUsuario") 
+                && $this->input->post("passwordUsuario")
+                && $this->input->post("repeatPasswordUsuario") ) {
+
+            $result = $this->M_Admin_Perfil->updatePassWordUsuario($this->session->id_usuario, $this->cryptography->Encrypt(trim($this->input->post("passwordUsuario", TRUE))));
+            
+			if ($result) {
+                $json->message = "Los datos de su cuenta de usuario se actualizo correctamente.";
+                $json->status 	= TRUE;
+			} else {
+				$json->message = "Ocurrio un error al intentar actualizar los datos de su cuenta de usuario. Intentelo de nuevo o mas tarde.";
+			}
+
+		}else {
+			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+		}
+
+		echo json_encode($json);
+    }
 
 }
