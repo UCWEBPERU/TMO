@@ -21,7 +21,7 @@
           </h1>
           <ol class="breadcrumb">
             <li ><a href="<?php echo base_url()."admin"; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
-            <li class="active"><a href="#">Perfil</a></li>
+            <li class="active">Perfil</li>
           </ol>
         </section>
         <!-- Main content -->
