@@ -134,7 +134,7 @@
                     $(selectorInputsForm[i]).parent().removeClass("has-error");
                 } else {
                     $(selectorInputsForm[i]).parent().addClass("has-error");
-                    message += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
+                    messagesError += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
                 }
             }
             
