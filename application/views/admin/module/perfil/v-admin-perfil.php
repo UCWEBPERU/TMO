@@ -94,7 +94,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Contraseña</label>
-                            <input type="email" class="form-control" id="txtPassword" data-parsley-required data-parsley-username/>
+                            <input type="email" class="form-control" id="txtPassword" data-parsley-required data-parsley-type="integer"/>
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Confirmar Contraseña</label>
@@ -160,9 +160,7 @@
 //                 }
 // 
 //             });
-            
-            $("#btnGuardarUsuario").on("click", function(evt){
-                evt.preventDefault();
+
                 Parsley.addValidator('username', function (value, requirement) {
                     var response = false;
                     // Your code to perform the ajax, like before
@@ -170,6 +168,14 @@
                     return response;
                 }, 32)
                 .addMessage('en', 'username', 'Your username is already taken.');
+            
+            $("#btnGuardarUsuario").on("click", function(evt){
+                evt.preventDefault();
+            });
+            
+            $('#txtPassword').parsley().on('field:success', function() {
+                // In here, `this` is the parlsey instance of #some-input
+                alert("OK PASSWORD");
             });
 
         });
