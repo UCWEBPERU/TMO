@@ -89,10 +89,14 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="txtNombreUsuario">Nombre Usuario</label>
-                        <input type="email" class="form-control" id="txtNombreUsuario" />
+                        <input type="email" class="form-control" id="txtNombreUsuario" disabled />
                     </div>
                     <div class="form-group">
-                        <label for="txtPassword">Password</label>
+                        <label for="txtPassword">Contraseña</label>
+                        <input type="email" class="form-control" id="txtPassword" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtPassword">Confirmar Contraseña</label>
                         <input type="email" class="form-control" id="txtPassword" />
                     </div>
                 </div>
