@@ -52,7 +52,7 @@ class M_Admin_Perfil extends CI_Model{
 			'telefono_persona'		=> $datosUsuario["telefono"]
 		);
 
-		$this->db->where('Persona.id_usuario', $datosUsuario->id);
+		$this->db->where('Persona.id_usuario', $datosUsuario["id"]);
 		if ($this->db->update('Persona', $data)) {
 			return TRUE;
 		}

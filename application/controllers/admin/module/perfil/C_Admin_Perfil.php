@@ -91,16 +91,15 @@ class C_Admin_Perfil extends CI_Controller {
             $this->input->post("txtNumeroCelular") &&
             $this->input->post("txtNumeroTelefono") ) {
 
-            $result = $this->M_Admin_Perfil->updatePerfilUsuario(
-                        array(
+            $result = $this->M_Admin_Perfil->updatePerfilUsuario(array(
+                            "id"            => $this->session->id_usuario,
                             "nombres"       => trim($this->input->post("txtNombres", TRUE)),
                             "apellidos"     => trim($this->input->post("txtApellidos", TRUE)),
                             "pais_region"   => trim($this->input->post("txtPais", TRUE)),
                             "estado_Region" => trim($this->input->post("txtEstado", TRUE)),
                             "direccion"     => trim($this->input->post("txtDireccion", TRUE)),
                             "movil"         => trim($this->input->post("txtNumeroCelular", TRUE)),
-                            "telefono"      => trim($this->input->post("txtNumeroTelefono", TRUE))
-                            )
+                            "telefono"      => trim($this->input->post("txtNumeroTelefono", TRUE)))
                         );
                         
 			if ($result) {
