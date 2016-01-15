@@ -94,7 +94,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Contraseña</label>
-                            <input type="email" class="form-control" id="txtPassword" data-parsley-required data-parsley-type="integer"/>
+                            <input type="text" class="form-control" id="txtPassword" data-parsley-required data-parsley-type="integer"/>
                         </div>
                         <div class="form-group">
                             <label for="txtPasswordS">Confirmar Contraseña</label>
