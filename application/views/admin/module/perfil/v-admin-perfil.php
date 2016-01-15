@@ -193,7 +193,7 @@
                     var request = $.ajax({
                         url: "<?php echo base_url().'admin/perfil/actualizar-cuenta-usuario'; ?>",
                         method: "POST",
-                        data: $("#frmPerfilUsuario").serialize(),
+                        data: $("#frmDatosUsuario").serialize(),
                         dataType: "json"
                     });
 
