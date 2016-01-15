@@ -40,31 +40,31 @@
                 <div class="box-body">
                     <div class="form-group">
                     <label for="txtNombres">Nombres</label>
-                    <input type="email" class="form-control" id="txtNombres" value="<?php echo $modulo->datos_usuarios->nombres_persona; ?>" />
+                    <input type="email" class="form-control" id="txtNombres" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtApellidos">Apellidos</label>
-                    <input type="email" class="form-control" id="txtApellidos" value="<?php echo $modulo->datos_usuarios->apellidos_persona; ?>" />
+                    <input type="email" class="form-control" id="txtApellidos" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtPais">Pais</label>
-                    <input type="email" class="form-control" id="txtPais" value="<?php echo $modulo->datos_usuarios->pais_region_persona; ?>" />
+                    <input type="email" class="form-control" id="txtPais" value="<?php echo $modulo->datos_usuario->pais_region_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtEstado">Estado</label>
-                    <input type="email" class="form-control" id="txtEstado" value="<?php echo $modulo->datos_usuarios->estado_region_persona; ?>" />
+                    <input type="email" class="form-control" id="txtEstado" value="<?php echo $modulo->datos_usuario->estado_region_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtDireccion">Direccion</label>
-                    <input type="email" class="form-control" id="txtDireccion" value="<?php echo $modulo->datos_usuarios->direccion_persona; ?>" />
+                    <input type="email" class="form-control" id="txtDireccion" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtNumeroCelular">Numero Celular</label>
-                    <input type="email" class="form-control" id="txtNumeroCelular" value="<?php echo $modulo->datos_usuarios->movil_persona; ?>" />
+                    <input type="email" class="form-control" id="txtNumeroCelular" value="<?php echo $modulo->datos_usuario->movil_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtNumeroTelefonico">Numero Telefonico</label>
-                    <input type="email" class="form-control" id="txtNumeroTelefonico" value="<?php echo $modulo->datos_usuarios->telefono_persona; ?>" />
+                    <input type="email" class="form-control" id="txtNumeroTelefonico" value="<?php echo $modulo->datos_usuario->telefono_persona; ?>" />
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -90,7 +90,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="txtNombreUsuario">Nombre Usuario</label>
-                        <input type="email" class="form-control" id="txtNombreUsuario" value="<?php echo $modulo->datos_usuarios->email_usuario; ?>" disabled />
+                        <input type="email" class="form-control" id="txtNombreUsuario" value="<?php echo $modulo->datos_usuario->email_usuario; ?>" disabled />
                     </div>
                     <div class="form-group">
                         <label for="txtPassword">Contraseña</label>
