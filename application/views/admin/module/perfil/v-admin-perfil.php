@@ -40,31 +40,31 @@
                     <div class="box-body">
                         <div class="form-group">
                         <label for="txtNombres">Nombres</label>
-                        <input type="email" class="form-control" id="txtNombres" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
+                        <input type="email" class="form-control" id="txtNombres" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese nombre."/>
                         </div>
                         <div class="form-group">
                         <label for="txtApellidos">Apellidos</label>
-                        <input type="email" class="form-control" id="txtApellidos" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
+                        <input type="email" class="form-control" id="txtApellidos" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese apellido."/>
                         </div>
                         <div class="form-group">
                         <label for="txtPais">Pais</label>
-                        <input type="email" class="form-control" id="txtPais" value="<?php echo $modulo->datos_usuario->pais_region_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
+                        <input type="email" class="form-control" id="txtPais" value="<?php echo $modulo->datos_usuario->pais_region_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese su pais."/>
                         </div>
                         <div class="form-group">
                         <label for="txtEstado">Estado</label>
-                        <input type="email" class="form-control" id="txtEstado" value="<?php echo $modulo->datos_usuario->estado_region_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
+                        <input type="email" class="form-control" id="txtEstado" value="<?php echo $modulo->datos_usuario->estado_region_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese su estado."/>
                         </div>
                         <div class="form-group">
                         <label for="txtDireccion">Direccion</label>
-                        <input type="email" class="form-control" id="txtDireccion" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-type="alphanum"/>
+                        <input type="email" class="form-control" id="txtDireccion" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese su direccion."/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroCelular">Numero Celular</label>
-                        <input type="email" class="form-control" id="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->movil_persona; ?>" data-parsley-required data-parsley-type="integer"/>
+                        <input type="email" class="form-control" id="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->movil_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular."/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroTelefonico">Numero Telefonico</label>
-                        <input type="email" class="form-control" id="txtNumeroTelefonico" value="<?php echo $modulo->datos_usuario->telefono_persona; ?>" data-parsley-required data-parsley-type="integer"/>
+                        <input type="email" class="form-control" id="txtNumeroTelefonico" value="<?php echo $modulo->datos_usuario->telefono_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de telefono."/>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -125,36 +125,26 @@
     
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>
-    <script type="text/javascript">
-        Parsley.addMessages('es', {
-            defaultMessage: "Este valor parece ser inválido.",
-            type: {
-                email:        "Este valor debe ser un correo válido.",
-                url:          "Este valor debe ser una URL válida.",
-                number:       "Este valor debe ser un número válido.",
-                integer:      "Este valor debe ser un número válido.",
-                digits:       "Este valor debe ser un dígito válido.",
-                alphanum:     "Este valor debe ser alfanumérico."
-            },
-            notblank:       "Este valor no debe estar en blanco.",
-            required:       "Este valor es requerido.",
-            pattern:        "Este valor es incorrecto.",
-            min:            "Este valor no debe ser menor que %s.",
-            max:            "Este valor no debe ser mayor que %s.",
-            range:          "Este valor debe estar entre %s y %s.",
-            minlength:      "Este valor es muy corto. La longitud mínima es de %s caracteres.",
-            maxlength:      "Este valor es muy largo. La longitud máxima es de %s caracteres.",
-            length:         "La longitud de este valor debe estar entre %s y %s caracteres.",
-            mincheck:       "Debe seleccionar al menos %s opciones.",
-            maxcheck:       "Debe seleccionar %s opciones o menos.",
-            check:          "Debe seleccionar entre %s y %s opciones.",
-            equalto:        "Este valor debe ser idéntico."
-        });
-
-        Parsley.setLocale('es');
-    </script>
     <script>
         
+         function validateInputsForm(selectorInputsForm) {
+            var messagesError = "";
+            for (var i = 0; i < selectorInputsForm.length; i++) {
+                if ($(selectorInputsForm).parsley().isValid()) {
+                    $(selectorInputsForm).parent().removeClass("has-error");
+                } else {
+                    $(selectorInputsForm).parent().addClass("has-error");
+                    message = "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm).parsley()) + "</li>";
+                }
+            }
+            
+            if (messagesError.length > 0) {
+                ManagerModal.show("danger", "<ul>" + message + "</ul>");
+                return false;
+            }
+            
+            return true;
+        }
         
         $(function () {
             ManagerModal.config("#genericModal", "");
@@ -191,36 +181,35 @@
 //                 }
 // 
 //             });
-
-                // Parsley.addValidator('username', function (value, requirement) {
-                //     var response = false;
-                //     // Your code to perform the ajax, like before
-                //     console.log(response);
-                //     return response;
-                // }, 32)
-                // .addMessage('en', 'username', 'Your username is already taken.');
             
             $("#btnGuardarUsuario").on("click", function(evt){
                 evt.preventDefault();
-                var message = "";
-                if ($('#txtPassword').parsley().isValid()) {
-                    $("#txtPassword").parent().removeClass("has-error");
-                } else {
-                    $("#txtPassword").parent().addClass("has-error");
-                    message = "<li>" + ParsleyUI.getErrorsMessages($('#txtPassword').parsley()) + "</li>";
-                }
                 
-                if ($('#txtPasswordRepeat').parsley().isValid()) {
-                    $("#txtPasswordRepeat").parent().removeClass("has-error");
-                    alert("OK PASS REPEAT");
-                } else {
-                    $("#txtPasswordRepeat").parent().addClass("has-error");
-                    message += "<li>" + ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()) + "</li>";
-                    ManagerModal.show("danger", "<ul>" + message + "</ul>");
-                }
+                var selectorInputsForm = ["#txtPassword", "#txtPasswordRepeat"];
+                validateInputsForm(selectorInputsForm);
+                
+                // var message = "";
+                // 
+                // if ($('#txtPassword').parsley().isValid()) {
+                //     $("#txtPassword").parent().removeClass("has-error");
+                // } else {
+                //     $("#txtPassword").parent().addClass("has-error");
+                //     message = "<li>" + ParsleyUI.getErrorsMessages($('#txtPassword').parsley()) + "</li>";
+                // }
+                // 
+                // if ($('#txtPasswordRepeat').parsley().isValid()) {
+                //     $("#txtPasswordRepeat").parent().removeClass("has-error");
+                // } else {
+                //     $("#txtPasswordRepeat").parent().addClass("has-error");
+                //     message += "<li>" + ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()) + "</li>";
+                //     ManagerModal.show("danger", "<ul>" + message + "</ul>");
+                // }
+                
             });
             
         });
+        
+
         
     </script>
   </body>
