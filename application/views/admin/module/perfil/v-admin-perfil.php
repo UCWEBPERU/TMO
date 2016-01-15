@@ -160,7 +160,7 @@
                     var request = $.ajax({
                         url: "<?php echo base_url().'admin/perfil/actualizar-perfil-usuario'; ?>",
                         method: "POST",
-                        data: $("#frmDatosUsuario").serialize(),
+                        data: $("#frmPerfilUsuario").serialize(),
                         dataType: "json"
                     });
 
