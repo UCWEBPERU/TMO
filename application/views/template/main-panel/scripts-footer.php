@@ -16,3 +16,5 @@
 <!--<script src="<?php echo PATH_RESOURCE_DIST; ?>js/demo.js"></script>-->
 
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ManagerModal.js"></script>
+<!-- Loading Modal -->
+<script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/LoadingModal.js"></script>
