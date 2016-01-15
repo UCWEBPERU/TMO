@@ -70,7 +70,7 @@ $route['admin/empresa/editar']		= 'admin/module/empresa/C_Admin_Empresa/update';
 $route['admin/empresa/eliminar']	= 'admin/module/empresa/C_Admin_Empresa/delete';
 
 $route['admin/perfil']				              = 'admin/module/perfil/C_Admin_Perfil';
-$route['admin/perfil/actualizar-perfil']          = 'admin/module/perfil/C_Admin_Perfil/updatePerfil';
+$route['admin/perfil/actualizar-perfil-usuario']  = 'admin/module/perfil/C_Admin_Perfil/updatePerfil';
 $route['admin/perfil/actualizar-cuenta-usuario']  = 'admin/module/perfil/C_Admin_Perfil/updateCuentaUsuario';
 
 

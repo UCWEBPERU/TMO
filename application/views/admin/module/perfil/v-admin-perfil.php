@@ -40,31 +40,31 @@
                     <div class="box-body">
                         <div class="form-group">
                         <label for="txtNombres">Nombres</label>
-                        <input type="email" class="form-control" id="txtNombres" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese nombre."/>
+                        <input type="email" class="form-control" id="txtNombres" name="txtNombres" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese nombre."/>
                         </div>
                         <div class="form-group">
                         <label for="txtApellidos">Apellidos</label>
-                        <input type="email" class="form-control" id="txtApellidos" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese apellido."/>
+                        <input type="email" class="form-control" id="txtApellidos" name="txtApellidos" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese apellido."/>
                         </div>
                         <div class="form-group">
                         <label for="txtPais">Pais</label>
-                        <input type="email" class="form-control" id="txtPais" value="<?php echo $modulo->datos_usuario->pais_region_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese su pais."/>
+                        <input type="email" class="form-control" id="txtPais" name="txtPais" value="<?php echo $modulo->datos_usuario->pais_region_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese su pais."/>
                         </div>
                         <div class="form-group">
                         <label for="txtEstado">Estado</label>
-                        <input type="email" class="form-control" id="txtEstado" value="<?php echo $modulo->datos_usuario->estado_region_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese su estado."/>
+                        <input type="email" class="form-control" id="txtEstado" name="txtEstado" value="<?php echo $modulo->datos_usuario->estado_region_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese su estado."/>
                         </div>
                         <div class="form-group">
                         <label for="txtDireccion">Direccion</label>
-                        <input type="email" class="form-control" id="txtDireccion" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese su direccion."/>
+                        <input type="email" class="form-control" id="txtDireccion" name="txtDireccion" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese su direccion."/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroCelular">Numero Celular</label>
-                        <input type="email" class="form-control" id="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->movil_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular."/>
+                        <input type="email" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->movil_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular."/>
                         </div>
                         <div class="form-group">
-                        <label for="txtNumeroTelefonico">Numero Telefonico</label>
-                        <input type="email" class="form-control" id="txtNumeroTelefonico" value="<?php echo $modulo->datos_usuario->telefono_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de telefono."/>
+                        <label for="txtNumeroTelefono">Numero Telefonico</label>
+                        <input type="email" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_usuario->telefono_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de telefono."/>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -149,46 +149,41 @@
         }
         
         $(function () {
+            var selectorInputsFormPerfilUsuario = ["#txtNombres", "#txtApellidos", "#txtPais", "#txtEstado", "#txtDireccion", "#txtNumeroCelular", "#txtNumeroTelefono"];
+            var selectorInputsFormDatosUsuario = ["#txtPassword", "#txtPasswordRepeat"];
             
-//             $("#btnSignIn").on("click", function(evt){
-//                 evt.preventDefault();
-// 
-//                 if ( $("#email_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
-//                     waitingDialog.show('Iniciando sesion...');
-//                     var request = $.ajax({
-//                         url: "<?php echo base_url().'admin/signIn'; ?>",
-//                         method: "POST",
-//                         data: $("#formLogin").serialize(),
-//                         dataType: "json"
-//                     });
-// 
-//                     request.done(function( response ) {
-//                         waitingDialog.hide();
-//                         if (response.status) {
-//                             $(location).attr("href", response.data.url_redirect);
-//                         } else {
-//                             $( ".modal-body" ).html("<p>" + response.message + "<p>");
-//                             $('#myModal').modal('show');
-//                         }
-//                     });
-// 
-//                     request.fail(function( jqXHR, textStatus ) {
-//                         waitingDialog.hide();
-//                         $( ".modal-body" ).html( "<p>" + textStatus + " FAIL<p>");
-//                         $('#myModal').modal('show');
-//                     });
-//                 } else {
-//                     $( ".modal-body" ).html( "<p>Ingrese sus datos de usuario correctamente.<p>");
-//                     $('#myModal').modal('show');
-//                 }
-// 
-//             });
-            var selectorInputsFormPerfilUsuario = ["#txtPassword", "#txtPasswordRepeat"];
+            $("#btnGuardarPerfil").on("click", function(evt){
+                evt.preventDefault();
+                
+                if (validateInputsForm(selectorInputsFormPerfilUsuario)) {
+                    waitingDialog.show('Actualizando Datos Personales...');
+                    var request = $.ajax({
+                        url: "<?php echo base_url().'admin/perfil/actualizar-perfil-usuario'; ?>",
+                        method: "POST",
+                        data: $("#frmDatosUsuario").serialize(),
+                        dataType: "json"
+                    });
+
+                    request.done(function( response ) {
+                        waitingDialog.hide();
+                        if (response.status) {
+                            ManagerModal.show("default", "<p>" + response.message + "<p>");
+                        } else {
+                            ManagerModal.show("danger", "<p>" + response.message + "<p>");
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        waitingDialog.hide();
+                        ManagerModal.show("danger", "<p>" + response.message + "<p>");
+                    });
+                }
+            });
             
             $("#btnGuardarUsuario").on("click", function(evt){
                 evt.preventDefault();
                 
-                if (validateInputsForm(selectorInputsFormPerfilUsuario)) {
+                if (validateInputsForm(selectorInputsFormDatosUsuario)) {
                     waitingDialog.show('Actualizando Datos de Usuario...');
                     var request = $.ajax({
                         url: "<?php echo base_url().'admin/perfil/actualizar-cuenta-usuario'; ?>",
@@ -211,12 +206,9 @@
                         ManagerModal.show("danger", "<p>" + response.message + "<p>");
                     });
                 }
-                
             });
             
         });
-        
-
         
     </script>
   </body>

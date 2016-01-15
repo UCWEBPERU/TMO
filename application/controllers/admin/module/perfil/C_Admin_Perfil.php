@@ -71,5 +71,50 @@ class C_Admin_Perfil extends CI_Controller {
 
 		echo json_encode($json);
     }
+    
+    public function updatePerfil() {
+        $this->load->helper('security');
+		$this->load->model('admin/M_Admin_Perfil');
+		$this->load->library('security/Cryptography');
+		
+		$json 				= new stdClass();
+		$json->type 		= "Actualizar Perfil de Usuario";
+		$json->presentation = "";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+        
+        if ($this->input->post("txtNombres") &&
+            $this->input->post("txtApellidos") &&
+            $this->input->post("txtPais") &&
+            $this->input->post("txtEstado") &&
+            $this->input->post("txtDireccion") &&
+            $this->input->post("txtNumeroCelular") &&
+            $this->input->post("txtNumeroTelefono") ) {
+
+            $result = $this->M_Admin_Perfil->updatePerfilUsuario(
+                        array(
+                            "nombres"       => trim($this->input->post("txtNombres", TRUE)),
+                            "apellidos"     => trim($this->input->post("txtApellidos", TRUE)),
+                            "pais_region"   => trim($this->input->post("txtPais", TRUE)),
+                            "estado_Region" => trim($this->input->post("txtEstado", TRUE)),
+                            "direccion"     => trim($this->input->post("txtDireccion", TRUE)),
+                            "movil"         => trim($this->input->post("txtNumeroCelular", TRUE)),
+                            "telefono"      => trim($this->input->post("txtNumeroTelefono", TRUE))
+                            );
+                        );
+                        
+			if ($result) {
+                $json->message = "Sus datos personales se han actualizado correctamente.";
+                $json->status 	= TRUE;
+			} else {
+				$json->message = "Ocurrio un error al intentar actualizar sus datos personales. Intentelo de nuevo o mas tarde.";
+			}
+
+		} else {
+			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+		}
+
+		echo json_encode($json);
+    }
 
 }
