@@ -42,7 +42,7 @@ class M_Admin_Empresa extends CI_Model{
 							Empresa.telefono_empresa, Empresa.estado ");
 		$this->db->join('Usuario', 'Usuario.id_usuario = Empresa.id_usuario');
 		$this->db->join('Persona', 'Persona.id_usuario = Empresa.id_usuario');
-		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account');
+		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account', 'left');
 		$this->db->join('Tipo_Empresa', 'Tipo_Empresa.id_tipo_empresa = Empresa.id_tipo_empresa');
 		$this->db->where('Empresa.estado', '1');
 		$this->db->limit($limit, $start);
@@ -84,26 +84,55 @@ class M_Admin_Empresa extends CI_Model{
 	
 
 
-	public function insert($id_tipo_empresa, $id_usuario, $id_pay_account, $id_archivo_logo, 
-							$nombre_empresa, $descripcion_empresa, $direccion_empresa, 
-							$pais_region_empresa, $estado_region_empresa, $codigo_postal_empresa, 
-							$telefono_empresa, $movil_empresa) {
+	public function insertEmpresa($id_tipo_empresa, $id_usuario,  $id_archivo_logo, $nombre_empresa) {
 		$data = array(
 			'id_tipo_empresa'			=> $id_tipo_empresa, 
-			'id_usuario'				=> $id_usuario,
-			'id_pay_account'			=> $id_pay_account,
+			'id_usuario'				=> $id_usuario,			
 			'id_archivo_logo'			=> $id_archivo_logo,
-			'nombre_empresa'			=> $nombre_empresa,
-			'descripcion_empresa'		=> $descripcion_empresa,
-			'direccion_empresa'			=> $direccion_empresa,
-			'pais_region_empresa'		=> $pais_region_empresa,
-			'estado_region_empresa'		=> $estado_region_empresa,
-			'codigo_postal_empresa'		=> $codigo_postal_empresa,
-			'telefono_empresa'			=> $telefono_empresa,
-			'movil_empresa'				=> $movil_empresa
+			'nombre_empresa'			=> $nombre_empresa
+			
 
 		);
 		if ($this->db->insert('Empresa', $data)) {
+			return $this->db->insert_id();
+		}
+		
+		return FALSE;
+	}
+
+	public function insertUsuario($email_usuario, $password_usuario) {
+		$data = array(
+			'email_usuario'			=> $email_usuario, 
+			'password_usuario'		=> $password_usuario,
+			'id_tipo_usuario'		=> '2'
+			
+		);
+		if ($this->db->insert('Usuario', $data)) {
+			return $this->db->insert_id();
+		}
+		
+		return FALSE;
+	}
+	public function insertPersona($id_usuario, $nombres_persona, $apellido_persona) {
+		$data = array(
+			'id_usuario'			=> $id_usuario, 
+			'nombres_persona'		=> $nombres_persona, 
+			'apellidos_persona'		=> $apellido_persona
+			
+		);
+		if ($this->db->insert('Persona', $data)) {
+			return $this->db->insert_id();
+		}
+		
+		return FALSE;
+	}
+
+	public function insertArchivo($url_archivo) {
+		$data = array(
+			'url_archivo'			=> $url_archivo
+			
+		);
+		if ($this->db->insert('Archivo', $data)) {
 			return $this->db->insert_id();
 		}
 		
