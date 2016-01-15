@@ -121,6 +121,8 @@
       <?php $this->load->view('template/main-panel/footer'); ?>
 
     </div><!-- ./wrapper -->
+    <?php $this->load->view('admin/template/main-panel/modal-admin'); ?>
+    
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>
     <script type="text/javascript">
@@ -155,6 +157,7 @@
         
         
         $(function () {
+            ManagerModal.config("#modalAdmin", "");
 //             $("#btnSignIn").on("click", function(evt){
 //                 evt.preventDefault();
 // 
@@ -213,7 +216,7 @@
                 } else {
                     $("#txtPasswordRepeat").parent().addClass("has-error");
                     alert(ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()));
-                    
+                    ManagerModal.show("danger", json.message);
                 }
             });
             
