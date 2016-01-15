@@ -139,7 +139,7 @@
             }
             
             if (messagesError.length > 0) {
-                ManagerModal.show("danger", "<ul>" + message + "</ul>");
+                ManagerModal.show("danger", "<ul>" + messagesError + "</ul>");
                 return false;
             }
             
