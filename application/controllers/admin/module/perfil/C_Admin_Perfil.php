@@ -100,7 +100,7 @@ class C_Admin_Perfil extends CI_Controller {
                             "direccion"     => trim($this->input->post("txtDireccion", TRUE)),
                             "movil"         => trim($this->input->post("txtNumeroCelular", TRUE)),
                             "telefono"      => trim($this->input->post("txtNumeroTelefono", TRUE))
-                            );
+                            )
                         );
                         
 			if ($result) {
