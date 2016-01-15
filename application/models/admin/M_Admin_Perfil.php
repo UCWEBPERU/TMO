@@ -34,7 +34,7 @@ class M_Admin_Perfil extends CI_Model{
 		);
 
 		$this->db->where('Usuario.id_usuario', $id_usuario);
-		if ($this->db->update('Empresa', $data)) {
+		if ($this->db->update('Usuario', $data)) {
 			return TRUE;
 		}
 		
