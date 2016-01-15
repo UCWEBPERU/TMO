@@ -184,6 +184,7 @@
                     alert("OK PASS REPEAT");
                 } else {
                     $("#txtPasswordRepeat").parent().addClass("has-error");
+                    alert(ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()));
                 }
             });
             
