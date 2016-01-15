@@ -36,7 +36,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form id="frmPerfilUsuario" name="frmPerfilUsuario" role="form">
+                <form id="frmPerfilUsuario" name="frmPerfilUsuario" role="form" method="post">
                     <div class="box-body">
                         <div class="form-group">
                         <label for="txtNombres">Nombres</label>
