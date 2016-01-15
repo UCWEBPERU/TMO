@@ -126,7 +126,7 @@
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>
     <script>
-        
+         ManagerModal.config("#genericModal", "");
          function validateInputsForm(selectorInputsForm) {
             var messagesError = "";
             for (var i = 0; i < selectorInputsForm.length; i++) {
@@ -134,7 +134,7 @@
                     $(selectorInputsForm[i]).parent().removeClass("has-error");
                 } else {
                     $(selectorInputsForm[i]).parent().addClass("has-error");
-                    message = "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
+                    message += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
                 }
             }
             
@@ -147,7 +147,7 @@
         }
         
         $(function () {
-            ManagerModal.config("#genericModal", "");
+            
 //             $("#btnSignIn").on("click", function(evt){
 //                 evt.preventDefault();
 // 
