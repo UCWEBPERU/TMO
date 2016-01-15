@@ -51,7 +51,7 @@ class C_Admin_Perfil extends CI_Controller {
 		$json 				= new stdClass();
 		$json->type 		= "Actualizar Datos de Usuario";
 		$json->presentation = "";
-		$json->data 		= array();updatePassWordUsuario
+		$json->data 		= array();
 		$json->status 		= FALSE;
 		
 		if ($this->input->post("emailUsuario") 
