@@ -94,11 +94,11 @@
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Contraseña</label>
-                            <input type="text" class="form-control" id="txtPassword" data-parsley-required data-parsley-type="alphanum"/>
+                            <input type="text" class="form-control" id="txtPassword" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
                         </div>
                         <div class="form-group">
                             <label for="txtPasswordRepeat">Confirmar Contraseña</label>
-                            <input type="text" class="form-control" id="txtPasswordRepeat" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-equalto-message="Las contraseñas no coinciden."/>
+                            <input type="text" class="form-control" id="txtPasswordRepeat" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -207,7 +207,7 @@
                     $("#txtPassword").parent().removeClass("has-error");
                 } else {
                     $("#txtPassword").parent().addClass("has-error");
-                    message = "<p>" + ParsleyUI.getErrorsMessages($('#txtPassword').parsley()) + "<p><br>";
+                    message = "<li>" + ParsleyUI.getErrorsMessages($('#txtPassword').parsley()) + "</li>";
                 }
                 
                 if ($('#txtPasswordRepeat').parsley().isValid()) {
@@ -215,13 +215,11 @@
                     alert("OK PASS REPEAT");
                 } else {
                     $("#txtPasswordRepeat").parent().addClass("has-error");
-                    message += "<p>" + ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()) + "<p><br>";
-                    ManagerModal.show("danger", message);
+                    message += "<li>" + ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()) + "</li>";
+                    ManagerModal.show("danger", "<ul>" + message + "</ul>");
                 }
             });
             
-            
-
         });
         
     </script>
