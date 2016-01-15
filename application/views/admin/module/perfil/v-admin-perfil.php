@@ -171,10 +171,11 @@
             
             $("#btnGuardarUsuario").on("click", function(evt){
                 evt.preventDefault();
-                $('#txtPassword').parsley().on('field:success', function() {
-                    // In here, `this` is the parlsey instance of #some-input
-                    alert("OK PASSWORD");
-                });
+                // $('#txtPassword').parsley().on('field:success', function() {
+                //     // In here, `this` is the parlsey instance of #some-input
+                //     alert("OK PASSWORD");
+                // });
+                alert($('#txtPassword').parsley().isValid());
             });
             
             
