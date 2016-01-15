@@ -87,5 +87,57 @@
 
     </div><!-- ./wrapper -->
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
+
+    <script>
+      $(function () {
+        ManagerModal.config("#modalAdmin", "");
+        $(".btnActionRow").on("click", function(evt){
+          
+          var baseUrl   = "<?php echo base_url(); ?>";
+          var urlApi    = "";
+          var formData  = new FormData();
+          
+          var element = this;
+          
+          if ( $(this).attr("data-row-action") == "edit") {
+            
+          } else if ( $(this).attr("data-row-action") == "delete") {
+            evt.preventDefault();
+            $(".overlay").removeClass("hide");
+            urlApi = baseUrl + "<?php echo $modulo->base_url; ?>delete";
+            formData.append("<?php echo $modulo->api_rest_params["delete"]; ?>", $(this).attr("data-row-id"));
+          }
+          
+          var request = $.ajax({
+            url: urlApi,
+            method: "POST",
+            processData: false,
+            contentType: false,
+            data: formData
+          });
+
+          request.done(function( response ) {
+            $(".overlay").addClass("hide");
+            var json = JSON.parse(response);
+            if (json.status) {
+              $(element).parent().parent().fadeOut("slow", function() {
+                $(element).parent().parent().remove();
+              });
+            } else {
+              ManagerModal.show("danger", json.message);
+            }
+            
+          });
+
+          request.fail(function( jqXHR, textStatus ) {
+            $(".overlay").addClass("hide");
+            var json = JSON.parse(textStatus);
+            ManagerModal.show("danger", json.message);
+          });
+          
+        });
+
+      });
+    </script>
   </body>
 </html>

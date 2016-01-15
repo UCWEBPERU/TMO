@@ -99,8 +99,23 @@ class C_Admin_Empresa extends CI_Controller {
 	}
 
 	public function edit($idEmpresa) {
+
 		
 		if (isset($idEmpresa)) {
+			$modulo = new stdClass();
+			$modulo->titulo 					= "Empresa";
+			$modulo->titulo_pagina = "TMO | Panel Principal";      
+	        $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
+	        $modulo->nombres_usuario = "Nombres";
+	        $modulo->tipo_usuario = "Super Administrador";
+	        $modulo->nombre_empresa_largo = "Take My Order";
+	        $modulo->nombre_empresa_corto = "TMO";      
+	        $modulo->url_signout = base_url()."/admin/signOut";
+	        $modulo->nombreSeccion = "Editar";
+	        $modulo->base_url 		= "admin/empresa/";
+		
+
+
 			$result = $this->M_Admin_Empresa->getEmpresaByID($idEmpresa);
 			if (count($result) > 0) {
 				$data["dataEmpresa"] 	= $result[0];
@@ -109,9 +124,11 @@ class C_Admin_Empresa extends CI_Controller {
 				$data["dataEmpresa"] 	= NULL;
 				$data["existeEmpresa"]	= FALSE;
 			}
-			$data["id_empresa"] 		= $idEmpresa;
-			$data["nombreSeccion"]		= "Editar";
-			$this->load->view('admin/template/module/cliente/cliente-agregar', $data);
+			$modulo->id_empresa 		= $idEmpresa;
+
+			
+			$data["modulo"] 		= $modulo;
+			$this->load->view('admin/module/empresa/v-admin-empresa-agregar', $data);
 		} else {
 			redirect('/');
 		}

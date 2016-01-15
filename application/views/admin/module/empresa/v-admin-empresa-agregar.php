@@ -246,6 +246,7 @@
 
     </div><!-- ./wrapper -->
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
+    <?php $this->load->view('template/main-panel/modal-admin'); ?>
 
     <script>
       

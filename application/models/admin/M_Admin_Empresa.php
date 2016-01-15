@@ -64,7 +64,7 @@ class M_Admin_Empresa extends CI_Model{
 		return $query->num_rows();
 	}
 
-	public function getByID($id_empresa) {
+	public function getEmpresaByID($id_empresa) {
 		$this->db->select("Empresa.id_empresa, 
 							Persona.nombres_persona, 
 							Pay_Account.pay_id, 
