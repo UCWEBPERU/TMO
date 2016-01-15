@@ -12,7 +12,7 @@ class M_Admin_Perfil extends CI_Model{
             Tipo_Usuario.nombre_tipo_usuario,
             Persona.nombres_persona,
             Persona.apellidos_persona,
-            Persona.paise_region_persona,
+            Persona.pais_region_persona,
             Persona.estado_region_persona,
             Persona.direccion_persona,
             Persona.movil_persona,
