@@ -98,7 +98,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtPasswordRepeat">Confirmar Contraseña</label>
-                            <input type="text" class="form-control" id="txtPasswordRepeat" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword"/>
+                            <input type="text" class="form-control" id="txtPasswordRepeat" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-equalto-message="Las contraseñas no coinciden."/>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -213,6 +213,7 @@
                 } else {
                     $("#txtPasswordRepeat").parent().addClass("has-error");
                     alert(ParsleyUI.getErrorsMessages($('#txtPasswordRepeat').parsley()));
+                    
                 }
             });
             
