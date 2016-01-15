@@ -18,18 +18,24 @@ class C_Admin_Perfil extends CI_Controller {
                 redirect("/store/".$this->uri->segment(2)."/admin");
             }
         }
-		
 	}
 
 	public function index()	{
+        $this->load->model("admin/M_Admin_Perfil");
         $modulo = new stdClass();
         $modulo->titulo_pagina = "TMO | Panel Principal - Perfil";
         
+        $usuario = $this->M_Admin_Perfil->getByID($this->session->id_usuario);
+        
+        $modulo->datos_usuario = $usuario[0];
+        
+        /* Datos de la cabecera del panel de administrador*/
         $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
-        $modulo->nombres_usuario = "Nombres";
-        $modulo->tipo_usuario = "Super Administrador";
+        $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
+        $modulo->tipo_usuario = $usuario[0]->nombre_tipo_usuario;
         $modulo->nombre_empresa_largo = "Take My Order";
         $modulo->nombre_empresa_corto = "TMO";
+        /* --------------------*-------------------- */
         
         $modulo->url_signout = base_url()."admin/signOut";
         

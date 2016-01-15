@@ -28,7 +28,7 @@
 
           <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="admin/cliente">
+              <a class="link-shorcut" href="admin/empresa">
                 <div class="info-box">
                   <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
                   <div class="info-box-content">
@@ -39,7 +39,7 @@
               </a>
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="admin/vehiculo/tipo-equipo">
+              <a class="link-shorcut" href="admin/tipo-empresa">
                 <div class="info-box">
                   <span class="info-box-icon bg-green"><i class="fa fa-building-o"></i></span>
                   <div class="info-box-content">
@@ -50,7 +50,7 @@
               </a>
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="admin/vehiculo/marca">
+              <a class="link-shorcut" href="admin/usuario">
                 <div class="info-box">
                   <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
                   <div class="info-box-content">
@@ -61,7 +61,7 @@
               </a>
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="admin/vehiculo/modelo">
+              <a class="link-shorcut" href="admin/perfil">
                 <div class="info-box">
                   <span class="info-box-icon bg-red"><i class="fa fa-user"></i></span>
                   <div class="info-box-content">

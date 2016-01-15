@@ -7,7 +7,7 @@
         $this->load->view('template/main-panel/header', $data); ?>
       
       <?php 
-        $data["menu"]     = 0;
+        $data["menu"]     = 4;
         $data["submenu"]  = 0;
         $this->load->view('admin/v-admin-menu', $data); ?>
 
@@ -20,6 +20,7 @@
             <!--<small>Enlaces rapidos</small>-->
           </h1>
           <ol class="breadcrumb">
+            <li ><a href="<?php echo base_url()."admin"; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
           </ol>
         </section>
@@ -39,31 +40,31 @@
                 <div class="box-body">
                     <div class="form-group">
                     <label for="txtNombres">Nombres</label>
-                    <input type="email" class="form-control" id="txtNombres" />
+                    <input type="email" class="form-control" id="txtNombres" value="<?php echo $modulo->datos_usuarios->nombres_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtApellidos">Apellidos</label>
-                    <input type="email" class="form-control" id="txtApellidos" />
+                    <input type="email" class="form-control" id="txtApellidos" value="<?php echo $modulo->datos_usuarios->apellidos_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtPais">Pais</label>
-                    <input type="email" class="form-control" id="txtPais" />
+                    <input type="email" class="form-control" id="txtPais" value="<?php echo $modulo->datos_usuarios->pais_region_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtEstado">Estado</label>
-                    <input type="email" class="form-control" id="txtEstado" />
+                    <input type="email" class="form-control" id="txtEstado" value="<?php echo $modulo->datos_usuarios->estado_region_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtDireccion">Direccion</label>
-                    <input type="email" class="form-control" id="txtDireccion" />
+                    <input type="email" class="form-control" id="txtDireccion" value="<?php echo $modulo->datos_usuarios->direccion_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtNumeroCelular">Numero Celular</label>
-                    <input type="email" class="form-control" id="txtNumeroCelular" />
+                    <input type="email" class="form-control" id="txtNumeroCelular" value="<?php echo $modulo->datos_usuarios->movil_persona; ?>" />
                     </div>
                     <div class="form-group">
                     <label for="txtNumeroTelefonico">Numero Telefonico</label>
-                    <input type="email" class="form-control" id="txtNumeroTelefonico" />
+                    <input type="email" class="form-control" id="txtNumeroTelefonico" value="<?php echo $modulo->datos_usuarios->telefono_persona; ?>" />
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -89,7 +90,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="txtNombreUsuario">Nombre Usuario</label>
-                        <input type="email" class="form-control" id="txtNombreUsuario" disabled />
+                        <input type="email" class="form-control" id="txtNombreUsuario" value="<?php echo $modulo->datos_usuarios->email_usuario; ?>" disabled />
                     </div>
                     <div class="form-group">
                         <label for="txtPassword">Contraseña</label>
@@ -112,8 +113,6 @@
             </div>
 
           </div><!-- /.row -->
-          
-          <!-- =========================================================== -->
 
         </section><!-- /.content -->
         

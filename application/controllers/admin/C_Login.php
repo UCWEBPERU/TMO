@@ -74,7 +74,7 @@ class C_Login extends CI_Controller {
 				if ($this->cryptography->validateHash($Usuario->password_usuario, trim($this->input->post("contrasenia_usuario", TRUE)))) {
 					$sessionUser = array(
                         'user_session'          => TRUE,
-						'id_usuario'            => $Usuario->id_usuario,
+						'id_usuario'            => intval($Usuario->id_usuario),
 						'nombres_usuario'       => $Usuario->nombres_persona,
 						'apellidos_usuario'	    => $Usuario->apellidos_persona,
 						'email_usuario'		    => $Usuario->email_usuario,
