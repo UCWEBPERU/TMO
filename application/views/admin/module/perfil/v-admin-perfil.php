@@ -98,7 +98,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtPasswordRepeat">Confirmar Contraseña</label>
-                            <input type="email" class="form-control" id="txtPasswordRepeat" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword"/>
+                            <input type="text" class="form-control" id="txtPasswordRepeat" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword"/>
                         </div>
                     </div>
                     <!-- /.box-body -->
