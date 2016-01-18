@@ -73,6 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div><!-- /.login-box-body -->
 
 	</div><!-- /.login-box -->
+
     <?php $this->load->view('template/main-panel/modal-admin'); ?>
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <script>
