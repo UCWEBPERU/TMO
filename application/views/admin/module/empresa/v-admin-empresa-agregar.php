@@ -280,7 +280,7 @@
           mostrarErrorInputText("#password_usuario");
           mostrarErrorInputText("#url_archivo");
           
-          ManagerModal.config("#modalAdmin", "");
+          GenericModal.config("#modalAdmin", "");
           
           if ( $("#nombre_empresa").val().length > 0 &&
                $("#id_tipo_empresa").val().length > 0 &&
@@ -291,8 +291,9 @@
                $("#url_archivo").val().length > 0 
                ) {
                 
-                $(".overlay").removeClass("hide");
-                 
+                // $(".overlay").removeClass("hide");
+                waitingDialog.show('Cargando...');
+                                 
                 var request = $.ajax({
                   url: urlApi,
                   method: "POST",
@@ -302,11 +303,11 @@
       
                 request.done(function( response ) {
                   
-                  $(".overlay").addClass("hide");
+                 waitingDialog.hide();
                   
                   if (response.status) {
                     
-                    ManagerModal.show("default", response.message);
+                    GenericModal.show("default", "<p>" + response.message + "</p>");
                     if (response.action == "insert") {
                       $("#nombre_empresa").val("");
                       $("#id_tipo_empresa").val(0);
@@ -318,18 +319,18 @@
                     }
                     
                   } else {
-                    ManagerModal.show("danger", response.message);
+                    GenericModal.show("danger", "<p>" + response.message + "</p>");
                   }
                   
                 });
       
                 request.fail(function( jqXHR, textStatus ) {
-                  $(".overlay").addClass("hide");
-                  ManagerModal.show("danger", textStatus);
+                  waitingDialog.hide();
+                  GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
             
           } else {
-            ManagerModal.show("danger", "Ingrese de la Empresa correctamente.");
+            GenericModal.show("danger", "<p>Ingrese de la Empresa correctamente.</p>");
           }
           
         });
