@@ -131,7 +131,7 @@ class M_Admin_Empresa extends CI_Model{
 			'relacion_recurso'	    => $dataArchivo["relacion_recurso"],
 			'nombre_archivo'	    => $dataArchivo["nombre_archivo"]
 		);
-		if ($this->db->insert('Archivo', $dataArchivo)) {
+		if ($this->db->insert('Archivo', $data)) {
 			return $this->db->insert_id();
 		}
 		
