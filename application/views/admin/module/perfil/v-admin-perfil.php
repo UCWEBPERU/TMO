@@ -16,7 +16,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Mi Perfil
+            Mi Perfiles
             <!--<small>Enlaces rapidos</small>-->
           </h1>
           <ol class="breadcrumb">
