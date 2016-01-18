@@ -181,10 +181,10 @@ class C_Admin_Empresa extends CI_Controller {
                                 $path = $this->uploadImage($result3);
                                 
                                 $result4 = $this->M_Admin_Empresa->insertArchivo(
-                                    array("url_archivo" => $path, 
-                                        "tipo_archivo" => "image/png",
-                                        "relacion_recurso" => "logo",
-                                        "nombre_archivo" => "logo.png"
+                                    array("url_archivo"     => $path["path"], 
+                                        "tipo_archivo"      => "image/png",
+                                        "relacion_recurso"  => "logo",
+                                        "nombre_archivo"    => "logo.png"
                                     )
                                 );
                                 
