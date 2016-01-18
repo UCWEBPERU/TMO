@@ -217,10 +217,6 @@
                               </div>
                               
                               </div>
-                              
-                            
-
-                           
                         
                     </div><!-- /.box-body -->
                     </div>
@@ -280,7 +276,7 @@
           mostrarErrorInputText("#password_usuario");
           mostrarErrorInputText("#url_archivo");
           
-          GenericModal.config("#modalAdmin", "");
+          GenericModal.config("#genericModal", "");
           
           if ( $("#nombre_empresa").val().length > 0 &&
                $("#id_tipo_empresa").val().length > 0 &&
@@ -330,7 +326,7 @@
                 });
             
           } else {
-            GenericModal.show("danger", "<p>Ingrese de la Empresa correctamente.</p>");
+            GenericModal.show("danger", "<p>Ingrese los dattos de la empresa correctamente.</p>");
           }
           
         });

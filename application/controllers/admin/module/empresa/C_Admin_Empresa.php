@@ -147,10 +147,7 @@ class C_Admin_Empresa extends CI_Controller {
 		
 		if ( $this->input->method(TRUE) == "POST" ) {
 			$json->message = $this->input->post("url_archivo");
-			if ( 
-				 $this->input->post("url_archivo")
-				
-				 ) {
+			if ( $this->input->post("url_archivo") ) {
 					 
 				 //$existRow = $this->M_Admin_Empresa->getByID(trim($this->input->post("ruc", TRUE)));
 				
