@@ -99,8 +99,23 @@ class C_Admin_Empresa extends CI_Controller {
 	}
 
 	public function edit($idEmpresa) {
+
 		
 		if (isset($idEmpresa)) {
+			$modulo = new stdClass();
+			$modulo->titulo 					= "Empresa";
+			$modulo->titulo_pagina = "TMO | Panel Principal";      
+	        $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
+	        $modulo->nombres_usuario = "Nombres";
+	        $modulo->tipo_usuario = "Super Administrador";
+	        $modulo->nombre_empresa_largo = "Take My Order";
+	        $modulo->nombre_empresa_corto = "TMO";      
+	        $modulo->url_signout = base_url()."/admin/signOut";
+	        $modulo->nombreSeccion = "Editar";
+	        $modulo->base_url 		= "admin/empresa/";
+		
+
+
 			$result = $this->M_Admin_Empresa->getEmpresaByID($idEmpresa);
 			if (count($result) > 0) {
 				$data["dataEmpresa"] 	= $result[0];
@@ -109,9 +124,11 @@ class C_Admin_Empresa extends CI_Controller {
 				$data["dataEmpresa"] 	= NULL;
 				$data["existeEmpresa"]	= FALSE;
 			}
-			$data["id_empresa"] 		= $idEmpresa;
-			$data["nombreSeccion"]		= "Editar";
-			$this->load->view('admin/template/module/cliente/cliente-agregar', $data);
+			$modulo->id_empresa 		= $idEmpresa;
+
+			
+			$data["modulo"] 		= $modulo;
+			$this->load->view('admin/module/empresa/v-admin-empresa-agregar', $data);
 		} else {
 			redirect('/');
 		}
@@ -127,46 +144,56 @@ class C_Admin_Empresa extends CI_Controller {
 		$json->status 		= FALSE;
 		
 		if ( $this->input->method(TRUE) == "POST" ) {
-			if ( $this->input->post("id_tipo_empresa") &&
-				 $this->input->post("id_usuario") &&
-				 $this->input->post("id_pay_account") &&
-				 $this->input->post("id_archivo_logo") &&
-				 $this->input->post("nombre_empresa") //&&
-				 //$this->input->post("descripcion_empresa") &&
-				 //$this->input->post("direccion_empresa") &&
-				 //$this->input->post("pais_region_empresa") &&
-				 //$this->input->post("estado_region_empresa") &&
-				 //$this->input->post("codigo_postal_empresa") &&
-				 //$this->input->post("telefono_empresa") &&
-				 //$this->input->post("movil_empresa") 
+			$json->message = $this->input->post("url_archivo");
+			if ( 
+				 $this->input->post("url_archivo")
+				
 				 ) {
 					 
 				 //$existRow = $this->M_Admin_Empresa->getByID(trim($this->input->post("ruc", TRUE)));
 				
 				//if (count($existRow) <= 0) {
-					
-					$result = $this->M_Admin_Empresa->insert(
-					trim($this->input->post("id_tipo_empresa", TRUE)), 
-					trim($this->input->post("id_usuario", TRUE)), 
-					trim($this->input->post("id_pay_account", TRUE)), 
-					trim($this->input->post("id_archivo_logo", TRUE)), 
-					trim($this->input->post("nombre_empresa", TRUE)), 
-					trim($this->input->post("descripcion_empresa", TRUE)), 
-					trim($this->input->post("direccion_empresa", TRUE)), 
-					trim($this->input->post("pais_region_empresa", TRUE)), 
-					trim($this->input->post("estado_region_empresa", TRUE)), 
-					trim($this->input->post("codigo_postal_empresa", TRUE)), 
-					trim($this->input->post("telefono_empresa", TRUE)), 
-					trim($this->input->post("movil_empresa", TRUE)) 
-					);
-			
-					if (is_int($result)) {
-						$json->message = "La Empresa se Agrego Correctamente.";
-						array_push($json->data, array("id_empresa" => $result));
-						$json->status 	= TRUE;
+					$result1 = $this->M_Admin_Empresa->insertUsuario(
+					trim($this->input->post("email_usuario", TRUE)), 
+					trim($this->input->post("password_usuario", TRUE))
+					);	
+					if (is_int($result1)) {
+						$result2 = $this->M_Admin_Empresa->insertPersona(
+							$result1,
+							trim($this->input->post("nombres_persona", TRUE)), 
+							trim($this->input->post("apellido_persona", TRUE)) 
+						);	
+						if (is_int($result2)) {
+							$result3 = $this->M_Admin_Empresa->insertArchivo(
+								trim($this->input->post("url_archivo", TRUE))
+							);	
+							$this->cargar_archivo(trim($this->input->post("url_archivo", TRUE)));
+							if (is_int($result3)) {
+								$result4 = $this->M_Admin_Empresa->insertEmpresa(
+									trim($this->input->post("id_tipo_empresa", TRUE)),
+									$result1,
+									$result3,
+									trim($this->input->post("nombre_empresa", TRUE))							
+								);	
+
+								if (is_int($result4)) {
+									$json->message = "La Empresa se Agrego Correctamente.";
+									array_push($json->data, array("id_empresa" => $result4));
+									$json->status 	= TRUE	;
+								} else {
+									$json->message = "Ocurrio un error al agregar la Empresa, intente de nuevo.";
+								}
+									
+							} else {
+								$json->message = "Ocurrio un error al agregar el Logo, intente de nuevo.";
+							}
+						} else {
+							$json->message = "Ocurrio un error al agregar la Persona, intente de nuevo.";
+						}						
 					} else {
-						$json->message = "Ocurrio un error al agregar la empresa, intente de nuevo.";
-					}
+						$json->message = "Ocurrio un error al agregar el Usuario, intente de nuevo.";
+					}		
+
 					
 				//} else {
 					//$json->message = "Lo sentimos el cliente que desea agregar tiene un ruc que ya existe.";
@@ -183,6 +210,28 @@ class C_Admin_Empresa extends CI_Controller {
 		echo json_encode($json);
 		
 	}
+	function cargar_archivo( $url_archivo) {
+
+        $url_archivo = 'url_archivo';
+        $config['upload_path'] = "resources/logosempresas/";
+        $config['file_name'] = "url_archivo";
+        $config['allowed_types'] = "gif|jpg|jpeg|png";
+        $config['max_size'] = "50000";
+        $config['max_width'] = "2000";
+        $config['max_height'] = "2000";
+        $config['remove_spaces'] = TRUE;
+
+        $this->load->library('upload', $config);
+        
+        if (!$this->upload->do_upload($url_archivo)) {
+            //*** ocurrio un error
+            $data['uploadError'] = $this->upload->display_errors();
+            echo $this->upload->display_errors();
+            return;
+        }
+
+        $data['uploadSuccess'] = $this->upload->data();
+    }
 
 	public function delete() {
 		$json 				= new stdClass();
