@@ -58,7 +58,7 @@ class M_Admin_Usuario extends CI_Model{
 		$this->db->where('Usuario.estado', '1');
 		$this->db->where('Usuario.id_tipo_usuario', 2);
 		$this->db->where('Tipo_Usuario.estado', '1');
-		$query = $this->db->get('Empresa');
+		$query = $this->db->get('Usuario');
 		return $query->num_rows();
 	}
     
