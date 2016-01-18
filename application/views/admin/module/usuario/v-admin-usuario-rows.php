@@ -6,8 +6,8 @@
 	<td><?php echo $modeloRow->nombres_persona." ".$modeloRow->apellidos_persona; ?></td>
 	<td><?php echo $modeloRow->email_usuario; ?></td>
 	<td><?php echo $modeloRow->nombre_empresa; ?></td>
-	<td><a href="<?php echo base_url()."store/".intval($modeloRow->id_empresa)."/admin"; ?>" target="_blank" ><?php echo base_url()."store/".intval($modeloRow->id_empresa)."/admin"; ?></a><i class="fa fa-external-link"></i></td>
-	<td><span class="label label-primary"><a href="<?php echo base_url()."store/".intval($modeloRow->id_empresa); ?>" target="_blank" ><?php echo base_url()."store/".intval($modeloRow->id_empresa); ?></a></span></td>
+	<td><a href="<?php echo base_url()."store/".intval($modeloRow->id_empresa)."/admin"; ?>" target="_blank" ><?php echo base_url()."store/".intval($modeloRow->id_empresa)."/admin"; ?> <i class="fa fa-external-link"></i></a></td>
+	<td><a href="<?php echo base_url()."store/".intval($modeloRow->id_empresa); ?>" target="_blank" ><?php echo base_url()."store/".intval($modeloRow->id_empresa); ?> <i class="fa fa-external-link"></i></a></td>
 	<td><?php echo $modeloRow->fecha_registro_usuario; ?></td>
 	<!--<td>
 		<a href="<?php echo base_url().$modulo->base_url.intval($modeloRow->id_empresa); ?>" data-row-type="empresa" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_empresa; ?>" class="btnActionRow"><span class="label label-primary">Editar</span>
