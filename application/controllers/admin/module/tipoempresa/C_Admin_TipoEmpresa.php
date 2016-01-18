@@ -38,7 +38,7 @@ class C_Admin_TipoEmpresa extends CI_Controller {
 		$modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-tipo";
 		$modulo->base_url 					= "admin/tipoempresa/";
 		$modulo->api_rest_params 			= array("delete" => "id_tipo_empresa");
-		$modulo->menu 						= array("menu" => 1, "submenu" => 0);
+		$modulo->menu 						= array("menu" => 2, "submenu" => 0);
 		$modulo->navegacion 				= array(
 												array("nombre" => "Empresa",
 													"url" => "",
