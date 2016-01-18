@@ -127,7 +127,7 @@
     <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>
     <script>
         
-         ManagerModal.config("#genericModal", "");
+         GenericModal.config("#genericModal", "");
          
          function validateInputsForm(selectorInputsForm) {
             var messagesError = "";
@@ -141,7 +141,7 @@
             }
             
             if (messagesError.length > 0) {
-                ManagerModal.show("danger", "<ul>" + messagesError + "</ul>");
+                GenericModal.show("danger", "<ul>" + messagesError + "</ul>");
                 return false;
             }
             
@@ -167,15 +167,15 @@
                     request.done(function( response ) {
                         waitingDialog.hide();
                         if (response.status) {
-                            ManagerModal.show("default", "<p>" + response.message + "<p>");
+                            GenericModal.show("default", "<p>" + response.message + "<p>");
                         } else {
-                            ManagerModal.show("danger", "<p>" + response.message + "<p>");
+                            GenericModal.show("danger", "<p>" + response.message + "<p>");
                         }
                     });
 
                     request.fail(function( jqXHR, textStatus ) {
                         waitingDialog.hide();
-                        ManagerModal.show("danger", "<p>" + response.message + "<p>");
+                        GenericModal.show("danger", "<p>" + response.message + "<p>");
                     });
                 }
             });
@@ -195,15 +195,15 @@
                     request.done(function( response ) {
                         waitingDialog.hide();
                         if (response.status) {
-                            ManagerModal.show("default", "<p>" + response.message + "<p>");
+                            GenericModal.show("default", "<p>" + response.message + "<p>");
                         } else {
-                            ManagerModal.show("danger", "<p>" + response.message + "<p>");
+                            GenericModal.show("danger", "<p>" + response.message + "<p>");
                         }
                     });
 
                     request.fail(function( jqXHR, textStatus ) {
                         waitingDialog.hide();
-                        ManagerModal.show("danger", "<p>" + response.message + "<p>");
+                        GenericModal.show("danger", "<p>" + response.message + "<p>");
                     });
                 }
             });

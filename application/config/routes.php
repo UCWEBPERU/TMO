@@ -72,14 +72,9 @@ $route['admin/empresa/eliminar']	= 'admin/module/empresa/C_Admin_Empresa/delete'
 $route['admin/empresa/page']		= 'admin/module/empresa/C_Admin_Empresa';
 $route['admin/empresa/page/(:num)']	= 'admin/module/empresa/C_Admin_Empresa';
 
-$route['admin/perfil']				              = 'admin/module/perfil/C_Admin_Perfil';
-$route['admin/perfil/actualizar-perfil-usuario']  = 'admin/module/perfil/C_Admin_Perfil/updatePerfil';
-$route['admin/perfil/actualizar-cuenta-usuario']  = 'admin/module/perfil/C_Admin_Perfil/updateCuentaUsuario';
-
-
 /*
 | ------------------------------
-| URL -> TIPO EMPRESA 
+| URL -> ADMIN - TIPO EMPRESA 
 | ------------------------------
 */
 $route['admin/tipoempresa']				= 'admin/module/tipoempresa/C_Admin_TipoEmpresa/index';
@@ -91,8 +86,21 @@ $route['admin/tipoempresa/delete']	= 'admin/module/tipoempresa/C_Admin_TipoEmpre
 $route['admin/tipoempresa/page']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 $route['admin/tipoempresa/page/(:num)']	= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 
+/*
+| ------------------------------
+| URL -> ADMIN - USUARIO
+| ------------------------------
+*/
+$route['admin/usuario-store'] = 'admin/module/usuario/C_Admin_Usuario';
 
-
+/*
+| ------------------------------
+| URL -> ADMIN - PERFIL 
+| ------------------------------
+*/
+$route['admin/perfil']				              = 'admin/module/perfil/C_Admin_Perfil';
+$route['admin/perfil/actualizar-perfil-usuario']  = 'admin/module/perfil/C_Admin_Perfil/updatePerfil';
+$route['admin/perfil/actualizar-cuenta-usuario']  = 'admin/module/perfil/C_Admin_Perfil/updateCuentaUsuario';
 
 /*
 | ------------------------------

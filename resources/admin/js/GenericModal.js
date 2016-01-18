@@ -1,4 +1,4 @@
-var ManagerModal = {
+var GenericModal = {
 	selector: "",
 	title: "",
 	config: function(selector, title) {
