@@ -152,8 +152,7 @@ class C_Admin_Empresa extends CI_Controller {
                     $this->input->post("nombres_persona") &&
                     $this->input->post("apellido_persona") &&
                     $this->input->post("email_usuario") &&
-                    $this->input->post("password_usuario") &&
-                    $this->input->post("logo_empresa") ) {
+                    $this->input->post("password_usuario")) {
 					
 					$result1 = $this->M_Admin_Empresa->insertUsuario(
 					trim($this->input->post("email_usuario", TRUE)), 
@@ -209,7 +208,7 @@ class C_Admin_Empresa extends CI_Controller {
 	}
 	function cargar_archivo( $url_archivo) {
 
-        $url_archivo = 'url_archivo';
+        $url_archivo = 'logo_empresa';
         $config['upload_path'] = "resources/logosempresas/";
         $config['file_name'] = "url_archivo";
         $config['allowed_types'] = "gif|jpg|jpeg|png";
