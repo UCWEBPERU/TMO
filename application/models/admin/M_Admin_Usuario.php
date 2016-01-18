@@ -7,7 +7,8 @@ class M_Admin_Usuario extends CI_Model{
 	}
 
     public function getUsuariosStore() {
-       $this->db->select("Usuario.email_usuario,
+       $this->db->select("Usuario.id_usuario
+            Usuario.email_usuario,
             Usuario.fecha_registro_usuario,
             Persona.nombres_persona,
             Persona.apellidos_persona,
@@ -25,7 +26,8 @@ class M_Admin_Usuario extends CI_Model{
     }
     
     public function fetchUsuariosStore($limit, $start) {
-       $this->db->select("Usuario.email_usuario,
+       $this->db->select("Usuario.id_usuario
+            Usuario.email_usuario,
             Usuario.fecha_registro_usuario,
             Persona.nombres_persona,
             Persona.apellidos_persona,
