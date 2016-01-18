@@ -8,7 +8,7 @@
 	<td><?php echo $modeloRow->nombre_empresa; ?></td>
 	<td><a href="<?php echo base_url()."store/".$modeloRow->id_empresa."/admin"; ?>" target="_blank" ><?php echo base_url()."store/".$modeloRow->id_empresa."/admin"; ?></a></td>
 	<td><a href="<?php echo base_url()."store/".$modeloRow->id_empresa; ?>" target="_blank" ><?php echo base_url()."store/".$modeloRow->id_empresa; ?></a></td>
-	<td><?php echo $modeloRow->fecha_registro; ?></td>
+	<td><?php echo $modeloRow->fecha_registro_usuario; ?></td>
 	<!--<td>
 		<a href="<?php echo base_url().$modulo->base_url.intval($modeloRow->id_empresa); ?>" data-row-type="empresa" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_empresa; ?>" class="btnActionRow"><span class="label label-primary">Editar</span>
 
