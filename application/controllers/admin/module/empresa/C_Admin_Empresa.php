@@ -188,7 +188,7 @@ class C_Admin_Empresa extends CI_Controller {
                                     )
                                 );
                                 
-                                $this->updateIDLogo($result3, $result4);
+                                $this->M_Admin_Empresa->updateIDLogo($result3, $result4);
                                 
                                 $json->message = "La Empresa se Agrego Correctamente.";
                                 array_push($json->data, array("id_empresa" => $result4));
