@@ -185,7 +185,7 @@ class M_Admin_Empresa extends CI_Model{
 			'id_archivo_logo'		=> $id_archivo_logo
 		);
 
-		$this->db->where('Empresa.id_archivo', $id_empresa);
+		$this->db->where('Empresa.id_empresa', $id_empresa);
 		if ($this->db->update('Empresa', $data)) {
 			return TRUE;
 		}
