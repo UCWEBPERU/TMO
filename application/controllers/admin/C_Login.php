@@ -35,7 +35,7 @@ class C_Login extends CI_Controller {
             
             if (sizeof($validateEmpresa) > 0) {
                 $this->load->model('M_Archivo');
-                $validateLogoEmpresa = $this->M_Archivo->getByID($validateEmpresa[0]->id_empresa);
+                $validateLogoEmpresa = $this->M_Archivo->getByID($validateEmpresa[0]->id_archivo_logo);
                 
                 if (sizeof($validateLogoEmpresa) > 0) {
                     $modulo->url_logo = $validateLogoEmpresa[0]->url_archivo;
