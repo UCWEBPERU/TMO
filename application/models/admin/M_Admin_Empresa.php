@@ -84,14 +84,11 @@ class M_Admin_Empresa extends CI_Model{
 	
 
 
-	public function insertEmpresa($id_tipo_empresa, $id_usuario,  $id_archivo_logo, $nombre_empresa) {
+	public function insertEmpresa($id_tipo_empresa, $id_usuario, $nombre_empresa) {
 		$data = array(
 			'id_tipo_empresa'			=> $id_tipo_empresa, 
-			'id_usuario'				=> $id_usuario,			
-			'id_archivo_logo'			=> $id_archivo_logo,
+			'id_usuario'				=> $id_usuario,
 			'nombre_empresa'			=> $nombre_empresa
-			
-
 		);
 		if ($this->db->insert('Empresa', $data)) {
 			return $this->db->insert_id();
@@ -127,12 +124,14 @@ class M_Admin_Empresa extends CI_Model{
 		return FALSE;
 	}
 
-	public function insertArchivo($url_archivo) {
+	public function insertArchivo($dataArchivo) {
 		$data = array(
-			'url_archivo'			=> $url_archivo
-			
+			'url_archivo'			=> $dataArchivo["url_archivo"],
+			'tipo_archivo'			=> $dataArchivo["tipo_archivo"],
+			'relacion_recurso'	    => $dataArchivo["relacion_recurso"],
+			'nombre_archivo'	    => $dataArchivo["nombre_archivo"]
 		);
-		if ($this->db->insert('Archivo', $data)) {
+		if ($this->db->insert('Archivo', $dataArchivo)) {
 			return $this->db->insert_id();
 		}
 		
@@ -181,17 +180,16 @@ class M_Admin_Empresa extends CI_Model{
 		return FALSE;
 	}
 
-	public function updateLogo($id_archivo, $url_archivo) {
+	public function updateIDLogo($id_empresa, $id_archivo_logo) {
 		$data = array(
-			'id_archivo'		=> $id_archivo, 
-			'url_archivo'		=> $url_archivo
+			'id_archivo_logo'		=> $id_archivo_logo
 		);
 
-		$this->db->where('Archivo.id_archivo', $id_archivo);
-		if ($this->db->update('Archivo', $data)) {
+		$this->db->where('Empresa.id_archivo', $id_empresa);
+		if ($this->db->update('Empresa', $data)) {
 			return TRUE;
 		}
-		
+        
 		return FALSE;
 	}
 
@@ -202,6 +200,5 @@ class M_Admin_Empresa extends CI_Model{
 		}
 		return FALSE;
 	}
-
 	
 }

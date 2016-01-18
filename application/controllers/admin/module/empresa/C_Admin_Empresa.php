@@ -138,6 +138,8 @@ class C_Admin_Empresa extends CI_Controller {
 	}
 
 	public function insert() {
+        $this->load->library('security/Cryptography');
+        
 		$json 				= new stdClass();
 		$json->type 		= "Empresa";
 		$json->presentation = "";
@@ -146,7 +148,7 @@ class C_Admin_Empresa extends CI_Controller {
 		$json->status 		= FALSE;
 		
 		if ( $this->input->method(TRUE) == "POST" ) {
-			$json->message = $this->input->post("url_archivo");
+            
 			if ( $this->input->post("nombre_empresa") &&
                     $this->input->post("id_tipo_empresa") &&
                     $this->input->post("nombres_persona") &&
@@ -155,42 +157,51 @@ class C_Admin_Empresa extends CI_Controller {
                     $this->input->post("password_usuario")) {
 					
 					$result1 = $this->M_Admin_Empresa->insertUsuario(
-					trim($this->input->post("email_usuario", TRUE)), 
-					trim($this->input->post("password_usuario", TRUE))
-					);	
+                        trim($this->input->post("email_usuario", TRUE)), 
+                        $this->cryptography->Encrypt(trim($this->input->post("password_usuario", TRUE)))
+					);
+                    
 					if (is_int($result1)) {
 						$result2 = $this->M_Admin_Empresa->insertPersona(
 							$result1,
 							trim($this->input->post("nombres_persona", TRUE)), 
 							trim($this->input->post("apellido_persona", TRUE)) 
-						);	
+						);
+                        
 						if (is_int($result2)) {
-							$result3 = $this->M_Admin_Empresa->insertArchivo(
-								trim($this->input->post("url_archivo", TRUE))
-							);	
-							$this->cargar_archivo(trim($this->input->post("url_archivo", TRUE)));
-							if (is_int($result3)) {
-								$result4 = $this->M_Admin_Empresa->insertEmpresa(
-									trim($this->input->post("id_tipo_empresa", TRUE)),
-									$result1,
-									$result3,
-									trim($this->input->post("nombre_empresa", TRUE))							
-								);	
+                                
+                            $result3 = $this->M_Admin_Empresa->insertEmpresa(
+                                trim($this->input->post("id_tipo_empresa", TRUE)),
+                                $result1,
+                                trim($this->input->post("nombre_empresa", TRUE))							
+                            );	
 
-								if (is_int($result4)) {
-									$json->message = "La Empresa se Agrego Correctamente.";
-									array_push($json->data, array("id_empresa" => $result4));
-									$json->status 	= TRUE	;
-								} else {
-									$json->message = "Ocurrio un error al agregar la Empresa, intente de nuevo.";
-								}
-									
-							} else {
-								$json->message = "Ocurrio un error al agregar el Logo, intente de nuevo.";
-							}
+                            if (is_int($result3)) {
+                                
+                                $path = $this->uploadImage($result3);
+                                
+                                $result4 = $this->M_Admin_Empresa->insertArchivo(
+                                    array("url_archivo" => $path, 
+                                        "tipo_archivo" => "image/png",
+                                        "relacion_recurso" => "logo",
+                                        "nombre_archivo" => "logo.png"
+                                    )
+                                );
+                                
+                                $this->updateIDLogo($result3, $result4);
+                                
+                                $json->message = "La Empresa se Agrego Correctamente.";
+                                array_push($json->data, array("id_empresa" => $result4));
+                                $json->status = TRUE;
+                                
+                            } else {
+                                $json->message = "Ocurrio un error al agregar la Empresa, intente de nuevo.";
+                            }
+                            
 						} else {
 							$json->message = "Ocurrio un error al agregar la Persona, intente de nuevo.";
-						}						
+						}
+                        					
 					} else {
 						$json->message = "Ocurrio un error al agregar el Usuario, intente de nuevo.";
 					}
@@ -206,28 +217,44 @@ class C_Admin_Empresa extends CI_Controller {
 		echo json_encode($json);
 		
 	}
-	function cargar_archivo( $url_archivo) {
+    
+    private function uploadImage($id_empresa) {
+		$this->load->library('utils/UploadFile');
+		
+		if ( isset($_FILES["logo_empresa"]) && !empty($_FILES["logo_empresa"]) ) {
 
-        $url_archivo = 'logo_empresa';
-        $config['upload_path'] = "resources/logosempresas/";
-        $config['file_name'] = "url_archivo";
-        $config['allowed_types'] = "gif|jpg|jpeg|png";
-        $config['max_size'] = "50000";
-        $config['max_width'] = "2000";
-        $config['max_height'] = "2000";
-        $config['remove_spaces'] = TRUE;
+			$path = "uploads/store/".$id_empresa."/logo/";
 
-        $this->load->library('upload', $config);
-        
-        if (!$this->upload->do_upload($url_archivo)) {
-            //*** ocurrio un error
-            $data['uploadError'] = $this->upload->display_errors();
-            echo $this->upload->display_errors();
-            return;
-        }
+			$path = $this->uploadfile->upload("logo_empresa", "logo", $path);
+			return array("state" => TRUE, "path" => $path);
 
-        $data['uploadSuccess'] = $this->upload->data();
-    }
+		}
+
+		return array("state" => FALSE, "path" => base_url()."resources/admin/img/image_not_found.png");
+	}
+    
+// 	function cargar_archivo( $url_archivo) {
+// 
+//         $url_archivo = 'logo_empresa';
+//         $config['upload_path'] = "/resources/store/$id_empresa/logo/";
+//         $config['file_name'] = "logo_store";
+//         $config['allowed_types'] = "gif|jpg|jpeg|png";
+//         $config['max_size'] = "50000";
+//         $config['max_width'] = "3000";
+//         $config['max_height'] = "3000";
+//         $config['remove_spaces'] = TRUE;
+// 
+//         $this->load->library('upload', $config);
+//         
+//         if (!$this->upload->do_upload($url_archivo)) {
+//             //*** ocurrio un error
+//             $data['uploadError'] = $this->upload->display_errors();
+//             echo $this->upload->display_errors();
+//             return;
+//         }
+// 
+//         $data['uploadSuccess'] = $this->upload->data();
+//     }
 
 	public function delete() {
 		$json 				= new stdClass();
