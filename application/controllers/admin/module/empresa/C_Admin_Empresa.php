@@ -147,11 +147,14 @@ class C_Admin_Empresa extends CI_Controller {
 		
 		if ( $this->input->method(TRUE) == "POST" ) {
 			$json->message = $this->input->post("url_archivo");
-			if ( $this->input->post("url_archivo") ) {
-					 
-				 //$existRow = $this->M_Admin_Empresa->getByID(trim($this->input->post("ruc", TRUE)));
-				
-				//if (count($existRow) <= 0) {
+			if ( $this->input->post("nombre_empresa") &&
+                    $this->input->post("id_tipo_empresa") &&
+                    $this->input->post("nombres_persona") &&
+                    $this->input->post("apellido_persona") &&
+                    $this->input->post("email_usuario") &&
+                    $this->input->post("password_usuario") &&
+                    $this->input->post("logo_empresa") ) {
+					
 					$result1 = $this->M_Admin_Empresa->insertUsuario(
 					trim($this->input->post("email_usuario", TRUE)), 
 					trim($this->input->post("password_usuario", TRUE))
@@ -191,12 +194,7 @@ class C_Admin_Empresa extends CI_Controller {
 						}						
 					} else {
 						$json->message = "Ocurrio un error al agregar el Usuario, intente de nuevo.";
-					}		
-
-					
-				//} else {
-					//$json->message = "Lo sentimos el cliente que desea agregar tiene un ruc que ya existe.";
-				//}
+					}
 				
 			} else {
 				$json->message = "No se recibio ningun dato.";

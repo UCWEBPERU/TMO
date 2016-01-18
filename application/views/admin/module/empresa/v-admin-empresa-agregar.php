@@ -206,12 +206,12 @@
                                   </div>
                               <?php } ?>
                               <div class="form-group">
-                                <label for="url_archivo">Añadir Logo</label>
+                                <label for="logo_empresa">Añadir Logo</label>
                                 <?php
                                   if (isset($existeArchivo) && $existeArchivo ) { ?>
-                                    <input type="file" class="form-control" id="url_archivo" name="url_archivo" maxlength="" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                    <input type="file" class="form-control" id="logo_empresa" name="logo_empresa" maxlength="" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                 <?php } else { ?>
-                                    <input type="file" class="form-control" id="url_archivo" name="url_archivo">
+                                    <input type="file" class="form-control" id="logo_empresa" name="logo_empresa">
                                     
                                 <?php } ?>
                               </div>
@@ -245,8 +245,38 @@
     <?php $this->load->view('template/main-panel/modal-admin'); ?>
 
     <script>
+      $(function () {
+          
+      var formData  = new FormData();
       
-      
+      function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+        
+        // Loop through the FileList and render image files as thumbnails.
+        for (var i = 0, f; f = files[i]; i++) {
+        
+            // Only process image files.
+            if (!f.type.match('image.*')) {
+              continue;
+            }
+            
+            formData.append("logo_empresa", f);
+        
+            var reader = new FileReader();
+        
+            // Closure to capture the file information.
+            reader.onload = (function(theFile) {
+              return function(e) {
+                
+                // $("#imagenProducto").attr("src", e.target.result);
+        
+              };
+            })(f);
+        
+            // Read in the image file as a data URL.
+            reader.readAsDataURL(f);
+          }
+      }
 
       function mostrarErrorInputText(id) {
           if ( $(id).val().length == 0) {
@@ -255,16 +285,13 @@
             $(id).parent().removeClass("has-error");
           }
       } 
-
-      $(function () {
-       
-
-        $("#btnAgregar").on("click", function(evt){
+      
+      
+      $("#btnAgregar").on("click", function(evt){
           evt.preventDefault();
           
           var baseUrl   = "<?php echo $modulo->base_url; ?>";
           var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>
-          var formData  = new FormData();
           
           var element = this;
           
@@ -274,7 +301,7 @@
           mostrarErrorInputText("#apellido_persona");
           mostrarErrorInputText("#email_usuario");
           mostrarErrorInputText("#password_usuario");
-          mostrarErrorInputText("#url_archivo");
+          mostrarErrorInputText("#logo_empresa");
           
           GenericModal.config("#genericModal", "");
           
@@ -284,22 +311,32 @@
                $("#apellido_persona").val().length > 0 &&
                $("#email_usuario").val().length > 0 &&
                $("#password_usuario").val().length > 0 &&
-               $("#url_archivo").val().length > 0 
-               ) {
+               $("#logo_empresa").val().length > 0 ) {
                 
-                // $(".overlay").removeClass("hide");
                 waitingDialog.show('Cargando...');
-                                 
+                
+                formData.append("nombre_empresa",   $("#nombre_empresa").val());
+                formData.append("id_tipo_empresa",  $("#id_tipo_empresa").val());
+                formData.append("nombres_persona",  $("#nombres_persona").val());
+                formData.append("apellido_persona", $("#apellido_persona").val());
+                formData.append("email_usuario",    $("#email_usuario").val());
+                formData.append("password_usuario", $("#password_usuario").val());
+                formData.append("logo_empresa",     $("#logo_empresa").val());
+                
                 var request = $.ajax({
                   url: urlApi,
                   method: "POST",
-                  data: $("#formEmpresa").serialize(),
-                  dataType: "json"
+                  data: formData,
+                  dataType: "json",
+                  processData: false,
+                  contentType: false
                 });
       
                 request.done(function( response ) {
                   
                  waitingDialog.hide();
+                 
+                 formData = new FormData();
                   
                   if (response.status) {
                     
@@ -311,7 +348,7 @@
                       $("#apellido_persona").val("");
                       $("#email_usuario").val("");
                       $("#password_usuario").val("");
-                      $("#url_archivo").val("");
+                      $("#logo_empresa").val("");
                     }
                     
                   } else {
@@ -330,6 +367,8 @@
           }
           
         });
+        
+        $("#logo_empresa").on("change", handleFileSelect);
 
       });
       
