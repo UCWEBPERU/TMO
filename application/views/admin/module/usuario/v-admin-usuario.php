@@ -9,8 +9,7 @@
       <?php 
         $data["menu"]     = $modulo->menu["menu"];
         $data["submenu"]  = $modulo->menu["submenu"];
-        $this->load->view('admin/template/main-panel/menu', $data); 
-      ?>
+        $this->load->view('admin/v-admin-menu', $data); ?>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">

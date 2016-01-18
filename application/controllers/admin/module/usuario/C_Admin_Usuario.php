@@ -31,7 +31,7 @@ class C_Admin_Usuario extends CI_Controller {
 		$modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-store";
 		$modulo->base_url 					= "admin/usuario/";
 		$modulo->api_rest_params 			= array("delete" => "id_empresa");
-		$modulo->menu 						= array("menu" => 1, "submenu" => 0);
+		$modulo->menu 						= array("menu" => 4, "submenu" => 0);
 		$modulo->navegacion 				= array(
 												array("nombre" => "Usuarios Store",
 													"url" => "",
