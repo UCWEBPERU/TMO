@@ -82,11 +82,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             GenericModal.config("#genericModal", "");
             
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass:    'iradio_square-blue',
-                increaseArea:   '20%' // optional
-            });
+            // $('input').iCheck({
+            //     checkboxClass: 'icheckbox_square-blue',
+            //     radioClass:    'iradio_square-blue',
+            //     increaseArea:   '20%' // optional
+            // });
 
             $("#btnSignIn").on("click", function(evt){
                 evt.preventDefault();
