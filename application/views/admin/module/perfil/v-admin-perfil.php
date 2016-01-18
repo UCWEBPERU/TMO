@@ -167,15 +167,15 @@
                     request.done(function( response ) {
                         waitingDialog.hide();
                         if (response.status) {
-                            GenericModal.show("default", "<p>" + response.message + "<p>");
+                            GenericModal.show("default", "<p>" + response.message + "</p>");
                         } else {
-                            GenericModal.show("danger", "<p>" + response.message + "<p>");
+                            GenericModal.show("danger", "<p>" + response.message + "</p>");
                         }
                     });
 
                     request.fail(function( jqXHR, textStatus ) {
                         waitingDialog.hide();
-                        GenericModal.show("danger", "<p>" + response.message + "<p>");
+                        GenericModal.show("danger", "<p>" + response.message + "</p>");
                     });
                 }
             });
@@ -195,15 +195,15 @@
                     request.done(function( response ) {
                         waitingDialog.hide();
                         if (response.status) {
-                            GenericModal.show("default", "<p>" + response.message + "<p>");
+                            GenericModal.show("default", "<p>" + response.message + "</p>");
                         } else {
-                            GenericModal.show("danger", "<p>" + response.message + "<p>");
+                            GenericModal.show("danger", "<p>" + response.message + "</p>");
                         }
                     });
 
                     request.fail(function( jqXHR, textStatus ) {
                         waitingDialog.hide();
-                        GenericModal.show("danger", "<p>" + response.message + "<p>");
+                        GenericModal.show("danger", "<p>" + response.message + "</p>");
                     });
                 }
             });

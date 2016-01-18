@@ -73,108 +73,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div><!-- /.login-box-body -->
 
 	</div><!-- /.login-box -->
-
-	<div class="example-modal">
-		<div id="myModal" class="modal modal-danger fade">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Iniciar Sesion</h4>
-					</div>
-					<div class="modal-body">
-						<p>One fine body&hellip;</p>
-						<p><?php 
-// $password = 'gf45_gdf#4hg';
-							// $password = 'MegaRepresentaciones2015';
-							$password = 'MR2015@';
-
-// A higher "cost" is more secure but consumes more processing power
-							$cost = 10;
-
-// Create a random salt
-							$salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
-
-// Prefix information about the hash so PHP knows how to verify it later.
-// "$2a$" Means we're using the Blowfish algorithm. The following two digits are the cost parameter.
-							$salt = sprintf("$2a$%02d$", $cost) . $salt;
-
-// Value:
-// $2a$10$eImiTXuWVxfM37uY4JANjQ==
-
-// Hash the password with the salt
-							$hash = crypt($password, $salt);
-							
-							echo $hash;
-
-// echo $hash;
-
-// Value:
-// $2a$10$eImiTXuWVxfM37uY4JANjOL.oTxqp7WylW7FCzx2Lc7VLmdJIddZq
-// $2a$10$mgXjn.OMJOn07hVY2o1qLem4W8Ht3PJZKdcoAG
-							?></p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-outline" data-dismiss="modal">Aceptar</button>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-		</div><!-- /.example-modal -->
-
-		<!-- jQuery 2.1.4 -->
-		<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>jQuery/jQuery-2.1.4.min.js"></script>
-		<!-- Bootstrap 3.3.5 -->
-		<script src="<?php echo PATH_RESOURCE_BOOTSTRAP; ?>js/bootstrap.min.js"></script>
-		<!-- iCheck -->
-		<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/icheck.min.js"></script>
-        <!-- Loading Modal -->
-        <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/LoadingModal.js"></script>
-		<script>
-            	
-			$(function () {
-				$('input').iCheck({
-					checkboxClass: 'icheckbox_square-blue',
-					radioClass:    'iradio_square-blue',
-                    increaseArea:   '20%' // optional
-                });
-
-				$("#btnSignIn").on("click", function(evt){
-					evt.preventDefault();
-
-					if ( $("#email_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
-                        waitingDialog.show('Iniciando sesion...');
-						var request = $.ajax({
-							url: "<?php echo base_url().'admin/signIn'; ?>",
-							method: "POST",
-							data: $("#formLogin").serialize(),
-							dataType: "json"
-						});
-
-						request.done(function( response ) {
-							waitingDialog.hide();
-							if (response.status) {
-								$(location).attr("href", response.data.url_redirect);
-							} else {
-								$( ".modal-body" ).html("<p>" + response.message + "<p>");
-								$('#myModal').modal('show');
-							}
-						});
-
-						request.fail(function( jqXHR, textStatus ) {
-                            waitingDialog.hide();
-							$( ".modal-body" ).html( "<p>" + textStatus + " FAIL<p>");
-							$('#myModal').modal('show');
-						});
-					} else {
-						$( ".modal-body" ).html( "<p>Ingrese sus datos de usuario correctamente.<p>");
-						$('#myModal').modal('show');
-					}
-
-				});
-
-			});
+    <?php $this->load->view('template/main-panel/modal-admin'); ?>
+    <?php $this->load->view('template/main-panel/scripts-footer'); ?>
+    <script>
             
-		</script>
+        $(function () {
+            
+            GenericModal.config("#genericModal", "");
+            
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass:    'iradio_square-blue',
+                increaseArea:   '20%' // optional
+            });
+
+            $("#btnSignIn").on("click", function(evt){
+                evt.preventDefault();
+
+                if ( $("#email_usuario").val().length > 0 && $("#contrasenia_usuario").val().length > 0 ) {
+                    waitingDialog.show('Iniciando sesion...');
+                    var request = $.ajax({
+                        url: "<?php echo base_url().'admin/signIn'; ?>",
+                        method: "POST",
+                        data: $("#formLogin").serialize(),
+                        dataType: "json"
+                    });
+
+                    request.done(function( response ) {
+                        waitingDialog.hide();
+                        if (response.status) {
+                            $(location).attr("href", response.data.url_redirect);
+                        } else {
+                            GenericModal.show("danger", "<p>" + response.message + "</p>");
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        waitingDialog.hide();
+                        GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                    });
+                } else {
+                    waitingDialog.hide();
+                    GenericModal.show("danger", "<p>Ingrese sus datos de usuario correctamente.</p>");
+                }
+
+            });
+
+        });
+        
+    </script>
 	</body>
 	</html>
