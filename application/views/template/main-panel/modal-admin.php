@@ -1,5 +1,5 @@
 <div class="example-modal">
-	<div id="genericModal" class="modal fade">
+	<div id="genericModal" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">

@@ -21,5 +21,8 @@ var ManagerModal = {
         // $(this.selector + ' .modal-body').html("<p>" + message + "<p>");
 		$(this.selector + ' .modal-body').html(message);
 		$(this.selector).modal('show');
+        $(this.selector).modal({
+            keyboard: true
+        });
 	}
 }; 
