@@ -82,7 +82,7 @@
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       
-      <?php $this->load->view('admin/template/main-panel/footer'); ?>
+      <?php $this->load->view('template/main-panel/footer'); ?>
       
     </div><!-- ./wrapper -->
     
