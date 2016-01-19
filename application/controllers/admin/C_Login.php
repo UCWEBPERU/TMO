@@ -87,7 +87,8 @@ class C_Login extends CI_Controller {
                     if ($Usuario->nombre_tipo_usuario == "SuperAdministrador") {
                         $json->data = array("url_redirect" => base_url()."admin");
                     } else if ($Usuario->nombre_tipo_usuario == "Administrador") {
-                        $json->data = array("url_redirect" => base_url()."store/".$this->uri->segment(2)."/admin");
+                        $dataEmpresa = $this->M_Login->getEmpresaByIDUsuario($Usuario->id_usuario);
+                        $json->data = array("url_redirect" => base_url()."store/".$dataEmpresa[0]->id_empresa."/admin");
                     }
                     
 					$json->message = "Inicio de sesion existosa.";
