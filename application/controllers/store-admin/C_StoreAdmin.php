@@ -37,7 +37,6 @@ class C_StoreAdmin extends CI_Controller {
             // Colocar logo de store por defecto
             $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png";
         }
-
         
         $modulo->titulo_pagina = $dataEmpresa->nombre_empresa." | Panel Principal";
         
@@ -54,7 +53,8 @@ class C_StoreAdmin extends CI_Controller {
         
         $modulo->url_signout = base_url()."admin/signOut";
         
-        $this->load->view('store-admin/v-store-admin-panel');
+        $data["modulo"] = $modulo;
+        $this->load->view('store-admin/v-store-admin-panel', $data);
 	}
 
 }
