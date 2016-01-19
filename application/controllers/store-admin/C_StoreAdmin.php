@@ -39,7 +39,7 @@ class C_StoreAdmin extends CI_Controller {
             $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png";
         }
         
-        $modulo->titulo_pagina = $dataEmpresa[0]->nombre_empresa." | Panel Principal";
+        $modulo->titulo_pagina = $dataEmpresa[0]->nombre_empresa." | Panel Administrativo";
         
         $usuario = $this->M_StoreAdmin->getByID($this->session->id_usuario);
         
