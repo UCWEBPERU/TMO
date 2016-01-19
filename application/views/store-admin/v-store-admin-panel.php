@@ -9,7 +9,7 @@
       <?php 
         $data["menu"]     = 0;
         $data["submenu"]  = 0;
-        $this->load->view('admin/v-admin-menu', $data); ?>
+        $this->load->view('store-admin/v-store-admin-menu', $data); ?>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
