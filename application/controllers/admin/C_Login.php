@@ -72,15 +72,16 @@ class C_Login extends CI_Controller {
 			if (sizeof($result) > 0 ) {
 				$Usuario = $result[0];
 				if ($this->cryptography->validateHash($Usuario->password_usuario, trim($this->input->post("contrasenia_usuario", TRUE)))) {
-					$sessionUser = array(
+                    
+                    $sessionUser = array(
                         'user_session'          => TRUE,
-						'id_usuario'            => intval($Usuario->id_usuario),
-						'nombres_usuario'       => $Usuario->nombres_persona,
-						'apellidos_usuario'	    => $Usuario->apellidos_persona,
-						'email_usuario'		    => $Usuario->email_usuario,
-						'id_tipo_usuario'		=> $Usuario->id_tipo_usuario,
-						'nombre_tipo_usuario'	=> $Usuario->nombre_tipo_usuario
-					);
+                        'id_usuario'            => intval($Usuario->id_usuario),
+                        'nombres_usuario'       => $Usuario->nombres_persona,
+                        'apellidos_usuario'	    => $Usuario->apellidos_persona,
+                        'email_usuario'		    => $Usuario->email_usuario,
+                        'id_tipo_usuario'		=> $Usuario->id_tipo_usuario,
+                        'nombre_tipo_usuario'	=> $Usuario->nombre_tipo_usuario
+                    );
                     
                     if ($Usuario->nombre_tipo_usuario == "SuperAdministrador") {
                         $json->data = array("url_redirect" => base_url()."admin");
@@ -91,7 +92,7 @@ class C_Login extends CI_Controller {
                             'id_empresa' => intval($dataEmpresa[0]->id_empresa)
                         );
                         array_push($sessionUser, $sessionIDEmpresa);
-                        
+                        var_dump($sessionUser);                        
                         $json->data = array("url_redirect" => base_url()."store/".intval($dataEmpresa[0]->id_empresa)."/admin");
                     }
                     
