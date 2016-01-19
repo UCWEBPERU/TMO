@@ -63,6 +63,11 @@ $route['admin/login']			= 'admin/C_Login';
 $route['admin/signIn']			= 'admin/C_Login/signIn';
 $route['admin/signOut']			= 'admin/C_Login/signOut';
 
+/*
+| ------------------------------
+| URL -> ADMIN - EMPRESA 
+| ------------------------------
+*/
 $route['admin/empresa']				= 'admin/module/empresa/C_Admin_Empresa/index';
 $route['admin/empresa/agregar']		= 'admin/module/empresa/C_Admin_Empresa/agregar';
 $route['admin/empresa/crear']		= 'admin/module/empresa/C_Admin_Empresa/insert';
@@ -112,6 +117,15 @@ $route['store/(:num)/admin/login'] = 'admin/C_Login';
 // $route['store/signIn']			   = 'store-admin/C_Login/signIn';
 // $route['store/signOut']			   = 'store-admin/C_Login/signOut';
 
+
+/*
+| ------------------------------
+| URL -> STORE ADMIN - EMPRESA
+| ------------------------------
+*/
+$route['store/(:num)/admin']	          = 'store-admin/C_StoreAdmin';
+$route['store/(:num)/admin/login']        = 'admin/C_Login';
+$route['store/(:num)/admin/perfil-store'] = 'store-admin/C_StoreAdmin_Empresa';
 
 
 /*
