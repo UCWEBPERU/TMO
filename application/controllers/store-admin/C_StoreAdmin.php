@@ -22,7 +22,7 @@ class C_StoreAdmin extends CI_Controller {
 	}
 
 	public function index()	{	
-        $this->load->view('admin');
+        $this->load->view('store-admin/v-store-admin-panel');
 	}
 
 }
