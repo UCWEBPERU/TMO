@@ -81,8 +81,6 @@ class C_Login extends CI_Controller {
 						'id_tipo_usuario'		=> $Usuario->id_tipo_usuario,
 						'nombre_tipo_usuario'	=> $Usuario->nombre_tipo_usuario
 					);
-					
-					$this->session->set_userdata($sessionUser);
                     
                     if ($Usuario->nombre_tipo_usuario == "SuperAdministrador") {
                         $json->data = array("url_redirect" => base_url()."admin");
