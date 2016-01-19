@@ -80,20 +80,16 @@ class C_Login extends CI_Controller {
                         'apellidos_usuario'	    => $Usuario->apellidos_persona,
                         'email_usuario'		    => $Usuario->email_usuario,
                         'id_tipo_usuario'		=> $Usuario->id_tipo_usuario,
-                        'nombre_tipo_usuario'	=> $Usuario->nombre_tipo_usuario
+                        'nombre_tipo_usuario'	=> $Usuario->nombre_tipo_usuario,
+                        'id_empresa'            => ""
                     );
                     
                     if ($Usuario->nombre_tipo_usuario == "SuperAdministrador") {
                         $json->data = array("url_redirect" => base_url()."admin");
                     } else if ($Usuario->nombre_tipo_usuario == "Administrador") {
                         $dataEmpresa = $this->M_Login->getEmpresaByIDUsuario($Usuario->id_usuario);
-                        
-                        $sessionIDEmpresa = array(
-                            'id_empresa' => intval($dataEmpresa[0]->id_empresa)
-                        );
-                        array_push($sessionUser, $sessionIDEmpresa);
-                        var_dump($sessionUser);                        
                         $json->data = array("url_redirect" => base_url()."store/".intval($dataEmpresa[0]->id_empresa)."/admin");
+                        $sessionUser['id_empresa'] = intval($dataEmpresa[0]->id_empresa);
                     }
                     
                     $this->session->set_userdata($sessionUser);
