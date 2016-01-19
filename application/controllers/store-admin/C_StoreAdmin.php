@@ -26,11 +26,11 @@ class C_StoreAdmin extends CI_Controller {
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
         
+        $modulo = new stdClass();
+        
         $dataEmpresa = $this->M_Empresa->getByID( $this->session->id_empresa );
             
         $validateLogoEmpresa = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
-        
-        $modulo = new stdClass();
         
         if (sizeof($validateLogoEmpresa) > 0) {
             $modulo->icono_empresa = $validateLogoEmpresa[0]->url_archivo;
@@ -45,7 +45,7 @@ class C_StoreAdmin extends CI_Controller {
         
         $modulo->datos_usuario = $usuario[0];
         
-        /* Datos de la cabecera del panel de administrador*/
+        /* Datos de la cabecera del panel de administrador */
         $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
         $modulo->tipo_usuario = $usuario[0]->nombre_tipo_usuario;
         $modulo->nombre_empresa_largo = $dataEmpresa[0]->nombre_empresa;
