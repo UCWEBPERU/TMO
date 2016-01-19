@@ -9,7 +9,7 @@
     <!-- Path -->
     <base href="<?php echo base_url();?>">
     <!-- Icon Page -->
-    <link rel="icon" href="<?php echo PATH_RESOURCE_ADMIN; ?>img/icon/icon_app.png" type="image/png">
+    <link rel="icon" href="<?php echo $modulo->icono_empresa; ?>" type="image/png">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_BOOTSTRAP; ?>css/bootstrap.min.css">
     <!-- Font Awesome -->
