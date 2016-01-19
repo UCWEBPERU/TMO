@@ -4,7 +4,7 @@
 	<tr>
 	<td><?php echo intval($modeloRow->id_empresa); ?></td>
 	<td><?php echo $modeloRow->nombre_empresa; ?></td>
-	<td><?php echo $modeloRow->nombres_persona; ?></td>
+	<td><?php echo $modeloRow->nombres_persona." ".$modeloRow->apellidos_persona; ?></td>
 	<td><?php echo $modeloRow->pay_id; ?></td>
 	<td><?php echo $modeloRow->nombre_tipo_empresa; ?></td>
 	<td><?php echo $modeloRow->direccion_empresa; ?></td>
