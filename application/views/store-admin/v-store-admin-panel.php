@@ -41,7 +41,7 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <a class="link-shorcut" href="admin/tipo-empresa">
                 <div class="info-box">
-                  <span class="info-box-icon bg-green"><i class="fa fa-building-o"></i></span>
+                  <span class="info-box-icon bg-green"><i class="fa fa-shopping-bag"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Tipo Empresa</span>
                     <span class="info-box-number"></span>
@@ -52,7 +52,7 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
               <a class="link-shorcut" href="admin/usuario-store">
                 <div class="info-box">
-                  <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+                  <span class="info-box-icon bg-yellow"><i class="fa fa-tags"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Usuarios</span>
                     <span class="info-box-number"></span>
