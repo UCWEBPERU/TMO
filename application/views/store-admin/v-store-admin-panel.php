@@ -20,7 +20,7 @@
             <small>Enlaces rapidos</small>
           </h1>
           <ol class="breadcrumb">
-            <li class="active"><a href="/store/<?php echo $this->session->id_empresa; ?>/admin/"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li class="active"><a href="<?php echo base_url()."store/".$this->session->id_empresa; ?>/admin/"><i class="fa fa-dashboard"></i> Inicio</a></li>
           </ol>
         </section>
         <!-- Main content -->
