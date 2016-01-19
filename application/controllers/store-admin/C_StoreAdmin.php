@@ -21,7 +21,37 @@ class C_StoreAdmin extends CI_Controller {
 		
 	}
 
-	public function index()	{	
+	public function index()	{
+        $this->load->model("store-admin/M_StoreAdmin");
+        $this->load->model('M_Archivo');
+        
+        $dataEmpresa = $this->M_Empresa->getByID( $this->session->id_empresa );
+            
+        $validateLogoEmpresa = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
+        
+        if (sizeof($validateLogoEmpresa) > 0) {
+            $modulo->icono_empresa = $validateLogoEmpresa[0]->url_archivo;
+        } else {
+            // Colocar logo de store por defecto
+            $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png";
+        }
+
+        $modulo = new stdClass();
+        $modulo->titulo_pagina = $dataEmpresa->nombre_empresa." | Panel Principal";
+        
+        $usuario = $this->M_StoreAdmin->getByID($this->session->id_usuario);
+        
+        $modulo->datos_usuario = $usuario[0];
+        
+        /* Datos de la cabecera del panel de administrador*/
+        $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
+        $modulo->tipo_usuario = $usuario[0]->nombre_tipo_usuario;
+        $modulo->nombre_empresa_largo = $dataEmpresa->nombre_empresa;
+        $modulo->nombre_empresa_corto = $dataEmpresa->nombre_empresa;
+        /* --------------------*-------------------- */
+        
+        $modulo->url_signout = base_url()."admin/signOut";
+        
         $this->load->view('store-admin/v-store-admin-panel');
 	}
 
