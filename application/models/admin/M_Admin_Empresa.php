@@ -102,7 +102,7 @@ class M_Admin_Empresa extends CI_Model{
 			'email_usuario'			 => $email_usuario, 
 			'password_usuario'		 => $password_usuario,
 			'id_tipo_usuario'		 => '2',
-			'fecha_registro_usuario' => CURRENT_DATE()
+			'fecha_registro_usuario' => date("Y-m-d")
 		);
 		if ($this->db->insert('Usuario', $data)) {
 			return $this->db->insert_id();
