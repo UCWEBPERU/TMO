@@ -88,7 +88,7 @@ class C_Login extends CI_Controller {
                         $json->data = array("url_redirect" => base_url()."admin");
                     } else if ($Usuario->nombre_tipo_usuario == "Administrador") {
                         $dataEmpresa = $this->M_Login->getEmpresaByIDUsuario($Usuario->id_usuario);
-                        $json->data = array("url_redirect" => base_url()."store/".int_val($dataEmpresa[0]->id_empresa)."/admin");
+                        $json->data = array("url_redirect" => base_url()."store/".intval($dataEmpresa[0]->id_empresa)."/admin");
                     }
                     
 					$json->message = "Inicio de sesion existosa.";
@@ -100,7 +100,7 @@ class C_Login extends CI_Controller {
 				$json->message = "La cuenta de usuario no existe.";
 			}
 
-		}else {
+		} else {
 			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
 		}
 
