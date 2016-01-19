@@ -99,10 +99,10 @@ class M_Admin_Empresa extends CI_Model{
 
 	public function insertUsuario($email_usuario, $password_usuario) {
 		$data = array(
-			'email_usuario'			=> $email_usuario, 
-			'password_usuario'		=> $password_usuario,
-			'id_tipo_usuario'		=> '2'
-			
+			'email_usuario'			 => $email_usuario, 
+			'password_usuario'		 => $password_usuario,
+			'id_tipo_usuario'		 => '2',
+			'fecha_registro_usuario' => 'CURRENT_DATE()'
 		);
 		if ($this->db->insert('Usuario', $data)) {
 			return $this->db->insert_id();
@@ -112,9 +112,9 @@ class M_Admin_Empresa extends CI_Model{
 	}
 	public function insertPersona($id_usuario, $nombres_persona, $apellido_persona) {
 		$data = array(
-			'id_usuario'			=> $id_usuario, 
-			'nombres_persona'		=> $nombres_persona, 
-			'apellidos_persona'		=> $apellido_persona
+			'id_usuario'         => $id_usuario, 
+			'nombres_persona'    => $nombres_persona, 
+			'apellidos_persona'  => $apellido_persona
 			
 		);
 		if ($this->db->insert('Persona', $data)) {
