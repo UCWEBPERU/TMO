@@ -25,8 +25,7 @@ class M_Admin_Empresa extends CI_Model{
 
 	public function getTipoEmpresa() {
 		$this->db->select(" Tipo_Empresa.id_tipo_empresa, 
-							Tipo_Empresa.nombre_tipo_empresa, 
-							");
+							Tipo_Empresa.nombre_tipo_empresa");
 		
 		$this->db->where('Tipo_Empresa.estado', '1');
 		$query = $this->db->get('Tipo_Empresa');
@@ -40,7 +39,7 @@ class M_Admin_Empresa extends CI_Model{
 							Pay_Account.pay_id, 
 							Tipo_Empresa.nombre_tipo_empresa,
 							Empresa.nombre_empresa, Empresa.direccion_empresa, 
-							Empresa.telefono_empresa, Empresa.estado ");
+							Empresa.telefono_empresa, Empresa.estado");
 		$this->db->join('Usuario', 'Usuario.id_usuario = Empresa.id_usuario');
 		$this->db->join('Persona', 'Persona.id_usuario = Empresa.id_usuario');
 		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account', 'left');
