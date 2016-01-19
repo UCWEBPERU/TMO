@@ -93,7 +93,7 @@
                                     </select>
                                 <?php } else { ?>
                                     <select id="id_tipo_empresa"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                      <option selected="selected">Seleccione un Tipo de Empresa</option>
+                                      <option value="0" selected="selected">Seleccione un Tipo de Empresa</option>
                                       <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                           <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
                                       <?php endforeach; ?>
@@ -343,7 +343,7 @@
                     GenericModal.show("default", "<p>" + response.message + "</p>");
                     if (response.action == "insert") {
                       $("#nombre_empresa").val("");
-                      $("#id_tipo_empresa").val(0);
+                      $("#id_tipo_empresa").val("0");
                       $("#nombres_persona").val("");
                       $("#apellido_persona").val("");
                       $("#email_usuario").val("");
@@ -363,7 +363,7 @@
                 });
             
           } else {
-            GenericModal.show("danger", "<p>Ingrese los dattos de la empresa correctamente.</p>");
+            GenericModal.show("danger", "<p>Ingrese los datos de la empresa correctamente.</p>");
           }
           
         });
