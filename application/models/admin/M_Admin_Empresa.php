@@ -36,6 +36,7 @@ class M_Admin_Empresa extends CI_Model{
 	public function fetchEmpresas($limit, $start) {
 		$this->db->select("Empresa.id_empresa, 
 							Persona.nombres_persona, 
+							Persona.apellidos_persona, 
 							Pay_Account.pay_id, 
 							Tipo_Empresa.nombre_tipo_empresa,
 							Empresa.nombre_empresa, Empresa.direccion_empresa, 
