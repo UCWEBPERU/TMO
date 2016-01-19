@@ -24,6 +24,7 @@ class C_StoreAdmin extends CI_Controller {
 	public function index()	{
         $this->load->model("store-admin/M_StoreAdmin");
         $this->load->model('M_Archivo');
+        $this->load->model('M_Empresa');
         
         $dataEmpresa = $this->M_Empresa->getByID( $this->session->id_empresa );
             
