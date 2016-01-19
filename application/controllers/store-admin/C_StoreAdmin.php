@@ -29,6 +29,8 @@ class C_StoreAdmin extends CI_Controller {
             
         $validateLogoEmpresa = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
         
+        $modulo = new stdClass();
+        
         if (sizeof($validateLogoEmpresa) > 0) {
             $modulo->icono_empresa = $validateLogoEmpresa[0]->url_archivo;
         } else {
@@ -36,7 +38,7 @@ class C_StoreAdmin extends CI_Controller {
             $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png";
         }
 
-        $modulo = new stdClass();
+        
         $modulo->titulo_pagina = $dataEmpresa->nombre_empresa." | Panel Principal";
         
         $usuario = $this->M_StoreAdmin->getByID($this->session->id_usuario);
