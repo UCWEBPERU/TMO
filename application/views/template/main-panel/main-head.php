@@ -30,4 +30,9 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <meta property="og:url"                content="http://www.uc-web.mobi/TMO/store/12/admin" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="<?php echo $modulo->titulo_pagina; ?>" />
+    <meta property="og:description"        content="<?php echo $modulo->titulo_pagina; ?>" />
+    <meta property="og:image"              content="http://www.uc-web.mobi/TMO//uploads/store/12/logo/logo.png" />
   </head>
