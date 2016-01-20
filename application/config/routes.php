@@ -127,7 +127,7 @@ $route['store/(:num)/admin/login'] = 'admin/C_Login';
 */
 $route['store/(:num)/admin']	          = 'store-admin/C_StoreAdmin';
 $route['store/(:num)/admin/login']        = 'admin/C_Login';
-$route['store/(:num)/admin/perfil-store'] = 'store-admin/C_StoreAdmin_Empresa';
+$route['store/(:num)/admin/perfil-store'] = 'store-admin/module/empresa/C_StoreAdmin_Empresa';
 
 
 /*
