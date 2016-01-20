@@ -23,13 +23,11 @@ class UserSession {
 
 	public function validateTypeUser() {
 		if ($this->CI->session->has_userdata('user_session')) {
-            
             if ($this->CI->session->nombre_tipo_usuario == "SuperAdministrador") {
                 return 1;
             } else if ($this->CI->session->nombre_tipo_usuario == "Administrador") {
                 return 2;
             }
-            
 		} else {
             return FALSE;
         }

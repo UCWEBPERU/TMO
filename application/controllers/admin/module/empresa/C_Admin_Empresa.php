@@ -8,18 +8,11 @@ class C_Admin_Empresa extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        $this->load->model('admin/M_Admin_Empresa');
-        
-        $this->usersession->loadSession($this->session);
-        
-        if (!$this->usersession->validateSession()) {
-            redirect("/admin/login");
-        }
-		
-		
+        $this->usersession->validateSession("panel-admin");
 	}
 
 	public function index()	{
+        $this->load->model('admin/M_Admin_Empresa');
 		$this->load->library('pagination');
 		$modulo = new stdClass();
 
@@ -30,7 +23,6 @@ class C_Admin_Empresa extends CI_Controller {
         $modulo->nombre_empresa_largo = "Take My Order";
         $modulo->nombre_empresa_corto = "TMO";      
         $modulo->url_signout = base_url()."admin/signOut";
-
 
 		$modulo->nombre 					= "Empresa";
 		$modulo->titulo 					= "Empresa";
@@ -46,9 +38,6 @@ class C_Admin_Empresa extends CI_Controller {
 													"activo" => TRUE)
 											);
 
-
-
-        		
 		$config 							= array();
 		$config["base_url"] 				= base_url() . "admin/empresa/page";
 		$total_row 							= $this->M_Admin_Empresa->getTotalEmpresas();

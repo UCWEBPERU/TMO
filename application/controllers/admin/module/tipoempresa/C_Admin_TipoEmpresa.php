@@ -8,17 +8,11 @@ class C_Admin_TipoEmpresa extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        $this->load->model('admin/M_Admin_TipoEmpresa');
-        
-        $this->usersession->loadSession($this->session);
-        if (!$this->usersession->validateSession()) {
-            redirect("/admin/login");
-        }
-		
-		
+        $this->usersession->validateSession("panel-admin");
 	}
 
 	public function index()	{
+        $this->load->model('admin/M_Admin_TipoEmpresa');
 		$this->load->library('pagination');
 		$modulo = new stdClass();
 

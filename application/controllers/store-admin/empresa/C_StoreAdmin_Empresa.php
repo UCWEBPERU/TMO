@@ -8,29 +8,7 @@ class C_StoreAdmin_Empresa extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        
-        $this->usersession->loadSession($this->session);
-        
-        if (!$this->usersession->validateSession()) {
-            redirect("/store/".$this->uri->segment(2)."/admin/login");
-        } else {
-            if ($this->usersession->validateSession() != 2) {
-                $this->load->model('M_Empresa');
-                
-                if ($this->session->id_empresa != "") {
-                    $dataEmpresa = $this->M_Empresa->getByID( $this->session->id_empresa );
-                } else {
-                    $dataEmpresa = $this->M_Empresa->getByID( $this->uri->segment(2) );
-                }
-                
-                if (sizeof($dataEmpresa) > 0) {
-                    redirect("forbidden-access");
-                } else {
-                    redirect("not-found/store");
-                }
-            }
-        }
-		
+        $this->usersession->validateSession("panel-store-admin");
 	}
 
 	public function index()	{

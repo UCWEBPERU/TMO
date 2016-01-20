@@ -8,11 +8,12 @@ class C_Admin_Usuario extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('security');
 		$this->load->library('session');
-		$this->load->model('admin/M_Admin_Usuario');
+        $this->load->library('utils/UserSession');
+        $this->usersession->validateSession("panel-admin");
 	}
 
 	public function index()	{
-        
+        $this->load->model('admin/M_Admin_Usuario');
         $this->load->library('pagination');
 		$modulo = new stdClass();
 

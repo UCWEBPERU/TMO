@@ -8,16 +8,7 @@ class C_Admin_Perfil extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        
-        $this->usersession->loadSession($this->session);
-        
-        if (!$this->usersession->validateSession()) {
-            redirect("/admin/login");
-        } else {
-            if ($this->usersession->validateSession() == 2) {
-                redirect("/store/".$this->uri->segment(2)."/admin");
-            }
-        }
+        $this->usersession->validateSession("panel-admin");
 	}
 
 	public function index()	{
