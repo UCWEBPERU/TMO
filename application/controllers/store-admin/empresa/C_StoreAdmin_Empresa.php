@@ -15,9 +15,7 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         if (!$this->usersession->validateSession()) {
             redirect("/store/".$this->uri->segment(2)."/admin/login");
         } else {
-            if ($this->usersession->validateSession() == 2) {
-                redirect("/store/".$this->uri->segment(2)."/admin");
-            } else {
+            if ($this->usersession->validateSession() != 2) {
                 redirect("/forbidden-access");
             }
         }
