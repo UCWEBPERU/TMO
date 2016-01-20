@@ -10,10 +10,10 @@ class C_Admin_Empresa extends CI_Controller {
         $this->load->library('utils/UserSession');
         $this->usersession->validateSession("panel-admin");
         $this->load->model("M_Usuario");
+        $this->load->model('admin/M_Admin_Empresa');
 	}
 
 	public function index()	{
-        $this->load->model('admin/M_Admin_Empresa');
 		$this->load->library('pagination');
 		$modulo = new stdClass();
         
@@ -73,7 +73,6 @@ class C_Admin_Empresa extends CI_Controller {
 
 
 	public function agregar() {
-        
 		$modulo = new stdClass();
         
         $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
@@ -103,8 +102,6 @@ class C_Admin_Empresa extends CI_Controller {
 	}
 
 	public function edit($idEmpresa) {
-
-		
 		if (isset($idEmpresa)) {
 			$modulo = new stdClass();
             
