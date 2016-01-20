@@ -88,13 +88,10 @@ class C_Admin_Empresa extends CI_Controller {
         $modulo->url_signout            = base_url()."/admin/signOut";
         $modulo->nombreSeccion          = "Agregar";
         $modulo->base_url 		        = "admin/empresa/";
+        $modulo->url_main_panel         = base_url()."admin";
         
         $modulo->menu                   = array("menu" => 1, "submenu" => 0);
-
-
-		$modulo->tipo_empresa		=$this->M_Admin_Empresa->getTipoEmpresa();
-
-
+		$modulo->tipo_empresa		    = $this->M_Admin_Empresa->getTipoEmpresa();
 
 		$data["modulo"] 		= $modulo;
 
@@ -118,7 +115,7 @@ class C_Admin_Empresa extends CI_Controller {
 	        $modulo->url_signout = base_url()."/admin/signOut";
 	        $modulo->nombreSeccion = "Editar";
 	        $modulo->base_url 		= "admin/empresa/";
-		
+		    $modulo->url_main_panel         = base_url()."admin";
 
 
 			$result = $this->M_Admin_Empresa->getEmpresaByID($idEmpresa);
