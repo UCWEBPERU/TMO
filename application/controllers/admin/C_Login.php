@@ -16,18 +16,16 @@ class C_Login extends CI_Controller {
         $modulo           = new stdClass();
 		$modulo->url_logo = PATH_RESOURCE_ADMIN."img/icon/icon_app.png"; // Default: Logo TMO 
         
-        $this->usersession->loadSession($this->session);
-                
         if ($this->uri->segment(1) == "admin") {
-            if ($this->usersession->validateSession() == 1) {
+            if ($this->usersession->validateTypeUser() == 1) {
                 redirect("/admin");
-            } else if ($this->usersession->validateSession() == 2) {
+            } else if ($this->usersession->validateTypeUser() == 2) {
                 redirect("/store".$this->session->id_empresa."/admin");
             }
         } else if ($this->uri->segment(1) == "store" && $this->uri->segment(3) == "admin") {
-            if ($this->usersession->validateSession() == 1) {
+            if ($this->usersession->validateTypeUser() == 1) {
                 redirect("/admin");
-            } else if ($this->usersession->validateSession() == 2) {
+            } else if ($this->usersession->validateTypeUser() == 2) {
                 redirect("/store".$this->session->id_empresa."/admin");
             }
             
