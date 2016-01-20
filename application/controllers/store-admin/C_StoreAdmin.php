@@ -17,7 +17,12 @@ class C_StoreAdmin extends CI_Controller {
             if ($this->usersession->validateSession() != 2) {
                 
                 $this->load->model('M_Empresa');
-                $dataEmpresa = $this->M_Empresa->getByID( $this->session->id_empresa );
+                
+                if ($this->session->id_empresa != "") {
+                    $dataEmpresa = $this->M_Empresa->getByID( $this->session->id_empresa );
+                } else {
+                    $dataEmpresa = $this->M_Empresa->getByID( $this->uri->segment(2) );
+                }
                 
                 if (sizeof($dataEmpresa) > 0) {
                     redirect("forbidden-access");
