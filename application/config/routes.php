@@ -134,3 +134,4 @@ $route['store/(:num)/admin/perfil-store'] = 'store-admin/C_StoreAdmin_Empresa';
 | ------------------------------
 */
 $route['not-found/store'] = 'C_Not_Found/store';
+$route['forbidden-access'] = 'C_Forbidden_Access';

@@ -11,8 +11,15 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         $this->load->model('admin/M_Admin_Empresa');
         
         $this->usersession->loadSession($this->session);
+        
         if (!$this->usersession->validateSession()) {
-            redirect("/admin/login");
+            redirect("/store/".$this->uri->segment(2)."/admin/login");
+        } else {
+            if ($this->usersession->validateSession() == 2) {
+                redirect("/store/".$this->uri->segment(2)."/admin");
+            } else {
+                redirect("/forbidden-access");
+            }
         }
 		
 	}

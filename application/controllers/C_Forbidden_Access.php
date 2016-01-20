@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Not_Found extends CI_Controller {
+class C_Forbidden_Access extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -12,11 +12,12 @@ class C_Not_Found extends CI_Controller {
 	public function store() {
         
         $modulo = new stdClass();
-		$modulo->titulo     = "Store Not Found";
-        $modulo->mensaje    = "La tienda no se encuentra registrado, para mas informacion consulte con el equipo de TMO.";
+		$modulo->titulo      = "Access Denied!";
+        $modulo->mensaje     = "You do not have permission to view this resource.";
+        $modulo->url_go_back = $this->agent->referrer();
         
         $data["modulo"] = $modulo;        
-        $this->load->view('template/v-not-found', $data);
+        $this->load->view('template/v-forbidden-access', $data);
 	}
 
 }
