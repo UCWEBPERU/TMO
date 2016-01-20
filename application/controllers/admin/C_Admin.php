@@ -15,7 +15,7 @@ class C_Admin extends CI_Controller {
             redirect("/admin/login");
         } else {
             if ($this->usersession->validateSession() == 2) {
-                redirect("/store/".$this->uri->segment(2)."/admin");
+                redirect("/store/".$this->session->id_empresa."/admin");
             }
         }
 	}
