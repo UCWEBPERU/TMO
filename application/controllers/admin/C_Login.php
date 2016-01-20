@@ -22,6 +22,9 @@ class C_Login extends CI_Controller {
             } else if ($this->usersession->validateTypeUser() == 2) {
                 redirect("/store".$this->session->id_empresa."/admin");
             }
+            
+            $modulo->titulo_pagina = "TMO | Iniciar sesion";
+            
         } else if ($this->uri->segment(1) == "store" && $this->uri->segment(3) == "admin") {
             if ($this->usersession->validateTypeUser() == 1) {
                 redirect("/admin");
@@ -42,9 +45,10 @@ class C_Login extends CI_Controller {
                     $modulo->url_logo = PATH_RESOURCE_ADMIN."img/image_not_found.png";
                 }
                 
+                $modulo->titulo_pagina = $validateEmpresa[0]->nombre_empresa." | Iniciar sesion";
             } else {
                 redirect("not-found/store");
-            }            
+            }
         }
         
         $data["modulo"] = $modulo;
