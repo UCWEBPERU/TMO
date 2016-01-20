@@ -22,14 +22,15 @@ class C_Admin_Empresa extends CI_Controller {
         $modulo->datos_usuario = $usuario[0];
         
         /* Datos de la cabecera del panel de administrador*/
-		$modulo->titulo_pagina = "TMO | Panel Principal";      
+		$modulo->titulo_pagina = "TMO | Panel Principal - Empresa";      
         $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
         $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
         $modulo->tipo_usuario = $usuario[0]->nombre_tipo_usuario;
         $modulo->nombre_empresa_largo = "Take My Order";
         $modulo->nombre_empresa_corto = "TMO";      
         $modulo->url_signout = base_url()."admin/signOut";
-
+        $modulo->url_main_panel = base_url()."admin";
+        
 		$modulo->nombre 					= "Empresa";
 		$modulo->titulo 					= "Empresa";
 		$modulo->titulo_registro 			= "Registro de Empresas";

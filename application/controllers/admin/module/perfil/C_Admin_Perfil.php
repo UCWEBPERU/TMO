@@ -29,6 +29,7 @@ class C_Admin_Perfil extends CI_Controller {
         /* --------------------*-------------------- */
         
         $modulo->url_signout = base_url()."admin/signOut";
+        $modulo->url_main_panel = base_url()."admin";
         
         $data["modulo"] = $modulo;
         $this->load->view('admin/module/perfil/v-admin-perfil', $data);

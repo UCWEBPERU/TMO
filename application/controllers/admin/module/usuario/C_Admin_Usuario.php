@@ -29,6 +29,7 @@ class C_Admin_Usuario extends CI_Controller {
         $modulo->nombre_empresa_largo = "Take My Order";
         $modulo->nombre_empresa_corto = "TMO";      
         $modulo->url_signout = base_url()."admin/signOut";
+        $modulo->url_main_panel = base_url()."admin";
 
 		$modulo->nombre 					= "Usuarios Store";
 		$modulo->titulo 					= "Usuarios Store";
