@@ -1,7 +1,7 @@
 <!-- Main Header -->
 <header class="main-header">
   <!-- Logo -->
-  <a href="<?php echo base_url(); ?>admin" class="logo" style="">
+  <a href="<?php echo $modulo->url_main_panel; ?>" class="logo" style="">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b><?php echo $modulo->nombre_empresa_corto; ?></b></span>
     <!--<img src="<?php echo $modulo->icono_empresa; ?>" class="logo-mini" alt="App Icon">-->
