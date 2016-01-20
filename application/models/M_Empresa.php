@@ -17,7 +17,5 @@ class M_Empresa extends CI_Model{
 
 		return $query->result();
 	}
-
-	
 	
 }

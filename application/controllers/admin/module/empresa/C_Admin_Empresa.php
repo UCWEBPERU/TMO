@@ -9,17 +9,23 @@ class C_Admin_Empresa extends CI_Controller {
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
         $this->usersession->validateSession("panel-admin");
+        $this->load->model("M_Usuario");
 	}
 
 	public function index()	{
         $this->load->model('admin/M_Admin_Empresa');
 		$this->load->library('pagination');
 		$modulo = new stdClass();
-
+        
+        $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
+        
+        $modulo->datos_usuario = $usuario[0];
+        
+        /* Datos de la cabecera del panel de administrador*/
 		$modulo->titulo_pagina = "TMO | Panel Principal";      
         $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
-        $modulo->nombres_usuario = "Nombres";
-        $modulo->tipo_usuario = "Super Administrador";
+        $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
+        $modulo->tipo_usuario = $usuario[0]->nombre_tipo_usuario;
         $modulo->nombre_empresa_largo = "Take My Order";
         $modulo->nombre_empresa_corto = "TMO";      
         $modulo->url_signout = base_url()."admin/signOut";
@@ -66,12 +72,17 @@ class C_Admin_Empresa extends CI_Controller {
 
 
 	public function agregar() {
+        
 		$modulo = new stdClass();
+        
+        $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
+        $modulo->datos_usuario = $usuario[0];
+        
 		$modulo->titulo 			    = "Empresa";
 		$modulo->titulo_pagina          = "TMO | Panel Principal";      
         $modulo->icono_empresa          = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
-        $modulo->nombres_usuario        = "Nombres";
-        $modulo->tipo_usuario           = "Super Administrador";
+        $modulo->nombres_usuario        = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
+        $modulo->tipo_usuario           = $usuario[0]->nombre_tipo_usuario;
         $modulo->nombre_empresa_largo   = "Take My Order";
         $modulo->nombre_empresa_corto   = "TMO";      
         $modulo->url_signout            = base_url()."/admin/signOut";
@@ -95,11 +106,15 @@ class C_Admin_Empresa extends CI_Controller {
 		
 		if (isset($idEmpresa)) {
 			$modulo = new stdClass();
+            
+            $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
+            $modulo->datos_usuario = $usuario[0];
+            
 			$modulo->titulo 					= "Empresa";
 			$modulo->titulo_pagina = "TMO | Panel Principal";      
 	        $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
-	        $modulo->nombres_usuario = "Nombres";
-	        $modulo->tipo_usuario = "Super Administrador";
+            $modulo->nombres_usuario        = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
+            $modulo->tipo_usuario           = $usuario[0]->nombre_tipo_usuario;
 	        $modulo->nombre_empresa_largo = "Take My Order";
 	        $modulo->nombre_empresa_corto = "TMO";      
 	        $modulo->url_signout = base_url()."/admin/signOut";

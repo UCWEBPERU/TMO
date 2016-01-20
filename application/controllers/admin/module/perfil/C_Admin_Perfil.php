@@ -12,11 +12,11 @@ class C_Admin_Perfil extends CI_Controller {
 	}
 
 	public function index()	{
-        $this->load->model("admin/M_Admin_Perfil");
+        $this->load->model("M_Usuario");
         $modulo = new stdClass();
         $modulo->titulo_pagina = "TMO | Panel Principal - Perfil";
         
-        $usuario = $this->M_Admin_Perfil->getByID($this->session->id_usuario);
+        $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
         
         $modulo->datos_usuario = $usuario[0];
         
