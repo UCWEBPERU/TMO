@@ -14,7 +14,7 @@ class C_Forbidden_Access extends CI_Controller {
 
 	public function index() {
         $modulo = new stdClass();
-		$modulo->titulo      = "TMO | Access Denied!";
+		$modulo->titulo      = "Access Denied!";
         $modulo->mensaje     = "You do not have permission to view this resource.";
         
         if ($this->agent->is_referral()) {
