@@ -46,7 +46,7 @@ class C_Admin_Usuario extends CI_Controller {
 											);
         		
 		$config 							= array();
-		$config["base_url"] 				= base_url() . "admin/usuario/page";
+		$config["base_url"] 				= base_url() . "admin/usuario-store/page";
 		$total_row 							= $this->M_Admin_Usuario->getTotalUsuariosStore();
 		$config["total_rows"] 				= $total_row;
 		$config["per_page"] 				= 15;
