@@ -9,7 +9,7 @@ class C_Forbidden_Access extends CI_Controller {
 		$this->load->library('session');
 	}
 
-	public function store() {
+	public function index() {
         
         $modulo = new stdClass();
 		$modulo->titulo      = "Access Denied!";
