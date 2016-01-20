@@ -7,6 +7,7 @@ class C_Forbidden_Access extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
+        $this->load->library('user_agent');
 	}
 
 	public function index() {
