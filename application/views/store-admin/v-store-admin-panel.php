@@ -7,8 +7,8 @@
         $this->load->view('template/main-panel/header', $data); ?>
       
       <?php 
-        $data["menu"]     = 0;
-        $data["submenu"]  = 0;
+        $data["menu"]     = $modulo->menu["menu"];
+        $data["submenu"]  = $modulo->menu["submenu"];
         $this->load->view('store-admin/v-store-admin-menu', $data); ?>
 
       <!-- Content Wrapper. Contains page content -->

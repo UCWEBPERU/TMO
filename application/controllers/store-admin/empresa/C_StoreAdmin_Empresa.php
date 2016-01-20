@@ -12,24 +12,39 @@ class C_StoreAdmin_Empresa extends CI_Controller {
 	}
 
 	public function index()	{
-        $this->load->model("M_Usuario");
-        $modulo = new stdClass();
-        $modulo->titulo_pagina = "TMO | Panel Principal - Perfil";
+        $this->load->model("store-admin/M_StoreAdmin");
+        $this->load->model('M_Archivo');
+        $this->load->model('M_Empresa');
         
-        $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
+        $modulo = new stdClass();
+        
+        $dataEmpresa = $this->M_Empresa->getByID( $this->session->id_empresa );
+            
+        $validateLogoEmpresa = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
+        
+        if (sizeof($validateLogoEmpresa) > 0) {
+            $modulo->icono_empresa = $validateLogoEmpresa[0]->url_archivo;
+        } else {
+            // Colocar logo de store por defecto
+            $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png";
+        }
+        
+        $modulo->titulo_pagina = $dataEmpresa[0]->nombre_empresa." | Panel Administrativo - Store";
+        
+        $usuario = $this->M_StoreAdmin->getByID($this->session->id_usuario);
         
         $modulo->datos_usuario = $usuario[0];
         
-        /* Datos de la cabecera del panel de administrador*/
-        $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
+        /* Datos de la cabecera del panel de administrador */
         $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
         $modulo->tipo_usuario = $usuario[0]->nombre_tipo_usuario;
-        $modulo->nombre_empresa_largo = "Take My Order";
-        $modulo->nombre_empresa_corto = "TMO";
+        $modulo->nombre_empresa_largo = $dataEmpresa[0]->nombre_empresa;
+        $modulo->nombre_empresa_corto = $dataEmpresa[0]->nombre_empresa;
         /* --------------------*-------------------- */
         
         $modulo->url_signout = base_url()."admin/signOut";
         $modulo->url_main_panel = base_url()."store/".$this->session->id_empresa."/admin";
+        $modulo->menu = array("menu" => 0, "submenu" => 0);
         
         $data["modulo"] = $modulo;
         $this->load->view('admin/module/perfil/v-admin-perfil', $data);

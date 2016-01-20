@@ -44,6 +44,7 @@ class C_StoreAdmin extends CI_Controller {
         
         $modulo->url_signout = base_url()."admin/signOut";
         $modulo->url_main_panel = base_url()."store/".$this->session->id_empresa."/admin";
+        $modulo->menu = array("menu" => 0, "submenu" => 0);
         
         $data["modulo"] = $modulo;
         $this->load->view('store-admin/v-store-admin-panel', $data);
