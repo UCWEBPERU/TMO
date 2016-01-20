@@ -2,12 +2,12 @@
 
 class UserSession {
     
-    var $CI =& get_instance();
+    var $CI;
     
     public function __construct() {
-        $CI =& get_instance();
-        $CI->load->helper('url');
-        $CI->load->library("session");
+        $this->CI =& get_instance();
+        $this->CI->load->helper('url');
+        $this->CI->load->library("session");
     }
     
     public function validateSession($section_name) {
@@ -22,11 +22,11 @@ class UserSession {
     }
 
 	public function validateTypeUser() {
-		if ($CI->session->has_userdata('user_session')) {
+		if ($this->CI->session->has_userdata('user_session')) {
             
-            if ($CI->session->nombre_tipo_usuario == "SuperAdministrador") {
+            if ($this->CI->session->nombre_tipo_usuario == "SuperAdministrador") {
                 return 1;
-            } else if ($CI->session->nombre_tipo_usuario == "Administrador") {
+            } else if ($this->CI->session->nombre_tipo_usuario == "Administrador") {
                 return 2;
             }
             
@@ -40,22 +40,22 @@ class UserSession {
             redirect("/admin/login");
         } else {
             if ($this->validateTypeUser() == 2) {
-                redirect("/store/".$CI->session->id_empresa."/admin");
+                redirect("/store/".$this->CI->session->id_empresa."/admin");
             }
         }
     }
     
     private function validatePanelStoreAdmin() {
         if (!$this->validateTypeUser()) {
-            redirect("/store/".$CI->uri->segment(2)."/admin/login");
+            redirect("/store/".$this->CI->uri->segment(2)."/admin/login");
         } else {
             if ($this->validateTypeUser() != 2) {
-                $CI->load->model('M_Empresa');
+                $this->CI->load->model('M_Empresa');
                 
-                if ($CI->session->id_empresa != "") {
-                    $dataEmpresa = $CI->M_Empresa->getByID( $CI->session->id_empresa );
+                if ($this->CI->session->id_empresa != "") {
+                    $dataEmpresa = $this->CI->M_Empresa->getByID( $this->CI->session->id_empresa );
                 } else {
-                    $dataEmpresa = $CI->M_Empresa->getByID( $CI->uri->segment(2) );
+                    $dataEmpresa = $this->CI->M_Empresa->getByID( $this->CI->uri->segment(2) );
                 }
                 
                 if (sizeof($dataEmpresa) > 0) {
