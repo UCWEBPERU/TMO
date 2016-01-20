@@ -9,7 +9,6 @@ class C_Forbidden_Access extends CI_Controller {
 		$this->load->library('session');
         $this->load->library('user_agent');
         $this->load->library('utils/UserSession');
-        $this->usersession->loadSession($this->session);
 	}
 
 	public function index() {
@@ -20,14 +19,14 @@ class C_Forbidden_Access extends CI_Controller {
         if ($this->agent->is_referral()) {
             $modulo->url_go_back = $this->agent->referrer();
         } else {
-            if (!$this->usersession->validateSession()) {
+            if (!$this->usersession->validateTypeUser()) {
                 $modulo->url_go_back = base_url();
             } else {
-                if ($this->usersession->validateSession() == 1) {
+                if ($this->usersession->validateTypeUser() == 1) {
                     $modulo->url_go_back = base_url()."admin";
-                } else if ($this->usersession->validateSession() == 2) {
+                } else if ($this->usersession->validateTypeUser() == 2) {
                     $modulo->url_go_back = base_url()."store/".$this->session->id_empresa."/admin";
-                } else if ($this->usersession->validateSession() == 3) {
+                } else if ($this->usersession->validateTypeUser() == 3) {
                     $modulo->url_go_back = base_url()."store/".$this->session->id_empresa."";
                 }
             }
