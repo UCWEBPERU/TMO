@@ -65,7 +65,7 @@ class C_Admin_Empresa extends CI_Controller {
 		
 		$modulo->registros = $this->M_Admin_Empresa->fetchEmpresas($config["per_page"], ($page - 1) * 15);
 		$str_links = $this->pagination->create_links();
-		$modulo->links = explode('&nbsp;',$str_links );
+		$modulo->links = explode('&nbsp;',$str_links);
 		
 		$data["modulo"] = $modulo;
 		$this->load->view('template/module/module-panel', $data);
