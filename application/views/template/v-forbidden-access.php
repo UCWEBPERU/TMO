@@ -46,11 +46,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="box-body">
               <div class="callout callout-danger">
                 <h4><?php echo $modulo->titulo; ?></h4>
-
                 <p><?php echo $modulo->mensaje; ?></p>
-                
-                <button type="button" class="btn btn-block btn-default btn-lg"><a href="<?php echo $modulo->url_go_back; ?>">Go Back!</a></button>
               </div>
+              <button type="button" class="btn btn-block btn-default btn-lg"><a href="<?php echo $modulo->url_go_back; ?>">Go Back!</a></button>
             </div>
             <!-- /.box-body -->
           </div>
