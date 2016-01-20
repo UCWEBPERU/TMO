@@ -11,6 +11,7 @@ class C_Admin_Empresa extends CI_Controller {
         $this->load->model('admin/M_Admin_Empresa');
         
         $this->usersession->loadSession($this->session);
+        
         if (!$this->usersession->validateSession()) {
             redirect("/admin/login");
         }

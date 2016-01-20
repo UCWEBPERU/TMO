@@ -1,11 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class UserSession {
-    var $session;
+class UserSession extends CI_Controller {
+
+	public function __construct() {
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->library('session');
+	}
     
-    public function loadSession($session){
-        $this->session = $session;
-    }
+    // var $session;
+    // 
+    // public function loadSession($session){
+    //     $this->session = $session;
+    // }
 
 	public function validateSession() {
                 

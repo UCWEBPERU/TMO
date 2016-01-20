@@ -9,7 +9,7 @@ class C_Admin extends CI_Controller {
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
         
-        $this->usersession->loadSession($this->session);
+        // $this->usersession->loadSession($this->session);
         
         if (!$this->usersession->validateSession()) {
             redirect("/admin/login");
@@ -18,7 +18,6 @@ class C_Admin extends CI_Controller {
                 redirect("/store/".$this->uri->segment(2)."/admin");
             }
         }
-		
 	}
 
 	public function index()	{

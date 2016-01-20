@@ -15,7 +15,6 @@ class C_StoreAdmin extends CI_Controller {
             redirect("/store/".$this->uri->segment(2)."/admin/login");
         } else {
             if ($this->usersession->validateSession() != 2) {
-                
                 $this->load->model('M_Empresa');
                 
                 if ($this->session->id_empresa != "") {
@@ -29,7 +28,6 @@ class C_StoreAdmin extends CI_Controller {
                 } else {
                     redirect("not-found/store");
                 }
-                
             }
         }
 		
