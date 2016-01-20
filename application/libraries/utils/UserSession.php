@@ -22,7 +22,6 @@ class UserSession {
     }
 
 	public function validateTypeUser() {
-                
 		if ($CI->session->has_userdata('user_session')) {
             
             if ($CI->session->nombre_tipo_usuario == "SuperAdministrador") {
@@ -34,7 +33,6 @@ class UserSession {
 		} else {
             return FALSE;
         }
-        
 	}
     
     private function validatePanelAdmin() {
