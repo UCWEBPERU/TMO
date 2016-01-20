@@ -96,7 +96,9 @@ $route['admin/tipoempresa/page/(:num)']	= 'admin/module/tipoempresa/C_Admin_Tipo
 | URL -> ADMIN - USUARIO
 | ------------------------------
 */
-$route['admin/usuario-store'] = 'admin/module/usuario/C_Admin_Usuario';
+$route['admin/usuario-store']               = 'admin/module/usuario/C_Admin_Usuario';
+$route['admin/usuario-store/page']          = 'admin/module/usuario/C_Admin_Usuario';
+$route['admin/usuario-store/page/(:num)']   = 'admin/module/usuario/C_Admin_Usuario';
 
 /*
 | ------------------------------
