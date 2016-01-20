@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	
 	<base href="<?php echo base_url();?>">
-	<link rel="icon" href="<?php echo PATH_RESOURCE_ADMIN; ?>img/icon/icon_app.png" type="image/png">
+	<link rel="icon" href="<?php echo $modulo->url_logo; ?>" type="image/png">
 	<!-- Bootstrap 3.3.5 -->
 	<link rel="stylesheet" href="<?php echo PATH_RESOURCE_BOOTSTRAP; ?>css/bootstrap.min.css">
 	<!-- Font Awesome -->

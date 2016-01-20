@@ -23,6 +23,7 @@ class C_Login extends CI_Controller {
                 redirect("/store".$this->session->id_empresa."/admin");
             }
             
+            $modulo->url_logo = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
             $modulo->titulo_pagina = "TMO | Iniciar sesion";
             
         } else if ($this->uri->segment(1) == "store" && $this->uri->segment(3) == "admin") {
