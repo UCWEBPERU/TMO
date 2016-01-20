@@ -2,7 +2,7 @@
 
 class UserSession {
     
-    var $CI;
+    var $CI =& get_instance();
     
     public function __construct() {
         $CI =& get_instance();
