@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cbo_tipo_empresa">Tipo Empresa</label>
-                            <select id="cbo_tipo_empresa"  name="cbo_tipo_empresa" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <select id="cbo_tipo_empresa"  name="cbo_tipo_empresa" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                 <?php foreach($modulo->datos_tipo_empresa as $tipo_empresa): ?>
                                 <?php if($dataEmpresa->id_tipo_empresa == $tipo_empresa->id_tipo_empresa ){?>
                                     <option selected="selected" value="<?php echo $tipo_empresa->id_tipo_empresa;?>"> <?php echo $tipo_empresa->nombre_tipo_empresa; ?></option> 
