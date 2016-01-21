@@ -16,7 +16,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Mi Perfiles
+            Empresa
             <!--<small>Enlaces rapidos</small>-->
           </h1>
           <ol class="breadcrumb">
@@ -32,35 +32,42 @@
             <!-- general form elements -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                <h3 class="box-title">Datos Personales</h3>
+                <h3 class="box-title">Datos Empresa</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
                 <form id="frmPerfilUsuario" name="frmPerfilUsuario" role="form" method="post">
                     <div class="box-body">
                         <div class="form-group">
-                        <label for="txtNombres">Nombres</label>
+                        <label for="txtNombres">Nombre</label>
                         <input type="text" class="form-control" id="txtNombres" name="txtNombres" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre."/>
                         </div>
                         <div class="form-group">
-                        <label for="txtApellidos">Apellidos</label>
+                        <label for="txtApellidos">Descripcion</label>
                         <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese apellido."/>
                         </div>
                         <div class="form-group">
-                        <label for="txtPais">Pais</label>
+                        <label for="txtPais">Direccion</label>
                         <input type="text" class="form-control" id="txtPais" name="txtPais" value="<?php echo $modulo->datos_usuario->pais_region_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su pais."/>
                         </div>
                         <div class="form-group">
-                        <label for="txtEstado">Estado</label>
+                        <label for="txtEstado">Pais</label>
                         <input type="text" class="form-control" id="txtEstado" name="txtEstado" value="<?php echo $modulo->datos_usuario->estado_region_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su estado."/>
                         </div>
                         <div class="form-group">
-                        <label for="txtDireccion">Direccion</label>
+                        <label for="txtDireccion">Estado</label>
                         <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su direccion."/>
                         </div>
                         <div class="form-group">
-                        <label for="txtNumeroCelular">Numero Celular</label>
+                        <label for="txtNumeroCelular">Codigo Postal</label>
                         <input type="text" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->movil_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular." data-parsley-type-message="Ingrese un numerico de celular valido."/>
+                        </div>
+                        <div class="form-group">
+                        <label for="txtNumeroTelefono">Numero Celular</label>
+                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_usuario->telefono_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de telefono."  data-parsley-type-message="Ingrese un numerico de celular valido."/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroTelefono">Numero Telefonico</label>

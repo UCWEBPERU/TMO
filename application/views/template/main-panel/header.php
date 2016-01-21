@@ -33,7 +33,7 @@
             <li class="user-header">
               <img src="<?php echo $modulo->icono_empresa; ?>" class="img-circle" alt="User Image">
               <p>
-                <?php echo $modulo->tipo_usuario; ?> - <?php echo $modulo->nombre_empresa_largo; ?>
+                <?php echo $modulo->nombres_usuario; ?> - <?php echo $modulo->tipo_usuario; ?>
                 <!--<small>Member since Nov. 2012</small>-->
               </p>
             </li>
