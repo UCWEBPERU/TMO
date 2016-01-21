@@ -16,6 +16,7 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
         $this->load->model('M_Usuario');
+        $this->load->model('M_Tipo_Empresa');
         
         $modulo = new stdClass();
         
@@ -23,6 +24,7 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         $dataUsuario        = $this->M_Usuario->getByID($this->session->id_usuario);
         $dataLogoEmpresa    = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
         $dataPayAccount     = $this->M_StoreAdmin_Empresa->getPayAccountByID($dataEmpresa[0]->id_pay_account);
+        $dataTipoEmpresa    = $this->M_Tipo_Empresa->getTipoEmpresa();
         
         if (sizeof($dataLogoEmpresa) > 0) {
             $modulo->icono_empresa = $dataLogoEmpresa[0]->url_archivo;
@@ -34,6 +36,7 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         
         $modulo->datos_usuario = $dataUsuario[0];
         $modulo->datos_empresa = $dataEmpresa[0];
+        $modulo->datos_tipo_empresa = $dataTipoEmpresa;
         if (sizeof($dataPayAccount) > 0) {
             $modulo->datos_pay_account = $dataPayAccount[0];
         }
@@ -52,5 +55,9 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         $data["modulo"] = $modulo;
         $this->load->view('store-admin/module/empresa/v-store-admin-empresa', $data);
 	}
+    
+    public function updateDatosEmpresa() {
+        txtNombreEmpresa
+    }
 	
 }

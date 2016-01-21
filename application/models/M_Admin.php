@@ -7,9 +7,4 @@ class M_Admin extends CI_Model{
 		$this->load->database();
 	}
 
-
-		
-	
-
-
 }

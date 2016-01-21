@@ -44,5 +44,28 @@ class M_StoreAdmin_Empresa extends CI_Model{
 		
 		return FALSE;
 	}
+    
+    
+    public function update($data_empresa) {
+		$data = array(
+			'nombre_empresa'			=> $data_empresa["nombre_empresa"],
+			'id_tipo_empresa'			=> $data_empresa["id_tipo_empresa"], 
+			'descripcion_empresa'		=> $data_empresa["descripcion_empresa"],
+			'direccion_empresa'			=> $data_empresa["direccion_empresa"],
+			'pais_region_empresa'		=> $data_empresa["pais_region_empresa"],
+			'estado_region_empresa'		=> $data_empresa["estado_region_empresa"],
+			'codigo_postal_empresa'		=> $data_empresa["codigo_postal_empresa"],
+			'telefono_empresa'			=> $data_empresa["telefono_empresa"],
+			'movil_empresa'				=> $data_empresa["movil_empresa"]
+		);
+
+		$this->db->where('id_empresa', $data_empresa["id_empresa"]);
+		if ($this->db->update('Empresa', $data)) {
+			return TRUE;
+		}
+		
+		return FALSE;
+	}
+    
 
 }

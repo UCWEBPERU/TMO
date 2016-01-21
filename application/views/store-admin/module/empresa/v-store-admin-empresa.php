@@ -39,36 +39,48 @@
                 <form id="frmPerfilUsuario" name="frmPerfilUsuario" role="form" method="post">
                     <div class="box-body">
                         <div class="form-group">
-                        <label for="txtNombres">Nombre</label>
-                        <input type="text" class="form-control" id="txtNombres" name="txtNombres" value="<?php echo $modulo->datos_empresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre."/>
+                            <label for="txtNombreEmpresa">Nombre</label>
+                            <input type="text" class="form-control" id="txtNombreEmpresa" name="txtNombreEmpresa" value="<?php echo $modulo->datos_empresa->nombre_empresa; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el nombre de la empresa."/>
                         </div>
                         <div class="form-group">
-                        <label for="txtApellidos">Descripcion</label>
-                        <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" value="<?php echo $modulo->datos_empresa->descripcion_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese apellido."/>
+                            <label for="cbo_tipo_empresa">Tipo Empresa</label>
+                            <select id="cbo_tipo_empresa"  name="cbo_tipo_empresa" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                <?php foreach($modulo->datos_tipo_empresa as $tipo_empresa): ?>
+                                <?php if($dataEmpresa->id_tipo_empresa == $tipo_empresa->id_tipo_empresa ){?>
+                                    <option selected="selected" value="<?php echo $tipo_empresa->id_tipo_empresa;?>"> <?php echo $tipo_empresa->nombre_tipo_empresa; ?></option> 
+                                <?php } else { ?>  
+                                    <option value="<?php echo $tipo_empresa->id_tipo_empresa; ?>"><?php echo $tipo_empresa->nombre_tipo_empresa; ?></option>
+                                <?php } ?>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="form-group">
-                        <label for="txtPais">Direccion</label>
-                        <input type="text" class="form-control" id="txtPais" name="txtPais" value="<?php echo $modulo->datos_empresa->direccion_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese su pais."/>
+                            <label for="txtDescripcion">Descripcion</label>
+                            <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion" value="<?php echo $modulo->datos_empresa->descripcion_empresa; ?>" />
                         </div>
                         <div class="form-group">
-                        <label for="txtEstado">Pais</label>
-                        <input type="text" class="form-control" id="txtEstado" name="txtEstado" value="<?php echo $modulo->datos_empresa->pais_region_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese su estado."/>
+                        <label for="txtDireccion">Direccion</label>
+                        <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" value="<?php echo $modulo->datos_empresa->direccion_empresa; ?>" />
                         </div>
                         <div class="form-group">
-                        <label for="txtDireccion">Estado</label>
-                        <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" value="<?php echo $modulo->datos_empresa->estado_region_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese su direccion."/>
+                        <label for="txtPais">Pais</label>
+                        <input type="text" class="form-control" id="txtPais" name="txtPais" value="<?php echo $modulo->datos_empresa->pais_region_empresa; ?>" />
                         </div>
                         <div class="form-group">
-                        <label for="txtNumeroCelular">Codigo Postal</label>
-                        <input type="text" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->datos_empresa->codigo_postal_empresa; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular." data-parsley-type-message="Ingrese un numerico de celular valido."/>
+                        <label for="txtEstado">Estado</label>
+                        <input type="text" class="form-control" id="txtEstado" name="txtEstado" value="<?php echo $modulo->datos_empresa->estado_region_empresa; ?>" />
                         </div>
                         <div class="form-group">
-                        <label for="txtNumeroTelefono">Numero Celular</label>
-                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_empresa->movil_empresa; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de telefono."  data-parsley-type-message="Ingrese un numerico de celular valido."/>
+                        <label for="txtCodigoPostal">Codigo Postal</label>
+                        <input type="text" class="form-control" id="txtCodigoPostal" name="txtCodigoPostal" value="<?php echo $modulo->datos_empresa->codigo_postal_empresa; ?>" />
+                        </div>
+                        <div class="form-group">
+                        <label for="txtNumeroCelular">Numero Celular</label>
+                        <input type="text" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" value="<?php echo $modulo->datos_empresa->movil_empresa; ?>" data-parsley-required="false" data-parsley-type="integer" data-parsley-required-message="Ingrese el tipo de metodo de pago." data-parsley-type-message="Ingrese un numero de celular valido."/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroTelefono">Numero Telefonico</label>
-                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_empresa->telefono_empresa; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de telefono."  data-parsley-type-message="Ingrese un numerico de celular valido."/>
+                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_empresa->telefono_empresa; ?>" data-parsley-required="false" data-parsley-type="integer" data-parsley-required-message="Ingrese el tipo de metodo de pago." data-parsley-type-message="Ingrese un numero de celular valido."/>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -93,19 +105,19 @@
                     <form id="frmDatosUsuario" name="frmDatosUsuario" role="form" method="post">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="txtPassword">ID Account</label>
+                                <label for="txtIDPayAccount">ID Account</label>
                                 <?php if (isset($modulo->datos_pay_account)) { ?>
-                                        <input type="text" class="form-control" id="txtPassword" name="passwordUsuario" value="<?php echo $modulo->datos_pay_account->pay_id; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
+                                        <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" value="<?php echo $modulo->datos_pay_account->pay_id; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el id de su cuenta de pago."/>
                                 <?php } else { ?>
-                                        <input type="text" class="form-control" id="txtPassword" name="passwordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
+                                        <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el id de su cuenta de pago."/>
                                 <?php } ?>
                             </div>
                             <div class="form-group">
-                                <label for="txtPasswordRepeat">Tipo Metodo de Pago</label>
+                                <label for="txtTipoPayAccount">Tipo de Metodo de Pago</label>
                                 <?php if (isset($modulo->datos_pay_account)) { ?>
-                                        <input type="text" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" value="<?php echo $modulo->datos_pay_account->tipo_metodo_pago; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
+                                        <input type="text" class="form-control" id="txtTipoPayAccount" name="txtTipoPayAccount" value="<?php echo $modulo->datos_pay_account->tipo_metodo_pago; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el tipo de metodo de pago."/>
                                 <?php } else { ?>
-                                        <input type="text" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
+                                        <input type="text" class="form-control" id="txtTipoPayAccount" name="txtTipoPayAccount" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el tipo de metodo de pago." />
                                 <?php } ?>
                                 
                             </div>
@@ -128,7 +140,7 @@
                         <img class="img-circle img-size-25" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
                         <div class="btn btn-default btn-file">
                             <i class="fa fa-paperclip"></i> Upload new logo
-                            <input type="file" name="logoStore" accept="image/*">
+                            <input type="file" id="logoStore" name="logoStore" accept="image/*">
                         </div>
                     </div>
                 </div>

@@ -134,7 +134,6 @@ class C_Admin_Empresa extends CI_Controller {
 		} else {
 			redirect('/');
 		}
-		
 	}
 
 	public function insert() {
