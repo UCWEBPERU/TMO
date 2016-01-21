@@ -30,7 +30,7 @@ class C_Login extends CI_Controller {
             if ($this->usersession->validateTypeUser() == 1) {
                 redirect("/admin");
             } else if ($this->usersession->validateTypeUser() == 2) {
-                redirect("/store".$this->session->id_empresa."/admin");
+                redirect("/store/".$this->session->id_empresa."/admin");
             }
             
             $validateEmpresa = $this->M_Empresa->getByID( $this->uri->segment(2) );
