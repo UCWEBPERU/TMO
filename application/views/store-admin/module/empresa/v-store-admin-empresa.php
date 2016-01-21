@@ -94,11 +94,20 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="txtPassword">ID Account</label>
-                                <input type="text" class="form-control" id="txtPassword" name="passwordUsuario" value="<?php echo $modulo->datos_pay_account->pay_id; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
+                                <?php if (isset($modulo->datos_pay_account)) { ?>
+                                        <input type="text" class="form-control" id="txtPassword" name="passwordUsuario" value="<?php echo $modulo->datos_pay_account->pay_id; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
+                                <?php } else { ?>
+                                        <input type="text" class="form-control" id="txtPassword" name="passwordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
+                                <?php } ?>
                             </div>
                             <div class="form-group">
                                 <label for="txtPasswordRepeat">Tipo Metodo de Pago</label>
-                                <input type="text" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" value="<?php echo $modulo->datos_pay_account->tipo_metodo_pago; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
+                                <?php if (isset($modulo->datos_pay_account)) { ?>
+                                        <input type="text" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" value="<?php echo $modulo->datos_pay_account->tipo_metodo_pago; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
+                                <?php } else { ?>
+                                        <input type="text" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
+                                <?php } ?>
+                                
                             </div>
                         </div>
                         <!-- /.box-body -->
