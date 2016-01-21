@@ -1,3 +1,7 @@
 .login-box > .login-logo > .img-circle {
     width: 125px;
 }
+
+.img-size-50 {
+    width: 50%;
+}
