@@ -56,7 +56,7 @@ class UserSession {
                     $dataEmpresa = $this->CI->M_Empresa->getByID( $this->CI->uri->segment(2) );
                 }
                 
-                if (sizeof($dataEmpresa) > 0 && $dataEmpresa->id_usuario != $this->CI->session->id_usuario) {
+                if (sizeof($dataEmpresa) > 0) {
                     redirect("forbidden-access");
                 } else {
                     redirect("not-found/store");
