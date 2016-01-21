@@ -83,33 +83,41 @@
             </div>
             
             <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                <h3 class="box-title">Cuenta de Pago</h3>
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Cuenta de Pago</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form id="frmDatosUsuario" name="frmDatosUsuario" role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="txtPassword">ID Account</label>
+                                <input type="text" class="form-control" id="txtPassword" name="passwordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPasswordRepeat">Tipo Metodo de Pago</label>
+                                <input type="text" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+
+                        <div class="box-footer">
+                            <button id="btnGuardarUsuario" type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
                 </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form id="frmDatosUsuario" name="frmDatosUsuario" role="form" method="post">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="txtPassword">ID Account</label>
-                            <input type="text" class="form-control" id="txtPassword" name="passwordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtPasswordRepeat">Tipo Metodo de Pago</label>
-                            <input type="text" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
-                        </div>
+                <!-- /.box  -->
+                
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Logo Empresa</h3>
                     </div>
-                    <!-- /.box-body -->
-
-                    <div class="box-footer">
-                        <button id="btnGuardarUsuario" type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
-            </div>
-            <!-- /.box  -->
-
+                    <img class="img-circle" src="<?php echo $modulo->url_logo; ?>" alt="User Avatar">
+                </div>
+                <!-- /.box  -->
             </div>
 
           </div><!-- /.row -->
