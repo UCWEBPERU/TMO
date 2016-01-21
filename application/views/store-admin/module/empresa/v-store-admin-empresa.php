@@ -124,7 +124,7 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">Logo Empresa</h3>
                     </div>
-                    <img class="img-circle img-size-50" src="<?php echo $modulo->icono_empresa; ?>" alt="User Avatar">
+                    <img class="img-circle img-size-25" src="<?php echo $modulo->icono_empresa; ?>" alt="User Avatar">
                 </div>
                 <!-- /.box  -->
             </div>
