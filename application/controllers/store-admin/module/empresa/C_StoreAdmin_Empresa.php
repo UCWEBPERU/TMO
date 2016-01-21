@@ -47,7 +47,7 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         $modulo->menu = array("menu" => 1, "submenu" => 0);
         
         $data["modulo"] = $modulo;
-        $this->load->view('admin/module/perfil/v-admin-perfil', $data);
+        $this->load->view('store-admin/module/empresa/v-store-admin-empresa', $data);
 	}
 	
 }
