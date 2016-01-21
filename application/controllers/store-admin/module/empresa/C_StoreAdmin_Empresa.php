@@ -12,32 +12,35 @@ class C_StoreAdmin_Empresa extends CI_Controller {
 	}
 
 	public function index()	{
-        $this->load->model("store-admin/M_StoreAdmin");
+        $this->load->model("store-admin/M_StoreAdmin_Empresa");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
+        $this->load->model('M_Usuario');
         
         $modulo = new stdClass();
         
-        $dataEmpresa = $this->M_Empresa->getByID( $this->session->id_empresa );
-            
-        $validateLogoEmpresa = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
+        $dataEmpresa        = $this->M_Empresa->getByID($this->session->id_empresa);
+        $dataUsuario        = $this->M_Usuario->getByID($this->session->id_usuario);
+        $dataLogoEmpresa    = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
+        $dataPayAccount     = $this->M_StoreAdmin_Empresa->getPayAccountByID($dataEmpresa[0]->id_pay_account);
         
-        if (sizeof($validateLogoEmpresa) > 0) {
-            $modulo->icono_empresa = $validateLogoEmpresa[0]->url_archivo;
+        if (sizeof($dataLogoEmpresa) > 0) {
+            $modulo->icono_empresa = $dataLogoEmpresa[0]->url_archivo;
         } else {
-            // Colocar logo de store por defecto
-            $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png";
+            $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png"; // Colocar logo de store por defecto
         }
         
         $modulo->titulo_pagina = $dataEmpresa[0]->nombre_empresa." | Panel Administrativo - Store";
         
-        $usuario = $this->M_StoreAdmin->getByID($this->session->id_usuario);
-        
-        $modulo->datos_usuario = $usuario[0];
-        
+        $modulo->datos_usuario = $dataUsuario[0];
+        $modulo->datos_empresa = $dataEmpresa[0];
+        if (sizeof($dataPayAccount) > 0) {
+            $modulo->datos_pay_account = $dataPayAccount[0];
+        }
+                
         /* Datos de la cabecera del panel de administrador */
-        $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
-        $modulo->tipo_usuario = $usuario[0]->nombre_tipo_usuario;
+        $modulo->nombres_usuario = $dataUsuario[0]->nombres_persona." ".$dataUsuario[0]->apellidos_persona;
+        $modulo->tipo_usuario = $dataUsuario[0]->nombre_tipo_usuario;
         $modulo->nombre_empresa_largo = $dataEmpresa[0]->nombre_empresa;
         $modulo->nombre_empresa_corto = $dataEmpresa[0]->nombre_empresa;
         /* --------------------*-------------------- */
