@@ -127,6 +127,10 @@
                     <div class="box-logo-store">
                         <img class="img-circle img-size-25" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
                     </div>
+                    <div class="btn btn-default btn-file">
+                        <i class="fa fa-paperclip"></i> Upload new logo
+                        <input type="file" name="logoStore">
+                    </div>
                 </div>
                 <!-- /.box  -->
             </div>
