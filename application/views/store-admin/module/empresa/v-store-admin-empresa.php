@@ -32,10 +32,7 @@
             <!-- general form elements -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                <h3 class="box-title">Datos Empresa</h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                </div>
+                    <h3 class="box-title">Datos Empresa</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
@@ -89,22 +86,18 @@
             <!-- general form elements -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                <h3 class="box-title">Cuenta de Usuario</h3>
+                <h3 class="box-title">Cuenta de Pago</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
                 <form id="frmDatosUsuario" name="frmDatosUsuario" role="form" method="post">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="txtEmailUsuario">Email Usuario</label>
-                            <input type="email" class="form-control" id="txtEmailUsuario" name="emailUsuario" value="<?php echo $modulo->datos_usuario->email_usuario; ?>" disabled />
-                        </div>
-                        <div class="form-group">
-                            <label for="txtPassword">Contraseña</label>
+                            <label for="txtPassword">ID Account</label>
                             <input type="text" class="form-control" id="txtPassword" name="passwordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
                         </div>
                         <div class="form-group">
-                            <label for="txtPasswordRepeat">Confirmar Contraseña</label>
+                            <label for="txtPasswordRepeat">Tipo Metodo de Pago</label>
                             <input type="text" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
                         </div>
                     </div>
