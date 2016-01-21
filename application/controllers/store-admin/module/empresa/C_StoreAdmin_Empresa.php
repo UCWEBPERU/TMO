@@ -56,8 +56,8 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         $this->load->view('store-admin/module/empresa/v-store-admin-empresa', $data);
 	}
     
-    public function updateDatosEmpresa() {
-        txtNombreEmpresa
-    }
+    // public function updateDatosEmpresa() {
+    //     txtNombreEmpresa
+    // }
 	
 }
