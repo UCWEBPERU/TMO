@@ -76,11 +76,11 @@
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroCelular">Numero Celular</label>
-                        <input type="text" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" value="<?php echo $modulo->datos_empresa->movil_empresa; ?>" data-parsley-type="integer" data-parsley-required-message="Ingrese el tipo de metodo de pago." data-parsley-type-message="Ingrese un numero de celular valido."/>
+                        <input type="text" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" value="<?php echo $modulo->datos_empresa->movil_empresa; ?>" data-parsley-type="integer" data-parsley-type-message="El numero de celular solo debe ser digitos."/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroTelefono">Numero Telefonico</label>
-                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_empresa->telefono_empresa; ?>" data-parsley-type="integer" data-parsley-required-message="Ingrese el tipo de metodo de pago." data-parsley-type-message="Ingrese un numero de celular valido."/>
+                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_empresa->telefono_empresa; ?>" data-parsley-type="integer" data-parsley-type-message="El numero de telefono solo debe ser digitos."/>
                         </div>
                     </div>
                     <!-- /.box-body -->
