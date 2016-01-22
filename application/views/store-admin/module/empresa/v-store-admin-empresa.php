@@ -40,7 +40,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="txtNombreEmpresa">Nombre</label>
-                            <input type="text" class="form-control" id="txtNombreEmpresa" name="txtNombreEmpresa" value="<?php echo $modulo->datos_empresa->nombre_empresa; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el nombre de la empresa."/>
+                            <input type="text" class="form-control" id="txtNombreEmpresa" name="txtNombreEmpresa" value="<?php echo $modulo->datos_empresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese el nombre de la empresa."/>
                         </div>
                         <div class="form-group">
                             <label for="cbo_tipo_empresa">Tipo Empresa</label>
