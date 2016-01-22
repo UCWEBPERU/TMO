@@ -36,7 +36,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form id="frmPerfilUsuario" name="frmPerfilUsuario" role="form" method="post">
+                <form id="frmDatosStore" name="frmDatosStore" role="form" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="txtNombreEmpresa">Nombre</label>
@@ -76,17 +76,17 @@
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroCelular">Numero Celular</label>
-                        <input type="text" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" value="<?php echo $modulo->datos_empresa->movil_empresa; ?>" data-parsley-required="false" data-parsley-type="integer" data-parsley-required-message="Ingrese el tipo de metodo de pago." data-parsley-type-message="Ingrese un numero de celular valido."/>
+                        <input type="text" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" value="<?php echo $modulo->datos_empresa->movil_empresa; ?>" data-parsley-type="integer" data-parsley-required-message="Ingrese el tipo de metodo de pago." data-parsley-type-message="Ingrese un numero de celular valido."/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroTelefono">Numero Telefonico</label>
-                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_empresa->telefono_empresa; ?>" data-parsley-required="false" data-parsley-type="integer" data-parsley-required-message="Ingrese el tipo de metodo de pago." data-parsley-type-message="Ingrese un numero de celular valido."/>
+                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_empresa->telefono_empresa; ?>" data-parsley-type="integer" data-parsley-required-message="Ingrese el tipo de metodo de pago." data-parsley-type-message="Ingrese un numero de celular valido."/>
                         </div>
                     </div>
                     <!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button id="btnGuardarPerfil" type="submit" class="btn btn-primary">Guardar</button>
+                        <button id="btnGuardarDatosStore" type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </form>
             </div>
@@ -184,46 +184,17 @@
         }
         
         $(function () {
-            var selectorInputsFormPerfilUsuario = ["#txtNombres", "#txtApellidos", "#txtPais", "#txtEstado", "#txtDireccion", "#txtNumeroCelular", "#txtNumeroTelefono"];
-            var selectorInputsFormDatosUsuario = ["#txtPassword", "#txtPasswordRepeat"];
+            var selectorInputsFormDatosStore = ["#txtNombreEmpresa", "#txtNumeroCelular", "#txtNumeroTelefono"];
             
-            $("#btnGuardarPerfil").on("click", function(evt){
+            $("#btnGuardarDatosStore").on("click", function(evt){
                 evt.preventDefault();
                 
-                if (validateInputsForm(selectorInputsFormPerfilUsuario)) {
-                    waitingDialog.show('Actualizando Datos Personales...');
+                if (validateInputsForm(selectorInputsFormDatosStore)) {
+                    waitingDialog.show('Actualizando Datos de Empresa...');
                     var request = $.ajax({
-                        url: "<?php echo base_url().'admin/perfil/actualizar-perfil-usuario'; ?>",
+                        url: "<?php echo $modulo->url_main_panel."/perfil-store/update"; ?>",
                         method: "POST",
-                        data: $("#frmPerfilUsuario").serialize(),
-                        dataType: "json"
-                    });
-
-                    request.done(function( response ) {
-                        waitingDialog.hide();
-                        if (response.status) {
-                            GenericModal.show("default", "<p>" + response.message + "</p>");
-                        } else {
-                            GenericModal.show("danger", "<p>" + response.message + "</p>");
-                        }
-                    });
-
-                    request.fail(function( jqXHR, textStatus ) {
-                        waitingDialog.hide();
-                        GenericModal.show("danger", "<p>" + response.message + "</p>");
-                    });
-                }
-            });
-            
-            $("#btnGuardarUsuario").on("click", function(evt){
-                evt.preventDefault();
-                
-                if (validateInputsForm(selectorInputsFormDatosUsuario)) {
-                    waitingDialog.show('Actualizando Datos de Usuario...');
-                    var request = $.ajax({
-                        url: "<?php echo base_url().'admin/perfil/actualizar-cuenta-usuario'; ?>",
-                        method: "POST",
-                        data: $("#frmDatosUsuario").serialize(),
+                        data: $("#frmDatosStore").serialize(),
                         dataType: "json"
                     });
 

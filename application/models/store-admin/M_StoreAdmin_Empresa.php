@@ -46,7 +46,7 @@ class M_StoreAdmin_Empresa extends CI_Model{
 	}
     
     
-    public function update($data_empresa) {
+    public function updateDatosEmpresa($data_empresa) {
 		$data = array(
 			'nombre_empresa'			=> $data_empresa["nombre_empresa"],
 			'id_tipo_empresa'			=> $data_empresa["id_tipo_empresa"], 
@@ -66,6 +66,5 @@ class M_StoreAdmin_Empresa extends CI_Model{
 		
 		return FALSE;
 	}
-    
 
 }

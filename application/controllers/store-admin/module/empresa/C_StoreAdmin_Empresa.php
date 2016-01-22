@@ -56,8 +56,46 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         $this->load->view('store-admin/module/empresa/v-store-admin-empresa', $data);
 	}
     
-    // public function updateDatosEmpresa() {
-    //     txtNombreEmpresa
-    // }
+    public function updateDatosStore() {
+        $this->load->model("store-admin/M_StoreAdmin_Empresa");
+        
+		$json 				= new stdClass();
+		$json->type 		= "Store";
+		$json->presentation = "";
+		$json->action 		= "update";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+            
+        if ( $this->input->post("txtNombreEmpresa") ) {
+                
+                $result = $this->M_StoreAdmin_Empresa->updateDatosEmpresa(
+                    array(
+                        "id_empresa"            => $this->session->id_empresa,
+                        "nombre_empresa"        => trim($this->input->post("txtNombreEmpresa", TRUE)),
+                        "id_tipo_empresa"       => trim($this->input->post("cbo_tipo_empresa", TRUE)),
+                        "descripcion_empresa"   => trim($this->input->post("txtDescripcion", TRUE)),
+                        "direccion_empresa"     => trim($this->input->post("txtDireccion", TRUE)),
+                        "pais_region_empresa"   => trim($this->input->post("txtPais", TRUE)),
+                        "estado_region_empresa" => trim($this->input->post("txtEstado", TRUE)),
+                        "codigo_postal_empresa" => trim($this->input->post("txtCodigoPostal", TRUE)),
+                        "telefono_empresa"      => trim($this->input->post("txtNumeroCelular", TRUE)),
+                        "movil_empresa"         => trim($this->input->post("txtNumeroTelefono", TRUE))
+                    )
+                );
+                
+                if ($result) {
+                    $json->message = "Los datos de la empresa se actualizo correctamente.";
+                    $json->status = TRUE;
+                } else {
+                    $json->message = "Ocurrio un error al actualizar los datos de la empresa, intente de nuevo.";
+                }
+            
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+		
+		echo json_encode($json);
+        
+    }
 	
 }
