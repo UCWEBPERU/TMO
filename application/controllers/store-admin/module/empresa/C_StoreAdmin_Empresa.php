@@ -97,5 +97,70 @@ class C_StoreAdmin_Empresa extends CI_Controller {
 		echo json_encode($json);
         
     }
-	
+    
+    public function updateDatosPayAccount() {
+        $this->load->model("store-admin/M_StoreAdmin_Empresa");
+        $this->load->model("M_Empresa");
+        
+		$json 				= new stdClass();
+		$json->type 		= "Pay Account";
+		$json->presentation = "";
+		$json->action 		= "insert/update";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+            
+        if ( $this->input->post("txtIDPayAccount") &&
+                $this->input->post("txtTipoPayAccount") ) {
+                    
+                $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
+                $dataPayAccount = $this->M_StoreAdmin_Empresa->getPayAccountByID($dataEmpresa[0]->id_pay_account);
+                
+                if (sizeof($dataPayAccount) > 0) {
+                    $resultUpdate = $this->M_StoreAdmin_Empresa->updateDatosPayAccount(
+                            array(
+                                'id_pay_account'    => $dataEmpresa[0]->id_pay_account,
+                                'pay_id'            => trim($this->input->post("txtIDPayAccount", TRUE)),
+                                'tipo_metodo_pago'  => trim($this->input->post("txtTipoPayAccount", TRUE))
+                            )
+                        );
+                    if ($resultUpdate) {
+                        $json->message = "Sus datos de cuenta de pago se actualizo correctamente.";
+                        $json->status = TRUE;
+                    } else {
+                        $json->message = "Ocurrio un error al actualizar sus datos de cuenta de pago, intente de nuevo.";
+                    }
+                } else {
+                    $resultInsert = $this->M_StoreAdmin_Empresa->insertDatosPayAccount(
+                            array(
+                                'pay_id'           => trim($this->input->post("txtIDPayAccount", TRUE)),
+                                'tipo_metodo_pago' => trim($this->input->post("txtTipoPayAccount", TRUE))
+                            )
+                        );
+                    if (is_int($resultInsert)) {
+                        $resultUpdate = $this->M_StoreAdmin_Empresa->updateIDPayAccountOnEmpresa(
+                            array(
+                                'id_empresa'     => $this->session->id_empresa,
+                                'id_pay_account' => $resultInsert,
+                            )
+                        );
+                        
+                        if ($resultUpdate) {
+                            $json->message = "Sus datos de cuenta de pago se guardo correctamente.";
+                            $json->status = TRUE;
+                        } else {
+                            $json->message = "Ocurrio un error al guardar sus datos de cuenta de pago, intente de nuevo.";
+                        }
+                        
+                    } else {
+                        $json->message = "Ocurrio un error al guardar sus datos de cuenta de pago, intente de nuevo.";
+                    }
+                }
+
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+		echo json_encode($json);
+    }
+
 }

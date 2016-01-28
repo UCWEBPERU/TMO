@@ -102,22 +102,22 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form id="frmDatosUsuario" name="frmDatosUsuario" role="form" method="post">
+                    <form id="frmDatosPayAccount" name="frmDatosPayAccount" role="form" method="post">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="txtIDPayAccount">ID Account</label>
                                 <?php if (isset($modulo->datos_pay_account)) { ?>
-                                        <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" value="<?php echo $modulo->datos_pay_account->pay_id; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el id de su cuenta de pago."/>
+                                        <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" value="<?php echo $modulo->datos_pay_account->pay_id; ?>" data-parsley-required data-parsley-required-message="Ingrese el id de su cuenta de pago."/>
                                 <?php } else { ?>
-                                        <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el id de su cuenta de pago."/>
+                                        <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" data-parsley-required data-parsley-required-message="Ingrese el id de su cuenta de pago."/>
                                 <?php } ?>
                             </div>
                             <div class="form-group">
                                 <label for="txtTipoPayAccount">Tipo de Metodo de Pago</label>
                                 <?php if (isset($modulo->datos_pay_account)) { ?>
-                                        <input type="text" class="form-control" id="txtTipoPayAccount" name="txtTipoPayAccount" value="<?php echo $modulo->datos_pay_account->tipo_metodo_pago; ?>" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el tipo de metodo de pago."/>
+                                        <input type="text" class="form-control" id="txtTipoPayAccount" name="txtTipoPayAccount" value="<?php echo $modulo->datos_pay_account->tipo_metodo_pago; ?>" data-parsley-required data-parsley-required-message="Ingrese el tipo de metodo de pago."/>
                                 <?php } else { ?>
-                                        <input type="text" class="form-control" id="txtTipoPayAccount" name="txtTipoPayAccount" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese el tipo de metodo de pago." />
+                                        <input type="text" class="form-control" id="txtTipoPayAccount" name="txtTipoPayAccount" data-parsley-required data-parsley-required-message="Ingrese el tipo de metodo de pago." />
                                 <?php } ?>
                                 
                             </div>
@@ -125,7 +125,7 @@
                         <!-- /.box-body -->
 
                         <div class="box-footer">
-                            <button id="btnGuardarUsuario" type="submit" class="btn btn-primary">Guardar</button>
+                            <button id="btnGuardarDatosPayAccount" type="submit" class="btn btn-primary">Guardar</button>
                         </div>
                     </form>
                 </div>
@@ -190,11 +190,39 @@
                 evt.preventDefault();
                 
                 if (validateInputsForm(selectorInputsFormDatosStore)) {
-                    waitingDialog.show('Actualizando Datos de Empresa...');
+                    waitingDialog.show('Guardando Datos de Empresa...');
                     var request = $.ajax({
-                        url: "<?php echo $modulo->url_main_panel."/perfil-store/update"; ?>",
+                        url: "<?php echo $modulo->url_main_panel."/perfil-store/updatePerfilStore"; ?>",
                         method: "POST",
                         data: $("#frmDatosStore").serialize(),
+                        dataType: "json"
+                    });
+
+                    request.done(function( response ) {
+                        waitingDialog.hide();
+                        if (response.status) {
+                            GenericModal.show("default", "<p>" + response.message + "</p>");
+                        } else {
+                            GenericModal.show("danger", "<p>" + response.message + "</p>");
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        waitingDialog.hide();
+                        GenericModal.show("danger", "<p>" + response.message + "</p>");
+                    });
+                }
+            });
+            
+            $("#btnGuardarDatosPayAccount").on("click", function(evt){
+                evt.preventDefault();
+                
+                if (validateInputsForm(selectorInputsFormDatosStore)) {
+                    waitingDialog.show('Guardando Datos de Cuenta de Pago...');
+                    var request = $.ajax({
+                        url: "<?php echo $modulo->url_main_panel."/perfil-store/updatePayAccount"; ?>",
+                        method: "POST",
+                        data: $("#frmDatosPayAccount").serialize(),
                         dataType: "json"
                     });
 

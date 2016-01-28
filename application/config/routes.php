@@ -125,10 +125,11 @@ $route['store/(:num)/admin/login'] = 'admin/C_Login';
 | URL -> STORE ADMIN - EMPRESA
 | ------------------------------
 */
-$route['store/(:num)/admin']	                 = 'store-admin/C_StoreAdmin';
-$route['store/(:num)/admin/login']               = 'admin/C_Login';
-$route['store/(:num)/admin/perfil-store']        = 'store-admin/module/empresa/C_StoreAdmin_Empresa';
-$route['store/(:num)/admin/perfil-store/update'] = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosStore';
+$route['store/(:num)/admin']	                            = 'store-admin/C_StoreAdmin';
+$route['store/(:num)/admin/login']                          = 'admin/C_Login';
+$route['store/(:num)/admin/perfil-store']                   = 'store-admin/module/empresa/C_StoreAdmin_Empresa';
+$route['store/(:num)/admin/perfil-store/updatePerfilStore'] = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosStore';
+$route['store/(:num)/admin/perfil-store/updatePayAccount']  = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosPayAccount';
 
 
 /*

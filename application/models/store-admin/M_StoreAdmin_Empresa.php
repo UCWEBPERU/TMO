@@ -13,39 +13,6 @@ class M_StoreAdmin_Empresa extends CI_Model{
 		return $query->result();
     }
     
-    public function updatePassWordUsuario($id_usuario, $password_usuario) {
-		$data = array(
-			'password_usuario'			=> $password_usuario
-		);
-
-		$this->db->where('Usuario.id_usuario', $id_usuario);
-		if ($this->db->update('Usuario', $data)) {
-			return TRUE;
-		}
-		
-		return FALSE;
-	}
-    
-    public function updatePerfilUsuario($datosUsuario) {
-		$data = array(
-			'nombres_persona'		=> $datosUsuario["nombres"],
-			'apellidos_persona'		=> $datosUsuario["apellidos"],
-			'pais_region_persona'	=> $datosUsuario["pais_region"],
-			'estado_region_persona'	=> $datosUsuario["estado_Region"],
-			'direccion_persona'		=> $datosUsuario["direccion"],
-			'movil_persona'			=> $datosUsuario["movil"],
-			'telefono_persona'		=> $datosUsuario["telefono"]
-		);
-
-		$this->db->where('Persona.id_usuario', $datosUsuario["id"]);
-		if ($this->db->update('Persona', $data)) {
-			return TRUE;
-		}
-		
-		return FALSE;
-	}
-    
-    
     public function updateDatosEmpresa($data_empresa) {
 		$data = array(
 			'nombre_empresa'			=> $data_empresa["nombre_empresa"],
@@ -66,5 +33,45 @@ class M_StoreAdmin_Empresa extends CI_Model{
 		
 		return FALSE;
 	}
+    
+    public function insertDatosPayAccount($data_pay_account) {
+        $data = array(
+			'pay_id'             => $data_pay_account["pay_id"],
+			'tipo_metodo_pago'   => $data_pay_account["tipo_metodo_pago"]
+		);
+
+		if ($this->db->insert('Pay_Account', $data)) {
+			return $this->db->insert_id();
+		}
+		
+		return FALSE;
+    }
+    
+    public function updateDatosPayAccount($data_pay_account) {
+        $data = array(
+			'pay_id'             => $data_pay_account["pay_id"],
+			'tipo_metodo_pago'   => $data_pay_account["tipo_metodo_pago"]
+		);
+
+		$this->db->where('id_pay_account', $data_pay_account["id_pay_account"]);
+		if ($this->db->update('Pay_Account', $data)) {
+			return TRUE;
+		}
+		
+		return FALSE;
+    }
+    
+    public function updateIDPayAccountOnEmpresa($data_pay_account) {
+        $data = array(
+			'id_pay_account' => $data_pay_account["id_pay_account"]
+		);
+
+		$this->db->where('id_empresa', $data_pay_account["id_empresa"]);
+		if ($this->db->update('Empresa', $data)) {
+			return TRUE;
+		}
+		
+		return FALSE;
+    }
 
 }
