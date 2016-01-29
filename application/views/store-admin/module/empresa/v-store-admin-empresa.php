@@ -282,7 +282,7 @@
                         waitingDialog.show('Actualizando Logo de Empresa...');
                         
                         var request = $.ajax({
-                            url: "<?php echo $modulo->url_main_panel."/perfil-store/updateLogoStore"; ?>",,
+                            url: "<?php echo $modulo->url_main_panel."/perfil-store/updateLogoStore"; ?>",
                             method: "POST",
                             data: formData,
                             dataType: "json",
