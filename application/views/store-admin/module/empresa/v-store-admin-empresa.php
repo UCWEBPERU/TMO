@@ -249,7 +249,7 @@
             
             function handleFileSelect(evt) {
                 var files = evt.target.files; // FileList object
-                
+                console.log("click file logo");
                 // Loop through the FileList and render image files as thumbnails.
                 for (var i = 0, f; f = files[i]; i++) {
                 
@@ -266,6 +266,7 @@
                     reader.onload = (function(theFile) {
                         return function(e) {
                             $("#imgLogoStore").attr("src", e.target.result);
+                            console.log("change image logo");
                         };
                     })(f);
                 
