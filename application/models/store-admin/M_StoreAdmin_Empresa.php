@@ -73,5 +73,18 @@ class M_StoreAdmin_Empresa extends CI_Model{
 		
 		return FALSE;
     }
+    
+    public function updateLogoOnEmpresa($data_logo_empresa) {
+		$data = array(
+			'url_archivo'		=> $data_logo_empresa["url_archivo"]
+		);
+
+		$this->db->where('id_archivo', $data_logo_empresa["id_archivo"]);
+		if ($this->db->update('Archivo', $data)) {
+			return TRUE;
+		}
+        
+		return FALSE;
+	}
 
 }

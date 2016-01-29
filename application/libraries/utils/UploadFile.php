@@ -21,16 +21,24 @@ class UploadFile {
 		// $fullPath = "http://".$_SERVER["HTTP_HOST"]."/AlliNight".$pathUploadFile.basename($_FILES["$file"]['name']);
 		// $fullPath = base_url().$pathUploadFile.basename($_FILES["$file"]['name']);
 		// $fullPath = base_url().$mainPath.$_FILES["$file"]['name'];
-		$fullPath = base_url().$pathUploadFile.$name.".png";
+		$fullPath = "";
 		
 		if (move_uploaded_file($_FILES["$file"]['tmp_name'], $pathUpload)) {
 		    //  echo "Success";
 			// rename($pathUpload, $pathUpload.".png");
+            $fullPath = base_url().$pathUploadFile.$name.".png";
 		} else{
 		    // echo "Error";
 		}
 
 		return $fullPath;
 	}
+    
+    public function validateFile($file) {
+        if ( isset($_FILES["$file"]) && !empty($_FILES["$file"]) ) {
+			return TRUE;
+		}
+        return FALSE;
+    }
 
 }

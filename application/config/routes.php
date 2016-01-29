@@ -130,6 +130,7 @@ $route['store/(:num)/admin/login']                          = 'admin/C_Login';
 $route['store/(:num)/admin/perfil-store']                   = 'store-admin/module/empresa/C_StoreAdmin_Empresa';
 $route['store/(:num)/admin/perfil-store/updatePerfilStore'] = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosStore';
 $route['store/(:num)/admin/perfil-store/updatePayAccount']  = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosPayAccount';
+$route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateLogoStore';
 
 
 /*

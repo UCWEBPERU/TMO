@@ -140,8 +140,11 @@
                         <img class="img-circle img-size-25" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
                         <div class="btn btn-default btn-file">
                             <i class="fa fa-paperclip"></i> Upload new logo
-                            <input type="file" id="logoStore" name="logoStore" accept="image/*">
+                            <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
                         </div>
+                    </div>
+                    <div class="box-footer">
+                        <button id="btnActualizarLogoEmpresa" type="submit" class="btn btn-primary">Actualizar</button>
                     </div>
                 </div>
                 <!-- /.box  -->
@@ -209,7 +212,7 @@
 
                     request.fail(function( jqXHR, textStatus ) {
                         waitingDialog.hide();
-                        GenericModal.show("danger", "<p>" + response.message + "</p>");
+                        GenericModal.show("danger", "<p>" + textStatus + "</p>");
                     });
                 }
             });
@@ -237,11 +240,79 @@
 
                     request.fail(function( jqXHR, textStatus ) {
                         waitingDialog.hide();
-                        GenericModal.show("danger", "<p>" + response.message + "</p>");
+                        GenericModal.show("danger", "<p>" + textStatus + "</p>");
                     });
                 }
             });
             
+            var formData  = new FormData();
+            
+            function handleFileSelect(evt) {
+                var files = evt.target.files; // FileList object
+                
+                // Loop through the FileList and render image files as thumbnails.
+                for (var i = 0, f; f = files[i]; i++) {
+                
+                    // Only process image files.
+                    if (!f.type.match('image.*')) {
+                        continue;
+                    }
+                    
+                    formData.append("imgLogoStore", f);
+                
+                    var reader = new FileReader();
+                
+                    // Closure to capture the file information.
+                    reader.onload = (function(theFile) {
+                        return function(e) {
+                            $("#imgLogoStore").attr("src", e.target.result);
+                        };
+                    })(f);
+                
+                    // Read in the image file as a data URL.
+                    reader.readAsDataURL(f);
+                }
+            }
+                
+            $("#btnActualizarLogoEmpresa").on("click", function(evt){
+                evt.preventDefault();
+                
+                if ( $("#imgLogoStore").val().length > 0 ) {
+                        
+                        waitingDialog.show('Actualizando Logo de Empresa...');
+                        
+                        var request = $.ajax({
+                            url: "<?php echo $modulo->url_main_panel."/perfil-store/updateLogoStore"; ?>",,
+                            method: "POST",
+                            data: formData,
+                            dataType: "json",
+                            processData: false,
+                            contentType: false
+                        });
+            
+                        request.done(function( response ) {
+                            waitingDialog.hide();
+                            formData = new FormData();
+                            if (response.status) {
+                                GenericModal.show("default", "<p>" + response.message + "</p>");
+                            } else {
+                                GenericModal.show("danger", "<p>" + response.message + "</p>");
+                            }
+                        });
+            
+                        request.fail(function( jqXHR, textStatus ) {
+                            waitingDialog.hide();
+                            GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                        });
+                    
+                } else {
+                    GenericModal.show("danger", "<p>Seleccione una imagen.</p>");
+                }
+                
+            });
+                
+            $("#imgLogoStore").on("change", handleFileSelect);
+
         });
         
     </script>

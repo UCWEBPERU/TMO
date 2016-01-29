@@ -162,5 +162,44 @@ class C_StoreAdmin_Empresa extends CI_Controller {
 
 		echo json_encode($json);
     }
+    
+    public function updateLogoStore() {
+        $this->load->model("store-admin/M_StoreAdmin_Empresa");
+        $this->load->model("M_Empresa");
+        $this->load->library('utils/UploadFile');
+        
+		$json 				= new stdClass();
+		$json->type 		= "Logo Empresa";
+		$json->presentation = "";
+		$json->action 		= "update";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+            
+        if ( $this->uploadfile->validateFile("imgLogoStore") ) { 
+            $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
+            
+            $path = "uploads/store/".$this->session->id_empresa."/logo/";
+
+            $path = $this->uploadfile->upload("imgLogoStore", "logo", $path);
+            
+            $result = $this->M_StoreAdmin_Empresa->updateLogoOnEmpresa(
+                array(
+                    "id_archivo"    => $dataEmpresa[0]->id_archivo_logo,
+                    "path"          => $path["path"];
+                )
+            );
+            
+            if ($result) {
+                $json->message = "El logo de la empresa se actualizó correctamente.";
+                $json->status = TRUE;
+            } else {
+                $json->message = "Ocurrio un error al al actualizar el logo de la empresa, intente de nuevo.";
+            }
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+		echo json_encode($json);
+    }
 
 }
