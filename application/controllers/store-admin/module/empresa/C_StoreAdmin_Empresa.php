@@ -181,11 +181,11 @@ class C_StoreAdmin_Empresa extends CI_Controller {
             $path = "uploads/store/".$this->session->id_empresa."/logo/";
 
             $path = $this->uploadfile->upload("imgLogoStore", "logo", $path);
-            var_dump($path);
+            
             $result = $this->M_StoreAdmin_Empresa->updateLogoOnEmpresa(
                 array(
                     "id_archivo"   => $dataEmpresa[0]->id_archivo_logo,
-                    "url_archivo"  => $path["path"]
+                    "url_archivo"  => $path
                 )
             );
             
