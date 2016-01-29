@@ -137,10 +137,10 @@
                         <h3 class="box-title">Logo Empresa</h3>
                     </div>
                     <div class="box-logo-store">
-                        <img class="img-circle img-size-25" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
+                        <img id="logoStore" class="img-circle img-size-25" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
                         <div class="btn btn-default btn-file">
                             <i class="fa fa-paperclip"></i> Upload new logo
-                            <input type="file" id="imgLogoStore" name="imgLogoStore">
+                            <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
                         </div>
                     </div>
                     <div class="box-footer">
@@ -249,7 +249,6 @@
             
             function handleFileSelect(evt) {
                 var files = evt.target.files; // FileList object
-                console.log("click file logo");
                 // Loop through the FileList and render image files as thumbnails.
                 for (var i = 0, f; f = files[i]; i++) {
                 
@@ -265,8 +264,7 @@
                     // Closure to capture the file information.
                     reader.onload = (function(theFile) {
                         return function(e) {
-                            $("#imgLogoStore").attr("src", e.target.result);
-                            console.log("change image logo");
+                            $("#logoStore").attr("src", e.target.result);
                         };
                     })(f);
                 
