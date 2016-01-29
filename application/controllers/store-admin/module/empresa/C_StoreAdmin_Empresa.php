@@ -184,8 +184,8 @@ class C_StoreAdmin_Empresa extends CI_Controller {
             
             $result = $this->M_StoreAdmin_Empresa->updateLogoOnEmpresa(
                 array(
-                    "url_archivo"   => $dataEmpresa[0]->id_archivo_logo,
-                    "path"          => $path["path"]
+                    "id_archivo"   => $dataEmpresa[0]->id_archivo_logo,
+                    "url_archivo"  => $path["path"]
                 )
             );
             
