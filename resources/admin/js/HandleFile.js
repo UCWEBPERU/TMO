@@ -1,7 +1,5 @@
 function HandleFile(selectorFile) {
     this.selectorFile = selectorFile;
-    this.callbackOnSuccess;
-    this.callbackOnReadFile;
 }
 
 HandleFile.prototype.onSelect = function(callbackOnSuccess, callbackOnReadFile) {

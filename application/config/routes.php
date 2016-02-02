@@ -122,7 +122,7 @@ $route['store/(:num)/admin/login'] = 'admin/C_Login';
 
 /*
 | ------------------------------
-| URL -> STORE ADMIN - EMPRESA
+| URL -> STORE ADMIN - PERFIL EMPRESA
 | ------------------------------
 */
 $route['store/(:num)/admin']	                            = 'store-admin/C_StoreAdmin';
@@ -131,6 +131,14 @@ $route['store/(:num)/admin/perfil-store']                   = 'store-admin/modul
 $route['store/(:num)/admin/perfil-store/updatePerfilStore'] = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosStore';
 $route['store/(:num)/admin/perfil-store/updatePayAccount']  = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosPayAccount';
 $route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateLogoStore';
+
+/*
+| ------------------------------
+| URL -> STORE ADMIN - PRODUCTOS CATEGORY
+| ------------------------------
+*/
+$route['store/(:num)/admin/products/category']          = 'store-admin/module/productos/C_StoreAdmin_Productos/listAllCategories';
+$route['store/(:num)/admin/products/category/([a-z]+)'] = 'store-admin/module/productos/C_StoreAdmin_Productos/categoryByName/$1';
 
 
 /*
