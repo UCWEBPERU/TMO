@@ -64,7 +64,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
         $modulo->data_categorias = $datosCategorias;
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/empresa/v-store-admin-categorias', $data);
+        $this->load->view('store-admin/module/productos/v-store-admin-categorias', $data);
         
     }
     
