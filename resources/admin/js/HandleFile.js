@@ -4,7 +4,7 @@ function HandleFile(selectorFile) {
     this.callbackOnReadFile;
 }
 
-HandleFile.prototype.listen = function(callbackOnSuccess, callbackOnReadFile) {
+HandleFile.prototype.onSelect = function(callbackOnSuccess, callbackOnReadFile) {
     if (typeof this.selectorFile === 'string') {
         $(this.selectorFile).on("change", 
             function(event) {
