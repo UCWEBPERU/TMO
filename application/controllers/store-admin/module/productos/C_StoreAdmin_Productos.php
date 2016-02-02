@@ -58,7 +58,9 @@ class C_StoreAdmin_Productos extends CI_Controller {
 	}
     
     public function listAllCategories() {
-        $modulo = $this->loadDataPanel("Productos - Categorias");
+        $modulo = $this->loadDataPanel();
+        $modulo->menu = array("menu" => 3, "submenu" => 0);
+        $modulo->titulo_pagina = $modulo->datos_empresa[0]->nombre_empresa." | Panel Administrativo - $nombreSeccion";
         
         $datosCategorias = $this->M_StoreAdmin_Productos->getAllCategories($this->session->id_empresa);
         
@@ -87,8 +89,6 @@ class C_StoreAdmin_Productos extends CI_Controller {
             $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png"; // Colocar logo de store por defecto
         }
         
-        $modulo->titulo_pagina = $dataEmpresa[0]->nombre_empresa." | Panel Administrativo - $nombreSeccion";
-        
         $modulo->datos_usuario = $dataUsuario[0];
         $modulo->datos_empresa = $dataEmpresa[0];
                 
@@ -101,7 +101,6 @@ class C_StoreAdmin_Productos extends CI_Controller {
         
         $modulo->url_signout = base_url()."admin/signOut";
         $modulo->url_main_panel = base_url()."store/".$this->session->id_empresa."/admin";
-        $modulo->menu = array("menu" => 1, "submenu" => 0);
         
         return $modulo;
     }
