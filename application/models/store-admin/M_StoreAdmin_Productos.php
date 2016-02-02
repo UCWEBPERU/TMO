@@ -7,14 +7,17 @@ class M_StoreAdmin_Productos extends CI_Model{
 	}
     
     public function getAllCategories($id_empresa) {
-        $this->db->join('Catalogo_Productos', 'Catalogo_Productos.id_empresa = Empresa.id_empresa');
-		$this->db->join('Producto', 'Producto.id_producto = Catalogo_Productos.id_producto');
-		$this->db->join('Categoria', 'Categoria.id_categoria = Producto.id_categoria');
-		$this->db->where('Empresa.id_empresa', $id_empresa);
-		$this->db->where('Empresa.estado', '1');
-		$this->db->where('Producto.estado', '1');
-		$this->db->where('Categoria.estado', '1');
-		$query = $this->db->get('Empresa');
+		$this->db->where('Categoria_Productos.id_empresa', $id_empresa);
+		$this->db->where('Categoria_Productos.estado', '1');
+		$this->db->where('Categoria_Productos.nivel_categoria', 'categoria');
+		$query = $this->db->get('Categoria_Productos');
+    }
+    
+    public function getSubCategoryByIDCategory($id_category) {
+		$this->db->where('Categoria_Productos.id_categoria_superior', $id_category);
+		$this->db->where('Categoria_Productos.estado', '1');
+		$this->db->where('Categoria_Productos.nivel_categoria', 'subcategoria');
+		$query = $this->db->get('Categoria_Productos');
     }
     
     public function getPayAccountByID($id_pay_account) {

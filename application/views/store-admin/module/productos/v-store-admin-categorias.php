@@ -27,104 +27,25 @@
         <section class="content">
 
           <div class="row">
+            <?php foreach($modulo->data_categorias as $categoria): ?>
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil-store">
-                <div class="info-box">
-                  <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Empresa</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
+                <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil-store">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text"><?php echo $categoria->nombre_categoria; ?></span>
+                            <span class="info-box-number"></span>
+                        </div><!-- /.info-box-content -->
+                    </div><!-- /.info-box -->
+                </a>
             </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/productos">
-                <div class="info-box">
-                  <span class="info-box-icon bg-green"><i class="fa fa-shopping-bag"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Productos</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/categorias">
-                <div class="info-box">
-                  <span class="info-box-icon bg-yellow"><i class="fa fa-tags"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Categorias</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil">
-                <div class="info-box">
-                  <span class="info-box-icon bg-red"><i class="fa fa-user"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Perfil</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil-store">
-                <div class="info-box">
-                  <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Empresa</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/productos">
-                <div class="info-box">
-                  <span class="info-box-icon bg-green"><i class="fa fa-shopping-bag"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Productos</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/categorias">
-                <div class="info-box">
-                  <span class="info-box-icon bg-yellow"><i class="fa fa-tags"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Categorias</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil">
-                <div class="info-box">
-                  <span class="info-box-icon bg-red"><i class="fa fa-user"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Perfil</span>
-                    <span class="info-box-number"></span>
-                  </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-              </a>
-            </div><!-- /.col -->
+            <?php endforeach; ?>
           </div><!-- /.row -->
           
-          <!-- =========================================================== -->
-
         </section><!-- /.content -->
         
       </div><!-- /.content-wrapper -->
-      
       <?php $this->load->view('template/main-panel/footer'); ?>
-
     </div><!-- ./wrapper -->
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
   </body>
