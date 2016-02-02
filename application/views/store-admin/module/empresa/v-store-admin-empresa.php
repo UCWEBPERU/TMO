@@ -324,6 +324,8 @@
                     $("#logoStore").attr("src", readResult);
                 }
             );
+            
+        });
         
     </script>
   </body>
