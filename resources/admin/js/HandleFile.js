@@ -20,7 +20,7 @@ HandleFile.prototype.listen = function() {
 }
 
 HandleFile.prototype.onSelect = function(event) {
-    var files = evt.target.files; // FileList object
+    var files = event.target.files; // FileList object
     // Loop through the FileList and render image files as thumbnails.
     for (var i = 0, f; f = files[i]; i++) {
     
