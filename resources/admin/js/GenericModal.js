@@ -23,4 +23,4 @@ var GenericModal = {
         $(this.selector).modal({keyboard: true});
 		$(this.selector).modal('show');
 	}
-}; 
+};

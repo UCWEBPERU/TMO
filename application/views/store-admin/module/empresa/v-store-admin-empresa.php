@@ -163,6 +163,8 @@
     
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>
+    <!-- Handle File -->
+    <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/HandleFile.js"></script>
     <script>
         
          GenericModal.config("#genericModal", "");
@@ -310,9 +312,18 @@
                 
             });
                 
-            $("#imgLogoStore").on("change", handleFileSelect);
-
-        });
+            // $("#imgLogoStore").on("change", handleFileSelect);
+            
+            var objHandleFile = new HandleFile();
+            objHandleFile.init(
+                "#imgLogoStore",
+                function(file) {
+                    formData.append("imgLogoStore", file);
+                },
+                function(readResult) {
+                    $("#logoStore").attr("src", readResult);
+                }
+            );
         
     </script>
   </body>
