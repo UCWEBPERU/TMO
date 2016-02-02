@@ -1,4 +1,4 @@
-function HandleFile () {
+function HandleFile() {
     this.selectorFile = null;
     this.callbackOnSuccess = null;
     this.callbackOnReadFile = null;
