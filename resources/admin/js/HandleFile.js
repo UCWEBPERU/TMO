@@ -8,6 +8,7 @@ HandleFile.prototype.init = function(selectorFile, callbackOnSuccess, callbackOn
     this.selectorFile = selectorFile;
     this.callbackOnSuccess = callbackOnSuccess;
     this.callbackOnReadFile = callbackOnReadFile;
+    this.listen();
 }
 
 HandleFile.prototype.listen = function() {
