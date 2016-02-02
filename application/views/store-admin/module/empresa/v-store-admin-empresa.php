@@ -314,9 +314,8 @@
                 
             // $("#imgLogoStore").on("change", handleFileSelect);
             
-            var objHandleFile = new HandleFile();
-            objHandleFile.init(
-                "#imgLogoStore",
+            var objHandleFile = new HandleFile("#imgLogoStore");
+            objHandleFile.listen(
                 function(file) {
                     formData.append("imgLogoStore", file);
                 },

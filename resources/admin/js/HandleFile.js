@@ -1,17 +1,8 @@
-function HandleFile() {
-    this.selectorFile = null;
-    this.callbackOnSuccess = null;
-    this.callbackOnReadFile = null;
-}
-
-HandleFile.prototype.init = function(selectorFile, callbackOnSuccess, callbackOnReadFile) {
+function HandleFile(selectorFile) {
     this.selectorFile = selectorFile;
-    this.callbackOnSuccess = callbackOnSuccess();
-    this.callbackOnReadFile = callbackOnReadFile();
-    this.listen();
 }
 
-HandleFile.prototype.listen = function() {
+HandleFile.prototype.listen = function(callbackOnSuccess, callbackOnReadFile) {
     if (typeof this.selectorFile === 'string') {
         $(this.selectorFile).on("change", this.onSelect);
     } else {
@@ -29,7 +20,7 @@ HandleFile.prototype.onSelect = function(event) {
             continue;
         }
         
-        this.callbackOnSuccess(f);
+        callbackOnSuccess(f);
         
         // this.formData.append(this.nameFile, f);
     
@@ -39,7 +30,7 @@ HandleFile.prototype.onSelect = function(event) {
         reader.onload = (function(theFile) {
             return function(e) {
                 // $(this.selectorImg).attr("src", e.target.result);
-                this.callbackOnReadFile(f);
+                callbackOnReadFile(f);
             };
         })(f);
     
