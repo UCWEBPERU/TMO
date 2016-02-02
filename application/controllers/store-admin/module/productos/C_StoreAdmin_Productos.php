@@ -76,7 +76,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
         
     }
     
-    public function loadDataPanel($nombreSeccion) {
+    public function loadDataPanel() {
         $modulo = new stdClass();
         
         $dataEmpresa        = $this->M_Empresa->getByID($this->session->id_empresa);
