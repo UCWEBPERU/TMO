@@ -20,7 +20,9 @@
             <small><a href="<?php echo $modulo->url_main_panel; ?>/products/category">Regresar</a></small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url()."store/".$this->session->id_empresa; ?>/admin"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="<?php echo $modulo->url_main_panel; ?>/products/category"> Categorias</a></li>
+            <li> Agregar</li>
           </ol>
         </section>
         <!-- Main content -->

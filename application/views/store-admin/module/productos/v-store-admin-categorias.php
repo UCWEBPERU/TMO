@@ -20,7 +20,8 @@
             <small><a href="<?php echo $modulo->url_main_panel; ?>/products/category/add">Agregar</a></small>
           </h1>
           <ol class="breadcrumb">
-            <li class="active"><a href="<?php echo base_url()."store/".$this->session->id_empresa; ?>/admin"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li class="active"> Categorias</li>
           </ol>
         </section>
         <!-- Main content -->
