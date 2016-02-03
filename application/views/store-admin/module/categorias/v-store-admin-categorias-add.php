@@ -70,7 +70,8 @@
     <?php $this->load->view('template/main-panel/modal-admin'); ?>
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <!-- Parsley -->
-    <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>
+    <!--<script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>-->
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
     <script>
         //Initialize Select2 Elements
         $(".select2").select2();
