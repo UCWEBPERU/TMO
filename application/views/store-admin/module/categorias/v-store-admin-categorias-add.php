@@ -36,11 +36,11 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form role="form" name="frmDatosCategoria">
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Categoria Superior</label>
-                                <select class="form-control select2" style="width: 100%;">
+                                <select class="form-control select2" style="width: 100%;" name="cboCategoriaSuperior">
                                     <option selected="selected" value="">Seleccione</option>
                                     <?php foreach($modulo->data_categorias as $categoria): ?>
                                     <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
@@ -48,13 +48,13 @@
                                 </select>
                             </div><!-- /.form-group -->
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Nombre Categoria</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <label for="txtNombreCategoria">Nombre Categoria</label>
+                                <input type="password" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
                             </div><!-- /.form-group -->
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Agregar</button>
+                            <button type="submit" class="btn btn-primary" id="btnAgregar" >Agregar</button>
                         </div>
                     </form>
                 </div><!-- /.box -->
@@ -67,10 +67,65 @@
       </div><!-- /.content-wrapper -->
       <?php $this->load->view('template/main-panel/footer'); ?>
     </div><!-- ./wrapper -->
+    <?php $this->load->view('template/main-panel/modal-admin'); ?>
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
+    <!-- Parsley -->
+    <script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>
     <script>
         //Initialize Select2 Elements
         $(".select2").select2();
+        
+        GenericModal.config("#genericModal", "");
+         
+        function validateInputsForm(selectorInputsForm) {
+            var messagesError = "";
+            for (var i = 0; i < selectorInputsForm.length; i++) {
+                if ($(selectorInputsForm[i]).parsley().isValid()) {
+                    $(selectorInputsForm[i]).parent().removeClass("has-error");
+                } else {
+                    $(selectorInputsForm[i]).parent().addClass("has-error");
+                    messagesError += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
+                }
+            }
+            if (messagesError.length > 0) {
+                GenericModal.show("danger", "<ul>" + messagesError + "</ul>");
+                return false;
+            }
+            return true;
+        }
+        
+        $(function () {
+            var selectorInputsForm = ["#txtNombreCategoria"];
+            
+            $("#btnAgregar").on("click", function(evt){
+                evt.preventDefault();
+                
+                if (validateInputsForm(selectorInputsForm)) {
+                    waitingDialog.show('Guardando Categoria...');
+                    var request = $.ajax({
+                        url: "<?php echo $modulo->url_main_panel."/categorys/ajax/addCategory"; ?>",
+                        method: "POST",
+                        data: $("#frmDatosCategoria").serialize(),
+                        dataType: "json"
+                    });
+
+                    request.done(function( response ) {
+                        waitingDialog.hide();
+                        if (response.status) {
+                            GenericModal.show("default", "<p>" + response.message + "</p>");
+                        } else {
+                            GenericModal.show("danger", "<p>" + response.message + "</p>");
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        waitingDialog.hide();
+                        GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                    });
+                }
+            });
+        });
+        
     </script>
   </body>
 </html>

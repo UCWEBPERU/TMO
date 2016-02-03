@@ -180,12 +180,10 @@
                     messagesError += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
                 }
             }
-            
             if (messagesError.length > 0) {
                 GenericModal.show("danger", "<ul>" + messagesError + "</ul>");
                 return false;
             }
-            
             return true;
         }
         

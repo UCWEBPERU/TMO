@@ -62,10 +62,15 @@ class C_StoreAdmin_Categorias extends CI_Controller {
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categorias";
         
-        $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategories($this->session->id_empresa);
+        $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
         
         foreach ($datosCategorias as $categoria) {
-            $subCategoria = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory($categoria->id_categoria);
+            $subCategoria = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
+                    array( 
+                        "id_empresa"            => $this->session->id_empresa,
+                        "id_categoria_superior" => $categoria->id_categoria
+                    )
+                );
             $categoria->total_subcategorias = count($subCategoria);
         }
         
@@ -80,7 +85,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Agregar Categoria";
         
-        $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategories($this->session->id_empresa);
+        $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
         $modulo->data_categorias = $datosCategorias;
         
         $data["modulo"] = $modulo;
@@ -90,6 +95,83 @@ class C_StoreAdmin_Categorias extends CI_Controller {
     public function listSubCategoriesByCategoryName() {
         echo "HOLA MUNDO";
     }
+    
+    /* <--------------- AJAX ---------------> */
+    
+    public function ajaxAddCategory() {
+		$json 				= new stdClass();
+		$json->type 		= "Categorias";
+		$json->presentation = "";
+		$json->action 		= "add";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+            
+        if ( $this->input->post("txtNombreCategoria") ) {
+                
+            $capitalizeCategoryName = ucwords(strtolower(trim($this->input->post("txtNombreEmpresa", TRUE))));
+            
+            $result = $this->M_StoreAdmin_Categorias->getCategorysByName(
+                            array(
+                                "id_empresa" => $this->session->id_empresa,
+                                "nombre_categoria" => $capitalizeCategoryName
+                            )
+                        );
+            
+            if (sizeof($result) > 0) {
+                unset($result);
+                
+                $nivelCategoria = (trim($this->input->post("cboCategoriaSuperior", TRUE))) ? "subcategoria" : "categoria";
+                $existeCategoriaSuperior = false;
+                
+                if ($nivelCategoria == "subcategoria") {
+                    $result = $this->M_StoreAdmin_Categorias->getCategorysByIDAndNivel(
+                        array(
+                            'id_empresa'            => $this->session->id_empresa,
+                            'nivel_categoria'       => "categoria",
+                            'id_categoria_superior' => trim($this->input->post("cboCategoriaSuperior", TRUE))
+                        )
+                    );
+                    
+                    if (sizeof($result) > 0) {
+                        $existeCategoriaSuperior = true;
+                    } else {
+                        $json->message = "La categoria superior que selecciono no existe, intente de nuevo.";
+                    }
+                } else {
+                    $existeCategoriaSuperior = true;
+                }
+                
+                if ($existeCategoriaSuperior) {
+                    $result = $this->M_StoreAdmin_Categorias->insertCategory(
+                            array(
+                                'id_categoria_superior'  => trim($this->input->post("cboCategoriaSuperior", TRUE)),
+                                'id_empresa'             => $this->session->id_empresa,
+                                'nombre_categoria'       => trim($this->input->post("txtNombreCategoria", TRUE)),
+                                'nivel_categoria'        => $nivelCategoria
+                            )
+                        );
+                    
+                    if (is_int($result)) {
+                        $json->message = "La categoria se agrego correctamente.";
+                        $json->status = TRUE;
+                    } else {
+                        $json->message = "Ocurrio un error al grabar la categoria, intente de nuevo.";
+                    }
+                } else {
+                    $json->message = "La categoria superior que selecciono no existe, intente de nuevo.";
+                }
+            } else {
+                $json->message = "La categoria que quiere agregar ya existe, intente de nuevo.";
+            }
+            
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+		
+		echo json_encode($json);
+    }
+    
+    /* <--------------- AJAX ---------------> */
     
     public function loadDataPanel() {
         $modulo = new stdClass();
