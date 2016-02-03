@@ -42,7 +42,7 @@
                             <div class="form-group">
                                 <label>Categoria Superior</label>
                                 <select class="form-control select2" style="width: 100%;">
-                                    <option selected="selected" value="">--Seleccione--</option>
+                                    <option selected="selected" value="">Seleccione</option>
                                     <option>Alaska</option>
                                     <option>California</option>
                                     <option>Delaware</option>
