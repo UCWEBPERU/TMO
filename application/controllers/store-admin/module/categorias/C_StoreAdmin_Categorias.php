@@ -117,7 +117,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                             )
                         );
             
-            if (sizeof($result) > 0) {
+            if (sizeof($result) == 0) {
                 $nivelCategoria = (trim($this->input->post("cboCategoriaSuperior", TRUE))) ? "subcategoria" : "categoria";
                 $existeCategoriaSuperior = false;
                 
