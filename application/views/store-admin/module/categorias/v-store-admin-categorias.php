@@ -35,7 +35,7 @@
                         <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text"><?php echo $categoria->nombre_categoria; ?></span>
-                            <span class="info-box-number"></span>
+                            <span class="info-box-number">Total de Sub Categorias: <?php echo $categoria->total_subcategorias; ?></span>
                         </div><!-- /.info-box-content -->
                     </div><!-- /.info-box -->
                 </a>
