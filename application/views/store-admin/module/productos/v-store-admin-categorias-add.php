@@ -16,7 +16,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Productos - Agregar Categoria
+            Agregar Categoria
             <small><a href="<?php echo $modulo->url_main_panel; ?>/products/category">Regresar</a></small>
           </h1>
           <ol class="breadcrumb">

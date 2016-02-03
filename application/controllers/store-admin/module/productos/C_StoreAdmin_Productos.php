@@ -60,7 +60,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
     public function listAllCategories() {
         $modulo = $this->loadDataPanel();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Productos - Categorias";
+        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categorias";
         
         $datosCategorias = $this->M_StoreAdmin_Productos->getAllCategories($this->session->id_empresa);
         
@@ -78,7 +78,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
     public function addCategory() {
         $modulo = $this->loadDataPanel();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Productos - Agregar Categoria";
+        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Agregar Categoria";
         
         $datosCategorias = $this->M_StoreAdmin_Productos->getAllCategories($this->session->id_empresa);
         $modulo->data_categorias = $datosCategorias;
