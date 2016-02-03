@@ -36,7 +36,7 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" name="frmDatosCategoria">
+                    <form role="form" id="frmDatosCategoria">
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Categoria Superior</label>
@@ -49,7 +49,7 @@
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label for="txtNombreCategoria">Nombre Categoria</label>
-                                <input type="password" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
                             </div><!-- /.form-group -->
                         </div>
                         <!-- /.box-body -->
