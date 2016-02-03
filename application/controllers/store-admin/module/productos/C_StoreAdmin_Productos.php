@@ -87,6 +87,10 @@ class C_StoreAdmin_Productos extends CI_Controller {
         $this->load->view('store-admin/module/productos/v-store-admin-categorias-add', $data);
     }
     
+    public function listSubCategoriesByCategoryName() {
+        echo "HOLA MUNDO";
+    }
+    
     public function loadDataPanel() {
         $modulo = new stdClass();
         

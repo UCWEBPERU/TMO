@@ -140,7 +140,7 @@ $route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'store-admin/modul
 */
 $route['store/(:num)/admin/products/category']                  = 'store-admin/module/productos/C_StoreAdmin_Productos/listAllCategories';
 $route['store/(:num)/admin/products/category/([a-z]+)']         = 'store-admin/module/productos/C_StoreAdmin_Productos/listSubCategoriesByCategoryName/$1';
-$route['store/(:num)/admin/products/category/adddddd']              = 'store-admin/module/productos/C_StoreAdmin_Productos/addCategory';
+$route['store/(:num)/admin/products/category/adddddd']          = 'store-admin/module/productos/C_StoreAdmin_Productos/addCategory';
 $route['store/(:num)/admin/products/category/edit/([a-z]+)']    = 'store-admin/module/productos/C_StoreAdmin_Productos/editCategoryByName/$1';
 
 
