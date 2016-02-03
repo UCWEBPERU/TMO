@@ -69,5 +69,9 @@
       <?php $this->load->view('template/main-panel/footer'); ?>
     </div><!-- ./wrapper -->
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
+    <script>
+        //Initialize Select2 Elements
+        $(".select2").select2();
+    </script>
   </body>
 </html>
