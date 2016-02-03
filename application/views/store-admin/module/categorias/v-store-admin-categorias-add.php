@@ -38,20 +38,20 @@
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form role="form">
-                    <div class="box-body">
+                    <div class="box-body"
                         <div class="form-group">
                             <label>Categoria Superior</label>
-                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <select class="form-control select2" style="width: 100%;">
                                 <option selected="selected" value="">--Seleccione--</option>
                                 <?php foreach($modulo->data_categorias as $categoria): ?>
                                 <option selected="selected" value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
                                 <?php endforeach; ?>
-                            </select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-wnn8-container"><span class="select2-selection__rendered" id="select2-wnn8-container" title="California">California</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                        </div>
+                            </select>
+                        </div><!-- /.form-group -->
                         <div class="form-group">
                             <label for="exampleInputPassword1">Nombre Categoria</label>
                             <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
+                        </div><!-- /.form-group -->
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
