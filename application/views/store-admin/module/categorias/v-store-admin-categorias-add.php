@@ -38,25 +38,31 @@
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form role="form">
-                    <div class="box-body"
-                        <div class="form-group">
-                            <label>Categoria Superior</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected" value="">--Seleccione--</option>
-                                <?php foreach($modulo->data_categorias as $categoria): ?>
-                                <option selected="selected" value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div><!-- /.form-group -->
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Nombre Categoria</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div><!-- /.form-group -->
-                    </div>
-                    <!-- /.box-body -->
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Agregar</button>
-                    </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>Categoria Superior</label>
+                                <select class="form-control select2" style="width: 100%;">
+                                    <option selected="selected" value="">--Seleccione--</option>
+                                    <option>Alaska</option>
+                                    <option>California</option>
+                                    <option>Delaware</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option>Washington</option>
+                                    <?php foreach($modulo->data_categorias as $categoria): ?>
+                                    <!--<option selected="selected" value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>-->
+                                    <?php endforeach; ?>
+                                </select>
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nombre Categoria</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div><!-- /.form-group -->
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                        </div>
                     </form>
                 </div><!-- /.box -->
             </div><!-- /.col -->
