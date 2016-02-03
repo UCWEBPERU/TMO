@@ -108,6 +108,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
             
         if ( $this->input->post("txtNombreCategoria") ) {
             var_dump($this->input->post("txtNombreCategoria"));
+            var_dump(trim($this->input->post("txtNombreCategoria")));
             var_dump(trim($this->input->post("txtNombreEmpresa", TRUE)));
             $categoryName = trim($this->input->post("txtNombreEmpresa", TRUE));
             $capitalizeCategoryName = ucwords(strtolower($categoryName));
