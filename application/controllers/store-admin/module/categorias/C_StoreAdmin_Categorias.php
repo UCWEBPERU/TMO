@@ -118,12 +118,11 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                         );
             
             if (sizeof($result) > 0) {
-                unset($result);
-                
                 $nivelCategoria = (trim($this->input->post("cboCategoriaSuperior", TRUE))) ? "subcategoria" : "categoria";
                 $existeCategoriaSuperior = false;
                 
                 if ($nivelCategoria == "subcategoria") {
+                    unset($result);
                     $result = $this->M_StoreAdmin_Categorias->getCategorysByIDAndNivel(
                         array(
                             'id_empresa'            => $this->session->id_empresa,
@@ -142,11 +141,12 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                 }
                 
                 if ($existeCategoriaSuperior) {
+                    unset($result);
                     $result = $this->M_StoreAdmin_Categorias->insertCategory(
                             array(
                                 'id_categoria_superior'  => trim($this->input->post("cboCategoriaSuperior", TRUE)),
                                 'id_empresa'             => $this->session->id_empresa,
-                                'nombre_categoria'       => trim($this->input->post("txtNombreCategoria", TRUE)),
+                                'nombre_categoria'       => $capitalizeCategoryName,
                                 'nivel_categoria'        => $nivelCategoria
                             )
                         );
