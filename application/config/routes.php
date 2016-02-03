@@ -132,13 +132,16 @@ $route['store/(:num)/admin/perfil-store/updatePerfilStore'] = 'store-admin/modul
 $route['store/(:num)/admin/perfil-store/updatePayAccount']  = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosPayAccount';
 $route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateLogoStore';
 
+
 /*
 | ------------------------------
 | URL -> STORE ADMIN - PRODUCTOS CATEGORY
 | ------------------------------
 */
-$route['store/(:num)/admin/products/category']          = 'store-admin/module/productos/C_StoreAdmin_Productos/listAllCategories';
-$route['store/(:num)/admin/products/category/([a-z]+)'] = 'store-admin/module/productos/C_StoreAdmin_Productos/categoryByName/$1';
+$route['store/(:num)/admin/products/category']                  = 'store-admin/module/productos/C_StoreAdmin_Productos/listAllCategories';
+$route['store/(:num)/admin/products/category/([a-z]+)']         = 'store-admin/module/productos/C_StoreAdmin_Productos/listSubCategoriesByCategoryName/$1';
+$route['store/(:num)/admin/products/category/add']              = 'store-admin/module/productos/C_StoreAdmin_Productos/addCategory';
+$route['store/(:num)/admin/products/category/edit/([a-z]+)']    = 'store-admin/module/productos/C_StoreAdmin_Productos/editCategoryByName/$1';
 
 
 /*

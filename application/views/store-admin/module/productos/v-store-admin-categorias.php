@@ -17,7 +17,7 @@
         <section class="content-header">
           <h1>
             Productos - Categorias
-            <small>Enlaces rapidos</small>
+            <small><a href="<?php echo $modulo->url_main_panel; ?>/products/category/add">Agregar</a></small>
           </h1>
           <ol class="breadcrumb">
             <li class="active"><a href="<?php echo base_url()."store/".$this->session->id_empresa; ?>/admin"><i class="fa fa-dashboard"></i> Inicio</a></li>
