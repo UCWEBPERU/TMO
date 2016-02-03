@@ -107,11 +107,11 @@ class C_StoreAdmin_Categorias extends CI_Controller {
 		$json->status 		= FALSE;
             
         if ( $this->input->post("txtNombreCategoria") ) {
-                
-            $capitalizeCategoryName = ucwords(strtolower(trim($this->input->post("txtNombreEmpresa", TRUE))));
+            $categoryName = trim($this->input->post("txtNombreEmpresa", TRUE));
+            $capitalizeCategoryName = ucwords(strtolower($categoryName));
             
             if (strlen($capitalizeCategoryName) == 0) {
-                $capitalizeCategoryName = ucfirst(strtolower(trim($this->input->post("txtNombreEmpresa", TRUE))));
+                $capitalizeCategoryName = ucfirst(strtolower($categoryName));
             }
             
             $result = $this->M_StoreAdmin_Categorias->getCategorysByName(
@@ -150,7 +150,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                             array(
                                 'id_categoria_superior'  => trim($this->input->post("cboCategoriaSuperior", TRUE)),
                                 'id_empresa'             => $this->session->id_empresa,
-                                'nombre_categoria'       => $capitalizeCategoryName,
+                                'nombre_categoria'       => $categoryName." ".$capitalizeCategoryName,
                                 'nivel_categoria'        => $nivelCategoria
                             )
                         );
