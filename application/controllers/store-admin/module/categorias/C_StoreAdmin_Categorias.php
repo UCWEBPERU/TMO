@@ -107,15 +107,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
 		$json->status 		= FALSE;
             
         if ( $this->input->post("txtNombreCategoria") ) {
-            var_dump($this->input->post("txtNombreCategoria"));
-            var_dump(trim($this->input->post("txtNombreCategoria")));
-            var_dump(trim($this->input->post("txtNombreEmpresa", TRUE)));
-            $categoryName = trim($this->input->post("txtNombreEmpresa", TRUE));
-            $capitalizeCategoryName = ucwords(strtolower($categoryName));
-            
-            if (strlen($capitalizeCategoryName) == 0) {
-                $capitalizeCategoryName = ucfirst(strtolower($categoryName));
-            }
+            $capitalizeCategoryName = ucwords(strtolower(trim($this->input->post("txtNombreCategoria", TRUE))));
             
             $result = $this->M_StoreAdmin_Categorias->getCategorysByName(
                             array(
