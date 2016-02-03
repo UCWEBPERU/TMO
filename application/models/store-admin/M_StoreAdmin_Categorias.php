@@ -31,7 +31,7 @@ class M_StoreAdmin_Categorias extends CI_Model {
         return $query->result();
     }
     
-   public function getCategorysByIDAndNivel($category_data) {
+   public function getCategoryByIDAndNivel($category_data) {
 		$this->db->where('Categoria_Productos.id_empresa', $category_data["id_empresa"]);
 		$this->db->where('Categoria_Productos.id_categoria', $category_data["id_categoria"]);
 		$this->db->where('Categoria_Productos.nivel_categoria', $category_data["nivel_categoria"]);

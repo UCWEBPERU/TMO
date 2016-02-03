@@ -122,11 +122,11 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                 
                 if ($nivelCategoria == "subcategoria") {
                     unset($result);
-                    $result = $this->M_StoreAdmin_Categorias->getCategorysByIDAndNivel(
+                    $result = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
                         array(
                             'id_empresa'            => $this->session->id_empresa,
                             'nivel_categoria'       => "categoria",
-                            'id_categoria_superior' => trim($this->input->post("cboCategoriaSuperior", TRUE))
+                            'id_categoria' => trim($this->input->post("cboCategoriaSuperior", TRUE))
                         )
                     );
                     
