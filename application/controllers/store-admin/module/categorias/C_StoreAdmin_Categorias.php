@@ -110,6 +110,10 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                 
             $capitalizeCategoryName = ucwords(strtolower(trim($this->input->post("txtNombreEmpresa", TRUE))));
             
+            if (strlen($capitalizeCategoryName) == 0) {
+                $capitalizeCategoryName = ucfirst(strtolower(trim($this->input->post("txtNombreEmpresa", TRUE))));
+            }
+            
             $result = $this->M_StoreAdmin_Categorias->getCategorysByName(
                             array(
                                 "id_empresa" => $this->session->id_empresa,
