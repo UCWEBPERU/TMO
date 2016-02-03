@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>select2/select2.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_DIST; ?>css/AdminLTE.min.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -24,8 +26,7 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_DIST; ?>css/skins/skin-blue.min.css">
     <!-- My Theme style -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_ADMIN; ?>css/style.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>select2/select2.min.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

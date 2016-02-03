@@ -16,6 +16,7 @@
 <!--<script src="<?php echo PATH_RESOURCE_DIST; ?>js/demo.js"></script>-->
 <!-- Select2 -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>select2/select2.full.min.js"></script>
+<!-- Generic Modal -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/GenericModal.js"></script>
 <!-- Loading Modal -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/LoadingModal.js"></script>
