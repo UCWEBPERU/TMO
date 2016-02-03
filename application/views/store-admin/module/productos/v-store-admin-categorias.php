@@ -17,7 +17,7 @@
         <section class="content-header">
           <h1>
             Categorias
-            <small><a href="<?php echo $modulo->url_main_panel; ?>/products/category/add">Agregar</a></small>
+            <small><a href="<?php echo $modulo->url_main_panel; ?>/products/category/adddddd">Agregar</a></small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
