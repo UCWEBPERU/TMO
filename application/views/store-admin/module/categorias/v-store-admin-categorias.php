@@ -31,11 +31,15 @@
             <?php foreach($modulo->data_categorias as $categoria): ?>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil-store">
-                    <div class="info-box">
+                    <div class="info-box boxCategory">
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                        </div>
                         <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-number"><?php echo $categoria->nombre_categoria; ?></span>
-                            <span class="info-box-text">Sub Categorias: <?php echo $categoria->total_subcategorias; ?></span>
+                            <span class="info-box-text"><?php echo $categoria->nombre_categoria; ?></span>
+                            <span class="info-box-number">Sub Categorias: <?php echo $categoria->total_subcategorias; ?></span>
                         </div><!-- /.info-box-content -->
                     </div><!-- /.info-box -->
                 </a>

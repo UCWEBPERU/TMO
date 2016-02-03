@@ -13,3 +13,7 @@
 .box-logo-store {
     padding: 10px;
 }
+
+.boxCategory > .info-box-content > .info-box-number {
+    text-transform: none;
+}
