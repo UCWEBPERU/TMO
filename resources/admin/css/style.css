@@ -19,14 +19,14 @@
 }
 
 .boxCategory > .box-tools {
-    display: none;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+    opacity: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .boxCategory:hover > .box-tools {
-    display: block;
+    opacity: 1;
 }
 
 .boxCategory > .box-tools > .btn-box-tool-edit {
