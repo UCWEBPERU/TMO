@@ -18,11 +18,19 @@
     text-transform: none;
 }
 
-.boxCategory > .box-tools > .btn-box-tool {
+.boxCategory > .box-tools > .btn-box-tool-edit {
+    color: #63cd5e;
+}
+
+.boxCategory > .box-tools > .btn-box-tool-edit:hover {
+    color: #3aa935;
+}
+
+.boxCategory > .box-tools > .btn-box-tool-delete {
     color: #fd5474;
 }
 
-.boxCategory > .box-tools > .btn-box-tool:hover {
+.boxCategory > .box-tools > .btn-box-tool-delete:hover {
     color: #fc0836;
 }
 

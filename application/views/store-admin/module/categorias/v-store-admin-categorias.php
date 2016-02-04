@@ -33,7 +33,8 @@
                 <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil-store">
                     <div class="info-box boxCategory">
                         <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Eliminar Categoria"><i class="fa fa-remove"></i></button>
+                            <button class="btn btn-box-tool btn-box-tool-edit" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Editar Categoria"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Eliminar Categoria"><i class="fa fa-remove"></i></button>
                         </div>
                         <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
                         <div class="info-box-content">
@@ -58,6 +59,7 @@
         (function($){
             $(".btn-box-tool").on("click", function(){
                 // swal("Oops...", "Something went wrong!", "error");
+                var self = this;
                 swal({
                         title: "Eliminar Categoria",
                         text: "¿Seguro que desea eliminar la categoria?",
@@ -70,12 +72,37 @@
                     }, 
                     function() {
                         // swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                        setTimeout(function(){
-                            swal("Ajax request finished!" + $(this).attr("data-id-cat"));   
-                        }, 2000);
+                        // setTimeout(function(){
+                        //     swal("Ajax request finished!" + $(this).attr("data-id-cat"));   
+                        // }, 2000);
+                        var formData  = new FormData();
+                        formData.append("id_categoria", $(self).attr("data-id-cat"));
+                        var request = $.ajax({
+                            url: "<?php echo $modulo->url_main_panel."/categorys/ajax/deleteCategory"; ?>",
+                            method: "POST",
+                            data: formData,
+                            dataType: "json",
+                            processData: false,
+                            contentType: false
+                        });
+
+                        request.done(function( response ) {
+                            waitingDialog.hide();
+                            if (response.status) {
+                                GenericModal.show("default", "<p>" + response.message + "</p>");
+                            } else {
+                                GenericModal.show("danger", "<p>" + response.message + "</p>");
+                            }
+                        });
+
+                        request.fail(function( jqXHR, textStatus ) {
+                            waitingDialog.hide();
+                            GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                        });
                     }
                 );
             });
+            
         })(jQuery);
     </script>
   </body>

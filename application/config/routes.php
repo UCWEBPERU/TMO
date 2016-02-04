@@ -138,11 +138,12 @@ $route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'store-admin/modul
 | URL -> STORE ADMIN - PRODUCTOS CATEGORY
 | ------------------------------
 */
-$route['store/(:num)/admin/categorys']                  = 'store-admin/module/categorias/C_StoreAdmin_Categorias/listAllCategories';
-$route['store/(:num)/admin/categorys/view/([a-z]+)']    = 'store-admin/module/categorias/C_StoreAdmin_Categorias/listSubCategoriesByCategoryName/$1';
-$route['store/(:num)/admin/categorys/add']              = 'store-admin/module/categorias/C_StoreAdmin_Categorias/addCategory';
-$route['store/(:num)/admin/categorys/edit/([a-z]+)']    = 'store-admin/module/categorias/C_StoreAdmin_Categorias/editCategoryByName/$1';
-$route['store/(:num)/admin/categorys/ajax/addCategory'] = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxAddCategory';
+$route['store/(:num)/admin/categorys']                      = 'store-admin/module/categorias/C_StoreAdmin_Categorias/listAllCategories';
+$route['store/(:num)/admin/categorys/view/([a-z]+)']        = 'store-admin/module/categorias/C_StoreAdmin_Categorias/listSubCategoriesByCategoryName/$1';
+$route['store/(:num)/admin/categorys/add']                  = 'store-admin/module/categorias/C_StoreAdmin_Categorias/addCategory';
+$route['store/(:num)/admin/categorys/edit/([a-z]+)']        = 'store-admin/module/categorias/C_StoreAdmin_Categorias/editCategoryByName/$1';
+$route['store/(:num)/admin/categorys/ajax/addCategory']     = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxAddCategory';
+$route['store/(:num)/admin/categorys/ajax/deleteCategory']  = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxDeleteCategory';
 
 
 /*
