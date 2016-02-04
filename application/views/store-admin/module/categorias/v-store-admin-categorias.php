@@ -33,7 +33,7 @@
                 <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil-store">
                     <div class="info-box boxCategory">
                         <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool" data-widget="remove" title="Eliminar Categoria"><i class="fa fa-remove"></i></button>
+                            <button class="btn btn-box-tool" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Eliminar Categoria"><i class="fa fa-remove"></i></button>
                         </div>
                         <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
                         <div class="info-box-content">
@@ -69,7 +69,10 @@
                         showLoaderOnConfirm: true
                     }, 
                     function() {
-                        // swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+                        // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        setTimeout(function(){
+                            swal("Ajax request finished!" + $(this).attr("data-id-cat"));   
+                        }, 2000);
                     }
                 );
             });
