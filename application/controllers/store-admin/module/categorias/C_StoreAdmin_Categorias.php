@@ -232,7 +232,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                 $result = $this->M_StoreAdmin_Categorias->updateNameCategory(
                         array(
                             'id_empresa'        => $this->session->id_empresa,
-                            'id_categoria'      => trim($this->input->post("id_categoria", TRUE))
+                            'id_categoria'      => trim($this->input->post("id_categoria", TRUE)),
                             'nombre_categoria'  => trim($this->input->post("txtNombreCategoria", TRUE))
                         )
                     );
