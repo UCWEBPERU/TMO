@@ -33,7 +33,7 @@
                 <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil-store">
                     <div class="info-box boxCategory">
                         <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool btn-box-tool-edit" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Editar Categoria"><a href=""><i class="fa fa-pencil"></i></a></button>
+                            <button class="btn btn-box-tool btn-box-tool-edit" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Editar Categoria"><i class="fa fa-pencil"></a></button>
                             <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Eliminar Categoria"><i class="fa fa-remove"></i></button>
                         </div>
                         <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
