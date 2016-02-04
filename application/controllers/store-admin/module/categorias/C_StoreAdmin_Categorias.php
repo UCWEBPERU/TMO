@@ -237,7 +237,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                         )
                     );
                 
-                if (is_int($result)) {
+                if ($result) {
                     $json->message = "Los datos de la categoria se actualizo correctamente.";
                     $json->status = TRUE;
                 } else {
