@@ -206,7 +206,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                             )
                         );
                     
-                    if (is_int($result)) {
+                    if ($result) {
                         $json->message = "La categoria se elimino correctamente.";
                         $json->status = TRUE;
                     } else {
