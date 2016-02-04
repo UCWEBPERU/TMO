@@ -40,6 +40,15 @@ class M_StoreAdmin_Categorias extends CI_Model {
         return $query->result();
     }
     
+    public function deleteCategoryByID($category_data) {
+		$this->db->where('Categoria_Productos.id_empresa', $category_data["id_empresa"]);
+		$this->db->where('Categoria_Productos.id_categoria', $category_data["id_categoria"]);
+		if ($this->db->update('Categoria_Productos', array('Categoria_Productos.estado'=> 0)))	{
+			return TRUE;
+		}
+		return FALSE;
+	}
+    
     public function insertCategory($category_data) {
         $data = array(
 			'id_categoria_superior'  => $category_data["id_categoria_superior"],

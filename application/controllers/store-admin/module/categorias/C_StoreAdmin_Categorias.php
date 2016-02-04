@@ -170,93 +170,63 @@ class C_StoreAdmin_Categorias extends CI_Controller {
 		echo json_encode($json);
     }
     
-    // public function ajaxDeleteCategory() {
-    //     $json 				= new stdClass();
-	// 	$json->type 		= "Categoria";
-	// 	$json->presentation = "";
-	// 	$json->action 		= "delete";
-	// 	$json->data 		= array();
-	// 	$json->status 		= FALSE;
-    //         
-    //     if ( $this->input->post("id_categoria") ) {
-    //         $capitalizeCategoryName = ucwords(strtolower(trim($this->input->post("txtNombreCategoria", TRUE))));
-    //         
-    //         $result = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
-    //                     array(
-    //                         'id_empresa'        => $this->session->id_empresa,
-    //                         'nivel_categoria'   => "categoria",
-    //                         'id_categoria'      => trim($this->input->post("id_categoria", TRUE))
-    //                     )
-    //                 );
-    //         
-    //         if (sizeof($result) > 0) {
-    //             
-    //             getSubCategoryByIDCategory
-    //             
-    //             $subCategorias = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
-    //                 array( 
-    //                     "id_empresa"            => $this->session->id_empresa,
-    //                     "id_categoria_superior" => trim($this->input->post("id_categoria", TRUE))
-    //                 )
-    //             );
-    //             
-    //             if (sizeof($subCategorias) > 0) {
-    //                 
-    //             }
-    //             
-    //             
-    //             $nivelCategoria = (trim($this->input->post("cboCategoriaSuperior", TRUE))) ? "subcategoria" : "categoria";
-    //             $existeCategoriaSuperior = false;
-    //             
-    //             if ($nivelCategoria == "subcategoria") {
-    //                 unset($result);
-    //                 $result = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
-    //                     array(
-    //                         'id_empresa'            => $this->session->id_empresa,
-    //                         'nivel_categoria'       => "categoria",
-    //                         'id_categoria' => trim($this->input->post("cboCategoriaSuperior", TRUE))
-    //                     )
-    //                 );
-    //                 
-    //                 if (sizeof($result) > 0) {
-    //                     $existeCategoriaSuperior = true;
-    //                 } else {
-    //                     $json->message = "La categoria superior que selecciono no existe, intente de nuevo.";
-    //                 }
-    //             } else {
-    //                 $existeCategoriaSuperior = true;
-    //             }
-    //             
-    //             if ($existeCategoriaSuperior) {
-    //                 unset($result);
-    //                 $result = $this->M_StoreAdmin_Categorias->insertCategory(
-    //                         array(
-    //                             'id_categoria_superior'  => trim($this->input->post("cboCategoriaSuperior", TRUE)),
-    //                             'id_empresa'             => $this->session->id_empresa,
-    //                             'nombre_categoria'       => $capitalizeCategoryName,
-    //                             'nivel_categoria'        => $nivelCategoria
-    //                         )
-    //                     );
-    //                 
-    //                 if (is_int($result)) {
-    //                     $json->message = "La categoria se agrego correctamente.";
-    //                     $json->status = TRUE;
-    //                 } else {
-    //                     $json->message = "Ocurrio un error al grabar la categoria, intente de nuevo.";
-    //                 }
-    //             } else {
-    //                 $json->message = "La categoria superior que selecciono no existe, intente de nuevo.";
-    //             }
-    //         } else {
-    //             $json->message = "La categoria que quiere eliminar no existe, intente de nuevo.";
-    //         }
-    //         
-    //     } else {
-    //         $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
-    //     }
-	// 	
-	// 	echo json_encode($json);
-    // }
+    public function ajaxDeleteCategory() {
+        $json 				= new stdClass();
+		$json->type 		= "Categoria";
+		$json->presentation = "";
+		$json->action 		= "delete";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+            
+        if ( $this->input->post("id_categoria") ) {
+            
+            $result = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
+                        array(
+                            'id_empresa'        => $this->session->id_empresa,
+                            'nivel_categoria'   => "categoria",
+                            'id_categoria'      => trim($this->input->post("id_categoria", TRUE))
+                        )
+                    );
+            
+            if (sizeof($result) > 0) {
+                
+                $subCategorias = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
+                    array( 
+                        "id_empresa"            => $this->session->id_empresa,
+                        "id_categoria_superior" => trim($this->input->post("id_categoria", TRUE))
+                    )
+                );
+                
+                if (sizeof($subCategorias) == 0) {
+                    unset($result);
+                    $result = $this->M_StoreAdmin_Categorias->deleteCategoryByID(
+                            array(
+                                'id_empresa'    => $this->session->id_empresa,
+                                'id_categoria'  => trim($this->input->post("id_categoria", TRUE))
+                            )
+                        );
+                    
+                    if (is_int($result)) {
+                        $json->message = "La categoria se elimino correctamente.";
+                        $json->status = TRUE;
+                    } else {
+                        $json->message = "Ocurrio un error al eliminar la categoria, intente de nuevo.";
+                    }
+                    
+                } else {
+                    $json->message = "La categoria que quiere eliminar esta siendo utilizado como categoria superior, para eliminar no debe tener asignado sub categorias.";
+                }
+               
+            } else {
+                $json->message = "La categoria que quiere eliminar no existe, intente de nuevo.";
+            }
+            
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+		
+		echo json_encode($json);
+    }
     
     /* <--------------- AJAX ---------------> */
     

@@ -57,8 +57,7 @@
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
     <script>
         (function($){
-            $(".btn-box-tool").on("click", function(){
-                // swal("Oops...", "Something went wrong!", "error");
+            $(".btn-box-tool-delete").on("click", function(){
                 var self = this;
                 swal({
                         title: "Eliminar Categoria",
@@ -71,10 +70,6 @@
                         showLoaderOnConfirm: true
                     }, 
                     function() {
-                        // swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                        // setTimeout(function(){
-                        //     swal("Ajax request finished!" + $(this).attr("data-id-cat"));   
-                        // }, 2000);
                         var formData  = new FormData();
                         formData.append("id_categoria", $(self).attr("data-id-cat"));
                         var request = $.ajax({
@@ -89,18 +84,22 @@
                         request.done(function( response ) {
                             waitingDialog.hide();
                             if (response.status) {
-                                GenericModal.show("default", "<p>" + response.message + "</p>");
+                                swal("Eliminado!", response.message, "success");
                             } else {
-                                GenericModal.show("danger", "<p>" + response.message + "</p>");
+                                swal("Error", response.message, "error");
                             }
                         });
 
                         request.fail(function( jqXHR, textStatus ) {
                             waitingDialog.hide();
-                            GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                            swal("Error", textStatus, "error");
                         });
                     }
                 );
+            });
+            
+            $(".btn-box-tool-edit").on("click", function(){
+                $(location).attr("href", response.data.url_redirect);
             });
             
         })(jQuery);
