@@ -36,7 +36,7 @@
                             <button class="btn btn-box-tool btn-box-tool-edit" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Editar"><i class="fa fa-pencil"></i></button>
                             <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Eliminar"><i class="fa fa-remove"></i></button>
                         </div>
-                        <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
+                        <span class="info-box-icon bg-aqua"><i class="fa fa-tags"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-number"><?php echo $categoria->nombre_categoria; ?></span>
                             <span class="info-box-text">Sub Categorias: <?php echo $categoria->total_subcategorias; ?></span>
@@ -102,7 +102,7 @@
             });
             
             $(".btn-box-tool-edit").on("click", function(){
-                $(location).attr("href", response.data.url_redirect);
+                $(location).attr("href", "<?php echo $modulo->url_main_panel."categorys/view/" + $(this).attr("data-id-cat"));
             });
             
         })(jQuery);
