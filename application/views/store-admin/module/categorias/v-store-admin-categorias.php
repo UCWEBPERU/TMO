@@ -59,11 +59,11 @@
             $(".btn-box-tool").on("click", function(){
                 // swal("Oops...", "Something went wrong!", "error");
                 swal({
-                        title: "Are you sure?",
-                        text: "You will not be able to recover this imaginary file!",
+                        title: "Eliminar Categoria",
+                        text: "¿Seguro que desea eliminar la categoria?",
                         type: "warning",
                         showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
+                        confirmButtonColor: "#fc0836",
                         confirmButtonText: "Yes, delete it!",
                         closeOnConfirm: false,
                         showLoaderOnConfirm: true

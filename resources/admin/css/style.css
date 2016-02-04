@@ -21,3 +21,8 @@
 .boxCategory > .box-tools > .btn-box-tool {
     color: #fc0836;
 }
+
+.boxCategory > .box-tools > .btn-box-tool:hover {
+    color: #b50224;
+}
+
