@@ -52,5 +52,14 @@
       <?php $this->load->view('template/main-panel/footer'); ?>
     </div><!-- ./wrapper -->
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
+    <!-- Sweet Alert -->
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert-min.js"></script>
+    <script>
+        (function($){
+            $(".btn-box-tool").on("click", function(){
+                sweetAlert("Oops...", "Something went wrong!", "error");
+            });
+        })(jQuery);
+    </script>
   </body>
 </html>
