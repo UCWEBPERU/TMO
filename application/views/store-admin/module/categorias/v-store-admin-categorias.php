@@ -33,8 +33,8 @@
                 <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil-store">
                     <div class="info-box boxCategory">
                         <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool btn-box-tool-edit" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Editar"><i class="fa fa-pencil"></i></button>
-                            <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-cat="<?php echo $categoria->id_categoria; ?>" title="Eliminar"><i class="fa fa-remove"></i></button>
+                            <button class="btn btn-box-tool btn-box-tool-edit" data-widget="remove" data-id-cat="<?php echo intval($categoria->id_categoria); ?>" title="Editar"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-cat="<?php echo intval($categoria->id_categoria); ?>" title="Eliminar"><i class="fa fa-remove"></i></button>
                         </div>
                         <span class="info-box-icon bg-aqua"><i class="fa fa-tags"></i></span>
                         <div class="info-box-content">
@@ -102,7 +102,7 @@
             });
             
             $(".btn-box-tool-edit").on("click", function(){
-                $(location).attr("href", "<?php echo $modulo->url_main_panel.'categorys/view/'; ?>" + $(this).attr("data-id-cat"));
+                $(location).attr("href", "<?php echo $modulo->url_main_panel.'/categorys/view/'; ?>" + $(this).attr("data-id-cat"));
             });
             
         })(jQuery);
