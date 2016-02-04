@@ -263,10 +263,9 @@ class C_StoreAdmin_Categorias extends CI_Controller {
             
         if ( $this->input->post("id_categoria") ) {
             
-            $result = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
+            $result = $this->M_StoreAdmin_Categorias->getCategoryByID(
                         array(
                             'id_empresa'        => $this->session->id_empresa,
-                            'nivel_categoria'   => "categoria",
                             'id_categoria'      => trim($this->input->post("id_categoria", TRUE))
                         )
                     );
