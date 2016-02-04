@@ -93,7 +93,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
     }
     
     public function listSubCategoriesByCategory($id_category) {
-        var_dump("ID CATEORIA".$id_category);
+        var_dump("ID CATEORIA ".$id_category);
         $modulo = $this->loadDataPanel();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categorias: ";
@@ -104,7 +104,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                         "id_categoria_superior" => $id_category
                     )
                 );
-        var_dump("DATA CATEORIA".$datosSubCategoria);
+        var_dump($datosSubCategoria);
         $modulo->data_sub_categorias = $datosSubCategoria;
         
         $data["modulo"] = $modulo;
