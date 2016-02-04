@@ -104,7 +104,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
                     )
                 );
         
-        $modulo->data_sub_categorias = $datosCategorias;
+        $modulo->data_sub_categorias = $datosSubCategoria;
         
         $data["modulo"] = $modulo;
         $this->load->view('store-admin/module/categorias/v-store-admin-sub-categorias', $data);
