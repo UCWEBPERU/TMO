@@ -143,6 +143,7 @@ $route['store/(:num)/admin/categorys/view/(:num)']          = 'store-admin/modul
 $route['store/(:num)/admin/categorys/add']                  = 'store-admin/module/categorias/C_StoreAdmin_Categorias/addCategory';
 $route['store/(:num)/admin/categorys/edit/(:num)']          = 'store-admin/module/categorias/C_StoreAdmin_Categorias/editCategory/$2';
 $route['store/(:num)/admin/categorys/ajax/addCategory']     = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxAddCategory';
+$route['store/(:num)/admin/categorys/ajax/editCategory']     = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxEditCategory';
 $route['store/(:num)/admin/categorys/ajax/deleteCategory']  = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxDeleteCategory';
 
 

@@ -210,6 +210,49 @@ class C_StoreAdmin_Categorias extends CI_Controller {
 		echo json_encode($json);
     }
     
+    public function ajaxEditCategory() {
+		$json 				= new stdClass();
+		$json->type 		= "Categoria";
+		$json->presentation = "";
+		$json->action 		= "edit";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+            
+        if ( $this->input->post("id_categoria") && 
+                $this->input->post("txtNombreCategoria") ) {
+            
+            $result = $this->M_StoreAdmin_Categorias->getCategoryByID(
+                            array(
+                                "id_empresa" => $this->session->id_empresa,
+                                "id_categoria" => trim($this->input->post("id_categoria", TRUE))
+                            )
+                        );
+            
+            if (sizeof($result) > 0) {
+                $result = $this->M_StoreAdmin_Categorias->updateNameCategory(
+                        array(
+                            'id_empresa'        => $this->session->id_empresa,
+                            'id_categoria'      => trim($this->input->post("id_categoria", TRUE))
+                            'nombre_categoria'  =>trim($this->input->post("txtNombreCategoria", TRUE)),
+                        )
+                    );
+                
+                if (is_int($result)) {
+                    $json->message = "Los datos de la categoria se actualizo correctamente.";
+                    $json->status = TRUE;
+                } else {
+                    $json->message = "Ocurrio un error al grabar la categoria, intente de nuevo.";
+                }
+            } else {
+                $json->message = "La categoria que quiere editar no existe, intente de nuevo.";
+            }
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+		
+		echo json_encode($json);
+    }
+    
     public function ajaxDeleteCategory() {
         $json 				= new stdClass();
 		$json->type 		= "Categoria";
