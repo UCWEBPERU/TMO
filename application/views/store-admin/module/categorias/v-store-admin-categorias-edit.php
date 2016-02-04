@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label for="txtNombreCategoria">Nombre Categoria</label>
                                 <?php if (sizeof($modulo->data_categoria) > 0) { ?>
-                                <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" value="<?php echo $modulo->data_categoria->nombre_categoria; ?>" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" value="<?php echo $modulo->data_categoria[0]->nombre_categoria; ?>" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
                                 <?php } else { ?>
                                 <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
                                 <?php } ?>
