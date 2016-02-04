@@ -54,7 +54,7 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary" id="btnAgregar" >Agregar</button>
+                            <button type="submit" class="button-effect-1" id="btnAgregar" >Agregar</button>
                         </div>
                     </form>
                 </div><!-- /.box -->

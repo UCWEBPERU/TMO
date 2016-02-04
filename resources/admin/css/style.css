@@ -44,3 +44,34 @@
 .boxCategory > .box-tools > .btn-box-tool-delete:hover {
     color: #fc0836;
 }
+
+.button-effect-1 {
+    font-size: .9em;
+    display: inline-block;
+    margin: 1em;
+    margin-left: 0;
+    color: #fff;
+    /*background-color: #f2337d;*/
+    background-color: #3c8dbc;
+    padding: .6em 1.25em;
+    cursor: pointer;
+    border-radius: 7px;
+    border: none;
+    /*box-shadow: 0 6px #b40b4d,0 12px 5px rgba(0,0,0,0.2);*/
+    box-shadow: 0 6px #204d74,0 12px 5px rgba(0,0,0,0.2);
+    -webkit-transition: background .15s linear,color .15s linear;
+    transition: background .15s linear,color .15s linear;
+    text-align: center;
+}
+
+.button-effect-1:hover, .button-effect-1:focus {
+    color: #fff;
+    /*background-color: #f01168;*/
+    background-color: #367fa9;
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    transform: translateY(2px);
+    border: none;
+    /*box-shadow: 0 4px #b40b4d,0 6px 5px rgba(0,0,0,0.2);*/
+    box-shadow: 0 4px #204d74,0 6px 5px rgba(0,0,0,0.2);
+}
