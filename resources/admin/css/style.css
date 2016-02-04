@@ -20,9 +20,9 @@
 
 .boxCategory > .box-tools {
     opacity: 0;
-    -webkit-transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
 }
 
 .boxCategory:hover > .box-tools {
