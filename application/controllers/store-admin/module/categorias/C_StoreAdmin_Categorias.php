@@ -92,10 +92,26 @@ class C_StoreAdmin_Categorias extends CI_Controller {
         $this->load->view('store-admin/module/categorias/v-store-admin-categorias-add', $data);
     }
     
+    public function editCategory($id_category) {
+        $modulo = $this->loadDataPanel();
+        $modulo->menu = array("menu" => 3, "submenu" => 0);
+        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Editar Categoria";
+        
+        $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
+                array(
+                    'id_empresa'        => $this->session->id_empresa,
+                    'id_categoria'      => $id_category
+                )
+            );
+        $modulo->data_categoria = $datosCategoria;
+        
+        $data["modulo"] = $modulo;
+        $this->load->view('store-admin/module/categorias/v-store-admin-categorias-edit', $data);
+    }
+    
     public function listSubCategoriesByCategory($id_category) {
         $modulo = $this->loadDataPanel();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
-        
         
         $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
                         array(

@@ -16,7 +16,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Categorias: <?php echo $modulo->data_categoria->nombre_categoria; ?>
+            Categoria: <?php echo $modulo->data_categoria->nombre_categoria; ?>
             <small><a href="<?php echo $modulo->url_main_panel; ?>/categorys">Regresar</a></small>
           </h1>
           <ol class="breadcrumb">
