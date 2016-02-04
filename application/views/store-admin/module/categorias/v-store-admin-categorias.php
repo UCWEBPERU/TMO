@@ -85,7 +85,9 @@
                             waitingDialog.hide();
                             if (response.status) {
                                 swal("Eliminado!", response.message, "success");
-                                $(self).parent().parent().hide("slow");
+                                $(self).parent().parent().hide("slow", function(){
+                                    $(self).parent().parent().remove();
+                                });
                             } else {
                                 swal("Error", response.message, "error");
                             }
