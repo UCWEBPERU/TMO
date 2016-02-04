@@ -57,7 +57,7 @@
     <script>
         (function($){
             $(".btn-box-tool").on("click", function(){
-                sweetAlert("Oops...", "Something went wrong!", "error");
+                // swal("Oops...", "Something went wrong!", "error");
                 swal({
                         title: "Are you sure?",
                         text: "You will not be able to recover this imaginary file!",
@@ -69,7 +69,7 @@
                         showLoaderOnConfirm: true
                     }, 
                     function() {
-                        swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+                        // swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
                     }
                 );
             });
