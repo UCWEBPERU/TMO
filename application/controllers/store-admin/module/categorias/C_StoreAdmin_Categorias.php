@@ -95,14 +95,25 @@ class C_StoreAdmin_Categorias extends CI_Controller {
     public function listSubCategoriesByCategory($id_category) {
         $modulo = $this->loadDataPanel();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categorias: ";
-                
+        
+        
+        $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
+                        array(
+                            'id_empresa'        => $this->session->id_empresa,
+                            'nivel_categoria'   => "categoria",
+                            'id_categoria'      => $id_category
+                        )
+                    );
+        
+        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categoria: ".$datosCategoria[0]->nombre_categoria;          
+        
         $datosSubCategoria = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
                     array( 
                         "id_empresa"            => $this->session->id_empresa,
                         "id_categoria_superior" => $id_category
                     )
                 );
+        $modulo->data_categoria = $datosCategoria[0];
         $modulo->data_sub_categorias = $datosSubCategoria;
         
         $data["modulo"] = $modulo;

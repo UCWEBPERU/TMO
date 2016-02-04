@@ -16,12 +16,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Categorias
-            <small><a href="<?php echo $modulo->url_main_panel; ?>/categorys/add">Agregar</a></small>
+            Categorias: <?php echo $modulo->data_categoria->nombre_categoria; ?>
+            <small><a href="<?php echo $modulo->url_main_panel; ?>/categorys">Regresar</a></small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
-            <li class="active"> Categorias</li>
+            <li><a href="<?php echo $modulo->url_main_panel; ?>/categorys"> Categorias</a></li>
+            <li class="active"> Sub Categorias</li>
           </ol>
         </section>
         <!-- Main content -->
