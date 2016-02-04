@@ -139,7 +139,7 @@ $route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'store-admin/modul
 | ------------------------------
 */
 $route['store/(:num)/admin/categorys']                      = 'store-admin/module/categorias/C_StoreAdmin_Categorias/listAllCategories';
-$route['store/(:num)/admin/categorys/view/(:num)']          = 'store-admin/module/categorias/C_StoreAdmin_Categorias/listSubCategoriesByCategory/$1';
+$route['store/(:num)/admin/categorys/view/(:num)']          = 'store-admin/module/categorias/C_StoreAdmin_Categorias/listSubCategoriesByCategory/$2';
 $route['store/(:num)/admin/categorys/add']                  = 'store-admin/module/categorias/C_StoreAdmin_Categorias/addCategory';
 $route['store/(:num)/admin/categorys/edit/(:num)']          = 'store-admin/module/categorias/C_StoreAdmin_Categorias/editCategoryByName/$1';
 $route['store/(:num)/admin/categorys/ajax/addCategory']     = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxAddCategory';
