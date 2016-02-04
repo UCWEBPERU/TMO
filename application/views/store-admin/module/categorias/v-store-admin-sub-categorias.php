@@ -28,18 +28,16 @@
         <section class="content">
 
           <div class="row">
-            <?php foreach($modulo->data_categorias as $categoria): ?>
+            <?php foreach($modulo->data_sub_categorias as $sub_categoria): ?>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a class="link-shorcut" href="<?php echo $modulo->url_main_panel.'/categorys/view/'.intval($categoria->id_categoria); ?>">
+                <a class="link-shorcut" href="<?php echo $modulo->url_main_panel.'/categorys/edit/'.intval($sub_categoria->id_categoria); ?>">
                     <div class="info-box boxCategory">
                         <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool btn-box-tool-edit" data-widget="remove" data-id-cat="<?php echo intval($categoria->id_categoria); ?>" title="Editar"><i class="fa fa-pencil"></i></button>
-                            <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-cat="<?php echo intval($categoria->id_categoria); ?>" title="Eliminar"><i class="fa fa-remove"></i></button>
+                            <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-cat="<?php echo intval($sub_categoria->id_categoria); ?>" title="Eliminar"><i class="fa fa-remove"></i></button>
                         </div>
                         <span class="info-box-icon bg-aqua"><i class="fa fa-tags"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-number"><?php echo $categoria->nombre_categoria; ?></span>
-                            <span class="info-box-text">Sub Categorias: <?php echo $categoria->total_subcategorias; ?></span>
+                            <span class="info-box-number"><?php echo $sub_categoria->nombre_categoria; ?></span>
                         </div><!-- /.info-box-content -->
                     </div><!-- /.info-box -->
                 </a>
@@ -60,8 +58,8 @@
             $(".btn-box-tool-delete").on("click", function(){
                 var self = this;
                 swal({
-                        title: "Eliminar Categoria",
-                        text: "¿Seguro que desea eliminar categoria?",
+                        title: "Eliminar Sub Categoria",
+                        text: "¿Seguro que desea eliminar Sub categoria?",
                         type: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#fc0836",
@@ -99,10 +97,6 @@
                         });
                     }
                 );
-            });
-            
-            $(".btn-box-tool-edit").on("click", function(){
-                $(location).attr("href", "<?php echo $modulo->url_main_panel.'/categorys/edit/'; ?>" + $(this).attr("data-id-cat"));
             });
             
         })(jQuery);

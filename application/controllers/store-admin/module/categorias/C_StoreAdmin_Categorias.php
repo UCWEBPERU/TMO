@@ -92,8 +92,22 @@ class C_StoreAdmin_Categorias extends CI_Controller {
         $this->load->view('store-admin/module/categorias/v-store-admin-categorias-add', $data);
     }
     
-    public function listSubCategoriesByCategoryName() {
-        echo "HOLA MUNDO";
+    public function listSubCategoriesByCategory($id_category) {
+        $modulo = $this->loadDataPanel();
+        $modulo->menu = array("menu" => 3, "submenu" => 0);
+        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categorias: ";
+                
+        $datosSubCategoria = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
+                    array( 
+                        "id_empresa"            => $this->session->id_empresa,
+                        "id_categoria_superior" => $id_category
+                    )
+                );
+        
+        $modulo->data_sub_categorias = $datosCategorias;
+        
+        $data["modulo"] = $modulo;
+        $this->load->view('store-admin/module/categorias/v-store-admin-sub-categorias', $data);
     }
     
     /* <--------------- AJAX ---------------> */
