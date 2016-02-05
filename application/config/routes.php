@@ -162,6 +162,7 @@ $route['store/(:num)/admin/user-profile/ajax/updateUserAccount'] = 'store-admin/
 $route['store/(:num)/admin/products']             = 'store-admin/module/productos/C_StoreAdmin_Productos';
 $route['store/(:num)/admin/products/page']        = 'store-admin/module/productos/C_StoreAdmin_Productos';
 $route['store/(:num)/admin/products/page/(:num)'] = 'store-admin/module/productos/C_StoreAdmin_Productos';
+$route['store/(:num)/admin/products/add']  = 'store-admin/module/productos/C_StoreAdmin_Productos/addProduct';
 
 
 /*
