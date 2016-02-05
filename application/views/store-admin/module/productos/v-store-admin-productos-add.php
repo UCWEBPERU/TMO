@@ -187,14 +187,15 @@
                 var request = $.ajax({
                     url: "<?php echo $modulo->url_main_panel."/products/ajax/getSubCategorys"; ?>",
                     method: "POST",
+                    data: formDataCategory,
+                    dataType: "json",
                     processData: false,
-                    contentType: false,
-                    data: formDataCategory
+                    contentType: false
                 });
 
                 request.done(function( response ) {
                     waitingDialog.hide();
-                    // console.log(response.data);
+                    console.log(response.data);
                     if (response.status) {
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                     } else {
