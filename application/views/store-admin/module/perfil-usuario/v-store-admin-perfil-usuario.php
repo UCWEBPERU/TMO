@@ -40,37 +40,37 @@
                     <div class="box-body">
                         <div class="form-group">
                         <label for="txtNombres">Nombres</label>
-                        <input type="text" class="form-control" id="txtNombres" name="txtNombres" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre."/>
+                        <input type="text" class="form-control" id="txtNombres" name="txtNombres" value="<?php echo $modulo->data_usuario->nombres_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre."/>
                         </div>
                         <div class="form-group">
                         <label for="txtApellidos">Apellidos</label>
-                        <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese apellido."/>
+                        <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" value="<?php echo $modulo->data_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese apellido."/>
                         </div>
                         <div class="form-group">
                         <label for="txtPais">Pais</label>
-                        <input type="text" class="form-control" id="txtPais" name="txtPais" value="<?php echo $modulo->datos_usuario->pais_region_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su pais."/>
+                        <input type="text" class="form-control" id="txtPais" name="txtPais" value="<?php echo $modulo->data_usuario->pais_region_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su pais."/>
                         </div>
                         <div class="form-group">
                         <label for="txtEstado">Estado</label>
-                        <input type="text" class="form-control" id="txtEstado" name="txtEstado" value="<?php echo $modulo->datos_usuario->estado_region_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su estado."/>
+                        <input type="text" class="form-control" id="txtEstado" name="txtEstado" value="<?php echo $modulo->data_usuario->estado_region_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su estado."/>
                         </div>
                         <div class="form-group">
                         <label for="txtDireccion">Direccion</label>
-                        <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su direccion."/>
+                        <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" value="<?php echo $modulo->data_usuario->direccion_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su direccion."/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroCelular">Numero Celular</label>
-                        <input type="text" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->movil_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular." data-parsley-type-message="Ingrese un numero de celular valido."/>
+                        <input type="text" class="form-control" id="txtNumeroCelular" name="txtNumeroCelular" data-parsley-type="digits" value="<?php echo $modulo->data_usuario->movil_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular." data-parsley-type-message="Ingrese un numero de celular valido."/>
                         </div>
                         <div class="form-group">
                         <label for="txtNumeroTelefono">Numero Telefonico</label>
-                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->datos_usuario->telefono_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de telefono."  data-parsley-type-message="Ingrese un numero de celular valido."/>
+                        <input type="text" class="form-control" id="txtNumeroTelefono" name="txtNumeroTelefono" value="<?php echo $modulo->data_usuario->telefono_persona; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de telefono."  data-parsley-type-message="Ingrese un numero de celular valido."/>
                         </div>
                     </div>
                     <!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button id="btnGuardarPerfil" type="submit" class="btn btn-primary">Guardar</button>
+                        <button id="btnGuardarPerfil" type="submit" class="button-effect-1">Guardar</button>
                     </div>
                 </form>
             </div>
@@ -90,7 +90,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="txtEmailUsuario">Email Usuario</label>
-                            <input type="email" class="form-control" id="txtEmailUsuario" name="emailUsuario" value="<?php echo $modulo->datos_usuario->email_usuario; ?>" disabled />
+                            <input type="email" class="form-control" id="txtEmailUsuario" name="emailUsuario" value="<?php echo $modulo->data_usuario->email_usuario; ?>" disabled />
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Contraseña</label>
@@ -104,7 +104,7 @@
                     <!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button id="btnGuardarUsuario" type="submit" class="btn btn-primary">Guardar</button>
+                        <button id="btnGuardarUsuario" type="submit" class="button-effect-1">Guardar</button>
                     </div>
                 </form>
             </div>

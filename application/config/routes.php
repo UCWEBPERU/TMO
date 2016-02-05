@@ -125,8 +125,6 @@ $route['store/(:num)/admin/login'] = 'admin/C_Login';
 | URL -> STORE ADMIN - PERFIL EMPRESA
 | ------------------------------
 */
-$route['store/(:num)/admin']	                            = 'store-admin/C_StoreAdmin';
-$route['store/(:num)/admin/login']                          = 'admin/C_Login';
 $route['store/(:num)/admin/perfil-store']                   = 'store-admin/module/empresa/C_StoreAdmin_Empresa';
 $route['store/(:num)/admin/perfil-store/updatePerfilStore'] = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosStore';
 $route['store/(:num)/admin/perfil-store/updatePayAccount']  = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosPayAccount';
@@ -145,6 +143,13 @@ $route['store/(:num)/admin/categorys/edit/(:num)']          = 'store-admin/modul
 $route['store/(:num)/admin/categorys/ajax/addCategory']     = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxAddCategory';
 $route['store/(:num)/admin/categorys/ajax/editCategory']     = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxEditCategory';
 $route['store/(:num)/admin/categorys/ajax/deleteCategory']  = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxDeleteCategory';
+
+/*
+| ------------------------------
+| URL -> STORE ADMIN - PERFIL USUARIO
+| ------------------------------
+*/
+$route['store/(:num)/admin/user-profile'] = 'store-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario';
 
 
 /*
