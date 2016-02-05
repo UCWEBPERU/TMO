@@ -194,7 +194,7 @@
 
                 request.done(function( response ) {
                     waitingDialog.hide();
-                    console.log(response.data);
+                    // console.log(response.data);
                     if (response.status) {
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                     } else {
