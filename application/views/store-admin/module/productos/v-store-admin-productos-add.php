@@ -132,7 +132,7 @@
         }
         
         $(function () {
-            var selectorInputsForm = ["#txtNombreProducto", "txtDescripcionProducto", "txtStockProducto", "txtPrecioProducto"];
+            var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboSubCategorias"];
             var contadorImagenes = 1;
             var formDataProduct = new FormData();
             
