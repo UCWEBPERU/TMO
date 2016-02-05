@@ -205,6 +205,7 @@
 //                     waitingDialog.hide();
 //                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
 //                 });
+                console.log(e);
                 alert($(e).val());
             });
         });
