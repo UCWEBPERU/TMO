@@ -196,6 +196,7 @@
                 request.done(function( response ) {
                     waitingDialog.hide();
                     $("#cboSubCategorias").empty();
+                    $("#cboSubCategorias").val(null).trigger("change");
                     var html = "<option selected='selected' value=''>Seleccione</option>";
                     if (response.status) {
                         for (var i=0; i < response.data.length; i++) { 
