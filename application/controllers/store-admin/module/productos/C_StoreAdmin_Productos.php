@@ -19,7 +19,8 @@ class C_StoreAdmin_Productos extends CI_Controller {
     public function index() {
 		$this->load->library('pagination');
 		$modulo = $this->loadDataPanel();
-
+        
+        $modulo->titulo_pagina              = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Productos";
 		$modulo->nombre 					= "Productos";
 		$modulo->titulo 					= "Productos";
 		$modulo->titulo_registro 			= "Registro de Productos";
@@ -57,7 +58,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
 		$modulo->links = explode('&nbsp;',$str_links );
 		
 		$data["modulo"] = $modulo;
-		$this->load->view('template/module/module-panel', $data);
+		$this->load->view('store-admin/module/productos/v-store-admin-productos', $data);
     }
     
     public function loadDataPanel() {
