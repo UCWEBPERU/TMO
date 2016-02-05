@@ -85,6 +85,15 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                        <div class="col-md-2">
+                            <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
+                        </div><!-- /.col -->
+                        <div class="col-md-2">
+                            <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
+                        </div><!-- /.col -->
+                        <div class="col-md-2">
+                            <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
+                        </div><!-- /.col -->
                         <div class="btn btn-default btn-file">
                             <i class="fa fa-paperclip"></i> Upload new logo
                             <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
