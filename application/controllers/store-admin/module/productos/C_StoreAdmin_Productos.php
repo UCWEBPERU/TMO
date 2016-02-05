@@ -94,7 +94,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
                             array(
                                 'id_categoria'        => trim($this->input->post("cboSubCategorias", TRUE)),
                                 'nombre_producto'     => trim($this->input->post("txtNombreProducto", TRUE)),
-                                'descipcion_producto' => trim($this->input->post("txtDescripcionProducto", TRUE)),
+                                'descripcion_producto' => trim($this->input->post("txtDescripcionProducto", TRUE)),
                                 'stock'               => trim($this->input->post("txtStockProducto", TRUE)),
                                 'precio_producto'     => trim($this->input->post("txtPrecioProducto", TRUE))
                             )
