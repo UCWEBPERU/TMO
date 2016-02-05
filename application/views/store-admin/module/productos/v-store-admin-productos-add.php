@@ -78,6 +78,22 @@
                 </div><!-- /.box -->
             </div><!-- /.col -->
             
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                    <h3 class="box-title">Galeria Producto</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="btn btn-default btn-file">
+                            <i class="fa fa-paperclip"></i> Upload new logo
+                            <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+            
           </div><!-- /.row -->
           
         </section><!-- /.content -->
