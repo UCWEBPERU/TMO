@@ -39,24 +39,25 @@
                     <form role="form" id="frmDatosCategoria">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="txtNombreCategoria">Nombre</label>
-                                <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <label for="txtNombreProducto">Nombre</label>
+                                <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
                             </div><!-- /.form-group -->
                             <div class="form-group">
-                                <label for="txtNombreCategoria">Descripcion</label>
-                                <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <label for="txtDescripcionProducto">Descripcion</label>
+                                <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
                             </div><!-- /.form-group -->
                             <div class="form-group">
-                                <label for="txtNombreCategoria">Stock</label>
-                                <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <label for="txtStockProducto">Stock</label>
+                                <input type="text" class="form-control" id="txtStockProducto" name="txtStockProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
                             </div><!-- /.form-group -->
                             <div class="form-group">
-                                <label for="txtNombreCategoria">Precio</label>
-                                <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <label for="txtPrecioProducto">Precio</label>
+                                <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label>Categoria</label>
                                 <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias">
+                                    <option selected="selected" value="">Seleccione</option>
                                     <?php foreach($modulo->data_categorias as $categoria): ?>
                                     <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
                                     <?php endforeach; ?>
@@ -65,6 +66,7 @@
                             <div class="form-group">
                                 <label>Sub Categoria</label>
                                 <select class="form-control select2" style="width: 100%;" id="cboSubCategorias" name="cboSubCategorias">
+                                    <option selected="selected" value="">Seleccione</option>
                                 </select>
                             </div><!-- /.form-group -->
                         </div><!-- /.box-body -->
@@ -142,9 +144,10 @@
                     var request = $.ajax({
                         url: "<?php echo $modulo->url_main_panel."/categorys/ajax/addCategory"; ?>",
                         method: "POST",
+                        data: formDataProduct,
+                        dataType: "json",
                         processData: false,
-                        contentType: false,
-                        data: formDataProduct
+                        contentType: false
                     });
 
                     request.done(function( response ) {
@@ -166,7 +169,7 @@
             var objHandleFile = new HandleFile("#btnAddImage");
             objHandleFile.onSelect(
                 function(file) {
-                    formData.append("file_" + contadorImagenes, file);
+                    formDataProduct.append("file_" + contadorImagenes, file);
                     console.log("Nombre File" + "file_" + contadorImagenes);
                 },
                 function(readResult) {
@@ -208,6 +211,10 @@
                     waitingDialog.hide();
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
+            });
+            
+            $("#cboSubCategorias").on("select2:select", function (event) { 
+                alert($(this).val() + " " + event.params.data.id);
             });
         });
     </script>
