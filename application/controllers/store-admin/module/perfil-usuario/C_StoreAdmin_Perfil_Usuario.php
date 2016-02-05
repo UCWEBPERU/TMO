@@ -102,7 +102,7 @@ class C_StoreAdmin_Perfil_Usuario extends CI_Controller {
             $this->input->post("txtNumeroCelular") &&
             $this->input->post("txtNumeroTelefono") ) {
 
-            $result = $this->M_Admin_Perfil->updatePerfilUsuario(array(
+            $result = $this->M_StoreAdmin_Perfil_Usuario->updatePerfilUsuario(array(
                             "id"            => $this->session->id_usuario,
                             "nombres"       => trim($this->input->post("txtNombres", TRUE)),
                             "apellidos"     => trim($this->input->post("txtApellidos", TRUE)),
@@ -138,7 +138,7 @@ class C_StoreAdmin_Perfil_Usuario extends CI_Controller {
         
 		if ($this->input->post("passwordUsuario") && $this->input->post("repeatPasswordUsuario") ) {
 
-            $result = $this->M_Admin_Perfil->updatePassWordUsuario($this->session->id_usuario, $this->cryptography->Encrypt(trim($this->input->post("passwordUsuario", TRUE))));
+            $result = $this->M_StoreAdmin_Perfil_Usuario->updatePassWordUsuario($this->session->id_usuario, $this->cryptography->Encrypt(trim($this->input->post("passwordUsuario", TRUE))));
             
 			if ($result) {
                 $json->message = "Los datos de su cuenta de usuario se actualizo correctamente.";
