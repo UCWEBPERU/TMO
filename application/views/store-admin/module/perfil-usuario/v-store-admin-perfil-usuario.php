@@ -9,7 +9,7 @@
       <?php 
         $data["menu"]     = $modulo->menu["menu"];
         $data["submenu"]  = $modulo->menu["submenu"];
-        $this->load->view('admin/v-admin-menu', $data); ?>
+        $this->load->view('store-admin/v-store-admin-menu', $data); ?>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -158,7 +158,7 @@
                 if (validateInputsForm(selectorInputsFormPerfilUsuario)) {
                     waitingDialog.show('Actualizando Datos Personales...');
                     var request = $.ajax({
-                        url: "<?php echo base_url().'admin/perfil/actualizar-perfil-usuario'; ?>",
+                        url: "<?php echo $modulo->url_main_panel.'/user-profile/ajax/updateUserProfile'; ?>",
                         method: "POST",
                         data: $("#frmPerfilUsuario").serialize(),
                         dataType: "json"
@@ -186,7 +186,7 @@
                 if (validateInputsForm(selectorInputsFormDatosUsuario)) {
                     waitingDialog.show('Actualizando Datos de Usuario...');
                     var request = $.ajax({
-                        url: "<?php echo base_url().'admin/perfil/actualizar-cuenta-usuario'; ?>",
+                        url: "<?php echo $modulo->url_main_panel.'/user-profile/ajax/updateUserAccount'; ?>",
                         method: "POST",
                         data: $("#frmDatosUsuario").serialize(),
                         dataType: "json"

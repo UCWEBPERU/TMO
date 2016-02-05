@@ -9,6 +9,7 @@ class C_StoreAdmin_Perfil_Usuario extends CI_Controller {
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
         $this->usersession->validateSession("panel-store-admin");
+        $this->load->helper('security');
         $this->load->model("store-admin/M_StoreAdmin_Perfil_Usuario");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
@@ -86,118 +87,70 @@ class C_StoreAdmin_Perfil_Usuario extends CI_Controller {
     
     /* <--------------- AJAX ---------------> */
     
-    public function ajaxAddCategory() {
+    public function ajaxUpdateUserProfile() {
 		$json 				= new stdClass();
-		$json->type 		= "Categorias";
+		$json->type 		= "Actualizar Perfil de Usuario";
 		$json->presentation = "";
-		$json->action 		= "add";
 		$json->data 		= array();
 		$json->status 		= FALSE;
-            
-        if ( $this->input->post("txtNombreCategoria") ) {
-            $capitalizeCategoryName = ucwords(strtolower(trim($this->input->post("txtNombreCategoria", TRUE))));
-            
-            $result = $this->M_StoreAdmin_Categorias->getCategorysByName(
-                            array(
-                                "id_empresa" => $this->session->id_empresa,
-                                "nombre_categoria" => $capitalizeCategoryName
-                            )
+        
+        if ($this->input->post("txtNombres") &&
+            $this->input->post("txtApellidos") &&
+            $this->input->post("txtPais") &&
+            $this->input->post("txtEstado") &&
+            $this->input->post("txtDireccion") &&
+            $this->input->post("txtNumeroCelular") &&
+            $this->input->post("txtNumeroTelefono") ) {
+
+            $result = $this->M_Admin_Perfil->updatePerfilUsuario(array(
+                            "id"            => $this->session->id_usuario,
+                            "nombres"       => trim($this->input->post("txtNombres", TRUE)),
+                            "apellidos"     => trim($this->input->post("txtApellidos", TRUE)),
+                            "pais_region"   => trim($this->input->post("txtPais", TRUE)),
+                            "estado_Region" => trim($this->input->post("txtEstado", TRUE)),
+                            "direccion"     => trim($this->input->post("txtDireccion", TRUE)),
+                            "movil"         => trim($this->input->post("txtNumeroCelular", TRUE)),
+                            "telefono"      => trim($this->input->post("txtNumeroTelefono", TRUE)))
                         );
-            
-            if (sizeof($result) == 0) {
-                $nivelCategoria = (trim($this->input->post("cboCategoriaSuperior", TRUE))) ? "subcategoria" : "categoria";
-                $existeCategoriaSuperior = false;
-                
-                if ($nivelCategoria == "subcategoria") {
-                    unset($result);
-                    $result = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
-                        array(
-                            'id_empresa'            => $this->session->id_empresa,
-                            'nivel_categoria'       => "categoria",
-                            'id_categoria' => trim($this->input->post("cboCategoriaSuperior", TRUE))
-                        )
-                    );
-                    
-                    if (sizeof($result) > 0) {
-                        $existeCategoriaSuperior = true;
-                    } else {
-                        $json->message = "La categoria superior que selecciono no existe, intente de nuevo.";
-                    }
-                } else {
-                    $existeCategoriaSuperior = true;
-                }
-                
-                if ($existeCategoriaSuperior) {
-                    unset($result);
-                    $result = $this->M_StoreAdmin_Categorias->insertCategory(
-                            array(
-                                'id_categoria_superior'  => trim($this->input->post("cboCategoriaSuperior", TRUE)),
-                                'id_empresa'             => $this->session->id_empresa,
-                                'nombre_categoria'       => $capitalizeCategoryName,
-                                'nivel_categoria'        => $nivelCategoria
-                            )
-                        );
-                    
-                    if (is_int($result)) {
-                        $json->message = "La categoria se agrego correctamente.";
-                        $json->status = TRUE;
-                    } else {
-                        $json->message = "Ocurrio un error al grabar la categoria, intente de nuevo.";
-                    }
-                } else {
-                    $json->message = "La categoria superior que selecciono no existe, intente de nuevo.";
-                }
-            } else {
-                $json->message = "La categoria que quiere agregar ya existe, intente de nuevo.";
-            }
-            
-        } else {
-            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
-        }
-		
+                        
+			if ($result) {
+                $json->message = "Sus datos personales se han actualizado correctamente.";
+                $json->status 	= TRUE;
+			} else {
+				$json->message = "Ocurrio un error al intentar actualizar sus datos personales. Intentelo de nuevo o mas tarde.";
+			}
+
+		} else {
+			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+		}
+
 		echo json_encode($json);
     }
     
-    public function ajaxEditCategory() {
+    public function ajaxUpdateUserAccount() {
+		$this->load->library('security/Cryptography');
+		
 		$json 				= new stdClass();
-		$json->type 		= "Categoria";
+		$json->type 		= "Actualizar Datos de Usuario";
 		$json->presentation = "";
-		$json->action 		= "edit";
 		$json->data 		= array();
 		$json->status 		= FALSE;
+        
+		if ($this->input->post("passwordUsuario") && $this->input->post("repeatPasswordUsuario") ) {
+
+            $result = $this->M_Admin_Perfil->updatePassWordUsuario($this->session->id_usuario, $this->cryptography->Encrypt(trim($this->input->post("passwordUsuario", TRUE))));
             
-        if ( $this->input->post("id_categoria") && 
-                $this->input->post("txtNombreCategoria") ) {
-            
-            $result = $this->M_StoreAdmin_Categorias->getCategoryByID(
-                            array(
-                                "id_empresa" => $this->session->id_empresa,
-                                "id_categoria" => trim($this->input->post("id_categoria", TRUE))
-                            )
-                        );
-            
-            if (sizeof($result) > 0) {
-                $result = $this->M_StoreAdmin_Categorias->updateNameCategory(
-                        array(
-                            'id_empresa'        => $this->session->id_empresa,
-                            'id_categoria'      => trim($this->input->post("id_categoria", TRUE)),
-                            'nombre_categoria'  => trim($this->input->post("txtNombreCategoria", TRUE))
-                        )
-                    );
-                
-                if ($result) {
-                    $json->message = "Los datos de la categoria se actualizo correctamente.";
-                    $json->status = TRUE;
-                } else {
-                    $json->message = "Ocurrio un error al grabar la categoria, intente de nuevo.";
-                }
-            } else {
-                $json->message = "La categoria que quiere editar no existe, intente de nuevo.";
-            }
-        } else {
-            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
-        }
-		
+			if ($result) {
+                $json->message = "Los datos de su cuenta de usuario se actualizo correctamente.";
+                $json->status 	= TRUE;
+			} else {
+				$json->message = "Ocurrio un error al intentar actualizar los datos de su cuenta de usuario. Intentelo de nuevo o mas tarde.";
+			}
+
+		} else {
+			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+		}
+
 		echo json_encode($json);
     }
     

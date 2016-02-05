@@ -141,7 +141,7 @@ $route['store/(:num)/admin/categorys/view/(:num)']          = 'store-admin/modul
 $route['store/(:num)/admin/categorys/add']                  = 'store-admin/module/categorias/C_StoreAdmin_Categorias/addCategory';
 $route['store/(:num)/admin/categorys/edit/(:num)']          = 'store-admin/module/categorias/C_StoreAdmin_Categorias/editCategory/$2';
 $route['store/(:num)/admin/categorys/ajax/addCategory']     = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxAddCategory';
-$route['store/(:num)/admin/categorys/ajax/editCategory']     = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxEditCategory';
+$route['store/(:num)/admin/categorys/ajax/editCategory']    = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxEditCategory';
 $route['store/(:num)/admin/categorys/ajax/deleteCategory']  = 'store-admin/module/categorias/C_StoreAdmin_Categorias/ajaxDeleteCategory';
 
 /*
@@ -149,7 +149,9 @@ $route['store/(:num)/admin/categorys/ajax/deleteCategory']  = 'store-admin/modul
 | URL -> STORE ADMIN - PERFIL USUARIO
 | ------------------------------
 */
-$route['store/(:num)/admin/user-profile'] = 'store-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario';
+$route['store/(:num)/admin/user-profile']                        = 'store-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario';
+$route['store/(:num)/admin/user-profile/ajax/updateUserProfile'] = 'store-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserProfile';
+$route['store/(:num)/admin/user-profile/ajax/updateUserAccount'] = 'store-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserAccount';
 
 
 /*

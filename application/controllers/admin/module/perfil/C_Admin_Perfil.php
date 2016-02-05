@@ -68,7 +68,6 @@ class C_Admin_Perfil extends CI_Controller {
     public function updatePerfil() {
         $this->load->helper('security');
 		$this->load->model('admin/M_Admin_Perfil');
-		$this->load->library('security/Cryptography');
 		
 		$json 				= new stdClass();
 		$json->type 		= "Actualizar Perfil de Usuario";
