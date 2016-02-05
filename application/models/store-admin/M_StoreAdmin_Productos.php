@@ -64,7 +64,7 @@ class M_StoreAdmin_Productos extends CI_Model{
             'precio_producto'     => $data_producto["precio_producto"]
 		);
 
-		if ($this->db->insert('Pay_Account', $data)) {
+		if ($this->db->insert('Producto', $data)) {
 			return $this->db->insert_id();
 		}
 		
