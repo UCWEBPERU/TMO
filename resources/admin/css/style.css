@@ -72,3 +72,11 @@
     border: none;
     box-shadow: 0 4px #204d74,0 6px 5px rgba(0,0,0,0.2);
 }
+
+.box-galery-products > div {
+    overflow: hidden;
+}
+
+.box-galery-products > div > img{
+    width: 100%;
+}

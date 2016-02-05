@@ -84,14 +84,14 @@
                     <h3 class="box-title">Galeria Producto</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="col-md-2">
+                    <div class="box-body box-galery-products">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
                             <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
                         </div><!-- /.col -->
-                        <div class="col-md-2">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
                             <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
                         </div><!-- /.col -->
-                        <div class="col-md-2">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
                             <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
                         </div><!-- /.col -->
                         <div class="btn btn-default btn-file">
