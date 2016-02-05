@@ -56,7 +56,7 @@
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label>Categoria</label>
-                                <select class="form-control select2" style="width: 100%;" name="cboCategoriaSuperior">
+                                <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias">
                                     <option selected="selected" value="">Seleccione</option>
                                     <?php foreach($modulo->data_categorias as $categoria): ?>
                                     <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
@@ -65,7 +65,7 @@
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label>Sub Categoria</label>
-                                <select class="form-control select2" style="width: 100%;" name="cboCategoriaSuperior">
+                                <select class="form-control select2" style="width: 100%;" id="cboSubCategoria" name="cboSubCategoria">
                                     <option selected="selected" value="">Seleccione</option>
                                 </select>
                             </div><!-- /.form-group -->
@@ -144,8 +144,9 @@
                     var request = $.ajax({
                         url: "<?php echo $modulo->url_main_panel."/categorys/ajax/addCategory"; ?>",
                         method: "POST",
-                        data: $("#frmDatosCategoria").serialize(),
-                        dataType: "json"
+                        processData: false,
+                        contentType: false,
+                        data: formData
                     });
 
                     request.done(function( response ) {
@@ -167,8 +168,8 @@
             var objHandleFile = new HandleFile("#btnAddImage");
             objHandleFile.onSelect(
                 function(file) {
-                    formData.append("imagen_" + contadorImagenes, file);
-                    console.log("Nombre File" + "imagen_" + contadorImagenes);
+                    formData.append("file_" + contadorImagenes, file);
+                    console.log("Nombre File" + "file_" + contadorImagenes);
                 },
                 function(readResult) {
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12'>" +
@@ -178,6 +179,10 @@
                     // $("#logoStore").attr("src", readResult);
                 }
             );
+            
+            $("#cboCategorias").on("select2:select", function (e) { 
+                alert("");
+            });
         });
     </script>
   </body>

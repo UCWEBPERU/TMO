@@ -74,6 +74,55 @@ class C_StoreAdmin_Productos extends CI_Controller {
         $this->load->view('store-admin/module/productos/v-store-admin-productos-add', $data);
     }
     
+    /* <---------------- AJAX ----------------> */
+    
+    public function ajaxGetSubCategorysByIDCategory() {
+        $json 				= new stdClass();
+		$json->type 		= "Categorias";
+		$json->presentation = "";
+		$json->action 		= "list";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+            
+        if ( $this->input->post("id_categoria") ) {
+            
+            $result = $this->M_StoreAdmin_Categorias->getCategoryByID(
+                        array(
+                            'id_empresa'        => $this->session->id_empresa,
+                            'id_categoria'      => trim($this->input->post("id_categoria", TRUE))
+                        )
+                    );
+            
+            if (sizeof($result) > 0) {
+                
+                $subCategorias = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
+                    array( 
+                        "id_empresa"            => $this->session->id_empresa,
+                        "id_categoria_superior" => trim($this->input->post("id_categoria", TRUE))
+                    )
+                );
+                
+                if (sizeof($subCategorias) > 0) {
+                    $json->message  = "La categoria se elimino correctamente.";
+                    $json->data     = $subCategorias;
+                    $json->status   = TRUE;
+                } else {
+                    $json->message = "No hay Sub Categorias.";
+                }
+               
+            } else {
+                $json->message = "La categoria con lo que esta buscando no existe, intente de nuevo.";
+            }
+            
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+		
+		echo json_encode($json);
+    }
+    
+    /* <----------------- * -----------------> */
+    
     public function loadDataPanel() {
         $modulo = new stdClass();
         

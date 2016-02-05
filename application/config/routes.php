@@ -159,10 +159,11 @@ $route['store/(:num)/admin/user-profile/ajax/updateUserAccount'] = 'store-admin/
 | URL -> STORE ADMIN - PRODUCTOS
 | ------------------------------
 */
-$route['store/(:num)/admin/products']             = 'store-admin/module/productos/C_StoreAdmin_Productos';
-$route['store/(:num)/admin/products/page']        = 'store-admin/module/productos/C_StoreAdmin_Productos';
-$route['store/(:num)/admin/products/page/(:num)'] = 'store-admin/module/productos/C_StoreAdmin_Productos';
-$route['store/(:num)/admin/products/add']         = 'store-admin/module/productos/C_StoreAdmin_Productos/addProduct';
+$route['store/(:num)/admin/products']                       = 'store-admin/module/productos/C_StoreAdmin_Productos';
+$route['store/(:num)/admin/products/page']                  = 'store-admin/module/productos/C_StoreAdmin_Productos';
+$route['store/(:num)/admin/products/page/(:num)']           = 'store-admin/module/productos/C_StoreAdmin_Productos';
+$route['store/(:num)/admin/products/add']                   = 'store-admin/module/productos/C_StoreAdmin_Productos/addProduct';
+$route['store/(:num)/admin/products/ajax/getSubCategorys']  = 'store-admin/module/productos/C_StoreAdmin_Productos/ajaxGetSubCategorysByIDCategory';
 
 
 /*
