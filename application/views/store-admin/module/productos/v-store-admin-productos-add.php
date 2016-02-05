@@ -195,16 +195,16 @@
 
                 request.done(function( response ) {
                     waitingDialog.hide();
+                    $("#cboSubCategorias").empty();
+                    var html = "<option selected='selected' value=''>Seleccione</option>";
                     if (response.status) {
-                        $("#cboSubCategorias").empty();
-                        var html = "<option selected='selected' value=''>Seleccione</option>";
                         for (var i=0; i < response.data.length; i++) { 
                             html += "<option value='" + response.data[i].id_categoria + "'>" + response.data[i].nombre_categoria + "</option>";
                         }
-                        $("#cboSubCategorias").append(html);
                     } else {
-                        GenericModal.show("danger", "<p>" + response.message + "</p>");
+                        // GenericModal.show("danger", "<p>" + response.message + "</p>");
                     }
+                    $("#cboSubCategorias").append(html);
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
