@@ -142,13 +142,14 @@
                 if (validateInputsForm(selectorInputsForm)) {
                     waitingDialog.show('Guardando Categoria...');
                     
-                    formDataProduct.append("txtNombreProducto", $("#txtNombreProducto".val()));
-                    formDataProduct.append("txtDescripcionProducto", $("#txtDescripcionProducto".val()));
-                    formDataProduct.append("txtStockProducto", $("#txtStockProducto".val()));
-                    formDataProduct.append("txtPrecioProducto", $("#txtPrecioProducto".val()));
+                    formDataProduct.append("txtNombreProducto", $("#txtNombreProducto").val());
+                    formDataProduct.append("txtDescripcionProducto", $("#txtDescripcionProducto").val());
+                    formDataProduct.append("txtStockProducto", $("#txtStockProducto").val());
+                    formDataProduct.append("txtPrecioProducto", $("#txtPrecioProducto").val());
+                    formDataProduct.append("cboSubCategorias", $("#cboSubCategorias").val());
                     
                     var request = $.ajax({
-                        url: "<?php echo $modulo->url_main_panel."/categorys/ajax/addCategory"; ?>",
+                        url: "<?php echo $modulo->url_main_panel."/products/ajax/addProduct"; ?>",
                         method: "POST",
                         data: formDataProduct,
                         dataType: "json",
