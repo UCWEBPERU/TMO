@@ -59,8 +59,6 @@
                           <input type="text" class="form-control" id="nombre_tipo_empresa" name="nombre_tipo_empresa" maxlength="">
                       <?php } ?>
                     </div>
-                    
-
                   </div><!-- /.box-body -->
 
                   <div class="box-footer">

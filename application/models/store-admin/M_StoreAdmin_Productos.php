@@ -6,6 +6,34 @@ class M_StoreAdmin_Productos extends CI_Model{
 		$this->load->database();
 	}
     
+	public function fetchProductos($limit, $start, $id_empresa) {
+		$this->db->select("Productos.nombre_producto, Productos.descripcion_producto, Productos.stock, Productos.precio_producto, Productos.id_categoria");		
+		$this->db->join('Empresa','Empresa.id_empresa = Catalogo_Productos.id_empresa');
+		$this->db->join('Catalogo_Productos','Catalogo_Productos.id_producto = Productos.id_producto');
+		$this->db->where('Empresa.id_empresa', $id_empresa);
+		$this->db->where('Productos.estado', '1');
+		$this->db->limit($limit, $start);
+		$query = $this->db->get('Productos');
+
+		if ($query->num_rows() > 0) {
+			foreach ($query->result() as $row) {
+				$data[] = $row;
+			}
+			return $data;
+		}
+		
+		return FALSE;
+	}
+
+	public function getTotalProductos($id_empresa) {
+		$this->db->join('Empresa','Empresa.id_empresa = Catalogo_Productos.id_empresa');
+		$this->db->join('Catalogo_Productos','Catalogo_Productos.id_producto = Productos.id_producto');
+		$this->db->where('Empresa.id_empresa', $id_empresa);
+		$this->db->where('Productos.estado', '1');
+		$query = $this->db->get('Productos');
+		return $query->num_rows();
+	}
+    
     public function updateDatosEmpresa($data_empresa) {
 		$data = array(
 			'nombre_empresa'			=> $data_empresa["nombre_empresa"],

@@ -39,7 +39,7 @@
               </a>
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/productos">
+              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/products">
                 <div class="info-box">
                   <span class="info-box-icon bg-green"><i class="fa fa-shopping-bag"></i></span>
                   <div class="info-box-content">

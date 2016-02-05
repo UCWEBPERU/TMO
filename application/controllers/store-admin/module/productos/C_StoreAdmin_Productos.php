@@ -16,6 +16,50 @@ class C_StoreAdmin_Productos extends CI_Controller {
         $this->load->model('M_Tipo_Empresa');
 	}
     
+    public function index() {
+		$this->load->library('pagination');
+		$modulo = new stdClass();
+
+		$modulo->nombre 					= "Productos";
+		$modulo->titulo 					= "Productos";
+		$modulo->titulo_registro 			= "Registro de Productos";
+		$modulo->cabecera_registro 			= array("Nombre", "Descripcion", "Stock", "Precio", "Categoria");
+		$modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-products";
+		$modulo->base_url 					= $modulo->url_main_panel."/products";
+		$modulo->api_rest_params 			= array("delete" => "id_producto");
+		$modulo->menu 						= array("menu" => 2, "submenu" => 0);
+		$modulo->navegacion 				= array(
+												array("nombre" => "Productos",
+													"url" => "",
+													"activo" => TRUE)
+											);
+                                            
+		$config 							= array();
+		$config["base_url"] 				= $modulo->url_main_panel."/page";
+		$total_row 							= $this->M_StoreAdmin_Productos->getTotalProductos();
+		$config["total_rows"] 				= $total_row;
+		$config["per_page"] 				= 15;
+		$config['use_page_numbers'] 		= TRUE;
+		$config['cur_tag_open'] 			= '&nbsp;<a class="current">';
+		$config['cur_tag_close'] 			= '</a>';
+		$config['next_link'] 				= 'Siguiente';
+		$config['prev_link'] 				= 'Anterior';
+		$config['first_link'] 				= 'Primero';
+		$config['last_link'] 				= 'Ultimo';
+		$config["uri_segment"] 				= 5;
+		
+		$this->pagination->initialize($config);
+		
+		$page = ($this->uri->segment(5)) ? $this->uri->segment(5) : 1;
+		
+		$modulo->registros = $this->M_StoreAdmin_Productos->fetchProductos($config["per_page"], ($page - 1) * 15, $this->session->id_empresa);
+		$str_links = $this->pagination->create_links();
+		$modulo->links = explode('&nbsp;',$str_links );
+		
+		$data["modulo"] = $modulo;
+		$this->load->view('template/module/module-panel', $data);
+    }
+    
     public function loadDataPanel() {
         $modulo = new stdClass();
         

@@ -9,8 +9,8 @@ class C_StoreAdmin_Perfil_Usuario extends CI_Controller {
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
         $this->usersession->validateSession("panel-store-admin");
-        $this->load->helper('security');
         $this->load->model("store-admin/M_StoreAdmin_Perfil_Usuario");
+        $this->load->helper('security');
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
         $this->load->model('M_Usuario');
@@ -27,62 +27,6 @@ class C_StoreAdmin_Perfil_Usuario extends CI_Controller {
         
         $data["modulo"] = $modulo;
         $this->load->view('store-admin/module/perfil-usuario/v-store-admin-perfil-usuario', $data);
-    }
-    
-    public function addCategory() {
-        $modulo = $this->loadDataPanel();
-        $modulo->menu = array("menu" => 3, "submenu" => 0);
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Agregar Categoria";
-        
-        $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
-        $modulo->data_categorias = $datosCategorias;
-        
-        $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/categorias/v-store-admin-categorias-add', $data);
-    }
-    
-    public function editCategory($id_category) {
-        $modulo = $this->loadDataPanel();
-        $modulo->menu = array("menu" => 3, "submenu" => 0);
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Editar Categoria";
-        
-        $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
-                array(
-                    'id_empresa'        => $this->session->id_empresa,
-                    'id_categoria'      => $id_category
-                )
-            );
-        $modulo->data_categoria = $datosCategoria;
-        
-        $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/categorias/v-store-admin-categorias-edit', $data);
-    }
-    
-    public function listSubCategoriesByCategory($id_category) {
-        $modulo = $this->loadDataPanel();
-        $modulo->menu = array("menu" => 3, "submenu" => 0);
-        
-        $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
-                        array(
-                            'id_empresa'        => $this->session->id_empresa,
-                            'nivel_categoria'   => "categoria",
-                            'id_categoria'      => $id_category
-                        )
-                    );
-        
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categoria: ".$datosCategoria[0]->nombre_categoria;          
-        
-        $datosSubCategoria = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
-                    array( 
-                        "id_empresa"            => $this->session->id_empresa,
-                        "id_categoria_superior" => $id_category
-                    )
-                );
-        $modulo->data_categoria = $datosCategoria[0];
-        $modulo->data_sub_categorias = $datosSubCategoria;
-        
-        $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/categorias/v-store-admin-sub-categorias', $data);
     }
     
     /* <--------------- AJAX ---------------> */
