@@ -65,7 +65,7 @@
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label>Sub Categoria</label>
-                                <select class="form-control select2" style="width: 100%;" id="cboSubCategoria" name="cboSubCategoria">
+                                <select class="form-control select2" style="width: 100%;" id="cboSubCategorias" name="cboSubCategorias">
                                     <option selected="selected" value="">Seleccione</option>
                                 </select>
                             </div><!-- /.form-group -->
@@ -197,7 +197,12 @@
                     waitingDialog.hide();
                     console.log(response.data);
                     if (response.status) {
-                        GenericModal.show("default", "<p>" + response.message + "</p>");
+                        $("#cboSubCategorias").empty();
+                        var html = "";
+                        for (var i=0; i < response.data.length; i++) { 
+                            html += "<option value='" + response.data[i].id_categoria + "'>" + response.data[i].nombre_categoria + "</option>";
+                        }
+                        $("#cboSubCategorias").append(html);
                     } else {
                         GenericModal.show("danger", "<p>" + response.message + "</p>");
                     }
