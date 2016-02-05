@@ -140,7 +140,7 @@
                 evt.preventDefault();
                 
                 if (validateInputsForm(selectorInputsForm)) {
-                    waitingDialog.show('Guardando Categoria...');
+                    waitingDialog.show('Guardando Producto...');
                     
                     formDataProduct.append("txtNombreProducto", $("#txtNombreProducto").val());
                     formDataProduct.append("txtDescripcionProducto", $("#txtDescripcionProducto").val());
@@ -221,7 +221,7 @@
             });
             
             $("#cboSubCategorias").on("select2:select", function (event) { 
-                alert($(this).val() + " " + event.params.data.id);
+                // alert($(this).val() + " " + event.params.data.id);
             });
         });
     </script>

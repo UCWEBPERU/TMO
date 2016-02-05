@@ -90,7 +90,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
                 $this->input->post("txtPrecioProducto") &&
                 $this->input->post("cboSubCategorias") ) {
                     
-                $result = $this->M_StoreAdmin_Categorias->insertDatosProducto(
+                $result = $this-M_StoreAdmin_Productos->insertDatosProducto(
                             array(
                                 'id_categoria'        => trim($this->input->post("cboSubCategorias", TRUE)),
                                 'nombre_producto'     => trim($this->input->post("txtNombreProducto", TRUE)),
@@ -102,7 +102,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
                         
                  if (is_int($result)) {
                     unset($result);
-                    $result = $this->M_StoreAdmin_Categorias->insertDatosCatalogoProductos(
+                    $result = $this-M_StoreAdmin_Productos->insertDatosCatalogoProductos(
                         array(
                             'id_empresa'  => $this->session->id_empresa,
                             'id_producto' => $result
