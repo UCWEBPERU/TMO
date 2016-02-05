@@ -180,33 +180,32 @@
                 }
             );
             
-            $("#cboCategorias").on("select2:select", function (e) { 
-//                 var formDataCategory = new FormData();
-//                 
-//                 formDataCategory.append("id_categoria", );
-//                 var request = $.ajax({
-//                     url: "<?php echo $modulo->url_main_panel."/categorys/ajax/addCategory"; ?>",
-//                     method: "POST",
-//                     processData: false,
-//                     contentType: false,
-//                     data: formDataCategory
-//                 });
-// 
-//                 request.done(function( response ) {
-//                     waitingDialog.hide();
-//                     if (response.status) {
-//                         GenericModal.show("default", "<p>" + response.message + "</p>");
-//                     } else {
-//                         GenericModal.show("danger", "<p>" + response.message + "</p>");
-//                     }
-//                 });
-// 
-//                 request.fail(function( jqXHR, textStatus ) {
-//                     waitingDialog.hide();
-//                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
-//                 });
-                console.log(e);
-                alert($(e).val());
+            $("#cboCategorias").on("select2:select", function (event) { 
+                var formDataCategory = new FormData();
+                
+                formDataCategory.append("id_categoria", event.params.data.id);
+                var request = $.ajax({
+                    url: "<?php echo $modulo->url_main_panel."/products/ajax/getSubCategorys"; ?>",
+                    method: "POST",
+                    processData: false,
+                    contentType: false,
+                    data: formDataCategory
+                });
+
+                request.done(function( response ) {
+                    waitingDialog.hide();
+                    if (response.status) {
+                        GenericModal.show("default", "<p>" + response.message + "</p>");
+                        console.log(response.data);
+                    } else {
+                        GenericModal.show("danger", "<p>" + response.message + "</p>");
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    waitingDialog.hide();
+                    GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                });
             });
         });
     </script>

@@ -103,7 +103,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
                 );
                 
                 if (sizeof($subCategorias) > 0) {
-                    $json->message  = "La categoria se elimino correctamente.";
+                    $json->message  = "Lista de Sub Categorias.";
                     $json->data     = $subCategorias;
                     $json->status   = TRUE;
                 } else {
