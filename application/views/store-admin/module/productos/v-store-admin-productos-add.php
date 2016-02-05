@@ -95,7 +95,7 @@
                         </div><!-- /.col -->
                     </div><!-- /.box-body -->
                     <div class="box-footer">
-                        <div class="btn btn-default btn-file">
+                        <div class="button-effect-1 btn-file">
                             <i class="fa fa-photo"></i> Upload new image
                             <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
                         </div>
