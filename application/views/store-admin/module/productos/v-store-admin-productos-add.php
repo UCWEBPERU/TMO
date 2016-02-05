@@ -165,7 +165,7 @@
             var objHandleFile = new HandleFile("#btnAddImage");
             objHandleFile.onSelect(
                 function(file) {
-                    formData.append("imgLogoStore", file);
+                    // formData.append("imgLogoStore", file);
                 },
                 function(readResult) {
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12'>" +
