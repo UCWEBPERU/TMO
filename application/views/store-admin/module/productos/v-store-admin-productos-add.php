@@ -133,6 +133,8 @@
         
         $(function () {
             var selectorInputsForm = ["#txtNombreCategoria"];
+            var contadorImagenes = 1;
+            var formData = new FormData();
             
             $("#btnAgregar").on("click", function(evt){
                 evt.preventDefault();
@@ -165,19 +167,18 @@
             var objHandleFile = new HandleFile("#btnAddImage");
             objHandleFile.onSelect(
                 function(file) {
-                    // formData.append("imgLogoStore", file);
+                    formData.append("imagen_" + contadorImagenes, file);
+                    console.log("Nombre File" + "imagen_" + contadorImagenes);
                 },
                 function(readResult) {
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12'>" +
-                                "<img id='' class='' src='" + readResult + "' alt='Image Product' title='Image Product'>" +
-                                "</div>";
+                               "<img id='' class='' src='" + readResult + "' alt='Image Product' title='Image Product'>" +
+                               "</div>";
                     $(".box-galery-products").append(html);
                     // $("#logoStore").attr("src", readResult);
                 }
             );
-            
         });
-        
     </script>
   </body>
 </html>
