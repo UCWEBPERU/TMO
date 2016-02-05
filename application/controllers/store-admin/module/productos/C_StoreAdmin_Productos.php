@@ -10,6 +10,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
         $this->load->library('utils/UserSession');
         $this->usersession->validateSession("panel-store-admin");
         $this->load->model("store-admin/M_StoreAdmin_Productos");
+        $this->load->model("store-admin/M_StoreAdmin_Categorias");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
         $this->load->model('M_Usuario');
