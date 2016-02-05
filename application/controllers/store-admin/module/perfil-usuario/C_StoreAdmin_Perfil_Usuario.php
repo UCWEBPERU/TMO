@@ -21,7 +21,7 @@ class C_StoreAdmin_Perfil_Usuario extends CI_Controller {
         $modulo->menu = array("menu" => 4, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Perfil de Usuario";
         
-        $datosUsuario = $this->M_StoreAdmin_Perfil_Usuario->getByID(array("id_usuario" => $this->session->id_usuario));
+        $datosUsuario = $this->M_StoreAdmin_Perfil_Usuario->getByID($this->session->id_usuario);
         $modulo->data_usuario = $datosUsuario;
         
         $data["modulo"] = $modulo;
