@@ -76,6 +76,51 @@ class C_StoreAdmin_Productos extends CI_Controller {
     
     /* <---------------- AJAX ----------------> */
     
+        public function ajaxAddProduct() {
+        $json 				= new stdClass();
+		$json->type 		= "Producto";
+		$json->presentation = "";
+		$json->action 		= "add";
+		$json->data 		= array();
+		$json->status 		= FALSE;
+            
+        if ( $this->input->post("txtNombreProducto") &&
+                $this->input->post("txtDescripcionProducto") &&
+                $this->input->post("txtStockProducto") &&
+                $this->input->post("txtPrecioProducto") &&
+                $this->input->post("cboSubCategorias") ) {
+                    
+                $result = $this->M_StoreAdmin_Categorias->insertDatosProducto(
+                            array(
+                                'id_categoria'        => trim($this->input->post("cboSubCategorias", TRUE),
+                                'nombre_producto'     => trim($this->input->post("txtNombreProducto", TRUE),
+                                'descipcion_producto' => trim($this->input->post("txtDescripcionProducto", TRUE),
+                                'stock'               => trim($this->input->post("txtStockProducto", TRUE),
+                                'precio_producto'     => trim($this->input->post("txtPrecioProducto", TRUE)
+                            )
+                        );
+                        
+                 if (is_int($result)) {
+                    unset($result);
+                    $result = $this->M_StoreAdmin_Categorias->insertDatosCatalogoProductos(
+                        array(
+                            'id_empresa'  => $this->session->id_empresa,
+                            'id_producto' => $result
+                        )
+                    );
+                        $json->message = "El producto se agrego correctamente.";
+                        $json->status = TRUE;
+                 } else {
+                    $json->message = "Ocurrio un error al agregar el producto, intente de nuevo.";
+                 }
+            
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+		
+		echo json_encode($json);
+    }
+    
     public function ajaxGetSubCategorysByIDCategory() {
         $json 				= new stdClass();
 		$json->type 		= "Categorias";

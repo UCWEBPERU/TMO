@@ -40,19 +40,19 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="txtNombreProducto">Nombre</label>
-                                <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre del producto.">
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label for="txtDescripcionProducto">Descripcion</label>
-                                <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label for="txtStockProducto">Stock</label>
-                                <input type="text" class="form-control" id="txtStockProducto" name="txtStockProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <input type="text" class="form-control" id="txtStockProducto" name="txtStockProducto" data-parsley-required data-parsley-required-message="Ingrese el stock del producto.">
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label for="txtPrecioProducto">Precio</label>
-                                <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
+                                <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label>Categoria</label>
@@ -65,7 +65,7 @@
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label>Sub Categoria</label>
-                                <select class="form-control select2" style="width: 100%;" id="cboSubCategorias" name="cboSubCategorias">
+                                <select class="form-control select2" style="width: 100%;" id="cboSubCategorias" name="cboSubCategorias" data-parsley-required data-parsley-required-message="Seleccion la categoria del producto.">
                                     <option selected="selected" value="">Seleccione</option>
                                 </select>
                             </div><!-- /.form-group -->
@@ -132,7 +132,7 @@
         }
         
         $(function () {
-            var selectorInputsForm = ["#txtNombreCategoria"];
+            var selectorInputsForm = ["#txtNombreProducto", "txtDescripcionProducto", "txtStockProducto", "txtPrecioProducto"];
             var contadorImagenes = 1;
             var formDataProduct = new FormData();
             
@@ -141,6 +141,12 @@
                 
                 if (validateInputsForm(selectorInputsForm)) {
                     waitingDialog.show('Guardando Categoria...');
+                    
+                    formDataProduct.append("txtNombreProducto", $("#txtNombreProducto".val()));
+                    formDataProduct.append("txtDescripcionProducto", $("#txtDescripcionProducto".val()));
+                    formDataProduct.append("txtStockProducto", $("#txtStockProducto".val()));
+                    formDataProduct.append("txtPrecioProducto", $("#txtPrecioProducto".val()));
+                    
                     var request = $.ajax({
                         url: "<?php echo $modulo->url_main_panel."/categorys/ajax/addCategory"; ?>",
                         method: "POST",

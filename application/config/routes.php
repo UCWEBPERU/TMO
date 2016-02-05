@@ -163,6 +163,7 @@ $route['store/(:num)/admin/products']                       = 'store-admin/modul
 $route['store/(:num)/admin/products/page']                  = 'store-admin/module/productos/C_StoreAdmin_Productos';
 $route['store/(:num)/admin/products/page/(:num)']           = 'store-admin/module/productos/C_StoreAdmin_Productos';
 $route['store/(:num)/admin/products/add']                   = 'store-admin/module/productos/C_StoreAdmin_Productos/addProduct';
+$route['store/(:num)/admin/products/ajax/addProduct']       = 'store-admin/module/productos/C_StoreAdmin_Productos/ajaxAddProduct';
 $route['store/(:num)/admin/products/ajax/getSubCategorys']  = 'store-admin/module/productos/C_StoreAdmin_Productos/ajaxGetSubCategorysByIDCategory';
 
 

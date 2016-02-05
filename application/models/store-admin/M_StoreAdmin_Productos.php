@@ -55,14 +55,30 @@ class M_StoreAdmin_Productos extends CI_Model{
 		return FALSE;
 	}
     
-    public function insertDatosPayAccount($data_pay_account) {
+    public function insertDatosProducto($data_producto) {
         $data = array(
-			'pay_id'             => $data_pay_account["pay_id"],
-			'tipo_metodo_pago'   => $data_pay_account["tipo_metodo_pago"]
+			'id_categoria'        => $data_producto["id_categoria"],
+			'nombre_producto'     => $data_producto["nombre_producto"],
+			'descipcion_producto' => $data_producto["descipcion_producto"],
+			'stock'               => $data_producto["stock"],
+            'precio_producto'     => $data_producto["precio_producto"]
 		);
 
 		if ($this->db->insert('Pay_Account', $data)) {
 			return $this->db->insert_id();
+		}
+		
+		return FALSE;
+    }
+    
+    public function insertDatosCatalogoProductos($data_catalogo_producto) {
+        $data = array(
+			'id_empresa'  => $data_catalogo_producto["id_empresa"],
+			'id_producto' => $data_catalogo_producto["id_producto"]
+		);
+
+		if ($this->db->insert('Catalogo_Productos', $data)) {
+			return TRUE;
 		}
 		
 		return FALSE;
