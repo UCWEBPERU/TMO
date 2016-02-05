@@ -7,7 +7,7 @@ class M_StoreAdmin_Productos extends CI_Model{
 	}
     
 	public function fetchProductos($limit, $start, $id_empresa) {
-		$this->db->select("Producto.nombre_producto, Producto.descripcion_producto, Producto.stock, Producto.precio_producto, Producto.id_categoria");		
+		$this->db->select("Producto.id_producto, Producto.nombre_producto, Producto.descripcion_producto, Producto.stock, Producto.precio_producto, Producto.id_categoria");		
 		$this->db->join('Catalogo_Productos','Catalogo_Productos.id_producto = Producto.id_producto');
 		$this->db->join('Empresa','Empresa.id_empresa = Catalogo_Productos.id_empresa');
 		$this->db->where('Empresa.id_empresa', $id_empresa);
