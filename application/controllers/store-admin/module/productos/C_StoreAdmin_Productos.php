@@ -61,6 +61,18 @@ class C_StoreAdmin_Productos extends CI_Controller {
 		$this->load->view('store-admin/module/productos/v-store-admin-productos', $data);
     }
     
+    public function addProduct() {
+        $modulo = $this->loadDataPanel();
+        $modulo->menu = array("menu" => 2, "submenu" => 0);
+        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Agregar Producto";
+        
+        $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
+        $modulo->data_categorias = $datosCategorias;
+        
+        $data["modulo"] = $modulo;
+        $this->load->view('store-admin/module/productos/v-store-admin-productos-add', $data);
+    }
+    
     public function loadDataPanel() {
         $modulo = new stdClass();
         
