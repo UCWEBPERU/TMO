@@ -36,7 +36,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
                                             
 		$config 							= array();
 		$config["base_url"] 				= $modulo->url_main_panel."/page";
-		$total_row 							= $this->M_StoreAdmin_Productos->getTotalProductos();
+		$total_row 							= $this->M_StoreAdmin_Productos->getTotalProductos($this->session->id_empresa);
 		$config["total_rows"] 				= $total_row;
 		$config["per_page"] 				= 15;
 		$config['use_page_numbers'] 		= TRUE;
