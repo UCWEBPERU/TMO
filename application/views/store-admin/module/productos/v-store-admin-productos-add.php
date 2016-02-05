@@ -57,7 +57,6 @@
                             <div class="form-group">
                                 <label>Categoria</label>
                                 <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias">
-                                    <option selected="selected" value="">Seleccione</option>
                                     <?php foreach($modulo->data_categorias as $categoria): ?>
                                     <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
                                     <?php endforeach; ?>
@@ -66,7 +65,6 @@
                             <div class="form-group">
                                 <label>Sub Categoria</label>
                                 <select class="form-control select2" style="width: 100%;" id="cboSubCategorias" name="cboSubCategorias">
-                                    <option selected="selected" value="">Seleccione</option>
                                 </select>
                             </div><!-- /.form-group -->
                         </div><!-- /.box-body -->
@@ -196,14 +194,12 @@
                 request.done(function( response ) {
                     waitingDialog.hide();
                     $("#cboSubCategorias").empty();
-                    $("#cboSubCategorias").val("").trigger("change");
+                    // $("#cboSubCategorias").val("").trigger("change");
                     var html = "<option selected='selected' value=''>Seleccione</option>";
                     if (response.status) {
                         for (var i=0; i < response.data.length; i++) { 
                             html += "<option value='" + response.data[i].id_categoria + "'>" + response.data[i].nombre_categoria + "</option>";
                         }
-                    } else {
-                        // GenericModal.show("danger", "<p>" + response.message + "</p>");
                     }
                     $("#cboSubCategorias").append(html);
                 });
