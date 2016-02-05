@@ -90,7 +90,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
                 $this->input->post("txtPrecioProducto") &&
                 $this->input->post("cboSubCategorias") ) {
                     
-                $result = $this->M_StoreAdmin_Productos->insertDatosProducto(
+                $resultProducto = $this->M_StoreAdmin_Productos->insertDatosProducto(
                             array(
                                 'id_categoria'        => trim($this->input->post("cboSubCategorias", TRUE)),
                                 'nombre_producto'     => trim($this->input->post("txtNombreProducto", TRUE)),
@@ -100,12 +100,11 @@ class C_StoreAdmin_Productos extends CI_Controller {
                             )
                         );
                         
-                 if (is_int($result)) {
-                    unset($result);
+                 if (is_int($resultProducto)) {
                     $result = $this->M_StoreAdmin_Productos->insertDatosCatalogoProductos(
                         array(
                             'id_empresa'  => $this->session->id_empresa,
-                            'id_producto' => $result
+                            'id_producto' => $resultProducto
                         )
                     );
                         $json->message = "El producto se agrego correctamente.";
