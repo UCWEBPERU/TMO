@@ -84,20 +84,12 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body box-galery-products">
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
-                        </div><!-- /.col -->
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
-                        </div><!-- /.col -->
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
-                        </div><!-- /.col -->
+                        
                     </div><!-- /.box-body -->
                     <div class="box-footer">
-                        <div class="button-effect-1 btn-file">
+                        <div class="btn button-effect-1 btn-file">
                             <i class="fa fa-photo"></i> Upload new image
-                            <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
+                            <input type="file" id="btnAddImage" accept="image/*">
                         </div>
                     </div>
                 </div><!-- /.box -->
@@ -113,8 +105,9 @@
     <?php $this->load->view('template/main-panel/modal-admin'); ?>
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <!-- Parsley -->
-    <!--<script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>-->
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
+    <!-- Handle File -->
+    <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/HandleFile.js"></script>
     <script>
         //Initialize Select2 Elements
         $(".select2").select2();
@@ -168,6 +161,21 @@
                     });
                 }
             });
+            
+            var objHandleFile = new HandleFile("#btnAddImage");
+            objHandleFile.onSelect(
+                function(file) {
+                    formData.append("imgLogoStore", file);
+                },
+                function(readResult) {
+                    var html = "<div class='col-md-4 col-sm-4 col-xs-12'>" +
+                                "<img id='' class='' src='" + readResult + "' alt='Image Product' title='Image Product'>" +
+                                "</div>";
+                    $(".box-galery-products").append(html);
+                    // $("#logoStore").attr("src", readResult);
+                }
+            );
+            
         });
         
     </script>
