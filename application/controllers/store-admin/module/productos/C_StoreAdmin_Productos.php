@@ -18,7 +18,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
     
     public function index() {
 		$this->load->library('pagination');
-		$modulo = new stdClass();
+		$modulo = $this->loadDataPanel();
 
 		$modulo->nombre 					= "Productos";
 		$modulo->titulo 					= "Productos";
