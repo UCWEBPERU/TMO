@@ -195,10 +195,9 @@
 
                 request.done(function( response ) {
                     waitingDialog.hide();
-                    console.log(response.data);
                     if (response.status) {
                         $("#cboSubCategorias").empty();
-                        var html = "";
+                        var html = "<option selected='selected' value=''>Seleccione</option>";
                         for (var i=0; i < response.data.length; i++) { 
                             html += "<option value='" + response.data[i].id_categoria + "'>" + response.data[i].nombre_categoria + "</option>";
                         }
