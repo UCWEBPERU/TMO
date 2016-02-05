@@ -69,8 +69,7 @@
                                     <option selected="selected" value="">Seleccione</option>
                                 </select>
                             </div><!-- /.form-group -->
-                        </div>
-                        <!-- /.box-body -->
+                        </div><!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="button-effect-1" id="btnAgregar" >Agregar</button>
                         </div>
@@ -94,14 +93,13 @@
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <img id="" class="" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
                         </div><!-- /.col -->
-                        <div class="col-md-12">
-                            <div class="btn btn-default btn-file">
-                                <i class="fa fa-paperclip"></i> Upload new logo
-                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
-                            </div>
-                        </div><!-- /.col -->
+                    </div><!-- /.box-body -->
+                    <div class="box-footer">
+                        <div class="btn btn-default btn-file">
+                            <i class="fa fa-photo"></i> Upload new image
+                            <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
+                        </div>
                     </div>
-                    <!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col -->
             
