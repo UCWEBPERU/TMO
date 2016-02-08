@@ -57,7 +57,7 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="button-effect-1" id="btnEditar" >Editar</button>
+                            <button type="submit" class="button-effect-1" id="btnEditar" >Guardar</button>
                         </div>
                     </form>
                 </div><!-- /.box -->

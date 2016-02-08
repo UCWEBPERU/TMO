@@ -109,7 +109,7 @@
                             </div><!-- /.form-group -->
                         </div><!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="button-effect-1" id="btnAgregar" >Agregar</button>
+                            <button type="submit" class="button-effect-1" id="btnAgregar" >Guardar</button>
                         </div>
                     </form>
                 </div><!-- /.box -->
