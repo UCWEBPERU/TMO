@@ -122,7 +122,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body box-galery-products">
-                        <?php if (sizeof($modulo->data_producto) == 0) { ?>
+                        <?php if (sizeof($modulo->data_producto) > 0) { ?>
                         <?php foreach($modulo->data_galeria_producto as $imagen): ?>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="box-tools pull-right">
