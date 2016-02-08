@@ -147,7 +147,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
                         )
                     );
                     
-                $modulo->data_categoria_producto = $subCategoria;
+                $modulo->data_categoria_producto = $categoria;
              }
         }
         
