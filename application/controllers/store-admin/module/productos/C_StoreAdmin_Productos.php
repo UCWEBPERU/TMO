@@ -109,6 +109,22 @@ class C_StoreAdmin_Productos extends CI_Controller {
         $this->load->view('store-admin/module/productos/v-store-admin-productos-add', $data);
     }
     
+    public function editProduct($id_producto) {
+        $modulo = $this->loadDataPanel();
+        $modulo->menu = array("menu" => 2, "submenu" => 0);
+        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Editar Producto";
+        
+        $datosProducto = $this->M_StoreAdmin_Productos->getProductByID(
+            array(
+                "id_empresa"  => $this->session->id_empresa,
+                "id_producto" => $id_producto 
+                ));
+        $modulo->data_producto = $datosProducto;
+        
+        $data["modulo"] = $modulo;
+        $this->load->view('store-admin/module/productos/v-store-admin-productos-edit', $data);
+    }
+    
     /* <---------------- AJAX ----------------> */
     
         public function ajaxAddProduct() {
@@ -123,9 +139,10 @@ class C_StoreAdmin_Productos extends CI_Controller {
                 $this->input->post("txtDescripcionProducto") &&
                 $this->input->post("txtStockProducto") &&
                 $this->input->post("txtPrecioProducto") &&
-                $this->input->post("cboSubCategorias") ) {
+                $this->input->post("cboSubCategorias") &&
+                $this->input->post("totalImages") ) {
                     
-                $resultProducto = $this->M_StoreAdmin_Productos->insertDatosProducto(
+                $resultIDProducto = $this->M_StoreAdmin_Productos->insertDatosProducto(
                             array(
                                 'id_categoria'        => trim($this->input->post("cboSubCategorias", TRUE)),
                                 'nombre_producto'     => trim($this->input->post("txtNombreProducto", TRUE)),
@@ -135,15 +152,47 @@ class C_StoreAdmin_Productos extends CI_Controller {
                             )
                         );
                         
-                 if (is_int($resultProducto)) {
+                 if (is_int($resultIDProducto)) {
                     $result = $this->M_StoreAdmin_Productos->insertDatosCatalogoProductos(
                         array(
                             'id_empresa'  => $this->session->id_empresa,
-                            'id_producto' => $resultProducto
+                            'id_producto' => $resultIDProducto
                         )
                     );
-                        $json->message = "El producto se agrego correctamente.";
-                        $json->status = TRUE;
+                    
+                    $totalImages = intval(trim($this->input->post("totalImages", TRUE)));
+                    if ( $totalImages > 0) {
+                        $this->load->library('utils/UploadFile');
+                        
+                        for ($i=1; $i <= $totalImages; $i++) { 
+                            if ( $this->uploadfile->validateFile("file_$i") ) { 
+                                $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
+                                
+                                $path = "uploads/store/".$this->session->id_empresa."/products/".$resultIDProducto."/gallery/";
+
+                                $path = $this->uploadfile->upload("file_$i", "imagen_$i", $path);
+                                
+                                $resultIDArchivo = $this->M_StoreAdmin_Productos->insertImagenProducto(
+                                    array(
+                                        'url_archivo'      => $path,
+                                        'tipo_archivo'     => "image/png",
+                                        'relacion_recurso' => "galeria",
+                                        'nombre_archivo'   => "imagen_$i"
+                                    )
+                                );
+                                
+                                $result = $this->M_StoreAdmin_Productos->insertGaleriaProducto(
+                                    array(
+                                        'id_producto' => $resultIDProducto,
+                                        'id_archivo'  => $resultIDArchivo
+                                    )
+                                );
+                            }
+                        }
+                    }
+                                        
+                    $json->message = "El producto se agrego correctamente.";
+                    $json->status = TRUE;
                  } else {
                     $json->message = "Ocurrio un error al agregar el producto, intente de nuevo.";
                  }

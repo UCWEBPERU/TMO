@@ -147,7 +147,6 @@
                     formDataProduct.append("txtStockProducto", $("#txtStockProducto").val());
                     formDataProduct.append("txtPrecioProducto", $("#txtPrecioProducto").val());
                     formDataProduct.append("cboSubCategorias", $("#cboSubCategorias").val());
-                    formDataProduct.append("totalImages", contadorImagenes);
                     
                     var request = $.ajax({
                         url: "<?php echo $modulo->url_main_panel."/products/ajax/addProduct"; ?>",
@@ -179,7 +178,6 @@
                 function(file) {
                     formDataProduct.append("file_" + contadorImagenes, file);
                     console.log("Nombre File" + "file_" + contadorImagenes);
-                    contadorImagenes++;
                 },
                 function(readResult) {
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12'>" +

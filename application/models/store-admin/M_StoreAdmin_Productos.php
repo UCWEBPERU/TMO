@@ -89,6 +89,34 @@ class M_StoreAdmin_Productos extends CI_Model{
 		return FALSE;
     }
     
+    public function insertGaleriaProducto($data_galeria_producto) {
+        $data = array(
+			'id_producto' => $data_galeria_producto["id_producto"],
+			'id_archivo'  => $data_galeria_producto["id_archivo"]
+		);
+
+		if ($this->db->insert('Galeria_Producto', $data)) {
+			return TRUE;
+		}
+		
+		return FALSE;
+    }
+    
+    public function insertImagenProducto($data_galeria_producto) {
+        $data = array(
+			'url_archivo'      => $data_galeria_producto["id_producto"],
+			'tipo_archivo'     => $data_galeria_producto["tipo_archivo"],
+			'relacion_recurso' => $data_galeria_producto["relacion_recurso"],
+			'nombre_archivo'   => $data_galeria_producto["nombre_archivo"]
+		);
+
+		if ($this->db->insert('Archivo', $data)) {
+			return $this->db->insert_id();
+		}
+		
+		return FALSE;
+    }
+    
     public function updateDatosPayAccount($data_pay_account) {
         $data = array(
 			'pay_id'             => $data_pay_account["pay_id"],
