@@ -115,11 +115,38 @@ class C_StoreAdmin_Productos extends CI_Controller {
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Editar Producto";
         
         $datosProducto = $this->M_StoreAdmin_Productos->getProductByID(
-            array(
-                "id_empresa"  => $this->session->id_empresa,
-                "id_producto" => $id_producto 
+                array(
+                    "id_empresa"  => $this->session->id_empresa,
+                    "id_producto" => $id_producto
                 ));
         $modulo->data_producto = $datosProducto;
+        
+        if (sizeof($datosProducto) > 0) {
+            $datosGaleria = $this->M_StoreAdmin_Productos->getGalleryByProduct(
+                array(
+                    "id_producto" => $datosProducto[0]->id_producto
+                ));
+            $modulo->data_galeria_producto = $datosGaleria;
+                
+            $subCategoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
+                    array(
+                        'id_empresa'        => $this->session->id_empresa,
+                        'id_categoria'      => $datosProducto[0]->id_categoria
+                    )
+                );
+             $modulo->data_subcategoria_producto = $subCategoria;
+             
+             if (sizeof($subCategoria) > 0) {
+                $categoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
+                        array(
+                            'id_empresa'        => $this->session->id_empresa,
+                            'id_categoria'      => $subCategoria[0]->id_categoria_superior
+                        )
+                    );
+                    
+                $modulo->data_categoria_producto = $subCategoria;
+             }
+        }
         
         $data["modulo"] = $modulo;
         $this->load->view('store-admin/module/productos/v-store-admin-productos-edit', $data);

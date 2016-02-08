@@ -39,6 +39,23 @@ class M_StoreAdmin_Productos extends CI_Model{
 		return $query->num_rows();
 	}
     
+    public function getProductByID($data_producto) {            
+		$this->db->join('Catalogo_Productos', 'Catalogo_Productos.id_producto = Producto.id_producto');
+		$this->db->where('Catalogo_Productos.id_empresa', $data_producto["id_empresa"] );
+		$this->db->where('Producto.id_producto', $data_producto["id_producto"]);
+		$this->db->where('Producto.estado', '1');
+		$query = $this->db->get('Producto');
+		return $query->result();
+    }
+    
+    public function getGalleryByProduct($data_producto) {            
+		$this->db->join('Galeria_Producto', 'Galeria_Producto.id_archivo = Archivo.id_archivo');
+		$this->db->where('Galeria_Producto.id_producto', $data_producto["id_producto"] );
+		$this->db->where('Archivo.estado', '1');
+		$query = $this->db->get('Archivo');
+		return $query->result();
+    }
+    
     public function updateDatosEmpresa($data_empresa) {
 		$data = array(
 			'nombre_empresa'			=> $data_empresa["nombre_empresa"],
