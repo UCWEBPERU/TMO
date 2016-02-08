@@ -25,8 +25,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
 		$modulo->nombre 					= "Productos";
 		$modulo->titulo 					= "Productos";
 		$modulo->titulo_registro 			= "Registro de Productos";
-		// $modulo->cabecera_registro 			= array("Nombre", "Descripcion", "Stock", "Precio", "Categoria");
-		$modulo->cabecera_registro 			= array("Nombre", "Descripcion", "Stock", "Precio");
+		$modulo->cabecera_registro 			= array("Nombre", "Descripcion", "Stock", "Precio", "Categoria", "Sub Categoria");
 		$modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-products";
 		$modulo->base_url 					= $modulo->url_main_panel."/products";
 		$modulo->api_rest_params 			= array("delete" => "id_producto");
