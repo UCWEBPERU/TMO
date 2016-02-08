@@ -7,8 +7,8 @@
 	<td><?php echo $modeloRow->descripcion_producto; ?></td>
 	<td><?php echo $modeloRow->stock; ?></td>
 	<td><?php echo $modeloRow->precio_producto; ?></td>
-	<td><span class="text-light-blue"><?php echo $modeloRow->nombre_categoria; ?></span></td>
-    <td><span class="text-light-blue"><?php echo $modeloRow->nombre_sub_categoria; ?></span></td>
+	<td><span class="text-green"><?php echo $modeloRow->nombre_categoria; ?></span></td>
+    <td><span class="text-green"><?php echo $modeloRow->nombre_sub_categoria; ?></span></td>
 	<td>
 		<a href="<?php echo $modulo->base_url."/edit/".intval($modeloRow->id_producto); ?>" data-row-type="empresa" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_producto; ?>" class="btnActionRow"><span class="label label-primary">Editar</span>
 		</a>&nbsp;&nbsp;
