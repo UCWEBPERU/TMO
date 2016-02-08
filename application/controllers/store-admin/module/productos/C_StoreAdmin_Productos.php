@@ -89,7 +89,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
             
         }
         
-        var_dump($productos[0]->nombre_categoria);
+        var_dump($productos[0]->nombre_sub_categoria);
         
 		$modulo->registros = $productos;
 		$str_links = $this->pagination->create_links();
