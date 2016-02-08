@@ -55,7 +55,38 @@ class C_StoreAdmin_Productos extends CI_Controller {
 		
 		$page = ($this->uri->segment(5)) ? $this->uri->segment(5) : 1;
 		
-		$modulo->registros = $this->M_StoreAdmin_Productos->fetchProductos($config["per_page"], ($page - 1) * 15, $this->session->id_empresa);
+        $productos = $this->M_StoreAdmin_Productos->fetchProductos($config["per_page"], ($page - 1) * 15, $this->session->id_empresa);
+        
+        foreach ($productos as $producto) {
+            $subCategoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
+                            array(
+                                'id_empresa'        => $this->session->id_empresa,
+                                'id_categoria'      => $producto->id_categoria
+                            )
+                        );
+                        
+            $categoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
+                            array(
+                                'id_empresa'        => $this->session->id_empresa,
+                                'id_categoria'      => $subCategoria->id_categoria_superior
+                            )
+                        );
+            
+            if (sizeof($subCategoria) > 0) {
+                $producto->nombre_sub_categoria = $subCategoria->nombre_categoria;
+            } else {
+                $producto->nombre_sub_categoria = "";
+            }
+            
+            if (sizeof($categoria) > 0) {
+                $producto->nombre_categoria = $categoria->nombre_categoria;
+            } else {
+                $producto->nombre_categoria = "";
+            }
+            
+        }
+        
+		$modulo->registros = $productos;
 		$str_links = $this->pagination->create_links();
 		$modulo->links = explode('&nbsp;',$str_links );
 		
