@@ -10,11 +10,9 @@
 	<td><span class="label label-primary"><?php echo $modeloRow->nombre_categoria; ?></span></td>
     <td><span class="label label-primary"><?php echo $modeloRow->nombre_sub_categoria; ?></span></td>
 	<td>
-		<a href="<?php echo $modulo->base_url.intval($modeloRow->id_producto); ?>" data-row-type="empresa" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_producto; ?>" class="btnActionRow"><span class="label label-primary">Editar</span>
-
+		<a href="<?php echo $modulo->base_url."/edit/".intval($modeloRow->id_producto); ?>" data-row-type="empresa" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_producto; ?>" class="btnActionRow"><span class="label label-primary">Editar</span>
 		</a>&nbsp;&nbsp;
-		<a href="<?php echo $modulo->base_url.intval($modeloRow->id_producto); ?>" data-row-type="empresa" data-row-action="delete" 
-		data-row-id="<?php echo $modeloRow->id_producto; ?>" class="btnActionRow"><span class="label label-danger">Eliminar</span></a>
+		<a href="#" data-row-type="empresa" data-row-action="delete" data-row-id="<?php echo $modeloRow->id_producto; ?>" class="btnActionRow"><span class="label label-danger">Eliminar</span></a>
 	</td>
 	</tr>
 	
