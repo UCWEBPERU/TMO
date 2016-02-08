@@ -37,15 +37,15 @@
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form role="form" id="frmDatosCategoria">
-                        <?php if (sizeof($modulo->data_producto) == 0) { ?>
-                        <div class="callout callout-danger">
-                            <h4>No existe el producto!</h4>
-                            <p>Lo sentimos el producto que intenta editar no existe.</p>
-                        </div>
-                        <?php } else { ?>
-                        <input type="hidden" class="form-control" name="id_producto" value="<?php echo $modulo->data_producto[0]->id_producto; ?>">
-                        <?php } ?>
                         <div class="box-body">
+                            <?php if (sizeof($modulo->data_producto) == 0) { ?>
+                            <div class="callout callout-danger">
+                                <h4>No existe el producto!</h4>
+                                <p>Lo sentimos el producto que intenta editar no existe.</p>
+                            </div>
+                            <?php } else { ?>
+                            <input type="hidden" class="form-control" name="id_producto" value="<?php echo $modulo->data_producto[0]->id_producto; ?>">
+                            <?php } ?>
                             <div class="form-group">
                                 <label for="txtNombreProducto">Nombre</label>
                                 <?php if (sizeof($modulo->data_producto) > 0) { ?>
