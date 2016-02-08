@@ -104,7 +104,7 @@ class M_StoreAdmin_Productos extends CI_Model{
     
     public function insertImagenProducto($data_galeria_producto) {
         $data = array(
-			'url_archivo'      => $data_galeria_producto["id_producto"],
+			'url_archivo'      => $data_galeria_producto["url_archivo"],
 			'tipo_archivo'     => $data_galeria_producto["tipo_archivo"],
 			'relacion_recurso' => $data_galeria_producto["relacion_recurso"],
 			'nombre_archivo'   => $data_galeria_producto["nombre_archivo"]
