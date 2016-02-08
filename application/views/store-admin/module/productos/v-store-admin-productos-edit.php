@@ -81,11 +81,11 @@
                             <div class="form-group">
                                 <label>Categoria</label>
                                 <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias">
-                                    <?php if (sizeof($modulo->data_categoria_producto) > 0) { ?>
+                                    <?php if (sizeof($modulo->data_categoria_producto) > 0) { var_dump($modulo->data_categoria_producto[0]);?>
                                     <option value="">Seleccione</option>
                                     <?php foreach($modulo->data_categorias as $categoria): ?>
                                     <?php if (intval($modulo->data_categoria_producto[0]->id_categoria) == intval($categoria->id_categoria)) { ?>
-                                    <option selected="selected" value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                    <option selected="selected" value="<?php echo intval($categoria->id_categoria); ?>"><?php echo $categoria->nombre_categoria; ?></option>
                                     <?php } else { ?>
                                     <option  value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
                                     <?php } ?>
