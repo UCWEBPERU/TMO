@@ -57,17 +57,18 @@ class C_StoreAdmin_Productos extends CI_Controller {
 		
         $productos = $this->M_StoreAdmin_Productos->fetchProductos($config["per_page"], ($page - 1) * 15, $this->session->id_empresa);
         
-        foreach ($productos as $producto) {
+        for ($i=0; $i < sizeof($productos); $i++) { 
+            
             $subCategoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
                             array(
                                 'id_empresa'        => $this->session->id_empresa,
-                                'id_categoria'      => $producto->id_categoria
+                                'id_categoria'      => $producto[$i]->id_categoria
                             )
                         );
                         
             
             if (sizeof($subCategoria) > 0) {
-                $producto->nombre_sub_categoria = $subCategoria[0]->nombre_categoria;
+                $producto[$i]->nombre_sub_categoria = $subCategoria[0]->nombre_categoria;
                 
                 $categoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
                         array(
@@ -77,13 +78,13 @@ class C_StoreAdmin_Productos extends CI_Controller {
                     );
                     
                 if (sizeof($categoria) > 0) {
-                    $producto->nombre_categoria = $categoria[0]->nombre_categoria;
+                    $producto[$i]->nombre_categoria = $categoria[0]->nombre_categoria;
                 } else {
-                    $producto->nombre_categoria = "";
+                    $producto[$i]->nombre_categoria = "";
                 }
                 
             } else {
-                $producto->nombre_sub_categoria = "";
+                $producto[$i]->nombre_sub_categoria = "";
             }
             
         }
