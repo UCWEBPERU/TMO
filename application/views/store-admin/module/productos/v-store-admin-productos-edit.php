@@ -99,9 +99,9 @@
                             <div class="form-group">
                                 <label>Sub Categoria</label>
                                 <select class="form-control select2" style="width: 100%;" id="cboSubCategorias" name="cboSubCategorias" data-parsley-required data-parsley-required-message="Seleccion la categoria del producto.">
-                                    <option selected="selected" value="">Seleccione</option>
+                                    <option value="">Seleccione</option>
                                     <?php if (sizeof($modulo->data_subcategoria_producto) > 0) { ?>
-                                    <option value="<?php echo $modulo->data_subcategoria_producto[0]->id_categoria; ?>"><?php echo $modulo->data_subcategoria_producto[0]->nombre_categoria; ?></option>
+                                    <option selected="selected" value="<?php echo $modulo->data_subcategoria_producto[0]->id_categoria; ?>"><?php echo $modulo->data_subcategoria_producto[0]->nombre_categoria; ?></option>
                                     <?php } ?>
                                 </select>
                             </div><!-- /.form-group -->
@@ -121,7 +121,6 @@
                     <!-- /.box-header -->
                     <div class="box-body box-galery-products">
                         <?php foreach($modulo->data_galeria_producto as $imagen): ?>
-                        <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="box-tools pull-right">
                                 <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-archivo="<?php echo intval($imagen->id_archivo); ?>" title="Eliminar"><i class="fa fa-remove"></i></button>

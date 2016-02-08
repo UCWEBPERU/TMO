@@ -121,6 +121,9 @@ class C_StoreAdmin_Productos extends CI_Controller {
                 ));
         $modulo->data_producto = $datosProducto;
         
+        $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
+        $modulo->data_categorias = $datosCategorias;
+        
         if (sizeof($datosProducto) > 0) {
             $datosGaleria = $this->M_StoreAdmin_Productos->getGalleryByProduct(
                 array(
