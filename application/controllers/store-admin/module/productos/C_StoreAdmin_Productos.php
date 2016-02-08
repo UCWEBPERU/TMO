@@ -65,23 +65,25 @@ class C_StoreAdmin_Productos extends CI_Controller {
                             )
                         );
                         
-            $categoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
-                            array(
-                                'id_empresa'        => $this->session->id_empresa,
-                                'id_categoria'      => $subCategoria->id_categoria_superior
-                            )
-                        );
             
             if (sizeof($subCategoria) > 0) {
-                $producto->nombre_sub_categoria = $subCategoria->nombre_categoria;
+                $producto->nombre_sub_categoria = $subCategoria[0]->nombre_categoria;
+                
+                $categoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
+                        array(
+                            'id_empresa'        => $this->session->id_empresa,
+                            'id_categoria'      => $subCategoria[0]->id_categoria_superior
+                        )
+                    );
+                    
+                if (sizeof($categoria) > 0) {
+                    $producto->nombre_categoria = $categoria[0]->nombre_categoria;
+                } else {
+                    $producto->nombre_categoria = "";
+                }
+                
             } else {
                 $producto->nombre_sub_categoria = "";
-            }
-            
-            if (sizeof($categoria) > 0) {
-                $producto->nombre_categoria = $categoria->nombre_categoria;
-            } else {
-                $producto->nombre_categoria = "";
             }
             
         }
