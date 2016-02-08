@@ -82,17 +82,19 @@
                                 <label>Categoria</label>
                                 <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias">
                                     <?php if (sizeof($modulo->data_categoria_producto) > 0) { var_dump($modulo->data_categoria_producto[0]);?>
-                                    <option value="">Seleccione</option>
-                                    <?php foreach($modulo->data_categorias as $categoria): ?>
-                                    <?php if (intval($modulo->data_categoria_producto[0]->id_categoria) == intval($categoria->id_categoria)) { ?>
-                                    <option selected="selected" value="<?php echo intval($categoria->id_categoria); ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                        <option value="">Seleccione</option>
+                                        <?php foreach($modulo->data_categorias as $categoria): ?>
+                                            <?php if (intval($modulo->data_categoria_producto[0]->id_categoria) == intval($categoria->id_categoria)) { ?>
+                                                <option selected="selected" value="<?php echo intval($categoria->id_categoria); ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                            <?php } else { ?>
+                                                <option  value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                            <?php } ?>
+                                        <?php endforeach; ?>
                                     <?php } else { ?>
-                                    <option  value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
-                                    <?php } ?>
-                                    <?php endforeach; ?>
-                                    <?php } else { ?>
-                                    <option selected="selected" value="">Seleccione</option>
-                                    <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                        <option selected="selected" value="">Seleccione</option>
+                                        <?php foreach($modulo->data_categorias as $categoria): ?>
+                                            <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                        <?php endforeach; ?>
                                     <?php } ?>
                                 </select>
                             </div><!-- /.form-group -->
@@ -120,6 +122,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body box-galery-products">
+                        <?php if (sizeof($modulo->data_producto) == 0) { ?>
                         <?php foreach($modulo->data_galeria_producto as $imagen): ?>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="box-tools pull-right">
@@ -128,6 +131,7 @@
                             <img id='' class='' src="<?php echo $imagen->url_archivo; ?>" alt="<?php echo $imagen->nombre_archivo; ?>" title="<?php echo $imagen->nombre_archivo; ?>">
                         </div>
                         <?php endforeach; ?>
+                        <?php }?>
                     </div><!-- /.box-body -->
                     <div class="box-footer">
                         <div class="btn button-effect-1 btn-file">
