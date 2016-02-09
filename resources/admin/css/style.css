@@ -86,6 +86,8 @@
 }
 
 .box-galery-products > .box-image > button {
-    padding: 5px;
-    float: right;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: white;
 }
