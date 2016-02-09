@@ -37,13 +37,11 @@
     color: #3aa935;
 }
 
-.boxCategory > .box-tools > .btn-box-tool-delete,
-.box-galery-products > .box-image > .btn-box-tool-delete {
+.boxCategory > .box-tools > .btn-box-tool-delete {
     color: #fd5474;
 }
 
-.boxCategory > .box-tools > .btn-box-tool-delete:hover,
-.box-galery-products > .box-image > .btn-box-tool-delete:hover {
+.boxCategory > .box-tools > .btn-box-tool-delete:hover {
     color: #fc0836;
 }
 
@@ -91,9 +89,14 @@
 
 .box-galery-products > .box-image > button {
     position: absolute;
+    width: 30px;
+    height: 30px;
     top: 5px;
     right: 5px;
     border-radius: 50%;
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: red;
 }
+
+.box-galery-products > .box-image > .btn-box-tool-delete {
+    color: #fff;
+}    
