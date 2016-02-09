@@ -194,7 +194,7 @@
                     formDataProduct.append("cboSubCategorias", $("#cboSubCategorias").val());
                     
                     var request = $.ajax({
-                        url: "<?php echo $modulo->url_main_panel."/products/ajax/addProduct"; ?>",
+                        url: "<?php echo $modulo->url_main_panel."/products/ajax/editProduct"; ?>",
                         method: "POST",
                         data: formDataProduct,
                         dataType: "json",
