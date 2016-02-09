@@ -81,7 +81,7 @@
 }
 
 .box-galery-products > .box-image {
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
 }
 
 .box-galery-products > .box-image > img {
@@ -93,4 +93,7 @@
     position: absolute;
     top: 5px;
     right: 5px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #ccc;
 }
