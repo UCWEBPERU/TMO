@@ -80,7 +80,7 @@
     margin-bottom: 5px;
 }
 
-.box-galery-products {
+.box-galery-products > .box-image {
     border: 1px solid #ccc;
 }
 
