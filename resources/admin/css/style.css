@@ -37,11 +37,13 @@
     color: #3aa935;
 }
 
-.boxCategory > .box-tools > .btn-box-tool-delete {
+.boxCategory > .box-tools > .btn-box-tool-delete,
+.box-galery-products > .box-image > .btn-box-tool-delete {
     color: #fd5474;
 }
 
-.boxCategory > .box-tools > .btn-box-tool-delete:hover {
+.boxCategory > .box-tools > .btn-box-tool-delete:hover,
+.box-galery-products > .box-image > .btn-box-tool-delete:hover {
     color: #fc0836;
 }
 
@@ -78,7 +80,12 @@
     margin-bottom: 5px;
 }
 
-.box-galery-products > div > img{
+.box-galery-products > .box-image > img {
     width: 100%;
     height: 100%;
+}
+
+.box-galery-products > .box-image > button {
+    padding: 5px;
+    float: right;
 }

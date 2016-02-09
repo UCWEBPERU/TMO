@@ -124,10 +124,8 @@
                     <div class="box-body box-galery-products">
                         <?php if (sizeof($modulo->data_producto) > 0) { ?>
                         <?php foreach($modulo->data_galeria_producto as $imagen): ?>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="box-tools pull-right">
-                                <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-archivo="<?php echo intval($imagen->id_archivo); ?>" title="Eliminar"><i class="fa fa-remove"></i></button>
-                            </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12 box-image">
+                            <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-archivo="<?php echo intval($imagen->id_archivo); ?>" title="Eliminar"><i class="fa fa-remove"></i></button>
                             <img id='' class='' src="<?php echo $imagen->url_archivo; ?>" alt="<?php echo $imagen->nombre_archivo; ?>" title="<?php echo $imagen->nombre_archivo; ?>">
                         </div>
                         <?php endforeach; ?>
