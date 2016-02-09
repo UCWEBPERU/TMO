@@ -84,7 +84,7 @@
 
 .box-galery-products > .box-image > img {
     width: 100%;
-    height: 100%;
+    height: 200px;
 }
 
 .box-galery-products > .box-image > button {
