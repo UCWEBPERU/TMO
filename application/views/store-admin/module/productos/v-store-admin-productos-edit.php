@@ -222,57 +222,50 @@
             objHandleFile.onSelect(
                 function(file) {
                     formDataProduct.append("file_" + contadorImagenes, file);
+                                        
+                    var n= file,
+                    a=this.props.size;
+                    if (null!=n) {
+                        var i=new FileReader;
+                        i.onload=function(e) {
+                            var n=new Image;
+                            n.src=e.target.result,
+                            n.onload=function() {
+                                var e=document.createElement("canvas");
+                                e.width=n.width,
+                                e.height=n.height,
+                                e.getContext("2d").drawImage(n,0,0,e.width,e.height);
+                                var i=n.width < n.height ? n.width / a : n.height / a,
+                                r=document.createElement("canvas");
+                                r.width=n.width/i,
+                                r.height=n.height/i;
+                                // o["default"].resizeCanvas(e,r,{},function(){
+                                //     var e=document.createElement("canvas");
+                                //     e.width=a,e.height=a;
+                                //     var n=(r.width-e.width)/-2,i=(r.height-e.height)/-2;
+                                //     e.getContext("2d").drawImage(r,n,i,r.width,r.height),
+                                //     t.isMounted()&&t.props.onChange(e.toDataURL("image/jpeg"))
+                                //     }
+                                // )
+                                
+                                $(".box-galery-products").append(n);
+                            }
+                        },
+                        i.readAsDataURL(n)
+                    }
+                                        
+                    
                 },
                 function(readResult) {
                     
-                    var img = document.createElement("img");
-                    var reader = new FileReader();
-                    var finalFile;
-                    
-                    var image = new Image();
-                    image.src = readResult;
 
-                    image.onload = function() {
-                        var maxWidth = 128,
-                            maxHeight = 128,
-                            imageWidth = image.width,
-                            imageHeight = image.height;
-
-                        if (imageWidth > imageHeight) {
-                            if (imageWidth > maxWidth) {
-                                imageHeight *= maxWidth / imageWidth;
-                                imageWidth = maxWidth;
-                            }
-                        }
-                        else {
-                            if (imageHeight > maxHeight) {
-                                imageWidth *= maxHeight / imageHeight;
-                                imageHeight = maxHeight;
-                            }
-                        }
-
-                        var canvas = document.createElement('canvas');
-                        canvas.width = imageWidth;
-                        canvas.height = imageHeight;
-
-                        var ctx = canvas.getContext("2d");
-                        ctx.drawImage(this, 0, 0, imageWidth, imageHeight);
-
-                        // The resized file ready for upload
-                        finalFile = canvas.toDataURL(readResult.type);
-                        image.src = finalFile;
-                        console.log(finalFile);
-                    }
-                    
-                    // var imageData = new ImageData(finalFile, 128, 128); // Creates a 100x100 black rectangle
                     
                     
-                    var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
-                               "<img id='' class='' src='" + finalFile + "' alt='Image Product' title='Image Product'>" +
-                               "</div>";
-                               
+                    // var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
+                    //            "<img id='' class='' src='" + finalFile + "' alt='Image Product' title='Image Product'>" +
+                    //            "</div>";
                     // $(".box-galery-products").append(html);
-                    $(".box-galery-products").append(image);
+                    // $(".box-galery-products").append(image);
                     // $("#logoStore").attr("src", readResult);
                 }
             );
