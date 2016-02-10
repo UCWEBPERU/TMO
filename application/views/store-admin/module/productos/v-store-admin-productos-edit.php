@@ -224,6 +224,7 @@
                     formDataProduct.append("file_" + contadorImagenes, file);
                     console.log("Nombre File" + "file_" + contadorImagenes);
                     console.log("File Size: " + file.size );
+                    var imageData = new ImageData(file, 128, 128); // Creates a 100x100 black rectangle
                 },
                 function(readResult) {
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
