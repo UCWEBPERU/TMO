@@ -223,6 +223,7 @@
                 function(file) {
                     formDataProduct.append("file_" + contadorImagenes, file);
                     console.log("Nombre File" + "file_" + contadorImagenes);
+                    console.log("File Size: " + file.size );
                 },
                 function(readResult) {
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
