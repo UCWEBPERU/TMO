@@ -260,6 +260,7 @@
 
                         // The resized file ready for upload
                         finalFile = canvas.toDataURL(readResult.type);
+                        console.log(finalFile);
                     }
                     
                     // var imageData = new ImageData(finalFile, 128, 128); // Creates a 100x100 black rectangle
@@ -268,6 +269,7 @@
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
                                "<img id='' class='' src='" + finalFile + "' alt='Image Product' title='Image Product'>" +
                                "</div>";
+                               
                     $(".box-galery-products").append(html);
                     $(".box-galery-products").append(image);
                     // $("#logoStore").attr("src", readResult);
