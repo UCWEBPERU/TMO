@@ -30,20 +30,22 @@ HandleFile.prototype.onSelect = function(callbackOnSuccess, callbackOnReadFile) 
                                 e.width=128,
                                 e.height=128,
                                 e.getContext("2d").drawImage(n,0,0,e.width,e.height);
-                                var i=n.width < n.height ? n.width / a : n.height / a,
+                                var i=n.width < n.height ? n.width / 2 : n.height / 2,
                                 r=document.createElement("canvas");
                                 r.width=n.width/i,
                                 r.height=n.height/i;
+                                var e=document.createElement("canvas");
+                                e.width=a,e.height=a;
+                                var n=(r.width-e.width)/-2,i=(r.height-e.height)/-2;
+                                e.getContext("2d").drawImage(r,n,i,r.width,r.height);
+                                
                                 // o["default"].resizeCanvas(e,r,{},function(){
-                                //     var e=document.createElement("canvas");
-                                //     e.width=a,e.height=a;
-                                //     var n=(r.width-e.width)/-2,i=(r.height-e.height)/-2;
-                                //     e.getContext("2d").drawImage(r,n,i,r.width,r.height),
+                                //     
                                 //     t.isMounted()&&t.props.onChange(e.toDataURL("image/jpeg"))
                                 //     }
                                 // )
                                 
-                                $(".box-galery-products").append(n);
+                                $(".box-galery-products").append(e);
                             }
                         },
                         i.readAsDataURL(n)
