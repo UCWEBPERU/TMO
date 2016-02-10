@@ -266,10 +266,10 @@
                     
                     
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
-                               "<img id='' class='' src='" + readResult + "' alt='Image Product' title='Image Product'>" +
+                               "<img id='' class='' src='" + finalFile + "' alt='Image Product' title='Image Product'>" +
                                "</div>";
-                    $(".box-galery-products").append(imageData);
-                    $(".box-galery-products").append(finalFile);
+                    $(".box-galery-products").append(html);
+                    $(".box-galery-products").append(image);
                     // $("#logoStore").attr("src", readResult);
                 }
             );
