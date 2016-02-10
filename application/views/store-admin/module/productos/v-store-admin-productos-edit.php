@@ -227,7 +227,7 @@
                     
                     var img = document.createElement("img");
                     var reader = new FileReader();
-                    
+                    var finalFile;
                     
                     var image = new Image();
                     image.src = readResult;
@@ -259,7 +259,7 @@
                         ctx.drawImage(this, 0, 0, imageWidth, imageHeight);
 
                         // The resized file ready for upload
-                        var finalFile = canvas.toDataURL(readResult.type);
+                        finalFile = canvas.toDataURL(readResult.type);
                     }
                     
                     var imageData = new ImageData(finalFile, 128, 128); // Creates a 100x100 black rectangle
@@ -269,6 +269,7 @@
                                "<img id='' class='' src='" + readResult + "' alt='Image Product' title='Image Product'>" +
                                "</div>";
                     $(".box-galery-products").append(imageData);
+                    $(".box-galery-products").append(finalFile);
                     // $("#logoStore").attr("src", readResult);
                 }
             );
