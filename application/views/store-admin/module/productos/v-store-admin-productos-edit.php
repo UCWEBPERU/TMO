@@ -222,15 +222,53 @@
             objHandleFile.onSelect(
                 function(file) {
                     formDataProduct.append("file_" + contadorImagenes, file);
-                    console.log("Nombre File" + "file_" + contadorImagenes);
-                    console.log("File Size: " + file.size );
-                    var imageData = new ImageData(file, 128, 128); // Creates a 100x100 black rectangle
                 },
                 function(readResult) {
+                    
+                    var img = document.createElement("img");
+                    var reader = new FileReader();
+                    
+                    
+                    var image = new Image();
+                    image.src = readResult;
+
+                    image.onload = function() {
+                        var maxWidth = 128,
+                            maxHeight = 128,
+                            imageWidth = image.width,
+                            imageHeight = image.height;
+
+                        if (imageWidth > imageHeight) {
+                            if (imageWidth > maxWidth) {
+                                imageHeight *= maxWidth / imageWidth;
+                                imageWidth = maxWidth;
+                            }
+                        }
+                        else {
+                            if (imageHeight > maxHeight) {
+                                imageWidth *= maxHeight / imageHeight;
+                                imageHeight = maxHeight;
+                            }
+                        }
+
+                        var canvas = document.createElement('canvas');
+                        canvas.width = imageWidth;
+                        canvas.height = imageHeight;
+
+                        var ctx = canvas.getContext("2d");
+                        ctx.drawImage(this, 0, 0, imageWidth, imageHeight);
+
+                        // The resized file ready for upload
+                        var finalFile = canvas.toDataURL(readResult.type);
+                    }
+                    
+                    var imageData = new ImageData(finalFile, 128, 128); // Creates a 100x100 black rectangle
+                    
+                    
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
                                "<img id='' class='' src='" + readResult + "' alt='Image Product' title='Image Product'>" +
                                "</div>";
-                    $(".box-galery-products").append(html);
+                    $(".box-galery-products").append(imageData);
                     // $("#logoStore").attr("src", readResult);
                 }
             );
