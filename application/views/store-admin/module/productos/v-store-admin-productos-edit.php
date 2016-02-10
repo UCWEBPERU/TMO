@@ -262,7 +262,7 @@
                         finalFile = canvas.toDataURL(readResult.type);
                     }
                     
-                    var imageData = new ImageData(finalFile, 128, 128); // Creates a 100x100 black rectangle
+                    // var imageData = new ImageData(finalFile, 128, 128); // Creates a 100x100 black rectangle
                     
                     
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
