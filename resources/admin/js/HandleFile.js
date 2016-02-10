@@ -15,9 +15,11 @@ HandleFile.prototype.onSelect = function(callbackOnSuccess, callbackOnReadFile) 
                         continue;
                     }
                     
+                    
+                    
                     var n= f;
                     console.log(f);
-                    var a=f.size;
+                    var a=f.props.size;
                     if (null!=n) {
                         var i=new FileReader;
                         i.onload=function(e) {
