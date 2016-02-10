@@ -225,7 +225,7 @@
                 },
                 function(readResult) {
                     var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
-                               "<img id='' class='' src='" + finalFile + "' alt='Image Product' title='Image Product'>" +
+                               "<img id='' class='' src='" + readResult + "' alt='Image Product' title='Image Product'>" +
                                "</div>";
                     $(".box-galery-products").append(html);
                 }
