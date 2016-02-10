@@ -260,6 +260,7 @@
 
                         // The resized file ready for upload
                         finalFile = canvas.toDataURL(readResult.type);
+                        image.src = finalFile;
                         console.log(finalFile);
                     }
                     
@@ -270,7 +271,7 @@
                                "<img id='' class='' src='" + finalFile + "' alt='Image Product' title='Image Product'>" +
                                "</div>";
                                
-                    $(".box-galery-products").append(html);
+                    // $(".box-galery-products").append(html);
                     $(".box-galery-products").append(image);
                     // $("#logoStore").attr("src", readResult);
                 }
