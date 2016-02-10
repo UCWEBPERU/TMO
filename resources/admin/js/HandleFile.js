@@ -19,7 +19,7 @@ HandleFile.prototype.onSelect = function(callbackOnSuccess, callbackOnReadFile) 
                     
                     var n= f;
                     console.log(f);
-                    var a=f.props.size;
+                    var a=f.size;
                     if (null!=n) {
                         var i=new FileReader;
                         i.onload=function(e) {
@@ -39,7 +39,7 @@ HandleFile.prototype.onSelect = function(callbackOnSuccess, callbackOnReadFile) 
                                 //     e.width=a,e.height=a;
                                 //     var n=(r.width-e.width)/-2,i=(r.height-e.height)/-2;
                                 //     e.getContext("2d").drawImage(r,n,i,r.width,r.height),
-                                //     t.isMounted()&&t.props.onChange(e.toDataURL("image/jpeg"))s
+                                //     t.isMounted()&&t.props.onChange(e.toDataURL("image/jpeg"))
                                 //     }
                                 // )
                                 
