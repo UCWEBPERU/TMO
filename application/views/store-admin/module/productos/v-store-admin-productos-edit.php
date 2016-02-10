@@ -222,22 +222,12 @@
             objHandleFile.onSelect(
                 function(file) {
                     formDataProduct.append("file_" + contadorImagenes, file);
-                                        
-                    
-                                        
-                    
                 },
                 function(readResult) {
-                    
-
-                    
-                    
-                    // var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
-                    //            "<img id='' class='' src='" + finalFile + "' alt='Image Product' title='Image Product'>" +
-                    //            "</div>";
-                    // $(".box-galery-products").append(html);
-                    // $(".box-galery-products").append(image);
-                    // $("#logoStore").attr("src", readResult);
+                    var html = "<div class='col-md-4 col-sm-4 col-xs-12 box-image'>" +
+                               "<img id='' class='' src='" + finalFile + "' alt='Image Product' title='Image Product'>" +
+                               "</div>";
+                    $(".box-galery-products").append(html);
                 }
             );
             
