@@ -224,7 +224,7 @@
                     formDataProduct.append("file_" + contadorImagenes, file);
                                         
                     var n= file,
-                    a=this.props.size;
+                    a=file.props.size;
                     if (null!=n) {
                         var i=new FileReader;
                         i.onload=function(e) {
