@@ -15,7 +15,6 @@ HandleFile.prototype.onSelect = function(callbackOnSuccess, callbackOnReadFile) 
                         continue;
                     }
                     
-                    callbackOnSuccess(f);
                     
                     
                     var n= file,
@@ -49,7 +48,7 @@ HandleFile.prototype.onSelect = function(callbackOnSuccess, callbackOnReadFile) 
                         i.readAsDataURL(n)
                     }
                     
-                    
+                    callbackOnSuccess(f);
                     
                     
                 //     // this.formData.append(this.nameFile, f);
