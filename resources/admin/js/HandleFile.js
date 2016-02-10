@@ -27,8 +27,8 @@ HandleFile.prototype.onSelect = function(callbackOnSuccess, callbackOnReadFile) 
                             n.src=e.target.result,
                             n.onload=function() {
                                 var e=document.createElement("canvas");
-                                e.width=n.width,
-                                e.height=n.height,
+                                e.width=128,
+                                e.height=128,
                                 e.getContext("2d").drawImage(n,0,0,e.width,e.height);
                                 var i=n.width < n.height ? n.width / a : n.height / a,
                                 r=document.createElement("canvas");
