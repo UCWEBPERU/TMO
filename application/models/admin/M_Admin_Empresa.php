@@ -9,13 +9,28 @@ class M_Admin_Empresa extends CI_Model{
 
 	public function getEmpresas() {
 		$this->db->select("Empresa.id_empresa, 
-							Persona.nombres_persona, 
+							Empresa.nombres_representante, 
+							Empresa.apellidos_representante, 
+							Empresa.email_representante, 
+							Empresa.celular_personal, 
+							Empresa.telefono, 
+							Empresa.celular_trabajo, 
+							Empresa.fax, 
+							Empresa.direccion, 
+							Empresa.direccion_2, 
 							Pay_Account.pay_id, 
-							Tipo_Empresa.nombre_tipo_empresa,
-							Empresa.nombre_empresa, Empresa.direccion_empresa, 
-							Empresa.telefono_empresa, Empresa.estado ");
-		$this->db->join('Usuario', 'Usuario.id_usuario = Empresa.id_usuario');
-		$this->db->join('Persona', 'Persona.id_usuario = Empresa.id_usuario');
+							Tipo_Empresa.nombre_tipo_empresa");
+        
+        // GEO_Countries.code as 'code_pais',
+        // GEO_Countries.name as 'nombre_pais',
+        // GEO_Regions.ID as 'id_region',
+        // GEO_Regions.name as 'nombre_region',
+        // GEO_Cities.ID as 'id_ciudad',
+        // GEO_Cities.name as 'nombre_ciudad',                            
+                            
+		// $this->db->join('GEO_Countries', 'GEO_Countries.code = Empresa.pais');
+		// $this->db->join('GEO_Regions', 'GEO_Regions.ID = Empresa.region');
+		// $this->db->join('GEO_Cities', 'GEO_Cities.ID = Empresa.ciudad');
 		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account');
 		$this->db->join('Tipo_Empresa', 'Tipo_Empresa.id_tipo_empresa = Empresa.id_tipo_empresa');
 		$this->db->where('Empresa.estado', '1');
