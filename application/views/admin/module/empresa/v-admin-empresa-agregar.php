@@ -30,7 +30,7 @@
         <section class="content">
           <div class="row">
             <!-- left column -->
-            <div class="col-md-6">
+            <div class="col-md-12">
               <!-- general form elements -->
               <div class="box box-solid">
               <div class="box-header with-border">
@@ -48,15 +48,15 @@
                         </a>
                       </h4>
                     </div>
-                    <div >
+                    <div>
                     <div class="box-body">
-                        <!-- form start -->
-                          <form id="formEmpresa" role="form"  enctype="multipart/form-data">
+                        
+                        <div class="col-md-6">
+                           
                             <?php 
                             if ( isset($idEmpresa) ) { ?>
                               <input type="hidden" name="id_empresa" value="<?php echo $idEmpresa; ?>">
                             <?php } ?>
-                           <div class="box-body">
                               <?php
                                 if (isset($existeEmpresa) && !$existeEmpresa ) { ?>
                                   <div class="alert alert-danger alert-dismissible">
@@ -65,8 +65,9 @@
                                     <strong>No intente modificar la direccion url :D</strong>
                                   </div>
                               <?php } ?>
+                              
                               <div class="form-group">
-                                <label for="nombre_empresa">Nombre</label>
+                                <label for="nombre_empresa">First Name</label>
                                 <?php
                                   if (isset($existeEmpresa) && $existeEmpresa ) { ?>
                                     <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
@@ -76,7 +77,27 @@
                               </div>
                               
                               <div class="form-group">
-                                <label for="id_tipo_empresa">Tipo Empresa</label>
+                                <label for="nombre_empresa">Last Name</label>
+                                <?php
+                                  if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                                    <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                <?php } else { ?>
+                                    <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                <?php } ?>
+                              </div>
+                              
+                              <div class="form-group">
+                                <label for="nombre_empresa">Organization</label>
+                                <?php
+                                  if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                                    <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                <?php } else { ?>
+                                    <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                <?php } ?>
+                              </div>
+                              
+                              <div class="form-group">
+                                <label for="id_tipo_empresa">Business Type</label>
                                 <?php
                                   if (isset($existeEmpresa) && $existeEmpresa ) { ?>
                                     
@@ -100,12 +121,22 @@
                                     </select>
                                 <?php } ?>
                               </div>
-
-                            </div><!-- /.box-body -->
-
-                            <!--div class="box-footer">
-                              <button id="btnAgregar" type="submit" class="btn btn-primary"><?php //echo $modulo->nombreSeccion; ?></button>
-                            </div-->
+                              
+                              <div class="form-group">
+                                <label for="nombre_empresa">Email</label>
+                                <?php
+                                  if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                                    <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                <?php } else { ?>
+                                    <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                <?php } ?>
+                              </div>
+                            
+                        </div>
+                        
+                        <div class="col-md-6">
+                            
+                        </div>
                           
                     </div>
                     </div>
@@ -228,7 +259,7 @@
               <div class="box-footer">
                   <button id="btnAgregar" type="submit" class="btn btn-primary"><?php echo $modulo->nombreSeccion; ?></button>
               </div>
-              </form>
+              
               </div><!-- /.box -->
 
             </div><!--/.col (left) -->
