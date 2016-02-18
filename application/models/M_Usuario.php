@@ -12,11 +12,13 @@ class M_Usuario extends CI_Model{
             Tipo_Usuario.nombre_tipo_usuario,
             Persona.nombres_persona,
             Persona.apellidos_persona,
-            Persona.pais_region_persona,
-            Persona.estado_region_persona,
-            Persona.direccion_persona,
-            Persona.movil_persona,
-            Persona.telefono_persona");
+            Persona.pais_persona,
+            Persona.region_persona,
+            Persona.ciudad_persona,
+            Persona.celular_personal,
+            Persona.telefono,
+            Persona.celular_trabajo,
+            Persona.direccion_persona");
             
 		$this->db->join('Persona', 'Persona.id_usuario = Usuario.id_usuario');
 		$this->db->join('Tipo_Usuario', 'Tipo_Usuario.id_tipo_usuario = Usuario.id_tipo_usuario');
