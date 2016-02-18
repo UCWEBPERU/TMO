@@ -49,17 +49,21 @@ class M_Admin_Empresa extends CI_Model{
 
 	public function fetchEmpresas($limit, $start) {
 		$this->db->select("Empresa.id_empresa, 
-							Persona.nombres_persona, 
-							Persona.apellidos_persona, 
+							Empresa.nombres_representante, 
+							Empresa.apellidos_representante, 
+							Empresa.email_representante, 
+							Empresa.celular_personal, 
+							Empresa.telefono, 
+							Empresa.celular_trabajo, 
+							Empresa.fax, 
+							Empresa.direccion, 
+							Empresa.direccion_2, 
 							Pay_Account.pay_id, 
-							Tipo_Empresa.nombre_tipo_empresa,
-							Empresa.nombre_empresa, Empresa.direccion_empresa, 
-							Empresa.telefono_empresa, Empresa.estado");
-		$this->db->join('Usuario', 'Usuario.id_usuario = Empresa.id_usuario');
-		$this->db->join('Persona', 'Persona.id_usuario = Empresa.id_usuario');
-		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account', 'left');
+							Tipo_Empresa.nombre_tipo_empresa");
+		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account');
 		$this->db->join('Tipo_Empresa', 'Tipo_Empresa.id_tipo_empresa = Empresa.id_tipo_empresa');
 		$this->db->where('Empresa.estado', '1');
+		$query = $this->db->get('Empresa');
 		$this->db->limit($limit, $start);
 		$query = $this->db->get('Empresa');
 
@@ -81,13 +85,17 @@ class M_Admin_Empresa extends CI_Model{
 
 	public function getEmpresaByID($id_empresa) {
 		$this->db->select("Empresa.id_empresa, 
-							Persona.nombres_persona, 
+							Empresa.nombres_representante, 
+							Empresa.apellidos_representante, 
+							Empresa.email_representante, 
+							Empresa.celular_personal, 
+							Empresa.telefono, 
+							Empresa.celular_trabajo, 
+							Empresa.fax, 
+							Empresa.direccion, 
+							Empresa.direccion_2, 
 							Pay_Account.pay_id, 
-							Tipo_Empresa.nombre_tipo_empresa,
-							Empresa.nombre_empresa, Empresa.direccion_empresa, 
-							Empresa.telefono_empresa, Empresa.estado ");
-		$this->db->join('Usuario', 'Usuario.id_usuario = Empresa.id_usuario');
-		$this->db->join('Persona', 'Persona.id_usuario = Empresa.id_usuario');
+							Tipo_Empresa.nombre_tipo_empresa");
 		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account');
 		$this->db->join('Tipo_Empresa', 'Tipo_Empresa.id_tipo_empresa = Empresa.id_tipo_empresa');
 		$this->db->where('Empresa.estado', '1');
@@ -95,9 +103,6 @@ class M_Admin_Empresa extends CI_Model{
 		$query = $this->db->get('Empresa');
 		return $query->result();
 	}
-
-	
-
 
 	public function insertEmpresa($id_tipo_empresa, $id_usuario, $nombre_empresa) {
 		$data = array(
