@@ -18,7 +18,6 @@ class M_Admin_Empresa extends CI_Model{
 							Empresa.fax, 
 							Empresa.direccion, 
 							Empresa.direccion_2, 
-							Pay_Account.pay_id, 
 							Tipo_Empresa.nombre_tipo_empresa");
         
         // GEO_Countries.code as 'code_pais',
@@ -31,7 +30,6 @@ class M_Admin_Empresa extends CI_Model{
 		// $this->db->join('GEO_Countries', 'GEO_Countries.code = Empresa.pais');
 		// $this->db->join('GEO_Regions', 'GEO_Regions.ID = Empresa.region');
 		// $this->db->join('GEO_Cities', 'GEO_Cities.ID = Empresa.ciudad');
-		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account');
 		$this->db->join('Tipo_Empresa', 'Tipo_Empresa.id_tipo_empresa = Empresa.id_tipo_empresa');
 		$this->db->where('Empresa.estado', '1');
 		$query = $this->db->get('Empresa');
@@ -58,9 +56,7 @@ class M_Admin_Empresa extends CI_Model{
 							Empresa.fax, 
 							Empresa.direccion, 
 							Empresa.direccion_2, 
-							Pay_Account.pay_id, 
 							Tipo_Empresa.nombre_tipo_empresa");
-		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account');
 		$this->db->join('Tipo_Empresa', 'Tipo_Empresa.id_tipo_empresa = Empresa.id_tipo_empresa');
 		$this->db->where('Empresa.estado', '1');
 		$query = $this->db->get('Empresa');
@@ -93,10 +89,8 @@ class M_Admin_Empresa extends CI_Model{
 							Empresa.celular_trabajo, 
 							Empresa.fax, 
 							Empresa.direccion, 
-							Empresa.direccion_2, 
-							Pay_Account.pay_id, 
+							Empresa.direccion_2,
 							Tipo_Empresa.nombre_tipo_empresa");
-		$this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Empresa.id_pay_account');
 		$this->db->join('Tipo_Empresa', 'Tipo_Empresa.id_tipo_empresa = Empresa.id_tipo_empresa');
 		$this->db->where('Empresa.estado', '1');
 		$this->db->where('Empresa.id_empresa', $id_empresa);
