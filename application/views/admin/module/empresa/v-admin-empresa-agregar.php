@@ -294,48 +294,6 @@
                     </div>
                   </div>
                   
-                  <!-- Panel Archivo-->
-                  <div class="panel box box-primary">
-                    <div class="box-header with-border">
-                      <h4 class="box-title">
-                        <a >
-                          Logo Institucional
-                        </a>
-                      </h4>
-                    </div>
-                    <div>
-                    <div class="box-body">
-                        
-                            <?php 
-                            if ( isset($idArchivo) ) { ?>
-                              <input type="hidden" name="id_usuario" value="<?php echo $idArchivo; ?>">
-                            <?php } ?>
-                           <div class="box-body">
-                              <?php
-                                if (isset($existeArchivo) && !$existeArchivo ) { ?>
-                                  <div class="alert alert-danger alert-dismissible">
-                                    <h4><i class="icon fa fa-ban"></i> No existe el cliente!</h4>
-                                    Lo sentimos el cliente que desea editar no existe.<br>
-                                    <strong>No intente modificar la direccion url :D</strong>
-                                  </div>
-                              <?php } ?>
-                              <div class="form-group">
-                                <label for="logo_empresa">Añadir Logo</label>
-                                <?php
-                                  if (isset($existeArchivo) && $existeArchivo ) { ?>
-                                    <input type="file" class="form-control" id="logo_empresa" name="logo_empresa" maxlength="" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
-                                <?php } else { ?>
-                                    <input type="file" class="form-control" id="logo_empresa" name="logo_empresa">
-                                    
-                                <?php } ?>
-                              </div>
-                              
-                              </div>
-                        
-                    </div><!-- /.box-body -->
-                    </div>
-                  </div>
-
                 </div>
                
               </div><!-- /.box-body -->
@@ -346,6 +304,52 @@
               </div><!-- /.box -->
 
             </div><!--/.col (left) -->
+            
+            <div class="col-md-6">
+                
+                <!-- Panel Archivo-->
+                  <div class="panel box box-primary">
+                    <div class="box-header with-border">
+                      <h4 class="box-title">
+                        <a >
+                          Logo Institucional
+                        </a>
+                      </h4>
+                    </div>
+                    <div>
+                        <div class="box-body">
+                            
+                                <?php 
+                                if ( isset($idArchivo) ) { ?>
+                                <input type="hidden" name="id_usuario" value="<?php echo $idArchivo; ?>">
+                                <?php } ?>
+                            <div class="box-body">
+                                <?php
+                                    if (isset($existeArchivo) && !$existeArchivo ) { ?>
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <h4><i class="icon fa fa-ban"></i> No existe el cliente!</h4>
+                                        Lo sentimos el cliente que desea editar no existe.<br>
+                                        <strong>No intente modificar la direccion url :D</strong>
+                                    </div>
+                                <?php } ?>
+                                <div class="form-group">
+                                    <label for="logo_empresa">Añadir Logo</label>
+                                    <?php
+                                    if (isset($existeArchivo) && $existeArchivo ) { ?>
+                                        <input type="file" class="form-control" id="logo_empresa" name="logo_empresa" maxlength="" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                    <?php } else { ?>
+                                        <input type="file" class="form-control" id="logo_empresa" name="logo_empresa">
+                                        
+                                    <?php } ?>
+                                </div>
+                                
+                                </div>
+                            
+                        </div><!-- /.box-body -->
+                    </div>
+                  </div>
+                
+            </div>
             
           </div>   <!-- /.row -->
         </section><!-- /.content -->
