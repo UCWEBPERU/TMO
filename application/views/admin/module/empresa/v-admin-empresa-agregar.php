@@ -295,17 +295,8 @@
                   </div>
                   
                 </div>
-               
-              </div><!-- /.box-body -->
-              <div class="box-footer">
-                  <button id="btnAgregar" type="submit" class="btn btn-primary"><?php echo $modulo->nombreSeccion; ?></button>
-              </div>
-              
-              </div><!-- /.box -->
-
-            </div><!--/.col (left) -->
-            
-            <div class="col-md-6">
+                
+                <div class="col-md-6">
                 
                 <!-- Panel Archivo-->
                   <div class="panel box box-primary">
@@ -350,6 +341,17 @@
                   </div>
                 
             </div>
+               
+              </div><!-- /.box-body -->
+              <div class="box-footer">
+                  <button id="btnAgregar" type="submit" class="btn btn-primary"><?php echo $modulo->nombreSeccion; ?></button>
+              </div>
+              
+              </div><!-- /.box -->
+
+            </div><!--/.col (left) -->
+            
+            
             
           </div>   <!-- /.row -->
         </section><!-- /.content -->
