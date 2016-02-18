@@ -52,7 +52,7 @@
                     <div class="box-body">
                         <!-- form start -->
                         <form id="formEmpresa" role="form"  enctype="multipart/form-data">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
 
                             <?php 
                             if ( isset($idEmpresa) ) { ?>
@@ -140,7 +140,7 @@
                             
                         </div>
                         
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             
                             <div class="form-group">
                                 <label for="nombre_empresa">Mobile Phone</label>
@@ -184,7 +184,7 @@
                             
                         </div>
                         
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             
                             <div class="form-group">
                                 <label for="id_tipo_empresa">Country</label>
