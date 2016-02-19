@@ -103,18 +103,21 @@
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="input-group">
-                                                            <?php
-                                                            if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
-                                                            <?php } else { ?>
-                                                                <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="40">
-                                                            <?php } ?>
-                                                            <!-- btn-group -->
-                                                            <div class="input-group-btn">
-                                                                <button type="button" class="btn btn-success">Generar</button>
+                                                        <div class="form-group">
+                                                            <label for="txtPassword">Password</label>
+                                                            <div class="input-group">
+                                                                <?php
+                                                                if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                                                                    <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                                <?php } else { ?>
+                                                                    <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="40">
+                                                                <?php } ?>
+                                                                <!-- btn-group -->
+                                                                <div class="input-group-btn">
+                                                                    <button type="button" class="btn btn-success">Generar</button>
+                                                                </div>
+                                                                <!-- /btn-group -->
                                                             </div>
-                                                            <!-- /btn-group -->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
