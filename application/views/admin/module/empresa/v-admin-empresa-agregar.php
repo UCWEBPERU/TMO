@@ -380,6 +380,8 @@
         });
 
         $("#idCountry").on("change", function() {
+            $("#idRegion").empty();
+            $("#idRegion").append("<option value='0' selected='selected'>Cargando...</option>");
             formData.append("code_country", $(this).val());
             var request = $.ajax({
                 url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
@@ -393,9 +395,7 @@
             request.done(function( response ) {
                 formData = new FormData();
                 if (response.status) {
-                    $("#idRegion").empty();
-                    $("#idRegion").append("<option value='0' selected='selected'>Cargando...</option>");
-                    var html = "<option value='0' selected='selected'>" + response.data[c].name + "</option>";
+                    var html = "<option value='0' selected='selected'>Seleccione</option>";
                     for (var c = 0; c < response.data.length; c++ ) {
                         html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
                     }
