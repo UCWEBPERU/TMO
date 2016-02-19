@@ -418,7 +418,7 @@
             formData.append("code_country", $(this).val());
             formData.append("code_region", $(this).val());
             var request = $.ajax({
-                url: baseUrl + "api-rest/geo-data/getCitysByRegionAndCountry",
+                url: baseUrl + "api-rest/geo-data/getCitiesByRegionAndCountry",
                 method: "POST",
                 data: formData,
                 dataType: "json",
@@ -445,8 +445,6 @@
                 GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar las ciudades.</p>");
             });
         });
-
-
 
 
         $("#logo_empresa").on("change", handleFileSelect);

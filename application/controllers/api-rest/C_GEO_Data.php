@@ -46,7 +46,7 @@ class C_GEO_Data extends CI_Controller {
         echo json_encode($json);
     }
 
-    public function ajaxGetCitysByRegionAndCountry() {
+    public function ajaxGetCitiesByRegionAndCountry() {
         $this->load->model("M_GEO_Data");
 
         $json 				= new stdClass();
@@ -58,7 +58,7 @@ class C_GEO_Data extends CI_Controller {
 
         if ( $this->input->post("code_country") && $this->input->post("code_region")) {
 
-            $result = $this->M_GEO_Data->getCitysByRegionAndCountry(
+            $result = $this->M_GEO_Data->getCitiesByRegionAndCountry(
                 array(
                     "code_country"  => trim($this->input->post("code_country", TRUE)),
                     "code_region"   => trim($this->input->post("code_region", TRUE))
