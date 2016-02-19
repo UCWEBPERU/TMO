@@ -397,7 +397,7 @@
                 if (response.status) {
                     var html = "<option value='0' selected='selected'>Seleccione</option>";
                     for (var c = 0; c < response.data.length; c++ ) {
-                        html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
+                        html += "<option value='" + response.data[c].code + "'>" + response.data[c].name + "</option>";
                     }
                     $("#idRegion").empty();
                     $("#idRegion").append(html);
@@ -410,8 +410,44 @@
 //                GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
             });
-
         });
+
+        $("#idRegion").on("change", function() {
+            $("#idCity").empty();
+            $("#idCity").append("<option value='0' selected='selected'>Cargando...</option>");
+            formData.append("code_country", $(this).val());
+            formData.append("code_region", $(this).val());
+            var request = $.ajax({
+                url: baseUrl + "api-rest/geo-data/getCitysByRegionAndCountry",
+                method: "POST",
+                data: formData,
+                dataType: "json",
+                processData: false,
+                contentType: false
+            });
+
+            request.done(function( response ) {
+                formData = new FormData();
+                if (response.status) {
+                    var html = "<option value='0' selected='selected'>Seleccione</option>";
+                    for (var c = 0; c < response.data.length; c++ ) {
+                        html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
+                    }
+                    $("#idCity").empty();
+                    $("#idCity").append(html);
+                }
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                formData = new FormData();
+                waitingDialog.hide();
+//                GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar las ciudades.</p>");
+            });
+        });
+
+
+
 
         $("#logo_empresa").on("change", handleFileSelect);
 

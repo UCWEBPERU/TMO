@@ -14,10 +14,10 @@ class C_GEO_Data extends CI_Controller {
     }
 
     public function ajaxGetRegionsByCountry() {
-        $this->load->model("M_GEO_Regions");
+        $this->load->model("M_GEO_Data");
 
         $json 				= new stdClass();
-        $json->type 		= "GEO Data - Regions By Country";
+        $json->type 		= "GEO Data - Regions by Country";
         $json->presentation = "";
         $json->action 		= "list";
         $json->data 		= array();
@@ -25,7 +25,7 @@ class C_GEO_Data extends CI_Controller {
 
         if ( $this->input->post("code_country") ) {
 
-            $result = $this->M_GEO_Regions->getRegionsByCountry(
+            $result = $this->M_GEO_Data->getRegionsByCountry(
                 array(
                     "code" => trim($this->input->post("code_country", TRUE))
                 )
@@ -36,7 +36,7 @@ class C_GEO_Data extends CI_Controller {
                 $json->data     = $result;
                 $json->status 	= TRUE;
             } else {
-                $json->message = "Lo sentimos no se encontraron regiones del pais buscado.";
+                $json->message = "Lo sentimos no se encontraron regiones.";
             }
 
         } else {
@@ -44,7 +44,40 @@ class C_GEO_Data extends CI_Controller {
         }
 
         echo json_encode($json);
+    }
 
+    public function ajaxGetCitysByRegionAndCountry() {
+        $this->load->model("M_GEO_Data");
+
+        $json 				= new stdClass();
+        $json->type 		= "GEO Data - Citys by Regions and Country";
+        $json->presentation = "";
+        $json->action 		= "list";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        if ( $this->input->post("code_country") && $this->input->post("code_region")) {
+
+            $result = $this->M_GEO_Data->getCitysByRegionAndCountry(
+                array(
+                    "code_country"  => trim($this->input->post("code_country", TRUE)),
+                    "code_region"   => trim($this->input->post("code_region", TRUE))
+                )
+            );
+
+            if (count($result) > 0) {
+                $json->message  = "Lista de ciudades.";
+                $json->data     = $result;
+                $json->status 	= TRUE;
+            } else {
+                $json->message = "Lo sentimos no se encontraron las ciudades.";
+            }
+
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+        echo json_encode($json);
     }
 
 }

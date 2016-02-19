@@ -69,6 +69,7 @@ $route['admin/signOut']			= 'admin/C_Login/signOut';
 | ------------------------------
 */
 $route['api-rest/geo-data/getRegionsByCountry']	= 'api-rest/C_GEO_Data/ajaxGetRegionsByCountry';
+$route['api-rest/geo-data/getCitysByRegionAndCountry']	= 'api-rest/C_GEO_Data/ajaxGetCitysByRegionAndCountry';
 
 /*
 | ------------------------------
