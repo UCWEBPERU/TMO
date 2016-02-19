@@ -246,7 +246,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
             } else {
                 $json->message = "La categoria que quiere editar no existe, intente de nuevo.";
             }
-        } else {
+        } else {        
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
         }
 		
