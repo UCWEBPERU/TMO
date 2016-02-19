@@ -114,7 +114,7 @@
                                                                 <?php } ?>
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
-                                                                    <button type="button" class="btn btn-success">Generar</button>
+                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
