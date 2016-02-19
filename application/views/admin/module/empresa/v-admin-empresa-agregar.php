@@ -81,7 +81,8 @@
                                                                 <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
-                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>
+<!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
+                                                                    <button id="btnGenerarPassword" type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-pencil"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -94,7 +95,7 @@
                                                                 <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-required-message="Vuelva a ingresar la contraseña.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
-                                                                    <button type="button" class="btn btn-success" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
+                                                                    <button id="btnVerPassword" type="button" class="btn btn-success" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -319,11 +320,11 @@
 
         var selectorInputsForm = ["#txtNombreCategoria"];
 
+        var baseUrl   = "<?php echo $modulo->base_url; ?>";
+        var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>
+
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
-
-            var baseUrl   = "<?php echo $modulo->base_url; ?>";
-            var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>
 
             var element = this;
 
@@ -381,6 +382,33 @@
             } else {
                 GenericModal.show("danger", "<p>Ingrese los datos de la empresa correctamente.</p>");
             }
+
+        });
+
+        $("#idCountry").on("change", function() {
+            formData.append("code_country", $(this).val());
+            var request = $.ajax({
+                url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
+                method: "POST",
+                data: formData,
+                dataType: "json",
+                processData: false,
+                contentType: false
+            });
+
+            request.done(function( response ) {
+                formData = new FormData();
+                if (response.status) {
+                    console.log(response.data);
+                }
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                formData = new FormData();
+                waitingDialog.hide();
+//                GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
+            });
 
         });
 
