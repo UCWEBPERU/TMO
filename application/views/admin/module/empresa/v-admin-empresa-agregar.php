@@ -394,10 +394,12 @@
                 formData = new FormData();
                 if (response.status) {
                     $("#idRegion").empty();
-                    var html = "";
+                    $("#idRegion").append("<option value='0' selected='selected'>Cargando...</option>");
+                    var html = "<option value='0' selected='selected'>" + response.data[c].name + "</option>";
                     for (var c = 0; c < response.data.length; c++ ) {
-                        html += "<option value='" + response.data[c].ID + "' selected='selected'>" + response.data[c].name + "</option>";
+                        html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
                     }
+                    $("#idRegion").empty();
                     $("#idRegion").append(html);
                 }
             });
