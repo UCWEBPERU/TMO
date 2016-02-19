@@ -92,6 +92,16 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label for="txtEmail">Email</label>
+                                                    <?php
+                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                    <?php } else { ?>
+                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40">
+                                                    <?php } ?>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="txtOrganiaztion">Organization</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
@@ -124,16 +134,6 @@
                                                                 <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
-                                                    <?php } ?>
-                                                </div>
-                                                <div>inside</div>
-                                                <div class="form-group">
-                                                    <label for="txtEmail">Email</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40">
                                                     <?php } ?>
                                                 </div>
 
