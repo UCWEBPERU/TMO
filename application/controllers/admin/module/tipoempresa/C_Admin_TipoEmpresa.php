@@ -10,10 +10,10 @@ class C_Admin_TipoEmpresa extends CI_Controller {
         $this->load->library('utils/UserSession');
         $this->usersession->validateSession("panel-admin");
         $this->load->model('M_Usuario');
+		$this->load->model('admin/M_Admin_TipoEmpresa');
 	}
 
 	public function index()	{
-        $this->load->model('admin/M_Admin_TipoEmpresa');
 		$this->load->library('pagination');
 		$modulo = new stdClass();
         
@@ -144,7 +144,6 @@ class C_Admin_TipoEmpresa extends CI_Controller {
 
 	public function edit($idTipoEmpresa) {
 
-		
 		if (isset($idTipoEmpresa)) {
             
 			$modulo = new stdClass();
