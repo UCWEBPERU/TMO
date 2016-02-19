@@ -160,9 +160,6 @@
                                                     <label for="idRegion">State</label>
                                                     <select id="idRegion" name="idRegion" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
                                                         <option value="0" selected="selected">Seleccione</option>
-                                                        <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                            <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
 
@@ -170,9 +167,6 @@
                                                     <label for="idCity">City</label>
                                                     <select id="idCity" name="idCity" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
                                                         <option value="0" selected="selected">Seleccione</option>
-                                                        <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                            <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
 
@@ -399,7 +393,12 @@
             request.done(function( response ) {
                 formData = new FormData();
                 if (response.status) {
-                    console.log(response.data);
+                    $("#idRegion").empty();
+                    var html = "";
+                    for (var c = 0; c < response.data.length; c++ ) {
+                        html += "<option value='" + response.data[c].ID + "' selected='selected'>" + response.data[c].name + "</option>";
+                    }
+                    $("#idRegion").append(html);
                 }
             });
 
