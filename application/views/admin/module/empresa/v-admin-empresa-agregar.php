@@ -407,7 +407,6 @@
             request.fail(function( jqXHR, textStatus ) {
                 formData = new FormData();
                 waitingDialog.hide();
-//                GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
             });
         });
@@ -441,11 +440,20 @@
             request.fail(function( jqXHR, textStatus ) {
                 formData = new FormData();
                 waitingDialog.hide();
-//                GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar las ciudades.</p>");
             });
         });
 
+        $("#btnVerPassword").on("click", function(evt){
+            evt.preventDefault();
+            if ($("#txtPassword").attr("type") == "password") {
+                $("#txtPassword").attr("type", "text");
+                $("#txtRepeatPassword").attr("type", "text");
+            } else {
+                $("#txtPassword").attr("type", "password");
+                $("#txtRepeatPassword").attr("type", "password");
+            }
+        });
 
         $("#logo_empresa").on("change", handleFileSelect);
 
