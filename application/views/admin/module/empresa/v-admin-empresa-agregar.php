@@ -72,9 +72,9 @@
                                                             <label for="txtFirstName">First Names</label>
                                                             <?php
                                                             if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese su nombre.">
                                                             <?php } else { ?>
-                                                                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40">
+                                                                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese su nombre.">
                                                             <?php } ?>
                                                         </div>
                                                     </div>
@@ -83,9 +83,9 @@
                                                             <label for="txtLastName">Last Name</label>
                                                             <?php
                                                             if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                                <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese su apellido.">
                                                             <?php } else { ?>
-                                                                <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40">
+                                                                <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese su apellido.">
                                                             <?php } ?>
                                                         </div>
                                                     </div>
@@ -111,6 +111,9 @@
                                                             <?php } else { ?>
                                                                 <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="40">
                                                             <?php } ?>
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-info btn-flat">Generar</button>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -402,7 +405,8 @@
 </div><!-- ./wrapper -->
 <?php $this->load->view('template/main-panel/scripts-footer'); ?>
 <?php $this->load->view('template/main-panel/modal-admin'); ?>
-
+<!-- Validate Input Form With Parsley -->
+<script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
 <script>
     $(function () {
 
@@ -437,14 +441,9 @@
             }
         }
 
-        function mostrarErrorInputText(id) {
-            if ( $(id).val().length == 0) {
-                $(id).parent().addClass("has-error");
-            } else {
-                $(id).parent().removeClass("has-error");
-            }
-        }
+        GenericModal.config("#genericModal", "");
 
+        var selectorInputsForm = ["#txtNombreCategoria"];
 
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
@@ -454,23 +453,7 @@
 
             var element = this;
 
-            mostrarErrorInputText("#nombre_empresa");
-            mostrarErrorInputText("#id_tipo_empresa");
-            mostrarErrorInputText("#nombres_persona");
-            mostrarErrorInputText("#apellido_persona");
-            mostrarErrorInputText("#email_usuario");
-            mostrarErrorInputText("#password_usuario");
-            mostrarErrorInputText("#logo_empresa");
-
-            GenericModal.config("#genericModal", "");
-
-            if ( $("#nombre_empresa").val().length > 0 &&
-                $("#id_tipo_empresa").val().length > 0 &&
-                $("#nombres_persona").val().length > 0 &&
-                $("#apellido_persona").val().length > 0 &&
-                $("#email_usuario").val().length > 0 &&
-                $("#password_usuario").val().length > 0 &&
-                $("#logo_empresa").val().length > 0 ) {
+            if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
 
                 waitingDialog.show('Cargando...');
 
