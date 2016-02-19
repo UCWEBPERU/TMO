@@ -108,9 +108,9 @@
                                                             <div class="input-group">
                                                                 <?php
                                                                 if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                    <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                                    <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                                 <?php } else { ?>
-                                                                    <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="40">
+                                                                    <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40">
                                                                 <?php } ?>
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
@@ -126,9 +126,9 @@
                                                             <div class="input-group">
                                                                 <?php
                                                                 if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                    <input type="text" class="form-control" id="txtRepeatPassword" name="txtRepeatPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                                    <input type="password" class="form-control" id="txtRepeatPassword" name="txtRepeatPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                                 <?php } else { ?>
-                                                                    <input type="text" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40">
+                                                                    <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40">
                                                                 <?php } ?>
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
