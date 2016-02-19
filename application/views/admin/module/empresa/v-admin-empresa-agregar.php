@@ -101,16 +101,6 @@
                                                     <?php } ?>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="txtOrganiaztion">Organization</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40">
-                                                    <?php } ?>
-                                                </div>
-
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -134,6 +124,16 @@
                                                             <?php } ?>
                                                         </div>
                                                     </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="txtOrganiaztion">Organization</label>
+                                                    <?php
+                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                                                        <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                    <?php } else { ?>
+                                                        <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40">
+                                                    <?php } ?>
                                                 </div>
 
                                                 <div class="form-group">
