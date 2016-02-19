@@ -21,7 +21,7 @@ class M_GEO_Data extends CI_Model{
 
     public function getCitiesByRegionAndCountry($data) {
         $this->db->order_by("name", "asc");
-        $this->db->where('name !=', null);
+        $this->db->where('name !=', '');
         $this->db->where('country', $data["code_country"]);
         $this->db->where('region', $data["code_region"]);
         $query = $this->db->get('GEO_Cities');
