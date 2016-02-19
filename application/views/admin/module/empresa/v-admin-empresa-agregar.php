@@ -111,6 +111,31 @@
                                                     <?php } ?>
                                                 </div>
 
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtPassword">Password</label>
+                                                            <?php
+                                                            if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                                                                <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                            <?php } else { ?>
+                                                                <input type="text" class="form-control" id="txtPassword" name="txtPassword" maxlength="40">
+                                                            <?php } ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtRepeatPassword">Repeat Password</label>
+                                                            <?php
+                                                            if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                                                                <input type="text" class="form-control" id="txtRepeatPassword" name="txtRepeatPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                            <?php } else { ?>
+                                                                <input type="text" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40">
+                                                            <?php } ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="id_tipo_empresa">Business Type</label>
                                                     <?php
@@ -129,7 +154,7 @@
                                                         </select>
                                                     <?php } else { ?>
                                                         <select id="id_tipo_empresa"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                            <option value="0" selected="selected">Seleccione un Tipo de Empresa</option>
+                                                            <option value="0" selected="selected">Seleccione</option>
                                                             <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                                 <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
                                                             <?php endforeach; ?>
@@ -288,9 +313,7 @@
                                         </form>
 
                                     </div>
-
                                 </div>
-
                             </div>
 
                             <div class="box-group">
