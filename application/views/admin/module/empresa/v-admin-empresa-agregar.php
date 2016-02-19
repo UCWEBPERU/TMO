@@ -123,12 +123,19 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="txtRepeatPassword">Repeat Password</label>
-                                                            <?php
-                                                            if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                <input type="text" class="form-control" id="txtRepeatPassword" name="txtRepeatPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
-                                                            <?php } else { ?>
-                                                                <input type="text" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40">
-                                                            <?php } ?>
+                                                            <div class="input-group">
+                                                                <?php
+                                                                if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+                                                                    <input type="text" class="form-control" id="txtRepeatPassword" name="txtRepeatPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                                <?php } else { ?>
+                                                                    <input type="text" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40">
+                                                                <?php } ?>
+                                                                <!-- btn-group -->
+                                                                <div class="input-group-btn">
+                                                                    <button type="button" class="btn btn-success" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
+                                                                </div>
+                                                                <!-- /btn-group -->
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
