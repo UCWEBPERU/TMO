@@ -444,14 +444,18 @@
             });
         });
 
-        $("#btnVerPassword").on("click", function(evt){
+        $("#btnVerPassword").on("click", function(evt) {
             evt.preventDefault();
             if ($("#txtPassword").attr("type") == "password") {
                 $("#txtPassword").attr("type", "text");
                 $("#txtRepeatPassword").attr("type", "text");
+                $("#btnVerPassword").children().removeClass("fa-eye");
+                $("#btnVerPassword").children().addClass("fa-eye-slash");
             } else {
                 $("#txtPassword").attr("type", "password");
                 $("#txtRepeatPassword").attr("type", "password");
+                $("#btnVerPassword").children().removeClass("fa-eye-slash");
+                $("#btnVerPassword").children().addClass("fa-eye");
             }
         });
 
