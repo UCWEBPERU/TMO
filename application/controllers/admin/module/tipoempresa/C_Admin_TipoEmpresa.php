@@ -151,18 +151,19 @@ class C_Admin_TipoEmpresa extends CI_Controller {
             $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
             $modulo->datos_usuario = $usuario[0];
             
-			$modulo->titulo 					= "Empresa";
-			$modulo->titulo_pagina = "TMO | Panel Principal";      
-	        $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
-            $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
-            $modulo->tipo_usuario = $usuario[0]->nombre_tipo_usuario;
-	        $modulo->nombre_empresa_largo = "Take My Order";
-	        $modulo->nombre_empresa_corto = "TMO";      
-	        $modulo->url_signout = base_url()."admin/signOut";
-	        $modulo->nombreSeccion = "Editar";
-	        $modulo->base_url 		= "admin/tipoempresa/";
-		
-
+			$modulo->titulo 				= "Empresa";
+			$modulo->titulo_pagina 			= "TMO | Panel Principal";
+	        $modulo->icono_empresa 			= PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
+            $modulo->nombres_usuario 		= $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
+            $modulo->tipo_usuario 			= $usuario[0]->nombre_tipo_usuario;
+	        $modulo->nombre_empresa_largo 	= "Take My Order";
+	        $modulo->nombre_empresa_corto 	= "TMO";
+	        $modulo->url_signout 			= base_url()."admin/signOut";
+	        $modulo->nombreSeccion 			= "Editar";
+	        $modulo->base_url 				= "admin/tipoempresa/";
+			$modulo->url_signout 			= base_url()."admin/signOut";
+			$modulo->url_main_panel 		= base_url()."admin";
+			$modulo->menu 					= array("menu" => 2, "submenu" => 0);
 
 			$result = $this->M_Admin_TipoEmpresa->getTipoEmpresaByID($idTipoEmpresa);
 			if (count($result) > 0) {
@@ -176,8 +177,7 @@ class C_Admin_TipoEmpresa extends CI_Controller {
 			
 			$data["idTipo"] 		= $idTipoEmpresa;
 			$data["modulo"] 		=	$modulo;
-				
-			
+
 			$this->load->view('admin/module/tipoempresa/v-admin-tipoempresa-agregar', $data);
 		} else {
 			redirect('/');
