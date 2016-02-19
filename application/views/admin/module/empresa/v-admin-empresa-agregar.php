@@ -451,7 +451,7 @@
                 $("#txtRepeatPassword").attr("type", "text");
                 $(this).children().removeClass("fa-eye");
                 $(this).children().addClass("fa-eye-slash");
-                $(this).attr("title", "Ocultar Contrseña");
+                $(this).attr("title", "Ocultar Contraseña");
             } else {
                 $("#txtPassword").attr("type", "password");
                 $("#txtRepeatPassword").attr("type", "password");

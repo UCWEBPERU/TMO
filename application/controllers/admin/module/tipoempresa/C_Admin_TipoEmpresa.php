@@ -75,7 +75,6 @@ class C_Admin_TipoEmpresa extends CI_Controller {
 	}
 
 	public function agregar() {
-        
 		$modulo = new stdClass();
         
         $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
@@ -91,7 +90,8 @@ class C_Admin_TipoEmpresa extends CI_Controller {
         $modulo->url_signout = base_url()."admin/signOut";
         $modulo->nombreSeccion = "Agregar";
         $modulo->base_url 		= "admin/tipoempresa/";
-
+		$modulo->url_signout = base_url()."admin/signOut";
+		$modulo->url_main_panel = base_url()."admin";
 
 		$data["modulo"] 		= $modulo;
 
