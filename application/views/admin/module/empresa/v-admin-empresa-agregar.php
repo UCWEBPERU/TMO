@@ -459,6 +459,7 @@
             }
         });
 
+
         $("#logo_empresa").on("change", handleFileSelect);
 
     });
