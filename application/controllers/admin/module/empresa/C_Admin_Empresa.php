@@ -36,7 +36,7 @@ class C_Admin_Empresa extends CI_Controller {
 		$modulo->titulo_registro 			= "Registro de Empresas";
 		$modulo->cabecera_registro 			= array("Nombre Empresa", "Representante", "Cuenta", "Tipo Empresa", "Direccion", "Telefono");
 		$modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-store";
-		$modulo->base_url_panel 			= "admin/empresa/";
+		$modulo->base_url 					= "admin/empresa/";
 		$modulo->api_rest_params 			= array("delete" => "id_empresa");
 		$modulo->menu 						= array("menu" => 1, "submenu" => 0);
 		$modulo->navegacion 				= array(
