@@ -82,9 +82,6 @@
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
     <?php $this->load->view('template/main-panel/modal-admin'); ?>
     <script>
-      
-      
-
       function mostrarErrorInputText(id) {
           if ( $(id).val().length == 0) {
             $(id).parent().addClass("has-error");
@@ -94,7 +91,7 @@
       } 
 
       $(function () {
-       
+          GenericModal.config("#genericModal", "");
 
         $("#btnAgregar").on("click", function(evt){
           evt.preventDefault();
@@ -106,9 +103,8 @@
           var element = this;
           
           mostrarErrorInputText("#nombre_tipo_empresa");
-          
-          
-          ManagerModal.config("#modalAdmin", "");
+
+
           
           if ( $("#nombre_tipo_empresa").val().length > 0) {
                 
@@ -126,26 +122,27 @@
                   $(".overlay").addClass("hide");
                   
                   if (response.status) {
-                    
-                    ManagerModal.show("default", response.message);
+
+
+                      GenericModal.show("default", "<p>" + response.message + "</p>");
                     if (response.action == "insert") {
                       $("#nombre_tipo_empresa").val("");
                       
                     }
                     
                   } else {
-                    ManagerModal.show("danger", response.message);
+                      GenericModal.show("danger", "<p>" + response.message + "</p>");
                   }
                   
                 });
       
                 request.fail(function( jqXHR, textStatus ) {
                   $(".overlay").addClass("hide");
-                  ManagerModal.show("danger", textStatus);
+                    GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
             
           } else {
-            ManagerModal.show("danger", "Ingrese los datos del Tipo de Empresa correctamente.");
+              GenericModal.show("danger", "<p>Ingrese los datos del Tipo de Empresa correctamente.</p>");
           }
           
         });
