@@ -27,5 +27,4 @@ class M_GEO_Data extends CI_Model{
         $query = $this->db->get('GEO_Cities');
         return $query->result();
     }
-
 }
