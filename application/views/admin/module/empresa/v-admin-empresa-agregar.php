@@ -449,13 +449,15 @@
             if ($("#txtPassword").attr("type") == "password") {
                 $("#txtPassword").attr("type", "text");
                 $("#txtRepeatPassword").attr("type", "text");
-                $("#btnVerPassword").children().removeClass("fa-eye");
-                $("#btnVerPassword").children().addClass("fa-eye-slash");
+                $(this).children().removeClass("fa-eye");
+                $(this).children().addClass("fa-eye-slash");
+                $(this).attr("title", "Ocultar Contrseña");
             } else {
                 $("#txtPassword").attr("type", "password");
                 $("#txtRepeatPassword").attr("type", "password");
-                $("#btnVerPassword").children().removeClass("fa-eye-slash");
-                $("#btnVerPassword").children().addClass("fa-eye");
+                $(this).children().removeClass("fa-eye-slash");
+                $(this).children().addClass("fa-eye");
+                $(this).attr("title", "Ver Contrseña");
             }
         });
 
