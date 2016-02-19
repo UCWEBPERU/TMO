@@ -43,8 +43,8 @@
                                 <div class="panel box box-primary">
                                     <div class="box-header with-border">
                                         <h4 class="box-title">
-                                            <a class="">
-                                                Datos de Empresa
+                                            <a  class="">
+                                            Datos de Empresa
                                             </a>
                                         </h4>
                                     </div>
@@ -69,35 +69,35 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="nombre_empresa">First Names</label>
+                                                            <label for="txtFirstName">First Names</label>
                                                             <?php
                                                             if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                             <?php } else { ?>
-                                                                <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40">
                                                             <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="nombre_empresa">Last Name</label>
+                                                            <label for="txtLastName">Last Name</label>
                                                             <?php
                                                             if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                                <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                             <?php } else { ?>
-                                                                <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                                <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40">
                                                             <?php } ?>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="nombre_empresa">Organization</label>
+                                                    <label for="txtOrganiaztion">Organization</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                        <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                        <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40">
                                                     <?php } ?>
                                                 </div>
 
@@ -128,12 +128,12 @@
                                                 </div>
                                                 <div>inside</div>
                                                 <div class="form-group">
-                                                    <label for="nombre_empresa">Email</label>
+                                                    <label for="txtEmail">Email</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40">
                                                     <?php } ?>
                                                 </div>
 
@@ -142,42 +142,42 @@
                                             <div class="col-md-4">
 
                                                 <div class="form-group">
-                                                    <label for="nombre_empresa">Mobile Phone</label>
+                                                    <label for="txtMobilePhone">Mobile Phone</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                        <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                        <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40">
                                                     <?php } ?>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="nombre_empresa">Home Phone</label>
+                                                    <label for="txtHomePhone">Home Phone</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                        <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                        <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="40">
                                                     <?php } ?>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="nombre_empresa">Work Phone</label>
+                                                    <label for="txtWorkPhone">Work Phone</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                        <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                        <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="40">
                                                     <?php } ?>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="nombre_empresa">Fax Phone</label>
+                                                    <label for="txtFax">Fax</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                        <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                        <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="40">
                                                     <?php } ?>
                                                 </div>
 
@@ -186,11 +186,11 @@
                                             <div class="col-md-4">
 
                                                 <div class="form-group">
-                                                    <label for="id_tipo_empresa">Country</label>
+                                                    <label for="idCountry">Country</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
 
-                                                        <select id="id_tipo_empresa"  name="id_tipo_empresa" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                        <select id="idCountry"  name="idCountry" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
 
                                                             <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                                 <?php if($dataEmpresa->id_tipo_empresa == $tipo->id_tipo_empresa ){?>
@@ -202,8 +202,8 @@
 
                                                         </select>
                                                     <?php } else { ?>
-                                                        <select id="id_tipo_empresa"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                            <option value="0" selected="selected">Seleccione un Tipo de Empresa</option>
+                                                        <select id="idCountry"  name="idCountry"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                            <option value="0" selected="selected">Seleccione</option>
                                                             <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                                 <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
                                                             <?php endforeach; ?>
@@ -212,11 +212,11 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="id_tipo_empresa">State</label>
+                                                    <label for="idRegion">State</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
 
-                                                        <select id="id_tipo_empresa"  name="id_tipo_empresa" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                        <select id="idRegion"  name="idRegion" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
 
                                                             <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                                 <?php if($dataEmpresa->id_tipo_empresa == $tipo->id_tipo_empresa ){?>
@@ -228,8 +228,8 @@
 
                                                         </select>
                                                     <?php } else { ?>
-                                                        <select id="id_tipo_empresa"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                            <option value="0" selected="selected">Seleccione un Tipo de Empresa</option>
+                                                        <select id="idRegion"  name="idRegion"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                            <option value="0" selected="selected">Seleccione</option>
                                                             <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                                 <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
                                                             <?php endforeach; ?>
@@ -238,11 +238,11 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="id_tipo_empresa">City</label>
+                                                    <label for="idCity">City</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
 
-                                                        <select id="id_tipo_empresa"  name="id_tipo_empresa" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                        <select id="idCity"  name="idCity" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
 
                                                             <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                                 <?php if($dataEmpresa->id_tipo_empresa == $tipo->id_tipo_empresa ){?>
@@ -254,8 +254,8 @@
 
                                                         </select>
                                                     <?php } else { ?>
-                                                        <select id="id_tipo_empresa"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                            <option value="0" selected="selected">Seleccione un Tipo de Empresa</option>
+                                                        <select id="idCity"  name="idCity"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                            <option value="0" selected="selected">Seleccione</option>
                                                             <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                                 <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
                                                             <?php endforeach; ?>
@@ -264,33 +264,33 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="nombre_empresa">Address</label>
+                                                    <label for="txtAddress">Address</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                        <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                        <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="40">
                                                     <?php } ?>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="nombre_empresa">Address 2</label>
+                                                    <label for="txtAddress2">Address 2</label>
                                                     <?php
                                                     if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
+                                                        <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
-                                                        <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40">
+                                                        <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="40">
                                                     <?php } ?>
                                                 </div>
-
-
 
                                             </div>
 
                                         </form>
 
                                     </div>
+
                                 </div>
+
                             </div>
 
                             <div class="box-group">
@@ -305,7 +305,7 @@
                                     </div>
                                     <div class="box-body">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <?php
                                                 if ( isset($idArchivo) ) { ?>
                                                     <input type="hidden" name="id_usuario" value="<?php echo $idArchivo; ?>">
@@ -325,7 +325,6 @@
                                                         <input type="file" class="form-control" id="logo_empresa" name="logo_empresa" maxlength="" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
                                                         <input type="file" class="form-control" id="logo_empresa" name="logo_empresa">
-
                                                     <?php } ?>
                                                 </div>
                                             </div>
