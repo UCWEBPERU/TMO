@@ -53,52 +53,24 @@
                                         <form id="formEmpresa" role="form"  enctype="multipart/form-data">
                                             <div class="col-md-4">
 
-                                                <?php
-                                                if ( isset($idEmpresa) ) { ?>
-                                                    <input type="hidden" name="id_empresa" value="<?php echo $idEmpresa; ?>">
-                                                <?php } ?>
-                                                <?php
-                                                if (isset($existeEmpresa) && !$existeEmpresa ) { ?>
-                                                    <div class="alert alert-danger alert-dismissible">
-                                                        <h4><i class="icon fa fa-ban"></i> No existe el cliente!</h4>
-                                                        Lo sentimos el cliente que desea editar no existe.<br>
-                                                        <strong>No intente modificar la direccion url :D</strong>
-                                                    </div>
-                                                <?php } ?>
-
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="txtFirstName">First Names</label>
-                                                            <?php
-                                                            if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese el nombre..">
-                                                            <?php } else { ?>
-                                                                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el nombre..">
-                                                            <?php } ?>
+                                                            <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el nombre..">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="txtLastName">Last Name</label>
-                                                            <?php
-                                                            if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese el apellido.">
-                                                            <?php } else { ?>
-                                                                <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el apellido.">
-                                                            <?php } ?>
+                                                            <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el apellido.">
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtEmail">Email</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese el email.">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el email.">
-                                                    <?php } ?>
+                                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el email.">
                                                 </div>
 
                                                 <div class="row">
@@ -106,12 +78,7 @@
                                                         <div class="form-group">
                                                             <label for="txtPassword">Password</label>
                                                             <div class="input-group">
-                                                                <?php
-                                                                if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                    <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
-                                                                <?php } else { ?>
-                                                                    <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
-                                                                <?php } ?>
+                                                                <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>
@@ -124,12 +91,7 @@
                                                         <div class="form-group">
                                                             <label for="txtRepeatPassword">Repeat Password</label>
                                                             <div class="input-group">
-                                                                <?php
-                                                                if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                                    <input type="password" class="form-control" id="txtRepeatPassword" name="txtRepeatPassword" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Vuelva a ingresar la contraseña.">
-                                                                <?php } else { ?>
-                                                                    <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-required-message="Vuelva a ingresar la contraseña.">
-                                                                <?php } ?>
+                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-required-message="Vuelva a ingresar la contraseña.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <button type="button" class="btn btn-success" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
@@ -142,38 +104,17 @@
 
                                                 <div class="form-group">
                                                     <label for="txtOrganiaztion">Organization</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
-                                                    <?php } ?>
+                                                    <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="id_tipo_empresa">Business Type</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-
-                                                        <select id="id_tipo_empresa"  name="id_tipo_empresa" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
-
-                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                                <?php if($dataEmpresa->id_tipo_empresa == $tipo->id_tipo_empresa ){?>
-                                                                    <option selected="selected" value="<?php echo $tipo->id_tipo_empresa;?>"> <?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                                <?php } else { ?>
-                                                                    <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                                <?php } ?>
-                                                            <?php endforeach; ?>
-
-                                                        </select>
-                                                    <?php } else { ?>
-                                                        <select id="id_tipo_empresa"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
-                                                            <option value="0" selected="selected">Seleccione</option>
-                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                                <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    <?php } ?>
+                                                    <select id="id_tipo_empresa"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
+                                                        <option value="0" selected="selected">Seleccione</option>
+                                                        <?php foreach($modulo->tipo_empresa as $tipo): ?>
+                                                            <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
 
                                             </div>
@@ -182,42 +123,22 @@
 
                                                 <div class="form-group">
                                                     <label for="txtMobilePhone">Mobile Phone</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese el numero de celular.">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el numero de celular.">
-                                                    <?php } ?>
+                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el numero de celular.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtHomePhone">Home Phone</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese el telefono de casa.">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el telefono de casa.">
-                                                    <?php } ?>
+                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el telefono de casa.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtWorkPhone">Work Phone</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
-                                                    <?php } ?>
+                                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtFax">Fax</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="40">
-                                                    <?php } ?>
+                                                    <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="40">
                                                 </div>
 
                                             </div>
@@ -226,100 +147,42 @@
 
                                                 <div class="form-group">
                                                     <label for="idCountry">Country</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-
-                                                        <select id="idCountry"  name="idCountry" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
-
-                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                                <?php if($dataEmpresa->id_tipo_empresa == $tipo->id_tipo_empresa ){?>
-                                                                    <option selected="selected" value="<?php echo $tipo->id_tipo_empresa;?>"> <?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                                <?php } else { ?>
-                                                                    <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                                <?php } ?>
-                                                            <?php endforeach; ?>
-
-                                                        </select>
-                                                    <?php } else { ?>
-                                                        <select id="idCountry"  name="idCountry"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
-                                                            <option value="0" selected="selected">Seleccione</option>
-                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                                <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    <?php } ?>
+                                                    <select id="idCountry" name="idCountry" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
+                                                        <option value="0" selected="selected">Seleccione</option>
+                                                        <?php foreach($modulo->data_geo_countries as $geo_country): ?>
+                                                            <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="idRegion">State</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-
-                                                        <select id="idRegion"  name="idRegion" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
-
-                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                                <?php if($dataEmpresa->id_tipo_empresa == $tipo->id_tipo_empresa ){?>
-                                                                    <option selected="selected" value="<?php echo $tipo->id_tipo_empresa;?>"> <?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                                <?php } else { ?>
-                                                                    <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                                <?php } ?>
-                                                            <?php endforeach; ?>
-
-                                                        </select>
-                                                    <?php } else { ?>
-                                                        <select id="idRegion"  name="idRegion"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
-                                                            <option value="0" selected="selected">Seleccione</option>
-                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                                <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    <?php } ?>
+                                                    <select id="idRegion" name="idRegion" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
+                                                        <option value="0" selected="selected">Seleccione</option>
+                                                        <?php foreach($modulo->tipo_empresa as $tipo): ?>
+                                                            <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="idCity">City</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-
-                                                        <select id="idCity"  name="idCity" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
-
-                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                                <?php if($dataEmpresa->id_tipo_empresa == $tipo->id_tipo_empresa ){?>
-                                                                    <option selected="selected" value="<?php echo $tipo->id_tipo_empresa;?>"> <?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                                <?php } else { ?>
-                                                                    <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                                <?php } ?>
-                                                            <?php endforeach; ?>
-
-                                                        </select>
-                                                    <?php } else { ?>
-                                                        <select id="idCity"  name="idCity"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
-                                                            <option value="0" selected="selected">Seleccione</option>
-                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                                <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    <?php } ?>
+                                                    <select id="idCity" name="idCity" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
+                                                        <option value="0" selected="selected">Seleccione</option>
+                                                        <?php foreach($modulo->tipo_empresa as $tipo): ?>
+                                                            <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtAddress">Address</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese una direccion.">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una direccion.">
-                                                    <?php } ?>
+                                                    <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una direccion.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtAddress2">Address 2</label>
-                                                    <?php
-                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
-                                                        <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>" data-parsley-required data-parsley-required-message="Ingrese una direccion alterna.">
-                                                    <?php } else { ?>
-                                                        <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una direccion alterna.">
-                                                    <?php } ?>
+                                                    <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una direccion alterna.">
                                                 </div>
 
                                             </div>

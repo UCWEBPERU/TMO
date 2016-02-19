@@ -73,6 +73,7 @@ class C_Admin_Empresa extends CI_Controller {
 
 
 	public function agregar() {
+		$this->load->model("M_GEO_Countries");
 		$modulo = new stdClass();
         
         $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
@@ -92,6 +93,9 @@ class C_Admin_Empresa extends CI_Controller {
         
         $modulo->menu                   = array("menu" => 1, "submenu" => 0);
 		$modulo->tipo_empresa		    = $this->M_Admin_Empresa->getTipoEmpresa();
+
+
+		$modulo->data_geo_countries = $this->M_GEO_Countries->getAllCountries();
 
 		$data["modulo"] 		= $modulo;
 
