@@ -7,7 +7,7 @@ class M_GEO_Countries extends CI_Model{
     }
 
     public function getAllCountries() {
-        $query = $this->db->get('M_GEO_Countries');
+        $query = $this->db->get('GEO_Countries');
         return $query->result();
     }
 
