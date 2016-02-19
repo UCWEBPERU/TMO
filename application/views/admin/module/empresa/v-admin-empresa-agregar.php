@@ -320,7 +320,7 @@
 
         var selectorInputsForm = ["#txtNombreCategoria"];
 
-        var baseUrl   = "<?php echo $modulo->base_url; ?>";
+        var baseUrl   = "<?php echo base_url(); ?>";
         var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>
 
         $("#btnAgregar").on("click", function(evt){
