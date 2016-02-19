@@ -322,7 +322,7 @@
                                     <div class="box-header with-border">
                                         <h4 class="box-title">
                                             <a class="">
-                                                Logo Institucional
+                                                Datos Extra
                                             </a>
                                         </h4>
                                     </div>
@@ -342,12 +342,39 @@
                                                     </div>
                                                 <?php } ?>
                                                 <div class="form-group">
-                                                    <label for="logo_empresa">Añadir Logo</label>
+                                                    <label for="logo_empresa">Añadir Logo Institucional</label>
                                                     <?php
                                                     if (isset($existeArchivo) && $existeArchivo ) { ?>
                                                         <input type="file" class="form-control" id="logo_empresa" name="logo_empresa" maxlength="" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
                                                     <?php } else { ?>
                                                         <input type="file" class="form-control" id="logo_empresa" name="logo_empresa">
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="idPaqueteTMO">Paquete TMO</label>
+                                                    <?php
+                                                    if (isset($existeEmpresa) && $existeEmpresa ) { ?>
+
+                                                        <select id="idPaqueteTMO"  name="idPaqueteTMO" value="<?php echo $dataEmpresa->id_tipo_empresa; ?>" class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+
+                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
+                                                                <?php if($dataEmpresa->id_tipo_empresa == $tipo->id_tipo_empresa ){?>
+                                                                    <option selected="selected" value="<?php echo $tipo->id_tipo_empresa;?>"> <?php echo $tipo->nombre_tipo_empresa; ?></option>
+                                                                <?php } else { ?>
+                                                                    <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
+                                                                <?php } ?>
+                                                            <?php endforeach; ?>
+
+                                                        </select>
+                                                    <?php } else { ?>
+                                                        <select id="idPaqueteTMO"  name="idPaqueteTMO"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                            <option value="0" selected="selected">Seleccione</option>
+                                                            <?php foreach($modulo->tipo_empresa as $tipo): ?>
+                                                                <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
                                                     <?php } ?>
                                                 </div>
                                             </div>
