@@ -70,7 +70,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="nombre_empresa">First Name</label>
+                                                                <label for="nombre_empresa">First Namess</label>
                                                                 <?php
                                                                 if (isset($existeEmpresa) && $existeEmpresa ) { ?>
                                                                     <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa" maxlength="40" value="<?php echo $dataEmpresa->nombre_empresa; ?>">
