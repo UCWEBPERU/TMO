@@ -434,7 +434,6 @@
         $("#logo_empresa").on("change", handleFileSelect);
 
         $("#btnGenerarPassword").on("click", function(){
-            $(".skin-blue").css({"padding-right": "0px"});
             waitingDialog.show('Generando Contraseña...');
 
             var request = $.ajax({
@@ -451,16 +450,12 @@
                 $("#txtPassword").val(response.data.password);
                 $("#txtRepeatPassword").val(response.data.password);
                 GenericModal.show("default", "<p>" + response.message + "</p>");
-                GenericModal.onClickButtonAccept(function(){
-                    alert("click");
-                });
             });
 
             request.fail(function( jqXHR, textStatus ) {
                 waitingDialog.hide();
                 GenericModal.show("danger", "<p>" + textStatus + "</p>");
             });
-
         });
 
     });
