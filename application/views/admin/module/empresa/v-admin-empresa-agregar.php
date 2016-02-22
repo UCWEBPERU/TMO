@@ -284,8 +284,8 @@
 
         GenericModal.config("#genericModal", "");
 
-        var selectorInputsForm = ["txtFirstName", "txtLastName", "txtEmail", "txtPassword", "txtRepeatPassword", "txtOrganization", "cboTipoEmpresa",
-            "txtMobilePhone", "txtHomePhone", "txtWorkPhone", "txtFax", "cboCountry", "cboRegion", "cboCity", "txtAddress", "txtAddress2"];
+        var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtRepeatPassword", "#txtOrganization", "#cboTipoEmpresa",
+            "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#txtFax", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress", "#txtAddress2"];
 
         var baseUrl   = "<?php echo base_url(); ?>";
         var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>
