@@ -107,6 +107,6 @@
 }
 
 .border-input-error{
-    border-color: #dd4b39;
+    border-color: #dd4b39 !important;
     box-shadow: none;
 }

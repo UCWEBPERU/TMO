@@ -4,27 +4,19 @@ var ValidateInputFormWithParsley = {
         for (var i = 0; i < selectorInputsForm.length; i++) {
             if ($(selectorInputsForm[i]).parsley().isValid()) {
                 if ($(selectorInputsForm[i]).prop('tagName') == "SELECT") {
-                    console.log("SELECT2");
-                    console.log($(selectorInputsForm[i]).parent().find(".select2-container"));
-                    console.log("SELECTION");
-                    var node = $(selectorInputsForm[i]).parent().find(".select2-container");
-                    console.log($(node).find(".selection"));
                     $(selectorInputsForm[i]).parent().removeClass("has-error");
-                    $(selectorInputsForm[i]).parent().find(".select2-container").find("span.selection").children().removeClass("border-input-error");
+                    var node = $(selectorInputsForm[i]).parent().find(".select2-container");
+                    node = $(node).find("span.selection");
+                    node = $(node).children();
+                    $(node).removeClass("border-input-error");
                 } else {
                     $(selectorInputsForm[i]).parent().removeClass("has-error");
                 }
             } else {
                 if ($(selectorInputsForm[i]).prop('tagName') == "SELECT") {
                     $(selectorInputsForm[i]).parent().addClass("has-error");
-                    console.log("SELECT2");
-                    console.log($(selectorInputsForm[i]).parent().find(".select2-container"));
-                    console.log("SELECTION");
                     var node = $(selectorInputsForm[i]).parent().find(".select2-container");
-                    console.log($(node).find("span.selection"));
-                    console.log("CHILDREN");
                     node = $(node).find("span.selection");
-                    console.log($(node).children());
                     node = $(node).children();
                     $(node).addClass("border-input-error");
                 } else {
