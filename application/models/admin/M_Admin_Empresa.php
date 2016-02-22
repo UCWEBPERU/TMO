@@ -180,6 +180,13 @@ class M_Admin_Empresa extends CI_Model{
 		return FALSE;
 	}
 
+	public function getPaqueteTMOByID($id_paquete_tmo) {
+		$this->db->where('Paquetes_TMO.estado', '1');
+		$this->db->where('Paquetes_TMO.id_paquetes_tmo', $id_paquete_tmo);
+		$query = $this->db->get('Paquetes_TMO');
+		return $query->result();
+	}
+
 	public function updatePayAccount($id_pay_account, $pay_id, $tipo_metodo_pago) {
 		$data = array(
 			'id_pay_account'		=> $id_pay_account, 
