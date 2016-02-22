@@ -127,7 +127,6 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
                             'tiempo_meses_paquete'  => trim($this->input->post("txtTiempoSuscripcion", TRUE)),
                             'precio_paquete'        => trim($this->input->post("txtPrecio", TRUE))
                         )
-
                     );
 
                     if (is_int($result)) {
@@ -150,17 +149,17 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
 
     }
 
-    public function edit($idTipoEmpresa) {
+    public function edit($id_paquete_tmo) {
 
-        if (isset($idTipoEmpresa)) {
+        if (isset($id_paquete_tmo)) {
 
             $modulo = new stdClass();
 
             $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
             $modulo->datos_usuario = $usuario[0];
 
-            $modulo->titulo 				= "Empresa";
-            $modulo->titulo_pagina 			= "TMO | Panel Principal";
+            $modulo->titulo 				= "Paquetes TMO";
+            $modulo->titulo_pagina 			= "TMO | Panel Principal - Paquetes TMO";
             $modulo->icono_empresa 			= PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
             $modulo->nombres_usuario 		= $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
             $modulo->tipo_usuario 			= $usuario[0]->nombre_tipo_usuario;
@@ -168,25 +167,24 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
             $modulo->nombre_empresa_corto 	= "TMO";
             $modulo->url_signout 			= base_url()."admin/signOut";
             $modulo->nombreSeccion 			= "Editar";
-            $modulo->base_url 				= "admin/tipoempresa/";
+            $modulo->base_url 				= "admin/paquetes-tmo/";
             $modulo->url_signout 			= base_url()."admin/signOut";
             $modulo->url_main_panel 		= base_url()."admin";
-            $modulo->menu 					= array("menu" => 2, "submenu" => 0);
+            $modulo->menu 					= array("menu" => 3, "submenu" => 0);
 
-            $result = $this->M_Admin_Paquetes_TMO->getTipoEmpresaByID($idTipoEmpresa);
+            $result = $this->M_Admin_Paquetes_TMO->getPaqueteTMOByID($id_paquete_tmo);
             if (count($result) > 0) {
-                $data["dataTipo"] 	= $result[0];
-
-                $data["existeTipo"]	= TRUE;
+                $data["dataPaqueteTMO"] 	= $result[0];
+                $data["existePaqueteTMO"]	= TRUE;
             } else {
-                $data["dataTipo"]  	= NULL;
-                $data["existeTipo"]	= FALSE;
+                $data["dataPaqueteTMO"]  	= NULL;
+                $data["existePaqueteTMO"]	= FALSE;
             }
 
-            $data["idTipo"] 		= $idTipoEmpresa;
-            $data["modulo"] 		=	$modulo;
+            $data["id_paquete_tmo"]         = $id_paquete_tmo;
+            $data["modulo"] 		        = $modulo;
 
-            $this->load->view('admin/module/tipoempresa/v-admin-tipoempresa-agregar', $data);
+            $this->load->view('admin/module/paquetes-tmo/v-admin-paquetes-tmo-editar', $data);
         } else {
             redirect('/');
         }
@@ -194,39 +192,48 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
     }
 
     public function update() {
-
         $json 				= new stdClass();
-        $json->type 		= "Tipo Empresa";
+        $json->type 		= "Paquete TMO";
         $json->presentation = "";
         $json->action 		= "update";
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        if ( 	$this->input->post("id_tipo") &&
-            $this->input->post("nombre_tipo_empresa")
+        if ( $this->input->post("id_paquete_tmo") &&
+            $this->input->post("txtNombre") &&
+            $this->input->post("txtTotalTiendas") &&
+            $this->input->post("txtTotalProductos") &&
+            $this->input->post("txtTotalUsuarios") &&
+            $this->input->post("txtTotalCategorias") &&
+            $this->input->post("txtTiempoSuscripcion") &&
+            $this->input->post("txtPrecio") ) {
 
-        ) {
+            $existRow = $this->M_Admin_Paquetes_TMO->getPaqueteTMOByID(trim($this->input->post("id_paquete_tmo", TRUE)));
 
-            $result = $this->M_Admin_Paquetes_TMO->getTipoEmpresaByID(trim($this->input->post("id_tipo", TRUE)));
-
-            if (count($result) > 0) {
+            if (count($existRow) > 0) {
 
                 $result = $this->M_Admin_Paquetes_TMO->update(
-                    trim($this->input->post("id_tipo", TRUE)),
-                    trim($this->input->post("nombre_tipo_empresa", TRUE))
-
+                    array(
+                        'nombre_paquete'        => trim($this->input->post("txtNombre", TRUE)),
+                        'descripcion_paquete'   => trim($this->input->post("txtDescripcion", TRUE)),
+                        'total_store'           => trim($this->input->post("txtTotalTiendas", TRUE)),
+                        'total_products'        => trim($this->input->post("txtTotalProductos", TRUE)),
+                        'total_users'           => trim($this->input->post("txtTotalUsuarios", TRUE)),
+                        'total_categorias'      => trim($this->input->post("txtTotalCategorias", TRUE)),
+                        'tiempo_meses_paquete'  => trim($this->input->post("txtTiempoSuscripcion", TRUE)),
+                        'precio_paquete'        => trim($this->input->post("txtPrecio", TRUE))
+                    )
                 );
 
                 if ($result) {
-                    $json->message = "El Tipo de Empresa se actualizo correctamente.";
-                    array_push($json->data, array("id_tipo" => $result));
+                    $json->message  = "El Paquete TMO se actualizo correctamente.";
                     $json->status 	= TRUE;
                 } else {
-                    $json->message = "Ocurrio un error al actualizar el Tipo de Empresa, intente de nuevo.";
+                    $json->message = "Ocurrio un error al actualizar el paquete, intente de nuevo.";
                 }
 
             } else {
-                $json->message = "Lo sentimos el Tipo de Empresa que desea editar no existe.";
+                $json->message = "Lo sentimos el paquete que desea editar no existe.";
             }
 
         } else {

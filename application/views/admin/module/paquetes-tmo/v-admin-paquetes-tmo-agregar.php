@@ -108,27 +108,25 @@
         GenericModal.config("#genericModal", "");
         var selectorInputsForm = ["#txtNombre", "#txtDescripcion", "#txtTotalTiendas", "#txtTotalProductos",
             "#txtTotalUsuarios", "#txtTotalCategorias", "#txtTiempoSuscripcion", "#txtPrecio"];
-        var baseUrl   = "<?php echo base_url(); ?>";
-
-        var formData  = new FormData();
+        var baseUrl     = "<?php echo base_url(); ?>";
+        var urlApi      = "<?php echo base_url(); ?>" + "admin/paquetes-tmo/crear";
+        var formData    = new FormData();
 
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
-
-            var urlApi = "<?php echo base_url(); ?>" + "admin/paquetes-tmo/crear";
 
             if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
 
                 waitingDialog.show('Cargando...');
 
-                formData.append("#txtNombre",               $("#txtNombre").val());
-                formData.append("#txtDescripcion",          $("#txtDescripcion").val());
-                formData.append("#txtTotalTiendas",         $("#txtTotalTiendas").val());
-                formData.append("#txtTotalProductos",       $("#txtTotalProductos").val());
-                formData.append("#txtTotalUsuarios",        $("#txtTotalUsuarios").val());
-                formData.append("#txtTotalCategorias",      $("#txtTotalCategorias").val());
-                formData.append("#txtTiempoSuscripcion",    $("#txtTiempoSuscripcion").val());
-                formData.append("#txtPrecio",               $("#txtPrecio").val());
+                formData.append("txtNombre",               $("#txtNombre").val());
+                formData.append("txtDescripcion",          $("#txtDescripcion").val());
+                formData.append("txtTotalTiendas",         $("#txtTotalTiendas").val());
+                formData.append("txtTotalProductos",       $("#txtTotalProductos").val());
+                formData.append("txtTotalUsuarios",        $("#txtTotalUsuarios").val());
+                formData.append("txtTotalCategorias",      $("#txtTotalCategorias").val());
+                formData.append("txtTiempoSuscripcion",    $("#txtTiempoSuscripcion").val());
+                formData.append("txtPrecio",               $("#txtPrecio").val());
 
                 var request = $.ajax({
                     url: urlApi,
@@ -138,22 +136,20 @@
                 });
 
                 request.done(function( response ) {
-
                     waitingDialog.hide();
                     formData = new FormData();
                     if (response.status) {
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                         if (response.action == "insert") {
-                            $("#txtNombre").val();
-                            $("#txtDescripcion").val();
-                            $("#txtTotalTiendas").val();
-                            $("#txtTotalProductos").val();
-                            $("#txtTotalUsuarios").val();
-                            $("#txtTotalCategorias").val();
-                            $("#txtTiempoSuscripcion").val();
-                            $("#txtPrecio").val();
+                            $("#txtNombre").val("");
+                            $("#txtDescripcion").val("");
+                            $("#txtTotalTiendas").val("");
+                            $("#txtTotalProductos").val("");
+                            $("#txtTotalUsuarios").val("");
+                            $("#txtTotalCategorias").val("");
+                            $("#txtTiempoSuscripcion").val("");
+                            $("#txtPrecio").val("");
                         }
-
                     } else {
                         GenericModal.show("danger", "<p>" + response.message + "</p>");
                     }
@@ -162,7 +158,7 @@
 
                 request.fail(function( jqXHR, textStatus ) {
                     waitingDialog.hide();
-                    $(".overlay").addClass("hide");
+                    formData = new FormData();
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
 
