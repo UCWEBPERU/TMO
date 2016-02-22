@@ -1,10 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class M_Admin_Paquetes_TMO extends CI_Model {
-    public function __construct()
-    {
+
+    public function __construct() {
         parent::__construct();
         $this->load->database();
-
     }
 
     public function fetchPaquetesTMO($limit, $start) {
@@ -28,9 +27,16 @@ class M_Admin_Paquetes_TMO extends CI_Model {
         return $query->num_rows();
     }
 
-    public function getPaquetesTMOByID($id_paquete_tmo) {
+    public function getPaqueteTMOByID($id_paquete_tmo) {
         $this->db->where('Paquetes_TMO.estado', '1');
         $this->db->where('Paquetes_TMO.id_paquetes_tmo', $id_paquete_tmo);
+        $query = $this->db->get('Paquetes_TMO');
+        return $query->result();
+    }
+
+    public function getPaqueteTMOByName($name_paquete_tmo) {
+        $this->db->where('Paquetes_TMO.estado', '1');
+        $this->db->where('Paquetes_TMO.nombre_paquete', $name_paquete_tmo);
         $query = $this->db->get('Paquetes_TMO');
         return $query->result();
     }
@@ -46,9 +52,11 @@ class M_Admin_Paquetes_TMO extends CI_Model {
             'tiempo_meses_paquete'  => $paquete_tmo["tiempo_meses_paquete"],
             'precio_paquete'        => $paquete_tmo["precio_paquete"]
         );
+
         if ($this->db->insert('Paquetes_TMO', $data)) {
             return $this->db->insert_id();
         }
+
         return FALSE;
     }
 

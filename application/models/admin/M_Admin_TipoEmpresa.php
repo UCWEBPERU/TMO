@@ -1,14 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class M_Admin_TipoEmpresa extends CI_Model{
-	public function __construct()
-	{
+class M_Admin_TipoEmpresa extends CI_Model {
+
+	public function __construct() {
 		parent::__construct();
 		$this->load->database();
-		
 	}
 
 	public function fetchTipoEmpresas($limit, $start) {
-		$this->db->select("	Tipo_Empresa.id_tipo_empresa, Tipo_Empresa.nombre_tipo_empresa,");		
+		$this->db->select("	Tipo_Empresa.id_tipo_empresa, Tipo_Empresa.nombre_tipo_empresa,");
 		$this->db->where('Tipo_Empresa.estado', '1');
 		$this->db->limit($limit, $start);
 		$query = $this->db->get('Tipo_Empresa');
@@ -19,7 +18,7 @@ class M_Admin_TipoEmpresa extends CI_Model{
 			}
 			return $data;
 		}
-		
+
 		return FALSE;
 	}
 
@@ -36,12 +35,12 @@ class M_Admin_TipoEmpresa extends CI_Model{
 		if ($this->db->insert('Tipo_Empresa', $data)) {
 			return $this->db->insert_id();
 		}
-		
+
 		return FALSE;
 	}
 
 	public function getTipoEmpresaByID($id_tipoempresa) {
-		$this->db->select("	Tipo_Empresa.id_tipo_empresa, Tipo_Empresa.nombre_tipo_empresa,");		
+		$this->db->select("	Tipo_Empresa.id_tipo_empresa, Tipo_Empresa.nombre_tipo_empresa,");
 		$this->db->where('Tipo_Empresa.estado', '1');
 		$this->db->where('Tipo_Empresa.id_tipo_empresa', $id_tipoempresa);
 		$query = $this->db->get('Tipo_Empresa');
@@ -50,7 +49,7 @@ class M_Admin_TipoEmpresa extends CI_Model{
 
 	public function update($id_tipo_empresa, $nombre_tipo_empresa) {
 		$data = array(
-			'id_tipo_empresa'			=> $id_tipo_empresa, 
+			'id_tipo_empresa'			=> $id_tipo_empresa,
 			'nombre_tipo_empresa'		=> $nombre_tipo_empresa
 		);
 
@@ -58,7 +57,7 @@ class M_Admin_TipoEmpresa extends CI_Model{
 		if ($this->db->update('Tipo_Empresa', $data)) {
 			return TRUE;
 		}
-		
+
 		return FALSE;
 	}
 

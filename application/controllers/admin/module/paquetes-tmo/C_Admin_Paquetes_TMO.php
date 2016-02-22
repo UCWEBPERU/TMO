@@ -77,7 +77,7 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
         $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
         $modulo->datos_usuario = $usuario[0];
 
-        $modulo->titulo 				= "Tipo Empresa";
+        $modulo->titulo 				= "Paquetes TMO";
         $modulo->titulo_pagina			= "TMO | Panel Principal";
         $modulo->icono_empresa 			= PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
         $modulo->nombres_usuario 		= $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
@@ -86,50 +86,61 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
         $modulo->nombre_empresa_corto 	= "TMO";
         $modulo->url_signout 			= base_url()."admin/signOut";
         $modulo->nombreSeccion 			= "Agregar";
-        $modulo->base_url 				= "admin/tipoempresa/";
+        $modulo->base_url 				= "admin/paquetes-tmo/";
         $modulo->url_signout 			= base_url()."admin/signOut";
         $modulo->url_main_panel 		= base_url()."admin";
-        $modulo->menu 					= array("menu" => 2, "submenu" => 0);
+        $modulo->menu 					= array("menu" => 3, "submenu" => 0);
 
         $data["modulo"] 		= $modulo;
 
-        $this->load->view('admin/module/tipoempresa/v-admin-tipoempresa-agregar', $data);
+        $this->load->view('admin/module/paquetes-tmo/v-admin-paquetes-tmo-agregar', $data);
     }
 
     public function insert() {
         $json 				= new stdClass();
-        $json->type 		= "Tipo Empresa";
+        $json->type 		= "Paquete TMO";
         $json->presentation = "";
         $json->action 		= "insert";
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        if ( $this->input->method(TRUE) == "POST" ) {
-            if ( $this->input->post("nombre_tipo_empresa")  ) {
+        if ( $this->input->post("txtNombre") &&
+            $this->input->post("txtTotalTiendas") &&
+            $this->input->post("txtTotalProductos") &&
+            $this->input->post("txtTotalUsuarios") &&
+            $this->input->post("txtTotalCategorias") &&
+            $this->input->post("txtTiempoSuscripcion") &&
+            $this->input->post("txtPrecio") ) {
 
-                //$existRow = $this->M_Cliente->getByRUC(trim($this->input->post("ruc", TRUE)));
+                $existRow = $this->M_Admin_Paquetes_TMO->getPaqueteTMOByName(trim($this->input->post("txtNombre", TRUE)));
 
-                //if (count($existRow) <= 0) {
+                if (count($existRow) <= 0) {
 
-                $result = $this->M_Admin_Paquetes_TMO->insertTipoEmpresa(
-                    trim($this->input->post("nombre_tipo_empresa", TRUE))
-                );
+                    $result = $this->M_Admin_Paquetes_TMO->insert(
+                        array(
+                            'nombre_paquete'        => trim($this->input->post("txtNombre", TRUE)),
+                            'descripcion_paquete'   => trim($this->input->post("txtDescripcion", TRUE)),
+                            'total_store'           => trim($this->input->post("txtTotalTiendas", TRUE)),
+                            'total_products'        => trim($this->input->post("txtTotalProductos", TRUE)),
+                            'total_users'           => trim($this->input->post("txtTotalUsuarios", TRUE)),
+                            'total_categorias'      => trim($this->input->post("txtTotalCategorias", TRUE)),
+                            'tiempo_meses_paquete'  => trim($this->input->post("txtTiempoSuscripcion", TRUE)),
+                            'precio_paquete'        => trim($this->input->post("txtPrecio", TRUE))
+                        )
 
-                if (is_int($result)) {
-                    $json->message = "El Tipo de Empresa se agrego correctamente.";
-                    array_push($json->data, array("id" => $result));
-                    $json->status 	= TRUE;
+                    );
+
+                    if (is_int($result)) {
+                        $json->message = "El Paquete TMO se agrego correctamente.";
+                        array_push($json->data, array("id" => $result));
+                        $json->status 	= TRUE;
+                    } else {
+                        $json->message = "Ocurrio un error al agregar el Paquete TMO, intente de nuevo.";
+                    }
+
                 } else {
-                    $json->message = "Ocurrio un error al agregar el tipo de empresa, intente de nuevo.";
+                    $json->message = "Lo sentimos el paquete que desea agregar ya existe.";
                 }
-
-                //} else {
-                //$json->message = "Lo sentimos el cliente que desea agregar tiene un ruc que ya existe.";
-                //}
-
-            } else {
-                $json->message = "No se recibio ningun dato.";
-            }
 
         } else {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";

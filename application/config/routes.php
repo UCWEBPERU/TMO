@@ -99,7 +99,6 @@ $route['admin/tipoempresa/delete']	= 'admin/module/tipoempresa/C_Admin_TipoEmpre
 $route['admin/tipoempresa/page']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 $route['admin/tipoempresa/page/(:num)']	= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 
-
 /*
 | ------------------------------
 | URL -> ADMIN - TIPO EMPRESA
