@@ -286,7 +286,6 @@ class C_Admin_Empresa extends CI_Controller {
 	}
 
 	public function update() {
-		
 		$json 				= new stdClass();
 		$json->type 		= "Empresa";
 		$json->presentation = "";
@@ -344,7 +343,6 @@ class C_Admin_Empresa extends CI_Controller {
 		}
 		
 		echo json_encode($json);
-		
 	}
 
 	public function generatePassword() {
@@ -359,7 +357,6 @@ class C_Admin_Empresa extends CI_Controller {
 		$json->status 		= TRUE;
 
 		echo json_encode($json);
-
 	}
 	
 }

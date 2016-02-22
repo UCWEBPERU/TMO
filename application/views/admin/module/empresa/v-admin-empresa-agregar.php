@@ -450,6 +450,7 @@
                 $("#txtPassword").val(response.data.password);
                 $("#txtRepeatPassword").val(response.data.password);
                 GenericModal.show("default", "<p>" + response.message + "</p>");
+                $(".skin-blue").attr("style", "padding-right: 0px;");
             });
 
             request.fail(function( jqXHR, textStatus ) {
