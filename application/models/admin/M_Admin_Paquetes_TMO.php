@@ -8,7 +8,6 @@ class M_Admin_Paquetes_TMO extends CI_Model {
     }
 
     public function fetchPaquetesTMO($limit, $start) {
-        $this->db->select("Paquetes_TMO.id_tipo_empresa, Paquetes_TMO.nombre_tipo_empresa,");
         $this->db->where('Paquetes_TMO.estado', '1');
         $this->db->limit($limit, $start);
         $query = $this->db->get('Paquetes_TMO');
