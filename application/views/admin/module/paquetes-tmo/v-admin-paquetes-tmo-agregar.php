@@ -75,7 +75,7 @@
 
                                 <div class="form-group">
                                     <label for="txtPrecio">Precio</label>
-                                    <input type="text" class="form-control" id="txtPrecio" name="txtPrecio" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese precio del paquete." data-parsley-required-type=" El precio solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtPrecio" name="txtPrecio" maxlength="5" data-parsley-required data-parsley-required-message="Ingrese precio del paquete.">
                                 </div>
                             </div><!-- /.box-body -->
 
