@@ -177,7 +177,7 @@
 
                                                 <div class="form-group">
                                                     <label for="txtAddress2">Address 2</label>
-                                                    <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una direccion alterna.">
+                                                    <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="40">
                                                 </div>
 
                                             </div>
@@ -248,8 +248,8 @@
 <script>
     $(function () {
 
-//        //Initialize Select2 Elements
-//        $(".select2").select2();
+        //Initialize Select2 Elements
+        $(".select2").select2();
 
         var formData  = new FormData();
 
@@ -285,7 +285,7 @@
         GenericModal.config("#genericModal", "");
 
         var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtRepeatPassword", "#txtOrganization", "#cboTipoEmpresa",
-            "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#txtFax", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress", "#txtAddress2"];
+            "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#txtFax", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress", "#txtAddress2", "#cboPaqueteTmo"];
 
         var baseUrl   = "<?php echo base_url(); ?>";
         var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>
@@ -315,6 +315,7 @@
                 formData.append("cboCity",          $("#cboCity").val());
                 formData.append("txtAddress",       $("#txtAddress").val());
                 formData.append("txtAddress2",      $("#txtAddress2").val());
+                formData.append("cboPaqueteTmo",    $("#cboPaqueteTmo").val());
 
                 var request = $.ajax({
                     url: urlApi,
@@ -351,6 +352,7 @@
                             $("#cboCity").val("");
                             $("#txtAddress").val("");
                             $("#txtAddress2").val("");
+                            $("#cboPaqueteTmo").val();
                         }
 
                     } else {
