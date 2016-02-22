@@ -40,42 +40,42 @@
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="txtNombre">Nombre</label>
-                                    <input type="text" class="form-control" id="txtNombre" name="txtNombre" maxlength="" data-parsley-required data-parsley-required-message="Ingrese el nombre del paquete.">
+                                    <input type="text" class="form-control" id="txtNombre" name="txtNombre" maxlength="50" data-parsley-required data-parsley-required-message="Ingrese nombre del paquete.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtDescripcion">Descripcion</label>
-                                    <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion" maxlength="">
+                                    <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion" maxlength="150">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtTotalTiendas">Total Tiendas</label>
-                                    <input type="text" class="form-control" id="txtTotalTiendas" name="txtTotalTiendas" maxlength="" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de tiendas del paquete." data-parsley-required-type=" El total de tiendas solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTotalTiendas" name="txtTotalTiendas" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de tiendas del paquete." data-parsley-required-type=" El total de tiendas solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtTotalProductos">Total Productos</label>
-                                    <input type="text" class="form-control" id="txtTotalProductos" name="txtTotalProductos" maxlength="" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de productos del paquete." data-parsley-required-type=" El total de productos solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTotalProductos" name="txtTotalProductos" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de productos del paquete." data-parsley-required-type=" El total de productos solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtTotalUsuarios">Total Usuarios</label>
-                                    <input type="text" class="form-control" id="txtTotalUsuarios" name="txtTotalUsuarios" maxlength="" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de usuarios del paquete." data-parsley-required-type=" El total de usuarios solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTotalUsuarios" name="txtTotalUsuarios" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de usuarios del paquete." data-parsley-required-type=" El total de usuarios solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtTotalCategorias">Total Categorias</label>
-                                    <input type="text" class="form-control" id="txtTotalCategorias" name="txtTotalCategorias" maxlength="" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de categorias del paquete." data-parsley-required-type=" El total de categorias solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTotalCategorias" name="txtTotalCategorias" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de categorias del paquete." data-parsley-required-type=" El total de categorias solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtTiempoSuscripcion">Tiempo Suscripción (Meses)</label>
-                                    <input type="text" class="form-control" id="txtTiempoSuscripcion" name="txtTiempoSuscripcion" maxlength="" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese tiempo de suscripción del paquete." data-parsley-required-type=" El tiempo de suscripcion solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTiempoSuscripcion" name="txtTiempoSuscripcion" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese tiempo de suscripción del paquete." data-parsley-required-type=" El tiempo de suscripcion solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtPrecio">Precio</label>
-                                    <input type="text" class="form-control" id="txtPrecio" name="txtPrecio" maxlength="" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese el precio del paquete." data-parsley-required-type=" El precio solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtPrecio" name="txtPrecio" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese precio del paquete." data-parsley-required-type=" El precio solo debe ser numeros.">
                                 </div>
                             </div><!-- /.box-body -->
 
