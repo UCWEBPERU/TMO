@@ -214,6 +214,7 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
 
                 $result = $this->M_Admin_Paquetes_TMO->update(
                     array(
+                        'id_paquete_tmo'        => trim($this->input->post("id_paquete_tmo", TRUE)),
                         'nombre_paquete'        => trim($this->input->post("txtNombre", TRUE)),
                         'descripcion_paquete'   => trim($this->input->post("txtDescripcion", TRUE)),
                         'total_store'           => trim($this->input->post("txtTotalTiendas", TRUE)),

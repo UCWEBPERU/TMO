@@ -72,7 +72,7 @@ class M_Admin_Paquetes_TMO extends CI_Model {
             'precio_paquete'        => $paquete_tmo["precio_paquete"]
         );
 
-        $this->db->where('Paquetes_TMO.id_paquetes_tmo', $paquete_tmo["id_paquetes_tmo"]);
+        $this->db->where('Paquetes_TMO.id_paquetes_tmo', $paquete_tmo["id_paquete_tmo"]);
         if ($this->db->update('Paquetes_TMO', $data)) {
             return TRUE;
         }
