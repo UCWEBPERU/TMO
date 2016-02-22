@@ -35,7 +35,7 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
         $modulo->titulo 					= "Paquetes TMO";
         $modulo->titulo_registro 			= "Registro de Paquetes TMO";
         $modulo->cabecera_registro 			= array("Nombre Paquete", "Descripción", "Total Store", "Total Products", "Total Users", "Total Categories", "Tiempo Suscripción", "Precio");
-        $modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-tipo";
+        $modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-paquetes-tmo";
         $modulo->base_url 					= "admin/paquetes-tmo/";
         $modulo->api_rest_params 			= array("delete" => "id_paquete_tmo");
         $modulo->menu 						= array("menu" => 3, "submenu" => 0);
@@ -68,7 +68,7 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
         $modulo->links = explode('&nbsp;',$str_links );
 
         $data["modulo"] = $modulo;
-        $this->load->view('template/module/module-panel', $data);
+        $this->load->view('admin/module/paquetes-tmo/v-admin-paquetes-tmo', $data);
     }
 
     public function agregar() {
