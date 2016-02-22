@@ -16,7 +16,7 @@
 
                 </a>&nbsp;&nbsp;
                 <a href="<?php echo base_url().$modulo->base_url.intval($modeloRow->id_paquetes_tmo); ?>" data-row-type="paquetes-tmo" data-row-action="delete"
-                   data-row-id="<?php echo $modeloRow->id_tipo_empresa; ?>" class="btnActionRow"><span class="label label-danger">Eliminar</span></a>
+                   data-row-id="<?php echo $modeloRow->id_paquetes_tmo; ?>" class="btnActionRow"><span class="label label-danger">Eliminar</span></a>
             </td>
         </tr>
 

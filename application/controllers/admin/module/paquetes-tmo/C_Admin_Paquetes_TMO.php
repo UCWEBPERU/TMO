@@ -34,7 +34,7 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
         $modulo->nombre 					= "Paquetes TMO";
         $modulo->titulo 					= "Paquetes TMO";
         $modulo->titulo_registro 			= "Registro de Paquetes TMO";
-        $modulo->cabecera_registro 			= array("Nombre Paquete", "Descripción", "Total Store", "Total Products", "Total Users", "Total Categories", "Tiempo Suscripción", "Precio");
+        $modulo->cabecera_registro 			= array("Nombre Paquete", "Descripción", "Total Store", "Total Products", "Total Users", "Total Categorias", "Tiempo Suscripción", "Precio");
         $modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-paquetes-tmo";
         $modulo->base_url 					= "admin/paquetes-tmo/";
         $modulo->api_rest_params 			= array("delete" => "id_paquete_tmo");
