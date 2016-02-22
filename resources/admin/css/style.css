@@ -105,3 +105,8 @@
 .fix-padding-scrollbar{
     padding-right: 0px !important;
 }
+
+.border-input-error{
+    border-color: #dd4b39;
+    box-shadow: none;
+}
