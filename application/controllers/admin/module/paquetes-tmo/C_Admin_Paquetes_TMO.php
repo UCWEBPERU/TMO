@@ -78,7 +78,7 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
         $modulo->datos_usuario = $usuario[0];
 
         $modulo->titulo 				= "Paquetes TMO";
-        $modulo->titulo_pagina			= "TMO | Panel Principal";
+        $modulo->titulo_pagina			= "TMO | Panel Principal - Paquetes TMO";
         $modulo->icono_empresa 			= PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
         $modulo->nombres_usuario 		= $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
         $modulo->tipo_usuario 			= $usuario[0]->nombre_tipo_usuario;
