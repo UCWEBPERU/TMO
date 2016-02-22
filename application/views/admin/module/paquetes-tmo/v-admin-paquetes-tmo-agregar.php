@@ -99,6 +99,8 @@
 </div><!-- ./wrapper -->
 <?php $this->load->view('template/main-panel/scripts-footer'); ?>
 <?php $this->load->view('template/main-panel/modal-admin'); ?>
+<!-- Parsley -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
 <!-- Validate Input Form With Parsley -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
 <script>
