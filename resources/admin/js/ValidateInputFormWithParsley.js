@@ -11,7 +11,7 @@ var ValidateInputFormWithParsley = {
                 }
             } else {
                 //alert("1 " + $(selectorInputsForm[i]).parent().is("div"));
-                if ($(selectorInputsForm[i]).parent().is("DIV")) {
+                if ($(selectorInputsForm[i]).parent().prop('tagName') == "DIV") {
                     $(selectorInputsForm[i]).parent().addClass("has-error");
                 } else {
                     $(selectorInputsForm[i]).parent().addClass("border-input-error");
