@@ -99,6 +99,22 @@ $route['admin/tipoempresa/delete']	= 'admin/module/tipoempresa/C_Admin_TipoEmpre
 $route['admin/tipoempresa/page']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 $route['admin/tipoempresa/page/(:num)']	= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 
+
+/*
+| ------------------------------
+| URL -> ADMIN - TIPO EMPRESA
+| ------------------------------
+*/
+$route['admin/paquetes-tmo']				= 'admin/module/paquetes-tmo/C_Admin_Paquetes_TMO/index';
+$route['admin/paquetes-tmo/agregar']		= 'admin/module/paquetes-tmo/C_Admin_Paquetes_TMO/agregar';
+$route['admin/paquetes-tmo/crear']		    = 'admin/module/paquetes-tmo/C_Admin_Paquetes_TMO/insert';
+$route['admin/paquetes-tmo/editar']		    = 'admin/module/paquetes-tmo/C_Admin_Paquetes_TMO/update';
+$route['admin/paquetes-tmo/(:num)']  	    = "admin/module/paquetes-tmo/C_Admin_Paquetes_TMO/edit/$1";
+$route['admin/paquetes-tmo/delete']         = 'admin/module/paquetes-tmo/C_Admin_Paquetes_TMO/delete';
+$route['admin/paquetes-tmo/page']           = 'admin/module/paquetes-tmo/C_Admin_Paquetes_TMO';
+$route['admin/paquetes-tmo/page/(:num)']    = 'admin/module/paquetes-tmo/C_Admin_Paquetes_TMO';
+
+
 /*
 | ------------------------------
 | URL -> ADMIN - USUARIO
