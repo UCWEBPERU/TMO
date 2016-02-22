@@ -5,9 +5,9 @@ var ValidateInputFormWithParsley = {
             if ($(selectorInputsForm[i]).parsley().isValid()) {
                 if ($(selectorInputsForm[i]).prop('tagName') == "SELECT") {
                     console.log("SELECT2");
-                    console.log($(selectorInputsForm[i]).parent().find(".select2"));
+                    console.log($(selectorInputsForm[i]).parent().find(".select2-container"));
                     $(selectorInputsForm[i]).parent().removeClass("has-error");
-                    $(selectorInputsForm[i]).parent().find(".select2").find(".selection").children().removeClass("border-input-error");
+                    $(selectorInputsForm[i]).parent().find(".select2-container").find(".selection").children().removeClass("border-input-error");
                 } else {
                     $(selectorInputsForm[i]).parent().removeClass("has-error");
                 }
@@ -15,8 +15,8 @@ var ValidateInputFormWithParsley = {
                 if ($(selectorInputsForm[i]).prop('tagName') == "SELECT") {
                     $(selectorInputsForm[i]).parent().addClass("has-error");
                     console.log("SELECT2");
-                    console.log($(selectorInputsForm[i]).parent().find(".select2"));
-                    $(selectorInputsForm[i]).parent().find(".select2").find(".selection").children().addClass("border-input-error");
+                    console.log($(selectorInputsForm[i]).parent().find(".select2-container"));
+                    $(selectorInputsForm[i]).parent().find(".select2-container").find(".selection").children().addClass("border-input-error");
                 } else {
                     $(selectorInputsForm[i]).parent().addClass("has-error");
                 }
