@@ -129,12 +129,12 @@
 
                                                 <div class="form-group">
                                                     <label for="txtHomePhone">Home Phone</label>
-                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el telefono de casa.">
+                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="40">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtWorkPhone">Work Phone</label>
-                                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
+                                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="40">
                                                 </div>
 
                                                 <div class="form-group">
