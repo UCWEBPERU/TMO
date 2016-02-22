@@ -50,27 +50,27 @@
 
                                 <div class="form-group">
                                     <label for="txtTotalTiendas">Total Tiendas</label>
-                                    <input type="text" class="form-control" id="txtTotalTiendas" name="txtTotalTiendas" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de tiendas del paquete." data-parsley-required-type=" El total de tiendas solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTotalTiendas" name="txtTotalTiendas" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de tiendas del paquete." data-parsley-type-message=" El total de tiendas solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtTotalProductos">Total Productos</label>
-                                    <input type="text" class="form-control" id="txtTotalProductos" name="txtTotalProductos" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de productos del paquete." data-parsley-required-type=" El total de productos solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTotalProductos" name="txtTotalProductos" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de productos del paquete." data-parsley-type-message=" El total de productos solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtTotalUsuarios">Total Usuarios</label>
-                                    <input type="text" class="form-control" id="txtTotalUsuarios" name="txtTotalUsuarios" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de usuarios del paquete." data-parsley-required-type=" El total de usuarios solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTotalUsuarios" name="txtTotalUsuarios" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de usuarios del paquete." data-parsley-type-message=" El total de usuarios solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtTotalCategorias">Total Categorias</label>
-                                    <input type="text" class="form-control" id="txtTotalCategorias" name="txtTotalCategorias" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de categorias del paquete." data-parsley-required-type=" El total de categorias solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTotalCategorias" name="txtTotalCategorias" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de categorias del paquete." data-parsley-type-message=" El total de categorias solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtTiempoSuscripcion">Tiempo Suscripción (Meses)</label>
-                                    <input type="text" class="form-control" id="txtTiempoSuscripcion" name="txtTiempoSuscripcion" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese tiempo de suscripción del paquete." data-parsley-required-type=" El tiempo de suscripcion solo debe ser numeros.">
+                                    <input type="text" class="form-control" id="txtTiempoSuscripcion" name="txtTiempoSuscripcion" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese tiempo de suscripción del paquete." data-parsley-type-message=" El tiempo de suscripcion solo debe ser numeros.">
                                 </div>
 
                                 <div class="form-group">
