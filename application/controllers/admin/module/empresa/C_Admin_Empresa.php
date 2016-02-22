@@ -74,7 +74,7 @@ class C_Admin_Empresa extends CI_Controller {
 
 	public function agregar() {
 		$this->load->model("M_GEO_Data");
-		$this->load->model("M_Admin_Paquetes_TMO");
+		$this->load->model("admin/M_Admin_Paquetes_TMO");
 		$modulo = new stdClass();
 
         $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
