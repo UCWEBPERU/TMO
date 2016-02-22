@@ -55,7 +55,7 @@
                                     <label for="txtNombre">Nombre</label>
                                     <?php
                                     if ($existePaqueteTMO) { ?>
-                                        <input type="text" class="form-control" id="txtNombre" name="txtNombre" maxlength="50" value="<?php echo $dataTipo->nombre_paquete; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre del paquete.">
+                                        <input type="text" class="form-control" id="txtNombre" name="txtNombre" maxlength="50" value="<?php echo $dataPaqueteTMO->nombre_paquete; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre del paquete.">
                                     <?php } else { ?>
                                         <input type="text" class="form-control" id="txtNombre" name="txtNombre" maxlength="50" data-parsley-required data-parsley-required-message="Ingrese nombre del paquete.">
                                     <?php } ?>
@@ -65,7 +65,7 @@
                                     <label for="txtDescripcion">Descripcion</label>
                                     <?php
                                     if ($existePaqueteTMO) { ?>
-                                        <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion" maxlength="150" value="<?php echo $dataTipo->descripcion_paquete; ?>">
+                                        <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion" maxlength="150" value="<?php echo $dataPaqueteTMO->descripcion_paquete; ?>">
                                     <?php } else { ?>
                                         <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion" maxlength="150">
                                     <?php } ?>
@@ -75,7 +75,7 @@
                                     <label for="txtTotalTiendas">Total Tiendas</label>
                                     <?php
                                     if ($existePaqueteTMO) { ?>
-                                        <input type="text" class="form-control" id="txtTotalTiendas" name="txtTotalTiendas" maxlength="5" value="<?php echo $dataTipo->total_store; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de tiendas del paquete." data-parsley-required-type=" El total de tiendas solo debe ser numeros.">
+                                        <input type="text" class="form-control" id="txtTotalTiendas" name="txtTotalTiendas" maxlength="5" value="<?php echo $dataPaqueteTMO->total_store; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de tiendas del paquete." data-parsley-required-type=" El total de tiendas solo debe ser numeros.">
                                     <?php } else { ?>
                                         <input type="text" class="form-control" id="txtTotalTiendas" name="txtTotalTiendas" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de tiendas del paquete." data-parsley-required-type=" El total de tiendas solo debe ser numeros.">
                                     <?php } ?>
@@ -85,7 +85,7 @@
                                     <label for="txtTotalProductos">Total Productos</label>
                                     <?php
                                     if ($existePaqueteTMO) { ?>
-                                        <input type="text" class="form-control" id="txtTotalProductos" name="txtTotalProductos" maxlength="5" value="<?php echo $dataTipo->total_products; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de productos del paquete." data-parsley-required-type=" El total de productos solo debe ser numeros.">
+                                        <input type="text" class="form-control" id="txtTotalProductos" name="txtTotalProductos" maxlength="5" value="<?php echo $dataPaqueteTMO->total_products; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de productos del paquete." data-parsley-required-type=" El total de productos solo debe ser numeros.">
                                     <?php } else { ?>
                                         <input type="text" class="form-control" id="txtTotalProductos" name="txtTotalProductos" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de productos del paquete." data-parsley-required-type=" El total de productos solo debe ser numeros.">
                                     <?php } ?>
@@ -95,7 +95,7 @@
                                     <label for="txtTotalUsuarios">Total Usuarios</label>
                                     <?php
                                     if ($existePaqueteTMO) { ?>
-                                        <input type="text" class="form-control" id="txtTotalUsuarios" name="txtTotalUsuarios" maxlength="5" value="<?php echo $dataTipo->total_users; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de usuarios del paquete." data-parsley-required-type=" El total de usuarios solo debe ser numeros.">
+                                        <input type="text" class="form-control" id="txtTotalUsuarios" name="txtTotalUsuarios" maxlength="5" value="<?php echo $dataPaqueteTMO->total_users; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de usuarios del paquete." data-parsley-required-type=" El total de usuarios solo debe ser numeros.">
                                     <?php } else { ?>
                                         <input type="text" class="form-control" id="txtTotalUsuarios" name="txtTotalUsuarios" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de usuarios del paquete." data-parsley-required-type=" El total de usuarios solo debe ser numeros.">
                                     <?php } ?>
@@ -105,7 +105,7 @@
                                     <label for="txtTotalCategorias">Total Categorias</label>
                                     <?php
                                     if ($existePaqueteTMO) { ?>
-                                        <input type="text" class="form-control" id="txtTotalCategorias" name="txtTotalCategorias" maxlength="5" value="<?php echo $dataTipo->total_categorias; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de categorias del paquete." data-parsley-required-type=" El total de categorias solo debe ser numeros.">
+                                        <input type="text" class="form-control" id="txtTotalCategorias" name="txtTotalCategorias" maxlength="5" value="<?php echo $dataPaqueteTMO->total_categorias; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de categorias del paquete." data-parsley-required-type=" El total de categorias solo debe ser numeros.">
                                     <?php } else { ?>
                                         <input type="text" class="form-control" id="txtTotalCategorias" name="txtTotalCategorias" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese total de categorias del paquete." data-parsley-required-type=" El total de categorias solo debe ser numeros.">
                                     <?php } ?>
@@ -115,7 +115,7 @@
                                     <label for="txtTiempoSuscripcion">Tiempo Suscripción (Meses)</label>
                                     <?php
                                     if ($existePaqueteTMO) { ?>
-                                        <input type="text" class="form-control" id="txtTiempoSuscripcion" name="txtTiempoSuscripcion" maxlength="5" value="<?php echo $dataTipo->tiempo_meses_paquete; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese tiempo de suscripción del paquete." data-parsley-required-type=" El tiempo de suscripcion solo debe ser numeros.">
+                                        <input type="text" class="form-control" id="txtTiempoSuscripcion" name="txtTiempoSuscripcion" maxlength="5" value="<?php echo $dataPaqueteTMO->tiempo_meses_paquete; ?>" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese tiempo de suscripción del paquete." data-parsley-required-type=" El tiempo de suscripcion solo debe ser numeros.">
                                     <?php } else { ?>
                                         <input type="text" class="form-control" id="txtTiempoSuscripcion" name="txtTiempoSuscripcion" maxlength="5" data-parsley-required data-parsley-type="number" data-parsley-required-message="Ingrese tiempo de suscripción del paquete." data-parsley-required-type=" El tiempo de suscripcion solo debe ser numeros.">
                                     <?php } ?>
@@ -125,7 +125,7 @@
                                     <label for="txtPrecio">Precio</label>
                                     <?php
                                     if ($existePaqueteTMO) { ?>
-                                        <input type="text" class="form-control" id="txtPrecio" name="txtPrecio" maxlength="5" value="<?php echo $dataTipo->precio_paquete; ?>" data-parsley-required data-parsley-required-message="Ingrese precio del paquete.">
+                                        <input type="text" class="form-control" id="txtPrecio" name="txtPrecio" maxlength="5" value="<?php echo $dataPaqueteTMO->precio_paquete; ?>" data-parsley-required data-parsley-required-message="Ingrese precio del paquete.">
                                     <?php } else { ?>
                                         <input type="text" class="form-control" id="txtPrecio" name="txtPrecio" maxlength="5" data-parsley-required data-parsley-required-message="Ingrese precio del paquete.">
                                     <?php } ?>
