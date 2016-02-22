@@ -11,7 +11,7 @@
 					<p></p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-outline" data-dismiss="modal">Aceptar</button>
+					<button type="button" class="btn btn-outline btn-ok" data-dismiss="modal">Aceptar</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->

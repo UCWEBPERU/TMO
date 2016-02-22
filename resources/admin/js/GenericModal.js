@@ -23,7 +23,12 @@ var GenericModal = {
         $(this.selector).modal({keyboard: true});
 		$(this.selector).modal('show');
 	},
-	resetScrollbar: function() {
-		$(this.selector).resetScrollbar();
+	onClickButtonAccept: function(callback) {
+		$(this.selector + ' .modal-footer .btn-ok' ).on("click", function() {
+			$(".skin-blue").css({"padding-right": "0px"});
+			if (callback != undefined || callback != null) {
+				callback();
+			}
+		});
 	}
 };

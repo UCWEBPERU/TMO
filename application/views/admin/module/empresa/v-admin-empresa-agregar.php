@@ -451,7 +451,7 @@
                 $("#txtPassword").val(response.data.password);
                 $("#txtRepeatPassword").val(response.data.password);
                 GenericModal.show("default", "<p>" + response.message + "</p>");
-                GenericModal.resetScrollbar();
+                GenericModal.onClickButtonAccept();
             });
 
             request.fail(function( jqXHR, textStatus ) {
