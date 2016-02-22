@@ -354,7 +354,7 @@ class C_Admin_Empresa extends CI_Controller {
 		$json->type 		= "Generate Password";
 		$json->presentation = "data";
 		$json->action 		= "";
-		$json->data 		= array("password" => $this->Password->generate());
+		$json->data 		= array("password" => $this->password->generate());
 		$json->message 		= "Contraseña generada correctamente.";
 		$json->status 		= TRUE;
 
