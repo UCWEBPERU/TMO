@@ -25,6 +25,7 @@ var ValidateInputFormWithParsley = {
                     console.log("CHILDREN");
                     node = $(node).find("span.selection");
                     console.log($(node).children());
+                    node = $(node).children();
                     $(node).addClass("border-input-error");
                 } else {
                     $(selectorInputsForm[i]).parent().addClass("has-error");
