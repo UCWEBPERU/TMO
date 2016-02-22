@@ -96,7 +96,7 @@
 
         $(".btnActionRow").on("click", function(evt){
 
-            var element = this;
+            var self = this;
 
             if ( $(this).attr("data-row-action") == "delete") {
                 evt.preventDefault();
