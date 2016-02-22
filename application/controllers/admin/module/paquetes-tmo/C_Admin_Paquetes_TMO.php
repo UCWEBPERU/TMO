@@ -245,14 +245,23 @@ class C_Admin_Paquetes_TMO extends CI_Controller {
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        if ( $this->input->post("id_tipo_empresa") ) {
-            $result = $this->M_Admin_Paquetes_TMO->delete(trim($this->input->post("id_tipo_empresa", TRUE)));
+        if ( $this->input->post("id_paquete_tmo") ) {
 
-            if ($result) {
-                $json->message = "Tipo de Empresa eliminado correctamente.";
-                $json->status 	= TRUE;
+            $existRow = $this->M_Admin_Paquetes_TMO->getPaqueteTMOByID(trim($this->input->post("id_paquete_tmo", TRUE)));
+
+            if (count($existRow) > 0) {
+
+                $result = $this->M_Admin_Paquetes_TMO->delete(trim($this->input->post("id_paquete_tmo", TRUE)));
+
+                if ($result) {
+                    $json->message = "El paquete fue eliminado correctamente.";
+                    $json->status 	= TRUE;
+                } else {
+                    $json->message = "Ocurrio un error al eliminar el paquete, intente de nuevo.";
+                }
+
             } else {
-                $json->message = "Ocurrio un error al eliminar el Tipo de Empresa, intente de nuevo.";
+                $json->message = "Lo sentimos el paquete que desea eliminar no existe.";
             }
 
         } else {

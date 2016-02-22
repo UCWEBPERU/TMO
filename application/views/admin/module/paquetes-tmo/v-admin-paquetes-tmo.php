@@ -86,53 +86,63 @@
 
 </div><!-- ./wrapper -->
 <?php $this->load->view('template/main-panel/scripts-footer'); ?>
-
+<!-- Sweet Alert -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <script>
     $(function () {
-        ManagerModal.config("#modalAdmin", "");
-        $(".btnActionRow").on("click", function(evt){
+        var baseUrl   = "<?php echo base_url(); ?>";
+        var urlApi    = "";
+        var formData  = new FormData();
 
-            var baseUrl   = "<?php echo base_url(); ?>";
-            var urlApi    = "";
-            var formData  = new FormData();
+        $(".btnActionRow").on("click", function(evt){
 
             var element = this;
 
-            if ( $(this).attr("data-row-action") == "edit") {
-
-            } else if ( $(this).attr("data-row-action") == "delete") {
+            if ( $(this).attr("data-row-action") == "delete") {
                 evt.preventDefault();
-                $(".overlay").removeClass("hide");
                 urlApi = baseUrl + "<?php echo $modulo->base_url; ?>delete";
-                formData.append("<?php echo $modulo->api_rest_params["delete"]; ?>", $(this).attr("data-row-id"));
+                formData.append("id_paquete_tmo", $(this).attr("data-row-id"));
+
+                swal({
+                        title: "Eliminar Paquete TMO",
+                        text: "¿Seguro que desea eliminar el paquete?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#fc0836",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true
+                    },
+                    function() {
+                        var request = $.ajax({
+                            url: urlApi,
+                            method: "POST",
+                            data: formData,
+                            dataType: "json",
+                            processData: false,
+                            contentType: false
+                        });
+
+                        request.done(function( response ) {
+                            waitingDialog.hide();
+                            if (response.status) {
+                                swal("Eliminado!", response.message, "success");
+                                $(self).parent().parent().hide("slow", function(){
+                                    $(self).parent().parent().remove();
+                                });
+                            } else {
+                                swal("Error", response.message, "error");
+                            }
+                        });
+
+                        request.fail(function( jqXHR, textStatus ) {
+                            waitingDialog.hide();
+                            swal("Error", textStatus, "error");
+                        });
+                    }
+                );
+
             }
-
-            var request = $.ajax({
-                url: urlApi,
-                method: "POST",
-                processData: false,
-                contentType: false,
-                data: formData
-            });
-
-            request.done(function( response ) {
-                $(".overlay").addClass("hide");
-                var json = JSON.parse(response);
-                if (json.status) {
-                    $(element).parent().parent().fadeOut("slow", function() {
-                        $(element).parent().parent().remove();
-                    });
-                } else {
-                    ManagerModal.show("danger", json.message);
-                }
-
-            });
-
-            request.fail(function( jqXHR, textStatus ) {
-                $(".overlay").addClass("hide");
-                var json = JSON.parse(textStatus);
-                ManagerModal.show("danger", json.message);
-            });
 
         });
 
