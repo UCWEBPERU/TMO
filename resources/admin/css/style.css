@@ -100,4 +100,8 @@
 
 .box-galery-products > .box-image > .btn-box-tool-delete {
     color: #fff;
-}    
+}
+
+.fix-padding-scrollbar{
+    padding-right: 17px !important;
+}
