@@ -10,7 +10,6 @@ class M_Admin_TipoEmpresa extends CI_Model{
 	public function fetchTipoEmpresas($limit, $start) {
 		$this->db->select("	Tipo_Empresa.id_tipo_empresa, Tipo_Empresa.nombre_tipo_empresa,");		
 		$this->db->where('Tipo_Empresa.estado', '1');
-		$query = $this->db->get('Tipo_Empresa');
 		$this->db->limit($limit, $start);
 		$query = $this->db->get('Tipo_Empresa');
 
@@ -65,7 +64,7 @@ class M_Admin_TipoEmpresa extends CI_Model{
 
 	public function delete($id_tipo_empresa) {
 		$this->db->where('Tipo_Empresa.id_tipo_empresa', $id_tipo_empresa);
-		if ($this->db->update('Tipo_Empresa', array('Tipo_Empresa.id_tipo_empresa'=> 0)))	{
+		if ($this->db->update('Tipo_Empresa', array('Tipo_Empresa.estado' => 0)))	{
 			return TRUE;
 		}
 		return FALSE;
