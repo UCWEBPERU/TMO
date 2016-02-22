@@ -434,7 +434,7 @@
         $("#logo_empresa").on("change", handleFileSelect);
 
         $("#btnGenerarPassword").on("click", function(){
-            waitingDialog.show('Generando Contraseña...');
+//            waitingDialog.show('Generando Contraseña...');
 
             var request = $.ajax({
                 url: baseUrl + "admin/empresa/ajax/generatePassword",
