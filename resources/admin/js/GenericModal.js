@@ -22,5 +22,8 @@ var GenericModal = {
 		$(this.selector + ' .modal-body').html(message);
         $(this.selector).modal({keyboard: true});
 		$(this.selector).modal('show');
+	},
+	resetScrollbar: function() {
+		$(this.selector).resetScrollbar();
 	}
 };
