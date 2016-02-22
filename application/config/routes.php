@@ -113,7 +113,6 @@ $route['admin/paquetes-tmo/delete']         = 'admin/module/paquetes-tmo/C_Admin
 $route['admin/paquetes-tmo/page']           = 'admin/module/paquetes-tmo/C_Admin_Paquetes_TMO';
 $route['admin/paquetes-tmo/page/(:num)']    = 'admin/module/paquetes-tmo/C_Admin_Paquetes_TMO';
 
-
 /*
 | ------------------------------
 | URL -> ADMIN - USUARIO
@@ -142,7 +141,6 @@ $route['store/(:num)/admin/login'] = 'admin/C_Login';
 // $route['store/signIn']			   = 'store-admin/C_Login/signIn';
 // $route['store/signOut']			   = 'store-admin/C_Login/signOut';
 
-
 /*
 | ------------------------------
 | URL -> STORE ADMIN - PERFIL EMPRESA
@@ -152,7 +150,6 @@ $route['store/(:num)/admin/perfil-store']                   = 'store-admin/modul
 $route['store/(:num)/admin/perfil-store/updatePerfilStore'] = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosStore';
 $route['store/(:num)/admin/perfil-store/updatePayAccount']  = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosPayAccount';
 $route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'store-admin/module/empresa/C_StoreAdmin_Empresa/updateLogoStore';
-
 
 /*
 | ------------------------------
@@ -176,7 +173,6 @@ $route['store/(:num)/admin/user-profile']                        = 'store-admin/
 $route['store/(:num)/admin/user-profile/ajax/updateUserProfile'] = 'store-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserProfile';
 $route['store/(:num)/admin/user-profile/ajax/updateUserAccount'] = 'store-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserAccount';
 
-
 /*
 | ------------------------------
 | URL -> STORE ADMIN - PRODUCTOS
@@ -189,7 +185,6 @@ $route['store/(:num)/admin/products/add']                   = 'store-admin/modul
 $route['store/(:num)/admin/products/edit/(:num)']           = 'store-admin/module/productos/C_StoreAdmin_Productos/editProduct/$2';
 $route['store/(:num)/admin/products/ajax/addProduct']       = 'store-admin/module/productos/C_StoreAdmin_Productos/ajaxAddProduct';
 $route['store/(:num)/admin/products/ajax/getSubCategorys']  = 'store-admin/module/productos/C_StoreAdmin_Productos/ajaxGetSubCategorysByIDCategory';
-
 
 /*
 | ------------------------------
