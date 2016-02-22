@@ -76,14 +76,15 @@ $route['api-rest/geo-data/getCitiesByRegionAndCountry']	= 'api-rest/C_GEO_Data/a
 | URL -> ADMIN - EMPRESA 
 | ------------------------------
 */
-$route['admin/empresa']             = 'admin/module/empresa/C_Admin_Empresa/index';
-$route['admin/empresa/agregar']     = 'admin/module/empresa/C_Admin_Empresa/agregar';
-$route['admin/empresa/crear']       = 'admin/module/empresa/C_Admin_Empresa/insert';
-$route['admin/empresa/editar']      = 'admin/module/empresa/C_Admin_Empresa/update';
-$route['admin/empresa/(:num)']      = "admin/module/empresa/C_Admin_Empresa/edit/$1";
-$route['admin/empresa/eliminar']    = 'admin/module/empresa/C_Admin_Empresa/delete';
-$route['admin/empresa/page']        = 'admin/module/empresa/C_Admin_Empresa';
-$route['admin/empresa/page/(:num)'] = 'admin/module/empresa/C_Admin_Empresa';
+$route['admin/empresa']                         = 'admin/module/empresa/C_Admin_Empresa/index';
+$route['admin/empresa/agregar']                 = 'admin/module/empresa/C_Admin_Empresa/agregar';
+$route['admin/empresa/crear']                   = 'admin/module/empresa/C_Admin_Empresa/insert';
+$route['admin/empresa/editar']                  = 'admin/module/empresa/C_Admin_Empresa/update';
+$route['admin/empresa/(:num)']                  = "admin/module/empresa/C_Admin_Empresa/edit/$1";
+$route['admin/empresa/eliminar']                = 'admin/module/empresa/C_Admin_Empresa/delete';
+$route['admin/empresa/page']                    = 'admin/module/empresa/C_Admin_Empresa';
+$route['admin/empresa/page/(:num)']             = 'admin/module/empresa/C_Admin_Empresa';
+$route['admin/empresa/ajax/generatePassword']   = 'admin/module/empresa/C_Admin_Empresa/generatePassword';
 
 /*
 | ------------------------------

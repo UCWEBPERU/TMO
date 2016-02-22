@@ -81,7 +81,7 @@ class C_Admin_Empresa extends CI_Controller {
         $modulo->datos_usuario = $usuario[0];
         
 		$modulo->titulo 			    = "Empresa";
-		$modulo->titulo_pagina          = "TMO | Panel Principal";      
+		$modulo->titulo_pagina          = "TMO | Panel Principal - Empresa";
         $modulo->icono_empresa          = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
         $modulo->nombres_usuario        = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
         $modulo->tipo_usuario           = $usuario[0]->nombre_tipo_usuario;
@@ -98,7 +98,7 @@ class C_Admin_Empresa extends CI_Controller {
 
 		$modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
 
-		$data["modulo"] 		= $modulo;
+		$data["modulo"] 				= $modulo;
 
 		$this->load->view('admin/module/empresa/v-admin-empresa-agregar', $data);
 	}
@@ -111,7 +111,7 @@ class C_Admin_Empresa extends CI_Controller {
             $modulo->datos_usuario = $usuario[0];
             
 			$modulo->titulo 					= "Empresa";
-			$modulo->titulo_pagina = "TMO | Panel Principal";      
+			$modulo->titulo_pagina = "TMO | Panel Principal - Empresa";
 	        $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
             $modulo->nombres_usuario        = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
             $modulo->tipo_usuario           = $usuario[0]->nombre_tipo_usuario;
@@ -345,6 +345,21 @@ class C_Admin_Empresa extends CI_Controller {
 		
 		echo json_encode($json);
 		
+	}
+
+	public function generatePassword() {
+		$this->load->library("utils/Password");
+
+		$json 				= new stdClass();
+		$json->type 		= "Generate Password";
+		$json->presentation = "data";
+		$json->action 		= "";
+		$json->data 		= array("password" => $this->Password->generate());
+		$json->message 		= "Contraseña generada correctamente.";
+		$json->status 		= TRUE;
+
+		echo json_encode($json);
+
 	}
 	
 }

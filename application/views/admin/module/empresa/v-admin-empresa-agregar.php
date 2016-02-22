@@ -433,6 +433,32 @@
 
         $("#logo_empresa").on("change", handleFileSelect);
 
+        $("#btnGenerarPassword").on("click", function(){
+            waitingDialog.show('Generando Contraseña...');
+
+            var request = $.ajax({
+                url: baseUrl + "admin/empresa/ajax/generatePassword",
+                method: "POST",
+                data: formData,
+                dataType: "json",
+                processData: false,
+                contentType: false
+            });
+
+            request.done(function( response ) {
+                waitingDialog.hide();
+                $("#txtPassword").val(response.data.password);
+                $("#txtRepeatPassword").val(response.data.password);
+                GenericModal.show("default", "<p>" + response.message + "</p>");
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                waitingDialog.hide();
+                GenericModal.show("danger", "<p>" + textStatus + "</p>");
+            });
+
+        });
+
     });
 
 </script>
