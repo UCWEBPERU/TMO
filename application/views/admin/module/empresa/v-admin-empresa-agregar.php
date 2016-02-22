@@ -111,7 +111,7 @@
                                                 <div class="form-group">
                                                     <label for="cboTipoEmpresa">Business Type</label>
                                                     <select id="cboTipoEmpresa"  name="cboTipoEmpresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
-                                                        <option value="0" selected="selected">Seleccione</option>
+                                                        <option value="" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                             <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
                                                         <?php endforeach; ?>
@@ -149,7 +149,7 @@
                                                 <div class="form-group">
                                                     <label for="cboCountry">Country</label>
                                                     <select id="cboCountry" name="cboCountry" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
-                                                        <option value="0" selected="selected">Seleccione</option>
+                                                        <option value="" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->data_geo_countries as $geo_country): ?>
                                                             <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
                                                         <?php endforeach; ?>
@@ -159,14 +159,14 @@
                                                 <div class="form-group">
                                                     <label for="cboRegion">State</label>
                                                     <select id="cboRegion" name="cboRegion" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
-                                                        <option value="0" selected="selected">Seleccione</option>
+                                                        <option value="" selected="selected">Seleccione</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="cboCity">City</label>
                                                     <select id="cboCity" name="cboCity" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
-                                                        <option value="0" selected="selected">Seleccione</option>
+                                                        <option value="" selected="selected">Seleccione</option>
                                                     </select>
                                                 </div>
 
@@ -210,7 +210,7 @@
                                                 <div class="form-group">
                                                     <label for="cboPaqueteTmo">Paquete TMO</label>
                                                     <select id="cboPaqueteTmo"  name="cboPaqueteTmo"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un paquete.">
-                                                        <option value="0" selected="selected">Seleccione</option>
+                                                        <option value="" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->paquetes_tmo as $paquete): ?>
                                                             <option value="<?php echo $paquete->id_paquetes_tmo; ?>"><?php echo $paquete->nombre_paquete; ?></option>
                                                         <?php endforeach; ?>
@@ -370,7 +370,7 @@
 
         $("#idCountry").on("change", function() {
             $("#idRegion").empty();
-            $("#idRegion").append("<option value='0' selected='selected'>Cargando...</option>");
+            $("#idRegion").append("<option value='' selected='selected'>Cargando...</option>");
             formData.append("code_country", $(this).val());
             var request = $.ajax({
                 url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
@@ -384,7 +384,7 @@
             request.done(function( response ) {
                 formData = new FormData();
                 if (response.status) {
-                    var html = "<option value='0' selected='selected'>Seleccione</option>";
+                    var html = "<option value='' selected='selected'>Seleccione</option>";
                     for (var c = 0; c < response.data.length; c++ ) {
                         html += "<option value='" + response.data[c].code + "'>" + response.data[c].name + "</option>";
                     }
@@ -402,7 +402,7 @@
 
         $("#idRegion").on("change", function() {
             $("#idCity").empty();
-            $("#idCity").append("<option value='0' selected='selected'>Cargando...</option>");
+            $("#idCity").append("<option value='' selected='selected'>Cargando...</option>");
             formData.append("code_country", $("#idCountry").val());
             formData.append("code_region", $(this).val());
             var request = $.ajax({
@@ -417,7 +417,7 @@
             request.done(function( response ) {
                 formData = new FormData();
                 if (response.status) {
-                    var html = "<option value='0' selected='selected'>Seleccione</option>";
+                    var html = "<option value='' selected='selected'>Seleccione</option>";
                     for (var c = 0; c < response.data.length; c++ ) {
                         html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
                     }
