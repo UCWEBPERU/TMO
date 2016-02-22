@@ -27,6 +27,12 @@ class M_Admin_Paquetes_TMO extends CI_Model {
         return $query->num_rows();
     }
 
+    public function getPaquetesTMO() {
+        $this->db->where('Paquetes_TMO.estado', '1');
+        $query = $this->db->get('Paquetes_TMO');
+        return $query->result();
+    }
+
     public function getPaqueteTMOByID($id_paquete_tmo) {
         $this->db->where('Paquetes_TMO.estado', '1');
         $this->db->where('Paquetes_TMO.id_paquetes_tmo', $id_paquete_tmo);

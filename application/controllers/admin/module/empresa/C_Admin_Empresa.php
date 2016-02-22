@@ -93,7 +93,7 @@ class C_Admin_Empresa extends CI_Controller {
         
         $modulo->menu                   = array("menu" => 1, "submenu" => 0);
 		$modulo->tipo_empresa		    = $this->M_Admin_Empresa->getTipoEmpresa();
-		$modulo->paquetes_tmo 			= $this->M_Admin_Empresa->getPaqueteTMOByID();
+		$modulo->paquetes_tmo 			= $this->M_Admin_Empresa->getPaquetesTMO();
 
 		$modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
 
