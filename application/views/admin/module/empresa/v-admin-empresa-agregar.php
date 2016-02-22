@@ -57,7 +57,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="txtFirstName">First Names</label>
-                                                            <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el nombre..">
+                                                            <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el nombre.">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -82,7 +82,7 @@
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
 <!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
-                                                                    <button id="btnGenerarPassword" type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-pencil"></i></button>
+                                                                    <button id="btnGenerarPassword" type="button" class="btn btn-primary" title="Generar Contraseña"><i class="fa fa-pencil"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -92,10 +92,10 @@
                                                         <div class="form-group">
                                                             <label for="txtRepeatPassword">Repeat Password</label>
                                                             <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-required-message="Vuelva a ingresar la contraseña.">
+                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
-                                                                    <button id="btnVerPassword" type="button" class="btn btn-success" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
+                                                                    <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -104,13 +104,13 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="txtOrganiaztion">Organization</label>
-                                                    <input type="text" class="form-control" id="txtOrganiaztion" name="txtOrganiaztion" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
+                                                    <label for="txtOrganization">Organization</label>
+                                                    <input type="text" class="form-control" id="txtOrganization" name="txtOrganization" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="id_tipo_empresa">Business Type</label>
-                                                    <select id="id_tipo_empresa"  name="id_tipo_empresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
+                                                    <label for="cboTipoEmpresa">Business Type</label>
+                                                    <select id="cboTipoEmpresa"  name="cboTipoEmpresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
                                                         <option value="0" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                             <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
@@ -147,8 +147,8 @@
                                             <div class="col-md-4">
 
                                                 <div class="form-group">
-                                                    <label for="idCountry">Country</label>
-                                                    <select id="idCountry" name="idCountry" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
+                                                    <label for="cboCountry">Country</label>
+                                                    <select id="cboCountry" name="cboCountry" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
                                                         <option value="0" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->data_geo_countries as $geo_country): ?>
                                                             <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
@@ -157,15 +157,15 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="idRegion">State</label>
-                                                    <select id="idRegion" name="idRegion" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
+                                                    <label for="cboRegion">State</label>
+                                                    <select id="cboRegion" name="cboRegion" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
                                                         <option value="0" selected="selected">Seleccione</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="idCity">City</label>
-                                                    <select id="idCity" name="idCity" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
+                                                    <label for="cboCity">City</label>
+                                                    <select id="cboCity" name="cboCity" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
                                                         <option value="0" selected="selected">Seleccione</option>
                                                     </select>
                                                 </div>
@@ -202,14 +202,14 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="logo_empresa">Añadir Logo Institucional</label>
-                                                    <input type="file" class="form-control" id="logo_empresa" name="logo_empresa">
+                                                    <label for="logoEmpresa">Añadir Logo Institucional</label>
+                                                    <input type="file" class="form-control" id="logoEmpresa" name="logoEmpresa">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="idPaqueteTMO">Paquete TMO</label>
-                                                    <select id="idPaqueteTMO"  name="idPaqueteTMO"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                    <label for="cboPaqueteTmo">Paquete TMO</label>
+                                                    <select id="cboPaqueteTmo"  name="cboPaqueteTmo"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un paquete.">
                                                         <option value="0" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->paquetes_tmo as $paquete): ?>
                                                             <option value="<?php echo $paquete->id_paquetes_tmo; ?>"><?php echo $paquete->nombre_paquete; ?></option>
@@ -284,7 +284,8 @@
 
         GenericModal.config("#genericModal", "");
 
-        var selectorInputsForm = ["#txtNombreCategoria"];
+        var selectorInputsForm = ["txtFirstName", "txtLastName", "txtEmail", "txtPassword", "txtRepeatPassword", "txtOrganization", "cboTipoEmpresa",
+            "txtMobilePhone", "txtHomePhone", "txtWorkPhone", "txtFax", "cboCountry", "cboRegion", "cboCity", "txtAddress", "txtAddress2"];
 
         var baseUrl   = "<?php echo base_url(); ?>";
         var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>
@@ -298,13 +299,22 @@
 
                 waitingDialog.show('Cargando...');
 
-                formData.append("nombre_empresa",   $("#nombre_empresa").val());
-                formData.append("id_tipo_empresa",  $("#id_tipo_empresa").val());
-                formData.append("nombres_persona",  $("#nombres_persona").val());
-                formData.append("apellido_persona", $("#apellido_persona").val());
-                formData.append("email_usuario",    $("#email_usuario").val());
-                formData.append("password_usuario", $("#password_usuario").val());
-                formData.append("logo_empresa",     $("#logo_empresa").val());
+                formData.append("txtFirstName",     $("#txtFirstName").val());
+                formData.append("txtLastName",      $("#txtLastName").val());
+                formData.append("txtEmail",         $("#txtEmail").val());
+                formData.append("txtPassword",      $("#txtPassword").val());
+                formData.append("txtRepeatPassword",$("#txtRepeatPassword").val());
+                formData.append("txtOrganization",  $("#txtOrganization").val());
+                formData.append("cboTipoEmpresa",   $("#cboTipoEmpresa").val());
+                formData.append("txtMobilePhone",   $("#txtMobilePhone").val());
+                formData.append("txtHomePhone",     $("#txtHomePhone").val());
+                formData.append("txtWorkPhone",     $("#txtWorkPhone").val());
+                formData.append("txtFax",           $("#txtFax").val());
+                formData.append("cboCountry",       $("#cboCountry").val());
+                formData.append("cboRegion",        $("#cboRegion").val());
+                formData.append("cboCity",          $("#cboCity").val());
+                formData.append("txtAddress",       $("#txtAddress").val());
+                formData.append("txtAddress2",      $("#txtAddress2").val());
 
                 var request = $.ajax({
                     url: urlApi,
@@ -325,13 +335,22 @@
 
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                         if (response.action == "insert") {
-                            $("#nombre_empresa").val("");
-                            $("#id_tipo_empresa").val("0");
-                            $("#nombres_persona").val("");
-                            $("#apellido_persona").val("");
-                            $("#email_usuario").val("");
-                            $("#password_usuario").val("");
-                            $("#logo_empresa").val("");
+                            $("#txtFirstName").val("");
+                            $("#txtLastName").val("");
+                            $("#txtEmail").val("");
+                            $("#txtPassword").val("");
+                            $("#txtRepeatPassword").val("");
+                            $("#txtOrganization").val("");
+                            $("#cboTipoEmpresa").val("");
+                            $("#txtMobilePhone").val("");
+                            $("#txtHomePhone").val("");
+                            $("#txtWorkPhone").val("");
+                            $("#txtFax").val("");
+                            $("#cboCountry").val("");
+                            $("#cboRegion").val("");
+                            $("#cboCity").val("");
+                            $("#txtAddress").val("");
+                            $("#txtAddress2").val("");
                         }
 
                     } else {
@@ -345,8 +364,6 @@
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
 
-            } else {
-                GenericModal.show("danger", "<p>Ingrese los datos de la empresa correctamente.</p>");
             }
 
         });
