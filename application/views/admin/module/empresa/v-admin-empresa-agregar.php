@@ -249,7 +249,7 @@
     $(function () {
 
         //Initialize Select2 Elements
-        $("#cboTipoEmpresa, #cboPaqueteTmo, #idCountry").select2();
+        $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
 
         var formData  = new FormData();
 
@@ -370,11 +370,11 @@
 
         });
 
-//        $("#idCountry").select2()
-//            .on("change", function(event) {
-//                alert("CLICK");
-//                alert($(this).val());
-//            });
+        $("#cboCountry").select2()
+            .on("change", function(event) {
+                alert("CLICK");
+                alert($(this).val());
+            });
 
 //        $("#idCountry").on("change", function(event) {
 //            alert("CLICK");
