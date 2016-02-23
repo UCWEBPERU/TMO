@@ -1,5 +1,5 @@
 <?php if (is_array($modulo->registros)) {
-	var_dump($modulo->registros);
+
 	foreach ($modulo->registros as $modeloRow) { ?>
 	
 	<tr>

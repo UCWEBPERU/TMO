@@ -8,7 +8,8 @@ class M_Admin_Empresa extends CI_Model{
 	}
 
 	public function getEmpresas() {
-		$this->db->select("Empresa.id_empresa, 
+		$this->db->select("Empresa.id_empresa,
+							Empresa.organization,
 							Empresa.nombres_representante, 
 							Empresa.apellidos_representante, 
 							Empresa.email_representante, 
@@ -47,8 +48,9 @@ class M_Admin_Empresa extends CI_Model{
 
 	public function fetchEmpresas($limit, $start) {
 		$this->db->select("Empresa.id_empresa, 
-							Empresa.nombres_representante, 
-							Empresa.apellidos_representante, 
+							Empresa.organization,
+							Empresa.nombres_representante,
+							Empresa.apellidos_representante,
 							Empresa.email_representante, 
 							Empresa.celular_personal, 
 							Empresa.telefono, 
