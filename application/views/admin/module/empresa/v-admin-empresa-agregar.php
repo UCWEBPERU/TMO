@@ -370,7 +370,7 @@
 
         });
 
-        $("#idCountry").on("select2:select", function(event) {
+        $("#idCountry").on("change", function(event) {
             alert("CLICK");
             alert($(this).val());
 //            $("#idRegion").empty();
