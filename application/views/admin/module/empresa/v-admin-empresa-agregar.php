@@ -435,6 +435,8 @@
         var objHandleFile = new HandleFile("#fileLogoEmpresa");
         objHandleFile.onSelect(
             function(file) {
+                console.log("select image");
+                console.log(file);
                 formData.append("fileLogoEmpresa", file);
             },
             function(readResult) {}
