@@ -66,7 +66,6 @@
                                             <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <input type="text" class="form-control" id="cboCountry" name="cboCountry" value="<?php echo $modulo->datos_usuario->pais_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su pais."/>
                                 </div>
                                 <div class="form-group">
                                     <label for="cboRegion">State</label>
