@@ -14,7 +14,6 @@
 
 	<td>
 		<!--<a href="<?php echo base_url().$modulo->base_url.intval($modeloRow->id_empresa); ?>" data-row-type="empresa" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_empresa; ?>" class="btnActionRow"><span class="label label-primary">Editar</span>-->
-
 		</a>&nbsp;&nbsp;
 		<a href="#" data-row-type="empresa" data-row-action="delete" data-row-id="<?php echo $modeloRow->id_empresa; ?>" class="btnActionRow"><span class="label label-danger">Eliminar</span></a>
 	</td>

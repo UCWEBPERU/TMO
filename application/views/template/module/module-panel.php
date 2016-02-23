@@ -86,11 +86,11 @@
       <?php $this->load->view('template/main-panel/footer'); ?>
 
     </div><!-- ./wrapper -->
+    <?php $this->load->view('template/main-panel/modal-admin'); ?>
     <?php $this->load->view('template/main-panel/scripts-footer'); ?>
-
     <script>
       $(function () {
-        ManagerModal.config("#modalAdmin", "");
+        GenericModal.config("#genericModal", "");
         $(".btnActionRow").on("click", function(evt){
           
           var baseUrl   = "<?php echo base_url(); ?>";

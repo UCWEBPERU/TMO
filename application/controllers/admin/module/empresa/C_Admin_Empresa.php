@@ -68,7 +68,7 @@ class C_Admin_Empresa extends CI_Controller {
 		$modulo->links = explode('&nbsp;',$str_links);
 		
 		$data["modulo"] = $modulo;
-		$this->load->view('template/module/module-panel', $data);
+		$this->load->view('admin/module/empresa/v-admin-empresa', $data);
 	}
 
 
@@ -110,16 +110,16 @@ class C_Admin_Empresa extends CI_Controller {
             $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
             $modulo->datos_usuario = $usuario[0];
             
-			$modulo->titulo 					= "Empresa";
-			$modulo->titulo_pagina = "TMO | Panel Principal - Empresa";
-	        $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
+			$modulo->titulo 				= "Empresa";
+			$modulo->titulo_pagina 			= "TMO | Panel Principal - Empresa";
+	        $modulo->icono_empresa 			= PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
             $modulo->nombres_usuario        = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
             $modulo->tipo_usuario           = $usuario[0]->nombre_tipo_usuario;
-	        $modulo->nombre_empresa_largo = "Take My Order";
-	        $modulo->nombre_empresa_corto = "TMO";      
-	        $modulo->url_signout = base_url()."/admin/signOut";
-	        $modulo->nombreSeccion = "Editar";
-	        $modulo->base_url 		= "admin/empresa/";
+	        $modulo->nombre_empresa_largo	= "Take My Order";
+	        $modulo->nombre_empresa_corto 	= "TMO";
+	        $modulo->url_signout 			= base_url()."/admin/signOut";
+	        $modulo->nombreSeccion 			= "Editar";
+	        $modulo->base_url 				= "admin/empresa/";
 		    $modulo->url_main_panel         = base_url()."admin";
             $modulo->menu                   = array("menu" => 1, "submenu" => 0);
 
@@ -275,52 +275,6 @@ class C_Admin_Empresa extends CI_Controller {
 										array_push($json->data, array("id_empresa" => $result4));
 										$json->status = TRUE;
 
-
-//										if (is_int($result1)) {
-//											$result2 = $this->M_Admin_Empresa->insertPersona(
-//												$result1,
-//												trim($this->input->post("nombres_persona", TRUE)),
-//												trim($this->input->post("apellido_persona", TRUE))
-//											);
-//
-//											if (is_int($result2)) {
-//
-//												$result3 = $this->M_Admin_Empresa->insertEmpresa(
-//													trim($this->input->post("id_tipo_empresa", TRUE)),
-//													$result1,
-//													trim($this->input->post("nombre_empresa", TRUE))
-//												);
-//
-//												if (is_int($result3)) {
-//
-//													$path = $this->uploadImage($result3);
-//
-//													$result4 = $this->M_Admin_Empresa->insertArchivo(
-//														array("url_archivo"     => $path["path"],
-//															"tipo_archivo"      => "image/png",
-//															"relacion_recurso"  => "logo",
-//															"nombre_archivo"    => "logo.png"
-//														)
-//													);
-//
-//													$this->M_Admin_Empresa->updateIDLogo($result3, $result4);
-//
-//													$json->message = "La Empresa se Agrego Correctamente.";
-//													array_push($json->data, array("id_empresa" => $result4));
-//													$json->status = TRUE;
-//
-//												} else {
-//													$json->message = "Ocurrio un error al agregar la Empresa, intente de nuevo.";
-//												}
-//
-//											} else {
-//												$json->message = "Ocurrio un error al agregar la Persona, intente de nuevo.";
-//											}
-//
-//										} else {
-//											$json->message = "Ocurrio un error al agregar el Usuario, intente de nuevo.";
-//										}
-
 									} else {
 										$json->message = "Lo sentimos la ciudad ingresada no existe, intente de nuevo.";
 									}
@@ -401,15 +355,22 @@ class C_Admin_Empresa extends CI_Controller {
 		$json->status 		= FALSE;
 		
 		if ( $this->input->post("id_empresa") ) {
-			$result = $this->M_Admin_Empresa->delete(trim($this->input->post("id_empresa", TRUE)));
-		
-			if ($result) {
-				$json->message = "Empresa eliminado correctamente.";
-				$json->status 	= TRUE;
+
+			$result = $this->M_Admin_Empresa->getEmpresaByID(trim($this->input->post("id_empresa", TRUE)));
+
+			if (sizeof($result) > 0) {
+				unset($result);
+				$result = $this->M_Admin_Empresa->delete(trim($this->input->post("id_empresa", TRUE)));
+
+				if ($result) {
+					$json->message = "La empresa fue eliminado correctamente.";
+					$json->status 	= TRUE;
+				} else {
+					$json->message = "Ocurrio un error al eliminar la empresa, intente de nuevo.";
+				}
 			} else {
-				$json->message = "Ocurrio un error al eliminar la Empresa, intente de nuevo.";
+				$json->message = "Lo sentimos la empresa que desea eliminar no existe, intente de nuevo.";
 			}
-			
 		} else {
 			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
 		}

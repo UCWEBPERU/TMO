@@ -81,7 +81,7 @@ $route['admin/empresa/agregar']                 = 'admin/module/empresa/C_Admin_
 $route['admin/empresa/crear']                   = 'admin/module/empresa/C_Admin_Empresa/insert';
 $route['admin/empresa/editar']                  = 'admin/module/empresa/C_Admin_Empresa/update';
 $route['admin/empresa/(:num)']                  = "admin/module/empresa/C_Admin_Empresa/edit/$1";
-$route['admin/empresa/eliminar']                = 'admin/module/empresa/C_Admin_Empresa/delete';
+$route['admin/empresa/delete']                  = 'admin/module/empresa/C_Admin_Empresa/delete';
 $route['admin/empresa/page']                    = 'admin/module/empresa/C_Admin_Empresa';
 $route['admin/empresa/page/(:num)']             = 'admin/module/empresa/C_Admin_Empresa';
 $route['admin/empresa/ajax/generatePassword']   = 'admin/module/empresa/C_Admin_Empresa/generatePassword';
@@ -96,7 +96,7 @@ $route['admin/tipoempresa/agregar']		= 'admin/module/tipoempresa/C_Admin_TipoEmp
 $route['admin/tipoempresa/crear']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa/insert';
 $route['admin/tipoempresa/editar']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa/update';
 $route['admin/tipoempresa/(:num)']  	= "admin/module/tipoempresa/C_Admin_TipoEmpresa/edit/$1";
-$route['admin/tipoempresa/delete']	= 'admin/module/tipoempresa/C_Admin_TipoEmpresa/delete';
+$route['admin/tipoempresa/delete']	    = 'admin/module/tipoempresa/C_Admin_TipoEmpresa/delete';
 $route['admin/tipoempresa/page']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 $route['admin/tipoempresa/page/(:num)']	= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 
