@@ -85,25 +85,29 @@ class C_Admin_Perfil extends CI_Controller {
 		$json->data 		= array();
 		$json->status 		= FALSE;
         
-        if ($this->input->post("txtNombres") &&
-            $this->input->post("txtApellidos") &&
-            $this->input->post("txtPais") &&
-            $this->input->post("txtEstado") &&
-            $this->input->post("txtDireccion") &&
-            $this->input->post("txtNumeroCelular") &&
-            $this->input->post("txtNumeroTelefono") ) {
+        if ($this->input->post("txtFirstName") &&
+            $this->input->post("txtLastName") &&
+            $this->input->post("cboCountry") &&
+            $this->input->post("cboRegion") &&
+            $this->input->post("cboCity") &&
+            $this->input->post("txtAdrress") &&
+            $this->input->post("txtMobilePhone")) {
 
-            $result = $this->M_Admin_Perfil->updatePerfilUsuario(array(
-                            "id"            => $this->session->id_usuario,
-                            "nombres"       => trim($this->input->post("txtNombres", TRUE)),
-                            "apellidos"     => trim($this->input->post("txtApellidos", TRUE)),
-                            "pais_region"   => trim($this->input->post("txtPais", TRUE)),
-                            "estado_Region" => trim($this->input->post("txtEstado", TRUE)),
-                            "direccion"     => trim($this->input->post("txtDireccion", TRUE)),
-                            "movil"         => trim($this->input->post("txtNumeroCelular", TRUE)),
-                            "telefono"      => trim($this->input->post("txtNumeroTelefono", TRUE)))
-                        );
-                        
+            $result = $this->M_Admin_Perfil->updatePerfilUsuario(
+                    array(
+                        "id"                => $this->session->id_usuario,
+                        "nombres_persona"   => trim($this->input->post("txtFirstName", TRUE)),
+                        "apellidos_persona" => trim($this->input->post("txtLastName", TRUE)),
+                        "pais_persona"      => trim($this->input->post("cboCountry", TRUE)),
+                        "region_persona"    => trim($this->input->post("cboRegion", TRUE)),
+                        "ciudad_persona"    => trim($this->input->post("cboCity", TRUE)),
+                        "direccion_persona" => trim($this->input->post("txtAdrress", TRUE)),
+                        "celular_personal"  => trim($this->input->post("txtMobilePhone", TRUE)),
+                        "telefono"          => trim($this->input->post("txtHomePhone", TRUE)),
+                        "celular_trabajo"   => trim($this->input->post("txtWorkPhone", TRUE))
+                    )
+                );
+
 			if ($result) {
                 $json->message = "Sus datos personales se han actualizado correctamente.";
                 $json->status 	= TRUE;
