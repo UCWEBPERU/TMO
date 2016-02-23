@@ -407,7 +407,7 @@
             .on("change", function(event) {
                 $("#cboCity").empty();
                 $("#cboCity").append("<option value='' selected='selected'>Cargando...</option>");
-                formData.append("code_country", $("#idCountry").val());
+                formData.append("code_country", $("#cboCountry").val());
                 formData.append("code_region", $(this).val());
                 var request = $.ajax({
                     url: baseUrl + "api-rest/geo-data/getCitiesByRegionAndCountry",
