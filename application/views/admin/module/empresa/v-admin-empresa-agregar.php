@@ -374,6 +374,7 @@
             .on("change", function(event) {
                 $("#cboRegion").empty();
                 $("#cboRegion").append("<option value='' selected='selected'>Cargando...</option>");
+                $("#cboRegion").trigger("change");
                 formData.append("code_country", $(this).val());
                 var request = $.ajax({
                     url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
@@ -407,6 +408,7 @@
             .on("change", function(event) {
                 $("#cboCity").empty();
                 $("#cboCity").append("<option value='' selected='selected'>Cargando...</option>");
+                $("#cboCity").trigger("change");
                 formData.append("code_country", $("#cboCountry").val());
                 formData.append("code_region", $(this).val());
                 var request = $.ajax({
