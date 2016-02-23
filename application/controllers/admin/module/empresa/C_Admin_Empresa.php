@@ -34,8 +34,8 @@ class C_Admin_Empresa extends CI_Controller {
 		$modulo->nombre 					= "Empresa";
 		$modulo->titulo 					= "Empresa";
 		$modulo->titulo_registro 			= "Registro de Empresas";
-		$modulo->cabecera_registro 			= array("Nombre Empresa", "Representante", "Cuenta", "Tipo Empresa", "Direccion", "Telefono");
-		$modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-store";
+		$modulo->cabecera_registro 			= array("Nombre Empresa", "Representante", "Email", "Tipo Empresa", "Direccion", "Telefono Celular", "Fecha Registro");
+		$modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-company";
 		$modulo->base_url 					= "admin/empresa/";
 		$modulo->api_rest_params 			= array("delete" => "id_empresa");
 		$modulo->menu 						= array("menu" => 1, "submenu" => 0);
@@ -361,7 +361,7 @@ class C_Admin_Empresa extends CI_Controller {
 		$this->load->library('utils/UploadFile');
 		
 		if ( isset($_FILES["fileLogoEmpresa"]) && !empty($_FILES["fileLogoEmpresa"]) ) {
-			$path = "uploads/store/".$id_empresa."/logo/";
+			$path = "uploads/company/".$id_empresa."/logo/";
 			$path = $this->uploadfile->upload("fileLogoEmpresa", "logo", $path);
 			return array("state" => TRUE, "path" => $path);
 		}

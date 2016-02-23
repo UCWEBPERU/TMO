@@ -321,13 +321,15 @@
                             $("#txtWorkPhone").val("");
                             $("#txtFax").val("");
                             $("#cboCountry").val("").trigger("change");
-                            $("#cboRegion").val("").trigger("change");
-                            $("#cboCity").val("").trigger("change");
+                            $("#cboRegion").empty();
+                            $("#cboRegion").append("<option value='' selected='selected'>Seleccione</option>");
+                            $("#cboCity").empty();
+                            $("#cboCity").append("<option value='' selected='selected'>Seleccione</option>");
                             $("#txtAddress").val("");
                             $("#txtAddress2").val("");
                             $("#cboPaqueteTmo").val("").trigger("change");
+                            $("$fileLogoEmpresa").val("");
                         }
-
                     } else {
                         GenericModal.show("danger", "<p>" + response.message + "</p>");
                     }
@@ -336,6 +338,7 @@
 
                 request.fail(function( jqXHR, textStatus ) {
                     waitingDialog.hide();
+                    formData = new FormData();
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
 
