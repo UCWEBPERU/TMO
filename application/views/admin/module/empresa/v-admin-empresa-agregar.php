@@ -123,9 +123,8 @@
                                             <div class="col-md-4">
 
                                                 <div class="form-group">
-<!--                                                    data-parsley-pattern="^[\d\+\-\.\(\)\/\s]*$"-->
                                                     <label for="txtMobilePhone">Mobile Phone</label>
-                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" data-parsley-required data-parsley-type="digits" data-parsley-pattern="^[\d\+\-\.\(\)\/\s]*$" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
                                                 </div>
 
                                                 <div class="form-group">
