@@ -40,27 +40,27 @@
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="txtFirstName">First Name</label>
-                                    <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre."/>
+                                    <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="150" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre."/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtLastName">Last Name</label>
-                                    <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese apellido.">
+                                    <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="150" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese apellido.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtMobilePhone">Mobile Phone</label>
-                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15 value="<?php echo $modulo->datos_usuario->celular_personal; ?>"data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtHomePhone">Home Phone</label>
-                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="40" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
+                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" value="<?php echo $modulo->datos_usuario->telefono; ?>"data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtWorkPhone">Work Phone</label>
-                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="40" data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
+                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="15" value="<?php echo $modulo->datos_usuario->celular_trabajo; ?>"data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
                                 </div>
 
                                 <div class="form-group">
@@ -89,7 +89,7 @@
 
                                 <div class="form-group">
                                     <label for="txtAdrress">Address</label>
-                                    <input type="text" class="form-control" id="txtAdrress" name="txtAdrress" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su direccion."/>
+                                    <input type="text" class="form-control" id="txtAdrress" name="txtAdrress" maxlength="150" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su direccion."/>
                                 </div>
                             </div>
                             <!-- /.box-body -->
