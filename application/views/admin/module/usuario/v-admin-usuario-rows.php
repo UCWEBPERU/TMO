@@ -5,7 +5,7 @@
 	<td><?php echo intval($modeloRow->id_usuario); ?></td>
 	<td><?php echo $modeloRow->nombres_persona." ".$modeloRow->apellidos_persona; ?></td>
 	<td><?php echo $modeloRow->email_usuario; ?></td>
-	<td><?php echo $modeloRow->nombre_empresa; ?></td>
+	<td><?php echo $modeloRow->organization; ?></td>
 	<td><a href="<?php echo base_url()."store/".intval($modeloRow->id_empresa)."/admin"; ?>" target="_blank" ><?php echo base_url()."store/".intval($modeloRow->id_empresa)."/admin"; ?> <i class="fa fa-external-link"></i></a></td>
 	<td><a href="<?php echo base_url()."store/".intval($modeloRow->id_empresa); ?>" target="_blank" ><?php echo base_url()."store/".intval($modeloRow->id_empresa); ?> <i class="fa fa-external-link"></i></a></td>
 	<td><?php echo $modeloRow->fecha_registro_usuario; ?></td>
