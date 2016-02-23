@@ -42,22 +42,27 @@
                                     <label for="txtFirstName">First Name</label>
                                     <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre."/>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="txtLastName">Last Name</label>
-                                    <input type="text" class="form-control" id="txtLastName" name="txtLastName" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese apellido."/>
+                                    <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese apellido.">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="txtMobilePhone">Mobile Phone</label>
-                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->celular_personal; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular." data-parsley-type-message="Ingrese un numero de celular valido."/>
+                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="txtHomePhone">Home Phone</label>
-                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->telefono; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular." data-parsley-type-message="Ingrese un numero de celular valido."/>
+                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="40" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="txtWorkPhone">Work Phone</label>
-                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" data-parsley-type="digits" value="<?php echo $modulo->datos_usuario->celular_trabajo; ?>" data-parsley-required data-parsley-type="integer" data-parsley-required-message="Ingrese su numero de celular." data-parsley-type-message="Ingrese un numero de celular valido."/>
+                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="40" data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="cboCountry">Country</label>
                                     <select id="cboCountry" name="cboCountry" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
@@ -67,18 +72,21 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="cboRegion">State</label>
                                     <select id="cboRegion" name="cboRegion" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
                                         <option value="" selected="selected">Seleccione</option>
                                     </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="cboCity">City</label>
                                     <select id="cboCity" name="cboCity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
                                         <option value="" selected="selected">Seleccione</option>
                                     </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="txtAdrress">Address</label>
                                     <input type="text" class="form-control" id="txtAdrress" name="txtAdrress" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su direccion."/>
@@ -152,7 +160,7 @@
     $(function () {
         var formData  = new FormData();
         var baseUrl = "<?php echo base_url(); ?>";
-        var selectorInputsFormPerfilUsuario = ["#txtNombres", "#txtApellidos", "#txtPais", "#txtEstado", "#txtDireccion", "#txtNumeroCelular", "#txtNumeroTelefono"];
+        var selectorInputsFormPerfilUsuario = ["#txtFirstName", "#txtLastName", "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#cboCountry", "#cboRegion", "#cboCity", "#txtAdrress"];
         var selectorInputsFormDatosUsuario = ["#txtPassword", "#txtPasswordRepeat"];
 
         $("#btnGuardarPerfil").on("click", function(evt){
