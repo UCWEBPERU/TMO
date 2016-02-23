@@ -13,13 +13,15 @@ class C_Admin_Perfil extends CI_Controller {
 
 	public function index()	{
         $this->load->model("M_Usuario");
+        $this->load->model("M_GEO_Data");
         $modulo = new stdClass();
         $modulo->titulo_pagina = "TMO | Panel Principal - Perfil";
         
         $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
-        
+
         $modulo->datos_usuario = $usuario[0];
-        
+        $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
+
         /* Datos de la cabecera del panel de administrador*/
         $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
         $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
