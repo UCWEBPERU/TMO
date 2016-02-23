@@ -110,7 +110,7 @@
 
                                                 <div class="form-group">
                                                     <label for="cboTipoEmpresa">Business Type</label>
-                                                    <select id="cboTipoEmpresa"  name="cboTipoEmpresa"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
+                                                    <select id="cboTipoEmpresa"  name="cboTipoEmpresa"  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
                                                         <option value="" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                             <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
@@ -148,7 +148,7 @@
 
                                                 <div class="form-group">
                                                     <label for="cboCountry">Country</label>
-                                                    <select id="cboCountry" name="cboCountry" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
+                                                    <select id="cboCountry" name="cboCountry" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
                                                         <option value="" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->data_geo_countries as $geo_country): ?>
                                                             <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
@@ -158,14 +158,14 @@
 
                                                 <div class="form-group">
                                                     <label for="cboRegion">State</label>
-                                                    <select id="cboRegion" name="cboRegion" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
+                                                    <select id="cboRegion" name="cboRegion" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
                                                         <option value="" selected="selected">Seleccione</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="cboCity">City</label>
-                                                    <select id="cboCity" name="cboCity" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
+                                                    <select id="cboCity" name="cboCity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
                                                         <option value="" selected="selected">Seleccione</option>
                                                     </select>
                                                 </div>
@@ -209,7 +209,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="cboPaqueteTmo">Paquete TMO</label>
-                                                    <select id="cboPaqueteTmo"  name="cboPaqueteTmo"  class="form-control select2 " style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un paquete.">
+                                                    <select id="cboPaqueteTmo"  name="cboPaqueteTmo"  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un paquete.">
                                                         <option value="" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->paquetes_tmo as $paquete): ?>
                                                             <option value="<?php echo $paquete->id_paquetes_tmo; ?>"><?php echo $paquete->nombre_paquete; ?></option>
@@ -249,7 +249,7 @@
     $(function () {
 
         //Initialize Select2 Elements
-        $(".select2").select2();
+        $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
 
         var formData  = new FormData();
 
@@ -369,10 +369,15 @@
             }
 
         });
+        $("#idCountry").select2()
+            .on("change", function(event) {
+                alert("CLICK");
+                alert($(this).val());
+            });
 
-        $("#idCountry").on("change", function(event) {
-            alert("CLICK");
-            alert($(this).val());
+//        $("#idCountry").on("change", function(event) {
+//            alert("CLICK");
+//            alert($(this).val());
 //            $("#idRegion").empty();
 //            $("#idRegion").append("<option value='' selected='selected'>Cargando...</option>");
 //            formData.append("code_country", $(this).val());
@@ -402,7 +407,7 @@
 //                waitingDialog.hide();
 //                GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
 //            });
-        });
+//        });
 
         $("#idRegion").on("change", function() {
             $("#idCity").empty();
