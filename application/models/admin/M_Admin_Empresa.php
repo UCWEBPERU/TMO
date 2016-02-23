@@ -18,7 +18,8 @@ class M_Admin_Empresa extends CI_Model{
 							Empresa.celular_trabajo, 
 							Empresa.fax, 
 							Empresa.direccion, 
-							Empresa.direccion_2, 
+							Empresa.direccion_2,
+							Empresa.fecha_registro,
 							Tipo_Empresa.nombre_tipo_empresa");
         
         // GEO_Countries.code as 'code_pais',
@@ -58,7 +59,8 @@ class M_Admin_Empresa extends CI_Model{
 							Empresa.fax, 
 							Empresa.direccion, 
 							Empresa.direccion_2,
-							Tipo_Empresa.nombre_tipo_empresa as 'nombre_tipo_empresa'");
+							Empresa.fecha_registro,
+							Tipo_Empresa.nombre_tipo_empresa");
 		$this->db->join('Tipo_Empresa', 'Tipo_Empresa.id_tipo_empresa = Empresa.id_tipo_empresa');
 		$this->db->where('Empresa.estado', '1');
 		$this->db->limit($limit, $start);
