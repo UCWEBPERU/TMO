@@ -87,6 +87,8 @@
 
 </div><!-- ./wrapper -->
 <?php $this->load->view('template/main-panel/scripts-footer'); ?>
+<!-- Sweet Alert -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <script>
     $(function () {
         var baseUrl   = "<?php echo base_url(); ?>";
