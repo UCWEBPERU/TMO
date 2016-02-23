@@ -248,9 +248,6 @@
 <script>
     $(function () {
 
-        //Initialize Select2 Elements
-        $(".select2").select2();
-
         var formData  = new FormData();
 
         function handleFileSelect(evt) {
@@ -479,6 +476,9 @@
                 GenericModal.show("danger", "<p>" + textStatus + "</p>");
             });
         });
+
+        //Initialize Select2 Elements
+        $(".select2").select2();
 
     });
 
