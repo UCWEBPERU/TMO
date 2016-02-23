@@ -22,7 +22,7 @@ class M_GEO_Data extends CI_Model{
     public function getRegionByCodeAndCountry($data) {
         $this->db->order_by("name", "asc");
         $this->db->where('country', $data["code_country"]);
-        $this->db->where('region', $data["code_region"]);
+        $this->db->where('code', $data["code_region"]);
         $query = $this->db->get('GEO_Regions');
         return $query->result();
     }
