@@ -21,7 +21,7 @@ class UploadFile {
 		// $fullPath = "http://".$_SERVER["HTTP_HOST"]."/AlliNight".$pathUploadFile.basename($_FILES["$file"]['name']);
 		// $fullPath = base_url().$pathUploadFile.basename($_FILES["$file"]['name']);
 		// $fullPath = base_url().$mainPath.$_FILES["$file"]['name'];
-		$fullPath = base_url().$pathUploadFile.$name.".png";
+		$fullPath = base_url().$mainPath.$name.".png";
 		
 		if (move_uploaded_file($_FILES["$file"]['tmp_name'], $pathUpload)) {
 		    //  echo "Success";
