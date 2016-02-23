@@ -371,6 +371,7 @@
         });
 
         $("#idCountry").on("select2:select", function(event) {
+            alert("CLICK");
             $("#idRegion").empty();
             $("#idRegion").append("<option value='' selected='selected'>Cargando...</option>");
             formData.append("code_country", $(this).val());
