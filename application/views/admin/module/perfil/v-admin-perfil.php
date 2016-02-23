@@ -150,7 +150,7 @@
     GenericModal.config("#genericModal", "");
 
     $(function () {
-
+        var formData  = new FormData();
         var baseUrl = "<?php echo base_url(); ?>";
         var selectorInputsFormPerfilUsuario = ["#txtNombres", "#txtApellidos", "#txtPais", "#txtEstado", "#txtDireccion", "#txtNumeroCelular", "#txtNumeroTelefono"];
         var selectorInputsFormDatosUsuario = ["#txtPassword", "#txtPasswordRepeat"];
