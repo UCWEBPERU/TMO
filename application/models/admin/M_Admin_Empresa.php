@@ -56,7 +56,7 @@ class M_Admin_Empresa extends CI_Model{
 							Empresa.fax, 
 							Empresa.direccion, 
 							Empresa.direccion_2,
-							Tipo_Empresa.nombre_tipo_empresa");
+							Tipo_Empresa.nombre_tipo_empresa as nombre_tipo_empresa");
 		$this->db->join('Tipo_Empresa', 'Tipo_Empresa.id_tipo_empresa = Empresa.id_tipo_empresa');
 		$this->db->where('Empresa.estado', '1');
 		$query = $this->db->get('Empresa');
