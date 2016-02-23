@@ -123,8 +123,9 @@
                                             <div class="col-md-4">
 
                                                 <div class="form-group">
+<!--                                                    data-parsley-pattern="^[\d\+\-\.\(\)\/\s]*$"-->
                                                     <label for="txtMobilePhone">Mobile Phone</label>
-                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el numero de celular.">
+                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="40" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
                                                 </div>
 
                                                 <div class="form-group">
@@ -202,8 +203,8 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="logoEmpresa">Añadir Logo Institucional</label>
-                                                    <input type="file" class="form-control" id="logoEmpresa" name="logoEmpresa">
+                                                    <label for="fileLogoEmpresa">Añadir Logo Institucional</label>
+                                                    <input type="file" class="form-control" id="fileLogoEmpresa" name="fileLogoEmpresa">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -374,7 +375,6 @@
             .on("change", function(event) {
                 $("#cboRegion").empty();
                 $("#cboRegion").append("<option value='' selected='selected'>Cargando...</option>");
-                $("#cboRegion").trigger("change");
                 formData.append("code_country", $(this).val());
                 var request = $.ajax({
                     url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
@@ -408,7 +408,6 @@
             .on("change", function(event) {
                 $("#cboCity").empty();
                 $("#cboCity").append("<option value='' selected='selected'>Cargando...</option>");
-                $("#cboCity").trigger("change");
                 formData.append("code_country", $("#cboCountry").val());
                 formData.append("code_region", $(this).val());
                 var request = $.ajax({
@@ -461,7 +460,13 @@
             }
         });
 
-        $("#logo_empresa").on("change", handleFileSelect);
+        var objHandleFile = new HandleFile("#fileLogoEmpresa");
+        objHandleFile.onSelect(
+            function(file) {
+                formData.append("fileLogoEmpresa", file);
+            },
+            function(readResult) {}
+        );
 
         $("#btnGenerarPassword").on("click", function(){
             waitingDialog.show('Generando Contraseña...');
