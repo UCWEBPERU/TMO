@@ -10,7 +10,7 @@
 	<td><?php echo $modeloRow->nombre_tipo_empresa; ?></td>
 	<td><?php echo $modeloRow->direccion; ?></td>
 	<td><?php echo $modeloRow->celular_personal; ?></td>
-	<td><?php echo $modeloRow->fecha_registro; ?></td>
+	<td><?php $fecha_registro = new DateTime($modeloRow->fecha_registro); echo date_format($fecha_registro, 'Y-m-d'); ?></td>
 
 	<td>
 		<!--<a href="<?php echo base_url().$modulo->base_url.intval($modeloRow->id_empresa); ?>" data-row-type="empresa" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_empresa; ?>" class="btnActionRow"><span class="label label-primary">Editar</span>-->
