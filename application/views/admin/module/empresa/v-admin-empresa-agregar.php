@@ -372,76 +372,69 @@
 
         $("#cboCountry").select2()
             .on("change", function(event) {
-                alert("CLICK");
-                alert($(this).val());
-            });
+                $("#idRegion").empty();
+                $("#idRegion").append("<option value='' selected='selected'>Cargando...</option>");
+                formData.append("code_country", $(this).val());
+                var request = $.ajax({
+                    url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
+                    method: "POST",
+                    data: formData,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false
+                });
 
-//        $("#idCountry").on("change", function(event) {
-//            alert("CLICK");
-//            alert($(this).val());
-//            $("#idRegion").empty();
-//            $("#idRegion").append("<option value='' selected='selected'>Cargando...</option>");
-//            formData.append("code_country", $(this).val());
-//            var request = $.ajax({
-//                url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
-//                method: "POST",
-//                data: formData,
-//                dataType: "json",
-//                processData: false,
-//                contentType: false
-//            });
-//
-//            request.done(function( response ) {
-//                formData = new FormData();
-//                if (response.status) {
-//                    var html = "<option value='' selected='selected'>Seleccione</option>";
-//                    for (var c = 0; c < response.data.length; c++ ) {
-//                        html += "<option value='" + response.data[c].code + "'>" + response.data[c].name + "</option>";
-//                    }
-//                    $("#idRegion").empty();
-//                    $("#idRegion").append(html);
-//                }
-//            });
-//
-//            request.fail(function( jqXHR, textStatus ) {
-//                formData = new FormData();
-//                waitingDialog.hide();
-//                GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
-//            });
-//        });
-
-        $("#idRegion").on("change", function() {
-            $("#idCity").empty();
-            $("#idCity").append("<option value='' selected='selected'>Cargando...</option>");
-            formData.append("code_country", $("#idCountry").val());
-            formData.append("code_region", $(this).val());
-            var request = $.ajax({
-                url: baseUrl + "api-rest/geo-data/getCitiesByRegionAndCountry",
-                method: "POST",
-                data: formData,
-                dataType: "json",
-                processData: false,
-                contentType: false
-            });
-
-            request.done(function( response ) {
-                formData = new FormData();
-                if (response.status) {
-                    var html = "<option value='' selected='selected'>Seleccione</option>";
-                    for (var c = 0; c < response.data.length; c++ ) {
-                        html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
+                request.done(function( response ) {
+                    formData = new FormData();
+                    if (response.status) {
+                        var html = "<option value='' selected='selected'>Seleccione</option>";
+                        for (var c = 0; c < response.data.length; c++ ) {
+                            html += "<option value='" + response.data[c].code + "'>" + response.data[c].name + "</option>";
+                        }
+                        $("#idRegion").empty();
+                        $("#idRegion").append(html);
                     }
-                    $("#idCity").empty();
-                    $("#idCity").append(html);
-                }
-            });
+                });
 
-            request.fail(function( jqXHR, textStatus ) {
-                formData = new FormData();
-                waitingDialog.hide();
-                GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar las ciudades.</p>");
+                request.fail(function( jqXHR, textStatus ) {
+                    formData = new FormData();
+                    waitingDialog.hide();
+                    GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
+                });
             });
-        });
+        $("#idRegion").select2()
+            .on("change", function(event) {
+                $("#idCity").empty();
+                $("#idCity").append("<option value='' selected='selected'>Cargando...</option>");
+                formData.append("code_country", $("#idCountry").val());
+                formData.append("code_region", $(this).val());
+                var request = $.ajax({
+                    url: baseUrl + "api-rest/geo-data/getCitiesByRegionAndCountry",
+                    method: "POST",
+                    data: formData,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false
+                });
+
+                request.done(function( response ) {
+                    formData = new FormData();
+                    if (response.status) {
+                        var html = "<option value='' selected='selected'>Seleccione</option>";
+                        for (var c = 0; c < response.data.length; c++ ) {
+                            html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
+                        }
+                        $("#idCity").empty();
+                        $("#idCity").append(html);
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    formData = new FormData();
+                    waitingDialog.hide();
+                    GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar las ciudades.</p>");
+                });
+            });
 
         $("#btnVerPassword").on("click", function(evt) {
             evt.preventDefault();
