@@ -70,7 +70,7 @@
 
                                                 <div class="form-group">
                                                     <label for="txtEmail">Email</label>
-                                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese el email.">
+                                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="40" data-parsley-required data-parsley-type="email" data-parsley-required-message="Ingrese el email." data-parsley-email-message="Ingrese un email valido.">
                                                 </div>
 
                                                 <div class="row">
@@ -370,7 +370,7 @@
 
         });
 
-        $("#idCountry").on("change", function() {
+        $("#idCountry").on("select2:select", function(event) {
             $("#idRegion").empty();
             $("#idRegion").append("<option value='' selected='selected'>Cargando...</option>");
             formData.append("code_country", $(this).val());
