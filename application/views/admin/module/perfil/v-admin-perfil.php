@@ -66,24 +66,63 @@
                                 <div class="form-group">
                                     <label for="cboCountry">Country</label>
                                     <select id="cboCountry" name="cboCountry" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
-                                        <option value="" selected="selected">Seleccione</option>
-                                        <?php foreach($modulo->data_geo_countries as $geo_country): ?>
-                                            <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
-                                        <?php endforeach; ?>
+                                        <?php if (strlen($modulo->datos_usuario->pais_persona) > 0) { ?>
+                                                <option value="">Seleccione</option>
+                                                <?php foreach($modulo->data_geo_countries as $geo_country): ?>
+                                                    <?php if ($geo_country->code == $modulo->datos_usuario->pais_persona) { ?>
+                                                    <option value="<?php echo $geo_country->code; ?>" selected="selected"><?php echo $geo_country->name; ?></option>
+                                                    <?php } else { ?>
+                                                    <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
+                                                    <?php } ?>
+                                                <?php endforeach; ?>
+                                        <?php } else { ?>
+                                                <option value="" selected="selected">Seleccione</option>
+                                                <?php foreach($modulo->data_geo_countries as $geo_country): ?>
+                                                    <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
+                                                <?php endforeach; ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="cboRegion">State</label>
                                     <select id="cboRegion" name="cboRegion" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
-                                        <option value="" selected="selected">Seleccione</option>
+                                        <?php if (strlen($modulo->datos_usuario->region_persona) > 0) { ?>
+                                            <option value="">Seleccione</option>
+                                            <?php foreach($modulo->data_geo_regions as $geo_region): ?>
+                                                <?php if ($geo_region->code == $modulo->datos_usuario->region_persona) { ?>
+                                                    <option value="<?php echo $geo_region->code; ?>" selected="selected"><?php echo $geo_region->name; ?></option>
+                                                <?php } else { ?>
+                                                    <option value="<?php echo $geo_region->code; ?>"><?php echo $geo_region->name; ?></option>
+                                                <?php } ?>
+                                            <?php endforeach; ?>
+                                        <?php } else { ?>
+                                            <option value="" selected="selected">Seleccione</option>
+                                            <?php foreach($modulo->data_geo_regions as $geo_region): ?>
+                                                <option value="<?php echo $geo_region->code; ?>"><?php echo $geo_region->name; ?></option>
+                                            <?php endforeach; ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="cboCity">City</label>
                                     <select id="cboCity" name="cboCity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
-                                        <option value="" selected="selected">Seleccione</option>
+                                        <?php if (strlen($modulo->datos_usuario->ciudad_persona) > 0) { ?>
+                                            <option value="">Seleccione</option>
+                                            <?php foreach($modulo->data_geo_cities as $geo_ciudad): ?>
+                                                <?php if ($geo_ciudad->ID == $modulo->datos_usuario->ciudad_persona) { ?>
+                                                    <option value="<?php echo $geo_ciudad->ID; ?>" selected="selected"><?php echo $geo_ciudad->name; ?></option>
+                                                <?php } else { ?>
+                                                    <option value="<?php echo $geo_ciudad->ID; ?>"><?php echo $geo_ciudad->name; ?></option>
+                                                <?php } ?>
+                                            <?php endforeach; ?>
+                                        <?php } else { ?>
+                                            <option value="" selected="selected">Seleccione</option>
+                                            <?php foreach($modulo->data_geo_cities as $geo_ciudad): ?>
+                                                <option value="<?php echo $geo_ciudad->ID; ?>"><?php echo $geo_ciudad->name; ?></option>
+                                            <?php endforeach; ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
 

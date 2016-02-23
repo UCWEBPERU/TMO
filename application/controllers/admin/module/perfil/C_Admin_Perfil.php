@@ -19,8 +19,16 @@ class C_Admin_Perfil extends CI_Controller {
         
         $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
 
-        $modulo->datos_usuario = $usuario[0];
-        $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
+        $modulo->datos_usuario      = $usuario[0];
+        $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
+        $modulo->data_geo_regions   = $this->M_GEO_Data->getRegionsByCountry($modulo->datos_usuario->pais_persona);
+        $modulo->data_geo_cities    = $this->M_GEO_Data->getCitiesByRegionAndCountry(
+                array(
+                    "code_country"  => $modulo->datos_usuario->pais_persona,
+                    "code_region"   => $modulo->datos_usuario->region_persona
+                )
+            );
+
 
         /* Datos de la cabecera del panel de administrador*/
         $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
