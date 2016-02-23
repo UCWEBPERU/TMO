@@ -52,7 +52,7 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
           <a class="link-shorcut" href="admin/tipo-empresa">
             <div class="info-box">
-              <span class="info-box-icon bg-green"><i class="fa fa-list-alt"></i></span>
+              <span class="info-box-icon bg-blue"><i class="fa fa-list-alt"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Paquetes TMO</span>
                 <span class="info-box-number"></span>
