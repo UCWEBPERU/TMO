@@ -372,8 +372,8 @@
 
         $("#cboCountry").select2()
             .on("change", function(event) {
-                $("#idRegion").empty();
-                $("#idRegion").append("<option value='' selected='selected'>Cargando...</option>");
+                $("#cboRegion").empty();
+                $("#cboRegion").append("<option value='' selected='selected'>Cargando...</option>");
                 formData.append("code_country", $(this).val());
                 var request = $.ajax({
                     url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
@@ -391,8 +391,8 @@
                         for (var c = 0; c < response.data.length; c++ ) {
                             html += "<option value='" + response.data[c].code + "'>" + response.data[c].name + "</option>";
                         }
-                        $("#idRegion").empty();
-                        $("#idRegion").append(html);
+                        $("#cboRegion").empty();
+                        $("#cboRegion").append(html);
                     }
                 });
 
@@ -402,10 +402,11 @@
                     GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
                 });
             });
-        $("#idRegion").select2()
+
+        $("#cboRegion").select2()
             .on("change", function(event) {
-                $("#idCity").empty();
-                $("#idCity").append("<option value='' selected='selected'>Cargando...</option>");
+                $("#cboCity").empty();
+                $("#cboCity").append("<option value='' selected='selected'>Cargando...</option>");
                 formData.append("code_country", $("#idCountry").val());
                 formData.append("code_region", $(this).val());
                 var request = $.ajax({
@@ -424,8 +425,8 @@
                         for (var c = 0; c < response.data.length; c++ ) {
                             html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
                         }
-                        $("#idCity").empty();
-                        $("#idCity").append(html);
+                        $("#cboCity").empty();
+                        $("#cboCity").append(html);
                     }
                 });
 
@@ -434,6 +435,11 @@
                     waitingDialog.hide();
                     GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar las ciudades.</p>");
                 });
+            });
+
+        $("#cboCity").select2()
+            .on("change", function(event) {
+
             });
 
         $("#btnVerPassword").on("click", function(evt) {
