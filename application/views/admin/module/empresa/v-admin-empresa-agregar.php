@@ -249,7 +249,7 @@
     $(function () {
 
         //Initialize Select2 Elements
-        $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
+        $("#cboTipoEmpresa, #cboPaqueteTmo, #idCountry").select2();
 
         var formData  = new FormData();
 
