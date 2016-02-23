@@ -363,12 +363,12 @@ class C_Admin_Empresa extends CI_Controller {
 		if ( isset($_FILES["fileLogoEmpresa"]) && !empty($_FILES["fileLogoEmpresa"]) ) {
 
 			$path = "uploads/store/".$id_empresa."/logo/";
-
+			echo "FILE SUCESS";
 			$path = $this->uploadfile->upload("fileLogoEmpresa", "logo", $path);
 			return array("state" => TRUE, "path" => $path);
 
 		}
-		echo "No encontro fileLogoEmpresa";
+
 		return array("state" => FALSE, "path" => base_url()."resources/admin/img/image_not_found.png");
 	}
     

@@ -315,17 +315,17 @@
                             $("#txtPassword").val("");
                             $("#txtRepeatPassword").val("");
                             $("#txtOrganization").val("");
-                            $("#cboTipoEmpresa").val("");
+                            $("#cboTipoEmpresa").val("").trigger("change");
                             $("#txtMobilePhone").val("");
                             $("#txtHomePhone").val("");
                             $("#txtWorkPhone").val("");
                             $("#txtFax").val("");
-                            $("#cboCountry").val("");
-                            $("#cboRegion").val("");
-                            $("#cboCity").val("");
+                            $("#cboCountry").val("").trigger("change");
+                            $("#cboRegion").val("").trigger("change");
+                            $("#cboCity").val("").trigger("change");
                             $("#txtAddress").val("");
                             $("#txtAddress2").val("");
-                            $("#cboPaqueteTmo").val();
+                            $("#cboPaqueteTmo").val("").trigger("change");
                         }
 
                     } else {
