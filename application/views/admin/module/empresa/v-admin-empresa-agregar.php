@@ -369,11 +369,12 @@
             }
 
         });
-        $("#idCountry").select2()
-            .on("change", function(event) {
-                alert("CLICK");
-                alert($(this).val());
-            });
+
+//        $("#idCountry").select2()
+//            .on("change", function(event) {
+//                alert("CLICK");
+//                alert($(this).val());
+//            });
 
 //        $("#idCountry").on("change", function(event) {
 //            alert("CLICK");
