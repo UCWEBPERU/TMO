@@ -102,7 +102,7 @@
             if ( $(this).attr("data-row-action") == "delete") {
                 evt.preventDefault();
                 urlApi = baseUrl + "<?php echo $modulo->base_url; ?>delete";
-                formData.append("id_paquete_tmo", $(this).attr("data-row-id"));
+                formData.append("id_empresa", $(this).attr("data-row-id"));
 
                 swal({
                         title: "Eliminar Empresa",
