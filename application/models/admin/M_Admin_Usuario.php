@@ -58,9 +58,11 @@ class M_Admin_Usuario extends CI_Model {
 	}
 
 	public function getTotalUsuariosStore() {
+		$this->db->join('Usuarios_Asignados', 'Usuarios_Asignados.id_usuario = Usuario.id_usuario');
+		$this->db->join('Empresa', 'Empresa.id_empresa = Usuarios_Asignados.id_empresa');
 		$this->db->join('Persona', 'Persona.id_usuario = Usuario.id_usuario');
 		$this->db->join('Tipo_Usuario', 'Tipo_Usuario.id_tipo_usuario = Usuario.id_tipo_usuario');
-		$this->db->join('Empresa', 'Empresa.id_usuario = Usuario.id_usuario');
+		$this->db->where('Empresa.estado', '1');
 		$this->db->where('Usuario.estado', '1');
 		$this->db->where('Usuario.id_tipo_usuario', 2);
 		$this->db->where('Tipo_Usuario.estado', '1');
