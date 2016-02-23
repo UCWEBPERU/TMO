@@ -140,7 +140,7 @@ class M_Admin_Empresa extends CI_Model{
 		$data = array(
 			'id_usuario'         => $data["id_usuario"],
 			'nombres_persona'    => $data["nombres_persona"],
-			'apellidos_persona'  => $data["apellido_persona"]
+			'apellidos_persona'  => $data["apellidos_persona"]
 		);
 		if ($this->db->insert('Persona', $data)) {
 			return $this->db->insert_id();
