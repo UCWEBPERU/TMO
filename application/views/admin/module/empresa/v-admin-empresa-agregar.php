@@ -248,6 +248,9 @@
 <script>
     $(function () {
 
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
         var formData  = new FormData();
 
         function handleFileSelect(evt) {
@@ -369,35 +372,36 @@
 
         $("#idCountry").on("select2:select", function(event) {
             alert("CLICK");
-            $("#idRegion").empty();
-            $("#idRegion").append("<option value='' selected='selected'>Cargando...</option>");
-            formData.append("code_country", $(this).val());
-            var request = $.ajax({
-                url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
-                method: "POST",
-                data: formData,
-                dataType: "json",
-                processData: false,
-                contentType: false
-            });
-
-            request.done(function( response ) {
-                formData = new FormData();
-                if (response.status) {
-                    var html = "<option value='' selected='selected'>Seleccione</option>";
-                    for (var c = 0; c < response.data.length; c++ ) {
-                        html += "<option value='" + response.data[c].code + "'>" + response.data[c].name + "</option>";
-                    }
-                    $("#idRegion").empty();
-                    $("#idRegion").append(html);
-                }
-            });
-
-            request.fail(function( jqXHR, textStatus ) {
-                formData = new FormData();
-                waitingDialog.hide();
-                GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
-            });
+            alert($(this).val());
+//            $("#idRegion").empty();
+//            $("#idRegion").append("<option value='' selected='selected'>Cargando...</option>");
+//            formData.append("code_country", $(this).val());
+//            var request = $.ajax({
+//                url: baseUrl + "api-rest/geo-data/getRegionsByCountry",
+//                method: "POST",
+//                data: formData,
+//                dataType: "json",
+//                processData: false,
+//                contentType: false
+//            });
+//
+//            request.done(function( response ) {
+//                formData = new FormData();
+//                if (response.status) {
+//                    var html = "<option value='' selected='selected'>Seleccione</option>";
+//                    for (var c = 0; c < response.data.length; c++ ) {
+//                        html += "<option value='" + response.data[c].code + "'>" + response.data[c].name + "</option>";
+//                    }
+//                    $("#idRegion").empty();
+//                    $("#idRegion").append(html);
+//                }
+//            });
+//
+//            request.fail(function( jqXHR, textStatus ) {
+//                formData = new FormData();
+//                waitingDialog.hide();
+//                GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
+//            });
         });
 
         $("#idRegion").on("change", function() {
@@ -476,9 +480,6 @@
                 GenericModal.show("danger", "<p>" + textStatus + "</p>");
             });
         });
-
-        //Initialize Select2 Elements
-        $(".select2").select2();
 
     });
 
