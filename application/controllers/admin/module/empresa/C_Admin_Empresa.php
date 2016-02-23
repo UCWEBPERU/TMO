@@ -142,78 +142,213 @@ class C_Admin_Empresa extends CI_Controller {
 	}
 
 	public function insert() {
+        $this->load->model('M_Empresa');
+        $this->load->model('M_Tipo_Empresa');
+        $this->load->model('M_GEO_Data');
+        $this->load->model('M_Admin_Paquetes_TMO');
         $this->load->library('security/Cryptography');
-        
+
 		$json 				= new stdClass();
 		$json->type 		= "Empresa";
 		$json->presentation = "";
 		$json->action 		= "insert";
 		$json->data 		= array();
 		$json->status 		= FALSE;
-		
-		if ( $this->input->method(TRUE) == "POST" ) {
-            
-			if ( $this->input->post("nombre_empresa") &&
-                    $this->input->post("id_tipo_empresa") &&
-                    $this->input->post("nombres_persona") &&
-                    $this->input->post("apellido_persona") &&
-                    $this->input->post("email_usuario") &&
-                    $this->input->post("password_usuario")) {
-					
-					$result1 = $this->M_Admin_Empresa->insertUsuario(
-                        trim($this->input->post("email_usuario", TRUE)), 
-                        $this->cryptography->Encrypt(trim($this->input->post("password_usuario", TRUE)))
-					);
-                    
-					if (is_int($result1)) {
-						$result2 = $this->M_Admin_Empresa->insertPersona(
-							$result1,
-							trim($this->input->post("nombres_persona", TRUE)), 
-							trim($this->input->post("apellido_persona", TRUE)) 
-						);
-                        
-						if (is_int($result2)) {
-                                
-                            $result3 = $this->M_Admin_Empresa->insertEmpresa(
-                                trim($this->input->post("id_tipo_empresa", TRUE)),
-                                $result1,
-                                trim($this->input->post("nombre_empresa", TRUE))							
-                            );	
 
-                            if (is_int($result3)) {
-                                
-                                $path = $this->uploadImage($result3);
-                                
-                                $result4 = $this->M_Admin_Empresa->insertArchivo(
-                                    array("url_archivo"     => $path["path"], 
-                                        "tipo_archivo"      => "image/png",
-                                        "relacion_recurso"  => "logo",
-                                        "nombre_archivo"    => "logo.png"
-                                    )
-                                );
-                                
-                                $this->M_Admin_Empresa->updateIDLogo($result3, $result4);
-                                
-                                $json->message = "La Empresa se Agrego Correctamente.";
-                                array_push($json->data, array("id_empresa" => $result4));
-                                $json->status = TRUE;
-                                
-                            } else {
-                                $json->message = "Ocurrio un error al agregar la Empresa, intente de nuevo.";
-                            }
-                            
+		if ( $this->input->post("txtFirstName") &&
+			$this->input->post("txtLastName") &&
+			$this->input->post("txtEmail") &&
+			$this->input->post("txtPassword") &&
+			$this->input->post("txtRepeatPassword") &&
+			$this->input->post("txtOrganization") &&
+			$this->input->post("cboTipoEmpresa") &&
+			$this->input->post("txtMobilePhone") &&
+			$this->input->post("cboCountry") &&
+			$this->input->post("cboRegion") &&
+			$this->input->post("cboCity") &&
+			$this->input->post("txtAddress") &&
+			$this->input->post("cboPaqueteTmo")) {
+
+			/* Validar Datos */
+			$validate = $this->M_Empresa->getEmpresaByName(trim($this->input->post("txtOrganization", TRUE)));
+
+			if (sizeof($validate) == 0) {
+				unset($validate);
+				$validate = $this->M_Usuario->getByEmail(trim($this->input->post("txtEmail", TRUE)));
+
+				if (sizeof($validate) == 0) {
+					unset($validate);
+					$validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
+
+					if (sizeof($validate) > 0) {
+						unset($validate);
+						$validate = $this->M_Admin_Paquetes_TMO->getPaqueteTMOByID(trim($this->input->post("cboPaqueteTmo", TRUE)));
+
+						if (sizeof($validate) > 0) {
+							unset($validate);
+							$validate = $this->M_GEO_Data->getCountryByCode(trim($this->input->post("cboCountry", TRUE)));
+
+							if (sizeof($validate) > 0) {
+								unset($validate);
+								$validate = $this->M_GEO_Data->getRegionByCodeAndCountry(
+									array(
+										"code_country"	=> trim($this->input->post("cboCountry", TRUE)),
+										"code_region"	=> trim($this->input->post("cboRegion", TRUE))
+									));
+
+								if (sizeof($validate) > 0) {
+									unset($validate);
+									$validate = $this->M_GEO_Data->getCityByIDAndRegionAndCountry(
+										array(
+											"id_city"		=> trim($this->input->post("cboCity", TRUE)),
+											"code_country"	=> trim($this->input->post("cboCountry", TRUE)),
+											"code_region"	=> trim($this->input->post("cboRegion", TRUE))
+										));
+
+									if (sizeof($validate) > 0) {
+
+										/* Registrar Datos */
+										$result1 = $this->M_Admin_Empresa->insertUsuario(
+											array(
+												"email" 	=> trim($this->input->post("txtEmail", TRUE)),
+												"password" 	=> $this->cryptography->Encrypt(trim($this->input->post("txtPassword", TRUE)))
+											)
+										);
+
+										$result2 = $this->M_Admin_Empresa->insertPersona(
+											array(
+												'id_usuario'         => $result1,
+												'nombres_persona'    => trim($this->input->post("txtFirstName", TRUE)),
+												'apellidos_persona'  => trim($this->input->post("txtLastName", TRUE))
+											)
+										);
+
+										$result3 = $this->M_Admin_Empresa->insertEmpresa(
+											array(
+												"id_tipo_empresa"			=> trim($this->input->post("cboTipoEmpresa", TRUE)),
+												"organization"				=> trim($this->input->post("txtOrganization", TRUE)),
+												"nombres_representante"		=> trim($this->input->post("txtFirstName", TRUE)),
+												"apellidos_representante"	=> trim($this->input->post("txtLastName", TRUE)),
+												"email_representante"		=> trim($this->input->post("txtEmail", TRUE)),
+												"celular_personal"			=> trim($this->input->post("txtMobilePhone", TRUE)),
+												"telefono"					=> trim($this->input->post("txtHomePhone", TRUE)),
+												"celular_trabajo"			=> trim($this->input->post("txtWorkPhone", TRUE)),
+												"fax"						=> trim($this->input->post("txtFax", TRUE)),
+												"pais"						=> trim($this->input->post("cboCountry", TRUE)),
+												"region"					=> trim($this->input->post("cboRegion", TRUE)),
+												"ciudad"					=> trim($this->input->post("cboCity", TRUE)),
+												"direccion"					=> trim($this->input->post("txtAddress", TRUE)),
+												"direccion_2"				=> trim($this->input->post("txtAddress2", TRUE))
+											)
+										);
+
+										$result4 = $this->M_Admin_Empresa->insertUsuarioAsignado(
+											array(
+												"id_usuario" => $result1,
+												"id_empresa" => $result3
+											)
+										);
+
+										$result5 = $this->M_Admin_Empresa->insertSuscripcionPaqueteTMO(
+											array(
+												'id_empresa' 				=> $result3,
+												'id_paquete_tmo' 			=> trim($this->input->post("cboPaqueteTmo", TRUE)),
+												'fecha_inicio_suscripcion' 	=> date("Y-m-d"),
+												'fecha_fin_suscripcion' 	=> date('Y-m-d', strtotime("+30 days"))
+											)
+										);
+
+										$path = $this->uploadImage($result3);
+
+										$result4 = $this->M_Admin_Empresa->insertArchivo(
+											array(
+												"url_archivo"     	=> $path["path"],
+												"tipo_archivo"      => "image/png",
+												"relacion_recurso"  => "logo",
+												"nombre_archivo"    => "logo.png"
+											)
+										);
+
+										$this->M_Admin_Empresa->updateIDLogo($result3, $result4);
+
+										$json->message = "La empresa se creo correctamente.";
+										array_push($json->data, array("id_empresa" => $result4));
+										$json->status = TRUE;
+
+
+//										if (is_int($result1)) {
+//											$result2 = $this->M_Admin_Empresa->insertPersona(
+//												$result1,
+//												trim($this->input->post("nombres_persona", TRUE)),
+//												trim($this->input->post("apellido_persona", TRUE))
+//											);
+//
+//											if (is_int($result2)) {
+//
+//												$result3 = $this->M_Admin_Empresa->insertEmpresa(
+//													trim($this->input->post("id_tipo_empresa", TRUE)),
+//													$result1,
+//													trim($this->input->post("nombre_empresa", TRUE))
+//												);
+//
+//												if (is_int($result3)) {
+//
+//													$path = $this->uploadImage($result3);
+//
+//													$result4 = $this->M_Admin_Empresa->insertArchivo(
+//														array("url_archivo"     => $path["path"],
+//															"tipo_archivo"      => "image/png",
+//															"relacion_recurso"  => "logo",
+//															"nombre_archivo"    => "logo.png"
+//														)
+//													);
+//
+//													$this->M_Admin_Empresa->updateIDLogo($result3, $result4);
+//
+//													$json->message = "La Empresa se Agrego Correctamente.";
+//													array_push($json->data, array("id_empresa" => $result4));
+//													$json->status = TRUE;
+//
+//												} else {
+//													$json->message = "Ocurrio un error al agregar la Empresa, intente de nuevo.";
+//												}
+//
+//											} else {
+//												$json->message = "Ocurrio un error al agregar la Persona, intente de nuevo.";
+//											}
+//
+//										} else {
+//											$json->message = "Ocurrio un error al agregar el Usuario, intente de nuevo.";
+//										}
+
+									} else {
+										$json->message = "Lo sentimos la ciudad ingresada no existe, intente de nuevo.";
+									}
+
+								} else {
+									$json->message = "Lo sentimos el estado/region ingresado no existe, intente de nuevo.";
+								}
+
+							} else {
+								$json->message = "Lo sentimos el pais ingresado no existe, intente de nuevo.";
+							}
+
 						} else {
-							$json->message = "Ocurrio un error al agregar la Persona, intente de nuevo.";
+							$json->message = "Lo sentimos el paquete tmo ingresado no existe, intente de nuevo.";
 						}
-                        					
+
 					} else {
-						$json->message = "Ocurrio un error al agregar el Usuario, intente de nuevo.";
+						$json->message = "Lo sentimos el tipo de empresa ingresado no existe, intente de nuevo.";
 					}
-				
+
+				} else {
+					$json->message = "Lo sentimos el email ingresado ya existe, intente de nuevo.";
+				}
+
 			} else {
-				$json->message = "No se recibio ningun dato.";
+				$json->message = "Lo sentimos la nombre de empresa ingresado ya existe, intente de nuevo.";
 			}
-			
+
 		} else {
 			$json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
 		}
@@ -225,11 +360,11 @@ class C_Admin_Empresa extends CI_Controller {
     private function uploadImage($id_empresa) {
 		$this->load->library('utils/UploadFile');
 		
-		if ( isset($_FILES["logo_empresa"]) && !empty($_FILES["logo_empresa"]) ) {
+		if ( isset($_FILES["fileLogoEmpresa"]) && !empty($_FILES["fileLogoEmpresa"]) ) {
 
 			$path = "uploads/store/".$id_empresa."/logo/";
 
-			$path = $this->uploadfile->upload("logo_empresa", "logo", $path);
+			$path = $this->uploadfile->upload("fileLogoEmpresa", "logo", $path);
 			return array("state" => TRUE, "path" => $path);
 
 		}

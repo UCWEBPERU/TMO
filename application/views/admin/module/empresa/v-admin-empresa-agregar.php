@@ -253,42 +253,13 @@
 
         var formData  = new FormData();
 
-        function handleFileSelect(evt) {
-            var files = evt.target.files; // FileList object
-
-            // Loop through the FileList and render image files as thumbnails.
-            for (var i = 0, f; f = files[i]; i++) {
-
-                // Only process image files.
-                if (!f.type.match('image.*')) {
-                    continue;
-                }
-
-                formData.append("logo_empresa", f);
-
-                var reader = new FileReader();
-
-                // Closure to capture the file information.
-                reader.onload = (function(theFile) {
-                    return function(e) {
-
-                        // $("#imagenProducto").attr("src", e.target.result);
-
-                    };
-                })(f);
-
-                // Read in the image file as a data URL.
-                reader.readAsDataURL(f);
-            }
-        }
-
         GenericModal.config("#genericModal", "");
 
         var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtRepeatPassword", "#txtOrganization", "#cboTipoEmpresa",
             "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#txtFax", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress", "#txtAddress2", "#cboPaqueteTmo"];
 
-        var baseUrl   = "<?php echo base_url(); ?>";
-        var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>
+        var baseUrl = "<?php echo base_url(); ?>";
+        var urlApi  = baseUrl + "admin/empresa/crear";
 
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();

@@ -98,11 +98,22 @@ class M_Admin_Empresa extends CI_Model{
 		return $query->result();
 	}
 
-	public function insertEmpresa($id_tipo_empresa, $id_usuario, $nombre_empresa) {
+	public function insertEmpresa($data) {
 		$data = array(
-			'id_tipo_empresa'			=> $id_tipo_empresa, 
-			'id_usuario'				=> $id_usuario,
-			'nombre_empresa'			=> $nombre_empresa
+			"id_tipo_empresa"			=> $data["id_tipo_empresa"],
+			"organization"				=> $data["organization"],
+			"nombres_representante"		=> $data["nombres_representante"],
+			"apellidos_representante"	=> $data["apellidos_representante"],
+			"email_representante"		=> $data["email_representante"],
+			"celular_personal"			=> $data["celular_personal"],
+			"telefono"					=> $data["telefono"],
+			"celular_trabajo"			=> $data["celular_trabajo"],
+			"fax"						=> $data["fax"],
+			"pais"						=> $data["pais"],
+			"region"					=> $data["region"],
+			"ciudad"					=> $data["ciudad"],
+			"direccion"					=> $data["direccion"],
+			"direccion_2"				=> $data["direccion_2"]
 		);
 		if ($this->db->insert('Empresa', $data)) {
 			return $this->db->insert_id();
@@ -111,10 +122,10 @@ class M_Admin_Empresa extends CI_Model{
 		return FALSE;
 	}
 
-	public function insertUsuario($email_usuario, $password_usuario) {
+	public function insertUsuario($data) {
 		$data = array(
-			'email_usuario'			 => $email_usuario, 
-			'password_usuario'		 => $password_usuario,
+			'email_usuario'			 => $data["email"],
+			'password_usuario'		 => $data["password"],
 			'id_tipo_usuario'		 => '2',
 			'fecha_registro_usuario' => date("Y-m-d")
 		);
@@ -124,17 +135,58 @@ class M_Admin_Empresa extends CI_Model{
 		
 		return FALSE;
 	}
-	public function insertPersona($id_usuario, $nombres_persona, $apellido_persona) {
+
+	public function insertPersona($data) {
 		$data = array(
-			'id_usuario'         => $id_usuario, 
-			'nombres_persona'    => $nombres_persona, 
-			'apellidos_persona'  => $apellido_persona
-			
+			'id_usuario'         => $data["id_usuario"],
+			'nombres_persona'    => $data["nombres_persona"],
+			'apellidos_persona'  => $data["apellido_persona"]
 		);
 		if ($this->db->insert('Persona', $data)) {
 			return $this->db->insert_id();
 		}
 		
+		return FALSE;
+	}
+
+	public function insertUsuarioAsignado($data) {
+		$data = array(
+			'id_usuario' => $data["id_usuario"],
+			'id_empresa' => $data["id_empresa"]
+		);
+		if ($this->db->insert('Usuarios_Asignados', $data)) {
+			return $this->db->insert_id();
+		}
+
+		return FALSE;
+	}
+
+	public function insertSuscripcionPaqueteTMO($data) {
+		$data = array(
+			'id_empresa' 				=> $data["id_empresa"],
+			'id_paquete_tmo' 			=> $data["id_paquete_tmo"],
+			'fecha_inicio_suscripcion' 	=> $data["fecha_inicio_suscripcion"],
+			'fecha_fin_suscripcion' 	=> $data["fecha_fin_suscripcion"]
+		);
+		if ($this->db->insert('Suscripcion_Paquete_TMO', $data)) {
+			return $this->db->insert_id();
+		}
+
+		return FALSE;
+	}
+
+	public function insertTienda($data) {
+		$data = array(
+			'nombre_tienda'	=> $data["nombre_tienda"],
+			'pais' 			=> $data["pais"],
+			'region' 		=> $data["region"],
+			'ciudad' 		=> $data["ciudad"],
+			'direccion' 	=> $data["direccion"]
+		);
+		if ($this->db->insert('Suscripcion_Paquete_TMO', $data)) {
+			return $this->db->insert_id();
+		}
+
 		return FALSE;
 	}
 

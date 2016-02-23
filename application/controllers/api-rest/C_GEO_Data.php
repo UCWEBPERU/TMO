@@ -25,11 +25,7 @@ class C_GEO_Data extends CI_Controller {
 
         if ( $this->input->post("code_country") ) {
 
-            $result = $this->M_GEO_Data->getRegionsByCountry(
-                array(
-                    "code" => trim($this->input->post("code_country", TRUE))
-                )
-            );
+            $result = $this->M_GEO_Data->getRegionsByCountry(trim($this->input->post("code_country", TRUE)));
 
             if (count($result) > 0) {
                 $json->message  = "Lista de regiones.";
