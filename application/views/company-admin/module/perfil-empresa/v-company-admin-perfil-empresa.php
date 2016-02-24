@@ -223,7 +223,21 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-
+                                                <div class="box box-primary">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">Logo Empresa</h3>
+                                                    </div>
+                                                    <div class="box-logo-store">
+                                                        <img id="logoStore" class="img-size-50" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
+                                                        <div class="btn btn-default btn-file">
+                                                            <i class="fa fa-paperclip"></i> Upload new logo
+                                                            <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-footer">
+                                                        <button id="btnActualizarLogoEmpresa" type="submit" class="btn btn-primary">Guardar</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
