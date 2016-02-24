@@ -8,11 +8,11 @@ class C_StoreAdmin_Empresa extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        $this->usersession->validateSession("panel-store-admin");
+        $this->usersession->validateSession("panel-company-admin");
 	}
 
 	public function index()	{
-        $this->load->model("store-admin/M_StoreAdmin_Empresa");
+        $this->load->model("company-admin/M_StoreAdmin_Empresa");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
         $this->load->model('M_Usuario');
@@ -53,11 +53,11 @@ class C_StoreAdmin_Empresa extends CI_Controller {
         $modulo->menu = array("menu" => 1, "submenu" => 0);
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/empresa/v-store-admin-empresa', $data);
+        $this->load->view('company-admin/module/empresa/v-company-admin-empresa', $data);
 	}
     
     public function updateDatosStore() {
-        $this->load->model("store-admin/M_StoreAdmin_Empresa");
+        $this->load->model("company-admin/M_StoreAdmin_Empresa");
         
 		$json 				= new stdClass();
 		$json->type 		= "Store";
@@ -99,7 +99,7 @@ class C_StoreAdmin_Empresa extends CI_Controller {
     }
     
     public function updateDatosPayAccount() {
-        $this->load->model("store-admin/M_StoreAdmin_Empresa");
+        $this->load->model("company-admin/M_StoreAdmin_Empresa");
         $this->load->model("M_Empresa");
         
 		$json 				= new stdClass();
@@ -164,7 +164,7 @@ class C_StoreAdmin_Empresa extends CI_Controller {
     }
     
     public function updateLogoStore() {
-        $this->load->model("store-admin/M_StoreAdmin_Empresa");
+        $this->load->model("company-admin/M_StoreAdmin_Empresa");
         $this->load->model("M_Empresa");
         $this->load->library('utils/UploadFile');
         

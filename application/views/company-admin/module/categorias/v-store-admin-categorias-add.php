@@ -9,20 +9,20 @@
       <?php 
         $data["menu"]     = $modulo->menu["menu"];
         $data["submenu"]  = $modulo->menu["submenu"];
-        $this->load->view('store-admin/v-store-admin-menu', $data); ?>
+        $this->load->view('company-admin/v-company-admin-menu', $data); ?>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Editar Categoria
+            Agregar Categoria
             <small><a href="<?php echo $modulo->url_main_panel; ?>/categorys">Regresar</a></small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li><a href="<?php echo $modulo->url_main_panel; ?>/categorys"> Categorias</a></li>
-            <li> Editar</li>
+            <li> Agregar</li>
           </ol>
         </section>
         <!-- Main content -->
@@ -38,26 +38,23 @@
                     <!-- form start -->
                     <form role="form" id="frmDatosCategoria">
                         <div class="box-body">
-                            <?php if (sizeof($modulo->data_categoria) == 0) { ?>
-                            <div class="callout callout-danger">
-                                <h4>No existe la categoria!</h4>
-                                <p>Lo sentimos la categoria que intenta editar no existe.</p>
-                            </div>
-                            <?php } else { ?>
-                            <input type="hidden" class="form-control" name="id_categoria" value="<?php echo $modulo->data_categoria[0]->id_categoria; ?>">
-                            <?php } ?>
+                            <div class="form-group">
+                                <label>Categoria Superior</label>
+                                <select class="form-control select2" style="width: 100%;" name="cboCategoriaSuperior">
+                                    <option selected="selected" value="">Seleccione</option>
+                                    <?php foreach($modulo->data_categorias as $categoria): ?>
+                                    <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label for="txtNombreCategoria">Nombre Categoria</label>
-                                <?php if (sizeof($modulo->data_categoria) > 0) { ?>
-                                <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" value="<?php echo $modulo->data_categoria[0]->nombre_categoria; ?>" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
-                                <?php } else { ?>
                                 <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">
-                                <?php } ?>
                             </div><!-- /.form-group -->
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="button-effect-1" id="btnEditar" >Guardar</button>
+                            <button type="submit" class="button-effect-1" id="btnAgregar" >Agregar</button>
                         </div>
                     </form>
                 </div><!-- /.box -->
@@ -76,6 +73,8 @@
     <!--<script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>-->
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
     <script>
+        //Initialize Select2 Elements
+        $(".select2").select2();
         
         GenericModal.config("#genericModal", "");
          
@@ -99,13 +98,13 @@
         $(function () {
             var selectorInputsForm = ["#txtNombreCategoria"];
             
-            $("#btnEditar").on("click", function(evt){
+            $("#btnAgregar").on("click", function(evt){
                 evt.preventDefault();
                 
                 if (validateInputsForm(selectorInputsForm)) {
                     waitingDialog.show('Guardando Categoria...');
                     var request = $.ajax({
-                        url: "<?php echo $modulo->url_main_panel."/categorys/ajax/editCategory"; ?>",
+                        url: "<?php echo $modulo->url_main_panel."/categorys/ajax/addCategory"; ?>",
                         method: "POST",
                         data: $("#frmDatosCategoria").serialize(),
                         dataType: "json"

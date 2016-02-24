@@ -8,9 +8,9 @@ class C_StoreAdmin_Productos extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        $this->usersession->validateSession("panel-store-admin");
-        $this->load->model("store-admin/M_StoreAdmin_Productos");
-        $this->load->model("store-admin/M_StoreAdmin_Categorias");
+        $this->usersession->validateSession("panel-company-admin");
+        $this->load->model("company-admin/M_StoreAdmin_Productos");
+        $this->load->model("company-admin/M_StoreAdmin_Categorias");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
         $this->load->model('M_Usuario');
@@ -94,7 +94,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
 		$modulo->links = explode('&nbsp;',$str_links );
 		
 		$data["modulo"] = $modulo;
-		$this->load->view('store-admin/module/productos/v-store-admin-productos', $data);
+		$this->load->view('company-admin/module/productos/v-company-admin-productos', $data);
     }
     
     public function addProduct() {
@@ -106,7 +106,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
         $modulo->data_categorias = $datosCategorias;
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/productos/v-store-admin-productos-add', $data);
+        $this->load->view('company-admin/module/productos/v-company-admin-productos-add', $data);
     }
     
     public function editProduct($id_producto) {
@@ -152,7 +152,7 @@ class C_StoreAdmin_Productos extends CI_Controller {
         }
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/productos/v-store-admin-productos-edit', $data);
+        $this->load->view('company-admin/module/productos/v-company-admin-productos-edit', $data);
     }
     
     /* <---------------- AJAX ----------------> */

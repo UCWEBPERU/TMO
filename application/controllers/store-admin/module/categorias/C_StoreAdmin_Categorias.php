@@ -8,8 +8,8 @@ class C_StoreAdmin_Categorias extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        $this->usersession->validateSession("panel-store-admin");
-        $this->load->model("store-admin/M_StoreAdmin_Categorias");
+        $this->usersession->validateSession("panel-company-admin");
+        $this->load->model("company-admin/M_StoreAdmin_Categorias");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
         $this->load->model('M_Usuario');
@@ -17,7 +17,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
 	}
 
 	public function index()	{
-        $this->load->model("store-admin/M_StoreAdmin_Empresa");
+        $this->load->model("company-admin/M_StoreAdmin_Empresa");
 
         $modulo = new stdClass();
         
@@ -54,7 +54,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
         $modulo->menu = array("menu" => 1, "submenu" => 0);
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/empresa/v-store-admin-empresa', $data);
+        $this->load->view('company-admin/module/empresa/v-company-admin-empresa', $data);
 	}
     
     public function listAllCategories() {
@@ -77,7 +77,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
         $modulo->data_categorias = $datosCategorias;
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/categorias/v-store-admin-categorias', $data);
+        $this->load->view('company-admin/module/categorias/v-company-admin-categorias', $data);
     }
     
     public function addCategory() {
@@ -89,7 +89,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
         $modulo->data_categorias = $datosCategorias;
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/categorias/v-store-admin-categorias-add', $data);
+        $this->load->view('company-admin/module/categorias/v-company-admin-categorias-add', $data);
     }
     
     public function editCategory($id_category) {
@@ -106,7 +106,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
         $modulo->data_categoria = $datosCategoria;
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/categorias/v-store-admin-categorias-edit', $data);
+        $this->load->view('company-admin/module/categorias/v-company-admin-categorias-edit', $data);
     }
     
     public function listSubCategoriesByCategory($id_category) {
@@ -133,7 +133,7 @@ class C_StoreAdmin_Categorias extends CI_Controller {
         $modulo->data_sub_categorias = $datosSubCategoria;
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/categorias/v-store-admin-sub-categorias', $data);
+        $this->load->view('company-admin/module/categorias/v-company-admin-sub-categorias', $data);
     }
     
     /* <--------------- AJAX ---------------> */

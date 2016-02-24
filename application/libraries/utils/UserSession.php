@@ -15,7 +15,7 @@ class UserSession {
             case 'panel-admin':
                 $this->validatePanelAdmin();
                 break;
-            case 'panel-store-admin':
+            case 'panel-company-admin':
                 $this->validatePanelStoreAdmin();
                 break;
         }

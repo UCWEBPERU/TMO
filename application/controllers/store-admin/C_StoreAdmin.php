@@ -8,11 +8,11 @@ class C_StoreAdmin extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        $this->usersession->validateSession("panel-store-admin");
+        $this->usersession->validateSession("panel-company-admin");
 	}
 
 	public function index()	{
-        $this->load->model("store-admin/M_StoreAdmin");
+        $this->load->model("company-admin/M_StoreAdmin");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
         
@@ -47,7 +47,7 @@ class C_StoreAdmin extends CI_Controller {
         $modulo->menu = array("menu" => 0, "submenu" => 0);
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/v-store-admin-panel', $data);
+        $this->load->view('company-admin/v-company-admin-panel', $data);
 	}
 
 }

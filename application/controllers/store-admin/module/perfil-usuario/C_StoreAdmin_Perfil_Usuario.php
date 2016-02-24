@@ -8,8 +8,8 @@ class C_StoreAdmin_Perfil_Usuario extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
         $this->load->library('utils/UserSession');
-        $this->usersession->validateSession("panel-store-admin");
-        $this->load->model("store-admin/M_StoreAdmin_Perfil_Usuario");
+        $this->usersession->validateSession("panel-company-admin");
+        $this->load->model("company-admin/M_StoreAdmin_Perfil_Usuario");
         $this->load->helper('security');
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
@@ -26,7 +26,7 @@ class C_StoreAdmin_Perfil_Usuario extends CI_Controller {
         $modulo->data_usuario = $datosUsuario[0];
         
         $data["modulo"] = $modulo;
-        $this->load->view('store-admin/module/perfil-usuario/v-store-admin-perfil-usuario', $data);
+        $this->load->view('company-admin/module/perfil-usuario/v-company-admin-perfil-usuario', $data);
     }
     
     /* <--------------- AJAX ---------------> */
