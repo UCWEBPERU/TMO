@@ -19,7 +19,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
         $modulo->menu = array("menu" => 1, "submenu" => 0);
 
         $data["modulo"] = $modulo;
-        $this->load->view('company-admin/v-company-admin-panel', $data);
+        $this->load->view('company-admin/module/perfil-empresa/v-company-admin-perfil-empresa', $data);
     }
 
 }
