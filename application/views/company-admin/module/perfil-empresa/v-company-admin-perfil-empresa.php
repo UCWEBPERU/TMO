@@ -77,10 +77,20 @@
 
                                                 <div class="form-group">
                                                     <label for="cboTipoEmpresa">Business Type</label>
-                                                    <select id="cboTipoEmpresa"  name="cboTipoEmpresa"  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
+                                                    <select id="cboTipoEmpresa" name="cboTipoEmpresa" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
                                                         <option value="" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->tipo_empresa as $tipo): ?>
                                                             <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="cboPaqueteTmo">Paquete TMO</label>
+                                                    <select id="cboPaqueteTmo" name="cboPaqueteTmo" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" disabled>
+                                                        <option value="" selected="selected">Seleccione</option>
+                                                        <?php foreach($modulo->paquetes_tmo as $paquete): ?>
+                                                            <option value="<?php echo $paquete->id_paquetes_tmo; ?>"><?php echo $paquete->nombre_paquete; ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -213,15 +223,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="cboPaqueteTmo">Paquete TMO</label>
-                                                    <select id="cboPaqueteTmo"  name="cboPaqueteTmo"  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" disabled>
-                                                        <option value="" selected="selected">Seleccione</option>
-                                                        <?php foreach($modulo->paquetes_tmo as $paquete): ?>
-                                                            <option value="<?php echo $paquete->id_paquetes_tmo; ?>"><?php echo $paquete->nombre_paquete; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
