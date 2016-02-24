@@ -206,7 +206,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="cboPaqueteTmo">Paquete TMO</label>
-                                                    <select id="cboPaqueteTmo"  name="cboPaqueteTmo"  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un paquete.">
+                                                    <select id="cboPaqueteTmo"  name="cboPaqueteTmo"  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" disabled>
                                                         <option value="" selected="selected">Seleccione</option>
                                                         <?php foreach($modulo->paquetes_tmo as $paquete): ?>
                                                             <option value="<?php echo $paquete->id_paquetes_tmo; ?>"><?php echo $paquete->nombre_paquete; ?></option>
