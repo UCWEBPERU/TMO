@@ -20,7 +20,7 @@
             <small>Enlaces rapidos</small>
           </h1>
           <ol class="breadcrumb">
-            <li class="active"><a href="<?php echo base_url()."store/".$this->session->id_empresa; ?>/admin"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li class="active"><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
           </ol>
         </section>
         <!-- Main content -->
@@ -28,7 +28,7 @@
 
           <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil-store">
+              <a class="link-shorcut" href="<?php echo $modulo->url_main_panel; ?>/company-profile">
                 <div class="info-box">
                   <span class="info-box-icon bg-aqua"><i class="fa fa-building-o"></i></span>
                   <div class="info-box-content">
@@ -39,7 +39,7 @@
               </a>
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/products">
+              <a class="link-shorcut" href="<?php echo $modulo->url_main_panel; ?>/products">
                 <div class="info-box">
                   <span class="info-box-icon bg-green"><i class="fa fa-shopping-bag"></i></span>
                   <div class="info-box-content">
@@ -50,7 +50,7 @@
               </a>
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/categorys">
+              <a class="link-shorcut" href="<?php echo $modulo->url_main_panel; ?>/categorys">
                 <div class="info-box">
                   <span class="info-box-icon bg-yellow"><i class="fa fa-tags"></i></span>
                   <div class="info-box-content">
@@ -61,7 +61,7 @@
               </a>
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <a class="link-shorcut" href="store/<?php echo $this->session->id_empresa; ?>/admin/perfil">
+              <a class="link-shorcut" href="<?php echo $modulo->url_main_panel; ?>/perfil">
                 <div class="info-box">
                   <span class="info-box-icon bg-red"><i class="fa fa-user"></i></span>
                   <div class="info-box-content">

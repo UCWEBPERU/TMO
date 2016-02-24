@@ -132,7 +132,6 @@ $route['admin/perfil']				              = 'admin/module/perfil/C_Admin_Perfil';
 $route['admin/perfil/actualizar-perfil-usuario']  = 'admin/module/perfil/C_Admin_Perfil/updatePerfil';
 $route['admin/perfil/actualizar-cuenta-usuario']  = 'admin/module/perfil/C_Admin_Perfil/updateCuentaUsuario';
 
-
 /*
 | ------------------------------
 | URL -> COMPANY ADMIN
@@ -141,15 +140,22 @@ $route['admin/perfil/actualizar-cuenta-usuario']  = 'admin/module/perfil/C_Admin
 $route['company/(:num)/admin']	     = 'company-admin/C_CompanyAdmin';
 $route['company/(:num)/admin/login'] = 'admin/C_Login';
 
-///*
-//| ------------------------------
-//| URL -> STORE ADMIN
-//| ------------------------------
-//*/
-//$route['store/(:num)/admin']	   = 'company-admin/C_StoreAdmin';
-//$route['store/(:num)/admin/login'] = 'admin/C_Login';
-//// $route['store/signIn']			   = 'company-admin/C_Login/signIn';
-//// $route['store/signOut']			   = 'company-admin/C_Login/signOut';
+/*
+| ------------------------------
+| URL -> COMPANY ADMIN - PERFIL EMPRESA
+| ------------------------------
+*/
+$route['company/(:num)/admin/company-profile'] = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa';
+
+/*
+| ------------------------------
+| URL -> STORE ADMIN
+| ------------------------------
+*/
+$route['store/(:num)/admin']	   = 'company-admin/C_StoreAdmin';
+$route['store/(:num)/admin/login'] = 'admin/C_Login';
+// $route['store/signIn']			   = 'company-admin/C_Login/signIn';
+// $route['store/signOut']			   = 'company-admin/C_Login/signOut';
 
 /*
 | ------------------------------

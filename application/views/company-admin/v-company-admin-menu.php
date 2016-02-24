@@ -5,7 +5,7 @@
 		<!-- Sidebar Menu -->
 		<ul class="sidebar-menu">
 			<li class="header">MENU</li>
-			<li <?php echo ($menu == 1) ? 'class="active"' : ''; ?>><a href="<?php echo $modulo->url_main_panel; ?>/company"><i class="fa fa-building-o"></i><span>Company</span></a></li>
+			<li <?php echo ($menu == 1) ? 'class="active"' : ''; ?>><a href="<?php echo $modulo->url_main_panel; ?>/company-profile"><i class="fa fa-building-o"></i><span>Company</span></a></li>
 			<li <?php echo ($menu == 1) ? 'class="active"' : ''; ?>><a href="<?php echo $modulo->url_main_panel; ?>/store"><i class="fa fa-building-o"></i><span>Store</span></a> </li>
 			<!-- <li <?php echo ($menu == 1) ? 'class="active"' : ''; ?>><a href="<?php echo $modulo->url_main_panel; ?>/perfil-store"><i class="fa fa-building-o"></i><span>Store</span></a></li>-->
 			<!-- <li <?php echo ($menu == 2) ? 'class="active"' : ''; ?>><a href="<?php echo $modulo->url_main_panel; ?>/products"><i class="fa fa-shopping-bag"></i><span>Products</span></a></li>-->
