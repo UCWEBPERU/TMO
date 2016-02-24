@@ -38,7 +38,8 @@ class UserSession {
             redirect("/admin/login");
         } else {
             if ($this->validateTypeUser() == 2) {
-                redirect("/store/".$this->CI->session->id_empresa."/admin");
+//                redirect("/store/".$this->CI->session->id_empresa."/admin");
+                redirect("/company/".$this->CI->session->id_empresa."/admin");
             }
         }
     }
@@ -57,7 +58,10 @@ class UserSession {
                 }
                 
                 if (sizeof($dataEmpresa) > 0) {
-                    redirect("forbidden-access");
+//                    redirect("forbidden-access");
+                    if ($this->validateTypeUser() != 1) {
+                        redirect("forbidden-access");
+                    }
                 } else {
                     redirect("not-found/store");
                 }

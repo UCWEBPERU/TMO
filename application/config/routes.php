@@ -138,7 +138,7 @@ $route['admin/perfil/actualizar-cuenta-usuario']  = 'admin/module/perfil/C_Admin
 | URL -> COMPANY ADMIN
 | ------------------------------
 */
-$route['company/(:num)/admin']	     = 'company-admin/C_ConpanyAdmin';
+$route['company/(:num)/admin']	     = 'company-admin/C_CompanyAdmin';
 $route['company/(:num)/admin/login'] = 'admin/C_Login';
 
 /*
