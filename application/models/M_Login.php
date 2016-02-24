@@ -25,9 +25,12 @@ class M_Login extends CI_Model{
 	}
     
     public function getEmpresaByIDUsuario($id_usuario) {
-		$this->db->where('id_usuario', $id_usuario);
-		$this->db->where('estado', '1');
-		$query = $this->db->get('Empresa');
+		$this->db->join("Usuarios_Asignados", "Usuarios_Asignados.id_usuario = Usuario.id_usuario");
+		$this->db->join("Empresa", "Empresa.id_empresa = Usuarios_Asignados.id_empresa");
+		$this->db->where('Usuario.id_usuario', $id_usuario);
+		$this->db->where('Usuario.estado', '1');
+		$this->db->where('Empresa.estado', '1');
+		$query = $this->db->get('Usuario');
 
 		return $query->result();
     }
