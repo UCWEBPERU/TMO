@@ -470,15 +470,15 @@
             }
         });
 
-        var objHandleFile = new HandleFile("#fileLogoEmpresa");
-        objHandleFile.onSelect(
-            function(file) {
-                console.log("select image");
-                console.log(file);
-                formData.append("fileLogoEmpresa", file);
-            },
-            function(readResult) {}
-        );
+//        var objHandleFile = new HandleFile("#fileLogoEmpresa");
+//        objHandleFile.onSelect(
+//            function(file) {
+//                console.log("select image");
+//                console.log(file);
+//                formData.append("fileLogoEmpresa", file);
+//            },
+//            function(readResult) {}
+//        );
 
         $("#btnGenerarPassword").on("click", function(){
             waitingDialog.show('Generando Contraseña...');
@@ -504,6 +504,16 @@
                 GenericModal.show("danger", "<p>" + textStatus + "</p>");
             });
         });
+
+        var objHandleFile = new HandleFile("#imgLogoStore");
+        objHandleFile.onSelect(
+            function(file) {
+                formData.append("imgLogoStore", file);
+            },
+            function(readResult) {
+                $("#logoStore").attr("src", readResult);
+            }
+        );
 
     });
 
