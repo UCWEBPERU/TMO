@@ -19,7 +19,7 @@
                 Empresa
             </h1>
             <ol class="breadcrumb">
-                <li ><a href="<?php echo base_url()."admin"; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li ><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <li class="active">Perfil</li>
             </ol>
         </section>
