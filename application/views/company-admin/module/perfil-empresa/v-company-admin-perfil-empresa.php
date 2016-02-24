@@ -31,7 +31,7 @@
                     <!-- general form elements -->
                     <div class="box box-solid">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Company Profile</h3>
+                            <h3 class="box-title">Perfil</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -40,7 +40,7 @@
                                 <div class="panel box box-primary">
                                     <div class="box-header with-border">
                                         <h4 class="box-title">
-                                            <a  class="">
+                                            <a class="">
                                                 Datos de Empresa
                                             </a>
                                         </h4>
