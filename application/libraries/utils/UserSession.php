@@ -58,10 +58,7 @@ class UserSession {
                 }
                 
                 if (sizeof($dataEmpresa) > 0) {
-//                    redirect("forbidden-access");
-                    if ($this->validateTypeUser() != 1) {
-                        redirect("forbidden-access");
-                    }
+                    redirect("forbidden-access");
                 } else {
                     redirect("not-found/store");
                 }
