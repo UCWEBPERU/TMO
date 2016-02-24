@@ -20,7 +20,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li ><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
-                <li class="active">Perfil</li>
+                <li class="active">Company</li>
             </ol>
         </section>
         <!-- Main content -->
@@ -70,36 +70,6 @@
                                                     <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="150" data-parsley-required data-parsley-type="email" data-parsley-required-message="Ingrese el email." data-parsley-type-message="Ingrese un email valido.">
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="txtPassword">Password</label>
-                                                            <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
-                                                                <!-- btn-group -->
-                                                                <div class="input-group-btn">
-                                                                    <!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
-                                                                    <button id="btnGenerarPassword" type="button" class="btn btn-primary" title="Generar Contraseña"><i class="fa fa-pencil"></i></button>
-                                                                </div>
-                                                                <!-- /btn-group -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="txtRepeatPassword">Repeat Password</label>
-                                                            <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
-                                                                <!-- btn-group -->
-                                                                <div class="input-group-btn">
-                                                                    <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
-                                                                </div>
-                                                                <!-- /btn-group -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                                 <div class="form-group">
                                                     <label for="txtOrganization">Organization</label>
                                                     <input type="text" class="form-control" id="txtOrganization" name="txtOrganization" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
@@ -146,24 +116,63 @@
                                                 <div class="form-group">
                                                     <label for="cboCountry">Country</label>
                                                     <select id="cboCountry" name="cboCountry" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
-                                                        <option value="" selected="selected">Seleccione</option>
-                                                        <?php foreach($modulo->data_geo_countries as $geo_country): ?>
-                                                            <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
-                                                        <?php endforeach; ?>
+                                                        <?php if (strlen($modulo->datos_empresa->pais) > 0) { ?>
+                                                            <option value="">Seleccione</option>
+                                                            <?php foreach($modulo->data_geo_countries as $geo_country): ?>
+                                                                <?php if ($geo_country->code == $modulo->datos_empresa->pais) { ?>
+                                                                    <option value="<?php echo $geo_country->code; ?>" selected="selected"><?php echo $geo_country->name; ?></option>
+                                                                <?php } else { ?>
+                                                                    <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
+                                                                <?php } ?>
+                                                            <?php endforeach; ?>
+                                                        <?php } else { ?>
+                                                            <option value="" selected="selected">Seleccione</option>
+                                                            <?php foreach($modulo->data_geo_countries as $geo_country): ?>
+                                                                <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
+                                                            <?php endforeach; ?>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="cboRegion">State</label>
                                                     <select id="cboRegion" name="cboRegion" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
-                                                        <option value="" selected="selected">Seleccione</option>
+                                                        <?php if (strlen($modulo->datos_empresa->region) > 0) { ?>
+                                                            <option value="">Seleccione</option>
+                                                            <?php foreach($modulo->data_geo_regions as $geo_region): ?>
+                                                                <?php if ($geo_region->code == $modulo->datos_empresa->region) { ?>
+                                                                    <option value="<?php echo $geo_region->code; ?>" selected="selected"><?php echo $geo_region->name; ?></option>
+                                                                <?php } else { ?>
+                                                                    <option value="<?php echo $geo_region->code; ?>"><?php echo $geo_region->name; ?></option>
+                                                                <?php } ?>
+                                                            <?php endforeach; ?>
+                                                        <?php } else { ?>
+                                                            <option value="" selected="selected">Seleccione</option>
+                                                            <?php foreach($modulo->data_geo_regions as $geo_region): ?>
+                                                                <option value="<?php echo $geo_region->code; ?>"><?php echo $geo_region->name; ?></option>
+                                                            <?php endforeach; ?>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="cboCity">City</label>
                                                     <select id="cboCity" name="cboCity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
-                                                        <option value="" selected="selected">Seleccione</option>
+                                                        <?php if (strlen($modulo->datos_empresa->ciudad) > 0) { ?>
+                                                            <option value="">Seleccione</option>
+                                                            <?php foreach($modulo->data_geo_cities as $geo_ciudad): ?>
+                                                                <?php if ($geo_ciudad->ID == $modulo->datos_empresa->ciudad) { ?>
+                                                                    <option value="<?php echo $geo_ciudad->ID; ?>" selected="selected"><?php echo $geo_ciudad->name; ?></option>
+                                                                <?php } else { ?>
+                                                                    <option value="<?php echo $geo_ciudad->ID; ?>"><?php echo $geo_ciudad->name; ?></option>
+                                                                <?php } ?>
+                                                            <?php endforeach; ?>
+                                                        <?php } else { ?>
+                                                            <option value="" selected="selected">Seleccione</option>
+                                                            <?php foreach($modulo->data_geo_cities as $geo_ciudad): ?>
+                                                                <option value="<?php echo $geo_ciudad->ID; ?>"><?php echo $geo_ciudad->name; ?></option>
+                                                            <?php endforeach; ?>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
 
