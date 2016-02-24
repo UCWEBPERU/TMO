@@ -207,35 +207,55 @@
                                 </div>
                             </div>
 
-                            <div class="box-group">
-                                <!-- Panel Empresa-->
-                                <div class="panel box box-primary">
-                                    <div class="box-header with-border">
-                                        <h4 class="box-title">
-                                            <a class="">
-                                                Datos Extra
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div class="box-body">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="box box-primary">
-                                                    <div class="box-header with-border">
-                                                        <h3 class="box-title">Logo Empresa</h3>
-                                                    </div>
-                                                    <div class="box-logo-store">
-                                                        <img id="logoStore" class="img-size-50" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
-                                                        <div class="btn btn-default btn-file">
-                                                            <i class="fa fa-paperclip"></i> Upload new logo
-                                                            <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-footer">
-                                                        <button id="btnActualizarLogoEmpresa" type="submit" class="btn btn-primary">Guardar</button>
-                                                    </div>
-                                                </div>
+<!--                            <div class="box-group">-->
+<!--                                <!-- Panel Empresa-->-->
+<!--                                <div class="panel box box-primary">-->
+<!--                                    <div class="box-header with-border">-->
+<!--                                        <h4 class="box-title">-->
+<!--                                            <a class="">-->
+<!--                                                Datos Extra-->
+<!--                                            </a>-->
+<!--                                        </h4>-->
+<!--                                    </div>-->
+<!--                                    <div class="box-body">-->
+<!--                                        <div class="row">-->
+<!--                                            <div class="col-md-4">-->
+<!--                                                <div class="box box-primary">-->
+<!--                                                    <div class="box-header with-border">-->
+<!--                                                        <h3 class="box-title">Logo Empresa</h3>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="box-logo-store">-->
+<!--                                                        <img id="logoStore" class="img-size-50" src="--><?php //echo $modulo->icono_empresa; ?><!--" alt="Logo Store" title="Logo Store">-->
+<!--                                                        <div class="btn btn-default btn-file">-->
+<!--                                                            <i class="fa fa-paperclip"></i> Upload new logo-->
+<!--                                                            <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="box-footer">-->
+<!--                                                        <button id="btnActualizarLogoEmpresa" type="submit" class="btn btn-primary">Guardar</button>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="box box-primary">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Logo Empresa</h3>
+                                        </div>
+                                        <div class="box-logo-store">
+                                            <img id="logoStore" class="img-size-50" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
+                                            <div class="btn btn-default btn-file">
+                                                <i class="fa fa-paperclip"></i> Upload new logo
+                                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
                                             </div>
+                                        </div>
+                                        <div class="box-footer">
+                                            <button id="btnActualizarLogoEmpresa" type="submit" class="btn btn-primary">Guardar</button>
                                         </div>
                                     </div>
                                 </div>
