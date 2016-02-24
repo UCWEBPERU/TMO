@@ -26,26 +26,50 @@ class C_Login extends CI_Controller {
             $modulo->url_logo = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
             $modulo->titulo_pagina = "TMO | Iniciar sesion";
             
-        } else if ($this->uri->segment(1) == "store" && $this->uri->segment(3) == "admin") {
+//        } else if ($this->uri->segment(1) == "store" && $this->uri->segment(3) == "admin") {
+//            if ($this->usersession->validateTypeUser() == 1) {
+//                redirect("/admin");
+//            } else if ($this->usersession->validateTypeUser() == 2) {
+//                redirect("/store/".$this->session->id_empresa."/admin");
+//            }
+//
+//            $validateEmpresa = $this->M_Empresa->getByID( $this->uri->segment(2) );
+//
+//            if (sizeof($validateEmpresa) > 0) {
+//                $this->load->model('M_Archivo');
+//                $validateLogoEmpresa = $this->M_Archivo->getByID($validateEmpresa[0]->id_archivo_logo);
+//
+//                if (sizeof($validateLogoEmpresa) > 0) {
+//                    $modulo->url_logo = $validateLogoEmpresa[0]->url_archivo;
+//                } else {
+//                    // Colocar logo de store por defecto
+//                    $modulo->url_logo = PATH_RESOURCE_ADMIN."img/image_not_found.png";
+//                }
+//
+//                $modulo->titulo_pagina = $validateEmpresa[0]->nombre_empresa." | Iniciar sesion";
+//            } else {
+//                redirect("not-found/store");
+//            }
+        } else if ($this->uri->segment(1) == "company" && $this->uri->segment(3) == "admin") {
             if ($this->usersession->validateTypeUser() == 1) {
                 redirect("/admin");
             } else if ($this->usersession->validateTypeUser() == 2) {
-                redirect("/store/".$this->session->id_empresa."/admin");
+                redirect("/company/".$this->session->id_empresa."/admin");
             }
-            
+
             $validateEmpresa = $this->M_Empresa->getByID( $this->uri->segment(2) );
-            
+
             if (sizeof($validateEmpresa) > 0) {
                 $this->load->model('M_Archivo');
                 $validateLogoEmpresa = $this->M_Archivo->getByID($validateEmpresa[0]->id_archivo_logo);
-                
+
                 if (sizeof($validateLogoEmpresa) > 0) {
                     $modulo->url_logo = $validateLogoEmpresa[0]->url_archivo;
                 } else {
                     // Colocar logo de store por defecto
                     $modulo->url_logo = PATH_RESOURCE_ADMIN."img/image_not_found.png";
                 }
-                
+
                 $modulo->titulo_pagina = $validateEmpresa[0]->nombre_empresa." | Iniciar sesion";
             } else {
                 redirect("not-found/store");
