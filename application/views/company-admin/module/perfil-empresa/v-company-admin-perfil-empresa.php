@@ -20,7 +20,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li ><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
-                <li class="active">Company</li>
+                <li class="active">Empresa</li>
             </ol>
         </section>
         <!-- Main content -->
@@ -54,25 +54,25 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="txtFirstName">First Names</label>
-                                                            <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el nombre.">
+                                                            <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="150" value="<?php echo $modulo->datos_empresa->nombres_representante; ?>" data-parsley-required data-parsley-required-message="Ingrese el nombre.">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="txtLastName">Last Name</label>
-                                                            <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el apellido.">
+                                                            <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="150" value="<?php echo $modulo->datos_empresa->apellidos_representante; ?>" data-parsley-required data-parsley-required-message="Ingrese el apellido.">
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtEmail">Email</label>
-                                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="150" data-parsley-required data-parsley-type="email" data-parsley-required-message="Ingrese el email." data-parsley-type-message="Ingrese un email valido.">
+                                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="150" value="<?php echo $modulo->datos_empresa->email_representante; ?>" data-parsley-required data-parsley-type="email" data-parsley-required-message="Ingrese el email." data-parsley-type-message="Ingrese un email valido.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtOrganization">Organization</label>
-                                                    <input type="text" class="form-control" id="txtOrganization" name="txtOrganization" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
+                                                    <input type="text" class="form-control" id="txtOrganization" name="txtOrganization" maxlength="40" value="<?php echo $modulo->datos_empresa->organization; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
                                                 </div>
 
                                                 <div class="form-group">
@@ -101,22 +101,22 @@
 
                                                 <div class="form-group">
                                                     <label for="txtMobilePhone">Mobile Phone</label>
-                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" value="<?php echo $modulo->datos_empresa->celular_personal; ?>" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtHomePhone">Home Phone</label>
-                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
+                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" value="<?php echo $modulo->datos_empresa->telefono; ?>" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtWorkPhone">Work Phone</label>
-                                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
+                                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="15" value="<?php echo $modulo->datos_empresa->celular_trabajo; ?>" data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtFax">Fax</label>
-                                                    <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de fax debe ser solo numeros.">
+                                                    <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="15" value="<?php echo $modulo->datos_empresa->fax; ?>" data-parsley-type="digits" data-parsley-type-message="El numero de fax debe ser solo numeros.">
                                                 </div>
 
                                             </div>
@@ -188,12 +188,12 @@
 
                                                 <div class="form-group">
                                                     <label for="txtAddress">Address</label>
-                                                    <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese una direccion.">
+                                                    <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="150" value="<?php echo $modulo->datos_empresa->direccion; ?>" data-parsley-required data-parsley-required-message="Ingrese una direccion.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtAddress2">Address 2</label>
-                                                    <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="150">
+                                                    <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="150" value="<?php echo $modulo->datos_empresa->direccion_2; ?>">
                                                 </div>
 
                                             </div>
