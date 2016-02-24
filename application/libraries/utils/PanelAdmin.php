@@ -13,7 +13,7 @@ class PanelAdmin {
         $this->CI->load->model("M_Archivo");
     }
 
-    public function loadData() {
+    public function loadPanelCompany() {
         $modulo = new stdClass();
 
         $dataEmpresa        = $this->CI->M_Empresa->getByID($this->CI->session->id_empresa);
