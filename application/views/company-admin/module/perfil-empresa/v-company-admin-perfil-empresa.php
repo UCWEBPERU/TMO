@@ -201,6 +201,9 @@
                                         </form>
 
                                     </div>
+                                    <div class="box-footer">
+                                        <button id="btnAgregar" type="submit" class="btn btn-primary">Guardar</button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -239,9 +242,6 @@
                             </div>
 
                         </div><!-- /.box-body -->
-                        <div class="box-footer">
-                            <button id="btnAgregar" type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
 
                     </div><!-- /.box -->
 
