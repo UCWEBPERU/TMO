@@ -29,7 +29,7 @@ class C_CompanyAdmin extends CI_Controller {
             $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png";
         }
 
-        $modulo->titulo_pagina = $dataEmpresa[0]->nombre_empresa." | Panel Administrativo";
+        $modulo->titulo_pagina = $dataEmpresa[0]->organization." | Panel Administrativo";
 
         $usuario = $this->M_StoreAdmin->getByID($this->session->id_usuario);
 
@@ -38,8 +38,8 @@ class C_CompanyAdmin extends CI_Controller {
         /* Datos de la cabecera del panel de administrador */
         $modulo->nombres_usuario = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
         $modulo->tipo_usuario = $usuario[0]->nombre_tipo_usuario;
-        $modulo->nombre_empresa_largo = $dataEmpresa[0]->nombre_empresa;
-        $modulo->nombre_empresa_corto = $dataEmpresa[0]->nombre_empresa;
+        $modulo->nombre_empresa_largo = $dataEmpresa[0]->organization;
+        $modulo->nombre_empresa_corto = $dataEmpresa[0]->organization;
         /* --------------------*-------------------- */
 
         $modulo->url_signout = base_url()."admin/signOut";
