@@ -217,12 +217,6 @@
                                     <div class="box-body">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="fileLogoEmpresa">Añadir Logo Institucional</label>
-                                                    <input type="file" class="form-control" id="fileLogoEmpresa" name="fileLogoEmpresa">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
                                                 <div class="box box-primary">
                                                     <div class="box-header with-border">
                                                         <h3 class="box-title">Logo Empresa</h3>
