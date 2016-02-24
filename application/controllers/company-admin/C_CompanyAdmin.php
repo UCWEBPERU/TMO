@@ -12,7 +12,7 @@ class C_CompanyAdmin extends CI_Controller {
     }
 
     public function index()	{
-        $this->load->model("store-admin/M_StoreAdmin");
+        $this->load->model("M_Usuario");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
 
@@ -20,7 +20,7 @@ class C_CompanyAdmin extends CI_Controller {
 
         $dataEmpresa = $this->M_Empresa->getByID( $this->session->id_empresa );
 
-        $validateLogoEmpresa = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
+        $validateLogoEmpresa = $this->M_Archivo->getByID( $dataEmpresa[0]->id_archivo_logo );
 
         if (sizeof($validateLogoEmpresa) > 0) {
             $modulo->icono_empresa = $validateLogoEmpresa[0]->url_archivo;
@@ -31,7 +31,7 @@ class C_CompanyAdmin extends CI_Controller {
 
         $modulo->titulo_pagina = $dataEmpresa[0]->organization." | Panel Administrativo";
 
-        $usuario = $this->M_StoreAdmin->getByID($this->session->id_usuario);
+        $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
 
         $modulo->datos_usuario = $usuario[0];
 
@@ -43,7 +43,7 @@ class C_CompanyAdmin extends CI_Controller {
         /* --------------------*-------------------- */
 
         $modulo->url_signout = base_url()."admin/signOut";
-        $modulo->url_main_panel = base_url()."store/".$this->session->id_empresa."/admin";
+        $modulo->url_main_panel = base_url()."company/".$this->session->id_empresa."/admin";
         $modulo->menu = array("menu" => 0, "submenu" => 0);
 
         $data["modulo"] = $modulo;

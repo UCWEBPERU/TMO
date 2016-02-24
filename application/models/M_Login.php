@@ -20,7 +20,6 @@ class M_Login extends CI_Model{
 		$this->db->where('Usuario.estado', '1');
 		$this->db->where('Tipo_Usuario.estado', '1');
 		$query = $this->db->get('Usuario');
-
 		return $query->result();
 	}
     

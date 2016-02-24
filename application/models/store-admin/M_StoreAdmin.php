@@ -17,7 +17,6 @@ class M_StoreAdmin extends CI_Model{
             Persona.direccion_persona,
             Persona.movil_persona,
             Persona.telefono_persona");
-            
 		$this->db->join('Persona', 'Persona.id_usuario = Usuario.id_usuario');
 		$this->db->join('Tipo_Usuario', 'Tipo_Usuario.id_tipo_usuario = Usuario.id_tipo_usuario');
 		$this->db->where('Usuario.id_usuario', $id_usuario);
