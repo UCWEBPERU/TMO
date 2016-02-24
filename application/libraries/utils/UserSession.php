@@ -46,7 +46,7 @@ class UserSession {
     
     private function validatePanelStoreAdmin() {
         if (!$this->validateTypeUser()) {
-            redirect("/store/".$this->CI->uri->segment(2)."/admin/login");
+            redirect("/company/".$this->CI->uri->segment(2)."/admin/login");
         } else {
             if ($this->validateTypeUser() != 2) {
                 $this->CI->load->model('M_Empresa');
