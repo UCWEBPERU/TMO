@@ -70,7 +70,7 @@ class C_Login extends CI_Controller {
                     $modulo->url_logo = PATH_RESOURCE_ADMIN."img/image_not_found.png";
                 }
 
-                $modulo->titulo_pagina = $validateEmpresa[0]->nombre_empresa." | Iniciar sesion";
+                $modulo->titulo_pagina = $validateEmpresa[0]->organization." | Iniciar sesion";
             } else {
                 redirect("not-found/store");
             }
