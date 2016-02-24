@@ -16,9 +16,9 @@ class PanelAdmin {
     public function loadData() {
         $modulo = new stdClass();
 
-        $dataEmpresa        = $this->M_Empresa->getByID($this->session->id_empresa);
-        $dataUsuario        = $this->M_Usuario->getByID($this->session->id_usuario);
-        $dataLogoEmpresa    = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
+        $dataEmpresa        = $this->CI->M_Empresa->getByID($this->CI->session->id_empresa);
+        $dataUsuario        = $this->CI->M_Usuario->getByID($this->CI->session->id_usuario);
+        $dataLogoEmpresa    = $this->CI->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
 
         if (sizeof($dataLogoEmpresa) > 0) {
             $modulo->icono_empresa = $dataLogoEmpresa[0]->url_archivo;
@@ -37,7 +37,7 @@ class PanelAdmin {
         /* --------------------*-------------------- */
 
         $modulo->url_signout    = base_url()."admin/signOut";
-        $modulo->url_main_panel = base_url()."company/".$this->session->id_empresa."/admin";
+        $modulo->url_main_panel = base_url()."company/".$this->CI->session->id_empresa."/admin";
 
         return $modulo;
     }
