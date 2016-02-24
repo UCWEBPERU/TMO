@@ -13,7 +13,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
     }
 
     public function index()	{
-        $modulo = $this->PanelAdmin->loadData();
+        $modulo = $this->paneladmin->loadData();
 
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Company Profile";
         $modulo->menu = array("menu" => 1, "submenu" => 0);
