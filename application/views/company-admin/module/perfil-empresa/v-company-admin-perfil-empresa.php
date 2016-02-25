@@ -402,135 +402,135 @@
                     GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar los estados.</p>");
                 });
             });
-//
-//        $("#cboRegion").select2()
-//            .on("change", function(event) {
-//                $("#cboCity").empty();
-//                $("#cboCity").append("<option value='' selected='selected'>Cargando...</option>");
-//                formData.append("code_country", $("#cboCountry").val());
-//                formData.append("code_region", $(this).val());
-//                var request = $.ajax({
-//                    url: baseUrl + "api-rest/geo-data/getCitiesByRegionAndCountry",
-//                    method: "POST",
-//                    data: formData,
-//                    dataType: "json",
-//                    processData: false,
-//                    contentType: false
-//                });
-//
-//                request.done(function( response ) {
-//                    formData = new FormData();
-//                    if (response.status) {
-//                        var html = "<option value='' selected='selected'>Seleccione</option>";
-//                        for (var c = 0; c < response.data.length; c++ ) {
-//                            html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
-//                        }
-//                        $("#cboCity").empty();
-//                        $("#cboCity").append(html);
-//                    }
-//                });
-//
-//                request.fail(function( jqXHR, textStatus ) {
-//                    formData = new FormData();
-//                    waitingDialog.hide();
-//                    GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar las ciudades.</p>");
-//                });
-//            });
-//
-//        $("#cboCity").select2()
-//            .on("change", function(event) {
-//
-//            });
-//
-//        $("#btnVerPassword").on("click", function(evt) {
-//            evt.preventDefault();
-//            if ($("#txtPassword").attr("type") == "password") {
-//                $("#txtPassword").attr("type", "text");
-//                $("#txtRepeatPassword").attr("type", "text");
-//                $(this).children().removeClass("fa-eye");
-//                $(this).children().addClass("fa-eye-slash");
-//                $(this).attr("title", "Ocultar Contraseña");
-//            } else {
-//                $("#txtPassword").attr("type", "password");
-//                $("#txtRepeatPassword").attr("type", "password");
-//                $(this).children().removeClass("fa-eye-slash");
-//                $(this).children().addClass("fa-eye");
-//                $(this).attr("title", "Ver Contrseña");
-//            }
-//        });
-//
-//        $("#btnGenerarPassword").on("click", function(){
-//            waitingDialog.show('Generando Contraseña...');
-//
-//            var request = $.ajax({
-//                url: baseUrl + "admin/empresa/ajax/generatePassword",
-//                method: "POST",
-//                data: formData,
-//                dataType: "json",
-//                processData: false,
-//                contentType: false
-//            });
-//
-//            request.done(function( response ) {
-//                waitingDialog.hide();
-//                $("#txtPassword").val(response.data.password);
-//                $("#txtRepeatPassword").val(response.data.password);
-//                GenericModal.show("default", "<p>" + response.message + "</p>");
-//            });
-//
-//            request.fail(function( jqXHR, textStatus ) {
-//                waitingDialog.hide();
-//                GenericModal.show("danger", "<p>" + textStatus + "</p>");
-//            });
-//        });
-//
-//        var objHandleFile = new HandleFile("#imgLogoStore");
-//        objHandleFile.onSelect(
-//            function(file) {
-//                formData = new FormData();
-//                formData.append("imgLogoStore", file);
-//            },
-//            function(readResult) {
-//                swal({
-//                        title: "Logo Empresa",
-//                        text: "¿Seguro que desea cambiar el logo de la empresa?",
-//                        imageUrl: readResult,
-//                        showCancelButton: true,
-//                        confirmButtonColor: "#fc0836",
-//                        confirmButtonText: "Yes, delete it!",
-//                        closeOnConfirm: false,
-//                        showLoaderOnConfirm: true
-//                    },
-//                    function() {
-//                        var request = $.ajax({
-//                            url: modulePanelUrl + "/ajax/updateLogoEmpresa",
-//                            method: "POST",
-//                            data: formData,
-//                            dataType: "json",
-//                            processData: false,
-//                            contentType: false
-//                        });
-//
-//                        request.done(function( response ) {
-//                            waitingDialog.hide();
-//                            if (response.status) {
-//                                swal("Actualizado!", response.message, "success");
-//                                $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
-//                                $(".user-menu img").attr("src", readResult);
-//                                $("link[rel='shortcut icon'").attr("href", readResult);
-//                            } else {
-//                                swal("Error", response.message, "error");
-//                            }
-//                        });
-//
-//                        request.fail(function( jqXHR, textStatus ) {
-//                            waitingDialog.hide();
-//                            swal("Error", textStatus, "error");
-//                        });
-//                    }
-//                );
-//            }
-//        );
+
+        $("#cboRegion").select2()
+            .on("change", function(event) {
+                $("#cboCity").empty();
+                $("#cboCity").append("<option value='' selected='selected'>Cargando...</option>");
+                formData.append("code_country", $("#cboCountry").val());
+                formData.append("code_region", $(this).val());
+                var request = $.ajax({
+                    url: baseUrl + "api-rest/geo-data/getCitiesByRegionAndCountry",
+                    method: "POST",
+                    data: formData,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false
+                });
+
+                request.done(function( response ) {
+                    formData = new FormData();
+                    if (response.status) {
+                        var html = "<option value='' selected='selected'>Seleccione</option>";
+                        for (var c = 0; c < response.data.length; c++ ) {
+                            html += "<option value='" + response.data[c].ID + "'>" + response.data[c].name + "</option>";
+                        }
+                        $("#cboCity").empty();
+                        $("#cboCity").append(html);
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    formData = new FormData();
+                    waitingDialog.hide();
+                    GenericModal.show("danger", "<p>Lo sentimos ocurrio un error al momento de cargar las ciudades.</p>");
+                });
+            });
+
+        $("#cboCity").select2()
+            .on("change", function(event) {
+
+            });
+
+        $("#btnVerPassword").on("click", function(evt) {
+            evt.preventDefault();
+            if ($("#txtPassword").attr("type") == "password") {
+                $("#txtPassword").attr("type", "text");
+                $("#txtRepeatPassword").attr("type", "text");
+                $(this).children().removeClass("fa-eye");
+                $(this).children().addClass("fa-eye-slash");
+                $(this).attr("title", "Ocultar Contraseña");
+            } else {
+                $("#txtPassword").attr("type", "password");
+                $("#txtRepeatPassword").attr("type", "password");
+                $(this).children().removeClass("fa-eye-slash");
+                $(this).children().addClass("fa-eye");
+                $(this).attr("title", "Ver Contrseña");
+            }
+        });
+
+        $("#btnGenerarPassword").on("click", function(){
+            waitingDialog.show('Generando Contraseña...');
+
+            var request = $.ajax({
+                url: baseUrl + "admin/empresa/ajax/generatePassword",
+                method: "POST",
+                data: formData,
+                dataType: "json",
+                processData: false,
+                contentType: false
+            });
+
+            request.done(function( response ) {
+                waitingDialog.hide();
+                $("#txtPassword").val(response.data.password);
+                $("#txtRepeatPassword").val(response.data.password);
+                GenericModal.show("default", "<p>" + response.message + "</p>");
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                waitingDialog.hide();
+                GenericModal.show("danger", "<p>" + textStatus + "</p>");
+            });
+        });
+
+        var objHandleFile = new HandleFile("#imgLogoStore");
+        objHandleFile.onSelect(
+            function(file) {
+                formData = new FormData();
+                formData.append("imgLogoStore", file);
+            },
+            function(readResult) {
+                swal({
+                        title: "Logo Empresa",
+                        text: "¿Seguro que desea cambiar el logo de la empresa?",
+                        imageUrl: readResult,
+                        showCancelButton: true,
+                        confirmButtonColor: "#fc0836",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true
+                    },
+                    function() {
+                        var request = $.ajax({
+                            url: modulePanelUrl + "/ajax/updateLogoEmpresa",
+                            method: "POST",
+                            data: formData,
+                            dataType: "json",
+                            processData: false,
+                            contentType: false
+                        });
+
+                        request.done(function( response ) {
+                            waitingDialog.hide();
+                            if (response.status) {
+                                swal("Actualizado!", response.message, "success");
+                                $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
+                                $(".user-menu img").attr("src", readResult);
+                                $("link[rel='shortcut icon'").attr("href", readResult);
+                            } else {
+                                swal("Error", response.message, "error");
+                            }
+                        });
+
+                        request.fail(function( jqXHR, textStatus ) {
+                            waitingDialog.hide();
+                            swal("Error", textStatus, "error");
+                        });
+                    }
+                );
+            }
+        );
 
     });
 
