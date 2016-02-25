@@ -14,6 +14,37 @@
     padding: 10px;
 }
 
+.box-logo-store .logo-store-inner {
+    position: relative;
+    overflow: hidden;
+    width: 256px;
+    height: 256px;
+    margin: 0px auto;
+    border: 5px solid #ebebeb;
+    background-color: #738bd7;
+    background-size: 256px 256px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    -webkit-transition: box-shadow .1s;
+    transition: box-shadow .1s;
+}
+
+.box-logo-store .logo-store-inner .logo-store-hint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    visibility: hidden;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 12px;
+    white-space: pre;
+}
+
+
 .boxCategory > .info-box-content > .info-box-text {
     text-transform: none;
 }
