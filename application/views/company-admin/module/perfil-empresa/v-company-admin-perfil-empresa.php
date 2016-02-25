@@ -507,6 +507,7 @@
         var objHandleFile = new HandleFile("#imgLogoStore");
         objHandleFile.onSelect(
             function(file) {
+                formData = new FormData();
                 formData.append("imgLogoStore", file);
             },
             function(readResult) {
