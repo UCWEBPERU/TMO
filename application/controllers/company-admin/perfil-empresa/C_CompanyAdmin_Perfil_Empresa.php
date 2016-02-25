@@ -87,7 +87,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
         $json 				= new stdClass();
         $json->type 		= "Empresa";
         $json->presentation = "";
-        $json->action 		= "insert";
+        $json->action 		= "update";
         $json->data 		= array();
         $json->status 		= FALSE;
 
