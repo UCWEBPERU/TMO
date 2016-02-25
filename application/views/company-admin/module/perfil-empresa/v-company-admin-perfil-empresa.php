@@ -304,9 +304,11 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <script>
     $(function () {
-//        $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
-//        var formData = new FormData();
-//        GenericModal.config("#genericModal", "");
+
+        $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
+        var formData = new FormData();
+        GenericModal.config("#genericModal", "");
+
         var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtOrganization", "#cboTipoEmpresa", "#cboPaqueteTmo", "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#txtFax", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress", "#txtAddress2"];
 
         var baseUrl         = "<?php echo base_url(); ?>";
