@@ -21,12 +21,16 @@
     height: 256px;
     margin: 0px auto;
     border: 5px solid #ebebeb;
-    background-color: #738bd7;
+    /*background-color: #738bd7;*/
     background-size: 256px 256px;
     background-position: 50%;
     background-repeat: no-repeat;
     -webkit-transition: box-shadow .1s;
     transition: box-shadow .1s;
+}
+
+.box-logo-store .logo-store-inner:hover .logo-store-hint {
+    visibility: visible;
 }
 
 .box-logo-store .logo-store-inner .logo-store-hint {
@@ -37,11 +41,26 @@
     bottom: 0;
     color: #fff;
     visibility: hidden;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 12px;
     white-space: pre;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -o-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.75);
 }
 
 
