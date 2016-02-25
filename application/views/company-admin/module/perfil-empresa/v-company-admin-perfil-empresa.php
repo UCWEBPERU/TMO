@@ -305,7 +305,7 @@
 <script>
     $(function () {
 
-        $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
+//        $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
 
 //        var formData = new FormData();
 
