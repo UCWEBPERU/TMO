@@ -314,61 +314,61 @@
         var baseUrl         = "<?php echo base_url(); ?>";
         var modulePanelUrl  = "<?php echo $modulo->url_module_panel; ?>";
 
-//        $("#btnAgregar").on("click", function(evt){
-//            evt.preventDefault();
-//
-//            if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
-//
-//                waitingDialog.show('Cargando...');
-//
-//                formData.append("txtFirstName",     $("#txtFirstName").val());
-//                formData.append("txtLastName",      $("#txtLastName").val());
-//                formData.append("txtEmail",         $("#txtEmail").val());
-//                formData.append("txtOrganization",  $("#txtOrganization").val());
-//                formData.append("cboTipoEmpresa",   $("#cboTipoEmpresa").val());
-//                formData.append("cboPaqueteTmo",    $("#cboPaqueteTmo").val());
-//                formData.append("txtMobilePhone",   $("#txtMobilePhone").val());
-//                formData.append("txtHomePhone",     $("#txtHomePhone").val());
-//                formData.append("txtWorkPhone",     $("#txtWorkPhone").val());
-//                formData.append("txtFax",           $("#txtFax").val());
-//                formData.append("cboCountry",       $("#cboCountry").val());
-//                formData.append("cboRegion",        $("#cboRegion").val());
-//                formData.append("cboCity",          $("#cboCity").val());
-//                formData.append("txtAddress",       $("#txtAddress").val());
-//                formData.append("txtAddress2",      $("#txtAddress2").val());
-//
-//                var request = $.ajax({
-//                    url: modulePanelUrl + "/ajax/updateDataCompany";
-//                    method: "POST",
-//                    data: formData,
-//                    dataType: "json",
-//                    processData: false,
-//                    contentType: false
-//                });
-//
-//                request.done(function( response ) {
-//
-//                    waitingDialog.hide();
-//
-//                    formData = new FormData();
-//
-//                    if (response.status) {
-//                        GenericModal.show("default", "<p>" + response.message + "</p>");
-//                    } else {
-//                        GenericModal.show("danger", "<p>" + response.message + "</p>");
-//                    }
-//
-//                });
-//
-//                request.fail(function( jqXHR, textStatus ) {
-//                    waitingDialog.hide();
-//                    formData = new FormData();
-//                    GenericModal.show("danger", "<p>" + textStatus + "</p>");
-//                });
-//
-//            }
-//
-//        });
+        $("#btnAgregar").on("click", function(evt){
+            evt.preventDefault();
+
+            if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
+
+                waitingDialog.show('Cargando...');
+
+                formData.append("txtFirstName",     $("#txtFirstName").val());
+                formData.append("txtLastName",      $("#txtLastName").val());
+                formData.append("txtEmail",         $("#txtEmail").val());
+                formData.append("txtOrganization",  $("#txtOrganization").val());
+                formData.append("cboTipoEmpresa",   $("#cboTipoEmpresa").val());
+                formData.append("cboPaqueteTmo",    $("#cboPaqueteTmo").val());
+                formData.append("txtMobilePhone",   $("#txtMobilePhone").val());
+                formData.append("txtHomePhone",     $("#txtHomePhone").val());
+                formData.append("txtWorkPhone",     $("#txtWorkPhone").val());
+                formData.append("txtFax",           $("#txtFax").val());
+                formData.append("cboCountry",       $("#cboCountry").val());
+                formData.append("cboRegion",        $("#cboRegion").val());
+                formData.append("cboCity",          $("#cboCity").val());
+                formData.append("txtAddress",       $("#txtAddress").val());
+                formData.append("txtAddress2",      $("#txtAddress2").val());
+
+                var request = $.ajax({
+                    url: modulePanelUrl + "/ajax/updateDataCompany";
+                    method: "POST",
+                    data: formData,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false
+                });
+
+                request.done(function( response ) {
+
+                    waitingDialog.hide();
+
+                    formData = new FormData();
+
+                    if (response.status) {
+                        GenericModal.show("default", "<p>" + response.message + "</p>");
+                    } else {
+                        GenericModal.show("danger", "<p>" + response.message + "</p>");
+                    }
+
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    waitingDialog.hide();
+                    formData = new FormData();
+                    GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                });
+
+            }
+
+        });
 //
 //        $("#cboCountry").select2()
 //            .on("change", function(event) {
