@@ -41,7 +41,7 @@ class M_Admin_Paquetes_TMO extends CI_Model {
     }
 
     public function getPaqueteTMOByEmpresa($id_empresa) {
-        $this->db->join('Suscripcion_Paquete_TMO', 'Suscripcion_Paquete_TMO.id_paquete_tmo = Paquetes_TMO.id_paquete_tmo');
+        $this->db->join('Suscripcion_Paquete_TMO', 'Suscripcion_Paquete_TMO.id_paquete_tmo = Paquetes_TMO.id_paquetes_tmo');
         $this->db->where('Paquetes_TMO.estado', '1');
         $this->db->where('Suscripcion_Paquete_TMO.id_empresa', $id_empresa);
         $query = $this->db->get('Paquetes_TMO');
