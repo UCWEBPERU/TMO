@@ -113,6 +113,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
 //            }
 
             if ( $empresa[0]->organization == trim($this->input->post("txtOrganization", TRUE)) ) {
+                echo "OK 1";
                 unset($validate);
                 $validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
 
@@ -181,6 +182,8 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
                     $json->message = "Lo sentimos el tipo de empresa ingresado no existe, intente de nuevo.";
                 }
             } else {
+                $validate = $this->M_Empresa->getEmpresaByName(trim($this->input->post("txtOrganization", TRUE)));
+                echo "OK 2";
                 if (sizeof($validate) == 0) {
                     unset($validate);
                     $validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
