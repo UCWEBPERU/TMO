@@ -524,7 +524,6 @@
                 swal({
                         title: "Eliminar Empresa",
                         text: "¿Seguro que desea eliminar la empresa?",
-                        type: "warning",
                         imageUrl: readResult,
                         showCancelButton: true,
                         confirmButtonColor: "#fc0836",
