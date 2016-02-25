@@ -515,8 +515,49 @@
                 formData.append("imgLogoStore", file);
             },
             function(readResult) {
+
                 $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
 //                $("#logoStore").attr("src", readResult);
+
+                swal({
+                        title: "Eliminar Empresa",
+                        text: "¿Seguro que desea eliminar la empresa?",
+                        type: "warning",
+                        imageUrl: readResult,
+                        showCancelButton: true,
+                        confirmButtonColor: "#fc0836",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true
+                    },
+                    function() {
+                        var request = $.ajax({
+                            url: urlApi,
+                            method: "POST",
+                            data: formData,
+                            dataType: "json",
+                            processData: false,
+                            contentType: false
+                        });
+
+                        request.done(function( response ) {
+                            waitingDialog.hide();
+                            if (response.status) {
+                                swal("Eliminado!", response.message, "success");
+                                $(self).parent().parent().hide("slow", function(){
+                                    $(self).parent().parent().remove();
+                                });
+                            } else {
+                                swal("Error", response.message, "error");
+                            }
+                        });
+
+                        request.fail(function( jqXHR, textStatus ) {
+                            waitingDialog.hide();
+                            swal("Error", textStatus, "error");
+                        });
+                    }
+                );
             }
         );
 
