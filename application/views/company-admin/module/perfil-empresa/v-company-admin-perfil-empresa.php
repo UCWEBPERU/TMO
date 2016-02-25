@@ -78,7 +78,6 @@
                                                 <div class="form-group">
                                                     <label for="cboTipoEmpresa">Business Type</label>
                                                     <select id="cboTipoEmpresa" name="cboTipoEmpresa" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
-                                                        <option value="" selected="selected">Seleccione</option>
                                                         <?php if ($modulo->datos_empresa->id_tipo_empresa != 0) { ?>
                                                             <option value="">Seleccione</option>
                                                             <?php foreach($modulo->tipo_empresa as $tipo): ?>
@@ -100,7 +99,6 @@
                                                 <div class="form-group">
                                                     <label for="cboPaqueteTmo">Paquete TMO</label>
                                                     <select id="cboPaqueteTmo" name="cboPaqueteTmo" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" disabled>
-                                                        <option value="" selected="selected">Seleccione</option>
                                                         <?php if ($modulo->suscripcion_paquete_tmo->id_paquetes_tmo != 0) { ?>
                                                             <option value="">Seleccione</option>
                                                             <?php foreach($modulo->paquetes_tmo as $paquete): ?>
