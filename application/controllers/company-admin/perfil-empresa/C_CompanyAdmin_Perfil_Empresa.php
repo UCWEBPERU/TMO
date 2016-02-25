@@ -138,6 +138,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
 
                                 $result1 = $this->M_Empresa->update(
                                     array(
+                                        "id_empresa"			    => $this->session->id_empresa,
                                         "id_tipo_empresa"			=> trim($this->input->post("cboTipoEmpresa", TRUE)),
                                         "organization"				=> trim($this->input->post("txtOrganization", TRUE)),
                                         "nombres_representante"		=> trim($this->input->post("txtFirstName", TRUE)),
