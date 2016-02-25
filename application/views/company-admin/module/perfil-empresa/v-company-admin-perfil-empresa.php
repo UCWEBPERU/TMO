@@ -250,7 +250,7 @@
                                         <div class="box-logo-store">
                                             <div class="logo-store-inner" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
                                                 <div class="logo-store-hint">Cambiar Avatar</div>
-                                                <input style="" type="file" id="imgLogoStore" name="imgLogoStore">
+                                                <input type="file" id="imgLogoStore" name="imgLogoStore">
                                             </div>
                                         </div>
                                     </div>

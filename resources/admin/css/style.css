@@ -63,7 +63,7 @@
     transition: opacity .3s ease-in-out;
 }
 
-.box-logo-store .logo-store-inner input["type=file"] {
+.box-logo-store .logo-store-inner input[type="file"] {
     top:0;
     left:0;
     width:100%;
