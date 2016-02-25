@@ -107,7 +107,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
             /* Validar Datos */
             $validate = $this->M_Empresa->getEmpresaByName(trim($this->input->post("txtOrganization", TRUE)));
 
-            if ($empresa[0]->organization == $validate[0]->organization) {
+            if (sizeof($validate) > 0 && $empresa[0]->organization == $validate[0]->organization) {
                 unset($validate);
                 $validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
 
