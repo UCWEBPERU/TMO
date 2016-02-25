@@ -248,18 +248,10 @@
                                             <h3 class="box-title">Logo Empresa</h3>
                                         </div>
                                         <div class="box-logo-store">
-                                            <div class="logo-store-inner" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);" data-reactid=".0.5.$=1$UserSettingsModal.0.0.1.0.$ACCOUNT.0.1.1.0">
-                                                <div class="logo-store-hint" data-reactid=".0.5.$=1$UserSettingsModal.0.0.1.0.$ACCOUNT.0.1.1.0.1">Cambiar Avatar</div>
-                                                <input style="top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;" type="file" id="imgLogoStore" name="imgLogoStore">
+                                            <div class="logo-store-inner" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
+                                                <div class="logo-store-hint">Cambiar Avatar</div>
+                                                <input style="" type="file" id="imgLogoStore" name="imgLogoStore">
                                             </div>
-<!--                                            <img id="logoStore" class="img-size-50" src="--><?php //echo $modulo->icono_empresa; ?><!--" alt="Logo Store" title="Logo Store">-->
-<!--                                            <div class="btn btn-default btn-file">-->
-<!--                                                <i class="fa fa-paperclip"></i> Upload new logo-->
-<!--                                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">-->
-<!--                                            </div>-->
-                                        </div>
-                                        <div class="box-footer">
-                                            <button id="btnActualizarLogoEmpresa" type="submit" class="btn btn-primary">Guardar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -302,6 +294,7 @@
             "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#txtFax", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress", "#txtAddress2", "#cboPaqueteTmo"];
 
         var baseUrl = "<?php echo base_url(); ?>";
+        var modulePanelUrl = "<?php echo $modulo->url_module_panel; ?>";
         var urlApi  = baseUrl + "admin/empresa/crear";
 
         $("#btnAgregar").on("click", function(evt){
@@ -517,10 +510,6 @@
                 formData.append("imgLogoStore", file);
             },
             function(readResult) {
-
-                $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
-//                $("#logoStore").attr("src", readResult);
-
                 swal({
                         title: "Logo Empresa",
                         text: "¿Seguro que desea cambiar el logo empresa?",
@@ -533,7 +522,7 @@
                     },
                     function() {
                         var request = $.ajax({
-                            url: urlApi,
+                            url: modulePanelUrl + "/ajax/updateLogoEmpresa",
                             method: "POST",
                             data: formData,
                             dataType: "json",
@@ -545,9 +534,7 @@
                             waitingDialog.hide();
                             if (response.status) {
                                 swal("Eliminado!", response.message, "success");
-                                $(self).parent().parent().hide("slow", function(){
-                                    $(self).parent().parent().remove();
-                                });
+                                $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
                             } else {
                                 swal("Error", response.message, "error");
                             }

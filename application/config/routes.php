@@ -145,7 +145,8 @@ $route['company/(:num)/admin/login'] = 'admin/C_Login';
 | URL -> COMPANY ADMIN - PERFIL EMPRESA
 | ------------------------------
 */
-$route['company/(:num)/admin/company-profile'] = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa';
+$route['company/(:num)/admin/company-profile']                          = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa';
+$route['company/(:num)/admin/company-profile/ajax/updateLogoEmpresa']   = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa/ajaxUpdateLogoCompany';
 
 /*
 | ------------------------------
