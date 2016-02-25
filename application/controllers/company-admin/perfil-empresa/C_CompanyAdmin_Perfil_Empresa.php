@@ -104,9 +104,8 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
             $this->input->post("txtAddress")) {
 
             $empresa = $this->M_Empresa->getByID($this->session->id_empresa);
-            /* Validar Datos */
-            $validate = $this->M_Empresa->getEmpresaByName(trim($this->input->post("txtOrganization", TRUE)));
 
+            /* Validar Datos */
             if($empresa[0]->organization == trim($this->input->post("txtOrganization", TRUE))) {
                 unset($validate);
                 $validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
@@ -176,7 +175,10 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
                     $json->message = "Lo sentimos el tipo de empresa ingresado no existe, intente de nuevo.";
                 }
             } else {
+                $validate = $this->M_Empresa->getEmpresaByName(trim($this->input->post("txtOrganization", TRUE)));
+                var_dump($validate);
                 if (sizeof($validate) == 0) {
+                    echo "OK 1";
                     unset($validate);
                     $validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
 
@@ -245,6 +247,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
                         $json->message = "Lo sentimos el tipo de empresa ingresado no existe, intente de nuevo.";
                     }
                 } else {
+                    echo "OK 2";
                     $json->message = "Lo sentimos el nombre de la empresa ingresado ya existe, intente de nuevo.";
                 }
             }
