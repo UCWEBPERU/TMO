@@ -307,7 +307,7 @@
 
         $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
 
-        var formData = new FormData();
+//        var formData = new FormData();
 
         GenericModal.config("#genericModal", "");
 
