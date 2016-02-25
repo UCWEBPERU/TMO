@@ -22,11 +22,9 @@
     margin: 0px auto;
     border: 5px solid #ebebeb;
     /*background-color: #738bd7;*/
-    background-size: 256px 256px;
-    background-position: 50%;
+    background-size: cover;
     background-repeat: no-repeat;
-    -webkit-transition: box-shadow .1s;
-    transition: box-shadow .1s;
+    background-position: 50%;
 }
 
 .box-logo-store .logo-store-inner:hover .logo-store-hint {
@@ -61,6 +59,8 @@
     -webkit-align-items: center;
     align-items: center;
     background-color: rgba(0,0,0,.75);
+    -webkit-transition: visibility .5s ease-in-out;
+    transition: visibility .5s ease-in-out;
 }
 
 
