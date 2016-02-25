@@ -513,7 +513,7 @@
             function(readResult) {
                 swal({
                         title: "Logo Empresa",
-                        text: "¿Seguro que desea cambiar el logo empresa?",
+                        text: "¿Seguro que desea cambiar el logo de la empresa?",
                         imageUrl: readResult,
                         showCancelButton: true,
                         confirmButtonColor: "#fc0836",
@@ -536,6 +536,7 @@
                             if (response.status) {
                                 swal("Actualizado!", response.message, "success");
                                 $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
+                                $(".user-menu > a > img").attr("src", readResult);
                             } else {
                                 swal("Error", response.message, "error");
                             }
