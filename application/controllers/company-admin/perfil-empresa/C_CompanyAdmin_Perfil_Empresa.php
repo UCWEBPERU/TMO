@@ -22,11 +22,12 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
         $modulo->menu = array("menu" => 1, "submenu" => 0);
         $modulo->url_module_panel = $modulo->url_main_panel."/company-profile";
 
-        $modulo->tipo_empresa       = $this->M_Tipo_Empresa->getTipoEmpresa();
-        $modulo->paquetes_tmo       = $this->M_Admin_Paquetes_TMO->getPaquetesTMO();
-        $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
-        $modulo->data_geo_regions   = $this->M_GEO_Data->getRegionsByCountry($modulo->datos_empresa->pais);
-        $modulo->data_geo_cities    = $this->M_GEO_Data->getCitiesByRegionAndCountry(
+        $modulo->tipo_empresa               = $this->M_Tipo_Empresa->getTipoEmpresa();
+        $modulo->paquetes_tmo               = $this->M_Admin_Paquetes_TMO->getPaquetesTMO();
+        $modulo->suscripcion_paquete_tmo    = $this->M_Admin_Paquetes_TMO->getPaqueteTMOByEmpresa($this->session->id_empresa);
+        $modulo->data_geo_countries         = $this->M_GEO_Data->getAllCountries();
+        $modulo->data_geo_regions           = $this->M_GEO_Data->getRegionsByCountry($modulo->datos_empresa->pais);
+        $modulo->data_geo_cities            = $this->M_GEO_Data->getCitiesByRegionAndCountry(
             array(
                 "code_country"  => $modulo->datos_empresa->pais,
                 "code_region"   => $modulo->datos_empresa->region
