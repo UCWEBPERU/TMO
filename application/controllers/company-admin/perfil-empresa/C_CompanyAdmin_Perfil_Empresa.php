@@ -107,7 +107,8 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
             /* Validar Datos */
             $validate = $this->M_Empresa->getEmpresaByName(trim($this->input->post("txtOrganization", TRUE)));
 
-            if (sizeof($validate) > 0 && $empresa[0]->organization != trim($this->input->post("txtOrganization", TRUE))) {
+            if( (sizeof($validate) == 0 && ($empresa[0]->organization != trim($this->input->post("txtOrganization", TRUE))) )
+                || ($empresa[0]->organization == trim($this->input->post("txtOrganization", TRUE))) ) {
                 unset($validate);
                 $validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
 
@@ -177,7 +178,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
                 }
 
             } else {
-                $json->message = "Lo sentimos la nombre de empresa ingresado ya existe, intente de nuevo.";
+                $json->message = "Lo sentimos el nombre de empresa ingresado ya existe, intente de nuevo.";
             }
 
         } else {
