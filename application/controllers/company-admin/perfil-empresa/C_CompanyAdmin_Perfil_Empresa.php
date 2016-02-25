@@ -106,152 +106,71 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
             $empresa = $this->M_Empresa->getByID($this->session->id_empresa);
 
             /* Validar Datos */
-            if($empresa[0]->organization == trim($this->input->post("txtOrganization", TRUE))) {
+            $validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
+            if (sizeof($validate) > 0) {
                 unset($validate);
-                $validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
+                $validate = $this->M_GEO_Data->getCountryByCode(trim($this->input->post("cboCountry", TRUE)));
 
                 if (sizeof($validate) > 0) {
                     unset($validate);
-                    $validate = $this->M_GEO_Data->getCountryByCode(trim($this->input->post("cboCountry", TRUE)));
+                    $validate = $this->M_GEO_Data->getRegionByCodeAndCountry(
+                        array(
+                            "code_country"	=> trim($this->input->post("cboCountry", TRUE)),
+                            "code_region"	=> trim($this->input->post("cboRegion", TRUE))
+                        ));
 
                     if (sizeof($validate) > 0) {
                         unset($validate);
-                        $validate = $this->M_GEO_Data->getRegionByCodeAndCountry(
+                        $validate = $this->M_GEO_Data->getCityByIDAndRegionAndCountry(
                             array(
+                                "id_city"		=> trim($this->input->post("cboCity", TRUE)),
                                 "code_country"	=> trim($this->input->post("cboCountry", TRUE)),
                                 "code_region"	=> trim($this->input->post("cboRegion", TRUE))
                             ));
 
                         if (sizeof($validate) > 0) {
-                            unset($validate);
-                            $validate = $this->M_GEO_Data->getCityByIDAndRegionAndCountry(
+
+                            /* Registrar Datos */
+
+                            $result1 = $this->M_Empresa->update(
                                 array(
-                                    "id_city"		=> trim($this->input->post("cboCity", TRUE)),
-                                    "code_country"	=> trim($this->input->post("cboCountry", TRUE)),
-                                    "code_region"	=> trim($this->input->post("cboRegion", TRUE))
-                                ));
+                                    "id_empresa"			    => $this->session->id_empresa,
+                                    "id_tipo_empresa"			=> trim($this->input->post("cboTipoEmpresa", TRUE)),
+                                    "organization"				=> trim($this->input->post("txtOrganization", TRUE)),
+                                    "nombres_representante"		=> trim($this->input->post("txtFirstName", TRUE)),
+                                    "apellidos_representante"	=> trim($this->input->post("txtLastName", TRUE)),
+                                    "email_representante"		=> trim($this->input->post("txtEmail", TRUE)),
+                                    "celular_personal"			=> trim($this->input->post("txtMobilePhone", TRUE)),
+                                    "telefono"					=> trim($this->input->post("txtHomePhone", TRUE)),
+                                    "celular_trabajo"			=> trim($this->input->post("txtWorkPhone", TRUE)),
+                                    "fax"						=> trim($this->input->post("txtFax", TRUE)),
+                                    "pais"						=> trim($this->input->post("cboCountry", TRUE)),
+                                    "region"					=> trim($this->input->post("cboRegion", TRUE)),
+                                    "ciudad"					=> trim($this->input->post("cboCity", TRUE)),
+                                    "direccion"					=> trim($this->input->post("txtAddress", TRUE)),
+                                    "direccion_2"				=> trim($this->input->post("txtAddress2", TRUE))
+                                )
+                            );
 
-                            if (sizeof($validate) > 0) {
-
-                                /* Registrar Datos */
-
-                                $result1 = $this->M_Empresa->update(
-                                    array(
-                                        "id_empresa"			    => $this->session->id_empresa,
-                                        "id_tipo_empresa"			=> trim($this->input->post("cboTipoEmpresa", TRUE)),
-                                        "organization"				=> trim($this->input->post("txtOrganization", TRUE)),
-                                        "nombres_representante"		=> trim($this->input->post("txtFirstName", TRUE)),
-                                        "apellidos_representante"	=> trim($this->input->post("txtLastName", TRUE)),
-                                        "email_representante"		=> trim($this->input->post("txtEmail", TRUE)),
-                                        "celular_personal"			=> trim($this->input->post("txtMobilePhone", TRUE)),
-                                        "telefono"					=> trim($this->input->post("txtHomePhone", TRUE)),
-                                        "celular_trabajo"			=> trim($this->input->post("txtWorkPhone", TRUE)),
-                                        "fax"						=> trim($this->input->post("txtFax", TRUE)),
-                                        "pais"						=> trim($this->input->post("cboCountry", TRUE)),
-                                        "region"					=> trim($this->input->post("cboRegion", TRUE)),
-                                        "ciudad"					=> trim($this->input->post("cboCity", TRUE)),
-                                        "direccion"					=> trim($this->input->post("txtAddress", TRUE)),
-                                        "direccion_2"				=> trim($this->input->post("txtAddress2", TRUE))
-                                    )
-                                );
-
-                                $json->message = "Los datos de la empresa se actualizo correctamente.";
-                                array_push($json->data, array("id_empresa" => $result1));
-                                $json->status = TRUE;
-
-                            } else {
-                                $json->message = "Lo sentimos la ciudad ingresada no existe, intente de nuevo.";
-                            }
+                            $json->message = "Los datos de la empresa se actualizo correctamente.";
+                            array_push($json->data, array("id_empresa" => $result1));
+                            $json->status = TRUE;
 
                         } else {
-                            $json->message = "Lo sentimos el estado/region ingresado no existe, intente de nuevo.";
+                            $json->message = "Lo sentimos la ciudad ingresada no existe, intente de nuevo.";
                         }
 
                     } else {
-                        $json->message = "Lo sentimos el pais ingresado no existe, intente de nuevo.";
+                        $json->message = "Lo sentimos el estado/region ingresado no existe, intente de nuevo.";
                     }
 
                 } else {
-                    $json->message = "Lo sentimos el tipo de empresa ingresado no existe, intente de nuevo.";
+                    $json->message = "Lo sentimos el pais ingresado no existe, intente de nuevo.";
                 }
+
             } else {
-                $validate = $this->M_Empresa->getEmpresaByName(trim($this->input->post("txtOrganization", TRUE)));
-                var_dump($validate);
-                if (sizeof($validate) == 0) {
-                    echo "OK 1";
-                    unset($validate);
-                    $validate = $this->M_Tipo_Empresa->getByID(trim($this->input->post("cboTipoEmpresa", TRUE)));
-
-                    if (sizeof($validate) > 0) {
-                        unset($validate);
-                        $validate = $this->M_GEO_Data->getCountryByCode(trim($this->input->post("cboCountry", TRUE)));
-
-                        if (sizeof($validate) > 0) {
-                            unset($validate);
-                            $validate = $this->M_GEO_Data->getRegionByCodeAndCountry(
-                                array(
-                                    "code_country"	=> trim($this->input->post("cboCountry", TRUE)),
-                                    "code_region"	=> trim($this->input->post("cboRegion", TRUE))
-                                ));
-
-                            if (sizeof($validate) > 0) {
-                                unset($validate);
-                                $validate = $this->M_GEO_Data->getCityByIDAndRegionAndCountry(
-                                    array(
-                                        "id_city"		=> trim($this->input->post("cboCity", TRUE)),
-                                        "code_country"	=> trim($this->input->post("cboCountry", TRUE)),
-                                        "code_region"	=> trim($this->input->post("cboRegion", TRUE))
-                                    ));
-
-                                if (sizeof($validate) > 0) {
-
-                                    /* Registrar Datos */
-
-                                    $result1 = $this->M_Empresa->update(
-                                        array(
-                                            "id_empresa"			    => $this->session->id_empresa,
-                                            "id_tipo_empresa"			=> trim($this->input->post("cboTipoEmpresa", TRUE)),
-                                            "organization"				=> trim($this->input->post("txtOrganization", TRUE)),
-                                            "nombres_representante"		=> trim($this->input->post("txtFirstName", TRUE)),
-                                            "apellidos_representante"	=> trim($this->input->post("txtLastName", TRUE)),
-                                            "email_representante"		=> trim($this->input->post("txtEmail", TRUE)),
-                                            "celular_personal"			=> trim($this->input->post("txtMobilePhone", TRUE)),
-                                            "telefono"					=> trim($this->input->post("txtHomePhone", TRUE)),
-                                            "celular_trabajo"			=> trim($this->input->post("txtWorkPhone", TRUE)),
-                                            "fax"						=> trim($this->input->post("txtFax", TRUE)),
-                                            "pais"						=> trim($this->input->post("cboCountry", TRUE)),
-                                            "region"					=> trim($this->input->post("cboRegion", TRUE)),
-                                            "ciudad"					=> trim($this->input->post("cboCity", TRUE)),
-                                            "direccion"					=> trim($this->input->post("txtAddress", TRUE)),
-                                            "direccion_2"				=> trim($this->input->post("txtAddress2", TRUE))
-                                        )
-                                    );
-
-                                    $json->message = "Los datos de la empresa se actualizo correctamente.";
-                                    array_push($json->data, array("id_empresa" => $result1));
-                                    $json->status = TRUE;
-
-                                } else {
-                                    $json->message = "Lo sentimos la ciudad ingresada no existe, intente de nuevo.";
-                                }
-
-                            } else {
-                                $json->message = "Lo sentimos el estado/region ingresado no existe, intente de nuevo.";
-                            }
-
-                        } else {
-                            $json->message = "Lo sentimos el pais ingresado no existe, intente de nuevo.";
-                        }
-
-                    } else {
-                        $json->message = "Lo sentimos el tipo de empresa ingresado no existe, intente de nuevo.";
-                    }
-                } else {
-                    echo "OK 2";
-                    $json->message = "Lo sentimos el nombre de la empresa ingresado ya existe, intente de nuevo.";
-                }
+                $json->message = "Lo sentimos el tipo de empresa ingresado no existe, intente de nuevo.";
             }
-
 
         } else {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
