@@ -136,7 +136,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
 
                                 /* Registrar Datos */
 
-                                $result1 = $this->M_Admin_Empresa->insertEmpresa(
+                                $result1 = $this->M_Empresa->update(
                                     array(
                                         "id_tipo_empresa"			=> trim($this->input->post("cboTipoEmpresa", TRUE)),
                                         "organization"				=> trim($this->input->post("txtOrganization", TRUE)),
