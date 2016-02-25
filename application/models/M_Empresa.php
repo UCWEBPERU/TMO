@@ -78,7 +78,7 @@ class M_Empresa extends CI_Model{
 			"direccion"					=> $data["direccion"],
 			"direccion_2"				=> $data["direccion_2"]
 		);
-		$this->db->where('id_empresaid_empresa', $data["id_empresa"]);
+		$this->db->where('id_empresa', $data["id_empresa"]);
 		if ($this->db->update('Empresa', $data)) {
 			return TRUE;
 		}
