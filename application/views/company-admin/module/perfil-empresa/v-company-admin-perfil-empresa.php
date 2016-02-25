@@ -537,6 +537,7 @@
                                 swal("Actualizado!", response.message, "success");
                                 $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
                                 $(".user-menu > a > img").attr("src", readResult);
+                                $("link[rel='shortcut icon'").attr("href",readResult);
                             } else {
                                 swal("Error", response.message, "error");
                             }
