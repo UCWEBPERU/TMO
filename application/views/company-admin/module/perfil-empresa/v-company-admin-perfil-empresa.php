@@ -534,7 +534,7 @@
                         request.done(function( response ) {
                             waitingDialog.hide();
                             if (response.status) {
-                                swal("Eliminado!", response.message, "success");
+                                swal("Actualizado!", response.message, "success");
                                 $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
                             } else {
                                 swal("Error", response.message, "error");
