@@ -9,6 +9,7 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
         $this->load->library('session');
         $this->load->library('utils/UserSession');
         $this->load->library('utils/PanelAdmin');
+        $this->load->model("M_GEO_Data");
         $this->usersession->validateSession("panel-company-admin");
     }
 
