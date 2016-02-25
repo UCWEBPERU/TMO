@@ -28,7 +28,7 @@
 }
 
 .box-logo-store .logo-store-inner:hover .logo-store-hint {
-    visibility: visible;
+    opacity: 1;
 }
 
 .box-logo-store .logo-store-inner .logo-store-hint {
@@ -38,7 +38,7 @@
     right: 0;
     bottom: 0;
     color: #fff;
-    visibility: hidden;
+    opacity: 0;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
@@ -59,8 +59,8 @@
     -webkit-align-items: center;
     align-items: center;
     background-color: rgba(0,0,0,.75);
-    -webkit-transition: visibility .5s ease-in-out;
-    transition: visibility .5s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
 }
 
 
