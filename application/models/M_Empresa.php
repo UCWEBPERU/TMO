@@ -36,5 +36,54 @@ class M_Empresa extends CI_Model{
 		$query = $this->db->get('Empresa');
 		return $query->result();
 	}
+
+	public function insert($data) {
+		$data = array(
+			"id_tipo_empresa"			=> $data["id_tipo_empresa"],
+			"organization"				=> $data["organization"],
+			"nombres_representante"		=> $data["nombres_representante"],
+			"apellidos_representante"	=> $data["apellidos_representante"],
+			"email_representante"		=> $data["email_representante"],
+			"celular_personal"			=> $data["celular_personal"],
+			"telefono"					=> $data["telefono"],
+			"celular_trabajo"			=> $data["celular_trabajo"],
+			"fax"						=> $data["fax"],
+			"pais"						=> $data["pais"],
+			"region"					=> $data["region"],
+			"ciudad"					=> $data["ciudad"],
+			"direccion"					=> $data["direccion"],
+			"direccion_2"				=> $data["direccion_2"]
+		);
+		if ($this->db->insert('Empresa', $data)) {
+			return $this->db->insert_id();
+		}
+
+		return FALSE;
+	}
+
+	public function update($data) {
+		$data = array(
+			"id_tipo_empresa"			=> $data["id_tipo_empresa"],
+			"organization"				=> $data["organization"],
+			"nombres_representante"		=> $data["nombres_representante"],
+			"apellidos_representante"	=> $data["apellidos_representante"],
+			"email_representante"		=> $data["email_representante"],
+			"celular_personal"			=> $data["celular_personal"],
+			"telefono"					=> $data["telefono"],
+			"celular_trabajo"			=> $data["celular_trabajo"],
+			"fax"						=> $data["fax"],
+			"pais"						=> $data["pais"],
+			"region"					=> $data["region"],
+			"ciudad"					=> $data["ciudad"],
+			"direccion"					=> $data["direccion"],
+			"direccion_2"				=> $data["direccion_2"]
+		);
+		$this->db->where('id_empresaid_empresa', $data["id_empresa"]);
+		if ($this->db->update('Empresa', $data)) {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
 	
 }

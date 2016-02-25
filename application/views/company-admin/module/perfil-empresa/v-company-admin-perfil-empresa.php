@@ -283,24 +283,20 @@
 <script>
     $(function () {
 
-        //Initialize Select2 Elements
         $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
 
         var formData  = new FormData();
 
         GenericModal.config("#genericModal", "");
 
-        var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtRepeatPassword", "#txtOrganization", "#cboTipoEmpresa",
-            "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#txtFax", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress", "#txtAddress2", "#cboPaqueteTmo"];
+        var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtOrganization", "#cboTipoEmpresa", "#cboPaqueteTmo",
+            "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#txtFax", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress", "#txtAddress2"];
 
-        var baseUrl = "<?php echo base_url(); ?>";
-        var modulePanelUrl = "<?php echo $modulo->url_module_panel; ?>";
-        var urlApi  = baseUrl + "admin/empresa/crear";
+        var baseUrl         = "<?php echo base_url(); ?>";
+        var modulePanelUrl  = "<?php echo $modulo->url_module_panel; ?>";
 
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
-
-            var element = this;
 
             if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
 
@@ -309,10 +305,9 @@
                 formData.append("txtFirstName",     $("#txtFirstName").val());
                 formData.append("txtLastName",      $("#txtLastName").val());
                 formData.append("txtEmail",         $("#txtEmail").val());
-                formData.append("txtPassword",      $("#txtPassword").val());
-                formData.append("txtRepeatPassword",$("#txtRepeatPassword").val());
                 formData.append("txtOrganization",  $("#txtOrganization").val());
                 formData.append("cboTipoEmpresa",   $("#cboTipoEmpresa").val());
+                formData.append("cboPaqueteTmo",    $("#cboPaqueteTmo").val());
                 formData.append("txtMobilePhone",   $("#txtMobilePhone").val());
                 formData.append("txtHomePhone",     $("#txtHomePhone").val());
                 formData.append("txtWorkPhone",     $("#txtWorkPhone").val());
@@ -322,10 +317,9 @@
                 formData.append("cboCity",          $("#cboCity").val());
                 formData.append("txtAddress",       $("#txtAddress").val());
                 formData.append("txtAddress2",      $("#txtAddress2").val());
-                formData.append("cboPaqueteTmo",    $("#cboPaqueteTmo").val());
 
                 var request = $.ajax({
-                    url: urlApi,
+                    url: modulePanelUrl + "/ajax/updateDataCompany";
                     method: "POST",
                     data: formData,
                     dataType: "json",
@@ -340,30 +334,7 @@
                     formData = new FormData();
 
                     if (response.status) {
-
                         GenericModal.show("default", "<p>" + response.message + "</p>");
-                        if (response.action == "insert") {
-                            $("#txtFirstName").val("");
-                            $("#txtLastName").val("");
-                            $("#txtEmail").val("");
-                            $("#txtPassword").val("");
-                            $("#txtRepeatPassword").val("");
-                            $("#txtOrganization").val("");
-                            $("#cboTipoEmpresa").val("").trigger("change");
-                            $("#txtMobilePhone").val("");
-                            $("#txtHomePhone").val("");
-                            $("#txtWorkPhone").val("");
-                            $("#txtFax").val("");
-                            $("#cboCountry").val("").trigger("change");
-                            $("#cboRegion").empty();
-                            $("#cboRegion").append("<option value='' selected='selected'>Seleccione</option>");
-                            $("#cboCity").empty();
-                            $("#cboCity").append("<option value='' selected='selected'>Seleccione</option>");
-                            $("#txtAddress").val("");
-                            $("#txtAddress2").val("");
-                            $("#cboPaqueteTmo").val("").trigger("change");
-                            $("$fileLogoEmpresa").val("");
-                        }
                     } else {
                         GenericModal.show("danger", "<p>" + response.message + "</p>");
                     }
@@ -469,16 +440,6 @@
             }
         });
 
-//        var objHandleFile = new HandleFile("#fileLogoEmpresa");
-//        objHandleFile.onSelect(
-//            function(file) {
-//                console.log("select image");
-//                console.log(file);
-//                formData.append("fileLogoEmpresa", file);
-//            },
-//            function(readResult) {}
-//        );
-
         $("#btnGenerarPassword").on("click", function(){
             waitingDialog.show('Generando Contraseña...');
 
@@ -537,7 +498,7 @@
                                 swal("Actualizado!", response.message, "success");
                                 $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
                                 $(".user-menu img").attr("src", readResult);
-                                $("link[rel='shortcut icon'").attr("href",readResult);
+                                $("link[rel='shortcut icon'").attr("href", readResult);
                             } else {
                                 swal("Error", response.message, "error");
                             }
