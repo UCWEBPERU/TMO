@@ -421,7 +421,7 @@
 <script>
     $(function () {
 
-        var formData  = new FormData();
+        var formData = new FormData();
 
         function handleFileSelect(evt) {
             var files = evt.target.files; // FileList object
@@ -460,9 +460,7 @@
             evt.preventDefault();
 
             var baseUrl   = "<?php echo $modulo->base_url; ?>";
-            var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>
-
-            var element = this;
+            var urlApi    = baseUrl + <?php if (isset($idEmpresa)) { echo '"editar";'; } else { echo '"crear";'; } ?>;
 
             if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
 

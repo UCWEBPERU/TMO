@@ -253,7 +253,7 @@
         //Initialize Select2 Elements
         $("#cboTipoEmpresa, #cboPaqueteTmo").select2();
 
-        var formData  = new FormData();
+        var formData = new FormData();
 
         GenericModal.config("#genericModal", "");
 
@@ -265,8 +265,6 @@
 
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
-
-            var element = this;
 
             if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
 
