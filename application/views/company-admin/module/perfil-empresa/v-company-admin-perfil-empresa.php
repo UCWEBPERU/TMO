@@ -252,11 +252,11 @@
                                                 <div class="avatar-uploader-hint" data-reactid=".0.5.$=1$UserSettingsModal.0.0.1.0.$ACCOUNT.0.1.1.0.1">Cambiar Avatar</div>
                                                 <input style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;" class="file-input" type="file" data-reactid=".0.5.$=1$UserSettingsModal.0.0.1.0.$ACCOUNT.0.1.1.0.2">
                                             </div>
-                                            <img id="logoStore" class="img-size-50" src="<?php echo $modulo->icono_empresa; ?>" alt="Logo Store" title="Logo Store">
-                                            <div class="btn btn-default btn-file">
-                                                <i class="fa fa-paperclip"></i> Upload new logo
-                                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
-                                            </div>
+<!--                                            <img id="logoStore" class="img-size-50" src="--><?php //echo $modulo->icono_empresa; ?><!--" alt="Logo Store" title="Logo Store">-->
+<!--                                            <div class="btn btn-default btn-file">-->
+<!--                                                <i class="fa fa-paperclip"></i> Upload new logo-->
+<!--                                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">-->
+<!--                                            </div>-->
                                         </div>
                                         <div class="box-footer">
                                             <button id="btnActualizarLogoEmpresa" type="submit" class="btn btn-primary">Guardar</button>
