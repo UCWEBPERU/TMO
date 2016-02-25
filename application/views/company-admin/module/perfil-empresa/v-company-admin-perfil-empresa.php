@@ -522,8 +522,8 @@
 //                $("#logoStore").attr("src", readResult);
 
                 swal({
-                        title: "Eliminar Empresa",
-                        text: "¿Seguro que desea eliminar la empresa?",
+                        title: "Logo Empresa",
+                        text: "¿Seguro que desea cambiar el logo empresa?",
                         imageUrl: readResult,
                         showCancelButton: true,
                         confirmButtonColor: "#fc0836",
