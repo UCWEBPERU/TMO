@@ -72,10 +72,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
         $modulo->titulo 			= "Store";
         $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Store";
         $modulo->url_module_panel   = $modulo->url_main_panel."/store";
-
-        $modulo->menu                   = array("menu" => 2, "submenu" => 0);
-        $modulo->tipo_empresa		    = $this->M_Admin_Empresa->getTipoEmpresa();
-        $modulo->paquetes_tmo 			= $this->M_Admin_Paquetes_TMO->getPaquetesTMO();
+        $modulo->menu               = array("menu" => 2, "submenu" => 0);
 
         $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
 
