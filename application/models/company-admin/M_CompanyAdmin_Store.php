@@ -45,7 +45,7 @@ class M_CompanyAdmin_Store extends CI_Model {
         $this->db->where('Empresa.estado', '1');
         $this->db->where('Paquetes_TMO.estado', '1');
         $query = $this->db->get('Empresa');
-        return $query->num_rows();
+        return $query->result();
     }
 
     public function getTotalStore($id_empresa) {

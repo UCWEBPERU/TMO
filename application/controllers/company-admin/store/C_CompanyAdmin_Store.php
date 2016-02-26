@@ -438,7 +438,6 @@ class C_CompanyAdmin_Store extends CI_Controller {
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        var_dump($this->input->post());
         if ( $this->input->post("txtNameStore") &&
             $this->input->post("txtMobilePhone") &&
             $this->input->post("cboCountry") &&
