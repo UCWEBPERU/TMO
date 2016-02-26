@@ -19,8 +19,7 @@ class M_CompanyAdmin_Store extends CI_Model {
 							Empresa.fax,
 							Empresa.direccion,
 							Empresa.direccion_2,
-							Empresa.fecha_registro,
-							Tipo_Empresa.nombre_tipo_empresa");
+							Empresa.fecha_registro");
         $this->db->join('Sucursales', 'Sucursales.id_empresa = Empresa.id_empresa');
         $this->db->join('Tienda', 'Tienda.id_tienda = Sucursales.id_tienda');
         $this->db->where('Empresa.id_empresa', $id_empresa);
