@@ -434,7 +434,7 @@
 //                GenericModal.show("danger", "<p>" + textStatus + "</p>");
 //            });
             GenericModal.show("danger", "<div id='somecomponent' style='width: 500px; height: 400px;'></div>");
-            $('#somecomponent').locationpicker();
+
 
         });
 
