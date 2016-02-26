@@ -95,7 +95,7 @@ class M_CompanyAdmin_User extends CI_Model {
             "id_empresa" => $data["id_empresa"],
             "id_usuario" => $data["id_usuario"]
         );
-        if ($this->db->insert('Sucursales', $data)) {
+        if ($this->db->insert('Usuarios_Asignados', $data)) {
             return $this->db->insert_id();
         }
 
