@@ -50,22 +50,22 @@
                                     </div>
                                     <div class="box-body">
                                         <!-- form start -->
-                                        <form id="formEmpresa" role="form"  enctype="multipart/form-data">
+                                        <form id="formStore" role="form"  enctype="multipart/form-data">
                                             <div class="col-md-4">
 
                                                 <div class="form-group">
-                                                    <label for="txtFirstName">Name Store</label>
-                                                    <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el nombre.">
+                                                    <label for="txtNameStore">Name Store</label>
+                                                    <input type="text" class="form-control" id="txtNameStore" name="txtNameStore" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el nombre de la tienda.">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="txtMobilePhone">Mobile Phone</label>
-                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de celular debe ser solo numeros.">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="txtHomePhone">Home Phone</label>
-                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
+                                                    <label for="txtStorePhone">Store Phone</label>
+                                                    <input type="text" class="form-control" id="txtStorePhone" name="txtStorePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de la tienda debe ser solo numeros.">
                                                 </div>
 
                                                 <div class="row">
@@ -73,11 +73,10 @@
                                                         <div class="form-group">
                                                             <label for="txtGPSLatitud">GPS - Latitud</label>
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="txtGPSLatitud" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
+                                                                <input type="text" class="form-control" id="txtGPSLatitud" name="txtGPSLatitud" maxlength="40" disabled>
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
-                                                                    <!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
-                                                                    <button id="btnInputLatitud" type="button" class="btn btn-primary" title="Generar Contraseña"><i class="fa fa-map-marker"></i></button>
+                                                                    <button id="btnInputLatitud" type="button" class="btn btn-primary" title="Generar Coordenadas"><i class="fa fa-map-marker"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -87,28 +86,27 @@
                                                         <div class="form-group">
                                                             <label for="txtGPSLongitud">GPS - Longitud</label>
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="txtGPSLongitud" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
+                                                                <input type="text" class="form-control" id="txtGPSLongitud" name="txtGPSLongitud" maxlength="40" disabled>
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
-                                                                    <button id="btnInputLongitud" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-map-marker"></i></button>
+                                                                    <button id="btnInputLongitud" type="button" class="btn btn-primary" title="Generar Coordenadas"><i class="fa fa-map-marker"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="txtMobilePhone">ID Pay Account</label>
-                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                                    <label for="txtIDPayAccount">ID Pay Account</label>
+                                                    <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" maxlength="15">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="txtHomePhone">Type Pay Account</label>
-                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
+                                                    <label for="txtTypePayAccount">Type Pay Account</label>
+                                                    <input type="text" class="form-control" id="txtTypePayAccount" name="txtTypePayAccount" maxlength="15">
                                                 </div>
                                             </div>
 
@@ -150,41 +148,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="box-group">
-                                <!-- Panel Empresa-->
-                                <div class="panel box box-primary">
-                                    <div class="box-header with-border">
-                                        <h4 class="box-title">
-                                            <a class="">
-                                                Datos Extra
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div class="box-body">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="fileLogoEmpresa">Añadir Logo Institucional</label>
-                                                    <input type="file" class="form-control" id="fileLogoEmpresa" name="fileLogoEmpresa">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="cboPaqueteTmo">Paquete TMO</label>
-                                                    <select id="cboPaqueteTmo"  name="cboPaqueteTmo"  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un paquete.">
-                                                        <option value="" selected="selected">Seleccione</option>
-                                                        <?php foreach($modulo->paquetes_tmo as $paquete): ?>
-                                                            <option value="<?php echo $paquete->id_paquetes_tmo; ?>"><?php echo $paquete->nombre_paquete; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                             <button id="btnAgregar" type="submit" class="btn btn-primary">Agregar</button>
@@ -226,11 +189,9 @@
 
         GenericModal.config("#genericModal", "");
 
-        var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtRepeatPassword", "#txtOrganization", "#cboTipoEmpresa",
-            "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#txtFax", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress", "#txtAddress2", "#cboPaqueteTmo"];
-
-        var baseUrl = "<?php echo base_url(); ?>";
-        var urlApi  = baseUrl + "admin/empresa/crear";
+        var selectorInputsForm = ["#txtNameStore", "#txtMobilePhone", "#txtStorePhone", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress"];
+        var baseUrl         = "<?php echo base_url(); ?>";
+        var modulePanelUrl  = "<?php echo $modulo->url_module_panel; ?>";
 
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
@@ -239,63 +200,34 @@
 
                 waitingDialog.show('Cargando...');
 
-                formData.append("txtFirstName",     $("#txtFirstName").val());
-                formData.append("txtLastName",      $("#txtLastName").val());
-                formData.append("txtEmail",         $("#txtEmail").val());
-                formData.append("txtPassword",      $("#txtPassword").val());
-                formData.append("txtRepeatPassword",$("#txtRepeatPassword").val());
-                formData.append("txtOrganization",  $("#txtOrganization").val());
-                formData.append("cboTipoEmpresa",   $("#cboTipoEmpresa").val());
-                formData.append("txtMobilePhone",   $("#txtMobilePhone").val());
-                formData.append("txtHomePhone",     $("#txtHomePhone").val());
-                formData.append("txtWorkPhone",     $("#txtWorkPhone").val());
-                formData.append("txtFax",           $("#txtFax").val());
-                formData.append("cboCountry",       $("#cboCountry").val());
-                formData.append("cboRegion",        $("#cboRegion").val());
-                formData.append("cboCity",          $("#cboCity").val());
-                formData.append("txtAddress",       $("#txtAddress").val());
-                formData.append("txtAddress2",      $("#txtAddress2").val());
-                formData.append("cboPaqueteTmo",    $("#cboPaqueteTmo").val());
-
                 var request = $.ajax({
-                    url: urlApi,
+                    url: modulePanelUrl + "/ajax/addStore",
                     method: "POST",
-                    data: formData,
-                    dataType: "json",
-                    processData: false,
-                    contentType: false
+                    data: $("#formStore").serialize(),
+                    dataType: "json"
                 });
 
                 request.done(function( response ) {
 
                     waitingDialog.hide();
 
-                    formData = new FormData();
-
                     if (response.status) {
 
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                         if (response.action == "insert") {
-                            $("#txtFirstName").val("");
-                            $("#txtLastName").val("");
-                            $("#txtEmail").val("");
-                            $("#txtPassword").val("");
-                            $("#txtRepeatPassword").val("");
-                            $("#txtOrganization").val("");
-                            $("#cboTipoEmpresa").val("").trigger("change");
-                            $("#txtMobilePhone").val("");
-                            $("#txtHomePhone").val("");
-                            $("#txtWorkPhone").val("");
-                            $("#txtFax").val("");
+                            $("#txtNameStore").val();
+                            $("#txtMobilePhone").val();
+                            $("#txtStorePhone").val();
+                            $("#txtGPSLatitud").val();
+                            $("#txtGPSLongitud").val();
+                            $("#txtIDPayAccount").val();
+                            $("#txtTypePayAccount").val();
+                            $("#txtAddress").val();
                             $("#cboCountry").val("").trigger("change");
                             $("#cboRegion").empty();
                             $("#cboRegion").append("<option value='' selected='selected'>Seleccione</option>");
                             $("#cboCity").empty();
                             $("#cboCity").append("<option value='' selected='selected'>Seleccione</option>");
-                            $("#txtAddress").val("");
-                            $("#txtAddress2").val("");
-                            $("#cboPaqueteTmo").val("").trigger("change");
-                            $("$fileLogoEmpresa").val("");
                         }
                     } else {
                         GenericModal.show("danger", "<p>" + response.message + "</p>");
@@ -305,7 +237,6 @@
 
                 request.fail(function( jqXHR, textStatus ) {
                     waitingDialog.hide();
-                    formData = new FormData();
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
 
@@ -385,39 +316,11 @@
 
             });
 
-        $("#btnVerPassword").on("click", function(evt) {
-            evt.preventDefault();
-            if ($("#txtPassword").attr("type") == "password") {
-                $("#txtPassword").attr("type", "text");
-                $("#txtRepeatPassword").attr("type", "text");
-                $(this).children().removeClass("fa-eye");
-                $(this).children().addClass("fa-eye-slash");
-                $(this).attr("title", "Ocultar Contraseña");
-            } else {
-                $("#txtPassword").attr("type", "password");
-                $("#txtRepeatPassword").attr("type", "password");
-                $(this).children().removeClass("fa-eye-slash");
-                $(this).children().addClass("fa-eye");
-                $(this).attr("title", "Ver Contrseña");
-            }
-        });
-
-        var objHandleFile = new HandleFile("#fileLogoEmpresa");
-        objHandleFile.onSelect(
-            function(file) {
-                console.log("select image");
-                console.log(file);
-                formData.append("fileLogoEmpresa", file);
-            },
-            function(readResult) {}
-        );
-
         $("#btnInputLatitud, #btnInputLongitud").on("click", function() {
             GenericModal.show("default", "<div id='box-gmap'></div>");
             setTimeout(function(){
                 $.geolocation.get({
                     win: function(position) {
-                        console.log("SUCESS");
                         $('#box-gmap').locationpicker({
                             location: {latitude: position.coords.latitude, longitude: position.coords.longitude},
                             radius: 0,
@@ -431,9 +334,8 @@
                         });
                     },
                     fail: function(error) {
-                        console.log("FAIL: " + error.code);
                         $('#box-gmap').locationpicker({
-                            location: {latitude: 46.15242437752303, longitude: 2.7470703125},
+                            location: {latitude: 48.858365282590746, longitude: 2.2944820579116367},
                             radius: 0,
                             zoom: 15,
                             inputBinding: {
@@ -446,20 +348,6 @@
                     }
                 });
             }, 1000);
-//            setTimeout(function(){
-//                $('#somecomponent').locationpicker({
-//                    location: {latitude: 46.15242437752303, longitude: 2.7470703125},
-//                    radius: 0,
-//                    zoom: 8,
-//                    inputBinding: {
-//                        latitudeInput: $("#txtGPSLatitud"),
-//                        longitudeInput: $("#txtGPSLongitud"),
-//                        radiusInput: null,
-//                        locationNameInput: null
-//                    }
-//                });
-//            }, 1000);
-
         });
 
     });

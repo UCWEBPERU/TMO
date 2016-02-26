@@ -98,14 +98,9 @@
           
           var baseUrl   = "<?php echo $modulo->base_url; ?>";
           var urlApi    = baseUrl + <?php if (isset($idTipo)) { echo '"editar";'; } else { echo '"crear";'; } ?>
-          var formData  = new FormData();
-          
-          var element = this;
           
           mostrarErrorInputText("#nombre_tipo_empresa");
 
-
-          
           if ( $("#nombre_tipo_empresa").val().length > 0) {
                 
                 $(".overlay").removeClass("hide");

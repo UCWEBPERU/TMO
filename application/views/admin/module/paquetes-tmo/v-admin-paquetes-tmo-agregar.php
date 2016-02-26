@@ -119,15 +119,6 @@
 
                 waitingDialog.show('Cargando...');
 
-                formData.append("txtNombre",               $("#txtNombre").val());
-                formData.append("txtDescripcion",          $("#txtDescripcion").val());
-                formData.append("txtTotalTiendas",         $("#txtTotalTiendas").val());
-                formData.append("txtTotalProductos",       $("#txtTotalProductos").val());
-                formData.append("txtTotalUsuarios",        $("#txtTotalUsuarios").val());
-                formData.append("txtTotalCategorias",      $("#txtTotalCategorias").val());
-                formData.append("txtTiempoSuscripcion",    $("#txtTiempoSuscripcion").val());
-                formData.append("txtPrecio",               $("#txtPrecio").val());
-
                 var request = $.ajax({
                     url: urlApi,
                     method: "POST",
@@ -137,7 +128,6 @@
 
                 request.done(function( response ) {
                     waitingDialog.hide();
-                    formData = new FormData();
                     if (response.status) {
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                         if (response.action == "insert") {
@@ -158,7 +148,6 @@
 
                 request.fail(function( jqXHR, textStatus ) {
                     waitingDialog.hide();
-                    formData = new FormData();
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
 

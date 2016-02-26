@@ -80,6 +80,8 @@ class C_CompanyAdmin_Store extends CI_Controller {
 
         $this->load->view('company-admin/module/store/v-company-admin-store-agregar', $data);
     }
+
+
 //
 //    public function edit($idEmpresa) {
 //        if (isset($idEmpresa)) {
@@ -427,5 +429,68 @@ class C_CompanyAdmin_Store extends CI_Controller {
 //
 //        echo json_encode($json);
 //    }
+
+    public function ajaxAddStore() {
+        $json 				= new stdClass();
+        $json->type 		= "Store";
+        $json->presentation = "";
+        $json->action 		= "insert";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        if ( $this->input->post("txtNameStore") &&
+            $this->input->post("txtMobilePhone") &&
+            $this->input->post("txtStorePhone") &&
+            $this->input->post("cboCountry") &&
+            $this->input->post("cboRegion") &&
+            $this->input->post("cboCity") &&
+            $this->input->post("txtAddress")) {
+
+            $validate   = $this->M_CompanyAdmin_Store->getSuscripcionPaqueteTMO($this->session->id_empresa);
+            $totalStore = $this->M_CompanyAdmin_Store->getTotalStore($this->session->id_empresa);
+
+            if (sizeof($validate) > 0) {
+                if ($totalStore <= intval($validate[0]->total_store)) {
+                    unset($validate);
+
+                    $resul1 = $this->M_CompanyAdmin_Store->insertPayAccount(
+                        array(
+                            'pay_id'             => trim($this->input->post("txtIDPayAccount", TRUE)),
+                            'tipo_metodo_pago'   => trim($this->input->post("txtTypePayAccount", TRUE))
+                        )
+                    );
+
+                    $resul2 = $this->M_CompanyAdmin_Store->insertStore(
+                        array(
+                            "nombre_tienda"     => trim($this->input->post("txtNameStore", TRUE)),
+                            "nro_celular"       => trim($this->input->post("txtMobilePhone", TRUE)),
+                            "nro_telefono"      => trim($this->input->post("txtStorePhone", TRUE)),
+                            "pais"              => trim($this->input->post("cboCountry", TRUE)),
+                            "region"		    => trim($this->input->post("cboRegion", TRUE)),
+                            "ciudad"		    => trim($this->input->post("cboCity", TRUE)),
+                            "direccion"		    => trim($this->input->post("txtAddress", TRUE)),
+                            "gps_latitud"       => trim($this->input->post("txtGPSLatitud", TRUE)),
+                            "gps_longitud"      => trim($this->input->post("txtGPSLongitud", TRUE)),
+                            "id_pay_account"    => $resul1
+                        )
+                    );
+                    $json->message = "La tienda se agrego correctamente.";
+                    $json->status 	= TRUE;
+
+                } else {
+                    $json->message 	= "Lo sentimos su suscripción actual solo le permite tener ".$validate[0]->total_store." tiendas.";
+                }
+            } else {
+                $json->message 	= "Lo sentimos al parecer no tiene una suscripción activa.";
+            }
+
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+        echo json_encode($json);
+    }
+
+
 
 }

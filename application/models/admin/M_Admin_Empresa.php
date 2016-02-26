@@ -178,21 +178,6 @@ class M_Admin_Empresa extends CI_Model{
 		return FALSE;
 	}
 
-	public function insertTienda($data) {
-		$data = array(
-			'nombre_tienda'	=> $data["nombre_tienda"],
-			'pais' 			=> $data["pais"],
-			'region' 		=> $data["region"],
-			'ciudad' 		=> $data["ciudad"],
-			'direccion' 	=> $data["direccion"]
-		);
-		if ($this->db->insert('Suscripcion_Paquete_TMO', $data)) {
-			return $this->db->insert_id();
-		}
-
-		return FALSE;
-	}
-
 	public function insertArchivo($dataArchivo) {
 		$data = array(
 			'url_archivo'			=> $dataArchivo["url_archivo"],
