@@ -209,7 +209,7 @@
                 var request = $.ajax({
                     url: modulePanelUrl + "/ajax/addUser",
                     method: "POST",
-                    data: $("#formStore").serialize(),
+                    data: $("#formUsuario").serialize(),
                     dataType: "json"
                 });
 
