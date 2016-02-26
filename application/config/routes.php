@@ -151,16 +151,25 @@ $route['company/(:num)/admin/company-profile/ajax/updateDataCompany']   = 'compa
 
 /*
 | ------------------------------
-| URL -> COMPANY ADMIN - PERFIL EMPRESA
+| URL -> COMPANY ADMIN - STORE
 | ------------------------------
 */
 $route['company/(:num)/admin/store']                = 'company-admin/store/C_CompanyAdmin_Store';
 $route['company/(:num)/admin/store/page']		    = 'company-admin/store/C_CompanyAdmin_Store';
 $route['company/(:num)/admin/store/page/(:num)']	= 'company-admin/store/C_CompanyAdmin_Store';
 $route['company/(:num)/admin/store/add']	        = 'company-admin/store/C_CompanyAdmin_Store/addStore';
-$route['company/(:num)/admin/store/ajax/addStore']	        = 'company-admin/store/C_CompanyAdmin_Store/ajaxAddStore';
-//$route['company/(:num)/admin/store/ajax/updateLogoEmpresa'] = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa/ajaxUpdateLogoCompany';
-//$route['company/(:num)/admin/store/ajax/updateDataCompany'] = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa/ajaxUpdateDataCompany';
+$route['company/(:num)/admin/store/ajax/addStore']  = 'company-admin/store/C_CompanyAdmin_Store/ajaxAddStore';
+
+/*
+| ------------------------------
+| URL -> COMPANY ADMIN - USER
+| ------------------------------
+*/
+$route['company/(:num)/admin/user']                 = 'company-admin/user/C_CompanyAdmin_User';
+$route['company/(:num)/admin/user/page']		    = 'company-admin/user/C_CompanyAdmin_User';
+$route['company/(:num)/admin/user/page/(:num)']	    = 'company-admin/user/C_CompanyAdmin_User';
+$route['company/(:num)/admin/user/add']	            = 'company-admin/user/C_CompanyAdmin_User/addUser';
+$route['company/(:num)/admin/user/ajax/addUser']   = 'company-admin/store/C_CompanyAdmin_User/ajaxAddUser';
 
 /*
 | ------------------------------
