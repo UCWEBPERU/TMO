@@ -210,6 +210,9 @@
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
 <!-- Handle File -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/HandleFile.js"></script>
+<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+<!-- Location Picker -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>locationpicker/locationpicker.jquery.js"></script>
 <script>
     $(function () {
 
@@ -407,28 +410,31 @@
         );
 
         $("#btnGenerarPassword").on("click", function() {
-            waitingDialog.show('Generando Contraseña...');
+//            waitingDialog.show('Generando Contraseña...');
+//
+//            var request = $.ajax({
+//                url: baseUrl + "admin/empresa/ajax/generatePassword",
+//                method: "POST",
+//                data: formData,
+//                dataType: "json",
+//                processData: false,
+//                contentType: false
+//            });
+//
+//            request.done(function( response ) {
+//                waitingDialog.hide();
+//                $("#txtPassword").val(response.data.password);
+//                $("#txtRepeatPassword").val(response.data.password);
+//                GenericModal.show("default", "<p>" + response.message + "</p>");
+//            });
+//
+//            request.fail(function( jqXHR, textStatus ) {
+//                waitingDialog.hide();
+//                GenericModal.show("danger", "<p>" + textStatus + "</p>");
+//            });
+            GenericModal.show("danger", "<div id='somecomponent' style='width: 500px; height: 400px;'></div>");
+            $('#somecomponent').locationpicker();
 
-            var request = $.ajax({
-                url: baseUrl + "admin/empresa/ajax/generatePassword",
-                method: "POST",
-                data: formData,
-                dataType: "json",
-                processData: false,
-                contentType: false
-            });
-
-            request.done(function( response ) {
-                waitingDialog.hide();
-                $("#txtPassword").val(response.data.password);
-                $("#txtRepeatPassword").val(response.data.password);
-                GenericModal.show("default", "<p>" + response.message + "</p>");
-            });
-
-            request.fail(function( jqXHR, textStatus ) {
-                waitingDialog.hide();
-                GenericModal.show("danger", "<p>" + textStatus + "</p>");
-            });
         });
 
     });
