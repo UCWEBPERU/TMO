@@ -18,10 +18,9 @@ class C_CompanyAdmin_Store extends CI_Controller {
         $this->load->library('utils/PanelAdmin');
 
         /* Datos de la cabecera del panel de administrador*/
-        $modulo = $this->paneladmin->loadPanelCompany();
-
-        $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Store";
-        $modulo->url_module_panel = $modulo->url_main_panel."/store";
+        $modulo                     = $this->paneladmin->loadPanelCompany();
+        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Store";
+        $modulo->url_module_panel   = $modulo->url_main_panel."/store";
 
         $modulo->nombre 					= "Store";
         $modulo->titulo 					= "Store";
@@ -91,7 +90,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
 
         $data["modulo"] 				= $modulo;
 
-        $this->load->view('admin/module/empresa/v-admin-empresa-agregar', $data);
+        $this->load->view('admin/module/store/v-company-admin-store-agregar', $data);
     }
 //
 //    public function edit($idEmpresa) {
