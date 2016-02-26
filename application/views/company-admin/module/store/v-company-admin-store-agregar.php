@@ -211,7 +211,7 @@
 <!-- Handle File -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/HandleFile.js"></script>
 <!--<script src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc_iF34MQNbX2_GkY_HQjHDiHTzXc3ado&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc_iF34MQNbX2_GkY_HQjHDiHTzXc3ado" async defer></script>
 <!-- Location Picker -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>locationpicker/locationpicker.jquery.js"></script>
 <script>
