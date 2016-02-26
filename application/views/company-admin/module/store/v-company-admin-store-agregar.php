@@ -73,7 +73,7 @@
                                                         <div class="form-group">
                                                             <label for="txtGPSLatitud">GPS - Latitud</label>
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="txtGPSLatitud" name="txtGPSLatitud" maxlength="40" disabled>
+                                                                <input type="text" class="form-control" id="txtGPSLatitud" name="txtGPSLatitud" maxlength="40">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <button id="btnInputLatitud" type="button" class="btn btn-primary" title="Generar Coordenadas"><i class="fa fa-map-marker"></i></button>
@@ -86,7 +86,7 @@
                                                         <div class="form-group">
                                                             <label for="txtGPSLongitud">GPS - Longitud</label>
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="txtGPSLongitud" name="txtGPSLongitud" maxlength="40" disabled>
+                                                                <input type="text" class="form-control" id="txtGPSLongitud" name="txtGPSLongitud" maxlength="40">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <button id="btnInputLongitud" type="button" class="btn btn-primary" title="Generar Coordenadas"><i class="fa fa-map-marker"></i></button>
