@@ -414,38 +414,38 @@
 
         $("#btnInputLatitud, #btnInputLongitud").on("click", function() {
             GenericModal.show("default", "<div id='somecomponent' style='min-width: 300px; max-width: 500px; min-height: 300px; max-height: 500px; margin: 0px auto;'></div>");
-
-            $.geolocation.get({
-                win: function(position) {
-                    console.log("SUCESS");
-                    $('#somecomponent').locationpicker({
-                        location: {latitude: position.coords.latitude, longitude: position.coords.longitude},
-                        radius: 0,
-                        zoom: 12,
-                        inputBinding: {
-                            latitudeInput: $("#txtGPSLatitud"),
-                            longitudeInput: $("#txtGPSLongitud"),
-                            radiusInput: null,
-                            locationNameInput: null
-                        }
-                    });
-                },
-                fail: function(error) {
-                    console.log("FAIL: " + error.code);
-                    $('#somecomponent').locationpicker({
-                        location: {latitude: 46.15242437752303, longitude: 2.7470703125},
-                        radius: 0,
-                        zoom: 12,
-                        inputBinding: {
-                            latitudeInput: $("#txtGPSLatitud"),
-                            longitudeInput: $("#txtGPSLongitud"),
-                            radiusInput: null,
-                            locationNameInput: null
-                        }
-                    });
-                }
-            });
-
+            setTimeout(function(){
+                $.geolocation.get({
+                    win: function(position) {
+                        console.log("SUCESS");
+                        $('#somecomponent').locationpicker({
+                            location: {latitude: position.coords.latitude, longitude: position.coords.longitude},
+                            radius: 0,
+                            zoom: 15,
+                            inputBinding: {
+                                latitudeInput: $("#txtGPSLatitud"),
+                                longitudeInput: $("#txtGPSLongitud"),
+                                radiusInput: null,
+                                locationNameInput: null
+                            }
+                        });
+                    },
+                    fail: function(error) {
+                        console.log("FAIL: " + error.code);
+                        $('#somecomponent').locationpicker({
+                            location: {latitude: 46.15242437752303, longitude: 2.7470703125},
+                            radius: 0,
+                            zoom: 15,
+                            inputBinding: {
+                                latitudeInput: $("#txtGPSLatitud"),
+                                longitudeInput: $("#txtGPSLongitud"),
+                                radiusInput: null,
+                                locationNameInput: null
+                            }
+                        });
+                    }
+                });
+            }, 1000);
 //            setTimeout(function(){
 //                $('#somecomponent').locationpicker({
 //                    location: {latitude: 46.15242437752303, longitude: 2.7470703125},
