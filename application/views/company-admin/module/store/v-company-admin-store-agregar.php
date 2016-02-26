@@ -413,7 +413,7 @@
         );
 
         $("#btnInputLatitud, #btnInputLongitud").on("click", function() {
-            GenericModal.show("default", "<div class='box-flex-center'><i class='fa fa-refresh fa-spin'></i></div><div id='somecomponent' style='min-width: 300px; max-width: 500px; min-height: 300px; max-height: 500px; margin: 0px auto;'></div>");
+            GenericModal.show("default", "<div class='box-flex-center'><i class='fa fa-refresh fa-spin'></i><div id='somecomponent' style='min-width: 300px; max-width: 500px; min-height: 300px; max-height: 500px; margin: 0px auto;'></div></div>");
             setTimeout(function(){
                 $.geolocation.get({
                     win: function(position) {

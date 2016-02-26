@@ -82,6 +82,7 @@
     min-height: 300px;
     max-width: 500px;
     max-height: 500px;
+    margin: 0px auto;
 }
 
 .box-logo-store .logo-store-inner input[type="file"] {
