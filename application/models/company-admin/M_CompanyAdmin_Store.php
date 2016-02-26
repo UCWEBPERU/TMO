@@ -8,25 +8,23 @@ class M_CompanyAdmin_Store extends CI_Model {
     }
 
     public function fetchStore($limit, $start, $id_empresa) {
-        $this->db->select("Empresa.id_empresa,
-							Empresa.organization,
-							Empresa.nombres_representante,
-							Empresa.apellidos_representante,
-							Empresa.email_representante,
-							Empresa.celular_personal,
-							Empresa.telefono,
-							Empresa.celular_trabajo,
-							Empresa.fax,
-							Empresa.direccion,
-							Empresa.direccion_2,
-							Empresa.fecha_registro");
+        $this->db->select("Tienda.id_tienda,
+							Tienda.nombre_tienda,
+							Tienda.nro_celular,
+							Tienda.nro_telefono,
+							Tienda.pais,
+							Tienda.region,
+							Tienda.ciudad,
+							Tienda.direccion,
+							Tienda.gps_latitud,
+							Tienda.gps_longitud");
         $this->db->join('Sucursales', 'Sucursales.id_empresa = Empresa.id_empresa');
         $this->db->join('Tienda', 'Tienda.id_tienda = Sucursales.id_tienda');
         $this->db->where('Empresa.id_empresa', $id_empresa);
         $this->db->where('Empresa.estado', '1');
         $this->db->where('Tienda.estado', '1');
         $this->db->limit($limit, $start);
-        $query = $this->db->get('Empresa');
+        $query = $this->db->get('Tienda');
 
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
