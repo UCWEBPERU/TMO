@@ -96,10 +96,10 @@ class C_CompanyAdmin_User extends CI_Controller {
             $this->input->post("txtAddress")) {
 
             $validate   = $this->M_CompanyAdmin_User->getSuscripcionPaqueteTMO($this->session->id_empresa);
-            $totalStore = $this->M_CompanyAdmin_User->getTotalStore($this->session->id_empresa);
+            $totalStore = $this->M_CompanyAdmin_User->getTotalUser($this->session->id_empresa);
 
             if (sizeof($validate) > 0) {
-                if ($totalStore < intval($validate[0]->total_store)) {
+                if ($totalStore < intval($validate[0]->total_users)) {
                     unset($validate);
 
                     $resul1 = $this->M_CompanyAdmin_User->insertPayAccount(
@@ -144,6 +144,20 @@ class C_CompanyAdmin_User extends CI_Controller {
         } else {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
         }
+
+        echo json_encode($json);
+    }
+
+    public function ajaxGeneratePassword() {
+        $this->load->library("utils/Password");
+
+        $json 				= new stdClass();
+        $json->type 		= "Generate Password";
+        $json->presentation = "data";
+        $json->action 		= "";
+        $json->data 		= array("password" => $this->password->generate());
+        $json->message 		= "Contraseña generada correctamente.";
+        $json->status 		= TRUE;
 
         echo json_encode($json);
     }

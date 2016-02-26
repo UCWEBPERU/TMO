@@ -120,11 +120,6 @@
                                                     <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="txtFax">Fax</label>
-                                                    <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de fax debe ser solo numeros.">
-                                                </div>
-
                                             </div>
 
                                             <div class="col-md-4">
@@ -153,10 +148,10 @@
                                                     </select>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="txtAddress">Address</label>
-                                                    <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese una direccion.">
-                                                </div>
+<!--                                                <div class="form-group">-->
+<!--                                                    <label for="txtAddress">Address</label>-->
+<!--                                                    <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese una direccion.">-->
+<!--                                                </div>-->
 
                                             </div>
 
@@ -190,12 +185,6 @@
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
 <!-- Handle File -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/HandleFile.js"></script>
-<!--<script src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc_iF34MQNbX2_GkY_HQjHDiHTzXc3ado" async defer></script>
-<!-- Location Picker -->
-<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>locationpicker/locationpicker.jquery.js"></script>
-<!-- Geolocation -->
-<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>geolocation/jquery.geolocation.min.js"></script>
 <script>
     $(function () {
 
@@ -206,7 +195,7 @@
 
         GenericModal.config("#genericModal", "");
 
-        var selectorInputsForm = ["#txtNameStore", "#txtMobilePhone", "#txtStorePhone", "#cboCountry", "#cboRegion", "#cboCity", "#txtAddress"];
+        var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtRepeatPassword", "#txtMobilePhone", "#txtHomePhone", "#txtWorkPhone", "#cboCountry", "#cboRegion", "#cboCity"];
         var baseUrl         = "<?php echo base_url(); ?>";
         var modulePanelUrl  = "<?php echo $modulo->url_module_panel; ?>";
 
@@ -218,7 +207,7 @@
                 waitingDialog.show('Cargando...');
 
                 var request = $.ajax({
-                    url: modulePanelUrl + "/ajax/addStore",
+                    url: modulePanelUrl + "/ajax/addUser",
                     method: "POST",
                     data: $("#formStore").serialize(),
                     dataType: "json"
@@ -232,19 +221,20 @@
 
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                         if (response.action == "insert") {
-                            $("#txtNameStore").val("");
+                            $("#txtFirstName").val("");
+                            $("#txtLastName").val("");
+                            $("#txtEmail").val("");
+                            $("#txtPassword").val("");
+                            $("#txtRepeatPassword").val("");
                             $("#txtMobilePhone").val("");
-                            $("#txtStorePhone").val("");
-                            $("#txtGPSLatitud").val("");
-                            $("#txtGPSLongitud").val("");
-                            $("#txtIDPayAccount").val("");
-                            $("#txtTypePayAccount").val("");
-                            $("#txtAddress").val("");
+                            $("#txtHomePhone").val("");
+                            $("#txtWorkPhone").val("");
                             $("#cboCountry").val("").trigger("change");
                             $("#cboRegion").empty();
                             $("#cboRegion").append("<option value='' selected='selected'>Seleccione</option>");
                             $("#cboCity").empty();
                             $("#cboCity").append("<option value='' selected='selected'>Seleccione</option>");
+                            $("#txtAddress").val("");
                         }
                     } else {
                         GenericModal.show("danger", "<p>" + response.message + "</p>");
@@ -333,38 +323,46 @@
 
             });
 
-        $("#btnInputLatitud, #btnInputLongitud").on("click", function() {
-            GenericModal.show("default", "<div id='box-gmap'></div>");
-            setTimeout(function(){
-                $.geolocation.get({
-                    win: function(position) {
-                        $('#box-gmap').locationpicker({
-                            location: {latitude: position.coords.latitude, longitude: position.coords.longitude},
-                            radius: 0,
-                            zoom: 15,
-                            inputBinding: {
-                                latitudeInput: $("#txtGPSLatitud"),
-                                longitudeInput: $("#txtGPSLongitud"),
-                                radiusInput: null,
-                                locationNameInput: null
-                            }
-                        });
-                    },
-                    fail: function(error) {
-                        $('#box-gmap').locationpicker({
-                            location: {latitude: 48.858365282590746, longitude: 2.2944820579116367},
-                            radius: 0,
-                            zoom: 15,
-                            inputBinding: {
-                                latitudeInput: $("#txtGPSLatitud"),
-                                longitudeInput: $("#txtGPSLongitud"),
-                                radiusInput: null,
-                                locationNameInput: null
-                            }
-                        });
-                    }
-                });
-            }, 1000);
+        $("#btnVerPassword").on("click", function(evt) {
+            evt.preventDefault();
+            if ($("#txtPassword").attr("type") == "password") {
+                $("#txtPassword").attr("type", "text");
+                $("#txtRepeatPassword").attr("type", "text");
+                $(this).children().removeClass("fa-eye");
+                $(this).children().addClass("fa-eye-slash");
+                $(this).attr("title", "Ocultar Contraseña");
+            } else {
+                $("#txtPassword").attr("type", "password");
+                $("#txtRepeatPassword").attr("type", "password");
+                $(this).children().removeClass("fa-eye-slash");
+                $(this).children().addClass("fa-eye");
+                $(this).attr("title", "Ver Contrseña");
+            }
+        });
+
+        $("#btnGenerarPassword").on("click", function(){
+            waitingDialog.show('Generando Contraseña...');
+
+            var request = $.ajax({
+                url: modulePanelUrl + "/ajax/generatePassword",
+                method: "POST",
+                data: formData,
+                dataType: "json",
+                processData: false,
+                contentType: false
+            });
+
+            request.done(function( response ) {
+                waitingDialog.hide();
+                $("#txtPassword").val(response.data.password);
+                $("#txtRepeatPassword").val(response.data.password);
+                GenericModal.show("default", "<p>" + response.message + "</p>");
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                waitingDialog.hide();
+                GenericModal.show("danger", "<p>" + textStatus + "</p>");
+            });
         });
 
     });
