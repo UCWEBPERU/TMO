@@ -433,7 +433,7 @@
 //                waitingDialog.hide();
 //                GenericModal.show("danger", "<p>" + textStatus + "</p>");
 //            });
-            GenericModal.show("default", "<div id='somecomponent' style='min-width: 300px; max-width: 500px; min-height: 300px; max-height: 500px;'></div>");
+            GenericModal.show("default", "<div id='somecomponent' style='min-width: 300px; max-width: 500px; min-height: 300px; max-height: 500px; margin: 0px auto;'></div>");
             setTimeout(function(){
                 $('#somecomponent').locationpicker();
             }, 1000);
