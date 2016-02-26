@@ -18,7 +18,7 @@
         <section class="content-header">
             <h1>
                 <?php echo $modulo->titulo; ?>
-                <small><a href="<?php echo base_url().$modulo->base_url; ?>agregar">Agregar</a></small>
+                <small><a href="<?php echo $modulo->url_module_panel; ?>/add">Agregar</a></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>

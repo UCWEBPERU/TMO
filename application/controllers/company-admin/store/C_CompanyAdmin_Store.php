@@ -63,36 +63,36 @@ class C_CompanyAdmin_Store extends CI_Controller {
         $this->load->view('company-admin/module/store/v-company-admin-store', $data);
     }
 
-//    public function agregar() {
-//        $this->load->model("M_GEO_Data");
-//        $this->load->model("admin/M_Admin_Paquetes_TMO");
-//        $modulo = new stdClass();
-//
-//        $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
-//        $modulo->datos_usuario = $usuario[0];
-//
-//        $modulo->titulo 			    = "Empresa";
-//        $modulo->titulo_pagina          = "TMO | Panel Principal - Empresa";
-//        $modulo->icono_empresa          = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
-//        $modulo->nombres_usuario        = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
-//        $modulo->tipo_usuario           = $usuario[0]->nombre_tipo_usuario;
-//        $modulo->nombre_empresa_largo   = "Take My Order";
-//        $modulo->nombre_empresa_corto   = "TMO";
-//        $modulo->url_signout            = base_url()."/admin/signOut";
-//        $modulo->nombreSeccion          = "Agregar";
-//        $modulo->base_url 		        = "admin/empresa/";
-//        $modulo->url_main_panel         = base_url()."admin";
-//
-//        $modulo->menu                   = array("menu" => 1, "submenu" => 0);
-//        $modulo->tipo_empresa		    = $this->M_Admin_Empresa->getTipoEmpresa();
-//        $modulo->paquetes_tmo 			= $this->M_Admin_Paquetes_TMO->getPaquetesTMO();
-//
-//        $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
-//
-//        $data["modulo"] 				= $modulo;
-//
-//        $this->load->view('admin/module/empresa/v-admin-empresa-agregar', $data);
-//    }
+    public function addStore() {
+        $this->load->model("M_GEO_Data");
+        $this->load->model("admin/M_Admin_Paquetes_TMO");
+        $modulo = new stdClass();
+
+        $usuario = $this->M_Usuario->getByID($this->session->id_usuario);
+        $modulo->datos_usuario = $usuario[0];
+
+        $modulo->titulo 			    = "Empresa";
+        $modulo->titulo_pagina          = "TMO | Panel Principal - Empresa";
+        $modulo->icono_empresa          = PATH_RESOURCE_ADMIN."img/icon/icon_app.png";
+        $modulo->nombres_usuario        = $usuario[0]->nombres_persona." ".$usuario[0]->apellidos_persona;
+        $modulo->tipo_usuario           = $usuario[0]->nombre_tipo_usuario;
+        $modulo->nombre_empresa_largo   = "Take My Order";
+        $modulo->nombre_empresa_corto   = "TMO";
+        $modulo->url_signout            = base_url()."/admin/signOut";
+        $modulo->nombreSeccion          = "Agregar";
+        $modulo->base_url 		        = "admin/empresa/";
+        $modulo->url_main_panel         = base_url()."admin";
+
+        $modulo->menu                   = array("menu" => 1, "submenu" => 0);
+        $modulo->tipo_empresa		    = $this->M_Admin_Empresa->getTipoEmpresa();
+        $modulo->paquetes_tmo 			= $this->M_Admin_Paquetes_TMO->getPaquetesTMO();
+
+        $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
+
+        $data["modulo"] 				= $modulo;
+
+        $this->load->view('admin/module/empresa/v-admin-empresa-agregar', $data);
+    }
 //
 //    public function edit($idEmpresa) {
 //        if (isset($idEmpresa)) {
