@@ -433,7 +433,7 @@
 //                waitingDialog.hide();
 //                GenericModal.show("danger", "<p>" + textStatus + "</p>");
 //            });
-            GenericModal.show("default", "<div id='somecomponent' style='width: 500px; height: 400px;'></div>");
+            GenericModal.show("default", "<div id='somecomponent' style='width: 100%; height: 100%;'></div>");
             setTimeout(function(){
                 $('#somecomponent').locationpicker();
             }, 1000);
