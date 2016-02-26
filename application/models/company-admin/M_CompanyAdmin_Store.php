@@ -24,7 +24,7 @@ class M_CompanyAdmin_Store extends CI_Model {
         $this->db->where('Empresa.estado', '1');
         $this->db->where('Tienda.estado', '1');
         $this->db->limit($limit, $start);
-        $query = $this->db->get('Tienda');
+        $query = $this->db->get('Empresa');
 
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
