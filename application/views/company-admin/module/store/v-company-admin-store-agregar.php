@@ -215,7 +215,7 @@
 <!-- Location Picker -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>locationpicker/locationpicker.jquery.js"></script>
 <!-- Geolocation -->
-<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>locationpicker/jquery.geolocation.min.js"></script>
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>geolocation/jquery.geolocation.min.js"></script>
 <script>
     $(function () {
 
