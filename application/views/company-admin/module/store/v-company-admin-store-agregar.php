@@ -413,12 +413,12 @@
         );
 
         $("#btnInputLatitud, #btnInputLongitud").on("click", function() {
-            GenericModal.show("default", "<div id='box-gmap' style='min-width: 300px; max-width: 500px; min-height: 300px; max-height: 500px; margin: 0px auto;'></div>");
+            GenericModal.show("default", "<div id='box-gmap'></div>");
             setTimeout(function(){
                 $.geolocation.get({
                     win: function(position) {
                         console.log("SUCESS");
-                        $('#somecomponent').locationpicker({
+                        $('#box-gmap').locationpicker({
                             location: {latitude: position.coords.latitude, longitude: position.coords.longitude},
                             radius: 0,
                             zoom: 15,
@@ -432,7 +432,7 @@
                     },
                     fail: function(error) {
                         console.log("FAIL: " + error.code);
-                        $('#somecomponent').locationpicker({
+                        $('#box-gmap').locationpicker({
                             location: {latitude: 46.15242437752303, longitude: 2.7470703125},
                             radius: 0,
                             zoom: 15,
