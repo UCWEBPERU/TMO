@@ -78,7 +78,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
 
         $data["modulo"] 				= $modulo;
 
-        $this->load->view('admin/module/store/v-company-admin-store-agregar', $data);
+        $this->load->view('company-admin/module/store/v-company-admin-store-agregar', $data);
     }
 //
 //    public function edit($idEmpresa) {
