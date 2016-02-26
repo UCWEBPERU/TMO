@@ -69,10 +69,10 @@ class C_CompanyAdmin_User extends CI_Controller {
 
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
-        $modulo->titulo 			= "Store";
-        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Store";
-        $modulo->url_module_panel   = $modulo->url_main_panel."/store";
-        $modulo->menu               = array("menu" => 2, "submenu" => 0);
+        $modulo->titulo 			= "User";
+        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - User";
+        $modulo->url_module_panel   = $modulo->url_main_panel."/user";
+        $modulo->menu               = array("menu" => 3, "submenu" => 0);
 
         $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
 
