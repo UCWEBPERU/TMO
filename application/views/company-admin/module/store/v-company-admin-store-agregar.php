@@ -71,33 +71,13 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="txtFirstName">Name Store</label>
-                                                            <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el nombre.">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="txtLastName">Last Name</label>
-                                                            <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el apellido.">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="txtEmail">Email</label>
-                                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="150" data-parsley-required data-parsley-type="email" data-parsley-required-message="Ingrese el email." data-parsley-type-message="Ingrese un email valido.">
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
                                                             <label for="txtPassword">GPS - Latitud</label>
                                                             <div class="input-group">
                                                                 <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
-                                                                    <button id="btnGenerarPassword" type="button" class="btn btn-primary" title="Generar Contraseña"><i class="fa fa-pencil"></i></button>
+                                                                    <button id="btnGenerarPassword" type="button" class="btn btn-primary" title="Generar Contraseña"><i class="fa fa-map-marker"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -110,7 +90,7 @@
                                                                 <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
-                                                                    <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
+                                                                    <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-map-marker"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -121,7 +101,15 @@
                                             </div>
 
                                             <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtMobilePhone">ID Pay Account</label>
+                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                                </div>
 
+                                                <div class="form-group">
+                                                    <label for="txtHomePhone">Type Pay Account</label>
+                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
+                                                </div>
                                             </div>
 
                                             <div class="col-md-4">
