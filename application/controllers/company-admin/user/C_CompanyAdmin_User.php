@@ -29,7 +29,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         $modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-user";
         $modulo->base_url 					= "admin/empresa/";
         $modulo->api_rest_params 			= array("delete" => "id_empresa");
-        $modulo->menu 						= array("menu" => 2, "submenu" => 0);
+        $modulo->menu 						= array("menu" => 3, "submenu" => 0);
         $modulo->navegacion 				= array(
             array("nombre" => "User",
                 "url" => "",
@@ -62,7 +62,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         $this->load->view('company-admin/module/user/v-company-admin-user', $data);
     }
 
-    public function addStore() {
+    public function addUser() {
         $this->load->model("M_GEO_Data");
         $this->load->model("admin/M_Admin_Paquetes_TMO");
         $this->load->model('M_Tipo_Empresa');
@@ -78,10 +78,10 @@ class C_CompanyAdmin_User extends CI_Controller {
 
         $data["modulo"] 				= $modulo;
 
-        $this->load->view('company-admin/module/store/v-company-admin-store-agregar', $data);
+        $this->load->view('company-admin/module/user/v-company-admin-user-agregar', $data);
     }
 
-    public function ajaxAddStore() {
+    public function ajaxAddUser() {
         $json 				= new stdClass();
         $json->type 		= "Store";
         $json->presentation = "";
