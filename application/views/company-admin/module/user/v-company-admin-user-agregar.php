@@ -21,7 +21,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url(); ?>admin"><i class="fa fa-dashboard"></i> Inicio</a></li>
-                <li><a href="<?php echo $modulo->url_module_panel; ?>">User</a> </li>
+                <li><a href="<?php echo $modulo->url_module_panel; ?>">Store</a> </li>
                 <li class="active">Agregar</li>
             </ol>
         </section>
@@ -29,155 +29,152 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
-                <div class="col-md-6">
+                <!-- left column -->
+                <div class="col-md-12">
                     <!-- general form elements -->
-                    <div class="box box-primary">
+                    <div class="box box-solid">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Datos Personales</h3>
+                            <h3 class="box-title">Agregar Usuario</h3>
                         </div>
                         <!-- /.box-header -->
-                        <!-- form start -->
-                        <form id="frmPerfilUsuario" name="frmPerfilUsuario" role="form" method="post">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label for="txtFirstName">First Name</label>
-                                    <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="150" value="<?php echo $modulo->datos_usuario->nombres_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese nombre."/>
-                                </div>
+                        <div class="box-body">
+                            <div class="box-group">
+                                <!-- Panel Empresa-->
+                                <div class="panel box box-primary">
+                                    <div class="box-header with-border">
+                                        <h4 class="box-title">
+                                            <a  class="">
+                                                Datos de Usuario
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div class="box-body">
+                                        <!-- form start -->
+                                        <form id="formUsuario" role="form"  enctype="multipart/form-data">
+                                            <div class="col-md-4">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtFirstName">First Names</label>
+                                                            <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el nombre.">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtLastName">Last Name</label>
+                                                            <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el apellido.">
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                <div class="form-group">
-                                    <label for="txtLastName">Last Name</label>
-                                    <input type="text" class="form-control" id="txtLastName" name="txtLastName" maxlength="150" value="<?php echo $modulo->datos_usuario->apellidos_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese apellido.">
-                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtEmail">Email</label>
+                                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="150" data-parsley-required data-parsley-type="email" data-parsley-required-message="Ingrese el email." data-parsley-type-message="Ingrese un email valido.">
+                                                </div>
 
-                                <div class="form-group">
-                                    <label for="txtMobilePhone">Mobile Phone</label>
-                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" value="<?php echo $modulo->datos_usuario->celular_personal; ?>"data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
-                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtPassword">Password</label>
+                                                            <div class="input-group">
+                                                                <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
+                                                                <!-- btn-group -->
+                                                                <div class="input-group-btn">
+                                                                    <!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
+                                                                    <button id="btnGenerarPassword" type="button" class="btn btn-primary" title="Generar Contraseña"><i class="fa fa-pencil"></i></button>
+                                                                </div>
+                                                                <!-- /btn-group -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtRepeatPassword">Repeat Password</label>
+                                                            <div class="input-group">
+                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
+                                                                <!-- btn-group -->
+                                                                <div class="input-group-btn">
+                                                                    <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
+                                                                </div>
+                                                                <!-- /btn-group -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                <div class="form-group">
-                                    <label for="txtHomePhone">Home Phone</label>
-                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" value="<?php echo $modulo->datos_usuario->telefono; ?>"data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
-                                </div>
+                                            <div class="col-md-4">
 
-                                <div class="form-group">
-                                    <label for="txtWorkPhone">Work Phone</label>
-                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="15" value="<?php echo $modulo->datos_usuario->celular_trabajo; ?>"data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
-                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtMobilePhone">Mobile Phone</label>
+                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                                </div>
 
-                                <div class="form-group">
-                                    <label for="cboCountry">Country</label>
-                                    <select id="cboCountry" name="cboCountry" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
-                                        <?php if (strlen($modulo->datos_usuario->pais_persona) > 0) { ?>
-                                            <option value="">Seleccione</option>
-                                            <?php foreach($modulo->data_geo_countries as $geo_country): ?>
-                                                <?php if ($geo_country->code == $modulo->datos_usuario->pais_persona) { ?>
-                                                    <option value="<?php echo $geo_country->code; ?>" selected="selected"><?php echo $geo_country->name; ?></option>
-                                                <?php } else { ?>
-                                                    <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
-                                                <?php } ?>
-                                            <?php endforeach; ?>
-                                        <?php } else { ?>
-                                            <option value="" selected="selected">Seleccione</option>
-                                            <?php foreach($modulo->data_geo_countries as $geo_country): ?>
-                                                <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
-                                            <?php endforeach; ?>
-                                        <?php } ?>
-                                    </select>
-                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtHomePhone">Home Phone</label>
+                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
+                                                </div>
 
-                                <div class="form-group">
-                                    <label for="cboRegion">State</label>
-                                    <select id="cboRegion" name="cboRegion" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
-                                        <?php if (strlen($modulo->datos_usuario->region_persona) > 0) { ?>
-                                            <option value="">Seleccione</option>
-                                            <?php foreach($modulo->data_geo_regions as $geo_region): ?>
-                                                <?php if ($geo_region->code == $modulo->datos_usuario->region_persona) { ?>
-                                                    <option value="<?php echo $geo_region->code; ?>" selected="selected"><?php echo $geo_region->name; ?></option>
-                                                <?php } else { ?>
-                                                    <option value="<?php echo $geo_region->code; ?>"><?php echo $geo_region->name; ?></option>
-                                                <?php } ?>
-                                            <?php endforeach; ?>
-                                        <?php } else { ?>
-                                            <option value="" selected="selected">Seleccione</option>
-                                            <?php foreach($modulo->data_geo_regions as $geo_region): ?>
-                                                <option value="<?php echo $geo_region->code; ?>"><?php echo $geo_region->name; ?></option>
-                                            <?php endforeach; ?>
-                                        <?php } ?>
-                                    </select>
-                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtWorkPhone">Work Phone</label>
+                                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
+                                                </div>
 
-                                <div class="form-group">
-                                    <label for="cboCity">City</label>
-                                    <select id="cboCity" name="cboCity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
-                                        <?php if (strlen($modulo->datos_usuario->ciudad_persona) > 0) { ?>
-                                            <option value="">Seleccione</option>
-                                            <?php foreach($modulo->data_geo_cities as $geo_ciudad): ?>
-                                                <?php if ($geo_ciudad->ID == $modulo->datos_usuario->ciudad_persona) { ?>
-                                                    <option value="<?php echo $geo_ciudad->ID; ?>" selected="selected"><?php echo $geo_ciudad->name; ?></option>
-                                                <?php } else { ?>
-                                                    <option value="<?php echo $geo_ciudad->ID; ?>"><?php echo $geo_ciudad->name; ?></option>
-                                                <?php } ?>
-                                            <?php endforeach; ?>
-                                        <?php } else { ?>
-                                            <option value="" selected="selected">Seleccione</option>
-                                            <?php foreach($modulo->data_geo_cities as $geo_ciudad): ?>
-                                                <option value="<?php echo $geo_ciudad->ID; ?>"><?php echo $geo_ciudad->name; ?></option>
-                                            <?php endforeach; ?>
-                                        <?php } ?>
-                                    </select>
-                                </div>
+                                                <div class="form-group">
+                                                    <label for="txtFax">Fax</label>
+                                                    <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de fax debe ser solo numeros.">
+                                                </div>
 
-                                <div class="form-group">
-                                    <label for="txtAdrress">Address</label>
-                                    <input type="text" class="form-control" id="txtAdrress" name="txtAdrress" maxlength="150" value="<?php echo $modulo->datos_usuario->direccion_persona; ?>" data-parsley-required data-parsley-required-message="Ingrese su direccion."/>
+                                            </div>
+
+                                            <div class="col-md-4">
+
+                                                <div class="form-group">
+                                                    <label for="cboCountry">Country</label>
+                                                    <select id="cboCountry" name="cboCountry" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
+                                                        <option value="" selected="selected">Seleccione</option>
+                                                        <?php foreach($modulo->data_geo_countries as $geo_country): ?>
+                                                            <option value="<?php echo $geo_country->code; ?>"><?php echo $geo_country->name; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="cboRegion">State</label>
+                                                    <select id="cboRegion" name="cboRegion" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
+                                                        <option value="" selected="selected">Seleccione</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="cboCity">City</label>
+                                                    <select id="cboCity" name="cboCity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
+                                                        <option value="" selected="selected">Seleccione</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="txtAddress">Address</label>
+                                                    <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese una direccion.">
+                                                </div>
+
+                                            </div>
+
+                                        </form>
+
+                                    </div>
                                 </div>
                             </div>
-                            <!-- /.box-body -->
-
-                            <div class="box-footer">
-                                <button id="btnGuardarPerfil" type="submit" class="btn btn-primary">Guardar</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.box  -->
-
-                </div>
-
-                <div class="col-md-6">
-                    <!-- general form elements -->
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Cuenta de Usuario</h3>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+                            <button id="btnAgregar" type="submit" class="btn btn-primary">Agregar</button>
                         </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
-                        <form id="frmDatosUsuario" name="frmDatosUsuario" role="form" method="post">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label for="txtEmailUsuario">Email Account</label>
-                                    <input type="email" class="form-control" id="txtEmailUsuario" name="emailUsuario" value="<?php echo $modulo->datos_usuario->email_usuario; ?>" disabled />
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtPassword">Password</label>
-                                    <input type="password" class="form-control" id="txtPassword" name="passwordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-required-message="Ingrese la nueva contraseña."/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtPasswordRepeat">Repeat Password</label>
-                                    <input type="password" class="form-control" id="txtPasswordRepeat" name="repeatPasswordUsuario" data-parsley-required data-parsley-type="alphanum" data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirme su contraseña." data-parsley-equalto-message="Las contraseñas no coinciden."/>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
 
-                            <div class="box-footer">
-                                <button id="btnGuardarUsuario" type="submit" class="btn btn-primary">Guardar</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.box  -->
+                    </div><!-- /.box -->
 
-                </div>
+                </div><!--/.col (left) -->
 
-            </div><!-- /.row -->
+            </div>   <!-- /.row -->
         </section><!-- /.content -->
 
     </div><!-- /.content-wrapper -->
