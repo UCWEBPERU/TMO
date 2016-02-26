@@ -73,7 +73,7 @@
                                                         <div class="form-group">
                                                             <label for="txtGPSLatitud">GPS - Latitud</label>
                                                             <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtGPSLatitud" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
+                                                                <input type="text" class="form-control" id="txtGPSLatitud" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
@@ -87,7 +87,7 @@
                                                         <div class="form-group">
                                                             <label for="txtGPSLongitud">GPS - Longitud</label>
                                                             <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtGPSLongitud" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
+                                                                <input type="text" class="form-control" id="txtGPSLongitud" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-map-marker"></i></button>
