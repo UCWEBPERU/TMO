@@ -71,9 +71,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="txtPassword">GPS - Latitud</label>
+                                                            <label for="txtGPSLatitud">GPS - Latitud</label>
                                                             <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
+                                                                <input type="password" class="form-control" id="txtGPSLatitud" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
@@ -85,9 +85,9 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="txtRepeatPassword">GPS - Longitud</label>
+                                                            <label for="txtGPSLongitud">GPS - Longitud</label>
                                                             <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
+                                                                <input type="password" class="form-control" id="txtGPSLongitud" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-map-marker"></i></button>
@@ -435,7 +435,16 @@
 //            });
             GenericModal.show("default", "<div id='somecomponent' style='min-width: 300px; max-width: 500px; min-height: 300px; max-height: 500px; margin: 0px auto;'></div>");
             setTimeout(function(){
-                $('#somecomponent').locationpicker();
+                $('#somecomponent').locationpicker({
+                    location: {latitude: 46.15242437752303, longitude: 2.7470703125},
+                    radius: 0,
+                    inputBinding: {
+                        latitudeInput: $("#txtGPSLatitud"),
+                        longitudeInput: $("#txtGPSLongitud"),
+                        radiusInput: null,
+                        locationNameInput: null
+                    }
+                });
             }, 1000);
 
         });
