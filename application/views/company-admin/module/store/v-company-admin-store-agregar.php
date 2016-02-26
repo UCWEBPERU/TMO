@@ -417,10 +417,11 @@
 
             $.geolocation.get({
                 win: function(position) {
+                    console.log("SUCESS");
                     $('#somecomponent').locationpicker({
                         location: {latitude: position.coords.latitude, longitude: position.coords.longitude},
                         radius: 0,
-                        zoom: 8,
+                        zoom: 12,
                         inputBinding: {
                             latitudeInput: $("#txtGPSLatitud"),
                             longitudeInput: $("#txtGPSLongitud"),
@@ -429,11 +430,12 @@
                         }
                     });
                 },
-                fail: function(error) {
+                fail: function(error)
+                    console.log("FAIL: " + error.code);
                     $('#somecomponent').locationpicker({
                         location: {latitude: 46.15242437752303, longitude: 2.7470703125},
                         radius: 0,
-                        zoom: 8,
+                        zoom: 12,
                         inputBinding: {
                             latitudeInput: $("#txtGPSLatitud"),
                             longitudeInput: $("#txtGPSLongitud"),
