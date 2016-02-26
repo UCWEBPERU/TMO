@@ -438,6 +438,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
         $json->data 		= array();
         $json->status 		= FALSE;
 
+        var_dump($this->input->post());
         if ( $this->input->post("txtNameStore") &&
             $this->input->post("txtMobilePhone") &&
             $this->input->post("cboCountry") &&
@@ -473,6 +474,14 @@ class C_CompanyAdmin_Store extends CI_Controller {
                             "id_pay_account"    => $resul1
                         )
                     );
+
+                    $resul3 = $this->M_CompanyAdmin_Store->insertSucursales(
+                        array(
+                            "id_empresa" => $this->session->id_empresa,
+                            "id_tienda"  => $resul2
+                        )
+                    );
+
                     $json->message = "La tienda se agrego correctamente.";
                     $json->status 	= TRUE;
 

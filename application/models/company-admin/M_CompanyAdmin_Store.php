@@ -78,6 +78,18 @@ class M_CompanyAdmin_Store extends CI_Model {
         return FALSE;
     }
 
+    public function insertSucursales($data) {
+        $data = array(
+            "id_empresa" => $data["id_empresa"],
+            "id_tienda"  => $data["id_tienda"]
+        );
+        if ($this->db->insert('Sucursales', $data)) {
+            return $this->db->insert_id();
+        }
+
+        return FALSE;
+    }
+
     public function insertPayAccount($data_pay_account) {
         $data = array(
             'pay_id'             => $data_pay_account["pay_id"],
