@@ -439,7 +439,6 @@ class C_CompanyAdmin_Store extends CI_Controller {
         $json->status 		= FALSE;
 
         if ( $this->input->post("txtNameStore") &&
-            $this->input->post("txtMobilePhone") &&
             $this->input->post("cboCountry") &&
             $this->input->post("cboRegion") &&
             $this->input->post("cboCity") &&
@@ -485,7 +484,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
                     $json->status 	= TRUE;
 
                 } else {
-                    $json->message 	= "Lo sentimos su suscripción actual solo le permite tener ".$validate[0]->total_store." tiendas.";
+                    $json->message 	= "Lo sentimos su suscripción actual solo le permite tener (".$validate[0]->total_store.") tienda(s).";
                 }
             } else {
                 $json->message 	= "Lo sentimos al parecer no tiene una suscripción activa.";

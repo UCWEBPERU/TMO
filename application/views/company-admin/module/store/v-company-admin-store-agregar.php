@@ -215,14 +215,14 @@
 
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                         if (response.action == "insert") {
-                            $("#txtNameStore").val();
-                            $("#txtMobilePhone").val();
-                            $("#txtStorePhone").val();
-                            $("#txtGPSLatitud").val();
-                            $("#txtGPSLongitud").val();
-                            $("#txtIDPayAccount").val();
-                            $("#txtTypePayAccount").val();
-                            $("#txtAddress").val();
+                            $("#txtNameStore").val("");
+                            $("#txtMobilePhone").val("");
+                            $("#txtStorePhone").val("");
+                            $("#txtGPSLatitud").val("");
+                            $("#txtGPSLongitud").val("");
+                            $("#txtIDPayAccount").val("");
+                            $("#txtTypePayAccount").val("");
+                            $("#txtAddress").val("");
                             $("#cboCountry").val("").trigger("change");
                             $("#cboRegion").empty();
                             $("#cboRegion").append("<option value='' selected='selected'>Seleccione</option>");
