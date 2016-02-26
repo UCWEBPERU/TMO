@@ -71,6 +71,7 @@ class M_CompanyAdmin_User extends CI_Model {
 
     public function insertPersona($data) {
         $data = array(
+            'id_usuario'		    => $data["id_usuario"],
             'nombres_persona'		=> $data["nombres_persona"],
             'apellidos_persona'		=> $data["apellidos_persona"],
             'pais_persona'			=> $data["pais_persona"],

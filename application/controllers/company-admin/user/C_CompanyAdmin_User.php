@@ -82,18 +82,23 @@ class C_CompanyAdmin_User extends CI_Controller {
     }
 
     public function ajaxAddUser() {
+        $this->load->library('security/Cryptography');
         $json 				= new stdClass();
-        $json->type 		= "Store";
+        $json->type 		= "User";
         $json->presentation = "";
         $json->action 		= "insert";
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        if ( $this->input->post("txtNameStore") &&
+        if ( $this->input->post("txtFirstName") &&
+            $this->input->post("txtLastName") &&
+            $this->input->post("txtEmail") &&
+            $this->input->post("txtPassword") &&
+            $this->input->post("txtRepeatPassword") &&
+            $this->input->post("txtMobilePhone") &&
             $this->input->post("cboCountry") &&
             $this->input->post("cboRegion") &&
-            $this->input->post("cboCity") &&
-            $this->input->post("txtAddress")) {
+            $this->input->post("cboCity")) {
 
             $validate   = $this->M_CompanyAdmin_User->getSuscripcionPaqueteTMO($this->session->id_empresa);
             $totalStore = $this->M_CompanyAdmin_User->getTotalUser($this->session->id_empresa);
@@ -102,40 +107,40 @@ class C_CompanyAdmin_User extends CI_Controller {
                 if ($totalStore < intval($validate[0]->total_users)) {
                     unset($validate);
 
-                    $resul1 = $this->M_CompanyAdmin_User->insertPayAccount(
+                    $resul1 = $this->M_CompanyAdmin_User->insertUsuario(
                         array(
-                            'pay_id'             => trim($this->input->post("txtIDPayAccount", TRUE)),
-                            'tipo_metodo_pago'   => trim($this->input->post("txtTypePayAccount", TRUE))
+                            'email_usuario'    => trim($this->input->post("txtEmail", TRUE)),
+                            'password_usuario' => $this->cryptography->Encrypt(trim($this->input->post("txtPassword", TRUE)))
                         )
                     );
 
-                    $resul2 = $this->M_CompanyAdmin_User->insertStore(
+                    $resul2 = $this->M_CompanyAdmin_User->insertPersona(
                         array(
-                            "nombre_tienda"     => trim($this->input->post("txtNameStore", TRUE)),
-                            "nro_celular"       => trim($this->input->post("txtMobilePhone", TRUE)),
-                            "nro_telefono"      => trim($this->input->post("txtStorePhone", TRUE)),
-                            "pais"              => trim($this->input->post("cboCountry", TRUE)),
-                            "region"		    => trim($this->input->post("cboRegion", TRUE)),
-                            "ciudad"		    => trim($this->input->post("cboCity", TRUE)),
-                            "direccion"		    => trim($this->input->post("txtAddress", TRUE)),
-                            "gps_latitud"       => trim($this->input->post("txtGPSLatitud", TRUE)),
-                            "gps_longitud"      => trim($this->input->post("txtGPSLongitud", TRUE)),
-                            "id_pay_account"    => $resul1
+                            'id_usuario'		    => $resul1,
+                            'nombres_persona'		=> trim($this->input->post("txtFirstName", TRUE)),
+                            'apellidos_persona'		=> trim($this->input->post("txtLastName", TRUE)),
+                            'pais_persona'			=> trim($this->input->post("cboCountry", TRUE)),
+                            'region_persona'		=> trim($this->input->post("cboRegion", TRUE)),
+                            'ciudad_persona'		=> trim($this->input->post("cboCity", TRUE)),
+                            'direccion_persona'		=> '',
+                            'celular_personal'		=> trim($this->input->post("txtMobilePhone", TRUE)),
+                            'telefono'				=> trim($this->input->post("txtHomePhone", TRUE)),
+                            'celular_trabajo'		=> trim($this->input->post("txtWorkPhone", TRUE))
                         )
                     );
 
-                    $resul3 = $this->M_CompanyAdmin_User->insertSucursales(
+                    $resul3 = $this->M_CompanyAdmin_User->insertUsuariosAsignados(
                         array(
                             "id_empresa" => $this->session->id_empresa,
-                            "id_tienda"  => $resul2
+                            "id_usuario" => $resul1
                         )
                     );
 
-                    $json->message = "La tienda se agrego correctamente.";
+                    $json->message = "El usuario se agrego correctamente.";
                     $json->status 	= TRUE;
 
                 } else {
-                    $json->message 	= "Lo sentimos su suscripción actual solo le permite tener (".$validate[0]->total_store.") tienda(s).";
+                    $json->message 	= "Lo sentimos su suscripción actual solo le permite tener (".$validate[0]->total_store.") usuario(s).";
                 }
             } else {
                 $json->message 	= "Lo sentimos al parecer no tiene una suscripción activa.";
