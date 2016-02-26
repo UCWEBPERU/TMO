@@ -77,7 +77,7 @@
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
-                                                                    <button id="btnGenerarPassword" type="button" class="btn btn-primary" title="Generar Contraseña"><i class="fa fa-map-marker"></i></button>
+                                                                    <button id="btnInputLatitud" type="button" class="btn btn-primary" title="Generar Contraseña"><i class="fa fa-map-marker"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -90,7 +90,7 @@
                                                                 <input type="text" class="form-control" id="txtGPSLongitud" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
-                                                                    <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-map-marker"></i></button>
+                                                                    <button id="btnInputLongitud" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-map-marker"></i></button>
                                                                 </div>
                                                                 <!-- /btn-group -->
                                                             </div>
@@ -410,29 +410,7 @@
             function(readResult) {}
         );
 
-        $("#btnGenerarPassword").on("click", function() {
-//            waitingDialog.show('Generando Contraseña...');
-//
-//            var request = $.ajax({
-//                url: baseUrl + "admin/empresa/ajax/generatePassword",
-//                method: "POST",
-//                data: formData,
-//                dataType: "json",
-//                processData: false,
-//                contentType: false
-//            });
-//
-//            request.done(function( response ) {
-//                waitingDialog.hide();
-//                $("#txtPassword").val(response.data.password);
-//                $("#txtRepeatPassword").val(response.data.password);
-//                GenericModal.show("default", "<p>" + response.message + "</p>");
-//            });
-//
-//            request.fail(function( jqXHR, textStatus ) {
-//                waitingDialog.hide();
-//                GenericModal.show("danger", "<p>" + textStatus + "</p>");
-//            });
+        $("#btnInputLatitud, #btnInputLongitud").on("click", function() {
             GenericModal.show("default", "<div id='somecomponent' style='min-width: 300px; max-width: 500px; min-height: 300px; max-height: 500px; margin: 0px auto;'></div>");
             setTimeout(function(){
                 $('#somecomponent').locationpicker({
