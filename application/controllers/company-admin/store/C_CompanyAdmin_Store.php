@@ -39,7 +39,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
 
         $config 							= array();
         $config["base_url"] 				= $modulo->url_main_panel."/store/page";
-        $total_row 							= $this->M_CompanyAdmin_Store->getTotalStore();
+        $total_row 							= $this->M_CompanyAdmin_Store->getTotalStore($this->session->id_empresa);
         $config["total_rows"] 				= $total_row;
         $config["per_page"] 				= 15;
         $config['use_page_numbers'] 		= TRUE;
@@ -55,7 +55,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
 
         $page = ($this->uri->segment(6)) ? $this->uri->segment(6) : 1;
 
-        $modulo->registros = $this->M_CompanyAdmin_Store->fetchStore($config["per_page"], ($page - 1) * 15);
+        $modulo->registros = $this->M_CompanyAdmin_Store->fetchStore($config["per_page"], ($page - 1) * 15, $this->session->id_empresa);
         $str_links = $this->pagination->create_links();
         $modulo->links = explode('&nbsp;',$str_links);
 
