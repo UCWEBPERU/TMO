@@ -440,7 +440,6 @@ class C_CompanyAdmin_Store extends CI_Controller {
 
         if ( $this->input->post("txtNameStore") &&
             $this->input->post("txtMobilePhone") &&
-            $this->input->post("txtStorePhone") &&
             $this->input->post("cboCountry") &&
             $this->input->post("cboRegion") &&
             $this->input->post("cboCity") &&
