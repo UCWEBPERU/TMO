@@ -430,7 +430,7 @@
                         }
                     });
                 },
-                fail: function(error)
+                fail: function(error) {
                     console.log("FAIL: " + error.code);
                     $('#somecomponent').locationpicker({
                         location: {latitude: 46.15242437752303, longitude: 2.7470703125},
