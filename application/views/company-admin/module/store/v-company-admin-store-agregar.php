@@ -9,7 +9,7 @@
     <?php
     $data["menu"]     = $modulo->menu["menu"];
     $data["submenu"]  = $modulo->menu["submenu"];
-    $this->load->view('admin/v-admin-menu', $data); ?>
+    $this->load->view('company-admin/v-company-admin-menu', $data); ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -53,10 +53,25 @@
                                         <form id="formEmpresa" role="form"  enctype="multipart/form-data">
                                             <div class="col-md-4">
 
+                                                <div class="form-group">
+                                                    <label for="txtFirstName">Name Store</label>
+                                                    <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el nombre.">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="txtMobilePhone">Mobile Phone</label>
+                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="txtHomePhone">Home Phone</label>
+                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
+                                                </div>
+
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="txtFirstName">First Names</label>
+                                                            <label for="txtFirstName">Name Store</label>
                                                             <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese el nombre.">
                                                         </div>
                                                     </div>
@@ -76,7 +91,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="txtPassword">Password</label>
+                                                            <label for="txtPassword">GPS - Latitud</label>
                                                             <div class="input-group">
                                                                 <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
                                                                 <!-- btn-group -->
@@ -90,7 +105,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="txtRepeatPassword">Repeat Password</label>
+                                                            <label for="txtRepeatPassword">GPS - Longitud</label>
                                                             <div class="input-group">
                                                                 <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
                                                                 <!-- btn-group -->
@@ -103,44 +118,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="txtOrganization">Organization</label>
-                                                    <input type="text" class="form-control" id="txtOrganization" name="txtOrganization" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese nombre de la organización.">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="cboTipoEmpresa">Business Type</label>
-                                                    <select id="cboTipoEmpresa"  name="cboTipoEmpresa"  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione el tipo de empresa.">
-                                                        <option value="" selected="selected">Seleccione</option>
-                                                        <?php foreach($modulo->tipo_empresa as $tipo): ?>
-                                                            <option value="<?php echo $tipo->id_tipo_empresa; ?>"><?php echo $tipo->nombre_tipo_empresa; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-
                                             </div>
 
                                             <div class="col-md-4">
-
-                                                <div class="form-group">
-                                                    <label for="txtMobilePhone">Mobile Phone</label>
-                                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="txtHomePhone">Home Phone</label>
-                                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="txtWorkPhone">Work Phone</label>
-                                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="txtFax">Fax</label>
-                                                    <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de fax debe ser solo numeros.">
-                                                </div>
 
                                             </div>
 
@@ -173,11 +153,6 @@
                                                 <div class="form-group">
                                                     <label for="txtAddress">Address</label>
                                                     <input type="text" class="form-control" id="txtAddress" name="txtAddress" maxlength="150" data-parsley-required data-parsley-required-message="Ingrese una direccion.">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="txtAddress2">Address 2</label>
-                                                    <input type="text" class="form-control" id="txtAddress2" name="txtAddress2" maxlength="150">
                                                 </div>
 
                                             </div>
