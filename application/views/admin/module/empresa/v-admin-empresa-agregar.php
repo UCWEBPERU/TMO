@@ -92,7 +92,7 @@
                                                         <div class="form-group">
                                                             <label for="txtRepeatPassword">Repeat Password</label>
                                                             <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtLastName" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
+                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtRepeatPassword" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
