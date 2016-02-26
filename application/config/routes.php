@@ -169,8 +169,8 @@ $route['company/(:num)/admin/user']                 = 'company-admin/user/C_Comp
 $route['company/(:num)/admin/user/page']		    = 'company-admin/user/C_CompanyAdmin_User';
 $route['company/(:num)/admin/user/page/(:num)']	    = 'company-admin/user/C_CompanyAdmin_User';
 $route['company/(:num)/admin/user/add']	            = 'company-admin/user/C_CompanyAdmin_User/addUser';
-$route['company/(:num)/admin/user/ajax/addUser']    = 'company-admin/store/C_CompanyAdmin_User/ajaxAddUser';
-$route['company/(:num)/admin/user/ajax/generatePassword'] = 'company-admin/store/C_CompanyAdmin_User/ajaxGeneratePassword';
+$route['company/(:num)/admin/user/ajax/addUser']    = 'company-admin/user/C_CompanyAdmin_User/ajaxAddUser';
+$route['company/(:num)/admin/user/ajax/generatePassword'] = 'company-admin/user/C_CompanyAdmin_User/ajaxGeneratePassword';
 
 /*
 | ------------------------------
