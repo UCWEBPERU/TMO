@@ -71,7 +71,7 @@ class M_CompanyAdmin_Store extends CI_Model {
             "gps_longitud"      => $data["gps_longitud"],
             "id_pay_account"    => $data["id_pay_account"]
         );
-        if ($this->db->insert('Empresa', $data)) {
+        if ($this->db->insert('Tienda', $data)) {
             return $this->db->insert_id();
         }
 
