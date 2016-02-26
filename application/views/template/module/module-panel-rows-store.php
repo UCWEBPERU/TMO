@@ -10,9 +10,9 @@
             <td><?php echo $modeloRow->gps_latitud; ?></td>
             <td><?php echo $modeloRow->gps_longitud; ?></td>
             <td>
-                <a href="<?php echo $modulo->url_module_panel."/".$modeloRow->id_tienda ?>" data-row-type="store" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_tienda; ?>" class="btnActionRow"><span class="label label-primary">Editar</span>
+<!--                <a href="--><?php //echo $modulo->url_module_panel."/".intval($modeloRow->id_tienda) ?><!--" data-row-type="store" data-row-action="edit" data-row-id="--><?php //echo $modeloRow->id_tienda; ?><!--" class="btnActionRow"><span class="label label-primary">Editar</span>-->
                 </a>&nbsp;&nbsp;
-                <a href="#" data-row-type="store" data-row-action="delete" data-row-id="<?php echo $modeloRow->id_tienda; ?>" class="btnActionRow"><span class="label label-danger">Eliminar</span></a>
+<!--                <a href="#" data-row-type="store" data-row-action="delete" data-row-id="--><?php //echo $modeloRow->id_tienda; ?><!--" class="btnActionRow"><span class="label label-danger">Eliminar</span></a>-->
             </td>
         </tr>
 
