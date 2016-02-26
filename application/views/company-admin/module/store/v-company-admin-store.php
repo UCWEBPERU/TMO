@@ -21,7 +21,7 @@
                 <small><a href="<?php echo base_url().$modulo->base_url; ?>agregar">Agregar</a></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="<?php echo base_url(); ?>admin"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <?php foreach ($modulo->navegacion as $navegacion) {
                     if ($navegacion["activo"]) { ?>
                         <li class="active"><?php echo $navegacion["nombre"]; ?></li>
