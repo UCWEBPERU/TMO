@@ -446,9 +446,10 @@ class C_CompanyAdmin_Store extends CI_Controller {
 
             $validate   = $this->M_CompanyAdmin_Store->getSuscripcionPaqueteTMO($this->session->id_empresa);
             $totalStore = $this->M_CompanyAdmin_Store->getTotalStore($this->session->id_empresa);
-
+            var_dump($validate);
+            var_dump($totalStore);
             if (sizeof($validate) > 0) {
-                if ($totalStore <= intval($validate[0]->total_store)) {
+                if ($totalStore < intval($validate[0]->total_store)) {
                     unset($validate);
 
                     $resul1 = $this->M_CompanyAdmin_Store->insertPayAccount(
