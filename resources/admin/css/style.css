@@ -78,6 +78,10 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 500px;
+    max-height: 500px;
 }
 
 .box-logo-store .logo-store-inner input[type="file"] {
