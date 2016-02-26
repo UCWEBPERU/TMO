@@ -62,7 +62,7 @@ class M_CompanyAdmin_User extends CI_Model {
             'password_usuario' => $data["password_usuario"]
         );
 
-        if ($this->db->insert('Persona', $data)) {
+        if ($this->db->insert('Usuario', $data)) {
             return $this->db->insert_id();
         }
 
