@@ -8,7 +8,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->library('utils/UserSession');
-        $this->usersession->validateSession("panel-admin");
+        $this->usersession->validateSession("panel-company-admin");
         $this->load->model("M_Usuario");
         $this->load->model('company-admin/M_CompanyAdmin_Store');
     }

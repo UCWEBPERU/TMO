@@ -8,11 +8,11 @@ class C_CompanyAdmin_Perfil_Empresa extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->library('utils/UserSession');
+        $this->usersession->validateSession("panel-company-admin");
         $this->load->library('utils/PanelAdmin');
         $this->load->model("M_GEO_Data");
         $this->load->model("M_Tipo_Empresa");
         $this->load->model("admin/M_Admin_Paquetes_TMO");
-        $this->usersession->validateSession("panel-company-admin");
     }
 
     public function index()	{
