@@ -308,7 +308,6 @@ class C_Admin_Empresa extends CI_Controller {
 		}
 		
 		echo json_encode($json);
-		
 	}
     
     private function uploadImage($id_empresa) {
@@ -386,19 +385,18 @@ class C_Admin_Empresa extends CI_Controller {
 		$json->data 		= array();
 		$json->status 		= FALSE;
 		
-		if ( 	$this->input->post("id_tipo_empresa") &&
-				$this->input->post("id_usuario") &&
-				$this->input->post("id_pay_account") &&
-				$this->input->post("id_archivo_logo") &&
-				$this->input->post("nombre_empresa") &&
-				$this->input->post("descripcion_empresa") &&
-				$this->input->post("direccion_empresa") &&
-				$this->input->post("pais_region_empresa") &&
-				$this->input->post("estado_region_empresa") &&
-				$this->input->post("codigo_postal_empresa") &&
-				$this->input->post("telefono_empresa") &&
-				$this->input->post("movil_empresa") 
-				 ) {
+		if ( $this->input->post("id_tipo_empresa") &&
+			$this->input->post("id_usuario") &&
+			$this->input->post("id_pay_account") &&
+			$this->input->post("id_archivo_logo") &&
+			$this->input->post("nombre_empresa") &&
+			$this->input->post("descripcion_empresa") &&
+			$this->input->post("direccion_empresa") &&
+			$this->input->post("pais_region_empresa") &&
+			$this->input->post("estado_region_empresa") &&
+			$this->input->post("codigo_postal_empresa") &&
+			$this->input->post("telefono_empresa") &&
+			$this->input->post("movil_empresa") ) {
 					
 			$result = $this->M_Admin_Empresa->getByID(trim($this->input->post("id_empresa", TRUE)));
 			
@@ -438,7 +436,7 @@ class C_Admin_Empresa extends CI_Controller {
 		echo json_encode($json);
 	}
 
-	public function generatePassword() {
+	public function ajaxGeneratePassword() {
 		$this->load->library("utils/Password");
 
 		$json 				= new stdClass();

@@ -84,7 +84,7 @@ $route['admin/empresa/(:num)']                  = "admin/module/empresa/C_Admin_
 $route['admin/empresa/delete']                  = 'admin/module/empresa/C_Admin_Empresa/delete';
 $route['admin/empresa/page']                    = 'admin/module/empresa/C_Admin_Empresa';
 $route['admin/empresa/page/(:num)']             = 'admin/module/empresa/C_Admin_Empresa';
-$route['admin/empresa/ajax/generatePassword']   = 'admin/module/empresa/C_Admin_Empresa/generatePassword';
+$route['admin/empresa/ajax/generatePassword']   = 'admin/module/empresa/C_Admin_Empresa/ajaxGeneratePassword';
 
 /*
 | ------------------------------
@@ -148,6 +148,17 @@ $route['company/(:num)/admin/login'] = 'admin/C_Login';
 $route['company/(:num)/admin/company-profile']                          = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa';
 $route['company/(:num)/admin/company-profile/ajax/updateLogoEmpresa']   = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa/ajaxUpdateLogoCompany';
 $route['company/(:num)/admin/company-profile/ajax/updateDataCompany']   = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa/ajaxUpdateDataCompany';
+
+/*
+| ------------------------------
+| URL -> COMPANY ADMIN - PERFIL EMPRESA
+| ------------------------------
+*/
+$route['company/(:num)/admin/store'] = 'company-admin/store/C_CompanyAdmin_Store';
+//$route['company/(:num)/admin/store/ajax/updateLogoEmpresa']   = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa/ajaxUpdateLogoCompany';
+//$route['company/(:num)/admin/store/ajax/updateDataCompany']   = 'company-admin/perfil-empresa/C_CompanyAdmin_Perfil_Empresa/ajaxUpdateDataCompany';
+
+
 
 /*
 | ------------------------------
