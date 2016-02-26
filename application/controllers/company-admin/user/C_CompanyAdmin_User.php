@@ -89,7 +89,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         $json->action 		= "insert";
         $json->data 		= array();
         $json->status 		= FALSE;
-
+        var_dump($this->input->post());
         if ( $this->input->post("txtFirstName") &&
             $this->input->post("txtLastName") &&
             $this->input->post("txtEmail") &&
