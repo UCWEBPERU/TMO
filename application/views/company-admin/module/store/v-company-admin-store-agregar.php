@@ -17,12 +17,12 @@
         <section class="content-header">
             <h1>
                 <?php echo $modulo->titulo; ?>
-                <small><a href="<?php echo base_url().$modulo->base_url; ?>">Regresar</a></small>
+                <small><a href="<?php echo $modulo->url_module_panel; ?>">Regresar</a></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url(); ?>admin"><i class="fa fa-dashboard"></i> Inicio</a></li>
-                <li class="active"><a href="<?php echo base_url(); ?>admin/empresa">Empresa</a> </li>
-                <li><?php echo strtolower($modulo->nombreSeccion); ?></li>
+                <li><a href="<?php echo $modulo->url_module_panel; ?>">Store</a> </li>
+                <li class="active">Agregar</li>
             </ol>
         </section>
 
@@ -34,7 +34,7 @@
                     <!-- general form elements -->
                     <div class="box box-solid">
                         <div class="box-header with-border">
-                            <h3 class="box-title"><?php echo $modulo->nombreSeccion; ?> Empresa</h3>
+                            <h3 class="box-title">Agregar Store</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -44,7 +44,7 @@
                                     <div class="box-header with-border">
                                         <h4 class="box-title">
                                             <a  class="">
-                                                Datos de Empresa
+                                                Datos de Store
                                             </a>
                                         </h4>
                                     </div>
@@ -224,7 +224,7 @@
 
                         </div><!-- /.box-body -->
                         <div class="box-footer">
-                            <button id="btnAgregar" type="submit" class="btn btn-primary"><?php echo $modulo->nombreSeccion; ?></button>
+                            <button id="btnAgregar" type="submit" class="btn btn-primary">Agregar</button>
                         </div>
 
                     </div><!-- /.box -->
