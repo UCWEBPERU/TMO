@@ -207,7 +207,12 @@ class C_CompanyAdmin_User extends CI_Controller {
             $this->input->post("cboRegion") &&
             $this->input->post("cboCity")) {
 
-            $dataUsuario = $this->M_Usuario->getByID(trim($this->input->post("id_usuario", TRUE)));
+            $dataUsuario = $this->M_Usuario->getByIDAndEmpresa(
+                array(
+                    "id_usuario" => trim($this->input->post("id_usuario", TRUE)),
+                    "id_empresa" => $this->session->id_empresa
+                )
+            );
 
             if (sizeof($dataUsuario) > 0) {
 
