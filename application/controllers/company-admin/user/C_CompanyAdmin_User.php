@@ -234,8 +234,8 @@ class C_CompanyAdmin_User extends CI_Controller {
                     )
                 );
 
-                $json->message = "El usuario se actualizo correctamente.";
-                $json->status 	= TRUE;
+                $json->message  = "El usuario se actualizo correctamente.";
+                $json->status   = TRUE;
 
             } else {
                 $json->message = "Lo sentimos el usuario que desea editar no existe.";
