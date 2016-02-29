@@ -132,7 +132,7 @@
                                                 <div class="form-group">
                                                     <label for="txtIDPayAccount">ID Pay Account</label>
                                                     <?php if ($existeTienda) { ?>
-                                                        <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" maxlength="15" value="<?php echo $dataTienda->gps_longitud; ?>">
+                                                        <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" maxlength="15" value="<?php echo $dataTienda->pay_id; ?>">
                                                     <?php } else { ?>
                                                         <input type="text" class="form-control" id="txtIDPayAccount" name="txtIDPayAccount" maxlength="15">
                                                     <?php } ?>
@@ -141,7 +141,7 @@
                                                 <div class="form-group">
                                                     <label for="txtTypePayAccount">Type Pay Account</label>
                                                     <?php if ($existeTienda) { ?>
-                                                        <input type="text" class="form-control" id="txtTypePayAccount" name="txtTypePayAccount" maxlength="15" value="<?php echo $dataTienda->gps_longitud; ?>">
+                                                        <input type="text" class="form-control" id="txtTypePayAccount" name="txtTypePayAccount" maxlength="15" value="<?php echo $dataTienda->tipo_metodo_pago; ?>">
                                                     <?php } else { ?>
                                                         <input type="text" class="form-control" id="txtTypePayAccount" name="txtTypePayAccount" maxlength="15">
                                                     <?php } ?>

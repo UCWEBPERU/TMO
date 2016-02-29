@@ -46,7 +46,9 @@ class M_CompanyAdmin_Store extends CI_Model {
 							Tienda.ciudad,
 							Tienda.direccion,
 							Tienda.gps_latitud,
-							Tienda.gps_longitud");
+							Tienda.gps_longitud,
+							Pay_Account.pay_id,
+							Pay_Account.tipo_metodo_pago");
         $this->db->join('Sucursales', 'Sucursales.id_empresa = Empresa.id_empresa');
         $this->db->join('Tienda', 'Tienda.id_tienda = Sucursales.id_tienda');
         $this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Tienda.id_tienda');
