@@ -158,7 +158,9 @@ $route['company/(:num)/admin/store']                = 'company-admin/store/C_Com
 $route['company/(:num)/admin/store/page']		    = 'company-admin/store/C_CompanyAdmin_Store';
 $route['company/(:num)/admin/store/page/(:num)']	= 'company-admin/store/C_CompanyAdmin_Store';
 $route['company/(:num)/admin/store/add']	        = 'company-admin/store/C_CompanyAdmin_Store/addStore';
+$route['company/(:num)/admin/store/edit/(:num)']    = 'company-admin/store/C_CompanyAdmin_Store/editStore';
 $route['company/(:num)/admin/store/ajax/addStore']  = 'company-admin/store/C_CompanyAdmin_Store/ajaxAddStore';
+$route['company/(:num)/admin/store/ajax/editStore'] = 'company-admin/store/C_CompanyAdmin_Store/ajaxEditStore';
 
 /*
 | ------------------------------
