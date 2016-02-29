@@ -69,6 +69,40 @@ class M_CompanyAdmin_User extends CI_Model {
         return FALSE;
     }
 
+    public function updateUsuario($datosUsuario) {
+        $data = array(
+            'nombres_persona'   => $datosUsuario["nombres_persona"],
+            'apellidos_persona' => $datosUsuario["apellidos_persona"],
+            'celular_personal'	=> $datosUsuario["celular_personal"],
+            'telefono'	        => $datosUsuario["telefono"],
+            'celular_trabajo'	=> $datosUsuario["celular_trabajo"],
+            'direccion_persona' => $datosUsuario["direccion_persona"],
+            'pais_persona'      => $datosUsuario["pais_persona"],
+            'region_persona'    => $datosUsuario["region_persona"],
+            'ciudad_persona'    => $datosUsuario["ciudad_persona"]
+        );
+
+        $this->db->where('Persona.id_usuario', $datosUsuario["id_usuario"]);
+        if ($this->db->update('Persona', $data)) {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
+    public function updatePassWordUsuario($dataUsuario) {
+        $data = array(
+            'password_usuario' => $dataUsuario["password_usuario"]
+        );
+
+        $this->db->where('Usuario.id_usuario', $dataUsuario["id_usuario"]);
+        if ($this->db->update('Usuario', $data)) {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
     public function insertPersona($data) {
         $data = array(
             'id_usuario'		    => $data["id_usuario"],

@@ -28,36 +28,6 @@ class M_StoreAdmin_Perfil_Usuario extends CI_Model{
 		return $query->result();
     }
     
-    public function updatePassWordUsuario($id_usuario, $password_usuario) {
-		$data = array(
-			'password_usuario'			=> $password_usuario
-		);
 
-		$this->db->where('Usuario.id_usuario', $id_usuario);
-		if ($this->db->update('Usuario', $data)) {
-			return TRUE;
-		}
-		
-		return FALSE;
-	}
-    
-    public function updatePerfilUsuario($datosUsuario) {
-		$data = array(
-			'nombres_persona'		=> $datosUsuario["nombres"],
-			'apellidos_persona'		=> $datosUsuario["apellidos"],
-			'pais_region_persona'	=> $datosUsuario["pais_region"],
-			'estado_region_persona'	=> $datosUsuario["estado_Region"],
-			'direccion_persona'		=> $datosUsuario["direccion"],
-			'movil_persona'			=> $datosUsuario["movil"],
-			'telefono_persona'		=> $datosUsuario["telefono"]
-		);
-
-		$this->db->where('Persona.id_usuario', $datosUsuario["id"]);
-		if ($this->db->update('Persona', $data)) {
-			return TRUE;
-		}
-		
-		return FALSE;
-	}
 
 }

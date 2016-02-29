@@ -89,7 +89,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
         $modulo->titulo 			= "User";
-        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - User";
+        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Edit User";
         $modulo->url_module_panel   = $modulo->url_main_panel."/user";
         $modulo->menu               = array("menu" => 3, "submenu" => 0);
 
@@ -180,6 +180,66 @@ class C_CompanyAdmin_User extends CI_Controller {
                 }
             } else {
                 $json->message 	= "Lo sentimos al parecer no tiene una suscripción activa.";
+            }
+
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+        echo json_encode($json);
+    }
+
+    public function ajaxEditUser() {
+        $this->load->library('security/Cryptography');
+        $json 				= new stdClass();
+        $json->type 		= "User";
+        $json->presentation = "";
+        $json->action 		= "update";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        if ( $this->input->post("id_usuario") &&
+            $this->input->post("txtFirstName") &&
+            $this->input->post("txtLastName") &&
+            $this->input->post("txtEmail") &&
+            $this->input->post("txtMobilePhone") &&
+            $this->input->post("cboCountry") &&
+            $this->input->post("cboRegion") &&
+            $this->input->post("cboCity")) {
+
+            $dataUsuario = $this->M_Usuario->getByID(trim($this->input->post("id_usuario", TRUE)));
+
+            if (sizeof($dataUsuario) > 0) {
+
+                if ($this->input->post("txtPassword")) {
+                    $resul1 = $this->M_CompanyAdmin_User->updatePassWordUsuario(
+                        array(
+                            'id_usuario'    => trim($this->input->post("id_usuario", TRUE)),
+                            'password_usuario' => $this->cryptography->Encrypt(trim($this->input->post("txtPassword", TRUE)))
+                        )
+                    );
+                }
+
+                $resul2 = $this->M_CompanyAdmin_User->updateUsuario(
+                    array(
+                        'id_usuario'        => trim($this->input->post("id_usuario", TRUE)),
+                        'nombres_persona'	=> trim($this->input->post("txtFirstName", TRUE)),
+                        'apellidos_persona'	=> trim($this->input->post("txtLastName", TRUE)),
+                        'pais_persona'		=> trim($this->input->post("cboCountry", TRUE)),
+                        'region_persona'	=> trim($this->input->post("cboRegion", TRUE)),
+                        'ciudad_persona'	=> trim($this->input->post("cboCity", TRUE)),
+                        'direccion_persona' => '',
+                        'celular_personal'  => trim($this->input->post("txtMobilePhone", TRUE)),
+                        'telefono'          => trim($this->input->post("txtHomePhone", TRUE)),
+                        'celular_trabajo'   => trim($this->input->post("txtWorkPhone", TRUE))
+                    )
+                );
+
+                $json->message = "El usuario se actualizo correctamente.";
+                $json->status 	= TRUE;
+
+            } else {
+                $json->message = "Lo sentimos el usuario que desea editar no existe.";
             }
 
         } else {

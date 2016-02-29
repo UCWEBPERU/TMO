@@ -22,7 +22,7 @@
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url(); ?>admin"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <li><a href="<?php echo $modulo->url_module_panel; ?>">Store</a> </li>
-                <li class="active">Agregar</li>
+                <li class="active">Editar</li>
             </ol>
         </section>
 
@@ -34,7 +34,7 @@
                     <!-- general form elements -->
                     <div class="box box-solid">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Agregar Usuario</h3>
+                            <h3 class="box-title">Editar Usuario</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -88,7 +88,7 @@
                                                 <div class="form-group">
                                                     <label for="txtEmail">Email</label>
                                                     <?php if ($existeUsuario) { ?>
-                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="150" value="<?php echo $dataUsuario->email_usuario; ?>" data-parsley-required data-parsley-type="email" data-parsley-required-message="Ingrese el email." data-parsley-type-message="Ingrese un email valido.">
+                                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="150" disabled value="<?php echo $dataUsuario->email_usuario; ?>" data-parsley-required data-parsley-type="email" data-parsley-required-message="Ingrese el email." data-parsley-type-message="Ingrese un email valido.">
                                                     <?php } else { ?>
                                                         <input type="text" class="form-control" id="txtEmail" name="txtEmail" maxlength="150" data-parsley-required data-parsley-type="email" data-parsley-required-message="Ingrese el email." data-parsley-type-message="Ingrese un email valido.">
                                                     <?php } ?>
@@ -99,7 +99,7 @@
                                                         <div class="form-group">
                                                             <label for="txtPassword">Password</label>
                                                             <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required data-parsley-required-message="Ingrese una contraseña.">
+                                                                <input type="password" class="form-control" id="txtPassword" name="txtPassword" maxlength="40" data-parsley-required-message="Ingrese una contraseña.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <!--                                                                    <button type="button" class="btn btn-success" title="Generar Contraseña"><i class="fa fa-ellipsis-h"></i></button>-->
@@ -113,7 +113,7 @@
                                                         <div class="form-group">
                                                             <label for="txtRepeatPassword">Repeat Password</label>
                                                             <div class="input-group">
-                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtRepeatPassword" maxlength="40" data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
+                                                                <input type="password" class="form-control" id="txtRepeatPassword" name="txtRepeatPassword" maxlength="40" data-parsley-equalto="#txtPassword" data-parsley-required-message="Vuelva a ingresar la contraseña." data-parsley-equalto-message="Las contraseñas no coinciden.">
                                                                 <!-- btn-group -->
                                                                 <div class="input-group-btn">
                                                                     <button id="btnVerPassword" type="button" class="btn btn-primary" title="Ver Contraseña"><i class="fa fa-eye"></i></button>
