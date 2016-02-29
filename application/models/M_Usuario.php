@@ -50,9 +50,9 @@ class M_Usuario extends CI_Model {
 		$this->db->join('Empresa', 'Empresa.id_empresa = Usuarios_Asignados.id_empresa');
 		$this->db->where('Usuario.id_usuario', $data["id_usuario"]);
 		$this->db->where('Empresa.id_empresa', $data["id_empresa"]);
-		$this->db->where('Empresa.estado', '1');
-		$this->db->where('Usuario.estado', '1');
-		$this->db->where('Tipo_Usuario.estado', '1');
+		$this->db->where('Empresa.estado', 1);
+		$this->db->where('Usuario.estado', 1);
+		$this->db->where('Tipo_Usuario.estado', 1);
 		$query = $this->db->get('Usuario');
 
 		return $query->result();
