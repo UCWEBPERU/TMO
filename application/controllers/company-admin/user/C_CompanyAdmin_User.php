@@ -98,19 +98,20 @@ class C_CompanyAdmin_User extends CI_Controller {
         if (count($result) > 0) {
             $data["dataUsuario"] 	= $result[0];
             $data["existeUsuario"]	= TRUE;
+
+            $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
+            $modulo->data_geo_regions   = $this->M_GEO_Data->getRegionsByCountry($result[0]->pais_persona);
+            $modulo->data_geo_cities    = $this->M_GEO_Data->getCitiesByRegionAndCountry(
+                array(
+                    "code_country"  => $result[0]->pais_persona,
+                    "code_region"   => $result[0]->region_persona
+                )
+            );
+
         } else {
             $data["dataUsuario"]  	= NULL;
             $data["existeUsuario"]	= FALSE;
         }
-
-        $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
-        $modulo->data_geo_regions   = $this->M_GEO_Data->getRegionsByCountry($result[0]->pais_persona);
-        $modulo->data_geo_cities    = $this->M_GEO_Data->getCitiesByRegionAndCountry(
-            array(
-                "code_country"  => $result[0]->pais_persona,
-                "code_region"   => $result[0]->region_persona
-            )
-        );
 
         $data["modulo"]             = $modulo;
 
