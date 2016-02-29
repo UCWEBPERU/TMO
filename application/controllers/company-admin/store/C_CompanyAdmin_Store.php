@@ -577,6 +577,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
 
                 $resul2 = $this->M_CompanyAdmin_Store->updateStore(
                     array(
+                        "id_tienda"         => $dataStore[0]->id_tienda,
                         "nombre_tienda"     => trim($this->input->post("txtNameStore", TRUE)),
                         "nro_celular"       => trim($this->input->post("txtMobilePhone", TRUE)),
                         "nro_telefono"      => trim($this->input->post("txtStorePhone", TRUE)),
