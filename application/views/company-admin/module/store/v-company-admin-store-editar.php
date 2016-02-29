@@ -84,7 +84,7 @@
                                                 <div class="form-group">
                                                     <label for="txtStorePhone">Store Phone</label>
                                                     <?php if ($existeTienda) { ?>
-                                                        <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" value="<?php echo $dataTienda->nro_telefono; ?>" data-parsley-type="digits" data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                                        <input type="text" class="form-control" id="txtStorePhone" name="txtStorePhone" maxlength="15" value="<?php echo $dataTienda->nro_telefono; ?>" data-parsley-type="digits" data-parsley-type-message="El numero de la tienda debe ser solo numeros.">
                                                     <?php } else { ?>
                                                         <input type="text" class="form-control" id="txtStorePhone" name="txtStorePhone" maxlength="15" data-parsley-type="digits" data-parsley-type-message="El numero de la tienda debe ser solo numeros.">
                                                     <?php } ?>
