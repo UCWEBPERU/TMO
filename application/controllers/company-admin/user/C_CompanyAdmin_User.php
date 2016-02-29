@@ -198,10 +198,9 @@ class C_CompanyAdmin_User extends CI_Controller {
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        if ( $this->input->post("id_usuario") &&
+        if ($this->input->post("id_usuario") &&
             $this->input->post("txtFirstName") &&
             $this->input->post("txtLastName") &&
-            $this->input->post("txtEmail") &&
             $this->input->post("txtMobilePhone") &&
             $this->input->post("cboCountry") &&
             $this->input->post("cboRegion") &&

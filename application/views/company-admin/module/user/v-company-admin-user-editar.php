@@ -291,7 +291,6 @@
                     waitingDialog.hide();
 
                     if (response.status) {
-
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                     } else {
                         GenericModal.show("danger", "<p>" + response.message + "</p>");
