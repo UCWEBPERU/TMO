@@ -165,12 +165,14 @@ $route['company/(:num)/admin/store/ajax/addStore']  = 'company-admin/store/C_Com
 | URL -> COMPANY ADMIN - USER
 | ------------------------------
 */
-$route['company/(:num)/admin/user']                 = 'company-admin/user/C_CompanyAdmin_User';
-$route['company/(:num)/admin/user/page']		    = 'company-admin/user/C_CompanyAdmin_User';
-$route['company/(:num)/admin/user/page/(:num)']	    = 'company-admin/user/C_CompanyAdmin_User';
-$route['company/(:num)/admin/user/add']	            = 'company-admin/user/C_CompanyAdmin_User/addUser';
-$route['company/(:num)/admin/user/ajax/addUser']    = 'company-admin/user/C_CompanyAdmin_User/ajaxAddUser';
-$route['company/(:num)/admin/user/ajax/generatePassword'] = 'company-admin/user/C_CompanyAdmin_User/ajaxGeneratePassword';
+$route['company/(:num)/admin/user']                         = 'company-admin/user/C_CompanyAdmin_User';
+$route['company/(:num)/admin/user/page']		            = 'company-admin/user/C_CompanyAdmin_User';
+$route['company/(:num)/admin/user/page/(:num)']	            = 'company-admin/user/C_CompanyAdmin_User';
+$route['company/(:num)/admin/user/add']	                    = 'company-admin/user/C_CompanyAdmin_User/addUser';
+$route['company/(:num)/admin/user/edit/(:num)']	            = 'company-admin/user/C_CompanyAdmin_User/editUser/$2';
+$route['company/(:num)/admin/user/ajax/addUser']            = 'company-admin/user/C_CompanyAdmin_User/ajaxAddUser';
+$route['company/(:num)/admin/user/ajax/editUser']           = 'company-admin/user/C_CompanyAdmin_User/ajaxEditUser';
+$route['company/(:num)/admin/user/ajax/generatePassword']   = 'company-admin/user/C_CompanyAdmin_User/ajaxGeneratePassword';
 
 /*
 | ------------------------------

@@ -7,7 +7,8 @@ class M_Usuario extends CI_Model{
 	}
 
 	public function getByID($id_usuario) {
-        $this->db->select("Usuario.email_usuario, 
+        $this->db->select("Usuario.id_usuario,
+        	Usuario.email_usuario,
             Usuario.id_tipo_usuario,
             Tipo_Usuario.nombre_tipo_usuario,
             Persona.nombres_persona,
@@ -30,7 +31,8 @@ class M_Usuario extends CI_Model{
 	}
 
 	public function getByEmail($email_usuario) {
-		$this->db->select("Usuario.email_usuario,
+		$this->db->select("Usuario.id_usuario,
+			Usuario.email_usuario,
             Usuario.id_tipo_usuario,
             Tipo_Usuario.nombre_tipo_usuario,
             Persona.nombres_persona,

@@ -50,17 +50,17 @@
 
                                 <div class="form-group">
                                     <label for="txtMobilePhone">Mobile Phone</label>
-                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" value="<?php echo $modulo->datos_usuario->celular_personal; ?>"data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
+                                    <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="15" value="<?php echo $modulo->datos_usuario->celular_personal; ?>" data-parsley-required data-parsley-type="digits" data-parsley-required-message="Ingrese el numero de celular." data-parsley-type-message="El numero de celular debe ser solo numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtHomePhone">Home Phone</label>
-                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" value="<?php echo $modulo->datos_usuario->telefono; ?>"data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
+                                    <input type="text" class="form-control" id="txtHomePhone" name="txtHomePhone" maxlength="15" value="<?php echo $modulo->datos_usuario->telefono; ?>" data-parsley-type="digits" data-parsley-type-message="El numero de casa debe ser solo numeros.">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtWorkPhone">Work Phone</label>
-                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="15" value="<?php echo $modulo->datos_usuario->celular_trabajo; ?>"data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
+                                    <input type="text" class="form-control" id="txtWorkPhone" name="txtWorkPhone" maxlength="15" value="<?php echo $modulo->datos_usuario->celular_trabajo; ?>" data-parsley-type="digits" data-parsley-type-message="El numero de trabajo debe ser solo numeros.">
                                 </div>
 
                                 <div class="form-group">

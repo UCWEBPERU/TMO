@@ -81,6 +81,42 @@ class C_CompanyAdmin_User extends CI_Controller {
         $this->load->view('company-admin/module/user/v-company-admin-user-agregar', $data);
     }
 
+    public function editUser($id_usuario) {
+        $this->load->model("M_GEO_Data");
+        $this->load->model("admin/M_Admin_Paquetes_TMO");
+        $this->load->model('M_Tipo_Empresa');
+
+        /* Datos de la cabecera del panel de administrador*/
+        $modulo                     = $this->paneladmin->loadPanelCompany();
+        $modulo->titulo 			= "User";
+        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - User";
+        $modulo->url_module_panel   = $modulo->url_main_panel."/user";
+        $modulo->menu               = array("menu" => 3, "submenu" => 0);
+
+        $result  = $this->M_Usuario->getByID($id_usuario);
+
+        if (count($result) > 0) {
+            $data["dataUsuario"] 	= $result[0];
+            $data["existeUsuario"]	= TRUE;
+        } else {
+            $data["dataUsuario"]  	= NULL;
+            $data["existeUsuario"]	= FALSE;
+        }
+
+        $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
+        $modulo->data_geo_regions   = $this->M_GEO_Data->getRegionsByCountry($modulo->datos_empresa->pais);
+        $modulo->data_geo_cities    = $this->M_GEO_Data->getCitiesByRegionAndCountry(
+            array(
+                "code_country"  => $modulo->datos_empresa->pais,
+                "code_region"   => $modulo->datos_empresa->region
+            )
+        );
+
+        $data["modulo"]             = $modulo;
+
+        $this->load->view('company-admin/module/user/v-company-admin-user-agregar', $data);
+    }
+
     public function ajaxAddUser() {
         $this->load->library('security/Cryptography');
         $json 				= new stdClass();
