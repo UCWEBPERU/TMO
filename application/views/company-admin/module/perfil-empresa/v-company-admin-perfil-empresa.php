@@ -148,7 +148,7 @@
                                                 <div class="form-group">
                                                     <label for="cboCountry">Country</label>
                                                     <select id="cboCountry" name="cboCountry" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un pais.">
-                                                        <?php if (strlen($modulo->datos_empresa->pais) > 0) { ?>
+                                                        <?php if (!empty($modulo->datos_empresa->pais)) { ?>
                                                             <option value="">Seleccione</option>
                                                             <?php foreach($modulo->data_geo_countries as $geo_country): ?>
                                                                 <?php if ($geo_country->code == $modulo->datos_empresa->pais) { ?>
@@ -169,7 +169,7 @@
                                                 <div class="form-group">
                                                     <label for="cboRegion">State</label>
                                                     <select id="cboRegion" name="cboRegion" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione un estado.">
-                                                        <?php if (strlen($modulo->datos_empresa->region) > 0) { ?>
+                                                        <?php if (!empty($modulo->datos_empresa->region)) { ?>
                                                             <option value="">Seleccione</option>
                                                             <?php foreach($modulo->data_geo_regions as $geo_region): ?>
                                                                 <?php if ($geo_region->code == $modulo->datos_empresa->region) { ?>
@@ -190,7 +190,7 @@
                                                 <div class="form-group">
                                                     <label for="cboCity">City</label>
                                                     <select id="cboCity" name="cboCity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" data-parsley-required data-parsley-required-message="Seleccione una ciudad.">
-                                                        <?php if (strlen($modulo->datos_empresa->ciudad) > 0) { ?>
+                                                        <?php if (!empty($modulo->datos_empresa->ciudad)) { ?>
                                                             <option value="">Seleccione</option>
                                                             <?php foreach($modulo->data_geo_cities as $geo_ciudad): ?>
                                                                 <?php if ($geo_ciudad->ID == $modulo->datos_empresa->ciudad) { ?>
