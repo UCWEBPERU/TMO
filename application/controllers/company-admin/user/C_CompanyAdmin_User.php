@@ -114,7 +114,7 @@ class C_CompanyAdmin_User extends CI_Controller {
 
         $data["modulo"]             = $modulo;
 
-        $this->load->view('company-admin/module/user/v-company-admin-user-agregar', $data);
+        $this->load->view('company-admin/module/user/v-company-admin-user-editar', $data);
     }
 
     public function ajaxAddUser() {
