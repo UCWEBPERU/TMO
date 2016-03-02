@@ -68,20 +68,26 @@
                                 </div><!-- /.form-group -->
                                 <div class="form-group">
                                     <label for="txtPrecioProducto">Modificadores</label>
-                                    <div class="input-group margin">
+                                    <div class="input-group">
                                         <div class="form-control">
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
-                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
                                         </div>
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-info btn-flat">Go!</button>
