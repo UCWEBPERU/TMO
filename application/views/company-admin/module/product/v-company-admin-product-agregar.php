@@ -56,6 +56,15 @@
                                 </div><!-- /.form-group -->
                                 <div class="form-group">
                                     <label>Categoria</label>
+                                    <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias" multiple="multiple">
+                                        <option selected="selected" value="">Tienda</option>
+                                        <?php foreach($modulo->data_tiendas as $tienda): ?>
+                                            <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div><!-- /.form-group -->
+                                <div class="form-group">
+                                    <label>Categoria</label>
                                     <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias">
                                         <option selected="selected" value="">Seleccione</option>
                                         <?php foreach($modulo->data_categorias as $categoria): ?>

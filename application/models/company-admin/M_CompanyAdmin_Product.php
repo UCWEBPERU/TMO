@@ -34,6 +34,39 @@ class M_CompanyAdmin_Product extends CI_Model {
         return FALSE;
     }
 
+    public function getAllStore($id_empresa) {
+        $this->db->select("Tienda.id_tienda,
+							Tienda.nombre_tienda,
+							Tienda.nro_celular,
+							Tienda.nro_telefono,
+							Tienda.pais,
+							Tienda.region,
+							Tienda.ciudad,
+							Tienda.direccion,
+							Tienda.gps_latitud,
+							Tienda.gps_longitud,
+							Pay_Account.id_pay_account,
+							Pay_Account.pay_id,
+							Pay_Account.tipo_metodo_pago");
+        $this->db->join('Sucursales', 'Sucursales.id_empresa = Empresa.id_empresa');
+        $this->db->join('Tienda', 'Tienda.id_tienda = Sucursales.id_tienda');
+        $this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Tienda.id_tienda');
+        $this->db->where('Empresa.estado', '1');
+        $this->db->where('Tienda.estado', '1');
+        $this->db->where('Pay_Account.estado', '1');
+        $this->db->where('Empresa.id_empresa', $id_empresa);
+        $query = $this->db->get('Empresa');
+
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+
+        return FALSE;
+    }
+
     public function getSuscripcionPaqueteTMO($id_empresa) {
         $this->db->join('Suscripcion_Paquete_TMO', 'Suscripcion_Paquete_TMO.id_empresa = Empresa.id_empresa');
         $this->db->join('Paquetes_TMO', 'Paquetes_TMO.id_paquetes_tmo = Suscripcion_Paquete_TMO.id_paquete_tmo');

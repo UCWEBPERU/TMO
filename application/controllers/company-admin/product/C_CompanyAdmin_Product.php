@@ -72,7 +72,8 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $modulo->url_module_panel   = $modulo->url_main_panel."/product";
         $modulo->menu               = array("menu" => 3, "submenu" => 0);
 
-        $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
+        $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
+        $modulo->data_tiendas       = $this->M_CompanyAdmin_Product->getAllStore();
 
         $data["modulo"] 				= $modulo;
 
