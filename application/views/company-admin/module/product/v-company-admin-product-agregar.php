@@ -55,28 +55,42 @@
                                     <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
                                 </div><!-- /.form-group -->
                                 <div class="form-group">
-                                    <label>Categoria</label>
-                                    <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias" multiple="multiple">
+                                    <label>Tienda</label>
+                                    <select class="form-control select2" style="width: 100%;" id="" name="" multiple="multiple">
                                         <?php foreach($modulo->data_tiendas as $tienda): ?>
                                             <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div><!-- /.form-group -->
+<!--                                <div class="form-group">-->
+<!--                                    <label></label>-->
+<!--                                    <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias">-->
+<!--                                        <option selected="selected" value="">Seleccione</option>-->
+<!--                                        --><?php //foreach($modulo->data_categorias as $categoria): ?>
+<!--                                            <option value="--><?php //echo $categoria->id_categoria; ?><!--">--><?php //echo $categoria->nombre_categoria; ?><!--</option>-->
+<!--                                        --><?php //endforeach; ?>
+<!--                                    </select>-->
+<!--                                </div><!-- /.form-group -->-->
+<!--                                <div class="form-group">-->
+<!--                                    <label>Sub Categoria</label>-->
+<!--                                    <select class="form-control select2" style="width: 100%;" id="cboSubCategorias" name="cboSubCategorias" data-parsley-required data-parsley-required-message="Seleccion la categoria del producto.">-->
+<!--                                        <option selected="selected" value="">Seleccione</option>-->
+<!--                                    </select>-->
+<!--                                </div><!-- /.form-group -->-->
                                 <div class="form-group">
-                                    <label>Categoria</label>
-                                    <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias">
-                                        <option selected="selected" value="">Seleccione</option>
-                                        <?php foreach($modulo->data_categorias as $categoria): ?>
-                                            <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <label for="txtPrecioProducto">Precio</label>
+                                    <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
                                 </div><!-- /.form-group -->
-                                <div class="form-group">
-                                    <label>Sub Categoria</label>
-                                    <select class="form-control select2" style="width: 100%;" id="cboSubCategorias" name="cboSubCategorias" data-parsley-required data-parsley-required-message="Seleccion la categoria del producto.">
-                                        <option selected="selected" value="">Seleccione</option>
-                                    </select>
-                                </div><!-- /.form-group -->
+                                <div class="input-group margin">
+                                    <div class="form-control">
+                                        <span class="label label-success">Approved</span>
+                                        <span class="label label-success">Approved</span>
+                                        <span class="label label-success">Approved</span>
+                                    </div>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-info btn-flat">Go!</button>
+                                    </span>
+                                </div>
                             </div><!-- /.box-body -->
                             <div class="box-footer">
                                 <button type="submit" class="button-effect-1" id="btnAgregar" >Agregar</button>
