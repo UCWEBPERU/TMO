@@ -70,9 +70,18 @@
                                     <label for="txtPrecioProducto">Modificadores</label>
                                     <div class="input-group margin">
                                         <div class="form-control">
-                                            <span class="label label-success"><i class="fa fa-close"></i> Approved</span>
-                                            <span class="label label-success"><i class="fa fa-close"></i> Approved</span>
-                                            <span class="label label-success"><i class="fa fa-close"></i> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
+                                            <span class="label label-success" style="padding: 5px 10px;"> Approved</span>
                                         </div>
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-info btn-flat">Go!</button>
