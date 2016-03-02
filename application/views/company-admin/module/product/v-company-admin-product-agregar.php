@@ -70,32 +70,28 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div><!-- /.form-group -->
-                                <div class="form-group">
-                                    <label for="txtPrecioProducto">Precio</label>
-                                    <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
-                                </div><!-- /.form-group -->
                                 <div class="form-group form-group-modifiers">
                                     <label for="txtPrecioProducto">Modificadores</label>
                                     <div class="input-group">
                                         <div class="form-control">
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Color: Blue</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary"> Approved</span></a>
                                         </div>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-info btn-flat">Go!</button>
