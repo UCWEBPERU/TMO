@@ -69,7 +69,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $modulo                     = $this->paneladmin->loadPanelCompany();
         $modulo->titulo 			= "Product";
         $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Add Product";
-        $modulo->url_module_panel   = $modulo->url_main_panel."/user";
+        $modulo->url_module_panel   = $modulo->url_main_panel."/product";
         $modulo->menu               = array("menu" => 3, "submenu" => 0);
 
         $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
@@ -86,9 +86,9 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
-        $modulo->titulo 			= "User";
-        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Edit User";
-        $modulo->url_module_panel   = $modulo->url_main_panel."/user";
+        $modulo->titulo 			= "Product";
+        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Edit Product";
+        $modulo->url_module_panel   = $modulo->url_main_panel."/product";
         $modulo->menu               = array("menu" => 3, "submenu" => 0);
 
         $result  = $this->M_Usuario->getByID($id_usuario);
