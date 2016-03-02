@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_CompanyAdmin_User extends CI_Controller {
+class C_CompanyAdmin_Product extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -10,7 +10,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         $this->load->library('utils/UserSession');
         $this->usersession->validateSession("panel-company-admin");
         $this->load->model("M_Usuario");
-        $this->load->model('company-admin/M_CompanyAdmin_User');
+        $this->load->model('company-admin/M_CompanyAdmin_Product');
         $this->load->library('utils/PanelAdmin');
     }
 
@@ -19,24 +19,24 @@ class C_CompanyAdmin_User extends CI_Controller {
 
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
-        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - User";
-        $modulo->url_module_panel   = $modulo->url_main_panel."/user";
+        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Product";
+        $modulo->url_module_panel   = $modulo->url_main_panel."/product";
 
-        $modulo->nombre 					= "User";
-        $modulo->titulo 					= "User";
-        $modulo->titulo_registro 			= "Registro de Usuarios";
-        $modulo->cabecera_registro 			= array("Nombres", "Apellidos", "Email", "Celular Personal", "Telefono", "Celular Trabajo", "Fecha Registro");
-        $modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-user";
-        $modulo->menu 						= array("menu" => 4, "submenu" => 0);
+        $modulo->nombre 					= "Product";
+        $modulo->titulo 					= "Product";
+        $modulo->titulo_registro 			= "Registro de Productos";
+        $modulo->cabecera_registro 			= array("Nombre", "Descripción", "Stock", "Precio", "Tienda");
+        $modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-product";
+        $modulo->menu 						= array("menu" => 3, "submenu" => 0);
         $modulo->navegacion 				= array(
-            array("nombre" => "User",
+            array("nombre" => "Product",
                 "url" => "",
                 "activo" => TRUE)
         );
 
         $config 							= array();
-        $config["base_url"] 				= $modulo->url_main_panel."/user/page";
-        $total_row 							= $this->M_CompanyAdmin_User->getTotalUser($this->session->id_empresa);
+        $config["base_url"] 				= $modulo->url_main_panel."/product/page";
+        $total_row 							= $this->M_CompanyAdmin_Product->getTotalProduct($this->session->id_empresa);
         $config["total_rows"] 				= $total_row;
         $config["per_page"] 				= 15;
         $config['use_page_numbers'] 		= TRUE;
@@ -52,12 +52,12 @@ class C_CompanyAdmin_User extends CI_Controller {
 
         $page = ($this->uri->segment(6)) ? $this->uri->segment(6) : 1;
 
-        $modulo->registros = $this->M_CompanyAdmin_User->fetchUser($config["per_page"], ($page - 1) * 15, $this->session->id_empresa);
+        $modulo->registros = $this->M_CompanyAdmin_Product->fetchProduct($config["per_page"], ($page - 1) * 15, $this->session->id_empresa);
         $str_links = $this->pagination->create_links();
         $modulo->links = explode('&nbsp;',$str_links);
 
         $data["modulo"] = $modulo;
-        $this->load->view('company-admin/module/user/v-company-admin-user', $data);
+        $this->load->view('company-admin/module/product/v-company-admin-product', $data);
     }
 
     public function addUser() {
@@ -70,7 +70,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         $modulo->titulo 			= "User";
         $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - User";
         $modulo->url_module_panel   = $modulo->url_main_panel."/user";
-        $modulo->menu               = array("menu" => 4, "submenu" => 0);
+        $modulo->menu               = array("menu" => 3, "submenu" => 0);
 
         $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
 
@@ -89,7 +89,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         $modulo->titulo 			= "User";
         $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Edit User";
         $modulo->url_module_panel   = $modulo->url_main_panel."/user";
-        $modulo->menu               = array("menu" => 4, "submenu" => 0);
+        $modulo->menu               = array("menu" => 3, "submenu" => 0);
 
         $result  = $this->M_Usuario->getByID($id_usuario);
 
@@ -135,21 +135,21 @@ class C_CompanyAdmin_User extends CI_Controller {
             $this->input->post("cboRegion") &&
             $this->input->post("cboCity")) {
 
-            $validate   = $this->M_CompanyAdmin_User->getSuscripcionPaqueteTMO($this->session->id_empresa);
-            $totalStore = $this->M_CompanyAdmin_User->getTotalUser($this->session->id_empresa);
+            $validate   = $this->M_CompanyAdmin_Product->getSuscripcionPaqueteTMO($this->session->id_empresa);
+            $totalStore = $this->M_CompanyAdmin_Product->getTotalUser($this->session->id_empresa);
 
             if (sizeof($validate) > 0) {
                 if ($totalStore < intval($validate[0]->total_users)) {
                     unset($validate);
 
-                    $resul1 = $this->M_CompanyAdmin_User->insertUsuario(
+                    $resul1 = $this->M_CompanyAdmin_Product->insertUsuario(
                         array(
                             'email_usuario'    => trim($this->input->post("txtEmail", TRUE)),
                             'password_usuario' => $this->cryptography->Encrypt(trim($this->input->post("txtPassword", TRUE)))
                         )
                     );
 
-                    $resul2 = $this->M_CompanyAdmin_User->insertPersona(
+                    $resul2 = $this->M_CompanyAdmin_Product->insertPersona(
                         array(
                             'id_usuario'		    => $resul1,
                             'nombres_persona'		=> trim($this->input->post("txtFirstName", TRUE)),
@@ -164,7 +164,7 @@ class C_CompanyAdmin_User extends CI_Controller {
                         )
                     );
 
-                    $resul3 = $this->M_CompanyAdmin_User->insertUsuariosAsignados(
+                    $resul3 = $this->M_CompanyAdmin_Product->insertUsuariosAsignados(
                         array(
                             "id_empresa" => $this->session->id_empresa,
                             "id_usuario" => $resul1
@@ -215,7 +215,7 @@ class C_CompanyAdmin_User extends CI_Controller {
             if (sizeof($dataUsuario) > 0) {
 
                 if ($this->input->post("txtPassword")) {
-                    $resul1 = $this->M_CompanyAdmin_User->updatePassWordUsuario(
+                    $resul1 = $this->M_CompanyAdmin_Product->updatePassWordUsuario(
                         array(
                             'id_usuario'    => trim($this->input->post("id_usuario", TRUE)),
                             'password_usuario' => $this->cryptography->Encrypt(trim($this->input->post("txtPassword", TRUE)))
@@ -223,7 +223,7 @@ class C_CompanyAdmin_User extends CI_Controller {
                     );
                 }
 
-                $resul2 = $this->M_CompanyAdmin_User->updateUsuario(
+                $resul2 = $this->M_CompanyAdmin_Product->updateUsuario(
                     array(
                         'id_usuario'        => trim($this->input->post("id_usuario", TRUE)),
                         'nombres_persona'	=> trim($this->input->post("txtFirstName", TRUE)),

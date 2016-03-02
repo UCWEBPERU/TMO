@@ -27,8 +27,6 @@ class C_CompanyAdmin_Store extends CI_Controller {
         $modulo->titulo_registro 			= "Registro de Tiendas";
         $modulo->cabecera_registro 			= array("Nombre Store", "Nro Celular", "Direccion", "GPS - Latitud", "GPS - Longitud");
         $modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-store";
-        $modulo->base_url 					= "admin/empresa/";
-        $modulo->api_rest_params 			= array("delete" => "id_empresa");
         $modulo->menu 						= array("menu" => 2, "submenu" => 0);
         $modulo->navegacion 				= array(
             array("nombre" => "Store",
@@ -591,7 +589,7 @@ class C_CompanyAdmin_Store extends CI_Controller {
                 );
 
                 $json->message = "La tienda se actualizo correctamente.";
-                $json->status 	= TRUE;
+                $json->status  = TRUE;
 
             } else {
                 $json->message = "Lo sentimos la tienda que desea editar no existe.";
