@@ -46,14 +46,22 @@
                                     <label for="txtDescripcionProducto">Descripcion</label>
                                     <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">
                                 </div><!-- /.form-group -->
-                                <div class="form-group">
-                                    <label for="txtStockProducto">Stock</label>
-                                    <input type="text" class="form-control" id="txtStockProducto" name="txtStockProducto" data-parsley-required data-parsley-required-message="Ingrese el stock del producto.">
-                                </div><!-- /.form-group -->
-                                <div class="form-group">
-                                    <label for="txtPrecioProducto">Precio</label>
-                                    <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
-                                </div><!-- /.form-group -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtStockProducto">Stock</label>
+                                            <input type="text" class="form-control" id="txtStockProducto" name="txtStockProducto" data-parsley-required data-parsley-required-message="Ingrese el stock del producto.">
+                                        </div><!-- /.form-group -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtPrecioProducto">Precio</label>
+                                            <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
+                                        </div><!-- /.form-group -->
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label>Tienda</label>
                                     <select class="form-control select2" style="width: 100%;" id="" name="" multiple="multiple">
