@@ -68,7 +68,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
         $modulo->titulo 			= "User";
-        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - User";
+        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Add User";
         $modulo->url_module_panel   = $modulo->url_main_panel."/user";
         $modulo->menu               = array("menu" => 4, "submenu" => 0);
 

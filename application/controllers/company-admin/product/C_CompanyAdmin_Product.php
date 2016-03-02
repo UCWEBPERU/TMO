@@ -60,15 +60,15 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $this->load->view('company-admin/module/product/v-company-admin-product', $data);
     }
 
-    public function addUser() {
+    public function addProduct() {
         $this->load->model("M_GEO_Data");
         $this->load->model("admin/M_Admin_Paquetes_TMO");
         $this->load->model('M_Tipo_Empresa');
 
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
-        $modulo->titulo 			= "User";
-        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - User";
+        $modulo->titulo 			= "Product";
+        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Add Product";
         $modulo->url_module_panel   = $modulo->url_main_panel."/user";
         $modulo->menu               = array("menu" => 3, "submenu" => 0);
 
@@ -76,7 +76,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         $data["modulo"] 				= $modulo;
 
-        $this->load->view('company-admin/module/user/v-company-admin-user-agregar', $data);
+        $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
     }
 
     public function editUser($id_usuario) {
