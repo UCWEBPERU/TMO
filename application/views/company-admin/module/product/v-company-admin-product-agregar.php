@@ -94,7 +94,7 @@
                                             <a href="#"><span class="label label-primary"> Approved</span></a>
                                         </div>
                                         <span class="input-group-btn">
-                                            <button type="button" class="btn btn-info btn-flat">Go!</button>
+                                            <button type="button" id="btnAgregarModificador" class="btn btn-primary btn-flat">Agregar</button>
                                         </span>
                                     </div>
                                 </div><!-- /.form-group -->
@@ -138,6 +138,8 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
 <!-- Handle File -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/HandleFile.js"></script>
+<!-- Sweet Alert -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <script>
     //Initialize Select2 Elements
     $(".select2").select2();
@@ -254,6 +256,42 @@
 
         $("#cboSubCategorias").on("select2:select", function (event) {
             // alert($(this).val() + " " + event.params.data.id);
+        });
+
+        $("#btnAgregarModificador").on("click", function(event) {
+            swal({
+                title: "Agregar un Modificador",
+                text: "Ingrese el nombre del modificador",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: "slide-from-top"
+                },
+                function(inputValue) {
+                    if (inputValue === false) return false;
+                    if (inputValue === "") {
+                        swal.showInputError("You need to write something!");
+                        return false;
+                    }
+                    swal({
+                            title: "Agregar un Modificador",
+                            text: "Ingrese el valor del modificador",
+                            type: "input",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            animation: "slide-from-top"
+                        },
+                        function(inputValue) {
+                            if (inputValue === false) return false;
+                            if (inputValue === "") {
+                                swal.showInputError("You need to write something!");
+                                return false;
+                            }
+                            swal("Nice!", "You wrote: " + inputValue, "success");
+                        }
+                    );
+                }
+            );
         });
     });
 </script>
