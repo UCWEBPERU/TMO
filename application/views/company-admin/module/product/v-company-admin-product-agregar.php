@@ -66,7 +66,7 @@
                                     <label for="txtPrecioProducto">Precio</label>
                                     <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
                                 </div><!-- /.form-group -->
-                                <div class="form-group">
+                                <div class="form-group form-group-modifiers">
                                     <label for="txtPrecioProducto">Modificadores</label>
                                     <div class="input-group">
                                         <div class="form-control">
@@ -89,9 +89,9 @@
                                             <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
                                             <span class="label label-success" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span>
                                         </div>
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-info btn-flat">Go!</button>
-                                    </span>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-info btn-flat">Go!</button>
+                                        </span>
                                     </div>
                                 </div><!-- /.form-group -->
 
