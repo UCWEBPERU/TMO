@@ -78,24 +78,24 @@
                                     <label for="txtPrecioProducto">Modificadores</label>
                                     <div class="input-group">
                                         <div class="form-control">
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
-                                            <a></a><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
+                                            <a href="#"><span class="label label-primary" style="padding: 5px 10px; margin-bottom: 3px;"> Approved</span></a>
                                         </div>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-info btn-flat">Go!</button>
