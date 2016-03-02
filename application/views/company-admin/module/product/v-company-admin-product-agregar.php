@@ -62,35 +62,24 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div><!-- /.form-group -->
-<!--                                <div class="form-group">-->
-<!--                                    <label></label>-->
-<!--                                    <select class="form-control select2" style="width: 100%;" id="cboCategorias" name="cboCategorias">-->
-<!--                                        <option selected="selected" value="">Seleccione</option>-->
-<!--                                        --><?php //foreach($modulo->data_categorias as $categoria): ?>
-<!--                                            <option value="--><?php //echo $categoria->id_categoria; ?><!--">--><?php //echo $categoria->nombre_categoria; ?><!--</option>-->
-<!--                                        --><?php //endforeach; ?>
-<!--                                    </select>-->
-<!--                                </div><!-- /.form-group -->-->
-<!--                                <div class="form-group">-->
-<!--                                    <label>Sub Categoria</label>-->
-<!--                                    <select class="form-control select2" style="width: 100%;" id="cboSubCategorias" name="cboSubCategorias" data-parsley-required data-parsley-required-message="Seleccion la categoria del producto.">-->
-<!--                                        <option selected="selected" value="">Seleccione</option>-->
-<!--                                    </select>-->
-<!--                                </div><!-- /.form-group -->-->
                                 <div class="form-group">
                                     <label for="txtPrecioProducto">Precio</label>
                                     <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
                                 </div><!-- /.form-group -->
-                                <div class="input-group margin">
-                                    <div class="form-control">
-                                        <span class="label label-success">Approved</span>
-                                        <span class="label label-success">Approved</span>
-                                        <span class="label label-success">Approved</span>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="txtPrecioProducto">Modificadores</label>
+                                    <div class="input-group margin">
+                                        <div class="form-control">
+                                            <span class="label label-success"><i class="fa fa-close"></i> Approved</span>
+                                            <span class="label label-success"><i class="fa fa-close"></i> Approved</span>
+                                            <span class="label label-success"><i class="fa fa-close"></i> Approved</span>
+                                        </div>
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-info btn-flat">Go!</button>
                                     </span>
-                                </div>
+                                    </div>
+                                </div><!-- /.form-group -->
+
                             </div><!-- /.box-body -->
                             <div class="box-footer">
                                 <button type="submit" class="button-effect-1" id="btnAgregar" >Agregar</button>
