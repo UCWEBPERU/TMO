@@ -87,19 +87,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <th style="width: 10px">#</th>
-                                                        <th>Task</th>
-                                                        <th>Progress</th>
-                                                        <th style="width: 40px">Label</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1.</td>
-                                                        <td>Update software</td>
-                                                        <td>
-                                                            <div class="progress progress-xs">
-                                                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td><span class="badge bg-red">55%</span></td>
+                                                        <th>Tipo</th>
+                                                        <th>Nombre</th>
+                                                        <th style="width: 40px">Costo</th>
                                                     </tr>
                                                     <tr>
                                                         <td><i class="fa fa-chevron-right"></i></td>
@@ -317,10 +307,9 @@
 //                                        swal.showInputError("Ingrese el costo del modificador");
 //                                        return false;
 //                                    }
-//                                    swal("Modificador agregado!", tipoModificador + ": " + nombreModificador, "success");
-//                                    var html = "<a href='' data-modifier-name='" + nombreModificador + "' data-modifier-value='" + valorModificador + "'><span class='label label-primary'>" + nombreModificador + ": " + valorModificador + "</span></a>";
-//                                    $(".form-group-modifiers .form-control").append(html);
-                                    console.log("Tabla hijos: " + $(".table-modifiers").children().length);
+                                    swal("Modificador agregado!", tipoModificador + ": " + nombreModificador, "success");
+                                    var html = "<tr><td>" + $(".table-modifiers tbody").length - 2 + 1 + ".</td><td>" + tipoModificador + "</td><td>" + valorModificador + "</td><td>" + costoModificador + "</td></tr>";
+                                    $(".table-modifiers tbody").last().prepend(html);
                                 }
                             );
                         }
