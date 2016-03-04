@@ -124,11 +124,10 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo->menu = array("menu" => 4, "submenu" => 0);
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
-        $datosCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByIDAndNivel(
+        $datosCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
             array(
                 'id_empresa'        => $this->session->id_empresa,
-                'nivel_categoria'   => "categoria",
-                'id_categoria'      => $id_category
+                'id_categoria_superior'      => $id_category
             )
         );
 
