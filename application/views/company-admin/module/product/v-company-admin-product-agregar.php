@@ -305,11 +305,11 @@
                                     animation: "slide-from-top"
                                 },
                                 function(costoModificador) {
-//                                    if (costoModificador === false) return false;
-//                                    if (costoModificador === "") {
-//                                        swal.showInputError("Ingrese el costo del modificador");
-//                                        return false;
-//                                    }
+
+                                    if (isNaN(nombreModificador) === false) {
+                                        swal.showInputError("Ingrese solo numeros.");
+                                        return false;
+                                    }
 
                                     indexModifier = $(".table-modifiers tbody tr").length - 2 + 1;
 
