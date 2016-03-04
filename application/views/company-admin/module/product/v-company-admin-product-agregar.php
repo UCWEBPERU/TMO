@@ -133,7 +133,7 @@
                                                 </tr>
                                                 </tbody></table>
                                         </div><!-- /.form-group -->
-
+                                        <button type="submit" class="btn btn-primary pull-right">Agregar modificador</button>
                                     </div>
 
                                 </div>
