@@ -27,7 +27,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         $modulo->titulo_registro 			= "Registro de Usuarios";
         $modulo->cabecera_registro 			= array("Nombres", "Apellidos", "Email", "Celular Personal", "Telefono", "Celular Trabajo", "Fecha Registro");
         $modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-user";
-        $modulo->menu 						= array("menu" => 4, "submenu" => 0);
+        $modulo->menu 						= array("menu" => 5, "submenu" => 0);
         $modulo->navegacion 				= array(
             array("nombre" => "User",
                 "url" => "",
@@ -70,7 +70,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         $modulo->titulo 			= "User";
         $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Add User";
         $modulo->url_module_panel   = $modulo->url_main_panel."/user";
-        $modulo->menu               = array("menu" => 4, "submenu" => 0);
+        $modulo->menu               = array("menu" => 5, "submenu" => 0);
 
         $modulo->data_geo_countries 	= $this->M_GEO_Data->getAllCountries();
 
@@ -89,7 +89,7 @@ class C_CompanyAdmin_User extends CI_Controller {
         $modulo->titulo 			= "User";
         $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Edit User";
         $modulo->url_module_panel   = $modulo->url_main_panel."/user";
-        $modulo->menu               = array("menu" => 4, "submenu" => 0);
+        $modulo->menu               = array("menu" => 5, "submenu" => 0);
 
         $result  = $this->M_Usuario->getByID($id_usuario);
 

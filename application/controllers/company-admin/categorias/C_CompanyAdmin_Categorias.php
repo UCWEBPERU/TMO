@@ -60,7 +60,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     public function listAllCategories() {
         $modulo = $this->paneladmin->loadPanelCompany();
-        $modulo->menu = array("menu" => 3, "submenu" => 0);
+        $modulo->menu = array("menu" => 4, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Categorias";
 
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
@@ -85,7 +85,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     public function addCategory() {
         $modulo = $this->paneladmin->loadPanelCompany();
-        $modulo->menu = array("menu" => 3, "submenu" => 0);
+        $modulo->menu = array("menu" => 4, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Agregar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
@@ -98,7 +98,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     public function editCategory($id_category) {
         $modulo = $this->paneladmin->loadPanelCompany();
-        $modulo->menu = array("menu" => 3, "submenu" => 0);
+        $modulo->menu = array("menu" => 4, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Editar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
@@ -116,7 +116,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     public function listSubCategoriesByCategory($id_category) {
         $modulo = $this->paneladmin->loadPanelCompany();
-        $modulo->menu = array("menu" => 3, "submenu" => 0);
+        $modulo->menu = array("menu" => 4, "submenu" => 0);
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
         $datosCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByIDAndNivel(
@@ -163,26 +163,20 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
             );
 
             if (sizeof($result) == 0) {
-                $nivelCategoria = (trim($this->input->post("cboCategoriaSuperior", TRUE))) ? "subcategoria" : "categoria";
+                $nivelCategoria = 1;
+
                 $existeCategoriaSuperior = false;
 
-                if ($nivelCategoria == "subcategoria") {
-                    unset($result);
-                    $result = $this->M_CompanyAdmin_Categorias->getCategoryByIDAndNivel(
+                $categoriaSuperior = $this->M_CompanyAdmin_Categorias->getCategoryByID(
                         array(
-                            'id_empresa'            => $this->session->id_empresa,
-                            'nivel_categoria'       => "categoria",
-                            'id_categoria' => trim($this->input->post("cboCategoriaSuperior", TRUE))
+                            "id_empresa" => $this->session->id_empresa,
+                            "id_categoria" => trim($this->input->post("cboCategoriaSuperior", TRUE))
                         )
                     );
 
-                    if (sizeof($result) > 0) {
-                        $existeCategoriaSuperior = true;
-                    } else {
-                        $json->message = "La categoria superior que selecciono no existe, intente de nuevo.";
-                    }
-                } else {
+                if (sizeof($categoriaSuperior) > 0) {
                     $existeCategoriaSuperior = true;
+                    $nivelCategoria = intval($categoriaSuperior[0]->nivel_categoria) + 1;
                 }
 
                 if ($existeCategoriaSuperior) {
