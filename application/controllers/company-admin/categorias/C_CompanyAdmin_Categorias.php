@@ -61,7 +61,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     public function listAllCategories() {
         $modulo = $this->paneladmin->loadPanelCompany();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categorias";
+        $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Categorias";
 
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
@@ -86,7 +86,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     public function addCategory() {
         $modulo = $this->paneladmin->loadPanelCompany();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Agregar Categoria";
+        $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Agregar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
         $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
@@ -99,7 +99,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     public function editCategory($id_category) {
         $modulo = $this->paneladmin->loadPanelCompany();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Editar Categoria";
+        $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Editar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
         $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
@@ -127,7 +127,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
             )
         );
 
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categoria: ".$datosCategoria[0]->nombre_categoria;
+        $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Categoria: ".$datosCategoria[0]->nombre_categoria;
 
         $datosSubCategoria = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
             array(
