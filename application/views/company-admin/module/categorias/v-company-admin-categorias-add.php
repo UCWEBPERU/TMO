@@ -104,7 +104,7 @@
                 if (validateInputsForm(selectorInputsForm)) {
                     waitingDialog.show('Guardando Categoria...');
                     var request = $.ajax({
-                        url: "<?php echo $modulo->url_main_panel."/categorys/ajax/addCategory"; ?>",
+                        url: "<?php echo $modulo->url_module_panel."/ajax/addCategory"; ?>",
                         method: "POST",
                         data: $("#frmDatosCategoria").serialize(),
                         dataType: "json"

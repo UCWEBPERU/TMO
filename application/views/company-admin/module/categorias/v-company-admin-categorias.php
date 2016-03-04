@@ -73,7 +73,7 @@
                         var formData  = new FormData();
                         formData.append("id_categoria", $(self).attr("data-id-cat"));
                         var request = $.ajax({
-                            url: "<?php echo $modulo->url_main_panel."/categorys/ajax/deleteCategory"; ?>",
+                            url: "<?php echo $modulo->url_module_panel."/ajax/deleteCategory"; ?>",
                             method: "POST",
                             data: formData,
                             dataType: "json",
@@ -102,7 +102,7 @@
             });
             
             $(".btn-box-tool-edit").on("click", function(){
-                $(location).attr("href", "<?php echo $modulo->url_main_panel.'/categorys/edit/'; ?>" + $(this).attr("data-id-cat"));
+                $(location).attr("href", "<?php echo $modulo->url_module_panel.'/edit/'; ?>" + $(this).attr("data-id-cat"));
             });
             
         })(jQuery);
