@@ -9,6 +9,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $this->load->library('session');
         $this->load->library('utils/UserSession');
         $this->usersession->validateSession("panel-company-admin");
+        $this->load->library('utils/PanelAdmin');
         $this->load->model("company-admin/M_StoreAdmin_Categorias");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
@@ -58,7 +59,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     }
 
     public function listAllCategories() {
-        $modulo = $this->loadDataPanel();
+        $modulo = $this->paneladmin->loadPanelCompany();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categorias";
 
@@ -83,7 +84,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     }
 
     public function addCategory() {
-        $modulo = $this->loadDataPanel();
+        $modulo = $this->paneladmin->loadPanelCompany();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Agregar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
@@ -96,7 +97,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     }
 
     public function editCategory($id_category) {
-        $modulo = $this->loadDataPanel();
+        $modulo = $this->paneladmin->loadPanelCompany();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Editar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
@@ -114,7 +115,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     }
 
     public function listSubCategoriesByCategory($id_category) {
-        $modulo = $this->loadDataPanel();
+        $modulo = $this->paneladmin->loadPanelCompany();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
@@ -316,34 +317,5 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     }
 
     /* <----------------- * -----------------> */
-
-    public function loadDataPanel() {
-        $modulo = new stdClass();
-
-        $dataEmpresa        = $this->M_Empresa->getByID($this->session->id_empresa);
-        $dataUsuario        = $this->M_Usuario->getByID($this->session->id_usuario);
-        $dataLogoEmpresa    = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
-
-        if (sizeof($dataLogoEmpresa) > 0) {
-            $modulo->icono_empresa = $dataLogoEmpresa[0]->url_archivo;
-        } else {
-            $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png"; // Colocar logo de store por defecto
-        }
-
-        $modulo->datos_usuario = $dataUsuario[0];
-        $modulo->datos_empresa = $dataEmpresa[0];
-
-        /* Datos de la cabecera del panel de administrador */
-        $modulo->nombres_usuario = $dataUsuario[0]->nombres_persona." ".$dataUsuario[0]->apellidos_persona;
-        $modulo->tipo_usuario = $dataUsuario[0]->nombre_tipo_usuario;
-        $modulo->nombre_empresa_largo = $dataEmpresa[0]->nombre_empresa;
-        $modulo->nombre_empresa_corto = $dataEmpresa[0]->nombre_empresa;
-        /* --------------------*-------------------- */
-
-        $modulo->url_signout = base_url()."admin/signOut";
-        $modulo->url_main_panel = base_url()."store/".$this->session->id_empresa."/admin";
-
-        return $modulo;
-    }
 
 }
