@@ -303,6 +303,7 @@
         });
 
         $("#btnAddMoficador").on("click", function(event) {
+            event.preventDefault();
             swal({
                 title: "Agregar un Modificador",
                 text: "Ingrese el nombre del modificador",
