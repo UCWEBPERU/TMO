@@ -270,7 +270,7 @@
             event.preventDefault();
             swal({
                     title: "Agregar un Modificador",
-                    text: "Ingrese el nombre del modificador",
+                    text: "Ingrese el tipo del modificador",
                     type: "input",
                     showCancelButton: true,
                     closeOnConfirm: false,
@@ -284,7 +284,7 @@
                     }
                     swal({
                             title: "Agregar un Modificador",
-                            text: "Ingrese el valor del modificador",
+                            text: "Ingrese el nombre del modificador",
                             type: "input",
                             showCancelButton: true,
                             closeOnConfirm: false,
@@ -305,12 +305,6 @@
                                     animation: "slide-from-top"
                                 },
                                 function(costoModificador) {
-                                    console.log(typeof parseInt(costoModificador));
-                                    if (typeof parseInt(costoModificador) != "number" ) {
-                                        swal.showInputError("Ingrese solo numeros.");
-                                        return false;
-                                    }
-
                                     indexModifier = $(".table-modifiers tbody tr").length - 2 + 1;
 
                                     swal("Modificador agregado!", tipoModificador + ": " + nombreModificador, "success");
