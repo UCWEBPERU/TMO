@@ -288,8 +288,7 @@
                                 return false;
                             }
                             swal("Modificador agregado!", nombreModificador + ": " + valorModificador, "success");
-                            var html = "<a href='' data-modifier-name='" + nombreModificador + "' data-modifier-value='" + valorModificador +
-                            "'><span class='label label-primary'>" + nombreModificador + ": " + valorModificador + "</span></a>";
+                            var html = "<a href='' data-modifier-name='" + nombreModificador + "' data-modifier-value='" + valorModificador + "'><span class='label label-primary'>" + nombreModificador + ": " + valorModificador + "</span></a>";
                             $(".form-group-modifiers .form-control").append(html);
                         }
                     );
