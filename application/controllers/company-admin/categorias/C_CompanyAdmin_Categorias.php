@@ -189,7 +189,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
                     unset($result);
                     $result = $this->M_CompanyAdmin_Categorias->insertCategory(
                         array(
-                            'id_categoria_superior'  => trim($this->input->post("cboCategoriaSuperior", TRUE)),
+                            'id_categoria_superior'  => $this->input->post("cboCategoriaSuperior") ? trim($this->input->post("cboCategoriaSuperior", TRUE)) : NULL,
                             'id_empresa'             => $this->session->id_empresa,
                             'nombre_categoria'       => $capitalizeCategoryName,
                             'nivel_categoria'        => $nivelCategoria
