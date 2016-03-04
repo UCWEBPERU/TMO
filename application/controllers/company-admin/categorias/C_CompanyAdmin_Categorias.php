@@ -179,7 +179,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
                     $nivelCategoria = intval($categoriaSuperior[0]->nivel_categoria) + 1;
                 }
 
-                if ($existeCategoriaSuperior) {
+                if (!$this->input->post("cboCategoriaSuperior") || $existeCategoriaSuperior) {
                     unset($result);
                     $result = $this->M_CompanyAdmin_Categorias->insertCategory(
                         array(
