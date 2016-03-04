@@ -65,7 +65,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
-        $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(
+        $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllPrimaryCategorys(
             array(
                 "id_empresa"      => $this->session->id_empresa,
                 "nivel_categoria" => 1
@@ -94,12 +94,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Agregar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
-        $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(
-            array(
-                "id_empresa"      => $this->session->id_empresa,
-                "nivel_categoria" => NULL
-            )
-        );
+        $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
         $modulo->data_categorias = $datosCategorias;
 
         $data["modulo"] = $modulo;

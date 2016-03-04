@@ -6,13 +6,20 @@ class M_CompanyAdmin_Categorias extends CI_Model {
 		$this->load->database();
 	}
     
-    public function getAllCategorys($category_data) {
+    public function getAllPrimaryCategorys($category_data) {
 		$this->db->where('Categoria_Productos.id_empresa', $category_data["id_empresa"]);
 		$this->db->where('Categoria_Productos.estado', '1');
 		$this->db->where('Categoria_Productos.nivel_categoria', $category_data["nivel_categoria"]);
 		$query = $this->db->get('Categoria_Productos');
         return $query->result();
     }
+
+	public function getAllCategorys($category_data) {
+		$this->db->where('Categoria_Productos.id_empresa', $category_data["id_empresa"]);
+		$this->db->where('Categoria_Productos.estado', '1');
+		$query = $this->db->get('Categoria_Productos');
+		return $query->result();
+	}
     
     public function getSubCategoryByIDCategory($category_data) {
 		$this->db->where('Categoria_Productos.id_empresa', $category_data["id_empresa"]);
