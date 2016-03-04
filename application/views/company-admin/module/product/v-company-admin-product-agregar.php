@@ -267,10 +267,10 @@
                 closeOnConfirm: false,
                 animation: "slide-from-top"
                 },
-                function(inputValue) {
-                    if (inputValue === false) return false;
-                    if (inputValue === "") {
-                        swal.showInputError("You need to write something!");
+                function(nombreModificador) {
+                    if (nombreModificador === false) return false;
+                    if (nombreModificador === "") {
+                        swal.showInputError("Ingrese el nombre del modificador");
                         return false;
                     }
                     swal({
@@ -281,13 +281,16 @@
                             closeOnConfirm: false,
                             animation: "slide-from-top"
                         },
-                        function(inputValue) {
-                            if (inputValue === false) return false;
-                            if (inputValue === "") {
-                                swal.showInputError("You need to write something!");
+                        function(valorModificador) {
+                            if (valorModificador === false) return false;
+                            if (valorModificador === "") {
+                                swal.showInputError("Ingrese el valor del modificador");
                                 return false;
                             }
-                            swal("Nice!", "You wrote: " + inputValue, "success");
+                            swal("Modificador agregado!", nombreModificador + ": " + valorModificador, "success");
+                            var html = "<a href='' data-modifier-name='" + nombreModificador + "' data-modifier-value='" + valorModificador +
+                            "'><span class='label label-primary'>" + nombreModificador + ": " + valorModificador + "</span></a>";
+                            $(".form-group-modifiers .form-control").append(html);
                         }
                     );
                 }
