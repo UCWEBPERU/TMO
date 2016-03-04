@@ -124,24 +124,26 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo->menu = array("menu" => 4, "submenu" => 0);
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
-        $datosCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
+        $datosCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
             array(
                 'id_empresa'            => $this->session->id_empresa,
                 'id_categoria_superior' => $id_category
             )
         );
 
-        $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Categoria: ".$datosCategoria[0]->nombre_categoria;
+        $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Category";
 
-        $datosSubCategoria = $this->M_CompanyAdmin_Categorias->getSubCategoryByIDCategory(
-            array(
-                "id_empresa"            => $this->session->id_empresa,
-                "id_categoria_superior" => $id_category
-            )
-        );
+        foreach ($datosCategorias as $categoria) {
+            $subCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
+                array(
+                    "id_empresa"            => $this->session->id_empresa,
+                    "id_categoria_superior" => $categoria->id_categoria
+                )
+            );
+            $categoria->total_subcategorias = count($subCategoria);
+        }
 
-        $modulo->data_categoria = $datosCategoria;
-        $modulo->data_sub_categorias = $datosSubCategoria;
+        $modulo->data_categorias = $datosCategorias;
 
         $data["modulo"] = $modulo;
         $this->load->view('company-admin/module/categorias/v-company-admin-categorias', $data);
