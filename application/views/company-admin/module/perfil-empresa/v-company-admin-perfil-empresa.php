@@ -238,7 +238,7 @@
                                         <div class="box-logo-store">
                                             <div class="logo-store-inner" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
                                                 <div class="logo-store-hint">Cambiar Logo Empresa</div>
-                                                <input type="file" id="imgLogoStore" name="imgLogoStore">
+                                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
                                             </div>
                                         </div>
                                     </div>
