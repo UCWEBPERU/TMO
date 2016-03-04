@@ -133,7 +133,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="fa fa-chevron-right"></i></td>
-                                                    <td><a href="#" class="btnAddMoficador"><span class="label label-primary">Agregar modificador</span></a></td>
+                                                    <td><a href="#" id="btnAddMoficador"><span class="label label-primary">Agregar modificador</span></a></td>
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
