@@ -317,7 +317,7 @@
 
                                     var html = "<tr data-modifier-type='" + tipoModificador + "' data-modifier-name='" + nombreModificador + "' " +
                                         "data-modifier-cost='" + costoModificador + "'><td>" + indexModifier + ".</td><td>" + tipoModificador +
-                                        "</td><td>" + nombreModificador + "</td><td>" + (costoModificador) ? costoModificador : 0 + "</td></tr>";
+                                        "</td><td>" + nombreModificador + "</td><td>" + ((costoModificador) ? costoModificador : 0) + "</td></tr>";
 
                                     $(".table-modifiers tbody tr").last().before(html);
 
