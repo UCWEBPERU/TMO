@@ -17,7 +17,7 @@
         <section class="content-header">
           <h1>
             Categorias
-            <small><a href="<?php echo $modulo->url_main_panel; ?>/categorys/add">Agregar</a></small>
+            <small><a href="<?php echo $modulo->url_module_panel; ?>/add">Agregar</a></small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -30,7 +30,7 @@
           <div class="row">
             <?php foreach($modulo->data_categorias as $categoria): ?>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a class="link-shorcut" href="<?php echo $modulo->url_main_panel.'/categorys/view/'.intval($categoria->id_categoria); ?>">
+                <a class="link-shorcut" href="<?php echo $modulo->url_module_panel.'/view/'.intval($categoria->id_categoria); ?>">
                     <div class="info-box boxCategory">
                         <div class="box-tools pull-right">
                             <button class="btn btn-box-tool btn-box-tool-edit" data-widget="remove" data-id-cat="<?php echo intval($categoria->id_categoria); ?>" title="Editar"><i class="fa fa-pencil"></i></button>

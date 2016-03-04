@@ -17,11 +17,11 @@
         <section class="content-header">
           <h1>
             Agregar Categoria
-            <small><a href="<?php echo $modulo->url_main_panel; ?>/categorys">Regresar</a></small>
+            <small><a href="<?php echo $modulo->url_module_panel; ?>">Regresar</a></small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
-            <li><a href="<?php echo $modulo->url_main_panel; ?>/categorys"> Categorias</a></li>
+            <li><a href="<?php echo $modulo->url_module_panel; ?>"> Categorias</a></li>
             <li> Agregar</li>
           </ol>
         </section>

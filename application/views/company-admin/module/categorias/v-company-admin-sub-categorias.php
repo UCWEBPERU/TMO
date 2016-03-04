@@ -17,11 +17,11 @@
         <section class="content-header">
           <h1>
             Categoria: <?php echo $modulo->data_categoria->nombre_categoria; ?>
-            <small><a href="<?php echo $modulo->url_main_panel; ?>/categorys">Regresar</a></small>
+            <small><a href="<?php echo $modulo->url_module_panel; ?>">Regresar</a></small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
-            <li><a href="<?php echo $modulo->url_main_panel; ?>/categorys"> Categorias</a></li>
+            <li><a href="<?php echo $modulo->url_module_panel; ?>"> Categorias</a></li>
             <li class="active"> Sub Categorias</li>
           </ol>
         </section>
@@ -31,7 +31,7 @@
           <div class="row">
             <?php foreach($modulo->data_sub_categorias as $sub_categoria): ?>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a class="link-shorcut" href="<?php echo $modulo->url_main_panel.'/categorys/edit/'.intval($sub_categoria->id_categoria); ?>">
+                <a class="link-shorcut" href="<?php echo $modulo->url_module_panel.'/edit/'.intval($sub_categoria->id_categoria); ?>">
                     <div class="info-box boxCategory">
                         <div class="box-tools pull-right">
                             <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-cat="<?php echo intval($sub_categoria->id_categoria); ?>" title="Eliminar"><i class="fa fa-remove"></i></button>
