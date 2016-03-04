@@ -317,15 +317,15 @@
 
                                     var html = "<tr data-modifier-type='" + tipoModificador + "' data-modifier-name='" + nombreModificador + "' " +
                                         "data-modifier-cost='" + costoModificador + "'><td>" + indexModifier + ".</td><td>" + tipoModificador +
-                                        "</td><td>" + nombreModificador + "</td><td>" + costoModificador + "</td></tr>";
+                                        "</td><td>" + nombreModificador + "</td><td>" + (costoModificador) ? costoModificador : 0 + "</td></tr>";
 
                                     $(".table-modifiers tbody tr").last().before(html);
 
                                     formDataProduct.append("modifier_" + indexModifier + "_type", tipoModificador);
                                     formDataProduct.append("modifier_" + indexModifier + "_name", nombreModificador);
-                                    formDataProduct.append("modifier_" + indexModifier + "_cost", costoModificador);
+                                    formDataProduct.append("modifier_" + indexModifier + "_cost", (costoModificador) ? costoModificador : 0);
 
-                                    console.log(formData);
+                                    console.log(formDataProduct);
                                     console.log($(".table-modifiers tbody tr").last());
                                 }
                             );
