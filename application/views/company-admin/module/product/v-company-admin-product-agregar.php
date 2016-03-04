@@ -305,7 +305,7 @@
                                     animation: "slide-from-top"
                                 },
                                 function(costoModificador) {
-
+                                    console.log(typeof parseInt(costoModificador));
                                     if (typeof parseInt(costoModificador) != "number" ) {
                                         swal.showInputError("Ingrese solo numeros.");
                                         return false;
