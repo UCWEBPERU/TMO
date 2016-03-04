@@ -306,7 +306,7 @@
                                 },
                                 function(costoModificador) {
 
-                                    if (typeof nombreModificador != "number") {
+                                    if (typeof parseInt(costoModificador) != "number" ) {
                                         swal.showInputError("Ingrese solo numeros.");
                                         return false;
                                     }
