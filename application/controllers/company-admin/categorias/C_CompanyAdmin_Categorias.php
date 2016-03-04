@@ -10,7 +10,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $this->load->library('utils/UserSession');
         $this->usersession->validateSession("panel-company-admin");
         $this->load->library('utils/PanelAdmin');
-        $this->load->model("company-admin/M_StoreAdmin_Categorias");
+        $this->load->model("company-admin/M_CompanyAdmin_Categorias");
         $this->load->model('M_Archivo');
         $this->load->model('M_Empresa');
         $this->load->model('M_Usuario');
@@ -18,14 +18,14 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     }
 
     public function index()	{
-        $this->load->model("company-admin/M_StoreAdmin_Empresa");
+        $this->load->model("company-admin/M_CompanyAdmin_Empresa");
 
         $modulo = new stdClass();
 
         $dataEmpresa        = $this->M_Empresa->getByID($this->session->id_empresa);
         $dataUsuario        = $this->M_Usuario->getByID($this->session->id_usuario);
         $dataLogoEmpresa    = $this->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
-        $dataPayAccount     = $this->M_StoreAdmin_Empresa->getPayAccountByID($dataEmpresa[0]->id_pay_account);
+        $dataPayAccount     = $this->M_CompanyAdmin_Empresa->getPayAccountByID($dataEmpresa[0]->id_pay_account);
         $dataTipoEmpresa    = $this->M_Tipo_Empresa->getTipoEmpresa();
 
         if (sizeof($dataLogoEmpresa) > 0) {
@@ -65,10 +65,10 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
-        $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
+        $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
 
         foreach ($datosCategorias as $categoria) {
-            $subCategoria = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
+            $subCategoria = $this->M_CompanyAdmin_Categorias->getSubCategoryByIDCategory(
                 array(
                     "id_empresa"            => $this->session->id_empresa,
                     "id_categoria_superior" => $categoria->id_categoria
@@ -89,7 +89,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Agregar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
-        $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
+        $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
         $modulo->data_categorias = $datosCategorias;
 
         $data["modulo"] = $modulo;
@@ -102,7 +102,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Editar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
-        $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
+        $datosCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByID(
             array(
                 'id_empresa'        => $this->session->id_empresa,
                 'id_categoria'      => $id_category
@@ -119,7 +119,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
-        $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
+        $datosCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByIDAndNivel(
             array(
                 'id_empresa'        => $this->session->id_empresa,
                 'nivel_categoria'   => "categoria",
@@ -129,7 +129,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Categoria: ".$datosCategoria[0]->nombre_categoria;
 
-        $datosSubCategoria = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
+        $datosSubCategoria = $this->M_CompanyAdmin_Categorias->getSubCategoryByIDCategory(
             array(
                 "id_empresa"            => $this->session->id_empresa,
                 "id_categoria_superior" => $id_category
@@ -155,7 +155,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         if ( $this->input->post("txtNombreCategoria") ) {
             $capitalizeCategoryName = ucwords(strtolower(trim($this->input->post("txtNombreCategoria", TRUE))));
 
-            $result = $this->M_StoreAdmin_Categorias->getCategorysByName(
+            $result = $this->M_CompanyAdmin_Categorias->getCategorysByName(
                 array(
                     "id_empresa" => $this->session->id_empresa,
                     "nombre_categoria" => $capitalizeCategoryName
@@ -168,7 +168,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
                 if ($nivelCategoria == "subcategoria") {
                     unset($result);
-                    $result = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
+                    $result = $this->M_CompanyAdmin_Categorias->getCategoryByIDAndNivel(
                         array(
                             'id_empresa'            => $this->session->id_empresa,
                             'nivel_categoria'       => "categoria",
@@ -187,7 +187,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
                 if ($existeCategoriaSuperior) {
                     unset($result);
-                    $result = $this->M_StoreAdmin_Categorias->insertCategory(
+                    $result = $this->M_CompanyAdmin_Categorias->insertCategory(
                         array(
                             'id_categoria_superior'  => trim($this->input->post("cboCategoriaSuperior", TRUE)),
                             'id_empresa'             => $this->session->id_empresa,
@@ -227,7 +227,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         if ( $this->input->post("id_categoria") &&
             $this->input->post("txtNombreCategoria") ) {
 
-            $result = $this->M_StoreAdmin_Categorias->getCategoryByID(
+            $result = $this->M_CompanyAdmin_Categorias->getCategoryByID(
                 array(
                     "id_empresa" => $this->session->id_empresa,
                     "id_categoria" => trim($this->input->post("id_categoria", TRUE))
@@ -235,7 +235,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
             );
 
             if (sizeof($result) > 0) {
-                $result = $this->M_StoreAdmin_Categorias->updateNameCategory(
+                $result = $this->M_CompanyAdmin_Categorias->updateNameCategory(
                     array(
                         'id_empresa'        => $this->session->id_empresa,
                         'id_categoria'      => trim($this->input->post("id_categoria", TRUE)),
@@ -269,7 +269,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
         if ( $this->input->post("id_categoria") ) {
 
-            $result = $this->M_StoreAdmin_Categorias->getCategoryByID(
+            $result = $this->M_CompanyAdmin_Categorias->getCategoryByID(
                 array(
                     'id_empresa'        => $this->session->id_empresa,
                     'id_categoria'      => trim($this->input->post("id_categoria", TRUE))
@@ -278,7 +278,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
             if (sizeof($result) > 0) {
 
-                $subCategorias = $this->M_StoreAdmin_Categorias->getSubCategoryByIDCategory(
+                $subCategorias = $this->M_CompanyAdmin_Categorias->getSubCategoryByIDCategory(
                     array(
                         "id_empresa"            => $this->session->id_empresa,
                         "id_categoria_superior" => trim($this->input->post("id_categoria", TRUE))
@@ -287,7 +287,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
                 if (sizeof($subCategorias) == 0) {
                     unset($result);
-                    $result = $this->M_StoreAdmin_Categorias->deleteCategoryByID(
+                    $result = $this->M_CompanyAdmin_Categorias->deleteCategoryByID(
                         array(
                             'id_empresa'    => $this->session->id_empresa,
                             'id_categoria'  => trim($this->input->post("id_categoria", TRUE))
