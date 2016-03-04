@@ -309,7 +309,7 @@
 //                                    }
                                     swal("Modificador agregado!", tipoModificador + ": " + nombreModificador, "success");
                                     var html = "<tr><td>" + $(".table-modifiers tbody").length - 2 + 1 + ".</td><td>" + tipoModificador + "</td><td>" + nombreModificador + "</td><td>" + costoModificador + "</td></tr>";
-                                    $(".table-modifiers tbody tr").last().prepend(html);
+                                    $(".table-modifiers tbody tr").last().before(html);
                                     console.log($(".table-modifiers tbody tr").last());
                                 }
                             );
