@@ -306,7 +306,7 @@
                                 },
                                 function(costoModificador) {
 
-                                    if (isNaN(nombreModificador) === false) {
+                                    if (isNaN(nombreModificador)) {
                                         swal.showInputError("Ingrese solo numeros.");
                                         return false;
                                     }
