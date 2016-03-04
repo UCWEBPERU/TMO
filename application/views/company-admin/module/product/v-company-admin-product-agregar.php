@@ -133,7 +133,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><i class="fa fa-chevron-right"></i></td>
-                                                    <td><a href="#"><span class="label label-primary">Agregar modificador</span></a></td>
+                                                    <td><a href="#" class="btnAddMoficador"><span class="label label-primary">Agregar modificador</span></a></td>
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
@@ -302,7 +302,7 @@
             // alert($(this).val() + " " + event.params.data.id);
         });
 
-        $("#btnAgregarModificador").on("click", function(event) {
+        $("#btnAddMoficador").on("click", function(event) {
             swal({
                 title: "Agregar un Modificador",
                 text: "Ingrese el nombre del modificador",
