@@ -131,37 +131,6 @@
 
                                 </div>
 
-
-
-                                <div class="form-group form-group-modifiers">
-                                    <label for="txtPrecioProducto">Modificadores</label>
-                                    <div class="input-group">
-                                        <div class="form-control">
-                                            <a href="#"><span class="label label-primary"> Color: Blue</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                            <a href="#"><span class="label label-primary"> Approved</span></a>
-                                        </div>
-                                        <span class="input-group-btn">
-                                            <button type="button" id="btnAgregarModificador" class="btn btn-primary btn-flat">Agregar</button>
-                                        </span>
-                                    </div>
-                                </div><!-- /.form-group -->
-
                             </div><!-- /.box-body -->
                             <div class="box-footer">
                                 <button type="submit" class="button-effect-1" id="btnAgregar" >Agregar</button>
@@ -189,26 +158,6 @@
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Galeria Producto</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body box-galery-products">
-
-                        </div><!-- /.box-body -->
-                        <div class="box-footer">
-                            <div class="btn button-effect-1 btn-file">
-                                <i class="fa fa-photo"></i> Upload new image
-                                <input type="file" id="btnAddImage" accept="image/*">
-                            </div>
-                        </div>
-                    </div><!-- /.box -->
-                </div><!-- /.col -->
-            </div>
 
         </section><!-- /.content -->
 
