@@ -29,7 +29,7 @@
         <section class="content">
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">Datos Producto</h3>
@@ -38,38 +38,96 @@
                         <!-- form start -->
                         <form role="form" id="frmDatosCategoria">
                             <div class="box-body">
-                                <div class="form-group">
-                                    <label for="txtNombreProducto">Nombre</label>
-                                    <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre del producto.">
-                                </div><!-- /.form-group -->
-                                <div class="form-group">
-                                    <label for="txtDescripcionProducto">Descripcion</label>
-                                    <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">
-                                </div><!-- /.form-group -->
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtStockProducto">Stock</label>
-                                            <input type="text" class="form-control" id="txtStockProducto" name="txtStockProducto" data-parsley-required data-parsley-required-message="Ingrese el stock del producto.">
-                                        </div><!-- /.form-group -->
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtPrecioProducto">Precio</label>
-                                            <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
-                                        </div><!-- /.form-group -->
-                                    </div>
+                                <div class="col-md-4">
+
+                                    <div class="form-group">
+                                        <label for="txtNombreProducto">Nombre</label>
+                                        <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre del producto.">
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group">
+                                        <label for="txtDescripcionProducto">Descripcion</label>
+                                        <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group">
+                                        <label for="txtPrecioProducto">Precio</label>
+                                        <input type="text" class="form-control" id="txtPrecioProducto" name="txtPrecioProducto" data-parsley-required data-parsley-required-message="Ingrese el precio del producto.">
+                                    </div><!-- /.form-group -->
+
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Tienda</label>
-                                    <select class="form-control select2" style="width: 100%;" id="" name="" multiple="multiple">
-                                        <?php foreach($modulo->data_tiendas as $tienda): ?>
-                                            <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div><!-- /.form-group -->
+                                <div class="col-md-4">
+
+                                    <div class="form-group">
+                                        <label>Tienda</label>
+                                        <select class="form-control select2" style="width: 100%;" id="" name="" multiple="multiple">
+                                            <?php foreach($modulo->data_tiendas as $tienda): ?>
+                                                <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group">
+                                        <label for="txtStockProducto">Stock</label>
+                                        <input type="text" class="form-control" id="txtStockProducto" name="txtStockProducto" data-parsley-required data-parsley-required-message="Ingrese el stock del producto.">
+                                    </div><!-- /.form-group -->
+
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    <table class="table table-bordered">
+                                        <tbody><tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Task</th>
+                                            <th>Progress</th>
+                                            <th style="width: 40px">Label</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                        </tbody></table>
+
+                                </div>
+
+
+
                                 <div class="form-group form-group-modifiers">
                                     <label for="txtPrecioProducto">Modificadores</label>
                                     <div class="input-group">
@@ -126,6 +184,26 @@
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Galeria Producto</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body box-galery-products">
+
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+                            <div class="btn button-effect-1 btn-file">
+                                <i class="fa fa-photo"></i> Upload new image
+                                <input type="file" id="btnAddImage" accept="image/*">
+                            </div>
+                        </div>
+                    </div><!-- /.box -->
+                </div><!-- /.col -->
+            </div>
 
         </section><!-- /.content -->
 
