@@ -151,6 +151,10 @@
 
     GenericModal.config("#genericModal", "");
 
+    var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboSubCategorias"];
+    var contadorImagenes = 1;
+    var formDataProduct = new FormData();
+
     function validateInputsForm(selectorInputsForm) {
         var messagesError = "";
         for (var i = 0; i < selectorInputsForm.length; i++) {
@@ -169,9 +173,8 @@
     }
 
     $(function () {
-        var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboSubCategorias"];
-        var contadorImagenes = 1;
-        var formDataProduct = new FormData();
+
+        var indexModifier = 0;
 
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
@@ -307,11 +310,22 @@
 //                                        swal.showInputError("Ingrese el costo del modificador");
 //                                        return false;
 //                                    }
+
+                                    indexModifier = $(".table-modifiers tbody tr").length - 2 + 1;
+
                                     swal("Modificador agregado!", tipoModificador + ": " + nombreModificador, "success");
+
                                     var html = "<tr data-modifier-type='" + tipoModificador + "' data-modifier-name='" + nombreModificador + "' " +
-                                        "data-modifier-cost='" + costoModificador + "'><td>" + (($(".table-modifiers tbody tr").length - 2) + 1) +
-                                        ".</td><td>" + tipoModificador + "</td><td>" + nombreModificador + "</td><td>" + costoModificador + "</td></tr>";
+                                        "data-modifier-cost='" + costoModificador + "'><td>" + indexModifier + ".</td><td>" + tipoModificador +
+                                        "</td><td>" + nombreModificador + "</td><td>" + costoModificador + "</td></tr>";
+
                                     $(".table-modifiers tbody tr").last().before(html);
+
+                                    formDataProduct.append("modifier_" + indexModifier + "_type", tipoModificador);
+                                    formDataProduct.append("modifier_" + indexModifier + "_name", nombreModificador);
+                                    formDataProduct.append("modifier_" + indexModifier + "_cost", costoModificador);
+
+                                    console.log(formData);
                                     console.log($(".table-modifiers tbody tr").last());
                                 }
                             );
