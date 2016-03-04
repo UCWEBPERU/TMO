@@ -65,7 +65,12 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
-        $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
+        $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(
+            array(
+                "id_empresa"      => $this->session->id_empresa,
+                "nivel_categoria" => 1
+            )
+        );
 
         foreach ($datosCategorias as $categoria) {
             $subCategoria = $this->M_CompanyAdmin_Categorias->getSubCategoryByIDCategory(
