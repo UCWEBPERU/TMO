@@ -73,7 +73,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         );
 
         foreach ($datosCategorias as $categoria) {
-            $subCategoria = $this->M_CompanyAdmin_Categorias->getSubCategoryByIDCategory(
+            $subCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
                 array(
                     "id_empresa"            => $this->session->id_empresa,
                     "id_categoria_superior" => $categoria->id_categoria

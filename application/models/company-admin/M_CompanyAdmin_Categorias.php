@@ -22,6 +22,14 @@ class M_CompanyAdmin_Categorias extends CI_Model {
 		$query = $this->db->get('Categoria_Productos');
         return $query->result();
     }
+
+	public function getCategoryByCategoriaSuperior($category_data) {
+		$this->db->where('Categoria_Productos.id_empresa', $category_data["id_empresa"]);
+		$this->db->where('Categoria_Productos.id_categoria_superior', $category_data["id_categoria_superior"]);
+		$this->db->where('Categoria_Productos.estado', '1');
+		$query = $this->db->get('Categoria_Productos');
+		return $query->result();
+	}
     
     public function getCategorysByName($category_data) {
 		$this->db->where('Categoria_Productos.id_empresa', $category_data["id_empresa"]);
