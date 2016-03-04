@@ -62,6 +62,8 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Categorias";
 
+        $modulo->url_module_panel = $modulo->url_main_panel."/category";
+
         $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
 
         foreach ($datosCategorias as $categoria) {
@@ -84,6 +86,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo = $this->loadDataPanel();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Agregar Categoria";
+        $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
         $datosCategorias = $this->M_StoreAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
         $modulo->data_categorias = $datosCategorias;
@@ -96,6 +99,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo = $this->loadDataPanel();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Editar Categoria";
+        $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
         $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByID(
             array(
@@ -112,6 +116,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     public function listSubCategoriesByCategory($id_category) {
         $modulo = $this->loadDataPanel();
         $modulo->menu = array("menu" => 3, "submenu" => 0);
+        $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
         $datosCategoria = $this->M_StoreAdmin_Categorias->getCategoryByIDAndNivel(
             array(
