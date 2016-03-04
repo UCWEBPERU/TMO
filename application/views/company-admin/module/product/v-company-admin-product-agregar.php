@@ -131,9 +131,14 @@
                                                     </td>
                                                     <td><span class="badge bg-green">90%</span></td>
                                                 </tr>
+                                                <tr>
+                                                    <td><i class="fa fa-chevron-right"></i></td>
+                                                    <td><a href="#"><span class="label label-primary">Agregar modificador</span></a></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
                                                 </tbody></table>
                                         </div><!-- /.form-group -->
-                                        <button type="submit" class="btn btn-primary pull-right">Agregar modificador</button>
                                     </div>
 
                                 </div>
