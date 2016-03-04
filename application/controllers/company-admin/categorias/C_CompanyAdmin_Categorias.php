@@ -126,8 +126,8 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
         $datosCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
             array(
-                'id_empresa'        => $this->session->id_empresa,
-                'id_categoria_superior'      => $id_category
+                'id_empresa'            => $this->session->id_empresa,
+                'id_categoria_superior' => $id_category
             )
         );
 
@@ -139,11 +139,12 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
                 "id_categoria_superior" => $id_category
             )
         );
-        $modulo->data_categoria = $datosCategoria[0];
+
+        $modulo->data_categoria = $datosCategoria;
         $modulo->data_sub_categorias = $datosSubCategoria;
 
         $data["modulo"] = $modulo;
-        $this->load->view('company-admin/module/categorias/v-company-admin-sub-categorias', $data);
+        $this->load->view('company-admin/module/categorias/v-company-admin-categorias', $data);
     }
 
     /* <--------------- AJAX ---------------> */
