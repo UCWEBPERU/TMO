@@ -305,6 +305,7 @@
                                     animation: "slide-from-top"
                                 },
                                 function(costoModificador) {
+                                    console.log(typeof costoModificador + "");
                                     indexModifier = $(".table-modifiers tbody tr").length - 2 + 1;
 
                                     swal("Modificador agregado!", tipoModificador + ": " + nombreModificador, "success");
