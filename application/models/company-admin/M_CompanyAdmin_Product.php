@@ -43,7 +43,7 @@ class M_CompanyAdmin_Product extends CI_Model {
         $this->db->where('Empresa.estado', '1');
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
-        $query = $this->db->get('Producto');
+        $query = $this->db->get('Empresa');
         return $query->num_rows();
     }
 
