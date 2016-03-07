@@ -78,7 +78,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         $modulo->data_categorias    = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
 
-        $data["modulo"] 				= $modulo;
+        $data["modulo"] 		    = $modulo;
 
         $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
     }

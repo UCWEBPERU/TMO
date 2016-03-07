@@ -61,8 +61,8 @@
                                     <div class="col-md-6">
 
                                         <div class="form-group">
-                                            <label>Tienda</label>
-                                            <select class="form-control select2" style="width: 100%;" id="" name="" multiple="multiple" data-parsley-required data-parsley-required-message="Seleccione una tienda.">
+                                            <label for="cboTienda">Tienda</label>
+                                            <select class="form-control select2" style="width: 100%;" id="cboTienda" name="cboTienda" multiple="multiple" data-parsley-required data-parsley-required-message="Seleccione una tienda.">
                                                 <?php foreach($modulo->data_tiendas as $tienda): ?>
                                                     <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
                                                 <?php endforeach; ?>
@@ -73,7 +73,7 @@
                                             <input type="text" class="form-control" id="txtStockProducto" name="txtStockProducto" data-parsley-required data-parsley-required-message="Ingrese el stock del producto.">
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
-                                            <label for="cboCategoria">Categoria Superior</label>
+                                            <label for="cboCategoria">Categoria</label>
                                             <select class="form-control select2" style="width: 100%;" name="cboCategoria" data-parsley-required data-parsley-required-message="Seleccione una categoria.">
                                                 <option selected="selected" value="">Seleccione</option>
                                                 <?php foreach($modulo->data_categorias as $categoria): ?>
@@ -162,7 +162,7 @@
 
         GenericModal.config("#genericModal", "");
 
-        var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboSubCategorias"];
+        var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboCategoria", "#cboTienda"];
         var listFileImageProducts = [];
         var formDataProduct = new FormData();
         var objFile = {};
