@@ -74,7 +74,7 @@
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="cboCategoria">Categoria</label>
-                                            <select class="form-control select2" style="width: 100%;" name="cboCategoria" data-parsley-required data-parsley-required-message="Seleccione una categoria.">
+                                            <select class="form-control select2" style="width: 100%;" id="cboCategoria" name="cboCategoria" data-parsley-required data-parsley-required-message="Seleccione una categoria.">
                                                 <option selected="selected" value="">Seleccione</option>
                                                 <?php foreach($modulo->data_categorias as $categoria): ?>
                                                     <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
