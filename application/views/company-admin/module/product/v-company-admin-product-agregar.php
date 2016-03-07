@@ -120,6 +120,11 @@
                         <!-- /.box-header -->
                         <div class="box-body box-galery-products">
                             <div class="box-image-product" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
+                                <div class="box-action-button">
+                                    <button class="btn-image-product-delete" data-action-delete="delete-data" >
+                                        <i class="fa fa-remove"></i>
+                                    </button>
+                                </div>
                                 <div class="box-image-product-hint">Cambiar Logo Empresa</div>
                                 <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
                             </div>
