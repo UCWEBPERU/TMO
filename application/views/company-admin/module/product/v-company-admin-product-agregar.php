@@ -201,7 +201,7 @@
 
     function handlerDeleteImageProduct(btn) {
         if ($(btn).attr("data-action-delete") == "delete-data") {
-            $(btn).parent().parent().hide("slow");
+            $(btn).parent().parent().hide();
             for (var c = 0; c < listFileImageProducts.length; c++) {
                 if ( listFileImageProducts[c].id == $(btn).attr("data-id-img") ) {
                     listFileImageProducts.splice(c,1);
