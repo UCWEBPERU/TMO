@@ -121,7 +121,7 @@
                         <div class="box-body box-galery-products">
                             <div class="box-image-product" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
                                 <div class="box-action-button">
-                                    <button class="btn-img-product btn-delete" data-action-delete="delete-data" title="Eliminar">
+                                    <button class="btn-img-product btn-delete" data-action-delete="delete-data" data-id-img="1" title="Eliminar">
                                         <i class="fa fa-remove"></i>
                                     </button>
                                 </div>
@@ -177,7 +177,7 @@
     GenericModal.config("#genericModal", "");
 
     var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboSubCategorias"];
-    var contadorImagenes = 1;
+    var contadorImagenes = 0;
     var formDataProduct = new FormData();
 
     function validateInputsForm(selectorInputsForm) {
@@ -240,20 +240,43 @@
         });
 
         var objHandleFile = new HandleFile("#btnAddImage");
+        var listFileImageProducts = [];
+        var objFile = {};
         objHandleFile.onSelect(
             function(file) {
-                formDataProduct.append("file_" + contadorImagenes, file);
-                console.log("Nombre File" + "file_" + contadorImagenes);
-                contadorImagenes++;
+//                formDataProduct.append("file_" + contadorImagenes, file);
+//                console.log("Nombre File" + "file_" + contadorImagenes);
+//                contadorImagenes++;
+                objFile = {
+                    "id": contadorImagenes,
+                    "file": file
+                }
+                listFileImageProducts.push(objFile);
+                console.log(listFileImageProducts);
             },
             function(readResult) {
-                var html = "<div class='col-md-4 col-sm-4 col-xs-12'>" +
-                    "<img id='' class='' src='" + readResult + "' alt='Image Product' title='Image Product'>" +
-                    "</div>";
+                var html = '<div class="box-image-product" style="background-image:url(&quot;' + readResult + '&quot;);">' +
+                    '<div class="box-action-button">' +
+                    '<button class="btn-img-product btn-delete" data-action-delete="delete-data" data-id-img="' + contadorImagenes + '" title="Eliminar">' +
+                    '<i class="fa fa-remove"></i> </button> </div> </div>';
+
                 $(".box-galery-products").append(html);
-                // $("#logoStore").attr("src", readResult);
+                contadorImagenes++;
             }
         );
+
+        $(".btn-img-product").on("click", function(){
+            if ($(this).attr("data-action-delete") == "delete-data") {
+                $(this).parent().parent().hide();
+                for (var c = 0; c < listFileImageProducts.length; c++) {
+                    if ( listFileImageProducts[c].id == $(this).attr("data-id-img") ) {
+                        listFileImageProducts.splice(c,1);
+                        break;
+                    }
+                }
+                console.log(listFileImageProducts);
+            }
+        });
 
         $("#cboCategorias").on("select2:select", function (event) {
             var formDataCategory = new FormData();
