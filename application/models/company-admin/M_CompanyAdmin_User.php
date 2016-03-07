@@ -34,6 +34,16 @@ class M_CompanyAdmin_User extends CI_Model {
         return FALSE;
     }
 
+    public function getSuscripcionPaqueteTMO($id_empresa) {
+        $this->db->join('Suscripcion_Paquete_TMO', 'Suscripcion_Paquete_TMO.id_empresa = Empresa.id_empresa');
+        $this->db->join('Paquetes_TMO', 'Paquetes_TMO.id_paquetes_tmo = Suscripcion_Paquete_TMO.id_paquete_tmo');
+        $this->db->where('Empresa.id_empresa', $id_empresa);
+        $this->db->where('Empresa.estado', '1');
+        $this->db->where('Paquetes_TMO.estado', '1');
+        $query = $this->db->get('Empresa');
+        return $query->result();
+    }
+
     public function getTotalUser($id_empresa) {
         $this->db->join('Usuarios_Asignados', 'Usuarios_Asignados.id_empresa = Empresa.id_empresa');
         $this->db->join('Usuario', 'Usuario.id_usuario = Usuarios_Asignados.id_usuario');
