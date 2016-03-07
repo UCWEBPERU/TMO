@@ -153,6 +153,8 @@
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/HandleFile.js"></script>
 <!-- Sweet Alert -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
+<!-- Validate Input Form With Parsley -->
+<script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
 <script>
 
     $(function () {
@@ -168,23 +170,6 @@
         var objFile = {};
         var contadorImagenes = 0;
         var contadorModificadores = 0;
-
-        function validateInputsForm(selectorInputsForm) {
-            var messagesError = "";
-            for (var i = 0; i < selectorInputsForm.length; i++) {
-                if ($(selectorInputsForm[i]).parsley().isValid()) {
-                    $(selectorInputsForm[i]).parent().removeClass("has-error");
-                } else {
-                    $(selectorInputsForm[i]).parent().addClass("has-error");
-                    messagesError += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
-                }
-            }
-            if (messagesError.length > 0) {
-                GenericModal.show("danger", "<ul>" + messagesError + "</ul>");
-                return false;
-            }
-            return true;
-        }
 
         function handlerDeleteImageProduct(btn) {
             if ($(btn).attr("data-action-delete") == "delete-data") {
@@ -209,7 +194,7 @@
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
 
-            if (validateInputsForm(selectorInputsForm)) {
+            if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
                 waitingDialog.show('Guardando Producto...');
 
                 formDataProduct.append("txtNombreProducto", $("#txtNombreProducto").val());
