@@ -125,10 +125,10 @@ class C_CompanyAdmin_Product extends CI_Controller {
                     );
                 }
 
-                for ($c = 0; $c <= trim($this->input->post("totalModifiers", TRUE)); $c++) {
+                for ($c = 1; $c <= trim($this->input->post("totalModifiers", TRUE)); $c++) {
                     $result = $this->M_CompanyAdmin_Product->insertModificadorProductos(
                         array(
-                            'tipo_modificador' => $tienda
+                            'tipo_modificador' => trim($this->input->post("modifier_".$c."_type", TRUE))
                         )
                     );
 
@@ -136,23 +136,22 @@ class C_CompanyAdmin_Product extends CI_Controller {
                         array(
                             'id_modificador_productos'  => $result,
                             'id_producto'               => $resultIDProducto,
-                            'descripcion_modificador'   => trim($this->input->post("txtDescripcionProducto", TRUE)),
-                            'costo_modificador'         => trim($this->input->post("txtPrecioProducto", TRUE)),
-                            'stock'                     => trim($this->input->post("txtStockProducto", TRUE))
+                            'descripcion_modificador'   => trim($this->input->post("modifier_".$c."_name", TRUE)),
+                            'costo_modificador'         => trim($this->input->post("modifier_".$c."_cost", TRUE)),
+                            'stock'                     => 0
                         )
                     );
-
                 }
 
                 $totalImages = intval(trim($this->input->post("totalImages", TRUE)));
                 if ( $totalImages > 0) {
                     $this->load->library('utils/UploadFile');
 
-                    for ($i=1; $i <= $totalImages; $i++) {
+                    for ($i=0; $i <= $totalImages; $i++) {
                         if ( $this->uploadfile->validateFile("file_$i") ) {
                             $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
 
-                            $path = "uploads/store/".$this->session->id_empresa."/products/".$resultIDProducto."/gallery/";
+                            $path = "uploads/company/".$this->session->id_empresa."/products/".$resultIDProducto."/gallery/";
 
                             $path = $this->uploadfile->upload("file_$i", "imagen_$i", $path);
 
