@@ -123,6 +123,22 @@
                                 <div class="box-image-product-hint">Cambiar Logo Empresa</div>
                                 <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
                             </div>
+                            <div class="box-image-product" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
+                                <div class="box-image-product-hint">Cambiar Logo Empresa</div>
+                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
+                            </div>
+                            <div class="box-image-product" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
+                                <div class="box-image-product-hint">Cambiar Logo Empresa</div>
+                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
+                            </div>
+                            <div class="box-image-product" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
+                                <div class="box-image-product-hint">Cambiar Logo Empresa</div>
+                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
+                            </div>
+                            <div class="box-image-product" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
+                                <div class="box-image-product-hint">Cambiar Logo Empresa</div>
+                                <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
+                            </div>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                             <div class="btn button-effect-1 btn-file">
