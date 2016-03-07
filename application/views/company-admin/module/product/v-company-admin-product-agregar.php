@@ -179,6 +179,8 @@
     var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboSubCategorias"];
     var contadorImagenes = 0;
     var formDataProduct = new FormData();
+    var listFileImageProducts = [];
+    var objFile = {};
 
     function validateInputsForm(selectorInputsForm) {
         var messagesError = "";
@@ -253,13 +255,9 @@
         });
 
         var objHandleFile = new HandleFile("#btnAddImage");
-        var listFileImageProducts = [];
-        var objFile = {};
+
         objHandleFile.onSelect(
             function(file) {
-//                formDataProduct.append("file_" + contadorImagenes, file);
-//                console.log("Nombre File" + "file_" + contadorImagenes);
-//                contadorImagenes++;
                 objFile = {
                     "id": contadorImagenes,
                     "file": file
