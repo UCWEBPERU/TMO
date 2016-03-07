@@ -134,6 +134,34 @@ class M_CompanyAdmin_Product extends CI_Model {
         return FALSE;
     }
 
+    public function insertModificadorProductos($data) {
+        $data = array(
+            'tipo_modificador' => $data["tipo_modificador"]
+        );
+
+        if ($this->db->insert('Modificador_Productos', $data)) {
+            return $this->db->insert_id();
+        }
+
+        return FALSE;
+    }
+
+    public function insertDetalleModificadorProductos($data) {
+        $data = array(
+            'id_modificador_productos'  => $data["id_modificador_productos"],
+            'id_producto'               => $data["id_producto"],
+            'descripcion_modificador'   => $data["descripcion_modificador"],
+            'costo_modificador'         => $data["costo_modificador"],
+            'stock'                     => $data["stock"]
+        );
+
+        if ($this->db->insert('Detalle_Modificador_Productos', $data)) {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
     public function insertDatosCatalogoProductos($data_catalogo_producto) {
         $data = array(
             'id_tienda'   => $data_catalogo_producto["id_tienda"],
