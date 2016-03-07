@@ -191,19 +191,21 @@
             }
         }
 
-        $("#btnAgregar").on("click", function(evt){
+        $("#btnAgregar").on("click", function(evt) {
             evt.preventDefault();
 
             if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
                 waitingDialog.show('Guardando Producto...');
 
-                formDataProduct.append("txtNombreProducto", $("#txtNombreProducto").val());
+                formDataProduct.append("txtNombreProducto",      $("#txtNombreProducto").val());
                 formDataProduct.append("txtDescripcionProducto", $("#txtDescripcionProducto").val());
-                formDataProduct.append("txtStockProducto", $("#txtStockProducto").val());
-                formDataProduct.append("txtPrecioProducto", $("#txtPrecioProducto").val());
-                formDataProduct.append("cboCategoria", $("#cboCategoria").val());
-                formDataProduct.append("totalImages", listFileImageProducts.length);
-                formDataProduct.append("totalModifiers", contadorModificadores);
+                formDataProduct.append("txtStockProducto",       $("#txtStockProducto").val());
+                formDataProduct.append("txtPrecioProducto",      $("#txtPrecioProducto").val());
+                formDataProduct.append("cboCategoria",           $("#cboCategoria").val());
+                formDataProduct.append("cboTienda",              $("#cboTienda").val());
+                formDataProduct.append("totalImages",            listFileImageProducts.length);
+                formDataProduct.append("totalModifiers",         contadorModificadores);
+                loadImagesProduct();
 
                 var request = $.ajax({
                     url: "<?php echo $modulo->url_main_panel."/product/ajax/addProduct"; ?>",
@@ -216,6 +218,7 @@
 
                 request.done(function( response ) {
                     waitingDialog.hide();
+                    formDataProduct = new FormData();
                     if (response.status) {
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                     } else {
@@ -225,6 +228,7 @@
 
                 request.fail(function( jqXHR, textStatus ) {
                     waitingDialog.hide();
+                    formDataProduct = new FormData();
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
             }

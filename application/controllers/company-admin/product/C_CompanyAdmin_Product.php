@@ -83,189 +83,85 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
     }
 
-    public function editUser($id_usuario) {
-        $this->load->model("M_GEO_Data");
-        $this->load->model("admin/M_Admin_Paquetes_TMO");
-        $this->load->model('M_Tipo_Empresa');
+    /* <---------------- AJAX ----------------> */
 
-        /* Datos de la cabecera del panel de administrador*/
-        $modulo                     = $this->paneladmin->loadPanelCompany();
-        $modulo->titulo 			= "Product";
-        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Edit Product";
-        $modulo->url_module_panel   = $modulo->url_main_panel."/product";
-        $modulo->menu               = array("menu" => 3, "submenu" => 0);
-
-        $result  = $this->M_Usuario->getByID($id_usuario);
-
-        if (count($result) > 0) {
-            $data["dataUsuario"] 	= $result[0];
-            $data["existeUsuario"]	= TRUE;
-
-            $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
-            $modulo->data_geo_regions   = $this->M_GEO_Data->getRegionsByCountry($result[0]->pais_persona);
-            $modulo->data_geo_cities    = $this->M_GEO_Data->getCitiesByRegionAndCountry(
-                array(
-                    "code_country"  => $result[0]->pais_persona,
-                    "code_region"   => $result[0]->region_persona
-                )
-            );
-
-        } else {
-            $data["dataUsuario"]  	= NULL;
-            $data["existeUsuario"]	= FALSE;
-        }
-
-        $data["modulo"]             = $modulo;
-
-        $this->load->view('company-admin/module/user/v-company-admin-user-editar', $data);
-    }
-
-    public function ajaxAddUser() {
-        $this->load->library('security/Cryptography');
+    public function ajaxAddProduct() {
         $json 				= new stdClass();
-        $json->type 		= "User";
+        $json->type 		= "Producto";
         $json->presentation = "";
-        $json->action 		= "insert";
+        $json->action 		= "add";
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        if ( $this->input->post("txtFirstName") &&
-            $this->input->post("txtLastName") &&
-            $this->input->post("txtEmail") &&
-            $this->input->post("txtPassword") &&
-            $this->input->post("txtRepeatPassword") &&
-            $this->input->post("txtMobilePhone") &&
-            $this->input->post("cboCountry") &&
-            $this->input->post("cboRegion") &&
-            $this->input->post("cboCity")) {
+        if ( $this->input->post("txtNombreProducto") &&
+            $this->input->post("txtDescripcionProducto") &&
+            $this->input->post("txtStockProducto") &&
+            $this->input->post("txtPrecioProducto") &&
+            $this->input->post("cboCategoria") &&
+            $this->input->post("cboTienda") &&
+            $this->input->post("totalImages") &&
+            $this->input->post("totalModifiers") ) {
 
-            $validate   = $this->M_CompanyAdmin_Product->getSuscripcionPaqueteTMO($this->session->id_empresa);
-            $totalStore = $this->M_CompanyAdmin_Product->getTotalUser($this->session->id_empresa);
+//            $resultIDProducto = $this->M_CompanyAdmin_Product->insertDatosProducto(
+//                array(
+//                    'id_categoria'          => trim($this->input->post("cboCategoria", TRUE)),
+//                    'nombre_producto'       => trim($this->input->post("txtNombreProducto", TRUE)),
+//                    'descripcion_producto'  => trim($this->input->post("txtDescripcionProducto", TRUE)),
+//                    'stock'                 => trim($this->input->post("txtStockProducto", TRUE)),
+//                    'precio_producto'       => trim($this->input->post("txtPrecioProducto", TRUE))
+//                )
+//            );
+//
+//            if (is_int($resultIDProducto)) {
+//                $result = $this->M_CompanyAdmin_Product->insertDatosCatalogoProductos(
+//                    array(
+//                        'id_tienda'   => $this->session->id_empresa,
+//                        'id_producto' => $resultIDProducto
+//                    )
+//                );
+//
+//                $totalImages = intval(trim($this->input->post("totalImages", TRUE)));
+//                if ( $totalImages > 0) {
+//                    $this->load->library('utils/UploadFile');
+//
+//                    for ($i=1; $i <= $totalImages; $i++) {
+//                        if ( $this->uploadfile->validateFile("file_$i") ) {
+//                            $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
+//
+//                            $path = "uploads/store/".$this->session->id_empresa."/products/".$resultIDProducto."/gallery/";
+//
+//                            $path = $this->uploadfile->upload("file_$i", "imagen_$i", $path);
+//
+//                            $resultIDArchivo = $this->M_CompanyAdmin_Product->insertImagenProducto(
+//                                array(
+//                                    'url_archivo'      => $path,
+//                                    'tipo_archivo'     => "image/png",
+//                                    'relacion_recurso' => "galeria",
+//                                    'nombre_archivo'   => "imagen_$i"
+//                                )
+//                            );
+//
+//                            $result = $this->M_CompanyAdmin_Product->insertGaleriaProducto(
+//                                array(
+//                                    'id_producto' => $resultIDProducto,
+//                                    'id_archivo'  => $resultIDArchivo
+//                                )
+//                            );
+//                        }
+//                    }
+//                }
+//
+//                $json->message = "El producto se agrego correctamente.";
+//                $json->status = TRUE;
+//            } else {
+//                $json->message = "Ocurrio un error al agregar el producto, intente de nuevo.";
+//            }
 
-            if (sizeof($validate) > 0) {
-                if ($totalStore < intval($validate[0]->total_users)) {
-                    unset($validate);
-
-                    $resul1 = $this->M_CompanyAdmin_Product->insertUsuario(
-                        array(
-                            'email_usuario'    => trim($this->input->post("txtEmail", TRUE)),
-                            'password_usuario' => $this->cryptography->Encrypt(trim($this->input->post("txtPassword", TRUE)))
-                        )
-                    );
-
-                    $resul2 = $this->M_CompanyAdmin_Product->insertPersona(
-                        array(
-                            'id_usuario'		    => $resul1,
-                            'nombres_persona'		=> trim($this->input->post("txtFirstName", TRUE)),
-                            'apellidos_persona'		=> trim($this->input->post("txtLastName", TRUE)),
-                            'pais_persona'			=> trim($this->input->post("cboCountry", TRUE)),
-                            'region_persona'		=> trim($this->input->post("cboRegion", TRUE)),
-                            'ciudad_persona'		=> trim($this->input->post("cboCity", TRUE)),
-                            'direccion_persona'		=> '',
-                            'celular_personal'		=> trim($this->input->post("txtMobilePhone", TRUE)),
-                            'telefono'				=> trim($this->input->post("txtHomePhone", TRUE)),
-                            'celular_trabajo'		=> trim($this->input->post("txtWorkPhone", TRUE))
-                        )
-                    );
-
-                    $resul3 = $this->M_CompanyAdmin_Product->insertUsuariosAsignados(
-                        array(
-                            "id_empresa" => $this->session->id_empresa,
-                            "id_usuario" => $resul1
-                        )
-                    );
-
-                    $json->message = "El usuario se agrego correctamente.";
-                    $json->status 	= TRUE;
-
-                } else {
-                    $json->message 	= "Lo sentimos su suscripción actual solo le permite tener (".$validate[0]->total_store.") usuario(s).";
-                }
-            } else {
-                $json->message 	= "Lo sentimos al parecer no tiene una suscripción activa.";
-            }
+            var_dump($this->input->post());
 
         } else {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
         }
-
-        echo json_encode($json);
-    }
-
-    public function ajaxEditUser() {
-        $this->load->library('security/Cryptography');
-        $json 				= new stdClass();
-        $json->type 		= "User";
-        $json->presentation = "";
-        $json->action 		= "update";
-        $json->data 		= array();
-        $json->status 		= FALSE;
-
-        if ($this->input->post("id_usuario") &&
-            $this->input->post("txtFirstName") &&
-            $this->input->post("txtLastName") &&
-            $this->input->post("txtMobilePhone") &&
-            $this->input->post("cboCountry") &&
-            $this->input->post("cboRegion") &&
-            $this->input->post("cboCity")) {
-
-            $dataUsuario = $this->M_Usuario->getByIDAndEmpresa(
-                array(
-                    "id_usuario" => trim($this->input->post("id_usuario", TRUE)),
-                    "id_empresa" => $this->session->id_empresa
-                )
-            );
-
-            if (sizeof($dataUsuario) > 0) {
-
-                if ($this->input->post("txtPassword")) {
-                    $resul1 = $this->M_CompanyAdmin_Product->updatePassWordUsuario(
-                        array(
-                            'id_usuario'    => trim($this->input->post("id_usuario", TRUE)),
-                            'password_usuario' => $this->cryptography->Encrypt(trim($this->input->post("txtPassword", TRUE)))
-                        )
-                    );
-                }
-
-                $resul2 = $this->M_CompanyAdmin_Product->updateUsuario(
-                    array(
-                        'id_usuario'        => trim($this->input->post("id_usuario", TRUE)),
-                        'nombres_persona'	=> trim($this->input->post("txtFirstName", TRUE)),
-                        'apellidos_persona'	=> trim($this->input->post("txtLastName", TRUE)),
-                        'pais_persona'		=> trim($this->input->post("cboCountry", TRUE)),
-                        'region_persona'	=> trim($this->input->post("cboRegion", TRUE)),
-                        'ciudad_persona'	=> trim($this->input->post("cboCity", TRUE)),
-                        'direccion_persona' => '',
-                        'celular_personal'  => trim($this->input->post("txtMobilePhone", TRUE)),
-                        'telefono'          => trim($this->input->post("txtHomePhone", TRUE)),
-                        'celular_trabajo'   => trim($this->input->post("txtWorkPhone", TRUE))
-                    )
-                );
-
-                $json->message  = "El usuario se actualizo correctamente.";
-                $json->status   = TRUE;
-
-            } else {
-                $json->message = "Lo sentimos el usuario que desea editar no existe.";
-            }
-
-        } else {
-            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
-        }
-
-        echo json_encode($json);
-    }
-
-    public function ajaxGeneratePassword() {
-        $this->load->library("utils/Password");
-
-        $json 				= new stdClass();
-        $json->type 		= "Generate Password";
-        $json->presentation = "data";
-        $json->action 		= "";
-        $json->data 		= array("password" => $this->password->generate());
-        $json->message 		= "Contraseña generada correctamente.";
-        $json->status 		= TRUE;
 
         echo json_encode($json);
     }
