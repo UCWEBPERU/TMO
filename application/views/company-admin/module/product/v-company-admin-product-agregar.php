@@ -85,18 +85,18 @@
                                             <label for="txtStockProducto">Modificadores</label>
                                             <table class="table table-bordered table-modifiers">
                                                 <tbody>
-                                                    <tr>
-                                                        <th style="width: 10px">#</th>
-                                                        <th>Tipo</th>
-                                                        <th>Nombre</th>
-                                                        <th style="width: 40px">Costo</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><i class="fa fa-chevron-right"></i></td>
-                                                        <td><a href="#" id="btnAddMoficador"><span class="label label-primary">Agregar modificador</span></a></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Tipo</th>
+                                                    <th>Nombre</th>
+                                                    <th style="width: 40px">Costo</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fa fa-chevron-right"></i></td>
+                                                    <td><a href="#" id="btnAddMoficador"><span class="label label-primary">Agregar modificador</span></a></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div><!-- /.form-group -->
@@ -171,50 +171,50 @@
 <!-- Sweet Alert -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <script>
-    //Initialize Select2 Elements
-    $(".select2").select2();
-
-    GenericModal.config("#genericModal", "");
-
-    var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboSubCategorias"];
-    var contadorImagenes = 0;
-    var formDataProduct = new FormData();
-    var listFileImageProducts = [];
-    var objFile = {};
-
-    function validateInputsForm(selectorInputsForm) {
-        var messagesError = "";
-        for (var i = 0; i < selectorInputsForm.length; i++) {
-            if ($(selectorInputsForm[i]).parsley().isValid()) {
-                $(selectorInputsForm[i]).parent().removeClass("has-error");
-            } else {
-                $(selectorInputsForm[i]).parent().addClass("has-error");
-                messagesError += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
-            }
-        }
-        if (messagesError.length > 0) {
-            GenericModal.show("danger", "<ul>" + messagesError + "</ul>");
-            return false;
-        }
-        return true;
-    }
-
-    function handlerDeleteImageProduct(btn) {
-        if ($(btn).attr("data-action-delete") == "delete-data") {
-            $(btn).parent().parent().hide();
-            for (var c = 0; c < listFileImageProducts.length; c++) {
-                if ( listFileImageProducts[c].id == $(btn).attr("data-id-img") ) {
-                    listFileImageProducts.splice(c,1);
-                    break;
-                }
-            }
-            console.log(listFileImageProducts);
-        }
-    }
 
     $(function () {
 
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        GenericModal.config("#genericModal", "");
+
+        var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboSubCategorias"];
+        var contadorImagenes = 0;
+        var formDataProduct = new FormData();
+        var listFileImageProducts = [];
+        var objFile = {};
         var indexModifier = 0;
+
+        function validateInputsForm(selectorInputsForm) {
+            var messagesError = "";
+            for (var i = 0; i < selectorInputsForm.length; i++) {
+                if ($(selectorInputsForm[i]).parsley().isValid()) {
+                    $(selectorInputsForm[i]).parent().removeClass("has-error");
+                } else {
+                    $(selectorInputsForm[i]).parent().addClass("has-error");
+                    messagesError += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
+                }
+            }
+            if (messagesError.length > 0) {
+                GenericModal.show("danger", "<ul>" + messagesError + "</ul>");
+                return false;
+            }
+            return true;
+        }
+
+        function handlerDeleteImageProduct(btn) {
+            if ($(btn).attr("data-action-delete") == "delete-data") {
+                $(btn).parent().parent().hide();
+                for (var c = 0; c < listFileImageProducts.length; c++) {
+                    if ( listFileImageProducts[c].id == $(btn).attr("data-id-img") ) {
+                        listFileImageProducts.splice(c,1);
+                        break;
+                    }
+                }
+                console.log(listFileImageProducts);
+            }
+        }
 
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
@@ -255,7 +255,6 @@
         });
 
         var objHandleFile = new HandleFile("#btnAddImage");
-
         objHandleFile.onSelect(
             function(file) {
                 objFile = {
