@@ -33,9 +33,9 @@
                         <a class="link-shorcut" href="<?php echo $modulo->url_module_panel.'/view/'.intval($categoria->id_categoria); ?>">
                             <div class="info-box boxCategory">
                                 <div class="box-tools pull-right">
-                                    <a class="btn btn-box-tool btn-box-tool-edit" href="<?php echo $modulo->url_module_panel.'/edit/'.intval($categoria->id_categoria); ?>" title="Editar">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
+<!--                                    <a class="btn btn-box-tool btn-box-tool-edit" href="--><?php //echo $modulo->url_module_panel.'/edit/'.intval($categoria->id_categoria); ?><!--" title="Editar">-->
+<!--                                        <i class="fa fa-pencil"></i>-->
+<!--                                    </a>-->
                                     <button class="btn btn-box-tool btn-box-tool-delete" data-widget="remove" data-id-cat="<?php echo intval($categoria->id_categoria); ?>" title="Eliminar">
                                         <i class="fa fa-remove"></i>
                                     </button>
