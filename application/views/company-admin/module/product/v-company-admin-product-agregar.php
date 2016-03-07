@@ -197,6 +197,19 @@
         return true;
     }
 
+    function handlerDeleteImageProduct(btn) {
+        if ($(btn).attr("data-action-delete") == "delete-data") {
+            $(btn).parent().parent().hide("slow");
+            for (var c = 0; c < listFileImageProducts.length; c++) {
+                if ( listFileImageProducts[c].id == $(btn).attr("data-id-img") ) {
+                    listFileImageProducts.splice(c,1);
+                    break;
+                }
+            }
+            console.log(listFileImageProducts);
+        }
+    }
+
     $(function () {
 
         var indexModifier = 0;
@@ -261,7 +274,10 @@
                     '<i class="fa fa-remove"></i> </button> </div> </div>';
 
                 html = $(html);
-                console.log(html.find(".btn-img-product"));
+
+                html.find(".btn-img-product").on("click", function(){
+                    handlerDeleteImageProduct(this);
+                });
 
                 $(".box-galery-products").append(html);
                 contadorImagenes++;
@@ -269,16 +285,7 @@
         );
 
         $(".btn-img-product").on("click", function(){
-            if ($(this).attr("data-action-delete") == "delete-data") {
-                $(this).parent().parent().hide("slow");
-                for (var c = 0; c < listFileImageProducts.length; c++) {
-                    if ( listFileImageProducts[c].id == $(this).attr("data-id-img") ) {
-                        listFileImageProducts.splice(c,1);
-                        break;
-                    }
-                }
-                console.log(listFileImageProducts);
-            }
+            handlerDeleteImageProduct(this);
         });
 
         $("#cboCategorias").on("select2:select", function (event) {
