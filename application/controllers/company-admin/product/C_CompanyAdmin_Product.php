@@ -64,7 +64,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $this->load->model("M_GEO_Data");
         $this->load->model("admin/M_Admin_Paquetes_TMO");
         $this->load->model('M_Tipo_Empresa');
-        $this->load->model('M_CompanyAdmin_Categorias');
+        $this->load->model('company-admin/M_CompanyAdmin_Categorias');
 
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
