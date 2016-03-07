@@ -62,7 +62,7 @@
 
                                         <div class="form-group">
                                             <label>Tienda</label>
-                                            <select class="form-control select2" style="width: 100%;" id="" name="" multiple="multiple">
+                                            <select class="form-control select2" style="width: 100%;" id="" name="" multiple="multiple" data-parsley-required data-parsley-required-message="Seleccione una tienda.">
                                                 <?php foreach($modulo->data_tiendas as $tienda): ?>
                                                     <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
                                                 <?php endforeach; ?>
@@ -71,6 +71,15 @@
                                         <div class="form-group">
                                             <label for="txtStockProducto">Stock</label>
                                             <input type="text" class="form-control" id="txtStockProducto" name="txtStockProducto" data-parsley-required data-parsley-required-message="Ingrese el stock del producto.">
+                                        </div><!-- /.form-group -->
+                                        <div class="form-group">
+                                            <label for="cboCategoria">Categoria Superior</label>
+                                            <select class="form-control select2" style="width: 100%;" name="cboCategoria" data-parsley-required data-parsley-required-message="Seleccione una categoria.">
+                                                <option selected="selected" value="">Seleccione</option>
+                                                <?php foreach($modulo->data_categorias as $categoria): ?>
+                                                    <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div><!-- /.form-group -->
 
                                     </div>
@@ -154,11 +163,11 @@
         GenericModal.config("#genericModal", "");
 
         var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboSubCategorias"];
-        var contadorImagenes = 0;
-        var formDataProduct = new FormData();
         var listFileImageProducts = [];
+        var formDataProduct = new FormData();
         var objFile = {};
-        var indexModifier = 0;
+        var contadorImagenes = 0;
+        var contadorModificadores = 0;
 
         function validateInputsForm(selectorInputsForm) {
             var messagesError = "";
@@ -190,6 +199,13 @@
             }
         }
 
+        function loadImagesProduct() {
+            for (var c = 0; c < listFileImageProducts.length; c++) {
+                formDataProduct.append("file_" + c, listFileImageProducts[c].file);
+                console.log("Nombre File" + "file_" + c);
+            }
+        }
+
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
 
@@ -200,11 +216,12 @@
                 formDataProduct.append("txtDescripcionProducto", $("#txtDescripcionProducto").val());
                 formDataProduct.append("txtStockProducto", $("#txtStockProducto").val());
                 formDataProduct.append("txtPrecioProducto", $("#txtPrecioProducto").val());
-                formDataProduct.append("cboSubCategorias", $("#cboSubCategorias").val());
-                formDataProduct.append("totalImages", contadorImagenes);
+                formDataProduct.append("cboCategoria", $("#cboCategoria").val());
+                formDataProduct.append("totalImages", listFileImageProducts.length);
+                formDataProduct.append("totalModifiers", contadorModificadores);
 
                 var request = $.ajax({
-                    url: "<?php echo $modulo->url_main_panel."/products/ajax/addProduct"; ?>",
+                    url: "<?php echo $modulo->url_main_panel."/product/ajax/addProduct"; ?>",
                     method: "POST",
                     data: formDataProduct,
                     dataType: "json",
@@ -335,19 +352,19 @@
                                 },
                                 function(costoModificador) {
                                     console.log(typeof costoModificador + "");
-                                    indexModifier = $(".table-modifiers tbody tr").length - 2 + 1;
+                                    contadorModificadores = $(".table-modifiers tbody tr").length - 2 + 1;
 
                                     swal("Modificador agregado!", tipoModificador + ": " + nombreModificador, "success");
 
                                     var html = "<tr data-modifier-type='" + tipoModificador + "' data-modifier-name='" + nombreModificador + "' " +
-                                        "data-modifier-cost='" + costoModificador + "'><td>" + indexModifier + ".</td><td>" + tipoModificador +
+                                        "data-modifier-cost='" + costoModificador + "'><td>" + contadorModificadores + ".</td><td>" + tipoModificador +
                                         "</td><td>" + nombreModificador + "</td><td>" + ((costoModificador) ? costoModificador : 0) + "</td></tr>";
 
                                     $(".table-modifiers tbody tr").last().before(html);
 
-                                    formDataProduct.append("modifier_" + indexModifier + "_type", tipoModificador);
-                                    formDataProduct.append("modifier_" + indexModifier + "_name", nombreModificador);
-                                    formDataProduct.append("modifier_" + indexModifier + "_cost", (costoModificador) ? costoModificador : 0);
+                                    formDataProduct.append("modifier_" + contadorModificadores + "_type", tipoModificador);
+                                    formDataProduct.append("modifier_" + contadorModificadores + "_name", nombreModificador);
+                                    formDataProduct.append("modifier_" + contadorModificadores + "_cost", (costoModificador) ? costoModificador : 0);
 
                                     console.log(formDataProduct);
                                     console.log($(".table-modifiers tbody tr").last());
