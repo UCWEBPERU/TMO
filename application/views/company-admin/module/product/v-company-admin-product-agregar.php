@@ -119,7 +119,12 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body box-galery-products">
-
+                            <div class="box-logo-store">
+                                <div class="logo-store-inner" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
+                                    <div class="logo-store-hint">Cambiar Logo Empresa</div>
+                                    <input type="file" id="imgLogoStore" name="imgLogoStore" accept="image/*">
+                                </div>
+                            </div>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                             <div class="btn button-effect-1 btn-file">
