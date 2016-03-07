@@ -146,7 +146,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo->data_categorias = $datosCategorias;
 
         $data["modulo"] = $modulo;
-        $this->load->view('company-admin/module/categorias/v-company-admin-categorias', $data);
+        $this->load->view('company-admin/module/categorias/v-company-admin-sub-categorias', $data);
     }
 
     /* <--------------- AJAX ---------------> */
