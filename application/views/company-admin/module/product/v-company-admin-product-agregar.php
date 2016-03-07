@@ -260,6 +260,9 @@
                     '<button class="btn-img-product btn-delete" data-action-delete="delete-data" data-id-img="' + contadorImagenes + '" title="Eliminar">' +
                     '<i class="fa fa-remove"></i> </button> </div> </div>';
 
+                html = $(html);
+                console.log(html.find(".btn-img-product"));
+
                 $(".box-galery-products").append(html);
                 contadorImagenes++;
             }
@@ -267,7 +270,7 @@
 
         $(".btn-img-product").on("click", function(){
             if ($(this).attr("data-action-delete") == "delete-data") {
-                $(this).parent().parent().hide();
+                $(this).parent().parent().hide("slow");
                 for (var c = 0; c < listFileImageProducts.length; c++) {
                     if ( listFileImageProducts[c].id == $(this).attr("data-id-img") ) {
                         listFileImageProducts.splice(c,1);
