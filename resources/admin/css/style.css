@@ -30,7 +30,7 @@
 
 .box-galery-products .box-image-product {
     display: inline-block;
-    margin: 0px;
+    margin: 0px 0px 5px;
 }
 
 .box-galery-products .box-image-product .box-action-button {
