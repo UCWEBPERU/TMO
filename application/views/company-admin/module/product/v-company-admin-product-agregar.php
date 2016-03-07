@@ -218,7 +218,11 @@
 
                 request.done(function( response ) {
                     waitingDialog.hide();
+                    listFileImageProducts = [];
                     formDataProduct = new FormData();
+                    objFile = {};
+                    contadorImagenes = 0;
+                    contadorModificadores = 0;
                     if (response.status) {
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                     } else {
@@ -228,7 +232,11 @@
 
                 request.fail(function( jqXHR, textStatus ) {
                     waitingDialog.hide();
+                    listFileImageProducts = [];
                     formDataProduct = new FormData();
+                    objFile = {};
+                    contadorImagenes = 0;
+                    contadorModificadores = 0;
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
             }
