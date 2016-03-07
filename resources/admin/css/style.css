@@ -41,11 +41,13 @@
 .box-galery-products .box-image-product .box-action-button {
     position: absolute;
     right: 0px;
+    z-index: 9;
 }
 
 .box-galery-products .box-image-product .box-action-button .btn-img-product {
     width: 30px;
     height: 30px;
+    border: none;
 }
 
 .box-galery-products .box-image-product .box-action-button .btn-img-product .fa {
