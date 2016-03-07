@@ -95,11 +95,11 @@
     opacity: 1;
 }*/
 
-.boxCategory > .box-tools > .btn-box-tool-edit {
+.boxCategory > .box-tools .btn-box-tool-edit {
     color: #63cd5e;
 }
 
-.boxCategory > .box-tools > .btn-box-tool-edit:hover {
+.boxCategory > .box-tools .btn-box-tool-edit:hover {
     color: #3aa935;
 }
 
