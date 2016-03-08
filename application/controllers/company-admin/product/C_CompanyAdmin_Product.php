@@ -262,6 +262,8 @@ class C_CompanyAdmin_Product extends CI_Controller {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
         }
 
+        var_dump($this->input->post());
+
         echo json_encode($json);
     }
 
@@ -381,8 +383,6 @@ class C_CompanyAdmin_Product extends CI_Controller {
         } else {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
         }
-
-        var_dump($this->input->post());
 
         echo json_encode($json);
     }
