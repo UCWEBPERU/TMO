@@ -202,7 +202,8 @@
                 var newIndex = 1;
                 $(".table-modifiers tbody tr").each(function(index) {
                     if ($(this).attr("data-modifier-type")) {
-                        $(this).first().html("" + newIndex);
+                        console.log($(this).first());
+//                        $(this).first().html("" + newIndex);
                         newIndex++;
                     }
                 });
