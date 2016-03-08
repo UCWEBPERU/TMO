@@ -98,6 +98,12 @@ class M_CompanyAdmin_Product extends CI_Model {
         return $query->result();
     }
 
+    public function getStoreByProduct($data_producto) {
+        $this->db->where('id_producto', $data_producto["id_producto"] );
+        $query = $this->db->get('Catalogo_Productos');
+        return $query->result();
+    }
+
     public function updateDatosEmpresa($data_empresa) {
         $data = array(
             'nombre_empresa'			=> $data_empresa["nombre_empresa"],

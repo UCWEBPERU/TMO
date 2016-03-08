@@ -92,6 +92,63 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
     }
 
+    public function editProduct($id_producto) {
+        $modulo = $this->loadDataPanel();
+        $modulo->menu = array("menu" => 2, "submenu" => 0);
+        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Editar Producto";
+
+        $datosProducto = $this->M_CompanyAdmin_Product->getProductByID(
+            array(
+                "id_empresa"  => $this->session->id_empresa,
+                "id_producto" => $id_producto
+            ));
+
+        $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
+        $modulo->data_categorias = $datosCategorias;
+
+        if (sizeof($datosProducto) > 0) {
+            $modulo->existe_producto = TRUE;
+
+            $modulo->data_producto = $datosProducto[0];
+
+            $datosGaleria = $this->M_CompanyAdmin_Product->getGalleryByProduct(
+                array(
+                    "id_producto" => $datosProducto[0]->id_producto
+                ));
+            $modulo->data_galeria_producto = $datosGaleria;
+
+            $datosTiendas = $this->M_CompanyAdmin_Product->getStoreByProduct(
+                array(
+                    "id_producto" => $datosProducto[0]->id_producto
+                ));
+            $modulo->data_tiendas_producto = $datosTiendas;
+
+            $subCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByID(
+                array(
+                    'id_empresa'        => $this->session->id_empresa,
+                    'id_categoria'      => $datosProducto[0]->id_categoria
+                )
+            );
+            $modulo->data_subcategoria_producto = $subCategoria;
+
+            if (sizeof($subCategoria) > 0) {
+                $categoria = $this->M_CompanyAdmin_Categorias->getCategoryByID(
+                    array(
+                        'id_empresa'        => $this->session->id_empresa,
+                        'id_categoria'      => $subCategoria[0]->id_categoria_superior
+                    )
+                );
+
+                $modulo->data_categoria_producto = $categoria;
+            }
+        } else {
+            $modulo->existe_producto = FALSE;
+        }
+
+        $data["modulo"] = $modulo;
+        $this->load->view('company-admin/module/productos/v-company-admin-productos-editar', $data);
+    }
+
     /* <---------------- AJAX ----------------> */
 
     public function ajaxAddProduct() {
