@@ -220,9 +220,9 @@
 
         function loadModifier() {
             for (var c = 0; c < listModifiers.length; c++) {
-                formDataProduct.append("modifier_" + c + "_type", listFileImageProducts[c].type);
-                formDataProduct.append("modifier_" + c + "_name", listFileImageProducts[c].name);
-                formDataProduct.append("modifier_" + c + "_cost", (listFileImageProducts[c].cost) ? listFileImageProducts[c].cost : 0);
+                formDataProduct.append("modifier_" + c + "_type", listModifiers[c].type);
+                formDataProduct.append("modifier_" + c + "_name", listModifiers[c].name);
+                formDataProduct.append("modifier_" + c + "_cost", (listModifiers[c].cost) ? listModifiers[c].cost : 0);
             }
         }
 
