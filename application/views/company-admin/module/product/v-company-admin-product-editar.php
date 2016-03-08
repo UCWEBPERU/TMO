@@ -96,6 +96,7 @@
                                                         <?php endforeach; ?>
                                                         <?php if (!$findTienda) { ?>
                                                             <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
+                                                            <?php $findTienda = FALSE; ?>
                                                         <?php } ?>
                                                     <?php endforeach; ?>
                                                 <?php } else { ?>
