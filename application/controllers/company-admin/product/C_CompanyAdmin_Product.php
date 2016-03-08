@@ -283,7 +283,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
             $resultIDProducto = $this->M_CompanyAdmin_Product->updateDatosProducto(
                 array(
-                    'id_producto'           => trim($this->input->post("id_producto", TRUE)),
+                    'id_producto'           => trim($this->input->post("id_product", TRUE)),
                     'id_categoria'          => trim($this->input->post("cboCategoria", TRUE)),
                     'nombre_producto'       => trim($this->input->post("txtNombreProducto", TRUE)),
                     'descripcion_producto'  => trim($this->input->post("txtDescripcionProducto", TRUE)),
@@ -296,14 +296,14 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
                 $datosTiendas = $this->M_CompanyAdmin_Product->getStoreByProduct(
                     array(
-                        "id_producto" => trim($this->input->post("id_producto", TRUE))
+                        "id_producto" => trim($this->input->post("id_product", TRUE))
                     ));
 
                 foreach ($datosTiendas as $tienda) {
                     $result = $this->M_CompanyAdmin_Product->deleteDatosCatalogoProductos(
                         array(
                             'id_tienda'   => $tienda->id_tienda,
-                            'id_producto' => trim($this->input->post("id_producto", TRUE))
+                            'id_producto' => trim($this->input->post("id_product", TRUE))
                         )
                     );
                 }
@@ -330,7 +330,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                         $result = $this->M_CompanyAdmin_Product->insertDetalleModificadorProductos(
                             array(
                                 'id_modificador_productos'  => $result,
-                                'id_producto'               => trim($this->input->post("id_producto", TRUE)),
+                                'id_producto'               => trim($this->input->post("id_product", TRUE)),
                                 'descripcion_modificador'   => trim($this->input->post("modifier_".$c."_name", TRUE)),
                                 'costo_modificador'         => trim($this->input->post("modifier_".$c."_cost", TRUE)),
                                 'stock'                     => 0
@@ -348,7 +348,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                             if ( $this->uploadfile->validateFile("file_$i") ) {
                                 $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
 
-                                $path = "uploads/company/".$this->session->id_empresa."/products/".intval(trim($this->input->post("id_producto", TRUE)))."/gallery/";
+                                $path = "uploads/company/".$this->session->id_empresa."/products/".intval(trim($this->input->post("id_product", TRUE)))."/gallery/";
 
                                 $path = $this->uploadfile->upload("file_$i", "imagen_$i", $path);
 
