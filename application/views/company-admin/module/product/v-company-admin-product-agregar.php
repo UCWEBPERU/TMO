@@ -199,6 +199,13 @@
                         break;
                     }
                 }
+                var newIndex = 1;
+                $.each(".table-modifiers tbody tr", function(index) {
+                    if ($(this).attr("data-modifier-type")) {
+                        $(this).first().html("" + newIndex);
+                        newIndex++;
+                    }
+                });
                 console.log(listFileImageProducts);
             }
         }
