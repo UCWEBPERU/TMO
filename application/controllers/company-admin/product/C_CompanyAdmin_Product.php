@@ -200,7 +200,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 }
 
                 if ($this->input->post("totalModifiers")) {
-                    for ($c = 1; $c <= trim($this->input->post("totalModifiers", TRUE)); $c++) {
+                    for ($c = 0; $c <= trim($this->input->post("totalModifiers", TRUE)); $c++) {
                         $result = $this->M_CompanyAdmin_Product->insertModificadorProductos(
                             array(
                                 'tipo_modificador' => trim($this->input->post("modifier_".$c."_type", TRUE))
@@ -322,7 +322,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 }
 
                 if ($this->input->post("totalModifiers")) {
-                    for ($c = 1; $c <= trim($this->input->post("totalModifiers", TRUE)); $c++) {
+                    for ($c = 0; $c <= trim($this->input->post("totalModifiers", TRUE)); $c++) {
                         $result = $this->M_CompanyAdmin_Product->insertModificadorProductos(
                             array(
                                 'tipo_modificador' => trim($this->input->post("modifier_".$c."_type", TRUE))
