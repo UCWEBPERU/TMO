@@ -150,7 +150,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         }
 
         $data["modulo"] = $modulo;
-        $this->load->view('company-admin/module/product/v-company-admin-productos-editar', $data);
+        $this->load->view('company-admin/module/product/v-company-admin-product-editar', $data);
     }
 
     /* <---------------- AJAX ----------------> */
@@ -251,6 +251,44 @@ class C_CompanyAdmin_Product extends CI_Controller {
             }
 
 //            var_dump($this->input->post());
+
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+        echo json_encode($json);
+    }
+
+    public function ajaxDeleteImageProduct() {
+        $json 				= new stdClass();
+        $json->type 		= "Image Producto";
+        $json->presentation = "";
+        $json->action 		= "delete";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        if ( $this->input->post("id_image_product") &&
+            $this->input->post("id_product") ) {
+
+            $resultImageProduct = $this->M_CompanyAdmin_Product->getImageproductByID(
+                array(
+                    'id_producto' => trim($this->input->post("id_product", TRUE)),
+                    'id_archivo'  => trim($this->input->post("id_image_product", TRUE))
+                )
+            );
+
+            if (is_int($resultImageProduct)) {
+                $result = $this->M_CompanyAdmin_Product->deleteImagenProducto(
+                    array(
+                        'id_archivo'  => trim($this->input->post("id_image_product", TRUE))
+                    )
+                );
+
+                $json->message = "La imagen del producto se elimino correctamente.";
+                $json->status = TRUE;
+            } else {
+                $json->message = "La imagen del producto que quiere eliminar no existe.";
+            }
 
         } else {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";

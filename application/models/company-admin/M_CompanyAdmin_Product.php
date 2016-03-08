@@ -103,6 +103,15 @@ class M_CompanyAdmin_Product extends CI_Model {
         return $query->result();
     }
 
+    public function getImageproductByID($data_producto) {
+        $this->db->join('Galeria_Producto', 'Galeria_Producto.id_archivo = Archivo.id_archivo');
+        $this->db->where('Galeria_Producto.id_producto', $data_producto["id_producto"] );
+        $this->db->where('Archivo.id_archivo', $data_producto["id_archivo"] );
+        $this->db->where('Archivo.estado', '1');
+        $query = $this->db->get('Archivo');
+        return $query->result();
+    }
+
     public function getStoreByProduct($data_producto) {
         $this->db->where('id_producto', $data_producto["id_producto"] );
         $query = $this->db->get('Catalogo_Productos');
@@ -200,6 +209,19 @@ class M_CompanyAdmin_Product extends CI_Model {
         return FALSE;
     }
 
+    public function deleteGaleriaProducto($data_galeria_producto) {
+        $data = array(
+            'id_producto' => $data_galeria_producto["id_producto"],
+            'id_archivo'  => $data_galeria_producto["id_archivo"]
+        );
+
+        if ($this->db->delete('Galeria_Producto', $data)) {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
     public function insertImagenProducto($data_galeria_producto) {
         $data = array(
             'url_archivo'      => $data_galeria_producto["url_archivo"],
@@ -210,6 +232,15 @@ class M_CompanyAdmin_Product extends CI_Model {
 
         if ($this->db->insert('Archivo', $data)) {
             return $this->db->insert_id();
+        }
+
+        return FALSE;
+    }
+
+    public function deleteImagenProducto($data_galeria_producto) {
+        $this->db->where('id_archivo', $data_galeria_producto["id_archivo"]);
+        if ($this->db->update('Archivo', array('estado'=> 0))) {
+            return TRUE;
         }
 
         return FALSE;

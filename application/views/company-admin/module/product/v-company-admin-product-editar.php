@@ -37,8 +37,17 @@
                         <!-- /.box-header -->
                         <!-- form start -->
                         <form role="form" id="frmDatosCategoria">
+                            <?php if ($modulo->existe_producto) { ?>
+                                <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $modulo->data_producto->id_producto; ?>">
+                            <?php } ?>
                             <div class="box-body">
-
+                                <?php if (!$modulo->existe_producto) { ?>
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <h4><i class="icon fa fa-ban"></i> No existe el producto!</h4>
+                                        Lo sentimos el producto que desea editar no existe.<br>
+                                        <strong>No intente modificar la direccion url :D</strong>
+                                    </div>
+                                <?php } ?>
                                 <div class="row">
 
                                     <div class="col-md-6">
@@ -233,6 +242,33 @@
                     }
                 }
                 console.log(listFileImageProducts);
+            } else if ($(btn).attr("data-action-delete") == "delete-resource") {
+                $(btn).parent().parent().hide();
+                var formData = new FormData();
+                formData.append("id_image_product", $(btn).attr("data-id-img"));
+                formData.append("id_product", $("#id_producto").val());
+                var request = $.ajax({
+                    url: "<?php echo $modulo->url_module_panel."/ajax/deleteImageProduct"; ?>",
+                    method: "POST",
+                    data: formData,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false
+                });
+
+                request.done(function( response ) {
+                    waitingDialog.hide();
+                    if (response.status) {
+                        GenericModal.show("default", "<p>" + response.message + "</p>");
+                    } else {
+                        GenericModal.show("danger", "<p>" + response.message + "</p>");
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    waitingDialog.hide();
+                    GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                });
             }
         }
 
