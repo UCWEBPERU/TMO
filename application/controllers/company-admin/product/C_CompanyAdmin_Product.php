@@ -127,6 +127,12 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 ));
             $modulo->data_tiendas_producto = $datosTiendas;
 
+            $datosModifiers = $this->M_CompanyAdmin_Product->getModifierByProduct(
+                array(
+                    "id_producto" => $datosProducto[0]->id_producto
+                ));
+            $modulo->data_modifiers_producto = $datosModifiers;
+
             $subCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByID(
                 array(
                     'id_empresa'        => $this->session->id_empresa,

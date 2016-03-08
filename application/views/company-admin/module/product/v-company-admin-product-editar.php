@@ -150,6 +150,19 @@
                                                     <th>Nombre</th>
                                                     <th style="width: 40px">Costo</th>
                                                 </tr>
+                                                <?php if ($modulo->existe_producto) { ?>
+                                                    <?php $index = 1; ?>
+                                                    <?php foreach($modulo->data_modifiers_producto as $modifier): ?>
+                                                        <tr data-modifier-type='<?php echo $modifier->tipo_modificador; ?>' data-modifier-name='<?php echo $modifier->descripcion_modificador; ?>' data-modifier-cost='<?php echo $modifier->costo_modificador; ?>'>
+                                                            <td><?php echo $index; ?></td>
+                                                            <td><?php echo $modifier->tipo_modificador; ?></td>
+                                                            <td><?php echo $modifier->descripcion_modificador; ?></td>
+                                                            <td><?php echo $modifier->costo_modificador; ?></td>
+                                                            <td><button class='btn-modifier-product btn-delete' data-action-delete='delete-resource' data-id-modifier='<?php echo $modifier->id_modificador_productos; ?>'><i class='fa fa-remove'></i></button></td>
+                                                        </tr>
+                                                        <?php $index++; ?>
+                                                    <?php endforeach; ?>
+                                                <?php } ?>
                                                 <tr>
                                                     <td><i class="fa fa-chevron-right"></i></td>
                                                     <td><a href="#" id="btnAddMoficador"><span class="label label-primary">Agregar modificador</span></a></td>
@@ -243,7 +256,7 @@
                 }
                 console.log(listFileImageProducts);
             } else if ($(btn).attr("data-action-delete") == "delete-resource") {
-                $(btn).parent().parent().hide();
+                waitingDialog.show('Eliminado Imagen...');
                 var formData = new FormData();
                 formData.append("id_image_product", $(btn).attr("data-id-img"));
                 formData.append("id_product", $("#id_producto").val());
@@ -259,6 +272,7 @@
                 request.done(function( response ) {
                     waitingDialog.hide();
                     if (response.status) {
+                        $(btn).parent().parent().hide();
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                     } else {
                         GenericModal.show("danger", "<p>" + response.message + "</p>");
@@ -361,6 +375,11 @@
             handlerDeleteImageProduct(this);
         });
 
+        $".btn-modifier-product").on("click", function(event) {
+            event.preventDefault();
+            handlerDeleteModifier(this);
+        });
+
         $("#cboCategorias").on("select2:select", function (event) {
             var formDataCategory = new FormData();
 
@@ -437,22 +456,34 @@
                                 },
                                 function(costoModificador) {
                                     console.log(typeof costoModificador + "");
-                                    contadorModificadores = $(".table-modifiers tbody tr").length - 2 + 1;
+                                    var indexRow = $(".table-modifiers tbody tr").length - 2 + 1;
 
                                     swal("Modificador agregado!", tipoModificador + ": " + nombreModificador, "success");
 
                                     var html = "<tr data-modifier-type='" + tipoModificador + "' data-modifier-name='" + nombreModificador + "' " +
-                                        "data-modifier-cost='" + costoModificador + "'><td>" + contadorModificadores + ".</td><td>" + tipoModificador +
-                                        "</td><td>" + nombreModificador + "</td><td>" + ((costoModificador) ? costoModificador : 0) + "</td></tr>";
+                                        "data-modifier-cost='" + costoModificador + "'><td>" + indexRow + ".</td><td>" + tipoModificador +
+                                        "</td><td>" + nombreModificador + "</td><td>" + ((costoModificador) ? costoModificador : 0) + "</td>" +
+                                        "<td><button class='btn-modifier-product btn-delete' data-action-delete='delete-data' data-id-modifier='" + contadorModificadores + "'><i class='fa fa-remove'></i></button></td> </tr>";
+
+                                    html = $(html);
+
+                                    html.find(".btn-delete").on("click", function(event) {
+                                        event.preventDefault();
+                                        handlerDeleteModifier(this);
+                                    });
 
                                     $(".table-modifiers tbody tr").last().before(html);
 
-                                    formDataProduct.append("modifier_" + contadorModificadores + "_type", tipoModificador);
-                                    formDataProduct.append("modifier_" + contadorModificadores + "_name", nombreModificador);
-                                    formDataProduct.append("modifier_" + contadorModificadores + "_cost", (costoModificador) ? costoModificador : 0);
+                                    objModifier = {
+                                        "id":   contadorModificadores,
+                                        "type": tipoModificador,
+                                        "name": nombreModificador,
+                                        "cost": (costoModificador) ? costoModificador : 0
+                                    }
+                                    listModifiers.push(objModifier);
 
+                                    contadorModificadores++;
                                     console.log(formDataProduct);
-                                    console.log($(".table-modifiers tbody tr").last());
                                 }
                             );
                         }
