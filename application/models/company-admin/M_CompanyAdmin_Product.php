@@ -121,7 +121,7 @@ class M_CompanyAdmin_Product extends CI_Model {
     public function getModifierByProduct($data_producto) {
         $this->db->join('Detalle_Modificador_Productos', 'Detalle_Modificador_Productos.id_producto = Producto.id_producto');
         $this->db->join('Modificador_Productos', 'Modificador_Productos.id_modificador_productos = Detalle_Modificador_Productos.id_modificador_productos');
-        $this->db->where('id_producto', $data_producto["id_producto"] );
+        $this->db->where('Producto.id_producto', $data_producto["id_producto"] );
         $query = $this->db->get('Producto');
         return $query->result();
     }
