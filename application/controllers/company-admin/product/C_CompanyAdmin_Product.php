@@ -345,14 +345,16 @@ class C_CompanyAdmin_Product extends CI_Controller {
                     $totalImages = intval(trim($this->input->post("totalImages", TRUE)));
                     if ( $totalImages > 0) {
                         $this->load->library('utils/UploadFile');
-
-                        for ($i=0; $i < $totalImages; $i++) {
+                        $lastImageProduct = $this->M_CompanyAdmin_Product->getLastImageProduct($this->session->id_empresa);
+                        $indexImageProduct = 0;
+                        if (sizeof($lastImageProduct) > 0) {
+                            $indexImageProduct = intval($lastImageProduct[0]->id_archivo);
+                        }
+                        for ($i=0; $i < $totalImages; $i++, $indexImageProduct++) {
                             if ( $this->uploadfile->validateFile("file_$i") ) {
-                                $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
-
                                 $path = "uploads/company/".$this->session->id_empresa."/products/".intval(trim($this->input->post("id_product", TRUE)))."/gallery/";
 
-                                $path = $this->uploadfile->upload("file_$i", "imagen_$i", $path);
+                                $path = $this->uploadfile->upload("file_$i", "imagen_$indexImageProduct", $path);
 
                                 $resultIDArchivo = $this->M_CompanyAdmin_Product->insertImagenProducto(
                                     array(
@@ -365,7 +367,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
                                 $result = $this->M_CompanyAdmin_Product->insertGaleriaProducto(
                                     array(
-                                        'id_producto' => $resultIDProducto,
+                                        'id_producto' => intval(trim($this->input->post("id_product", TRUE))),
                                         'id_archivo'  => $resultIDArchivo
                                     )
                                 );

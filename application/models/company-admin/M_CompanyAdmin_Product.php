@@ -103,6 +103,15 @@ class M_CompanyAdmin_Product extends CI_Model {
         return $query->result();
     }
 
+    public function getLastImageProduct($data_producto) {
+        $this->db->join('Galeria_Producto', 'Galeria_Producto.id_archivo = Archivo.id_archivo');
+        $this->db->where('Galeria_Producto.id_producto', $data_producto["id_producto"] );
+        $this->db->where('Archivo.estado', '1');
+        $this->db->select_max('Galeria_Producto.id_archivo');
+        $query = $this->db->get('Archivo');
+        return $query->result();
+    }
+
     public function getImageproductByID($data_producto) {
         $this->db->join('Galeria_Producto', 'Galeria_Producto.id_archivo = Archivo.id_archivo');
         $this->db->where('Galeria_Producto.id_producto', $data_producto["id_producto"] );
