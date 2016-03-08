@@ -277,7 +277,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 )
             );
 
-            if (is_int($resultImageProduct)) {
+            if (sizeof($resultImageProduct) > 0) {
                 $result = $this->M_CompanyAdmin_Product->deleteImagenProducto(
                     array(
                         'id_archivo'  => trim($this->input->post("id_image_product", TRUE))
