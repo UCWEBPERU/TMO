@@ -176,84 +176,97 @@ class C_CompanyAdmin_Product extends CI_Controller {
             $this->input->post("cboCategoria") &&
             $this->input->post("cboTienda") ) {
 
-            $resultIDProducto = $this->M_CompanyAdmin_Product->insertDatosProducto(
-                array(
-                    'id_categoria'          => trim($this->input->post("cboCategoria", TRUE)),
-                    'nombre_producto'       => trim($this->input->post("txtNombreProducto", TRUE)),
-                    'descripcion_producto'  => trim($this->input->post("txtDescripcionProducto", TRUE)),
-                    'stock'                 => trim($this->input->post("txtStockProducto", TRUE)),
-                    'precio_producto'       => trim($this->input->post("txtPrecioProducto", TRUE))
-                )
-            );
+            $validate   = $this->M_CompanyAdmin_Product->getSuscripcionPaqueteTMO($this->session->id_empresa);
+            $totalProducts = $this->M_CompanyAdmin_Product->getTotalProduct($this->session->id_empresa);
 
-            if (is_int($resultIDProducto)) {
+            if (sizeof($validate) > 0) {
+                if ($totalProducts < intval($validate[0]->total_products)) {
 
-                $listaTiendas = explode(",", trim($this->input->post("cboTienda", TRUE)));
-
-                foreach ($listaTiendas as $tienda) {
-                    $result = $this->M_CompanyAdmin_Product->insertDatosCatalogoProductos(
+                    $resultIDProducto = $this->M_CompanyAdmin_Product->insertDatosProducto(
                         array(
-                            'id_tienda'   => $tienda,
-                            'id_producto' => $resultIDProducto
+                            'id_categoria'          => trim($this->input->post("cboCategoria", TRUE)),
+                            'nombre_producto'       => trim($this->input->post("txtNombreProducto", TRUE)),
+                            'descripcion_producto'  => trim($this->input->post("txtDescripcionProducto", TRUE)),
+                            'stock'                 => trim($this->input->post("txtStockProducto", TRUE)),
+                            'precio_producto'       => trim($this->input->post("txtPrecioProducto", TRUE))
                         )
                     );
-                }
 
-                if ($this->input->post("totalModifiers")) {
-                    for ($c = 0; $c < trim($this->input->post("totalModifiers", TRUE)); $c++) {
-                        $result = $this->M_CompanyAdmin_Product->insertModificadorProductos(
-                            array(
-                                'tipo_modificador' => trim($this->input->post("modifier_".$c."_type", TRUE))
-                            )
-                        );
+                    if (is_int($resultIDProducto)) {
 
-                        $result = $this->M_CompanyAdmin_Product->insertDetalleModificadorProductos(
-                            array(
-                                'id_modificador_productos'  => $result,
-                                'id_producto'               => $resultIDProducto,
-                                'descripcion_modificador'   => trim($this->input->post("modifier_".$c."_name", TRUE)),
-                                'costo_modificador'         => trim($this->input->post("modifier_".$c."_cost", TRUE)),
-                                'stock'                     => 0
-                            )
-                        );
-                    }
-                }
+                        $listaTiendas = explode(",", trim($this->input->post("cboTienda", TRUE)));
 
-                if ($this->input->post("totalImages")) {
-                    $totalImages = intval(trim($this->input->post("totalImages", TRUE)));
-                    if ( $totalImages > 0) {
-                        $this->load->library('utils/UploadFile');
+                        foreach ($listaTiendas as $tienda) {
+                            $result = $this->M_CompanyAdmin_Product->insertDatosCatalogoProductos(
+                                array(
+                                    'id_tienda'   => $tienda,
+                                    'id_producto' => $resultIDProducto
+                                )
+                            );
+                        }
 
-                        for ($i=0; $i < $totalImages; $i++) {
-                            if ( $this->uploadfile->validateFile("file_$i") ) {
-                                $path = "uploads/company/".$this->session->id_empresa."/products/".$resultIDProducto."/gallery/";
-
-                                $path = $this->uploadfile->upload("file_$i", "imagen_$i", $path);
-
-                                $resultIDArchivo = $this->M_CompanyAdmin_Product->insertImagenProducto(
+                        if ($this->input->post("totalModifiers")) {
+                            for ($c = 0; $c < trim($this->input->post("totalModifiers", TRUE)); $c++) {
+                                $result = $this->M_CompanyAdmin_Product->insertModificadorProductos(
                                     array(
-                                        'url_archivo'      => $path,
-                                        'tipo_archivo'     => "image/png",
-                                        'relacion_recurso' => "galeria",
-                                        'nombre_archivo'   => "imagen_$i"
+                                        'tipo_modificador' => trim($this->input->post("modifier_".$c."_type", TRUE))
                                     )
                                 );
 
-                                $result = $this->M_CompanyAdmin_Product->insertGaleriaProducto(
+                                $result = $this->M_CompanyAdmin_Product->insertDetalleModificadorProductos(
                                     array(
-                                        'id_producto' => $resultIDProducto,
-                                        'id_archivo'  => $resultIDArchivo
+                                        'id_modificador_productos'  => $result,
+                                        'id_producto'               => $resultIDProducto,
+                                        'descripcion_modificador'   => trim($this->input->post("modifier_".$c."_name", TRUE)),
+                                        'costo_modificador'         => trim($this->input->post("modifier_".$c."_cost", TRUE)),
+                                        'stock'                     => 0
                                     )
                                 );
                             }
                         }
-                    }
-                }
 
-                $json->message = "El producto se agrego correctamente.";
-                $json->status = TRUE;
+                        if ($this->input->post("totalImages")) {
+                            $totalImages = intval(trim($this->input->post("totalImages", TRUE)));
+                            if ( $totalImages > 0) {
+                                $this->load->library('utils/UploadFile');
+
+                                for ($i=0; $i < $totalImages; $i++) {
+                                    if ( $this->uploadfile->validateFile("file_$i") ) {
+                                        $path = "uploads/company/".$this->session->id_empresa."/products/".$resultIDProducto."/gallery/";
+
+                                        $path = $this->uploadfile->upload("file_$i", "imagen_$i", $path);
+
+                                        $resultIDArchivo = $this->M_CompanyAdmin_Product->insertImagenProducto(
+                                            array(
+                                                'url_archivo'      => $path,
+                                                'tipo_archivo'     => "image/png",
+                                                'relacion_recurso' => "galeria",
+                                                'nombre_archivo'   => "imagen_$i"
+                                            )
+                                        );
+
+                                        $result = $this->M_CompanyAdmin_Product->insertGaleriaProducto(
+                                            array(
+                                                'id_producto' => $resultIDProducto,
+                                                'id_archivo'  => $resultIDArchivo
+                                            )
+                                        );
+                                    }
+                                }
+                            }
+                        }
+
+                        $json->message = "El producto se agrego correctamente.";
+                        $json->status = TRUE;
+                    } else {
+                        $json->message = "Ocurrio un error al agregar el producto, intente de nuevo.";
+                    }
+
+                } else {
+                    $json->message 	= "Lo sentimos su suscripción actual solo le permite tener (".$validate[0]->total_products.") productos(s).";
+                }
             } else {
-                $json->message = "Ocurrio un error al agregar el producto, intente de nuevo.";
+                $json->message 	= "Lo sentimos al parecer no tiene una suscripción activa.";
             }
 
         } else {
@@ -349,16 +362,11 @@ class C_CompanyAdmin_Product extends CI_Controller {
                             )
                         );
                         $indexImageProduct = 0;
-                        var_dump($lastImageProduct);
                         if (sizeof($lastImageProduct) > 0) {
                             $indexRow = sizeof($lastImageProduct) - 1;
-                            echo "SE ENCONTRO GALEGRIA<br>";
                             $strpos = strpos($lastImageProduct[$indexRow]->nombre_archivo, "_");
-                            echo $strpos."<br>";
                             $indexImageProduct = substr($lastImageProduct[$indexRow]->nombre_archivo, $strpos + 1);
-                            echo $indexImageProduct."<br>";
                             $indexImageProduct++;
-                            echo $indexImageProduct."<br>";
                         }
                         for ($i=0; $i < $totalImages; $i++, $indexImageProduct++) {
                             if ( $this->uploadfile->validateFile("file_$i") ) {
