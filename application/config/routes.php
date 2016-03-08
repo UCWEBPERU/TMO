@@ -167,14 +167,15 @@ $route['company/(:num)/admin/store/ajax/editStore'] = 'company-admin/store/C_Com
 | URL -> COMPANY ADMIN - PRODUCTS
 | ------------------------------
 */
-$route['company/(:num)/admin/product']                          = 'company-admin/product/C_CompanyAdmin_Product';
-$route['company/(:num)/admin/product/page']                     = 'company-admin/product/C_CompanyAdmin_Product';
-$route['company/(:num)/admin/product/page/(:num)']              = 'company-admin/product/C_CompanyAdmin_Product';
-$route['company/(:num)/admin/product/add']                      = 'company-admin/product/C_CompanyAdmin_Product/addProduct';
-$route['company/(:num)/admin/product/edit/(:num)']              = 'company-admin/product/C_CompanyAdmin_Product/editProduct/$2';
-$route['company/(:num)/admin/product/ajax/addProduct']          = 'company-admin/product/C_CompanyAdmin_Product/ajaxAddProduct';
-$route['company/(:num)/admin/product/ajax/editProduct']         = 'company-admin/product/C_CompanyAdmin_Product/ajaxEditProduct';
-$route['company/(:num)/admin/product/ajax/deleteImageProduct']  = 'company-admin/product/C_CompanyAdmin_Product/ajaxDeleteImageProduct';
+$route['company/(:num)/admin/product']                              = 'company-admin/product/C_CompanyAdmin_Product';
+$route['company/(:num)/admin/product/page']                         = 'company-admin/product/C_CompanyAdmin_Product';
+$route['company/(:num)/admin/product/page/(:num)']                  = 'company-admin/product/C_CompanyAdmin_Product';
+$route['company/(:num)/admin/product/add']                          = 'company-admin/product/C_CompanyAdmin_Product/addProduct';
+$route['company/(:num)/admin/product/edit/(:num)']                  = 'company-admin/product/C_CompanyAdmin_Product/editProduct/$2';
+$route['company/(:num)/admin/product/ajax/addProduct']              = 'company-admin/product/C_CompanyAdmin_Product/ajaxAddProduct';
+$route['company/(:num)/admin/product/ajax/editProduct']             = 'company-admin/product/C_CompanyAdmin_Product/ajaxEditProduct';
+$route['company/(:num)/admin/product/ajax/deleteImageProduct']      = 'company-admin/product/C_CompanyAdmin_Product/ajaxDeleteImageProduct';
+$route['company/(:num)/admin/product/ajax/deleteModifierProduct']   = 'company-admin/product/C_CompanyAdmin_Product/ajaxDeleteModifierProduct';
 
 /*
 | ------------------------------

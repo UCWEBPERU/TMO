@@ -127,7 +127,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 ));
             $modulo->data_tiendas_producto = $datosTiendas;
 
-            $datosModifiers = $this->M_CompanyAdmin_Product->getModifierByProduct(
+            $datosModifiers = $this->M_CompanyAdmin_Product->getModifiersByProduct(
                 array(
                     "id_producto" => $datosProducto[0]->id_producto
                 ));
@@ -294,6 +294,52 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 $json->status = TRUE;
             } else {
                 $json->message = "La imagen del producto que quiere eliminar no existe.";
+            }
+
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+        echo json_encode($json);
+    }
+
+    public function ajaxDeleteModifierProduct() {
+        $json 				= new stdClass();
+        $json->type 		= "Modifier Producto";
+        $json->presentation = "";
+        $json->action 		= "delete";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        if ( $this->input->post("id_modifier") &&
+            $this->input->post("id_product") ) {
+
+            $resultImageProduct = $this->M_CompanyAdmin_Product->getModifierByProduct(
+                array(
+                    'id_producto'               => trim($this->input->post("id_product", TRUE)),
+                    'id_modifier'  => trim($this->input->post("id_modifier", TRUE))
+                )
+            );
+
+            if (sizeof($resultImageProduct) > 0) {
+
+                $result = $this->M_CompanyAdmin_Product->deleteDetalleModificadorProductos(
+                    array(
+                        'id_producto' => trim($this->input->post("id_product", TRUE)),
+                        'id_modifier' => trim($this->input->post("id_modifier", TRUE))
+                    )
+                );
+
+                $result = $this->M_CompanyAdmin_Product->deleteModificadorProductos(
+                    array(
+                        'id_modifier' => trim($this->input->post("id_modifier", TRUE))
+                    )
+                );
+
+                $json->message = "El modificador del producto se elimino correctamente.";
+                $json->status = TRUE;
+            } else {
+                $json->message = "El modificador del producto que quiere eliminar no existe.";
             }
 
         } else {

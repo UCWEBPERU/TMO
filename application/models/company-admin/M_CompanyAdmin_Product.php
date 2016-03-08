@@ -118,15 +118,26 @@ class M_CompanyAdmin_Product extends CI_Model {
         return $query->result();
     }
 
-    public function getModifierByProduct($data_producto) {
+    public function getModifiersByProduct($data_producto) {
         $this->db->join('Detalle_Modificador_Productos', 'Detalle_Modificador_Productos.id_producto = Producto.id_producto');
         $this->db->join('Modificador_Productos', 'Modificador_Productos.id_modificador_productos = Detalle_Modificador_Productos.id_modificador_productos');
         $this->db->where('Producto.id_producto', $data_producto["id_producto"] );
+        $this->db->where('Modificador_Productos.estado', '1');
+        $this->db->where('Detalle_Modificador_Productos.estado', '1');
         $query = $this->db->get('Producto');
         return $query->result();
     }
 
-
+    public function getModifierByProduct($data_producto) {
+        $this->db->join('Detalle_Modificador_Productos', 'Detalle_Modificador_Productos.id_producto = Producto.id_producto');
+        $this->db->join('Modificador_Productos', 'Modificador_Productos.id_modificador_productos = Detalle_Modificador_Productos.id_modificador_productos');
+        $this->db->where('Producto.id_producto', $data_producto["id_producto"] );
+        $this->db->where('Modificador_Productos.id_modificador_productos', $data_producto["id_modifier"] );
+        $this->db->where('Modificador_Productos.estado', '1');
+        $this->db->where('Detalle_Modificador_Productos.estado', '1');
+        $query = $this->db->get('Producto');
+        return $query->result();
+    }
 
     public function updateDatosEmpresa($data_empresa) {
         $data = array(
@@ -256,40 +267,19 @@ class M_CompanyAdmin_Product extends CI_Model {
         return FALSE;
     }
 
-    public function updateDatosPayAccount($data_pay_account) {
-        $data = array(
-            'pay_id'             => $data_pay_account["pay_id"],
-            'tipo_metodo_pago'   => $data_pay_account["tipo_metodo_pago"]
-        );
-
-        $this->db->where('id_pay_account', $data_pay_account["id_pay_account"]);
-        if ($this->db->update('Pay_Account', $data)) {
+    public function deleteDetalleModificadorProductos($data_modificador_producto) {
+        $this->db->where('id_modificador_productos', $data_modificador_producto["id_modifier"]);
+        $this->db->where('id_producto', $data_modificador_producto["id_producto"]);
+        if ($this->db->update('Detalle_Modificador_Productos', array('estado'=> 0))) {
             return TRUE;
         }
 
         return FALSE;
     }
 
-    public function updateIDPayAccountOnEmpresa($data_pay_account) {
-        $data = array(
-            'id_pay_account' => $data_pay_account["id_pay_account"]
-        );
-
-        $this->db->where('id_empresa', $data_pay_account["id_empresa"]);
-        if ($this->db->update('Empresa', $data)) {
-            return TRUE;
-        }
-
-        return FALSE;
-    }
-
-    public function updateLogoOnEmpresa($data_logo_empresa) {
-        $data = array(
-            'url_archivo' => $data_logo_empresa["url_archivo"]
-        );
-
-        $this->db->where('id_archivo', $data_logo_empresa["id_archivo"]);
-        if ($this->db->update('Archivo', $data)) {
+    public function deleteModificadorProductos($data_modificador_producto) {
+        $this->db->where('id_modificador_productos', $data_modificador_producto["id_modifier"]);
+        if ($this->db->update('Modificador_Productos', array('estado'=> 0))) {
             return TRUE;
         }
 

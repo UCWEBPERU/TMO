@@ -300,7 +300,7 @@
 
                 html = $(html);
 
-                html.find(".btn-delete").on("click", function(){
+                html.find(".btn-img-product").on("click", function(){
                     handlerDeleteImageProduct(this);
                 });
 
@@ -308,46 +308,6 @@
                 contadorImagenes++;
             }
         );
-
-        $(".btn-img-product").on("click", function(){
-            handlerDeleteImageProduct(this);
-        });
-
-        $("#cboCategorias").on("select2:select", function (event) {
-            var formDataCategory = new FormData();
-
-            formDataCategory.append("id_categoria", event.params.data.id);
-            var request = $.ajax({
-                url: "<?php echo $modulo->url_main_panel."/products/ajax/getSubCategorys"; ?>",
-                method: "POST",
-                data: formDataCategory,
-                dataType: "json",
-                processData: false,
-                contentType: false
-            });
-
-            request.done(function( response ) {
-                waitingDialog.hide();
-                $("#cboSubCategorias").empty();
-                // $("#cboSubCategorias").val("").trigger("change");
-                var html = "<option selected='selected' value=''>Seleccione</option>";
-                if (response.status) {
-                    for (var i=0; i < response.data.length; i++) {
-                        html += "<option value='" + response.data[i].id_categoria + "'>" + response.data[i].nombre_categoria + "</option>";
-                    }
-                }
-                $("#cboSubCategorias").append(html);
-            });
-
-            request.fail(function( jqXHR, textStatus ) {
-                waitingDialog.hide();
-                GenericModal.show("danger", "<p>" + textStatus + "</p>");
-            });
-        });
-
-        $("#cboSubCategorias").on("select2:select", function (event) {
-            // alert($(this).val() + " " + event.params.data.id);
-        });
 
         $("#btnAddMoficador").on("click", function(event) {
             event.preventDefault();
@@ -396,11 +356,11 @@
                                     var html = "<tr data-modifier-type='" + tipoModificador + "' data-modifier-name='" + nombreModificador + "' " +
                                         "data-modifier-cost='" + costoModificador + "'><td>" + indexRow + ".</td><td>" + tipoModificador +
                                         "</td><td>" + nombreModificador + "</td><td>" + ((costoModificador) ? costoModificador : 0) + "</td>" +
-                                        "<td><button class='btn-delete' data-action-delete='delete-data' data-id-modifier='" + contadorModificadores + "'><i class='fa fa-remove'></i></button></td> </tr>";
+                                        "<td><button class='btn-modifier-product btn-delete' data-action-delete='delete-data' data-id-modifier='" + contadorModificadores + "'><i class='fa fa-remove'></i></button></td> </tr>";
 
                                     html = $(html);
 
-                                    html.find(".btn-delete").on("click", function(event) {
+                                    html.find(".btn-modifier-product").on("click", function(event) {
                                         event.preventDefault();
                                         handlerDeleteModifier(this);
                                     });

@@ -158,7 +158,7 @@
                                                             <td><?php echo $modifier->tipo_modificador; ?></td>
                                                             <td><?php echo $modifier->descripcion_modificador; ?></td>
                                                             <td><?php echo $modifier->costo_modificador; ?></td>
-                                                            <td><button class='btn-modifier-product btn-delete' data-action-delete='delete-resource' data-id-modifier='<?php echo $modifier->id_modificador_productos; ?>'><i class='fa fa-remove'></i></button></td>
+                                                            <td><button class='btn-modifier-product btn-delete' data-action-delete='delete-modifier' data-id-modifier='<?php echo $modifier->id_modificador_productos; ?>'><i class='fa fa-remove'></i></button></td>
                                                         </tr>
                                                         <?php $index++; ?>
                                                     <?php endforeach; ?>
@@ -195,7 +195,7 @@
                                 <?php foreach($modulo->data_galeria_producto as $imagen): ?>
                                     <div class="box-image-product" style="background-image:url(<?php echo $imagen->url_archivo; ?>);">
                                         <div class="box-action-button">
-                                            <button class="btn-img-product btn-delete" data-action-delete="delete-resource" data-id-img="<?php echo intval($imagen->id_archivo); ?>" title="Eliminar">
+                                            <button class="btn-img-product btn-delete" data-action-delete="delete-modifier" data-id-img="<?php echo intval($imagen->id_archivo); ?>" title="Eliminar">
                                                 <i class="fa fa-remove"></i>
                                             </button>
                                         </div>
@@ -240,8 +240,10 @@
 
         var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboCategoria", "#cboTienda"];
         var listFileImageProducts = [];
+        var listModifiers = [];
         var formDataProduct = new FormData();
         var objFile = {};
+        var objModifier = {};
         var contadorImagenes = 0;
         var contadorModificadores = 0;
 
@@ -256,7 +258,7 @@
                 }
                 console.log(listFileImageProducts);
             } else if ($(btn).attr("data-action-delete") == "delete-resource") {
-                waitingDialog.show('Eliminado Imagen...');
+                waitingDialog.show('Eliminando Imagen...');
                 var formData = new FormData();
                 formData.append("id_image_product", $(btn).attr("data-id-img"));
                 formData.append("id_product", $("#id_producto").val());
@@ -273,6 +275,73 @@
                     waitingDialog.hide();
                     if (response.status) {
                         $(btn).parent().parent().hide();
+                        GenericModal.show("default", "<p>" + response.message + "</p>");
+                    } else {
+                        GenericModal.show("danger", "<p>" + response.message + "</p>");
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    waitingDialog.hide();
+                    GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                });
+            }
+        }
+
+        function handlerDeleteModifier(btn) {
+            if ($(btn).attr("data-action-delete") == "delete-data") {
+                $(btn).parent().parent().hide(function(){
+                    $(btn).parent().parent().remove();
+                    var newIndex = 1;
+                    $(".table-modifiers tbody tr").each(function(index) {
+                        if ($(this).attr("data-modifier-type")) {
+                            console.log($(this).children().first());
+                            $(this).children().first().html("" + newIndex);
+                            newIndex++;
+                        }
+                    });
+                });
+                for (var c = 0; c < listModifiers.length; c++) {
+                    if ( listModifiers[c].id == $(btn).attr("data-id-modifier") ) {
+                        listModifiers.splice(c,1);
+                        break;
+                    }
+                }
+                console.log(listFileImageProducts);
+            } else if ($(btn).attr("data-action-delete") == "delete-modifier") {
+                waitingDialog.show('Eliminando Modificador...');
+                var formData = new FormData();
+                formData.append("id_modifier", $(btn).attr("data-id-modifier"));
+                formData.append("id_product", $("#id_producto").val());
+                var request = $.ajax({
+                    url: "<?php echo $modulo->url_module_panel."/ajax/deleteModifierProduct"; ?>",
+                    method: "POST",
+                    data: formData,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false
+                });
+
+                request.done(function( response ) {
+                    waitingDialog.hide();
+                    if (response.status) {
+                        $(btn).parent().parent().hide(function(){
+                            $(btn).parent().parent().remove();
+                            var newIndex = 1;
+                            $(".table-modifiers tbody tr").each(function(index) {
+                                if ($(this).attr("data-modifier-type")) {
+                                    console.log($(this).children().first());
+                                    $(this).children().first().html("" + newIndex);
+                                    newIndex++;
+                                }
+                            });
+                        });
+                        for (var c = 0; c < listModifiers.length; c++) {
+                            if ( listModifiers[c].id == $(btn).attr("data-id-modifier") ) {
+                                listModifiers.splice(c,1);
+                                break;
+                            }
+                        }
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                     } else {
                         GenericModal.show("danger", "<p>" + response.message + "</p>");
@@ -371,49 +440,14 @@
             }
         );
 
-        $(".btn-img-product").on("click", function(){
+        $(".btn-img-product").on("click", function(event) {
+            event.preventDefault();
             handlerDeleteImageProduct(this);
         });
 
         $(".btn-modifier-product").on("click", function(event) {
             event.preventDefault();
             handlerDeleteModifier(this);
-        });
-
-        $("#cboCategorias").on("select2:select", function (event) {
-            var formDataCategory = new FormData();
-
-            formDataCategory.append("id_categoria", event.params.data.id);
-            var request = $.ajax({
-                url: "<?php echo $modulo->url_main_panel."/products/ajax/getSubCategorys"; ?>",
-                method: "POST",
-                data: formDataCategory,
-                dataType: "json",
-                processData: false,
-                contentType: false
-            });
-
-            request.done(function( response ) {
-                waitingDialog.hide();
-                $("#cboSubCategorias").empty();
-                // $("#cboSubCategorias").val("").trigger("change");
-                var html = "<option selected='selected' value=''>Seleccione</option>";
-                if (response.status) {
-                    for (var i=0; i < response.data.length; i++) {
-                        html += "<option value='" + response.data[i].id_categoria + "'>" + response.data[i].nombre_categoria + "</option>";
-                    }
-                }
-                $("#cboSubCategorias").append(html);
-            });
-
-            request.fail(function( jqXHR, textStatus ) {
-                waitingDialog.hide();
-                GenericModal.show("danger", "<p>" + textStatus + "</p>");
-            });
-        });
-
-        $("#cboSubCategorias").on("select2:select", function (event) {
-            // alert($(this).val() + " " + event.params.data.id);
         });
 
         $("#btnAddMoficador").on("click", function(event) {
@@ -467,7 +501,7 @@
 
                                     html = $(html);
 
-                                    html.find(".btn-delete").on("click", function(event) {
+                                    html.find(".btn-modifier-product").on("click", function(event) {
                                         event.preventDefault();
                                         handlerDeleteModifier(this);
                                     });
