@@ -349,9 +349,12 @@ class C_CompanyAdmin_Product extends CI_Controller {
                             )
                         );
                         $indexImageProduct = 0;
+                        var_dump($lastImageProduct);
                         if (sizeof($lastImageProduct) > 0) {
                             echo "SE ENCONTRO GALEGRIA<br>";
-                            $indexImageProduct = intval(substr($lastImageProduct[0]->nombre_archivo, strpos($lastImageProduct[0]->nombre_archivo, "_")));
+                            $strpos = strpos($lastImageProduct[0]->nombre_archivo, "_");
+                            echo $strpos."<br>";
+                            $indexImageProduct = substr($lastImageProduct[0]->nombre_archivo, $strpos);
                             echo $indexImageProduct."<br>";
                             $indexImageProduct++;
                             echo $indexImageProduct."<br>";
@@ -367,7 +370,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                                         'url_archivo'      => $path,
                                         'tipo_archivo'     => "image/png",
                                         'relacion_recurso' => "galeria",
-                                        'nombre_archivo'   => "imagen_$i"
+                                        'nombre_archivo'   => "imagen_$indexImageProduct"
                                     )
                                 );
 
