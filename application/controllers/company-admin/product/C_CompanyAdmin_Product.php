@@ -95,11 +95,11 @@ class C_CompanyAdmin_Product extends CI_Controller {
     public function editProduct($id_producto) {
         $modulo = $this->paneladmin->loadPanelCompany();
         $modulo->menu = array("menu" => 2, "submenu" => 0);
-        $modulo->titulo_pagina = $modulo->datos_empresa->nombre_empresa." | Panel Administrativo - Editar Producto";
+        $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Editar Producto";
 
         $datosProducto = $this->M_CompanyAdmin_Product->getProductByID(
             array(
-                "id_empresa"  => $this->session->id_empresa,
+                "id_tienda"  => $this->session->id_empresa,
                 "id_producto" => $id_producto
             ));
 

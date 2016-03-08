@@ -83,7 +83,7 @@ class M_CompanyAdmin_Product extends CI_Model {
 
     public function getProductByID($data_producto) {
         $this->db->join('Catalogo_Productos', 'Catalogo_Productos.id_producto = Producto.id_producto');
-        $this->db->where('Catalogo_Productos.id_empresa', $data_producto["id_empresa"] );
+        $this->db->where('Catalogo_Productos.id_tienda', $data_producto["id_tienda"] );
         $this->db->where('Producto.id_producto', $data_producto["id_producto"]);
         $this->db->where('Producto.estado', '1');
         $query = $this->db->get('Producto');
