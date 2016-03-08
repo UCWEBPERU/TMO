@@ -226,8 +226,6 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
                         for ($i=0; $i < $totalImages; $i++) {
                             if ( $this->uploadfile->validateFile("file_$i") ) {
-                                $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
-
                                 $path = "uploads/company/".$this->session->id_empresa."/products/".$resultIDProducto."/gallery/";
 
                                 $path = $this->uploadfile->upload("file_$i", "imagen_$i", $path);
@@ -345,10 +343,14 @@ class C_CompanyAdmin_Product extends CI_Controller {
                     $totalImages = intval(trim($this->input->post("totalImages", TRUE)));
                     if ( $totalImages > 0) {
                         $this->load->library('utils/UploadFile');
-                        $lastImageProduct = $this->M_CompanyAdmin_Product->getLastImageProduct($this->session->id_empresa);
+                        $lastImageProduct = $this->M_CompanyAdmin_Product->getLastImageProduct(
+                            array(
+                                'id_producto' => intval(trim($this->input->post("id_product", TRUE)))
+                            )
+                        );
                         $indexImageProduct = 0;
                         if (sizeof($lastImageProduct) > 0) {
-                            $indexImageProduct = intval($lastImageProduct[0]->id_archivo);
+                            $indexImageProduct = intval(substr($lastImageProduct[0]->nombre_archivo, strpos($lastImageProduct[0]->nombre_archivo, "_")));
                         }
                         for ($i=0; $i < $totalImages; $i++, $indexImageProduct++) {
                             if ( $this->uploadfile->validateFile("file_$i") ) {
