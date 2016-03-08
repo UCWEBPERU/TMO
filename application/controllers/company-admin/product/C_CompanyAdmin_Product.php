@@ -315,8 +315,8 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 foreach ($listaTiendas as $tienda) {
                     $result = $this->M_CompanyAdmin_Product->insertDatosCatalogoProductos(
                         array(
-                            'id_tienda'   => $tienda,
-                            'id_producto' => $resultIDProducto
+                            'id_tienda'   => intval($tienda),
+                            'id_producto' => trim($this->input->post("id_product", TRUE))
                         )
                     );
                 }
