@@ -350,7 +350,11 @@ class C_CompanyAdmin_Product extends CI_Controller {
                         );
                         $indexImageProduct = 0;
                         if (sizeof($lastImageProduct) > 0) {
+                            echo "SE ENCONTRO GALEGRIA<br>";
                             $indexImageProduct = intval(substr($lastImageProduct[0]->nombre_archivo, strpos($lastImageProduct[0]->nombre_archivo, "_")));
+                            echo $indexImageProduct."<br>";
+                            $indexImageProduct++;
+                            echo $indexImageProduct."<br>";
                         }
                         for ($i=0; $i < $totalImages; $i++, $indexImageProduct++) {
                             if ( $this->uploadfile->validateFile("file_$i") ) {
