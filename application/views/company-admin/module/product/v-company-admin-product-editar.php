@@ -375,7 +375,7 @@
             handlerDeleteImageProduct(this);
         });
 
-        $".btn-modifier-product").on("click", function(event) {
+        $(".btn-modifier-product").on("click", function(event) {
             event.preventDefault();
             handlerDeleteModifier(this);
         });
