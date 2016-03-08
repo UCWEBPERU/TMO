@@ -200,7 +200,7 @@
                     }
                 }
                 var newIndex = 1;
-                $.each(".table-modifiers tbody tr", function(index) {
+                $(".table-modifiers tbody tr").each(function(index) {
                     if ($(this).attr("data-modifier-type")) {
                         $(this).first().html("" + newIndex);
                         newIndex++;
