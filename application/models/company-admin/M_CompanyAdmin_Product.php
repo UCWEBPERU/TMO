@@ -21,6 +21,7 @@ class M_CompanyAdmin_Product extends CI_Model {
         $this->db->where('Empresa.estado', '1');
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
+        $this->db->group_by('Catalogo_Productos.id_producto');
         $this->db->limit($limit, $start);
         $query = $this->db->get('Empresa');
 
