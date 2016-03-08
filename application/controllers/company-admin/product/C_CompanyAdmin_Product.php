@@ -148,7 +148,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         }
 
         $data["modulo"] = $modulo;
-        $this->load->view('company-admin/module/productos/v-company-admin-productos-editar', $data);
+        $this->load->view('company-admin/module/product/v-company-admin-productos-editar', $data);
     }
 
     /* <---------------- AJAX ----------------> */
