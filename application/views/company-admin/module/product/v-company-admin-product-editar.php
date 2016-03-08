@@ -376,6 +376,7 @@
             if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
                 waitingDialog.show('Guardando Producto...');
 
+                formDataProduct.append("id_product",             $("#id_producto").val());
                 formDataProduct.append("txtNombreProducto",      $("#txtNombreProducto").val());
                 formDataProduct.append("txtDescripcionProducto", $("#txtDescripcionProducto").val());
                 formDataProduct.append("txtStockProducto",       $("#txtStockProducto").val());
