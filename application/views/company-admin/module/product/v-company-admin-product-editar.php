@@ -87,18 +87,18 @@
                                             <select class="form-control select2" style="width: 100%;" id="cboTienda" name="cboTienda" multiple="multiple" data-parsley-required data-parsley-required-message="Seleccione una tienda.">
                                                 <?php if ($modulo->existe_producto) { ?>
                                                     <?php $findTienda = FALSE; ?>
-                                                    <?php foreach($modulo->data_tiendas as $tienda): ?>
-                                                        <?php foreach($modulo->data_tiendas_producto as $tienda_producto): ?>
+                                                    <?php foreach($modulo->data_tiendas as $tienda) { ?>
+                                                        <?php foreach($modulo->data_tiendas_producto as $tienda_producto) { ?>
                                                             <?php if ($tienda->id_tienda == $tienda_producto->id_tienda) { ?>
                                                                 <option value="<?php echo $tienda->id_tienda; ?>" selected="selected"><?php echo $tienda->nombre_tienda; ?></option>
                                                                 <?php $findTienda = TRUE; ?>
                                                             <?php } ?>
-                                                        <?php endforeach; ?>
+                                                        <?php } ?>
                                                         <?php if (!$findTienda) { ?>
                                                             <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
                                                             <?php $findTienda = FALSE; ?>
                                                         <?php } ?>
-                                                    <?php endforeach; ?>
+                                                    <?php } ?>
                                                 <?php } else { ?>
                                                     <?php foreach($modulo->data_tiendas as $tienda): ?>
                                                         <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
