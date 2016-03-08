@@ -192,6 +192,14 @@
             if ($(btn).attr("data-action-delete") == "delete-data") {
                 $(btn).parent().parent().hide(function(){
                     $(btn).parent().parent().remove();
+                    var newIndex = 1;
+                    $(".table-modifiers tbody tr").each(function(index) {
+                        if ($(this).attr("data-modifier-type")) {
+                            console.log($(this).children().first());
+                            $(this).children().first().html("" + newIndex);
+                            newIndex++;
+                        }
+                    });
                 });
                 for (var c = 0; c < listModifiers.length; c++) {
                     if ( listModifiers[c].id == $(btn).attr("data-id-modifier") ) {
@@ -199,14 +207,6 @@
                         break;
                     }
                 }
-                var newIndex = 1;
-                $(".table-modifiers tbody tr").each(function(index) {
-                    if ($(this).attr("data-modifier-type")) {
-                        console.log($(this).children().first());
-                        $(this).children().first().html("" + newIndex);
-                        newIndex++;
-                    }
-                });
                 console.log(listFileImageProducts);
             }
         }
