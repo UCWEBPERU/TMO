@@ -233,3 +233,7 @@
     vertical-align: middle;
 }
 
+.table-products tbody tr td:first-child {
+    width: 50px;
+}
+
