@@ -80,8 +80,6 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <?php var_dump($modulo->data_tiendas); ?>
-                                        <?php var_dump($modulo->data_tiendas_producto); ?>
                                         <div class="form-group">
                                             <label for="cboTienda">Tienda</label>
                                             <select class="form-control select2" style="width: 100%;" id="cboTienda" name="cboTienda" multiple="multiple" data-parsley-required data-parsley-required-message="Seleccione una tienda.">
