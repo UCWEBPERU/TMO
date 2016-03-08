@@ -102,7 +102,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         $datosProducto = $this->M_CompanyAdmin_Product->getProductByID(
             array(
-                "id_tienda"  => $this->session->id_empresa,
+                "id_empresa"  => $this->session->id_empresa,
                 "id_producto" => $id_producto
             ));
 
