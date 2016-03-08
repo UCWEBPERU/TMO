@@ -3,7 +3,7 @@
 	foreach ($modulo->registros as $modeloRow) { ?>
 
 		<tr>
-			<td><img class="" src="<?php echo $modeloRow->galeria_producto[0]->url_archivo; ?>" alt="Imagen Producto" title="Imagen Producto"></td>
+			<td><div class="thumb-list-product" style="background-image: url('<?php echo $modeloRow->galeria_producto[0]->url_archivo; ?>');" alt="Imagen Producto" title="Imagen Producto"></div></td>
 			<td><?php echo intval($modeloRow->id_producto); ?></td>
 			<td><?php echo $modeloRow->nombre_producto; ?></td>
 			<td><?php echo $modeloRow->descripcion_producto; ?></td>
