@@ -76,8 +76,8 @@
                                             <label for="cboTienda">Tienda</label>
                                             <select class="form-control select2" style="width: 100%;" id="cboTienda" name="cboTienda" multiple="multiple" data-parsley-required data-parsley-required-message="Seleccione una tienda.">
                                                 <?php if ($modulo->existe_producto) { ?>
+                                                    <?php $findTienda = FALSE; ?>
                                                     <?php foreach($modulo->data_tiendas as $tienda): ?>
-                                                        <?php $findTienda = FALSE; ?>
                                                         <?php foreach($modulo->data_tiendas_producto as $tienda_producto): ?>
                                                             <?php if ($tienda->id_tienda == $tienda_producto->id_tienda) { ?>
                                                                 <option value="<?php echo $tienda->id_tienda; ?>" selected="selected"><?php echo $tienda->nombre_tienda; ?></option>
@@ -159,6 +159,17 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body box-galery-products">
+                            <?php if ($modulo->existe_producto) { ?>
+                                <?php foreach($modulo->data_galeria_producto as $imagen): ?>
+                                    <div class="box-image-product" style="<?php echo $imagen->url_archivo; ?>">
+                                        <div class="box-action-button">
+                                            <button class="btn-img-product btn-delete" data-action-delete="delete-resource" data-id-img="<?php echo intval($imagen->id_archivo); ?>" title="Eliminar">
+                                                <i class="fa fa-remove"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php }?>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                             <div class="btn button-effect-1 btn-file">
