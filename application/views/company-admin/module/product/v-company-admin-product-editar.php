@@ -195,7 +195,7 @@
                                 <?php foreach($modulo->data_galeria_producto as $imagen): ?>
                                     <div class="box-image-product" style="background-image:url(<?php echo $imagen->url_archivo; ?>);">
                                         <div class="box-action-button">
-                                            <button class="btn-img-product btn-delete" data-action-delete="delete-modifier" data-id-img="<?php echo intval($imagen->id_archivo); ?>" title="Eliminar">
+                                            <button class="btn-img-product btn-delete" data-action-delete="delete-resource" data-id-img="<?php echo intval($imagen->id_archivo); ?>" title="Eliminar">
                                                 <i class="fa fa-remove"></i>
                                             </button>
                                         </div>
