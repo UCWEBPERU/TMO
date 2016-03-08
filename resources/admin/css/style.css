@@ -61,7 +61,8 @@
 
 .box-galery-products .box-image-product .box-action-button .btn-delete,
 .table-modifiers tbody tr td button.btn-delete {
-    background-color: #fc0836;
+    /*background-color: #fc0836;*/
+    background-color: #ba3e3e;
 }
 
 .box-logo-store .logo-store-inner:hover .logo-store-hint,
@@ -148,7 +149,9 @@
 }
 
 .boxCategory > .box-tools > .btn-box-tool-delete:hover {
-    color: #fc0836;
+    /*color: #fc0836;*/
+    color: #ba3e3e;
+    /*color: #b73e3e;*/
 }
 
 .button-effect-1 {
