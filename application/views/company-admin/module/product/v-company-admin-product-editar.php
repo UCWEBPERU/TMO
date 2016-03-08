@@ -94,6 +94,8 @@
                                                                 <?php $findTienda = TRUE; ?>
                                                             <?php } ?>
                                                         <?php } ?>
+                                                        <?php var_dump($findTienda); ?>
+                                                        <?php var_dump(!$findTienda); ?>
                                                         <?php if (!$findTienda) { ?>
                                                             <option value="<?php echo $tienda->id_tienda; ?>"><?php echo $tienda->nombre_tienda; ?></option>
                                                             <?php $findTienda = FALSE; ?>
