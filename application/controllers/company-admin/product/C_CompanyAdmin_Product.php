@@ -273,7 +273,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        if ( $this->input->post("id_producto") &&
+        if ( $this->input->post("id_product") &&
             $this->input->post("txtNombreProducto") &&
             $this->input->post("txtDescripcionProducto") &&
             $this->input->post("txtStockProducto") &&
@@ -381,8 +381,6 @@ class C_CompanyAdmin_Product extends CI_Controller {
         } else {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
         }
-
-        var_dump($this->input->post());
 
         echo json_encode($json);
     }
