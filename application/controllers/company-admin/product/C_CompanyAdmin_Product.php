@@ -53,6 +53,15 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $page = ($this->uri->segment(6)) ? $this->uri->segment(6) : 1;
 
         $modulo->registros = $this->M_CompanyAdmin_Product->fetchProduct($config["per_page"], ($page - 1) * 15, $this->session->id_empresa);
+
+        foreach( $modulo->registros as $producto ) {
+            $galeriaProducto = $this->M_CompanyAdmin_Product->getGalleryByProduct(
+                array(
+                    "id_producto" => $producto->id_producto
+                ));
+            $producto->galeria_producto = $galeriaProducto;
+        }
+
         $str_links = $this->pagination->create_links();
         $modulo->links = explode('&nbsp;',$str_links);
 

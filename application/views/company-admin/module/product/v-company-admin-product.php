@@ -47,8 +47,8 @@
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tr>
+                                    <th></th>
                                     <th>ID</th>
-
                                     <?php foreach ($modulo->cabecera_registro as $nombreCabecera) { ?>
                                         <th><?php echo $nombreCabecera; ?></th>
                                     <?php } ?>
