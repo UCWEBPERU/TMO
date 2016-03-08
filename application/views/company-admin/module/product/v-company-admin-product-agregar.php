@@ -98,11 +98,13 @@
                                                     <th style="width: 10px">#</th>
                                                     <th>Tipo</th>
                                                     <th>Nombre</th>
-                                                    <th style="width: 40px">Costo</th>
+                                                    <th>Costo</th>
+                                                    <th></th>
                                                 </tr>
                                                 <tr>
                                                     <td><i class="fa fa-chevron-right"></i></td>
                                                     <td><a href="#" id="btnAddMoficador"><span class="label label-primary">Agregar modificador</span></a></td>
+                                                    <td></td>
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
@@ -166,8 +168,10 @@
 
         var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboCategoria", "#cboTienda"];
         var listFileImageProducts = [];
+        var listModifiers = [];
         var formDataProduct = new FormData();
         var objFile = {};
+        var objModifier = {};
         var contadorImagenes = 0;
         var contadorModificadores = 0;
 
@@ -184,10 +188,31 @@
             }
         }
 
+        function handlerDeleteModifier(btn) {
+            if ($(btn).attr("data-action-delete") == "delete-data") {
+                $(btn).parent().parent().hide();
+                for (var c = 0; c < listModifiers.length; c++) {
+                    if ( listModifiers[c].id == $(btn).attr("data-id-modifier") ) {
+                        listModifiers.splice(c,1);
+                        break;
+                    }
+                }
+                console.log(listFileImageProducts);
+            }
+        }
+
         function loadImagesProduct() {
             for (var c = 0; c < listFileImageProducts.length; c++) {
                 formDataProduct.append("file_" + c, listFileImageProducts[c].file);
                 console.log("Nombre File" + "file_" + c);
+            }
+        }
+
+        function loadModifier() {
+            for (var c = 0; c < listModifiers.length; c++) {
+                formDataProduct.append("modifier_" + c + "_type", listFileImageProducts[c].type);
+                formDataProduct.append("modifier_" + c + "_name", listFileImageProducts[c].name);
+                formDataProduct.append("modifier_" + c + "_cost", (listFileImageProducts[c].cost) ? listFileImageProducts[c].cost : 0);
             }
         }
 
@@ -206,6 +231,7 @@
                 formDataProduct.append("totalImages",            listFileImageProducts.length);
                 formDataProduct.append("totalModifiers",         contadorModificadores);
                 loadImagesProduct();
+                loadModifier();
 
                 var request = $.ajax({
                     url: "<?php echo $modulo->url_main_panel."/product/ajax/addProduct"; ?>",
@@ -219,8 +245,10 @@
                 request.done(function( response ) {
                     waitingDialog.hide();
                     listFileImageProducts = [];
+                    listModifiers = [];
                     formDataProduct = new FormData();
                     objFile = {};
+                    objModifier = {};
                     contadorImagenes = 0;
                     contadorModificadores = 0;
                     if (response.status) {
@@ -233,8 +261,10 @@
                 request.fail(function( jqXHR, textStatus ) {
                     waitingDialog.hide();
                     listFileImageProducts = [];
+                    listModifiers = [];
                     formDataProduct = new FormData();
                     objFile = {};
+                    objModifier = {};
                     contadorImagenes = 0;
                     contadorModificadores = 0;
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
@@ -260,7 +290,7 @@
 
                 html = $(html);
 
-                html.find(".btn-img-product").on("click", function(){
+                html.find(".btn-delete").on("click", function(){
                     handlerDeleteImageProduct(this);
                 });
 
@@ -349,22 +379,33 @@
                                 },
                                 function(costoModificador) {
                                     console.log(typeof costoModificador + "");
-                                    contadorModificadores = $(".table-modifiers tbody tr").length - 2 + 1;
+                                    var indexRow = $(".table-modifiers tbody tr").length - 2 + 1;
 
                                     swal("Modificador agregado!", tipoModificador + ": " + nombreModificador, "success");
 
                                     var html = "<tr data-modifier-type='" + tipoModificador + "' data-modifier-name='" + nombreModificador + "' " +
-                                        "data-modifier-cost='" + costoModificador + "'><td>" + contadorModificadores + ".</td><td>" + tipoModificador +
-                                        "</td><td>" + nombreModificador + "</td><td>" + ((costoModificador) ? costoModificador : 0) + "</td></tr>";
+                                        "data-modifier-cost='" + costoModificador + "'><td>" + indexRow + ".</td><td>" + tipoModificador +
+                                        "</td><td>" + nombreModificador + "</td><td>" + ((costoModificador) ? costoModificador : 0) + "</td>" +
+                                        "<td><a class='btn-delete' data-action-delete='delete-data' data-id-modifier='" + contadorModificadores + "' href='#'><i class='fa fa-remove'></i></a></td> </tr>";
+
+                                    html = $(html);
+
+                                    html.find(".btn-delete").on("click", function(){
+                                        handlerDeleteModifier(this);
+                                    });
 
                                     $(".table-modifiers tbody tr").last().before(html);
 
-                                    formDataProduct.append("modifier_" + contadorModificadores + "_type", tipoModificador);
-                                    formDataProduct.append("modifier_" + contadorModificadores + "_name", nombreModificador);
-                                    formDataProduct.append("modifier_" + contadorModificadores + "_cost", (costoModificador) ? costoModificador : 0);
+                                    objModifier = {
+                                        "id":   contadorModificadores,
+                                        "type": tipoModificador,
+                                        "name": nombreModificador,
+                                        "cost": (costoModificador) ? costoModificador : 0
+                                    }
+                                    listModifiers.push(objModifier);
 
+                                    contadorModificadores++;
                                     console.log(formDataProduct);
-                                    console.log($(".table-modifiers tbody tr").last());
                                 }
                             );
                         }
