@@ -174,9 +174,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
             $this->input->post("txtStockProducto") &&
             $this->input->post("txtPrecioProducto") &&
             $this->input->post("cboCategoria") &&
-            $this->input->post("cboTienda") &&
-            $this->input->post("totalImages") &&
-            $this->input->post("totalModifiers") ) {
+            $this->input->post("cboTienda") ) {
 
             $resultIDProducto = $this->M_CompanyAdmin_Product->insertDatosProducto(
                 array(
@@ -277,9 +275,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
             $this->input->post("txtStockProducto") &&
             $this->input->post("txtPrecioProducto") &&
             $this->input->post("cboCategoria") &&
-            $this->input->post("cboTienda") &&
-            $this->input->post("totalImages") &&
-            $this->input->post("totalModifiers") ) {
+            $this->input->post("cboTienda") ) {
 
             $resultIDProducto = $this->M_CompanyAdmin_Product->updateDatosProducto(
                 array(
