@@ -45,7 +45,7 @@
                             <h3 class="box-title"><?php echo $modulo->titulo_registro; ?></h3>
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
-                            <table class="table table-hover">
+                            <table class="table table-hover table-products">
                                 <tr>
                                     <th></th>
                                     <th>ID</th>

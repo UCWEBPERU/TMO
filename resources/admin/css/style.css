@@ -229,3 +229,7 @@
     background-position: 50%;
 }
 
+.table-products tr td {
+    vertical-align: middle;
+}
+
