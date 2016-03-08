@@ -386,7 +386,7 @@
                                     var html = "<tr data-modifier-type='" + tipoModificador + "' data-modifier-name='" + nombreModificador + "' " +
                                         "data-modifier-cost='" + costoModificador + "'><td>" + indexRow + ".</td><td>" + tipoModificador +
                                         "</td><td>" + nombreModificador + "</td><td>" + ((costoModificador) ? costoModificador : 0) + "</td>" +
-                                        "<td><a class='btn-delete' data-action-delete='delete-data' data-id-modifier='" + contadorModificadores + "' href='#'><i class='fa fa-remove'></i></a></td> </tr>";
+                                        "<td><button class='btn-delete' data-action-delete='delete-data' data-id-modifier='" + contadorModificadores + "'><i class='fa fa-remove'></i></button></td> </tr>";
 
                                     html = $(html);
 
