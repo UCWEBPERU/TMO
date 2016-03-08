@@ -390,7 +390,8 @@
 
                                     html = $(html);
 
-                                    html.find(".btn-delete").on("click", function(){
+                                    html.find(".btn-delete").on("click", function(event) {
+                                        event.preventDefault();
                                         handlerDeleteModifier(this);
                                     });
 
