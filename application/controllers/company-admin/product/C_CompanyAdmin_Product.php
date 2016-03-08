@@ -351,10 +351,11 @@ class C_CompanyAdmin_Product extends CI_Controller {
                         $indexImageProduct = 0;
                         var_dump($lastImageProduct);
                         if (sizeof($lastImageProduct) > 0) {
+                            $indexRow = sizeof($lastImageProduct) - 1;
                             echo "SE ENCONTRO GALEGRIA<br>";
-                            $strpos = strpos($lastImageProduct[0]->nombre_archivo, "_");
+                            $strpos = strpos($lastImageProduct[$indexRow]->nombre_archivo, "_");
                             echo $strpos."<br>";
-                            $indexImageProduct = substr($lastImageProduct[0]->nombre_archivo, $strpos);
+                            $indexImageProduct = substr($lastImageProduct[$indexRow]->nombre_archivo, $strpos);
                             echo $indexImageProduct."<br>";
                             $indexImageProduct++;
                             echo $indexImageProduct."<br>";
