@@ -233,6 +233,19 @@ class M_CompanyAdmin_Product extends CI_Model {
         return FALSE;
     }
 
+    public function deleteDatosCatalogoProductos($data_catalogo_producto) {
+        $data = array(
+            'id_tienda'   => $data_catalogo_producto["id_tienda"],
+            'id_producto' => $data_catalogo_producto["id_producto"]
+        );
+
+        if ($this->db->delete('Catalogo_Productos', $data)) {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
     public function insertGaleriaProducto($data_galeria_producto) {
         $data = array(
             'id_producto' => $data_galeria_producto["id_producto"],
