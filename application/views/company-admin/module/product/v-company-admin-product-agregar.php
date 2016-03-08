@@ -244,7 +244,7 @@
                 loadModifier();
 
                 var request = $.ajax({
-                    url: "<?php echo $modulo->url_main_panel."/product/ajax/addProduct"; ?>",
+                    url: "<?php echo $modulo->url_module_panel."/ajax/addProduct"; ?>",
                     method: "POST",
                     data: formDataProduct,
                     dataType: "json",

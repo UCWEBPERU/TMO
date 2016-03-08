@@ -16,13 +16,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Agregar Producto
+                Editar Producto
                 <small><a href="<?php echo $modulo->url_module_panel; ?>">Regresar</a></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <li><a href="<?php echo $modulo->url_module_panel; ?>"> Productos</a></li>
-                <li> Agregar</li>
+                <li> Editar</li>
             </ol>
         </section>
         <!-- Main content -->
@@ -178,7 +178,7 @@
 
                             </div><!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="button-effect-1" id="btnAgregar" >Actualizar</button>
+                                <button type="submit" class="button-effect-1" id="btnAgregar" >Guardar</button>
                             </div>
                         </form>
                     </div><!-- /.box -->
@@ -362,6 +362,14 @@
             }
         }
 
+        function loadModifier() {
+            for (var c = 0; c < listModifiers.length; c++) {
+                formDataProduct.append("modifier_" + c + "_type", listModifiers[c].type);
+                formDataProduct.append("modifier_" + c + "_name", listModifiers[c].name);
+                formDataProduct.append("modifier_" + c + "_cost", (listModifiers[c].cost) ? listModifiers[c].cost : 0);
+            }
+        }
+
         $("#btnAgregar").on("click", function(evt) {
             evt.preventDefault();
 
@@ -377,9 +385,10 @@
                 formDataProduct.append("totalImages",            listFileImageProducts.length);
                 formDataProduct.append("totalModifiers",         contadorModificadores);
                 loadImagesProduct();
+                loadModifier();
 
                 var request = $.ajax({
-                    url: "<?php echo $modulo->url_main_panel."/product/ajax/addProduct"; ?>",
+                    url: "<?php echo $modulo->url_module_panel."/ajax/editProduct"; ?>",
                     method: "POST",
                     data: formDataProduct,
                     dataType: "json",
@@ -390,8 +399,10 @@
                 request.done(function( response ) {
                     waitingDialog.hide();
                     listFileImageProducts = [];
+                    listModifiers = [];
                     formDataProduct = new FormData();
                     objFile = {};
+                    objModifier = {};
                     contadorImagenes = 0;
                     contadorModificadores = 0;
                     if (response.status) {
@@ -404,8 +415,10 @@
                 request.fail(function( jqXHR, textStatus ) {
                     waitingDialog.hide();
                     listFileImageProducts = [];
+                    listModifiers = [];
                     formDataProduct = new FormData();
                     objFile = {};
+                    objModifier = {};
                     contadorImagenes = 0;
                     contadorModificadores = 0;
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
