@@ -50,13 +50,17 @@
     border: none;
 }
 
+.table-modifiers tbody tr td button.btn-delete {
+    border: none;
+}
+
 .box-galery-products .box-image-product .box-action-button .btn-img-product .fa,
 .table-modifiers tbody tr td button .fa {
     color: #fff;
 }
 
 .box-galery-products .box-image-product .box-action-button .btn-delete,
-.table-modifiers tbody tr td button.btn-delete .fa {
+.table-modifiers tbody tr td button.btn-delete {
     background-color: #fc0836;
 }
 
