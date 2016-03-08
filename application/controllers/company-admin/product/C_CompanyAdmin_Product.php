@@ -200,7 +200,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 }
 
                 if ($this->input->post("totalModifiers")) {
-                    for ($c = 0; $c <= trim($this->input->post("totalModifiers", TRUE)); $c++) {
+                    for ($c = 0; $c < trim($this->input->post("totalModifiers", TRUE)); $c++) {
                         $result = $this->M_CompanyAdmin_Product->insertModificadorProductos(
                             array(
                                 'tipo_modificador' => trim($this->input->post("modifier_".$c."_type", TRUE))
@@ -224,7 +224,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                     if ( $totalImages > 0) {
                         $this->load->library('utils/UploadFile');
 
-                        for ($i=0; $i <= $totalImages; $i++) {
+                        for ($i=0; $i < $totalImages; $i++) {
                             if ( $this->uploadfile->validateFile("file_$i") ) {
                                 $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
 
@@ -322,7 +322,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 }
 
                 if ($this->input->post("totalModifiers")) {
-                    for ($c = 0; $c <= trim($this->input->post("totalModifiers", TRUE)); $c++) {
+                    for ($c = 0; $c < trim($this->input->post("totalModifiers", TRUE)); $c++) {
                         $result = $this->M_CompanyAdmin_Product->insertModificadorProductos(
                             array(
                                 'tipo_modificador' => trim($this->input->post("modifier_".$c."_type", TRUE))
@@ -346,7 +346,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                     if ( $totalImages > 0) {
                         $this->load->library('utils/UploadFile');
 
-                        for ($i=0; $i <= $totalImages; $i++) {
+                        for ($i=0; $i < $totalImages; $i++) {
                             if ( $this->uploadfile->validateFile("file_$i") ) {
                                 $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
 

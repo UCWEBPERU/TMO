@@ -3,7 +3,11 @@
 	foreach ($modulo->registros as $modeloRow) { ?>
 
 		<tr>
-			<td><div class="thumb-list-product" style="background-image: url('<?php echo $modeloRow->galeria_producto[0]->url_archivo; ?>');" alt="Imagen Producto" title="Imagen Producto"></div></td>
+			<?php if (sizeof($modeloRow->galeria_producto) > 0) { ?>
+				<td><div class="thumb-list-product" style="background-image: url('<?php echo $modeloRow->galeria_producto[0]->url_archivo; ?>');" alt="Imagen Producto" title="Imagen Producto"></div></td>
+			<?php } else { ?>
+				<td><div class="thumb-list-product" style="background-image: url('<?php echo base_url().PATH_RESOURCE_ADMIN."/img/image_not_found.png"; ?>');" alt="Imagen Producto" title="Imagen Producto"></div></td>
+			<?php } ?>
 			<td><?php echo intval($modeloRow->id_producto); ?></td>
 			<td><?php echo $modeloRow->nombre_producto; ?></td>
 			<td><?php echo $modeloRow->descripcion_producto; ?></td>
