@@ -106,10 +106,20 @@
                                         <div class="form-group">
                                             <label for="cboCategoria">Categoria</label>
                                             <select class="form-control select2" style="width: 100%;" id="cboCategoria" name="cboCategoria" data-parsley-required data-parsley-required-message="Seleccione una categoria.">
-                                                <option selected="selected" value="">Seleccione</option>
-                                                <?php foreach($modulo->data_categorias as $categoria): ?>
-                                                    <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
-                                                <?php endforeach; ?>
+                                                <?php if ($modulo->existe_producto) { ?>
+                                                    <?php foreach($modulo->data_categorias as $categoria): ?>
+                                                        <?php if ($categoria->id_categoria == $modulo->data_producto->id_categoria) { ?>
+                                                            <option value="<?php echo $categoria->id_categoria; ?>" selected="selected"><?php echo $categoria->nombre_categoria; ?></option>
+                                                        <?php } else { ?>
+                                                            <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                                        <?php } ?>
+                                                    <?php endforeach; ?>
+                                                <?php } else { ?>
+                                                    <option selected="selected" value="">Seleccione</option>
+                                                    <?php foreach($modulo->data_categorias as $categoria): ?>
+                                                        <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                                    <?php endforeach; ?>
+                                                <?php } ?>
                                             </select>
                                         </div><!-- /.form-group -->
 
