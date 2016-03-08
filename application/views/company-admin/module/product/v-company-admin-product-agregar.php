@@ -190,7 +190,9 @@
 
         function handlerDeleteModifier(btn) {
             if ($(btn).attr("data-action-delete") == "delete-data") {
-                $(btn).parent().parent().hide();
+                $(btn).parent().parent().hide(function(){
+                    $(btn).parent().parent().remove();
+                });
                 for (var c = 0; c < listModifiers.length; c++) {
                     if ( listModifiers[c].id == $(btn).attr("data-id-modifier") ) {
                         listModifiers.splice(c,1);
