@@ -46,7 +46,7 @@
                                         <div class="form-group">
                                             <label for="txtNombreProducto">Nombre</label>
                                             <?php if ($modulo->existe_producto) { ?>
-                                                <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto" value="<?php echo $modulo->data_producto->nombre_producto; ?>" data-parsley-required data-parsley-required-message="Ingrese el nombre del producto.">
+                                                <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto" value=" sadsadas<?php echo $modulo->data_producto->nombre_producto; ?>" data-parsley-required data-parsley-required-message="Ingrese el nombre del producto.">
                                             <?php } else { ?>
                                                 <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto" data-parsley-required data-parsley-required-message="Ingrese el nombre del producto.">
                                             <?php } ?>
