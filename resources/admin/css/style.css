@@ -229,7 +229,7 @@
     background-position: 50%;
 }
 
-.table-products tr td {
+.table-products tbody tr td {
     vertical-align: middle;
 }
 
