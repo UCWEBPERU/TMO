@@ -206,47 +206,54 @@ $route['company/(:num)/admin/category/ajax/deleteCategory']  = 'company-admin/ca
 
 /*
 | ------------------------------
-| URL -> STORE ADMIN
+| URL -> COMPANY ADMIN - PRODUCTOS CATEGORY
 | ------------------------------
 */
-$route['store/(:num)/admin']	   = 'company-admin/C_StoreAdmin';
-$route['store/(:num)/admin/login'] = 'admin/C_Login';
-// $route['store/signIn']			   = 'company-admin/C_Login/signIn';
-// $route['store/signOut']			   = 'company-admin/C_Login/signOut';
+$route['company/(:num)/store/(:num)'] = 'store/C_Store/';
 
-/*
-| ------------------------------
-| URL -> STORE ADMIN - PERFIL EMPRESA
-| ------------------------------
-*/
-$route['store/(:num)/admin/perfil-store']                   = 'company-admin/module/empresa/C_StoreAdmin_Empresa';
-$route['store/(:num)/admin/perfil-store/updatePerfilStore'] = 'company-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosStore';
-$route['store/(:num)/admin/perfil-store/updatePayAccount']  = 'company-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosPayAccount';
-$route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'company-admin/module/empresa/C_StoreAdmin_Empresa/updateLogoStore';
-
-
-
-/*
-| ------------------------------
-| URL -> STORE ADMIN - PERFIL USUARIO
-| ------------------------------
-*/
-$route['store/(:num)/admin/user-profile']                        = 'company-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario';
-$route['store/(:num)/admin/user-profile/ajax/updateUserProfile'] = 'company-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserProfile';
-$route['store/(:num)/admin/user-profile/ajax/updateUserAccount'] = 'company-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserAccount';
-
-/*
-| ------------------------------
-| URL -> STORE ADMIN - PRODUCTOS
-| ------------------------------
-*/
-$route['store/(:num)/admin/products']                       = 'company-admin/module/productos/C_StoreAdmin_Productos';
-$route['store/(:num)/admin/products/page']                  = 'company-admin/module/productos/C_StoreAdmin_Productos';
-$route['store/(:num)/admin/products/page/(:num)']           = 'company-admin/module/productos/C_StoreAdmin_Productos';
-$route['store/(:num)/admin/products/add']                   = 'company-admin/module/productos/C_StoreAdmin_Productos/addProduct';
-$route['store/(:num)/admin/products/edit/(:num)']           = 'company-admin/module/productos/C_StoreAdmin_Productos/editProduct/$2';
-$route['store/(:num)/admin/products/ajax/addProduct']       = 'company-admin/module/productos/C_StoreAdmin_Productos/ajaxAddProduct';
-$route['store/(:num)/admin/products/ajax/getSubCategorys']  = 'company-admin/module/productos/C_StoreAdmin_Productos/ajaxGetSubCategorysByIDCategory';
+///*
+//| ------------------------------
+//| URL -> STORE ADMIN
+//| ------------------------------
+//*/
+//$route['store/(:num)/admin']	   = 'company-admin/C_StoreAdmin';
+//$route['store/(:num)/admin/login'] = 'admin/C_Login';
+//// $route['store/signIn']			   = 'company-admin/C_Login/signIn';
+//// $route['store/signOut']			   = 'company-admin/C_Login/signOut';
+//
+///*
+//| ------------------------------
+//| URL -> STORE ADMIN - PERFIL EMPRESA
+//| ------------------------------
+//*/
+//$route['store/(:num)/admin/perfil-store']                   = 'company-admin/module/empresa/C_StoreAdmin_Empresa';
+//$route['store/(:num)/admin/perfil-store/updatePerfilStore'] = 'company-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosStore';
+//$route['store/(:num)/admin/perfil-store/updatePayAccount']  = 'company-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosPayAccount';
+//$route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'company-admin/module/empresa/C_StoreAdmin_Empresa/updateLogoStore';
+//
+//
+//
+///*
+//| ------------------------------
+//| URL -> STORE ADMIN - PERFIL USUARIO
+//| ------------------------------
+//*/
+//$route['store/(:num)/admin/user-profile']                        = 'company-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario';
+//$route['store/(:num)/admin/user-profile/ajax/updateUserProfile'] = 'company-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserProfile';
+//$route['store/(:num)/admin/user-profile/ajax/updateUserAccount'] = 'company-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserAccount';
+//
+///*
+//| ------------------------------
+//| URL -> STORE ADMIN - PRODUCTOS
+//| ------------------------------
+//*/
+//$route['store/(:num)/admin/products']                       = 'company-admin/module/productos/C_StoreAdmin_Productos';
+//$route['store/(:num)/admin/products/page']                  = 'company-admin/module/productos/C_StoreAdmin_Productos';
+//$route['store/(:num)/admin/products/page/(:num)']           = 'company-admin/module/productos/C_StoreAdmin_Productos';
+//$route['store/(:num)/admin/products/add']                   = 'company-admin/module/productos/C_StoreAdmin_Productos/addProduct';
+//$route['store/(:num)/admin/products/edit/(:num)']           = 'company-admin/module/productos/C_StoreAdmin_Productos/editProduct/$2';
+//$route['store/(:num)/admin/products/ajax/addProduct']       = 'company-admin/module/productos/C_StoreAdmin_Productos/ajaxAddProduct';
+//$route['store/(:num)/admin/products/ajax/getSubCategorys']  = 'company-admin/module/productos/C_StoreAdmin_Productos/ajaxGetSubCategorysByIDCategory';
 
 /*
 | ------------------------------
