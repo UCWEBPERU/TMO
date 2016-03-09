@@ -208,7 +208,7 @@
                         <div class="box-footer">
                             <div class="btn button-effect-1 btn-file">
                                 <i class="fa fa-photo"></i> Upload new image
-                                <input type="file" id="btnAddImage">
+                                <input type="file" id="btnAddImage" accept="image/*">
                             </div>
                         </div>
                     </div><!-- /.box -->
