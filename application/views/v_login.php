@@ -51,20 +51,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<div class="row">
 					<div class="col-xs-8">
-						<div class="checkbox icheck">
-							<label>
-								<input type="checkbox"> Recordarme
-							</label>
-							
-						</div>
+<!--						<div class="checkbox icheck">-->
+<!--							<label>-->
+<!--								<input type="checkbox"> Recordarme-->
+<!--							</label>-->
+<!--						</div>-->
 					</div><!-- /.col -->
 					<div class="col-xs-4">
 						<button id="btnSignIn" type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
 					</div><!-- /.col -->
 				</div>
 				
-                <a href="#">I forgot my password</a><br>
-                <a href="#" class="text-center">Register a new membership</a>
+<!--                <a href="#">I forgot my password</a><br>-->
+<!--                <a href="#" class="text-center">Register a new membership</a>-->
 
 			</form>
             
