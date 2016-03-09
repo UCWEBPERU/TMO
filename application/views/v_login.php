@@ -41,11 +41,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<p class="login-box-msg">Iniciar sesion</p>
 			<form id="formLogin" name="formLogin" method="post">
 				<div class="form-group has-feedback">
-					<input id="email_usuario" type="email" name="email_usuario" class="form-control" placeholder="Email" value="admin@tmo.com">
+					<input id="email_usuario" type="email" name="email_usuario" class="form-control" placeholder="Email">
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input id="contrasenia_usuario" type="password" name="contrasenia_usuario" class="form-control" placeholder="Password" value="123456">
+					<input id="contrasenia_usuario" type="password" name="contrasenia_usuario" class="form-control" placeholder="Password">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 
