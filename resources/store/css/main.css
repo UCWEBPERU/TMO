@@ -1,0 +1,835 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700,400);
+@import url(https://fonts.googleapis.com/css?family=Courgette);
+
+/* Reset */
+
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		
+		font: inherit;
+
+	}
+	h2, h3, h4, h5, h6{
+		font-family: 'Lato', sans-serif;
+		color: #FFF;
+		font-size: 1em;	
+		text-decoration: none;	
+		line-height:normal;
+	}
+	a{
+		color: #000;
+	}
+	a:hover{
+		text-decoration: none;	
+	}
+	header {
+        position:fixed;         
+        width:100%;
+        z-index:1;
+        height:30px;
+        left:0px;
+		right:0px;
+
+    }
+    body{
+    	background: #E5E5E5;
+    }
+    footer{
+		height: 100px;
+		
+    }
+       
+       
+    content{
+    	display:block;
+		padding-top: 67px;
+		position:relative;
+
+    }
+
+/* Inicio */
+	#inicio h2{
+		color: #000;
+		font-weight: 700;
+		text-align: center;
+		 
+	}
+
+/* ContentCarousel*/
+	#contenedorCarousel{
+		width: 80%;
+		margin-left: 10%;
+	}
+	#contenedorCarousel img{
+		height: 200px;
+		width: 80%;
+		margin-left: 10%;
+	}
+	
+/* Slide */
+	#slidemain{
+		position: relative; 
+		margin: 0 auto; 
+		top: 0px; left: 0px; 
+		width: 980px; 
+		height: 100px; 
+		overflow: hidden; 
+		visibility: hidden;
+	}
+	#slide{
+		cursor: default; 
+		top: 0px; 
+		width: 980px; 
+		height: 100px; 
+		overflow: hidden;
+		background-color:#000;
+
+	}
+		#slide a{
+			font: inherit;
+			font-size: 3.5em;	
+			color: #FFF;
+			text-decoration: none;
+			padding: 2em;
+			text-align: center;
+
+		}
+		
+
+		#slide a:hover {
+				color: #BCBBBB !important;
+				
+		}
+		
+/* TopList */
+	#toplist{
+
+		height: 20px;
+		background-color: #444646;
+	}
+		#toplist h2 {
+			padding-left: 30px;	
+
+		}
+		#toplist  a {
+			text-decoration: none;	
+			color: #C9C9C9;
+
+		}
+		#toplist a:hover {
+			color: #FFF;
+				
+
+		}
+
+/* List */
+	.list{
+		height: 151px;	
+		border-bottom-style: solid;	
+		border-bottom-width: 1px;
+		padding: 0;
+		margin: 0;
+		border-color: #C9C9C9;
+		background-color: #FFF;
+
+	}
+		.list h2{
+			font-size: 1em;	
+			margin: 60px 5px 5px 15px;
+			font-weight: 700;
+			color: #000;
+		}
+	
+
+		
+		.list img {
+			height: 150px;
+			width: 100%;	
+			
+		}
+		
+		.list h3{
+			padding-left: 10px;
+			color: #000;
+			padding-top: 10px;
+			font-weight: 700;
+		}
+		.list h4{
+			padding-left: 10px;
+			color: #000;
+			font-weight: 700;
+			font-size: 17px;
+		}
+		.list h5{
+			padding-left: 10px;
+			color: #000;
+			font-size: 11px;
+		}
+		.list h6{
+			padding-top: 5px;
+			padding-left: 10px;
+			color: #000;
+			font-size: 11px;
+			font-weight: 700;
+		}
+		.btn{
+			height: 25px;
+			background: #000;
+			color:#FFF;
+			text-align: center;
+			text-decoration: none;
+			margin-left: 10px;
+			line-height:normal;
+		}
+
+		#cartitem{
+			height: 180px;	
+		}	
+		#cartitem2{
+			height: 130px;
+			border: 0;	
+		}
+		#cartitem3{
+			height: 50px;
+			border: 0;	
+			background: #FFF;
+		}
+		#free{
+			margin:10px;
+			height: 40px;
+			background: #1FA2E3;
+
+		}
+		#free h5{
+			color:#FFF;
+			font-weight: 700;
+			text-align: center;
+			padding-top: 5px;
+
+		}
+		#card{
+			margin:10px;
+			height: 55px;
+			background: #1FA2E3;
+
+		}
+		#card h5{
+			color:#FFF;
+			font-weight: 700;
+			text-align: center;
+			padding-top: 5px;
+		}
+		#card input{
+			margin-top: 5px;
+			margin-left: 5px;
+			height: 25px;
+			font-family: 'Lato', sans-serif;
+			float: left;
+			
+		}
+		#card button{
+			margin-top: 5px;
+			margin-left: 5px;	
+			height: 25px;
+			width: 33%;			
+			border: 0;
+			background: #FFF;
+		}
+		#card h6{
+			font-family: 'Lato', sans-serif;
+			color: #000;
+		}
+		
+
+
+
+
+/* Title */
+	#title{
+		background-color:#000;	
+		height: 35px;
+		width: 100%;		
+		z-index: 1;
+		padding-top: 5px;
+
+	}
+		#title h2{		
+			text-align: center;		
+		}
+		#title a{
+			font-family: 'Lato', sans-serif;
+			color: #FFF;
+			font-weight: 700;
+			font-size: 1em;	
+			text-decoration: none;
+			float: left;
+			margin-left: 5px;
+
+		}
+		#title .images{
+			height: 15px;
+			width: 15px;
+			margin-right: 5px;
+			margin-left: 5px;
+		}
+		
+/* Filter */
+	#filter{
+		background: #FFF;
+		height: 40px;
+		border-bottom-style: solid;	
+		border-bottom-width: 1px;
+		border-color: #C9C9C9;
+
+
+	}	
+		#filter h2{
+			color: #000;
+			padding-top: 6px;
+			float: left;
+		}
+		#filter select{
+			background: #FFF;
+			width: 150px;
+			height: 25px;
+			margin-left: 10px;
+			margin-top: 6px;
+			float: left;
+			-webkit-border-radius:5px;
+		    -moz-border-radius:5px;
+		    border-radius:5px;
+		    border-color: #000;
+		    
+		}
+		#filter button{
+			height: 25px;
+			margin-left: 10px;
+			margin-top: 6px;
+			background: #FFF;
+			border-width: 1px;
+			border-color: #000;
+			-webkit-border-radius:5px;
+		    -moz-border-radius:5px;
+		    border-radius:5px;
+
+		}
+
+/* Products */
+
+	.products{
+		background: #FFF;
+		height: 230px;
+		padding: 0;
+		margin: 0;
+
+	}
+	
+		.products img{
+			height: 160px;
+			width: 100%;
+			padding: 5px;
+
+		}
+		
+	
+		.products h2{
+			color: #000;
+			font-weight: 700;
+			text-align: justify;
+			padding: 10px;
+			line-height:normal;
+		}
+		.products h3{
+			color: #000;
+			font-weight: 700;				
+			padding: 0 10px 0 10px;
+			line-height:normal;
+			float: left;
+					
+		}
+		.products h4{
+			float: left;
+			line-height:normal;		
+			font-weight: 400;
+			color: #444646;
+			font-size: 0.8em;	
+			
+		}
+		.products h5{
+			color: #000;
+			font-size: 15px;
+			font-weight: 700;
+			text-align: justify;
+			padding: 10px;
+			line-height:normal;
+		}
+		.products a:hover{
+			color: #444646;
+		}
+
+	.detail{
+
+		padding: 0;
+		margin: 0;
+		line-height:normal;
+
+	}
+	#contenedordetail2{
+		background: #FFF;
+		height: 90px;
+	}
+
+	#contenedordetail{
+		background: #FFF;
+	}
+		.detail h2{
+			color: #444646;
+			font-weight: 700;
+			text-align: justify;
+			padding: 10px;
+			line-height:normal;
+			
+		}
+		.detail img{
+			height: 25px;
+			width: 25px;
+			float: left;
+			margin-left: 10px;			
+		}
+		.detail a:hover{
+			text-decoration: none;
+			border-width: 1px;
+		}
+		#color button{
+			height: 25px;
+			width: 25px;
+		}
+		.detail button{
+			height: 25px;			
+			float: left;
+			margin-left: 10px;
+			background: #FFF;
+			border-color: #000;
+			border-width: 1px;
+	
+		}
+		#titledetail h2{
+			color: #000;
+			font-size: 15px;
+			font-weight: 700;
+			text-align: justify;
+			padding: 10px;
+			
+			
+		}
+		#titledetail h3{
+			color: #000;
+			font-weight: 700;		
+			margin-left: 10px;			
+			margin-top: 0;
+			float: left;
+
+		}
+		#titledetail h4{
+			color: #444646;
+			font-weight: 400;
+			font-size: 12px;
+			margin-left: 10px;			
+			margin-top: 0;
+			float: left;
+		}
+		.detail h5{
+			float: left;
+			color :#1FA2E3;
+			font-weight: 700;
+			margin-left: 10px;
+			
+		}
+		.detail h3{
+			color: #000;
+			font-weight: 400;
+			margin-left: 10px;			
+			margin-top: 10px;
+			float: left;
+			line-height:normal;
+		}
+		.detail h4{
+			color: #000;
+			font-weight: 700;
+			margin-left: 10px;			
+			margin-top: 10px;
+			float: left;
+		}
+		.detail h6{
+			float: left;
+			color :#1FA2E3;
+			font-weight: 700;
+			margin-left: 10px;			
+			margin-top: 10px;
+			margin-left: 10px;
+		}
+		.detail ul{
+			float: left;
+			margin-left: 30px;
+			margin-top: 10px;
+			font-family: 'Lato', sans-serif;
+			color: #FFF;
+			font-weight: 400;
+			font-size: 1em;	
+
+		}
+		.detail li{
+			color: #000;
+		}
+
+/* Footer*/
+
+	#footer{
+
+		background: #F2F2F2;
+		border-top-style: solid;	
+		border-top-width: 1px;
+		border-color: #C9C9C9;
+		z-index: 1;
+		position:fixed;
+		left:0px;
+		right:0px;
+		bottom:0px;
+		color:#fff;
+		height: 50px;
+		float: left;
+	}
+	.boximage{
+		
+		height:60px;
+		width: 60px;		
+		margin: 4px 10px 0 10px;
+		float: left;
+
+	}
+	.boximage img{
+		height: 25px;
+		width: 25px;
+		display:block;
+		margin:0 auto 0 auto;
+		padding: 3px;
+
+	}
+	.boximage h1{
+		text-align: center;
+		color: #A8A8A8;
+	}
+	.boximage h1 a{
+		color: #A8A8A8;
+	}
+	.boximage h2 a{
+		color: #292929;
+	}
+	.boximage h2{
+		color: #292929;
+		text-align: center;
+		font: inherit;
+	}
+	.boximage a:hover{
+		color: #282829;
+	}
+
+/* Cart*/
+	#cart{
+		background: #E6E6E6;		
+		z-index: 1;
+		position:fixed;
+		left:0px;
+		right:0px;
+		bottom:50px;
+		color:#fff;
+		height: 45px;
+		float: left;
+	}
+	#cart button{
+		width: 90%;
+		height: 35px;
+		margin-left: 5%;
+		margin-top: 5px;
+		background: #000;
+		border-width: 0;
+
+	}
+	.titlecart{
+
+		height: 180px;
+		padding: 0;
+		margin: 0;
+		line-height:normal;
+
+
+	}
+	.titlecart h2{
+		font-family: 'Courgette', cursive;
+		color: #000;
+		font-weight: 400;
+		font-size: 1.8em;	
+		text-align: center;
+		margin-top: 100px;
+	}
+	.titlecart a{
+		margin-left: 35%;
+		margin-top: 100px;		
+		background: #000;
+		border: 0px;
+		height: 30px;
+		width: 100px;
+		color: #FFF;
+		font-family: 'Lato';
+		text-align: center;
+		line-height:25px;
+		vertical-align: middle;
+		display: inline-block;
+	}
+	.cartinformation{
+		width: 100%;
+		height: 60px;
+		background: #FFF;
+		padding-top: 10px;
+		border-bottom: 1px solid #C9C9C9;;
+	}
+	.cartinformation h2{
+		color: #000;
+		font-weight: 700;		
+	}
+	.cartinformation h3{	
+		color: #000;	
+		float: left;
+	}
+	.cartinformation h4{	
+		color: #1FA2E3;	
+		float: left;
+		margin-left: 40px;
+
+	}
+	
+
+
+/* Find */
+	#find{
+		height: 45px;
+		background: #000;
+
+	}	
+	#find input {
+		
+   		background: #FFF;
+		border: 0px solid ;
+		border-radius: 6px;
+		width: 100%;
+		margin-top: 10px;
+		text-align: center;
+		
+	}
+	#contenedor{
+		margin: 5px;		
+	}
+	#contenedorc{
+		margin: 0px;	
+
+	}
+
+	#findcontenedor {	
+		background: #E5E5E5;
+
+	}
+	.titlefind{
+		height: 80px;		
+		padding: 0;
+		margin: 0;
+		background-color: #FFF;
+
+	}
+	
+	.titlefind h2{
+		text-align: center;
+		margin-top: 30px;
+		color: #000;
+		font: inherit;
+		font-style: oblique ;			
+		font-size: 15px;
+
+	}
+	.titlefind img{
+		height: 80px;
+		width: 80px;
+		
+	}
+	.findcategories{
+		height: 50px;		
+		padding: 0;
+		margin: 0;
+		background-color: #FFF;
+		border-top: 1px solid #BCBCBC;
+		border-bottom: 1px solid #BCBCBC;
+	}
+
+	.findcategories img{
+		height: 20px;
+		width: 20px;
+		float: right;
+		margin-top: 15px;
+		margin-right: 5px;
+		
+	}
+	.findcategories a{
+		text-align: left;
+		line-height: 50px;
+
+	}
+	.findcategories h2{
+		color: #000;		
+		font-size: 15px;
+		margin-left: 20px;
+		margin-top: 12px;
+
+	}
+
+/* Sign*/
+	.sign input{
+		width: 100%;
+		background: #E5E5E5;
+		color: #B5B5B5;
+		margin-top: 10px;
+		border: 1px solid;
+		font-family: 'Lato';
+		text-align: left;
+
+	}
+	.sign button{
+		
+		margin-top: 10px;		
+		background: #000;
+		border: 0px;
+		height: 30px;
+		width: 100%;
+		color: #FFF;
+		font-family: 'Lato';	
+		
+	}
+	.sign h5{
+		float: left;
+		color :#1FA2E3;
+		font-weight: 700;
+		margin-top: 10px;
+			
+	}
+	.sign h2{
+		color: #000;
+		margin-top: 10px;
+		text-align: center;
+	}
+	.sign h3{
+		color: #000;
+		margin-top: 10px;
+		margin-bottom: 50px;
+		text-align: center;
+		font-weight: 700;
+	}
+
+
+/* Desktop */
+
+	@media screen and (min-width: 737px) {
+
+		/* Basic */
+
+			body, input, textarea, select {
+				font-size: 13pt;
+			}
+
+			h1 {
+				font-size: 3.25em;
+				letter-spacing: -0.025em;
+			}
+
+			h2 {
+				font-size: 2em;
+				letter-spacing: -0.015em;
+			}
+
+			h3 {
+				font-size: 1.5em;
+				letter-spacing: -0.015em;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				margin: 0 0 0.75em 0;
+			}
+
+			header {
+				margin: 0 0 3em 0;
+			}
+
+				header > p {
+					font-size: 1.25em;
+					margin: 0;
+				}
+
+			footer {
+				margin: 3em 0 0 0;
+			}
+
+				footer > p {
+					font-size: 1.25em;
+				}
+
+
+		
+	}
+
+/* Tablet */
+
+	@media screen and (min-width: 737px) and (max-width: 1200px) {
+
+		/* Basic */
+
+			body {
+				min-width: 960px;
+				font-size: 11pt;
+			}
+
+			input, textarea, select {
+				font-size: 11pt;
+			}
+
+			header {
+				margin: 0 0 4em 0;
+			}
+
+
+
+
+
+	}
+
+/* Mobile */
+
+	@media screen and (max-width: 736px) {
+
+		/* Basic */
+
+			body, input, textarea, select {
+				line-height: 1.75em;
+				font-size: 10pt;
+				letter-spacing: 0;
+			}
+
+			
+			header {
+				margin: 0 0 2em 0;
+			}
+
+				header > p {
+					font-size: 1.25em;
+				}
+		
+
+	}
