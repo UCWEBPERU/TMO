@@ -209,7 +209,7 @@ $route['company/(:num)/admin/category/ajax/deleteCategory']  = 'company-admin/ca
 | URL -> COMPANY ADMIN - PRODUCTOS CATEGORY
 | ------------------------------
 */
-$route['company/(:num)/store/(:num)'] = 'store/C_Store/';
+$route['company/(:num)/store/(:num)'] = 'store/C_Store';
 
 ///*
 //| ------------------------------
