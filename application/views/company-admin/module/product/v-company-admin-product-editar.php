@@ -149,6 +149,7 @@
                                                     <th>Tipo</th>
                                                     <th>Nombre</th>
                                                     <th style="width: 40px">Costo</th>
+                                                    <th></th>
                                                 </tr>
                                                 <?php if ($modulo->existe_producto) { ?>
                                                     <?php $index = 1; ?>
@@ -166,6 +167,7 @@
                                                 <tr>
                                                     <td><i class="fa fa-chevron-right"></i></td>
                                                     <td><a href="#" id="btnAddMoficador"><span class="label label-primary">Agregar modificador</span></a></td>
+                                                    <td></td>
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
