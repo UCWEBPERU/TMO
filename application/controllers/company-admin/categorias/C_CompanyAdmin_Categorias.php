@@ -158,6 +158,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     /* <--------------- AJAX ---------------> */
 
     public function ajaxAddCategory() {
+        $this->load->library('utils/UploadFile');
         $json 				= new stdClass();
         $json->type 		= "Categorias";
         $json->presentation = "";
@@ -204,7 +205,6 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
                     );
 
                     if ( $this->uploadfile->validateFile("imgCategory") ) {
-                        $this->load->library('utils/UploadFile');
                         $path = "uploads/company/".$this->session->id_empresa."/categories/".$idCategoria."/logo/";
                         $path = $this->uploadfile->upload("imgLogoStore", "logo", $path);
                     } else {
