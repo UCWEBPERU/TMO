@@ -142,8 +142,8 @@
                         text: "¿Seguro que desea cambiar la imagen de la categoria?",
                         imageUrl: readResult,
                         showCancelButton: true,
-                        confirmButtonColor: "#fc0836",
-                        confirmButtonText: "Yes, delete it!",
+                        confirmButtonColor: "#3c8dbc",
+                        confirmButtonText: "Yes, update!",
                         closeOnConfirm: false,
                         showLoaderOnConfirm: true
                     },
