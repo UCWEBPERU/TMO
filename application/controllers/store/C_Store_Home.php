@@ -14,14 +14,23 @@ class C_Store_Home extends CI_Controller {
 
         $dataEmpresa = $this->M_Store_Home->getCompanyAndStore(
             array(
-                "id_empresa" => $this->uri->segment(2),
-                "id_tienda" => $this->uri->segment(4)
+                "id_empresa"    => $this->uri->segment(2),
+                "id_tienda"     => $this->uri->segment(4)
             )
         );
 
         if (sizeof($dataEmpresa) == 0) {
             redirect("not-found/store");
         }
+
+        $dataCategorias = $this->M_Store_Home->getCategoriesByCompanyAndStore(
+            array(
+                "id_empresa"    => $this->uri->segment(2),
+                "id_tienda"     => $this->uri->segment(4)
+            )
+        );
+
+        var_dump($dataCategorias);
 
         $this->load->view('store/v-store-home');
     }
