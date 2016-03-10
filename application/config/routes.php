@@ -210,7 +210,7 @@ $route['company/(:num)/admin/category/ajax/updateImageCategory']    = 'company-a
 | URL -> COMPANY ADMIN - PRODUCTOS CATEGORY
 | ------------------------------
 */
-$route['company/(:num)/store/(:num)'] = 'store/C_Store';
+$route['company/(:num)/store/(:num)'] = 'store/C_Store_Home';
 
 ///*
 //| ------------------------------

@@ -58,19 +58,19 @@
 </script>
 
 <header>
-	<div id="title">
-		<h2>Fashion Store</h2>
-	</div>
+<!--	<div id="title">-->
+<!--		<h2>Fashion Store</h2>-->
+<!--	</div>-->
 	<!-- Slider -->
 	<div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
 		<!-- Loading Screen -->
 
 		<div data-u="slides" id="slide" >
-			<div>
-				<a href="#" ><p>WOMEN</p></a>
-			</div>
 			<div style="background:#FFF;">
-				<a href="#" style="color:#000;" ><p>MEN</p></a>
+				<a href="#" style="color:#000;"><p>WOMEN</p></a>
+			</div>
+			<div >
+				<a href="#"><p>MEN</p></a>
 			</div>
 			<div>
 				<a href="#" ><p>KIDS</p></a>
@@ -81,7 +81,6 @@
 			<div>
 				<a href="#" ><p>FEATURED</p></a>
 			</div>
-
 		</div>
 	</div>
 </header>
