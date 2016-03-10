@@ -66,21 +66,17 @@
 		<!-- Loading Screen -->
 
 		<div data-u="slides" id="slide" >
-			<div style="background:#FFF;">
-				<a href="#" style="color:#000;"><p>WOMEN</p></a>
-			</div>
-			<div >
-				<a href="#"><p>MEN</p></a>
-			</div>
-			<div>
-				<a href="#" ><p>KIDS</p></a>
-			</div>
-			<div>
-				<a href="#" ><p>DESING</p></a>
-			</div>
-			<div>
-				<a href="#" ><p>FEATURED</p></a>
-			</div>
+			<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
+				<?php if ($c == 0) { ?>
+					<div style="background:#FFF;">
+						<a href="#" style="color:#000;"><p><?php echo $modulo->data_categorias[$c]->nombre_categoria; ?></p></a>
+					</div>
+				<?php } else { ?>
+					<div>
+						<a href="#"><p><?php echo $modulo->data_categorias[$c]->nombre_categoria; ?></p></a>
+					</div>
+				<?php } ?>
+			<?php } ?>
 		</div>
 	</div>
 </header>
