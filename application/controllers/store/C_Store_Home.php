@@ -35,8 +35,6 @@ class C_Store_Home extends CI_Controller {
                     "id_categoria_superior" => $dataCategorias[0]->id_categoria
                 )
             );
-            var_dump($dataCategorias[0]->id_categoria);
-            var_dump($dataSubCategorias);
             $modulo->sub_categorias = $dataSubCategorias;
         }
 
