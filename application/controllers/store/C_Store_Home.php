@@ -23,12 +23,7 @@ class C_Store_Home extends CI_Controller {
             redirect("not-found/store");
         }
 
-        $dataCategorias = $this->M_Store_Home->getCategoriesByCompanyAndStore(
-            array(
-                "id_empresa"    => $this->uri->segment(2),
-                "id_tienda"     => $this->uri->segment(4)
-            )
-        );
+        $dataCategorias = $this->M_Store_Home->getPrimaryCategoriesByCompany($this->uri->segment(2));
 
         var_dump($dataCategorias);
 
