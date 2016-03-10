@@ -64,16 +64,15 @@
 	<!-- Slider -->
 	<div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
 		<!-- Loading Screen -->
-
 		<div data-u="slides" id="slide" >
 			<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
 				<?php if ($c == 0) { ?>
 					<div style="background:#FFF;">
-						<a href="#" style="color:#000;"><p><?php echo $modulo->data_categorias[$c]->nombre_categoria; ?></p></a>
+						<a href="#" style="color:#000;"><p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p></a>
 					</div>
 				<?php } else { ?>
 					<div>
-						<a href="#"><p><?php echo $modulo->data_categorias[$c]->nombre_categoria; ?></p></a>
+						<a href="#"><p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p></a>
 					</div>
 				<?php } ?>
 			<?php } ?>
