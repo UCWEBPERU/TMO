@@ -28,10 +28,12 @@
         <section class="content">
 
             <div class="row">
-                <?php if (sizeof($modulo->data_categorias) > 0) { ?>
-                    <div class="alert alert-info alert-dismissible">
-                        <h4><i class="icon fa fa-ban"></i> Sub Categorias</h4>
-                        No se encontro sub categorias.<br>
+                <?php if (sizeof($modulo->data_categorias) == 0) { ?>
+                    <div class="col-md-12">
+                        <div class="alert alert-info alert-dismissible">
+                            <h4><i class="icon fa fa-ban"></i> Sub Categorias</h4>
+                            No se encontro sub categorias.<br>
+                        </div>
                     </div>
                 <?php } ?>
                 <?php foreach($modulo->data_categorias as $categoria): ?>
