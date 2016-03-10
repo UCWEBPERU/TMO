@@ -219,7 +219,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
                         )
                     );
 
-                    $result = $this->M_Archivo->insertIdImageCategory(
+                    $result = $this->M_CompanyAdmin_Categorias->insertIdImageCategory(
                         array(
                             "id_categoria"        => $idCategoria,
                             'id_imagen_categoria' => $idArchivo
