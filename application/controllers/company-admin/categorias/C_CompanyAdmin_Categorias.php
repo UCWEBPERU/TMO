@@ -206,7 +206,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
                     if ( $this->uploadfile->validateFile("imgCategory") ) {
                         $path = "uploads/company/".$this->session->id_empresa."/categories/".$idCategoria."/logo/";
-                        $path = $this->uploadfile->upload("imgLogoStore", "logo", $path);
+                        $path = $this->uploadfile->upload("imgCategory", "logo", $path);
                     } else {
                         $path = base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png";
                     }
