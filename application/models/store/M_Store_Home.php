@@ -46,7 +46,7 @@ class M_Store_Home extends CI_Model {
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
         $this->db->where('Categoria_Productos.estado', '1');
-        $query = $this->db->get('Empresa');
+        $query = $this->db->get('Categoria_Productos');
 
         return $query->result();
     }
