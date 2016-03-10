@@ -359,25 +359,24 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        if ( $this->uploadfile->validateFile("imgLogoStore") ) {
-            $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
+        if ( $this->uploadfile->validateFile("imgCategory") && $this->input->post("idCategoria")) {
 
-            $path = "uploads/company/".$this->session->id_empresa."/logo/";
-
-            $path = $this->uploadfile->upload("imgLogoStore", "logo", $path);
-
-            $result = $this->M_Archivo->updateURLArchivo(
+            $dataCategoria = $this->M_CompanyAdmin_Categorias->getCategoryByID(
                 array(
-                    "id_archivo"   => $dataEmpresa[0]->id_archivo_logo,
-                    "url_archivo"  => $path
+                    'id_empresa'        => $this->session->id_empresa,
+                    'id_categoria'      => trim($this->input->post("idCategoria", TRUE))
                 )
             );
 
-            if ($result) {
+            if (sizeof($dataCategoria) > 0) {
+
+                $path = "uploads/company/".$this->session->id_empresa."/categories/".intval($dataCategoria[0]->id_categoria)."/logo/";
+                $path = $this->uploadfile->upload("imgCategory", "logo", $path);
+
                 $json->message = "El logo de la empresa se actualizó correctamente.";
                 $json->status = TRUE;
             } else {
-                $json->message = "Ocurrio un error al al actualizar el logo de la empresa, intente de nuevo.";
+                $json->message = "Lo sentimos la categoria ingresada no existe, intente de nuevo.";
             }
         } else {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";

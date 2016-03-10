@@ -44,7 +44,7 @@
                                         <p>Lo sentimos la categoria que intenta editar no existe.</p>
                                     </div>
                                 <?php } else { ?>
-                                    <input type="hidden" class="form-control" name="id_categoria" value="<?php echo $modulo->data_categoria[0]->id_categoria; ?>">
+                                    <input type="hidden" class="form-control" id="id_categoria" name="id_categoria" value="<?php echo $modulo->data_categoria[0]->id_categoria; ?>">
                                 <?php } ?>
                                 <div class="form-group">
                                     <label for="txtNombreCategoria">Nombre Categoria</label>
@@ -104,7 +104,7 @@
         $("#btnEditar").on("click", function(evt){
             evt.preventDefault();
 
-            if (validateInputsForm(selectorInputsForm)) {
+            if (ValidateInputFormWithParsley.validate(selectorInputsForm)) {
                 waitingDialog.show('Guardando Categoria...');
                 var request = $.ajax({
                     url: "<?php echo $modulo->url_module_panel."/ajax/editCategory"; ?>",
@@ -134,6 +134,7 @@
             function(file) {
                 formData = new FormData();
                 formData.append("imgCategory", file);
+                formData.append("idCategoria", $("#id_categoria").val());
             },
             function(readResult) {
                 swal({
