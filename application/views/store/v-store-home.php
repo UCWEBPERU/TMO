@@ -58,9 +58,9 @@
 </script>
 
 <header>
-<!--	<div id="title">-->
-<!--		<h2>Fashion Store</h2>-->
-<!--	</div>-->
+	<div id="title">
+		<h2>Fashion Store</h2>
+	</div>
 	<!-- Slider -->
 	<div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
 		<!-- Loading Screen -->
