@@ -29,9 +29,9 @@
 
             <div class="row">
                 <?php if (sizeof($modulo->data_categorias) == 0) { ?>
-                    <div class="col-md-12">
+                    <div class="col-md-3">
                         <div class="alert alert-info alert-dismissible">
-                            <h4><i class="icon fa fa-ban"></i> Sub Categorias</h4>
+                            <h4><i class="icon fa fa-info"></i> Sub Categorias</h4>
                             No se encontro sub categorias.<br>
                         </div>
                     </div>
