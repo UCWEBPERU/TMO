@@ -86,6 +86,8 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
 <!-- Validate Input Form With Parsley -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
+<!-- Handle File -->
+<script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/HandleFile.js"></script>
 <script>
     //Initialize Select2 Elements
     $(".select2").select2();
@@ -102,7 +104,7 @@
             if (ValidateInputFormWithParsley.validate(selectorInputsForm)) {
                 waitingDialog.show('Guardando Categoria...');
                 formData.append("cboCategoriaSuperior", $("#cboCategoriaSuperior").val());
-                formData.append("txtNombreCategoria", $("#txtNombreCategoria").val());
+                formData.append("txtNombreCategoria",   $("#txtNombreCategoria").val());
                 var request = $.ajax({
                     url: "<?php echo $modulo->url_module_panel."/ajax/addCategory"; ?>",
                     method: "POST",

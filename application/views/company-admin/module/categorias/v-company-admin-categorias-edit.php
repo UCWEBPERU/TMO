@@ -89,6 +89,10 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
 <!-- Validate Input Form With Parsley -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
+<!-- Handle File -->
+<script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/HandleFile.js"></script>
+<!-- Sweet Alert -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <script>
 
     GenericModal.config("#genericModal", "");
