@@ -28,7 +28,9 @@ class C_Store_Home extends CI_Controller {
         $dataCategorias = $this->M_Store_Home->getPrimaryCategoriesByCompany($this->uri->segment(2));
         $modulo->data_categorias = $dataCategorias;
 
-        $this->load->view('store/v-store-home');
+        $data["modulo"] = $modulo;
+
+        $this->load->view('store/v-store-home', $data);
     }
 
 }
