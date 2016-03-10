@@ -66,7 +66,7 @@
                         </div>
                         <div class="box-logo-store">
                             <div class="logo-store-inner">
-                                <div class="logo-store-hint">Cambiar Imagen Categoria</div>
+                                <div class="logo-store-hint">Subir Imagen Categoria</div>
                                 <input type="file" id="imgCategory" name="imgCategory" accept="image/*">
                             </div>
                         </div>
