@@ -7,7 +7,7 @@ class C_Store_Home extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
-        $this->load->model('M_Store_Home');
+        $this->load->model('store/M_Store_Home');
     }
 
     public function index() {
