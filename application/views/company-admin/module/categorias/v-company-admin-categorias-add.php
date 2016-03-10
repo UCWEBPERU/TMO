@@ -41,7 +41,7 @@
                                 <div class="form-group">
                                     <label>Categoria Superior</label>
                                     <select class="form-control select2" style="width: 100%;" name="cboCategoriaSuperior">
-                                        <option selected="selected" value="0">Seleccione</option>
+                                        <option selected="selected">Seleccione</option>
                                         <?php foreach($modulo->data_categorias as $categoria): ?>
                                             <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
                                         <?php endforeach; ?>
