@@ -85,75 +85,20 @@
 
 	<div class="col-xs-12">
 
-		<div class="row">
-			<div>
-
-				<div class="col-xs-5 list" >
-					<a href="categories.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" id="images" alt=""  /></a>
-				</div>
-				<div class="col-xs-7 list" >
-					<a href="categories.html" ><h2>CLOTHING</h2></a>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-
-				<div class="col-xs-5 list" >
-					<a href="categories.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" id="images" alt=""  /></a>
-				</div>
-				<div class="col-xs-7 list" >
-					<a href="categories.html" ><h2>SHOES</h2></a>
+		<?php foreach ($modulo->sub_categorias as $sub_categoria) { ?>
+			<div class="row">
+				<div>
+					<div class="col-xs-5 list" >
+						<a href="categories.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" id="images" alt=""  /></a>
+					</div>
+					<div class="col-xs-7 list" >
+						<a href="categories.html" ><h2><?php echo strtoupper($sub_categoria->nombre_categoria); ?></h2></a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div>
+		<?php } ?>
 
-				<div class="col-xs-5 list" >
-					<a href="categories.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" id="images" alt=""  /></a>
-				</div>
-				<div class="col-xs-7 list" >
-					<a href="categories.html" ><h2>ACCESORIES</h2></a>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-
-				<div class="col-xs-5 list" >
-					<a href="categories.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" id="images" alt=""  /></a>
-				</div>
-				<div class="col-xs-7 list" >
-					<a href="categories.html" ><h2>WATCHES</h2></a>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-
-				<div class="col-xs-5 list" >
-					<a href="categories.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" id="images" alt=""  /></a>
-				</div>
-				<div class="col-xs-7 list" >
-					<a href="categories.html" ><h2>WATCHES</h2></a>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-
-				<div class="col-xs-5 list" >
-					<a href="categories.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" id="images" alt=""  /></a>
-				</div>
-				<div class="col-xs-7 list" >
-					<a href="categories.html" ><h2>WATCHES</h2></a>
-				</div>
-			</div>
-		</div>
 		<div class="row" style="height: 50px;"></div>
-
-
 
 	</div>
 

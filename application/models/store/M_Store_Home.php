@@ -18,13 +18,26 @@ class M_Store_Home extends CI_Model {
         return $query->result();
     }
 
-    public function getPrimaryCategoriesByCompany($id_empresa) {
+    public function getPrimaryCategories($id_empresa) {
         $this->db->where('Categoria_Productos.id_empresa', $id_empresa);
         $this->db->where('Categoria_Productos.estado', '1');
         $this->db->where('Categoria_Productos.nivel_categoria', '1');
+        $this->db->order_by('Categoria_Productos.nombre_categoria', 'asc');
         $query = $this->db->get('Categoria_Productos');
 
         return $query->result();
     }
+
+    public function getSubCategories($data) {
+        $this->db->where('Categoria_Productos.id_empresa', $data["id_empresa"]);
+        $this->db->where('Categoria_Productos.id_categoria_superior', $data["id_categoria_superior"]);
+        $this->db->where('Categoria_Productos.estado', '1');
+        $this->db->order_by('Categoria_Productos.nombre_categoria', 'asc');
+        $query = $this->db->get('Categoria_Productos');
+
+        return $query->result();
+    }
+
+
 
 }
