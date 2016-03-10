@@ -58,10 +58,9 @@
 </script>
 
 <header>
-	<div id="title">
-		<h2>Fashion Store</h2>
-
-	</div>
+<!--	<div id="title">-->
+<!--		<h2>Fashion Store</h2>-->
+<!--	</div>-->
 	<!-- Slider -->
 	<div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
 		<!-- Loading Screen -->
@@ -168,7 +167,7 @@
 <footer>
 	<div id="footer">
 		<div class="boximage">
-			<a href="v-store.php"><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/homes.png" class="images" alt="" /></a>
+			<a href="v-store-home.php"><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/homes.png" class="images" alt="" /></a>
 			<h2><a href="#" onclick="">Home</a></h2>
 		</div>
 		<div class="boximage">

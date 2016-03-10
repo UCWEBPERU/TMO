@@ -10,7 +10,7 @@ class C_Store extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('store/v-store');
+        $this->load->view('store/v-store-home');
     }
 
 }
