@@ -35,6 +35,7 @@ class C_Store_Home extends CI_Controller {
                     "id_categoria_superior" => $dataCategorias[0]->id_categoria
                 )
             );
+
             $modulo->sub_categorias = $dataSubCategorias;
         }
 

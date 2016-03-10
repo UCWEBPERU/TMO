@@ -89,7 +89,7 @@
 			<div class="row">
 				<div>
 					<div class="col-xs-5 list" >
-						<a href="categories.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" id="images" alt=""  /></a>
+						<a href="categories.html" ><img src="<?php echo $sub_categoria->url_archivo; ?>" id="images" alt=""  /></a>
 					</div>
 					<div class="col-xs-7 list" >
 						<a href="categories.html" ><h2><?php echo strtoupper($sub_categoria->nombre_categoria); ?></h2></a>
