@@ -148,7 +148,7 @@
                     },
                     function() {
                         var request = $.ajax({
-                            url: <?php echo $modulo->url_module_panel; ?> + "/ajax/updateImageCategory",
+                            url: "<?php echo $modulo->url_module_panel; ?>" + "/ajax/updateImageCategory",
                             method: "POST",
                             data: formData,
                             dataType: "json",

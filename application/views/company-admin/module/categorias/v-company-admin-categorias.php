@@ -28,6 +28,12 @@
         <section class="content">
 
             <div class="row">
+                <?php if (sizeof($modulo->data_categorias) > 0) { ?>
+                    <div class="alert alert-info alert-dismissible">
+                        <h4><i class="icon fa fa-ban"></i> Sub Categorias</h4>
+                        No se encontro sub categorias.<br>
+                    </div>
+                <?php } ?>
                 <?php foreach($modulo->data_categorias as $categoria): ?>
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <a class="link-shorcut" href="<?php echo $modulo->url_module_panel.'/view/'.intval($categoria->id_categoria); ?>">
