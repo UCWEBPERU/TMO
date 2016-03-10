@@ -65,7 +65,7 @@
                             <h3 class="box-title">Imagen Categoria</h3>
                         </div>
                         <div class="box-logo-store">
-                            <div class="logo-store-inner" style="background-image:url(&quot;<?php echo $modulo->icono_empresa; ?>&quot;);">
+                            <div class="logo-store-inner">
                                 <div class="logo-store-hint">Cambiar Imagen Categoria</div>
                                 <input type="file" id="imgCategory" name="imgCategory" accept="image/*">
                             </div>
@@ -84,46 +84,37 @@
 <!-- Parsley -->
 <!--<script src="http://parsleyjs.org/dist/parsley.min.js" type="text/javascript" ></script>-->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
+<!-- Validate Input Form With Parsley -->
+<script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
 <script>
     //Initialize Select2 Elements
     $(".select2").select2();
 
     GenericModal.config("#genericModal", "");
 
-    function validateInputsForm(selectorInputsForm) {
-        var messagesError = "";
-        for (var i = 0; i < selectorInputsForm.length; i++) {
-            if ($(selectorInputsForm[i]).parsley().isValid()) {
-                $(selectorInputsForm[i]).parent().removeClass("has-error");
-            } else {
-                $(selectorInputsForm[i]).parent().addClass("has-error");
-                messagesError += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
-            }
-        }
-        if (messagesError.length > 0) {
-            GenericModal.show("danger", "<ul>" + messagesError + "</ul>");
-            return false;
-        }
-        return true;
-    }
-
     $(function () {
-        var selectorInputsForm = ["#txtNombreCategoria"];
+        var selectorInputsForm  = ["#txtNombreCategoria"];
+        var formData            = new FormData();
 
         $("#btnAgregar").on("click", function(evt){
             evt.preventDefault();
 
-            if (validateInputsForm(selectorInputsForm)) {
+            if (ValidateInputFormWithParsley.validate(selectorInputsForm)) {
                 waitingDialog.show('Guardando Categoria...');
+                formData.append("cboCategoriaSuperior", $("#cboCategoriaSuperior").val());
+                formData.append("txtNombreCategoria", $("#txtNombreCategoria").val());
                 var request = $.ajax({
                     url: "<?php echo $modulo->url_module_panel."/ajax/addCategory"; ?>",
                     method: "POST",
-                    data: $("#frmDatosCategoria").serialize(),
-                    dataType: "json"
+                    data: formData,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false
                 });
 
                 request.done(function( response ) {
                     waitingDialog.hide();
+                    formData = new FormData();
                     if (response.status) {
                         GenericModal.show("default", "<p>" + response.message + "</p>");
                     } else {
@@ -133,10 +124,22 @@
 
                 request.fail(function( jqXHR, textStatus ) {
                     waitingDialog.hide();
+                    formData = new FormData();
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
             }
         });
+
+        var objHandleFile = new HandleFile("#imgCategory");
+        objHandleFile.onSelect(
+            function(file) {
+                formData.append("imgCategory", file);
+            },
+            function(readResult) {
+                $(".logo-store-inner").attr("style", "background-image: url('" + readResult + "');");
+            }
+        );
+
     });
 
 </script>

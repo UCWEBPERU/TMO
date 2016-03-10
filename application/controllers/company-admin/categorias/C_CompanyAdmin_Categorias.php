@@ -113,6 +113,12 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
                 'id_categoria'      => $id_category
             )
         );
+
+        if (sizeof($datosCategoria) > 0) {
+            $imagenCategoria            = $this->M_Archivo->getByID($datosCategoria[0]->id_imagen_categoria);
+            $modulo->imagen_categoria   = $imagenCategoria[0]->url_archivo;
+        }
+
         $modulo->data_categoria = $datosCategoria;
 
         $data["modulo"] = $modulo;
@@ -188,7 +194,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
                 if (!$this->input->post("cboCategoriaSuperior") || $existeCategoriaSuperior) {
                     unset($result);
-                    $result = $this->M_CompanyAdmin_Categorias->insertCategory(
+                    $idCategoria = $this->M_CompanyAdmin_Categorias->insertCategory(
                         array(
                             'id_categoria_superior'  => $this->input->post("cboCategoriaSuperior") ? trim($this->input->post("cboCategoriaSuperior", TRUE)) : NULL,
                             'id_empresa'             => $this->session->id_empresa,
@@ -197,7 +203,30 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
                         )
                     );
 
-                    if (is_int($result)) {
+                    if ( $this->input->post("imgCategory") ) {
+                        $path = "uploads/company/".$this->session->id_empresa."/categories/".$idCategoria."/logo/";
+                        $path = $this->uploadfile->upload("imgLogoStore", "logo", $path);
+                    } else {
+                        $path = base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png";
+                    }
+
+                    $idArchivo = $this->M_Archivo->insert(
+                        array(
+                            "url_archivo"       => $path,
+                            'tipo_archivo'		=> "image/png",
+                            'relacion_recurso'	=> "logo",
+                            'nombre_archivo'	=> ""
+                        )
+                    );
+
+                    $result = $this->M_Archivo->insertIdImageCategory(
+                        array(
+                            "id_categoria"        => $idCategoria,
+                            'id_imagen_categoria' => $idArchivo
+                        )
+                    );
+
+                    if (is_int($idCategoria)) {
                         $json->message = "La categoria se agrego correctamente.";
                         $json->status = TRUE;
                     } else {
@@ -316,6 +345,46 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
         echo json_encode($json);
     }
+
+    public function ajaxUpdateImageCategory() {
+        $this->load->model("M_Archivo");
+        $this->load->model("M_Empresa");
+        $this->load->library('utils/UploadFile');
+
+        $json 				= new stdClass();
+        $json->type 		= "Logo Empresa";
+        $json->presentation = "";
+        $json->action 		= "update";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        if ( $this->uploadfile->validateFile("imgLogoStore") ) {
+            $dataEmpresa = $this->M_Empresa->getByID($this->session->id_empresa);
+
+            $path = "uploads/company/".$this->session->id_empresa."/logo/";
+
+            $path = $this->uploadfile->upload("imgLogoStore", "logo", $path);
+
+            $result = $this->M_Archivo->updateURLArchivo(
+                array(
+                    "id_archivo"   => $dataEmpresa[0]->id_archivo_logo,
+                    "url_archivo"  => $path
+                )
+            );
+
+            if ($result) {
+                $json->message = "El logo de la empresa se actualizó correctamente.";
+                $json->status = TRUE;
+            } else {
+                $json->message = "Ocurrio un error al al actualizar el logo de la empresa, intente de nuevo.";
+            }
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+        echo json_encode($json);
+    }
+
 
     /* <----------------- * -----------------> */
 

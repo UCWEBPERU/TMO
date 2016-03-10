@@ -196,13 +196,14 @@ $route['company/(:num)/admin/user/ajax/generatePassword']   = 'company-admin/use
 | URL -> COMPANY ADMIN - PRODUCTOS CATEGORY
 | ------------------------------
 */
-$route['company/(:num)/admin/category']                      = 'company-admin/categorias/C_CompanyAdmin_Categorias/listAllCategories';
-$route['company/(:num)/admin/category/view/(:num)']          = 'company-admin/categorias/C_CompanyAdmin_Categorias/listSubCategoriesByCategory/$2';
-$route['company/(:num)/admin/category/add']                  = 'company-admin/categorias/C_CompanyAdmin_Categorias/addCategory';
-$route['company/(:num)/admin/category/edit/(:num)']          = 'company-admin/categorias/C_CompanyAdmin_Categorias/editCategory/$2';
-$route['company/(:num)/admin/category/ajax/addCategory']     = 'company-admin/categorias/C_CompanyAdmin_Categorias/ajaxAddCategory';
-$route['company/(:num)/admin/category/ajax/editCategory']    = 'company-admin/categorias/C_CompanyAdmin_Categorias/ajaxEditCategory';
-$route['company/(:num)/admin/category/ajax/deleteCategory']  = 'company-admin/categorias/C_CompanyAdmin_Categorias/ajaxDeleteCategory';
+$route['company/(:num)/admin/category']                             = 'company-admin/categorias/C_CompanyAdmin_Categorias/listAllCategories';
+$route['company/(:num)/admin/category/view/(:num)']                 = 'company-admin/categorias/C_CompanyAdmin_Categorias/listSubCategoriesByCategory/$2';
+$route['company/(:num)/admin/category/add']                         = 'company-admin/categorias/C_CompanyAdmin_Categorias/addCategory';
+$route['company/(:num)/admin/category/edit/(:num)']                 = 'company-admin/categorias/C_CompanyAdmin_Categorias/editCategory/$2';
+$route['company/(:num)/admin/category/ajax/addCategory']            = 'company-admin/categorias/C_CompanyAdmin_Categorias/ajaxAddCategory';
+$route['company/(:num)/admin/category/ajax/editCategory']           = 'company-admin/categorias/C_CompanyAdmin_Categorias/ajaxEditCategory';
+$route['company/(:num)/admin/category/ajax/deleteCategory']         = 'company-admin/categorias/C_CompanyAdmin_Categorias/ajaxDeleteCategory';
+$route['company/(:num)/admin/category/ajax/updateImageCategory']    = 'company-admin/categorias/C_CompanyAdmin_Categorias/ajaxUpdateImageCategory';
 
 /*
 | ------------------------------

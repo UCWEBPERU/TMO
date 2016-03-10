@@ -14,6 +14,21 @@ class M_Archivo extends CI_Model{
 		return $query->result();
 	}
 
+	public function insert($data) {
+		$data = array(
+			'url_archivo'		=> $data["url_archivo"],
+			'tipo_archivo'		=> $data["tipo_archivo"],
+			'relacion_recurso'	=> $data["relacion_recurso"],
+			'nombre_archivo'	=> $data["nombre_archivo"]
+		);
+
+		if ($this->db->insert('Archivo', $data)) {
+			return $this->db->insert_id();
+		}
+
+		return FALSE;
+	}
+
 	public function updateURLArchivo($url) {
 		$data = array(
 			'url_archivo' => $url["url_archivo"]
