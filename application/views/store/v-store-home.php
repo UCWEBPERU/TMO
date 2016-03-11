@@ -91,11 +91,11 @@
 		<h2>
 		<?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
 			<?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
+				<?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?>
+			<?php } else { ?>
 				<a href="<?php echo $modulo->data_navegacion_sub_categorias[$c]->url_id_categorias; ?>">
 					<?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?> >
 				</a>
-			<?php } else { ?>
-				<?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?>
 			<?php } ?>
 		<?php } ?>
 		</h2>
