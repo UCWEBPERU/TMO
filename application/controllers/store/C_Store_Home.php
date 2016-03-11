@@ -187,9 +187,9 @@ class C_Store_Home extends CI_Controller {
                 $urlIdCategorias        = $id_categoria_superior.".".$urlIdCategorias;
             } else {
                 $urlIdCategorias = substr($urlIdCategorias, 1);
-                $idCategoriaSuperior = 0;
+                $id_categoria_superior = 0;
             }
-        } while ( $idCategoriaSuperior != 0 );
+        } while ( $id_categoria_superior != 0 );
 
         $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
 
