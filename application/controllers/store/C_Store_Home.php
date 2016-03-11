@@ -46,6 +46,7 @@ class C_Store_Home extends CI_Controller {
     public function viewSubCategorias($listaCategorias) {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
+        $listaCategorias = explode(".", $listaCategorias);
 
         $dataEmpresa = $this->M_Store_Home->getCompanyAndStore(
             array(
@@ -60,10 +61,8 @@ class C_Store_Home extends CI_Controller {
 
         $dataCategorias = $this->cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
-        $modulo->data_navegacion_sub_categorias = $this->generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias);
-
-        $listaCategorias = explode(".", $listaCategorias);
         $modulo->id_categoria_raiz = $listaCategorias[0];
+        $modulo->data_navegacion_sub_categorias = $this->generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias);
         $idCategoriaSuperior = intval($listaCategorias[sizeof($listaCategorias) - 1]);
 
         if (sizeof($dataCategorias) > 0) {
