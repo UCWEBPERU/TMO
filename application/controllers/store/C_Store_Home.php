@@ -176,8 +176,8 @@ class C_Store_Home extends CI_Controller {
             )
         );
 
-        $idCategoriaSuperior = intval($dataCategoria[0]->id_categoria);
-        $urlIdCategorias = $idCategoriaSuperior;
+        $idCategoriaSuperior = intval($dataCategoria[0]->id_categoria_superior);
+        $urlIdCategorias = intval($dataCategoria[0]->id_categoria);
 
         while ( $idCategoriaSuperior != 0 ) {
             $dataCategoria = $this->M_Store_Home->getCategoryUp(
