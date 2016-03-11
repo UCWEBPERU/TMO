@@ -75,7 +75,7 @@ class C_Store_Home extends CI_Controller {
                 $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria);
             }
         }
-
+        var_dump($modulo->data_sub_categorias);
         $data["modulo"] = $modulo;
 
         $this->load->view('store/v-store-home', $data);
