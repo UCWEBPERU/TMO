@@ -18,6 +18,15 @@ class M_Store_Home extends CI_Model {
         return $query->result();
     }
 
+    public function getCategory($data) {
+        $this->db->where('Categoria_Productos.id_categoria', $data["id_categoria"]);
+        $this->db->where('Categoria_Productos.id_empresa', $data["id_empresa"]);
+        $this->db->where('Categoria_Productos.estado', '1');
+        $query = $this->db->get('Categoria_Productos');
+
+        return $query->result();
+    }
+
     public function getPrimaryCategories($id_empresa) {
         $this->db->join('Archivo', 'Archivo.id_archivo = Categoria_Productos.id_imagen_Categoria');
         $this->db->where('Categoria_Productos.id_empresa', $id_empresa);

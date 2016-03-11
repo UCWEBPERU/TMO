@@ -26,6 +26,7 @@ class C_Store_Home extends CI_Controller {
 
         $dataCategorias = $this->cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
+        $modulo->id_categoria_raiz =  $dataCategorias[0]->id_categoria;
 
         if (sizeof($dataCategorias) > 0) {
             $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
@@ -57,9 +58,14 @@ class C_Store_Home extends CI_Controller {
         $dataCategorias = $this->cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
 
+        $listaCategorias = explode(".", $listaCategorias);
+        $idCategoriaSuperior = intval($listaCategorias[sizeof($listaCategorias) - 1]);
+
+        $modulo->id_categoria_raiz =  $listaCategorias[0];
+
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($dataCategorias);
-            $modulo->data_productos = $this->cargarDatosProductos($dataCategorias);
+            $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($idCategoriaSuperior);
+            $modulo->data_productos = $this->cargarDatosProductos($idCategoriaSuperior);
             foreach ($modulo->data_productos as $producto) {
                 $producto = $this->cargarGaleriaPorProducto($producto);
             }
@@ -110,6 +116,13 @@ class C_Store_Home extends CI_Controller {
             $producto->galeria_producto = array($galeria);
         }
         return $producto;
+    }
+
+    public function validarListaCategorias($listaCategorias) {
+        $listaCategorias = explode(".", $listaCategorias);
+        foreach ($listaCategorias as $categoria) {
+            $dataCategoria = $this->M_Store_Home->getCategory($categoria);
+        }
     }
 
 }

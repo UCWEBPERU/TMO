@@ -66,7 +66,7 @@
 		<!-- Loading Screen -->
 		<div data-u="slides" id="slide" >
 			<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
-				<?php if ($c == 0) { ?>
+				<?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
 					<div style="background:#FFF;">
 						<a href="#" style="color:#000;"><p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p></a>
 					</div>
