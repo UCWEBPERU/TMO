@@ -98,10 +98,6 @@
 			</div>
 		<?php } ?>
 
-		<section id="toplist">
-			<h2>Productos</h2>
-		</section>
-
 		<div class="row">
 			<div>
 				<div class="col-xs-6 products" >
