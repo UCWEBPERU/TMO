@@ -169,6 +169,7 @@ class C_Store_Home extends CI_Controller {
     }
 
     public function generarUrlSubCategoria($url_store, $idCategoria){
+        echo "ID CATEGORIA INICIAL: ". $idCategoria."<br>";
         $dataCategoria = $this->M_Store_Home->getCategory(
             array(
                 "id_categoria"  => $idCategoria,
