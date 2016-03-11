@@ -211,6 +211,8 @@ $route['company/(:num)/admin/category/ajax/updateImageCategory']    = 'company-a
 | ------------------------------
 */
 $route['company/(:num)/store/(:num)'] = 'store/C_Store_Home';
+$route['company/(:num)/store/(:num)/categories/(:num)'] = 'store/C_Store_Home';
+$route['company/(:num)/store/(:num)/categories/(:num).(:num)'] = 'store/C_Store_Home';
 
 ///*
 //| ------------------------------
