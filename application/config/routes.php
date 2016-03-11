@@ -214,10 +214,10 @@ $route['company/(:num)/store/(:num)']                                           
 
 // url para soportar el anidamiento de las subcategorias
 $route['company/(:num)/store/(:num)/categories/(:num)']                             = 'store/C_Store_Home/viewSubCategorias/$3';
-$route['company/(:num)/store/(:num)/categories/(:num).(:num)']                      = 'store/C_Store_Home/viewSubCategorias/$3';
-$route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num)']               = 'store/C_Store_Home/viewSubCategorias/$3';
-$route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num)']        = 'store/C_Store_Home/viewSubCategorias/$3';
-$route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num)'] = 'store/C_Store_Home/viewSubCategorias/$3';
+$route['company/(:num)/store/(:num)/categories/(:num).(:num)']                      = 'store/C_Store_Home/viewSubCategorias/$3.$4';
+$route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num)']               = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5';
+$route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num)']        = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6';
+$route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num)'] = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6.$7';
 
 ///*
 //| ------------------------------
