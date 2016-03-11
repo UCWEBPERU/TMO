@@ -28,8 +28,8 @@ class C_Store_Home extends CI_Controller {
         $modulo->data_categorias = $dataCategorias;
 
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($dataCategorias);
-            $modulo->data_productos = $this->cargarDatosProductos($dataCategorias);
+            $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
+            $modulo->data_productos = $this->cargarDatosProductos($dataCategorias[0]->id_categoria);
             foreach ($modulo->data_productos as $producto) {
                 $producto = $this->cargarGaleriaPorProducto($producto);
             }
@@ -41,7 +41,6 @@ class C_Store_Home extends CI_Controller {
     }
 
     public function viewSubCategorias($listaCategorias) {
-        var_dump($listaCategorias);
         $modulo = new stdClass();
 
         $dataEmpresa = $this->M_Store_Home->getCompanyAndStore(
@@ -75,22 +74,22 @@ class C_Store_Home extends CI_Controller {
         return $this->M_Store_Home->getPrimaryCategories($this->uri->segment(2));
     }
 
-    public function cargarDatosSubCategorias($dataCategorias) {
+    public function cargarDatosSubCategorias($id_categoria_superior) {
         $dataSubCategorias = $this->M_Store_Home->getSubCategories(
             array(
                 "id_empresa"            => $this->uri->segment(2),
-                "id_categoria_superior" => $dataCategorias[0]->id_categoria
+                "id_categoria_superior" => $id_categoria_superior
             )
         );
         return $dataSubCategorias;
     }
 
-    public function cargarDatosProductos($dataCategorias) {
+    public function cargarDatosProductos($id_categoria) {
         $dataProductos = $this->M_Store_Home->getProducts(
             array(
                 "id_empresa"    => $this->uri->segment(2),
                 "id_tienda"     => $this->uri->segment(4),
-                "id_categoria"  => $dataCategorias[0]->id_categoria
+                "id_categoria"  => $id_categoria
             )
         );
         return $dataProductos;
@@ -106,9 +105,9 @@ class C_Store_Home extends CI_Controller {
         if (sizeof($geleriaProducto) > 0) {
             $producto->galeria_producto = $geleriaProducto;
         } else {
-            $producto->galeria_producto = array(
-                "url_archivo" => base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png"
-            );
+            $galeria = new stdClass();
+            $galeria->url_archivo = base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png";
+            $producto->galeria_producto = array($galeria);
         }
         return $producto;
     }
