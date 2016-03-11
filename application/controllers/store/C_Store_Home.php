@@ -144,7 +144,7 @@ class C_Store_Home extends CI_Controller {
                 )
             );
 
-            if ($c == sizeof($listaIdCategorias) - 1) {
+            if ($c == 0 || $c == sizeof($listaIdCategorias) - 1) {
                 $urlIdCategorias .= $listaIdCategorias[$c];
             } else {
                 $urlIdCategorias .= $listaIdCategorias[$c].".";
@@ -152,7 +152,7 @@ class C_Store_Home extends CI_Controller {
 
             if (sizeof($dataCategoria) > 0) {
                 $dataCategoria[0]->url_id_categorias = $url_store."/categories/".$urlIdCategorias;
-                array_push($lista, $dataCategoria);
+                array_push($lista, $dataCategoria[0]);
             } else {
                 $lista = array();
                 break;
