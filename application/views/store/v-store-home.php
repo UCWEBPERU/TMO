@@ -86,9 +86,7 @@
 
 <!-- Content -->
 <content>
-
-	<section id="toplist">
-		<h2>
+	<?php if (sizeof($modulo->data_navegacion_sub_categorias) > 0) { ?> <section id="toplist"> <h2> <?php } ?>
 		<?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
 			<?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
 				<?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?>
@@ -98,8 +96,7 @@
 				</a>
 			<?php } ?>
 		<?php } ?>
-		</h2>
-	</section>
+	<?php if (sizeof($modulo->data_navegacion_sub_categorias) > 0) { ?> </h2> </section> <?php } ?>
 
 	<div class="col-xs-12">
 
