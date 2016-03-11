@@ -71,6 +71,9 @@ class C_Store_Home extends CI_Controller {
             foreach ($modulo->data_productos as $producto) {
                 $producto = $this->cargarGaleriaPorProducto($producto);
             }
+            foreach ($modulo->data_sub_categorias as $sub_categoria) {
+                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria);
+            }
         }
 
         $data["modulo"] = $modulo;
@@ -160,6 +163,39 @@ class C_Store_Home extends CI_Controller {
 
         }
         return $lista;
+    }
+
+    public function generarUrlSubCategoria($url_store, $idCategoria){
+        $dataCategoria = $this->M_Store_Home->getCategory(
+            array(
+                "id_categoria"  => $idCategoria,
+                "id_empresa"    => $this->uri->segment(2)
+            )
+        );
+
+        $idCategoriaSuperior = $dataCategoria[0]->id_categoria;
+        $urlIdCategorias = $idCategoriaSuperior;
+
+        while ( $idCategoriaSuperior != 0 ) {
+            $dataCategoria = $this->M_Store_Home->getCategoryUp(
+                array(
+                    "id_categoria_superior" => $idCategoriaSuperior,
+                    "id_empresa"            => $this->uri->segment(2)
+                )
+            );
+
+            if ( sizeof($dataCategoria) > 0 ) {
+                $idCategoriaSuperior = $dataCategoria[0]->id_categoria;
+                $urlIdCategorias = $idCategoriaSuperior.".".$urlIdCategorias;
+            } else {
+                $urlIdCategorias = substr($urlIdCategorias, 1);
+                $idCategoriaSuperior = 0;
+            }
+        }
+
+        $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
+
+        return $urlIdCategorias;
     }
 
 }

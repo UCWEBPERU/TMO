@@ -108,11 +108,11 @@
 		<?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
 			<div class="row">
 				<div>
-					<div class="col-xs-5 list" >
-						<a href="categories.html" ><img src="<?php echo $sub_categoria->url_archivo; ?>" id="images" alt=""  /></a>
+					<div class="col-xs-5 list" >url_categoria
+						<a href="<?php echo $sub_categoria->url_categoria; ?>" ><img src="<?php echo $sub_categoria->url_archivo; ?>" id="images" alt="" /></a>
 					</div>
 					<div class="col-xs-7 list" >
-						<a href="categories.html" ><h2><?php echo strtoupper($sub_categoria->nombre_categoria); ?></h2></a>
+						<a href="<?php echo $sub_categoria->url_categoria; ?>" ><h2><?php echo strtoupper($sub_categoria->nombre_categoria); ?></h2></a>
 					</div>
 				</div>
 			</div>
@@ -138,7 +138,7 @@
 <footer>
 	<div id="footer">
 		<div class="boximage">
-			<a href="v-store-home.php"><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/homes.png" class="images" alt="" /></a>
+			<a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/homes.png" class="images" alt="" /></a>
 			<h2><a href="#" onclick="">Home</a></h2>
 		</div>
 		<div class="boximage">
