@@ -136,6 +136,7 @@ class C_Store_Home extends CI_Controller {
     public function generarNavegacionSubCategorias($url_store, $listaIdCategorias){
         $lista = array();
         $urlIdCategorias = "";
+
         for ($c = 0; $c < sizeof($listaIdCategorias); $c++) {
             $dataCategoria = $this->M_Store_Home->getCategory(
                 array(
@@ -157,8 +158,8 @@ class C_Store_Home extends CI_Controller {
                 $lista = array();
                 break;
             }
+
         }
-        var_dump($lista);
         return $lista;
     }
 
