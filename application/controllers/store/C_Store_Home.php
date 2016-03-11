@@ -174,7 +174,7 @@ class C_Store_Home extends CI_Controller {
         $idCategoria = $id_categoria;
         $idCategoriaSuperior = $id_categoria_superior;
 
-        do {
+        while ( $idCategoriaSuperior != 0 ) {
             $dataCategoria = $this->M_Store_Home->getCategoryUp(
                 array(
                     "id_categoria"          => $idCategoria,
@@ -191,7 +191,7 @@ class C_Store_Home extends CI_Controller {
                 $urlIdCategorias = substr($urlIdCategorias, 1);
                 $idCategoriaSuperior = 0;
             }
-        } while ( $idCategoriaSuperior != 0 );
+        }
 
         $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
 
