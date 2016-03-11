@@ -158,7 +158,7 @@ class C_Store_Home extends CI_Controller {
                 break;
             }
         }
-
+        var_dump($lista);
         return $lista;
     }
 
