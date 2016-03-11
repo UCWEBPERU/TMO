@@ -24,14 +24,14 @@ class C_Store_Home extends CI_Controller {
             redirect("not-found/store");
         }
 
-        $dataCategorias = cargarDatosCategoriasPrincipales();
+        $dataCategorias = $this->cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
 
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_sub_categorias = cargarDatosSubCategorias($dataCategorias);
-            $modulo->data_productos = cargarDatosProductos($dataCategorias);
+            $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($dataCategorias);
+            $modulo->data_productos = $this->cargarDatosProductos($dataCategorias);
             foreach ($modulo->data_productos as $producto) {
-                $producto = cargarGaleriaPorProducto($producto);
+                $producto = $this->cargarGaleriaPorProducto($producto);
             }
         }
 
@@ -54,14 +54,14 @@ class C_Store_Home extends CI_Controller {
             redirect("not-found/store");
         }
 
-        $dataCategorias = cargarDatosCategoriasPrincipales();
+        $dataCategorias = $this->cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
 
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_sub_categorias = cargarDatosSubCategorias($dataCategorias);
-            $modulo->data_productos = cargarDatosProductos($dataCategorias);
+            $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($dataCategorias);
+            $modulo->data_productos = $this->cargarDatosProductos($dataCategorias);
             foreach ($modulo->data_productos as $producto) {
-                $producto = cargarGaleriaPorProducto($producto);
+                $producto = $this->cargarGaleriaPorProducto($producto);
             }
         }
 
