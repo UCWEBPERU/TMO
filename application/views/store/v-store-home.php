@@ -98,7 +98,7 @@
 			</div>
 		<?php } ?>
 
-		<?php foreach ($modulo->data_productos as $producto) { ?>
+<!--		--><?php //foreach ($modulo->data_productos as $producto) { ?>
 <!--			<div class="row">-->
 <!--				<div>-->
 <!--					<div class="col-xs-6 products" >-->
@@ -127,7 +127,7 @@
 <!--					</div>-->
 <!--				</div>-->
 <!--			</div>-->
-		<?php } ?>
+<!--		--><?php //} ?>
 
 
 		<div class="row">
