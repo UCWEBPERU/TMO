@@ -174,24 +174,24 @@ class C_Store_Home extends CI_Controller {
         $idCategoria = $id_categoria;
         $idCategoriaSuperior = $id_categoria_superior;
 
-        while ( $idCategoriaSuperior != 0 ) {
-            $dataCategoria = $this->M_Store_Home->getCategoryUp(
-                array(
-                    "id_categoria"          => $idCategoria,
-                    "id_categoria_superior" => $idCategoriaSuperior,
-                    "id_empresa"            => $this->uri->segment(2)
-                )
-            );
-
-            if ( sizeof($dataCategoria) > 0 ) {
-                $idCategoria           = intval($dataCategoria[0]->id_categoria);
-                $idCategoriaSuperior  = intval($dataCategoria[0]->id_categoria_superior);
-                $urlIdCategorias        = $idCategoriaSuperior.".".$urlIdCategorias;
-            } else {
-                $urlIdCategorias = substr($urlIdCategorias, 1);
-                $idCategoriaSuperior = 0;
-            }
-        }
+//        while ( $idCategoriaSuperior != 0 ) {
+//            $dataCategoria = $this->M_Store_Home->getCategoryUp(
+//                array(
+//                    "id_categoria"          => $idCategoria,
+//                    "id_categoria_superior" => $idCategoriaSuperior,
+//                    "id_empresa"            => $this->uri->segment(2)
+//                )
+//            );
+//
+//            if ( sizeof($dataCategoria) > 0 ) {
+//                $idCategoria           = intval($dataCategoria[0]->id_categoria);
+//                $idCategoriaSuperior  = intval($dataCategoria[0]->id_categoria_superior);
+//                $urlIdCategorias        = $idCategoriaSuperior.".".$urlIdCategorias;
+//            } else {
+//                $urlIdCategorias = substr($urlIdCategorias, 1);
+//                $idCategoriaSuperior = 0;
+//            }
+//        }
 
         $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
 
