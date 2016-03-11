@@ -36,7 +36,7 @@ class C_Store_Home extends CI_Controller {
                 )
             );
 
-            $modulo->sub_categorias = $dataSubCategorias;
+            $modulo->data_sub_categorias = $dataSubCategorias;
         }
 
         $data["modulo"] = $modulo;

@@ -44,9 +44,9 @@
        
     content{
     	display:block;
-		padding-top: 67px;
+		/*padding-top: 67px;*/
+		padding-top: 33px;
 		position:relative;
-
     }
 
 /* Inicio */
