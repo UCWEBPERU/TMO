@@ -40,7 +40,8 @@ class C_Store_Home extends CI_Controller {
         $this->load->view('store/v-store-home', $data);
     }
 
-    public function viewSubCategorias() {
+    public function viewSubCategorias($listaCategorias) {
+        var_dump($listaCategorias);
         $modulo = new stdClass();
 
         $dataEmpresa = $this->M_Store_Home->getCompanyAndStore(
