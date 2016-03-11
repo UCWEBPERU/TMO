@@ -18,7 +18,7 @@
     <!-- Header -->
     <header>
         <div id="title">
-            <a href="item.html" ><img src="images/left-arrow.png" class="images" alt="" /></a>
+            <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/left-arrow.png" class="images" alt="" /></a>
             <a href="item.html" >Back</a>
             <h2>Details</h2>
         </div>
@@ -40,9 +40,9 @@
                             </ol>
                             <!-- Carousel items -->
                             <div class="carousel-inner">
-                                <div class="active item"><img  src="images/pic00.png" alt="banner1" /></div>
-                                <div class="item"><img  src="images/pic00.png" alt="banner2" /></div>
-                                <div class="item"><img  src="images/pic00.png" alt="banner3" /></div>
+                                <div class="active item"><img  src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" alt="banner1" /></div>
+                                <div class="item"><img  src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" alt="banner2" /></div>
+                                <div class="item"><img  src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" alt="banner3" /></div>
 
                             </div>
 
