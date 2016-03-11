@@ -18,8 +18,8 @@
     <!-- Header -->
     <header>
         <div id="title">
-            <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/left-arrow.png" class="images" alt="" /></a>
-            <a href="item.html" >Back</a>
+            <a href="<?php echo $modulo->base_url_store; ?>" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/left-arrow.png" class="images" alt="" /></a>
+            <a href="<?php echo $modulo->base_url_store; ?>" >Back</a>
             <h2>Details</h2>
         </div>
     </header>
