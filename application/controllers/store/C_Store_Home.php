@@ -171,26 +171,23 @@ class C_Store_Home extends CI_Controller {
     public function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior){
         echo "ID CATEGORIA INICIAL: ". $id_categoria."<br>";
         $urlIdCategorias = intval($id_categoria);
-        $idCategoria = $id_categoria;
         $idCategoriaSuperior = $id_categoria_superior;
 
         while ( $idCategoriaSuperior != 0 ) {
-            $dataCategoria = $this->M_Store_Home->getCategoryUp(
+            $dataCategoria = $this->M_Store_Home->getCategory(
                 array(
-                    "id_categoria"          => $idCategoria,
-                    "id_categoria_superior" => $idCategoriaSuperior,
+                    "id_categoria"          => $idCategoriaSuperior,
                     "id_empresa"            => $this->uri->segment(2)
                 )
             );
             var_dump($dataCategoria);
-//            if ( sizeof($dataCategoria) > 0 ) {
-//                $idCategoria           = intval($dataCategoria[0]->id_categoria);
-//                $idCategoriaSuperior  = intval($dataCategoria[0]->id_categoria_superior);
-//                $urlIdCategorias        = $idCategoriaSuperior.".".$urlIdCategorias;
-//            } else {
-//                $urlIdCategorias = substr($urlIdCategorias, 1);
-//                $idCategoriaSuperior = 0;
-//            }
+            if ( sizeof($dataCategoria) > 0 ) {
+                $idCategoriaSuperior    = intval($dataCategoria[0]->id_categoria_superior);
+                $urlIdCategorias        = $idCategoriaSuperior.".".$urlIdCategorias;
+            } else {
+                $urlIdCategorias = substr($urlIdCategorias, 1);
+                $idCategoriaSuperior = 0;
+            }
             $idCategoriaSuperior = 0;
         }
 
