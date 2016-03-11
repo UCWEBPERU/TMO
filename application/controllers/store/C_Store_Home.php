@@ -37,7 +37,7 @@ class C_Store_Home extends CI_Controller {
                 $producto = $this->cargarGaleriaPorProducto($producto);
             }
             foreach ($modulo->data_sub_categorias as $sub_categoria) {
-                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria);
+                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria);
             }
         }
 
@@ -75,7 +75,7 @@ class C_Store_Home extends CI_Controller {
                 $producto = $this->cargarGaleriaPorProducto($producto);
             }
             foreach ($modulo->data_sub_categorias as $sub_categoria) {
-                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria);
+                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria);
             }
         }
 
