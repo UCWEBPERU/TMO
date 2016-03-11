@@ -176,7 +176,7 @@ class C_Store_Home extends CI_Controller {
             )
         );
 
-        $idCategoriaSuperior = $dataCategoria[0]->id_categoria;
+        $idCategoriaSuperior = intval($dataCategoria[0]->id_categoria);
         $urlIdCategorias = $idCategoriaSuperior;
 
         while ( $idCategoriaSuperior != 0 ) {
@@ -188,7 +188,7 @@ class C_Store_Home extends CI_Controller {
             );
 
             if ( sizeof($dataCategoria) > 0 ) {
-                $idCategoriaSuperior = $dataCategoria[0]->id_categoria;
+                $idCategoriaSuperior = intval($dataCategoria[0]->id_categoria_superior);
                 $urlIdCategorias = $idCategoriaSuperior.".".$urlIdCategorias;
             } else {
                 $urlIdCategorias = substr($urlIdCategorias, 1);
