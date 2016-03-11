@@ -180,22 +180,22 @@ class C_Store_Home extends CI_Controller {
         $idCategoriaSuperior = intval($dataCategoria[0]->id_categoria_superior);
         $urlIdCategorias = intval($dataCategoria[0]->id_categoria);
 
-        while ( $idCategoriaSuperior != 0 ) {
-            $dataCategoria = $this->M_Store_Home->getCategoryUp(
-                array(
-                    "id_categoria_superior" => $idCategoriaSuperior,
-                    "id_empresa"            => $this->uri->segment(2)
-                )
-            );
-
-            if ( sizeof($dataCategoria) > 0 ) {
-                $idCategoriaSuperior = intval($dataCategoria[0]->id_categoria_superior);
-                $urlIdCategorias = $idCategoriaSuperior.".".$urlIdCategorias;
-            } else {
-                $urlIdCategorias = substr($urlIdCategorias, 1);
-                $idCategoriaSuperior = 0;
-            }
-        }
+//        while ( $idCategoriaSuperior != 0 ) {
+//            $dataCategoria = $this->M_Store_Home->getCategoryUp(
+//                array(
+//                    "id_categoria_superior" => $idCategoriaSuperior,
+//                    "id_empresa"            => $this->uri->segment(2)
+//                )
+//            );
+//
+//            if ( sizeof($dataCategoria) > 0 ) {
+//                $idCategoriaSuperior = intval($dataCategoria[0]->id_categoria_superior);
+//                $urlIdCategorias = $idCategoriaSuperior.".".$urlIdCategorias;
+//            } else {
+//                $urlIdCategorias = substr($urlIdCategorias, 1);
+//                $idCategoriaSuperior = 0;
+//            }
+//        }
 
         $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
 
