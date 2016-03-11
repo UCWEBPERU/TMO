@@ -98,118 +98,17 @@
 			</div>
 		<?php } ?>
 
-<!--		--><?php //foreach ($modulo->data_productos as $producto) { ?>
-<!--			<div class="row">-->
-<!--				<div>-->
-<!--					<div class="col-xs-6 products" >-->
-<!--						<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!---->
-<!--						<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--						<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!---->
-<!--					</div>-->
-<!--					<div class="col-xs-6 products">-->
-<!--						<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!--						<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--						<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!--					</div>-->
-<!--					<div class="col-xs-6 products" >-->
-<!--						<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!---->
-<!--						<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--						<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!---->
-<!--					</div>-->
-<!--					<div class="col-xs-6 products">-->
-<!--						<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!--						<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--						<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		--><?php //} ?>
-
-
 		<div class="row">
 			<div>
-<!--				<div class="col-xs-6 products" >-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!--				</div>-->
-<!--				<div class="col-xs-6 products">-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!--				</div>-->
-<!--				<div class="col-xs-6 products" >-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!---->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!---->
-<!--				</div>-->
-<!--				<div class="col-xs-6 products">-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!--				</div>-->
+			<?php foreach ($modulo->data_productos as $producto) { ?>
+				<div class="col-xs-6 products" >
+					<a href="detail.html" ><img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>" class="images" alt="" /></a>
+					<h2><a href="detail.html" ><?php echo $producto->nombre_producto; ?></a></h2>
+					<h3><a href="detail.html" >$<?php echo $producto->precio_producto; ?></a></h3><h4><strike></strike></h4>
+				</div>
+			<?php } ?>
 			</div>
 		</div>
-
-
-<!--		<div class="row">-->
-<!--			<div>-->
-<!--				<div class="col-xs-6 products" >-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!---->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!---->
-<!--				</div>-->
-<!--				<div class="col-xs-6 products">-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--		<div class="row">-->
-<!--			<div>-->
-<!---->
-<!--				<div class="col-xs-6 products" >-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!---->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!---->
-<!--				</div>-->
-<!--				<div class="col-xs-6 products">-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--		<div class="row">-->
-<!--			<div>-->
-<!---->
-<!--				<div class="col-xs-6 products" >-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!---->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!---->
-<!--				</div>-->
-<!--				<div class="col-xs-6 products">-->
-<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
-<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
-<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
-<!--				</div>-->
-<!--				<div class="col-xs-12 products" style="height: 60px;"></div>-->
-<!---->
-<!--			</div>-->
-<!--		</div>-->
 
 		<div class="row" style="height: 50px;"></div>
 
