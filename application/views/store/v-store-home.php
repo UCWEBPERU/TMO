@@ -68,11 +68,15 @@
 			<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
 				<?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
 					<div style="background:#FFF;">
-						<a href="#" style="color:#000;"><p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p></a>
+						<a href="<?php echo $modulo->base_url_store."/categories/".$modulo->data_categorias[$c]->id_categoria; ?>" style="color:#000;">
+							<p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
+						</a>
 					</div>
 				<?php } else { ?>
 					<div>
-						<a href="#"><p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p></a>
+						<a href="<?php echo $modulo->base_url_store."/categories/".$modulo->data_categorias[$c]->id_categoria; ?>">
+							<p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
+						</a>
 					</div>
 				<?php } ?>
 			<?php } ?>

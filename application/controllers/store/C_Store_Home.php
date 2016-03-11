@@ -13,6 +13,8 @@ class C_Store_Home extends CI_Controller {
     public function index() {
         $modulo = new stdClass();
 
+        $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
+
         $dataEmpresa = $this->M_Store_Home->getCompanyAndStore(
             array(
                 "id_empresa"    => $this->uri->segment(2),
