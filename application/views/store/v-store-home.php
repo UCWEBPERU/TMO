@@ -132,30 +132,28 @@
 
 		<div class="row">
 			<div>
-				<div class="col-xs-6 products" >
-					<a href="detail.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" class="images" alt="" /></a>
-
-					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>
-					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>
-
-				</div>
-				<div class="col-xs-6 products">
-					<a href="detail.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" class="images" alt="" /></a>
-					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>
-					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>
-				</div>
-				<div class="col-xs-6 products" >
-					<a href="detail.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" class="images" alt="" /></a>
-
-					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>
-					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>
-
-				</div>
-				<div class="col-xs-6 products">
-					<a href="detail.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" class="images" alt="" /></a>
-					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>
-					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>
-				</div>
+<!--				<div class="col-xs-6 products" >-->
+<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
+<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
+<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
+<!--				</div>-->
+<!--				<div class="col-xs-6 products">-->
+<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
+<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
+<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
+<!--				</div>-->
+<!--				<div class="col-xs-6 products" >-->
+<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
+<!---->
+<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
+<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
+<!---->
+<!--				</div>-->
+<!--				<div class="col-xs-6 products">-->
+<!--					<a href="detail.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--/images/pic00.png" class="images" alt="" /></a>-->
+<!--					<h2><a href="detail.html" >Versace Woven scarf, Turquoise</a></h2>-->
+<!--					<h3><a href="detail.html" >$340</a></h3><h4><strike>$425</strike></h4>-->
+<!--				</div>-->
 			</div>
 		</div>
 
