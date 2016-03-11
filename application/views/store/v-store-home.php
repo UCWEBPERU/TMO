@@ -87,6 +87,20 @@
 <!-- Content -->
 <content>
 
+	<section id="toplist">
+		<h2>
+		<?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
+			<?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
+				<a href="<?php echo $modulo->data_navegacion_sub_categorias[$c]->url_id_categorias; ?>">
+					<?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?> >
+				</a>
+			<?php } else { ?>
+				<?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?>
+			<?php } ?>
+		<?php } ?>
+		</h2>
+	</section>
+
 	<div class="col-xs-12">
 
 		<?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>

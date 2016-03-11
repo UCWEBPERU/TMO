@@ -64,6 +64,7 @@ class C_Store_Home extends CI_Controller {
         $idCategoriaSuperior = intval($listaCategorias[sizeof($listaCategorias) - 1]);
 
         $modulo->id_categoria_raiz =  $listaCategorias[0];
+        $modulo->data_navegacion_sub_categorias = $this->generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias);
 
         if (sizeof($dataCategorias) > 0) {
             $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($idCategoriaSuperior);
@@ -123,8 +124,42 @@ class C_Store_Home extends CI_Controller {
     public function validarListaCategorias($listaCategorias) {
         $listaCategorias = explode(".", $listaCategorias);
         foreach ($listaCategorias as $categoria) {
-            $dataCategoria = $this->M_Store_Home->getCategory($categoria);
+            $dataCategoria = $this->M_Store_Home->getCategorygetCategory(
+                array(
+                    "id_categoria"  => $categoria,
+                    "id_empresa"    => $this->uri->segment(2)
+                )
+            );
         }
+    }
+
+    public function generarNavegacionSubCategorias($url_store, $listaIdCategorias){
+        $lista = array();
+        $urlIdCategorias = "";
+        for ($c = 0; $c < sizeof($listaIdCategorias); $c++) {
+            $dataCategoria = $this->M_Store_Home->getCategory(
+                array(
+                    "id_categoria"  => $listaIdCategorias[$c],
+                    "id_empresa"    => $this->uri->segment(2)
+                )
+            );
+
+            if ($c == sizeof($listaIdCategorias) - 1) {
+                $urlIdCategorias .= $listaIdCategorias[$c];
+            } else {
+                $urlIdCategorias .= $listaIdCategorias[$c].".";
+            }
+
+            if (sizeof($dataCategoria) > 0) {
+                $dataCategoria[0]->url_id_categorias = $url_store."/categories/".$urlIdCategorias;
+                array_push($lista, $dataCategoria);
+            } else {
+                $lista = array();
+                break;
+            }
+        }
+
+        return $lista;
     }
 
 }
