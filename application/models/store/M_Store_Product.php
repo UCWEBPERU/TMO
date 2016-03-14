@@ -91,4 +91,16 @@ class M_Store_Product extends CI_Model {
         return $query->result();
     }
 
+    public function getModifiers($data) {
+        $this->db->join('Modificador_Productos', 'Modificador_Productos.id_modificador_productos = Detalle_Modificador_Productos.id_modificador_productos');
+        $this->db->join('Producto', 'Producto.id_producto = Detalle_Modificador_Productos.id_producto');
+        $this->db->where('Producto.id_producto', $data["id_producto"]);
+        $this->db->where('Producto.estado', '1');
+        $this->db->where('Producto.estado', '1');
+        $this->db->where('Modificador_Productos.estado', '1');
+        $this->db->where('Detalle_Modificador_Productos.estado', '1');
+        $query = $this->db->get('Detalle_Modificador_Productos');
+        return $query->result();
+    }
+
 }
