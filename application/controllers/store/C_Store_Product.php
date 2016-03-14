@@ -30,14 +30,18 @@ class C_Store_Product extends CI_Controller {
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;
 
+
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
             $modulo->data_productos = $this->cargarDatosProducto($idProducto);
-            foreach ($modulo->data_productos as $producto) {
-                $producto = $this->cargarGaleriaPorProducto($producto);
-            }
-            foreach ($modulo->data_sub_categorias as $sub_categoria) {
-                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior);
+            if (sizeof($modulo->data_productos) > 0) {
+                $producto = $this->cargarGaleriaPorProducto($modulo->data_productos[0]);
+                $dataCategoria = $this->M_Store_Home->getCategory(
+                    array(
+                        "id_categoria"          => $modulo->data_productos[0]->id_categoria,
+                        "id_empresa"            => $this->uri->segment(2)
+                    )
+                );
+                $modulo->url_button_back = $this->generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior);
             }
         }
 

@@ -19,7 +19,7 @@
     <header>
         <div id="title">
             <a href="<?php echo $modulo->base_url_store; ?>" ><img src="<?php echo PATH_RESOURCE_STORE; ?>/images/left-arrow.png" class="images" alt="" /></a>
-            <a href="<?php echo $modulo->base_url_store; ?>" >Back</a>
+            <a href="<?php echo $modulo->url_button_back; ?>" >Back</a>
             <h2>Details</h2>
         </div>
     </header>
