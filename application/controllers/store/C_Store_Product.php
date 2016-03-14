@@ -72,12 +72,12 @@ class C_Store_Product extends CI_Controller {
         if (sizeof($dataCategorias) > 0) {
             $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($idCategoriaSuperior);
             $modulo->data_productos = $this->cargarDatosProductos($idCategoriaSuperior);
-            foreach ($modulo->data_productos as $producto) {
-                $producto = $this->cargarGaleriaPorProducto($producto);
-            }
-            foreach ($modulo->data_sub_categorias as $sub_categoria) {
-                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior);
-            }
+//            foreach ($modulo->data_productos as $producto) {
+//                $producto = $this->cargarGaleriaPorProducto($producto);
+//            }
+//            foreach ($modulo->data_sub_categorias as $sub_categoria) {
+//                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior);
+//            }
         }
 
         $data["modulo"] = $modulo;
