@@ -188,7 +188,7 @@ class C_Store_Product extends CI_Controller {
         while ( $idCategoriaSuperior != 0 ) {
             $dataCategoria = $this->M_Store_Home->getCategory(
                 array(
-                    "id_categoria"          => $idCategoriaSuperior,
+                    "id_categoria"          => $id_categoria_superior,
                     "id_empresa"            => $this->uri->segment(2)
                 )
             );
