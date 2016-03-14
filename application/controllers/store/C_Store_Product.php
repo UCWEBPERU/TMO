@@ -11,7 +11,7 @@ class C_Store_Product extends CI_Controller {
         $this->load->model('store/M_Store_Product');
     }
 
-    public function index($idProducto) {
+    public function viewProduct($idProducto) {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
 
