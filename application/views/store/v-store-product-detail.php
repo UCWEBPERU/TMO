@@ -32,16 +32,20 @@
                 <div>
                     <div id="contenedorCarousel">
                         <div id="myCarousel" class="carousel slide">
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-
-                            </ol>
-                            <!-- Carousel items -->
-                            <div class="carousel-inner">
-                                <?php if (sizeof($modulo->data_productos) > 0) { ?>
-                                    <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
+                            <?php if (sizeof($modulo->data_productos) > 0) { ?>
+                                <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
+                                <ol class="carousel-indicators">
+                                    <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
+                                        <?php if ($c == 0) { ?>
+                                            <div class="active item"><img  src="<?php echo $galeriaProducto[$c]->url_archivo; ?>" alt="banner1" /></div>
+                                            <li data-target="#myCarousel" data-slide-to="<?php echo $c; ?>" class="active"></li>
+                                        <?php } else { ?>
+                                            <li data-target="#myCarousel" data-slide-to="<?php echo $c; ?>"></li>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </ol>
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
                                     <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
                                         <?php if ($c == 0) { ?>
                                             <div class="active item"><img  src="<?php echo $galeriaProducto[$c]->url_archivo; ?>" alt="banner1" /></div>
@@ -49,8 +53,8 @@
                                             <div class="item"><img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>" alt="banner2" /></div>
                                         <?php } ?>
                                     <?php } ?>
-                                <?php } ?>
-                            </div>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="col-xs-12 detail" id="titledetail">
