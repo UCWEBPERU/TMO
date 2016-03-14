@@ -47,7 +47,9 @@ class C_Store_Product extends CI_Controller {
                         "id_producto" => $producto->id_producto
                     )
                 );
+                $dataModifiers = configurarColorModificadores($dataModifiers);
                 $modulo->data_modifiers = $dataModifiers;
+                var_dump($dataModifiers);
             }
         }
 
@@ -56,29 +58,41 @@ class C_Store_Product extends CI_Controller {
         $this->load->view('store/v-store-product-detail', $data);
     }
 
+    public function configurarColorModificadores($dataModifiers) {
+        $paletaColores = array(
+            "white"         => "#ffffff",
+            "black"         => "#000000",
+            "yellow"        => "#ffff00",
+            "brown"         => "#654321",
+            "purple"        => "#800080",
+            "pink"          => "#ff007f",
+            "orange"        => "#ff4f00",
+            "red"           => "#ff0000",
+            "green"         => "#00ff00",
+            "blue"          => "#0000ff",
+            "gray"          => "#808080",
+            "cyan"          => "#00ffff",
+            "light blue"    => "#00ffff",
+            "mustard"       => "#ffdb58"
+        );
+
+        foreach ($dataModifiers as $modificador) {
+            $tipo_modificador = trim(strtolower($modificador->tipo_modificador));
+            $descripcion_modificador = trim(strtolower($modificador->descripcion_modificador));
+            if ($tipo_modificador == "color") {
+                foreach ($paletaColores as $nombreColor => $color) {
+                    if ($nombreColor == $descripcion_modificador) {
+                        $modificador->color_rgb = $color;
+                    }
+                }
+            }
+        }
+
+        return $dataModifiers;
+    }
+
     public function cargarDatosCategoriasPrincipales() {
         return $this->M_Store_Home->getPrimaryCategories($this->uri->segment(2));
-    }
-
-    public function cargarDatosSubCategorias($id_categoria_superior) {
-        $dataSubCategorias = $this->M_Store_Home->getSubCategories(
-            array(
-                "id_empresa"            => $this->uri->segment(2),
-                "id_categoria_superior" => $id_categoria_superior
-            )
-        );
-        return $dataSubCategorias;
-    }
-
-    public function cargarDatosProductos($id_categoria) {
-        $dataProductos = $this->M_Store_Home->getProducts(
-            array(
-                "id_empresa"    => $this->uri->segment(2),
-                "id_tienda"     => $this->uri->segment(4),
-                "id_categoria"  => $id_categoria
-            )
-        );
-        return $dataProductos;
     }
 
     public function cargarDatosProducto($idProducto) {
