@@ -1,6 +1,4 @@
 <?php
-ini_set('max_execution_time', 0);
-ini_set('memory_limit', '-1');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class C_Store_Product extends CI_Controller {
