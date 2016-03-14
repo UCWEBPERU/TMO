@@ -74,32 +74,30 @@
                         <button> Large</button>
                         <a href="#" ><h5>Size Chart</h5></a>
                     </div>
+<!--                    <div class="col-xs-12 detail" >-->
+<!--                        <h3>$5.95 Flat-Rate Standard Shipping</h3>-->
+<!--                    </div>-->
+<!--                    <div class="col-xs-12 detail" >-->
+<!--                        <h4>Ready-to-Ship Item</h4>-->
+<!--                        <a href="#" ><h6>Learn More</h6></a>-->
+<!--                        <h3>Usually ships in 1-2 days</h3>-->
+<!--                    </div>-->
                     <div class="col-xs-12 detail" >
-                        <h3>$5.95 Flat-Rate Standard Shipping</h3>
+                        <h4>Description</h4>
+                        <?php if (sizeof($modulo->data_productos) > 0) { ?>
+                            <h3><?php echo $modulo->data_productos[0]->descripcion_producto; ?></h3>
+                        <?php } ?>
+<!--                        <h3>Draped neck knit dress with 3/4 sleeves, seaming detail and a flared skirt</h3>-->
+<!--                        <ul>-->
+<!---->
+<!--                            <li>Model's measurements: Height 5'9", Bust 33", Waist 25", Hips 35#, wearing a size Small</li>-->
+<!--                            <li>Care instrucions: Machine wash</li>-->
+<!--                            <li>Measurements: shoulder to hemline 39", sleeve length 18", taken from size M.</li>-->
+<!--                            <li>Country of origin: United States</li>-->
+<!---->
+<!--                        </ul>-->
                     </div>
-                    <div class="col-xs-12 detail" >
-                        <h4>Ready-to-Ship Item</h4>
-                        <a href="#" ><h6>Learn More</h6></a>
-                        <h3>Usually ships in 1-2 days</h3>
-
-                    </div>
-                    <div class="col-xs-12 detail" >
-                        <h4>Return Policy</h4>
-                        <h3>Returnable within 14 days for a $3.99 return shipping fee in the U.S.</h3>
-                        <h3>Draped neck knit dress with 3/4 sleeves, seaming detail and a flared skirt</h3>
-                        <ul>
-
-                            <li>Model's measurements: Height 5'9", Bust 33", Waist 25", Hips 35#, wearing a size Small</li>
-                            <li>Care instrucions: Machine wash</li>
-                            <li>Measurements: shoulder to hemline 39", sleeve length 18", taken from size M.</li>
-                            <li>Country of origin: United States</li>
-
-                        </ul>
-
-                    </div>
-
                     <div class="col-xs-12 detail" style="height: 110px;"></div>
-
                 </div>
             </div>
 

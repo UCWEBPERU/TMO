@@ -48,7 +48,6 @@ class C_Store_Product extends CI_Controller {
                     )
                 );
                 $modulo->data_modifiers = $dataModifiers;
-                var_dump($dataModifiers);
             }
         }
 
