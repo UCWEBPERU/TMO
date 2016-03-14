@@ -181,7 +181,8 @@ class C_Store_Product extends CI_Controller {
     }
 
     public function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior) {
-        set_time_limit(500);
+        ini_set('max_execution_time', 0);
+//        ini_set('memory_limit', '-1');
         $idCategoria         = $id_categoria;
         $idCategoriaSuperior = $id_categoria_superior;
         $urlIdCategorias     = intval($idCategoria);
