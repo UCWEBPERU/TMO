@@ -180,7 +180,8 @@ class C_Store_Product extends CI_Controller {
         return $lista;
     }
 
-    public function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior){
+    public function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior) {
+        set_time_limit(0);
         $idCategoria         = $id_categoria;
         $idCategoriaSuperior = $id_categoria_superior;
         $urlIdCategorias     = intval($idCategoria);
