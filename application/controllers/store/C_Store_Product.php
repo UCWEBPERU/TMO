@@ -203,7 +203,7 @@ class C_Store_Product extends CI_Controller {
 //            }
 //        }
 
-        for ($c = 1; $c <= 1; $c++) {
+//        for ($c = 1; $c <= 1; $c++) {
             $dataCategoria = $this->M_Store_Home->getCategory(
                 array(
                     "id_categoria"          => $idCategoriaSuperior,
@@ -220,7 +220,7 @@ class C_Store_Product extends CI_Controller {
 //                $idCategoriaSuperior = 0;
 //                break;
 //            }
-        }
+//        }
 
         $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
 
