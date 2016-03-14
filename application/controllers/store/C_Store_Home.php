@@ -176,7 +176,7 @@ class C_Store_Home extends CI_Controller {
         while ( $idCategoriaSuperior != 0 ) {
             $dataCategoria = $this->M_Store_Home->getCategory(
                 array(
-                    "id_categoria"          => $id_categoria_superior,
+                    "id_categoria"          => $idCategoriaSuperior,
                     "id_empresa"            => $this->uri->segment(2)
                 )
             );
