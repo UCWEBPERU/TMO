@@ -65,7 +65,7 @@
                     <div class="col-xs-12 detail" id="color">
                         <h2>Color</h2>
                         <?php foreach ($modulo->data_modifiers as $modifier) { ?>
-                            <?php if (trim(strtolower($modifier->descripcion_modificador)) == "Color") { ?>
+                            <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                                 <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
                             <?php } ?>
                         <?php } ?>
