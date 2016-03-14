@@ -210,16 +210,16 @@ class C_Store_Product extends CI_Controller {
                     "id_empresa"            => $this->uri->segment(2)
                 )
             );
-
-            if ( sizeof($dataCategoria) > 0 ) {
-                $idCategoria            = intval($dataCategoria[0]->id_categoria);
+            var_dump($dataCategoria);
+//            if ( sizeof($dataCategoria) > 0 ) {
+//                $idCategoria            = intval($dataCategoria[0]->id_categoria);
                 $idCategoriaSuperior    = intval($dataCategoria[0]->id_categoria_superior);
-                $urlIdCategorias        = $idCategoria.".".$urlIdCategorias;
-            } else {
-                $urlIdCategorias = substr($urlIdCategorias, 1);
-                $idCategoriaSuperior = 0;
-                break;
-            }
+//                $urlIdCategorias        = $idCategoria.".".$urlIdCategorias;
+//            } else {
+//                $urlIdCategorias = substr($urlIdCategorias, 1);
+//                $idCategoriaSuperior = 0;
+//                break;
+//            }
         }
 
         $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
