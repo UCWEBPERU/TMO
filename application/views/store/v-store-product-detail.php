@@ -63,9 +63,12 @@
                         <?php } ?>
                     </div>
                     <div class="col-xs-12 detail" id="color">
-                        <h2>Color: Green</h2>
-                        <button></button>
-                        <button style="background: #2958B0;"></button>
+                        <h2>Color</h2>
+                        <?php foreach ($modulo->data_modifiers as $modifier) { ?>
+                            <?php if (trim(strtolower($modifier->descripcion_modificador)) == "Color") { ?>
+                                <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                            <?php } ?>
+                        <?php } ?>
                     </div>
                     <div class="col-xs-12 detail" >
                         <h2>Please select a size:</h2>
