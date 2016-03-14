@@ -42,7 +42,7 @@ class C_Store_Product extends CI_Controller {
                     )
                 );
                 $modulo->url_button_back = $this->generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior);
-                $dataModifiers = $this->M_Store_Home->getModifiers(
+                $dataModifiers = $this->M_Store_Product->getModifiers(
                     array(
                         "id_producto" => $producto->id_producto
                     )
