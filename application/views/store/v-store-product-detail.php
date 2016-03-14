@@ -37,7 +37,6 @@
                                 <ol class="carousel-indicators">
                                     <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
                                         <?php if ($c == 0) { ?>
-                                            <div class="active item"><img  src="<?php echo $galeriaProducto[$c]->url_archivo; ?>" alt="banner1" /></div>
                                             <li data-target="#myCarousel" data-slide-to="<?php echo $c; ?>" class="active"></li>
                                         <?php } else { ?>
                                             <li data-target="#myCarousel" data-slide-to="<?php echo $c; ?>"></li>
