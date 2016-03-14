@@ -57,10 +57,10 @@
                         </div>
                     </div>
                     <div class="col-xs-12 detail" id="titledetail">
-
-                        <h2>Versace Woven scarf, Turquoise</h2>
-                        <h3>$340</h3><h4><strike>$425</strike></h4>
-
+                        <?php if (sizeof($modulo->data_productos) > 0) { ?>
+                            <h2><?php echo $modulo->data_productos[0]->nombre_producto; ?></h2>
+                            <h3>$<?php echo $modulo->data_productos[0]->precio_producto; ?></h3><h4><strike></strike></h4>
+                        <?php } ?>
                     </div>
                     <div class="col-xs-12 detail" id="color">
                         <h2>Color: Green</h2>
