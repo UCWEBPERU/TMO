@@ -66,7 +66,7 @@ class C_Store_Product extends CI_Controller {
         $dataCategorias = $this->cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $listaCategorias[0];
-        $modulo->data_navegacion_sub_categorias = $this->generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias);
+//        $modulo->data_navegacion_sub_categorias = $this->generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias);
         $idCategoriaSuperior = intval($listaCategorias[sizeof($listaCategorias) - 1]);
 
         if (sizeof($dataCategorias) > 0) {
