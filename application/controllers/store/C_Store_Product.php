@@ -8,9 +8,10 @@ class C_Store_Product extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->model('store/M_Store_Home');
+        $this->load->model('store/M_Store_Product');
     }
 
-    public function index() {
+    public function index($idProducto) {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
 
@@ -32,7 +33,7 @@ class C_Store_Product extends CI_Controller {
 
         if (sizeof($dataCategorias) > 0) {
             $modulo->data_sub_categorias = $this->cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
-            $modulo->data_productos = $this->cargarDatosProductos($dataCategorias[0]->id_categoria);
+            $modulo->data_productos = $this->cargarDatosProducto($idProducto);
             foreach ($modulo->data_productos as $producto) {
                 $producto = $this->cargarGaleriaPorProducto($producto);
             }
@@ -104,6 +105,17 @@ class C_Store_Product extends CI_Controller {
                 "id_empresa"    => $this->uri->segment(2),
                 "id_tienda"     => $this->uri->segment(4),
                 "id_categoria"  => $id_categoria
+            )
+        );
+        return $dataProductos;
+    }
+
+    public function cargarDatosProducto($idProducto) {
+        $dataProductos = $this->M_Store_Product->getProduct(
+            array(
+                "id_empresa"    => $this->uri->segment(2),
+                "id_tienda"     => $this->uri->segment(4),
+                "id_producto"   => $idProducto
             )
         );
         return $dataProductos;

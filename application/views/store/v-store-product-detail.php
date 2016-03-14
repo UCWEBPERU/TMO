@@ -40,13 +40,17 @@
                             </ol>
                             <!-- Carousel items -->
                             <div class="carousel-inner">
-                                <div class="active item"><img  src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" alt="banner1" /></div>
-                                <div class="item"><img  src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" alt="banner2" /></div>
-                                <div class="item"><img  src="<?php echo PATH_RESOURCE_STORE; ?>/images/pic00.png" alt="banner3" /></div>
-
+                                <?php if (sizeof($modulo->data_productos) > 0) { ?>
+                                    <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
+                                    <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
+                                        <?php if ($c == 0) { ?>
+                                            <div class="active item"><img  src="<?php echo $galeriaProducto[$c]->url_archivo; ?>" alt="banner1" /></div>
+                                        <?php } else { ?>
+                                            <div class="item"><img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>" alt="banner2" /></div>
+                                        <?php } ?>
+                                    <?php } ?>
+                                <?php } ?>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="col-xs-12 detail" id="titledetail">

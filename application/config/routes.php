@@ -207,11 +207,11 @@ $route['company/(:num)/admin/category/ajax/updateImageCategory']    = 'company-a
 
 /*
 | ------------------------------
-| URL -> STORE - HOME
+| URL -> STORE
 | ------------------------------
 */
 $route['company/(:num)/store/(:num)']                 = 'store/C_Store_Home';
-$route['company/(:num)/store/(:num)/products/(:num)'] = 'store/C_Store_Product';
+$route['company/(:num)/store/(:num)/products/(:num)'] = 'store/C_Store_Product/$3';
 
 // url para soportar el anidamiento de las subcategorias
 $route['company/(:num)/store/(:num)/categories/(:num)']                             = 'store/C_Store_Home/viewSubCategorias/$3';
