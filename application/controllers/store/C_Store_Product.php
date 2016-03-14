@@ -218,6 +218,7 @@ class C_Store_Product extends CI_Controller {
             } else {
                 $urlIdCategorias = substr($urlIdCategorias, 1);
                 $idCategoriaSuperior = 0;
+                break;
             }
         }
 
