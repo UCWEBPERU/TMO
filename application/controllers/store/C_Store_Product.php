@@ -49,7 +49,6 @@ class C_Store_Product extends CI_Controller {
                 );
                 $dataModifiers = $this->configurarColorModificadores($dataModifiers);
                 $modulo->data_modifiers = $dataModifiers;
-                var_dump($dataModifiers);
             }
         }
 
