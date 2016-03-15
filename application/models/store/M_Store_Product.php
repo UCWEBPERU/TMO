@@ -106,8 +106,7 @@ class M_Store_Product extends CI_Model {
         $this->db->where('Detalle_Modificador_Productos.estado', '1');
         $this->db->order_by('Modificador_Productos.tipo_modificador', 'asc');
         $this->db->order_by('Detalle_Modificador_Productos.descripcion_modificador', 'asc');
-//        $this->db->distinct();
-//        $this->db->group_by('Detalle_Modificador_Productos.descripcion_modificador');
+        $this->db->group_by('Detalle_Modificador_Productos.descripcion_modificador');
         $query = $this->db->get('Detalle_Modificador_Productos');
         return $query->result();
     }
