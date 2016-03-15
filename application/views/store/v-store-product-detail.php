@@ -79,7 +79,6 @@
                             } else {
                                 $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
                             }
-                            $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
                         ?>
                         <?php if (trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador)) != "color") { ?>
                             <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
