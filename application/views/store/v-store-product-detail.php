@@ -74,7 +74,7 @@
                         $tipoModificadorAnterior = "";
                         for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
                             $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
-                            if ($c + 1 > sizeof($modulo->data_modifiers) + 1)  {
+                            if ($c + 1 > sizeof($modulo->data_modifiers) - 1)  {
                                 $tipoModificadorSiguiente = "";
                             } else {
                                 $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
