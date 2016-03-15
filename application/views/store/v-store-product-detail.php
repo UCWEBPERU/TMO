@@ -62,6 +62,7 @@
                             <h3>$<?php echo $modulo->data_productos[0]->precio_producto; ?></h3><h4><strike></strike></h4>
                         <?php } ?>
                     </div>
+                    <?php echo var_dump($modulo->data_modifiers); ?>
                     <div class="col-xs-12 detail" id="color">
                         <?php
                             $contador = 1;
