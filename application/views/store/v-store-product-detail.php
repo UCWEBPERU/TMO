@@ -66,7 +66,7 @@
                         <h2>Color</h2>
                         <?php for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) { ?>
                             <?php if (trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador)) == "color") { ?>
-                                <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                                <button style="background: <?php echo $modulo->data_modifiers[$c]->color_rgb; ?>;"></button>
                             <?php } ?>
                             <?php array_splice($modulo->data_modifiers, $c, 1); ?>
                         <?php } ?>
