@@ -39,4 +39,8 @@ class C_Store_Search extends CI_Controller {
         $this->load->view('store/v-store-search', $data);
     }
 
+    public function cargarDatosCategoriasPrincipales() {
+        return $this->M_Store_Home->getPrimaryCategories($this->uri->segment(2));
+    }
+
 }
