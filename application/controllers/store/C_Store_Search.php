@@ -25,6 +25,8 @@ class C_Store_Search extends CI_Controller {
             redirect("not-found/store");
         }
 
+        $modulo->data_empresa = $dataEmpresa[0];
+
         $dataCategorias = $this->cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;

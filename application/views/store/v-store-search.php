@@ -72,8 +72,7 @@
     <div class="col-xs-12" >
         <div class="row">
             <div class="col-xs-12" id="find">
-                <input type="text" placeholder="Search TMO">
-
+                <input type="text" placeholder="Search <?php echo strtoupper($modulo->data_empresa); ?>">
             </div>
         </div>
         <div class="row"  >
