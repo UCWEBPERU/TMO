@@ -64,22 +64,40 @@
                     </div>
                     <div class="col-xs-12 detail" id="color">
                         <h2>Color</h2>
-                        <?php for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) { ?>
-                            <?php if (trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador)) == "color") { ?>
-                                <button style="background: <?php echo $modulo->data_modifiers[$c]->color_rgb; ?>;"></button>
+                        <?php foreach ($modulo->data_modifiers as $modifier) { ?>
+                            <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
+                                <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
                             <?php } ?>
-                            <?php array_splice($modulo->data_modifiers, $c, 1); ?>
                         <?php } ?>
                     </div>
-                    <?php var_dump($modulo->data_modifiers); ?>
+                    <?php
+                        $tipoModificadorAnterior = "";
+                        for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
+                        $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
+                        $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
+                        ?>
+                        <?php if (trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador)) != "color") { ?>
+                            <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
+                                $tipoModificadorAnterior = $tipoModificadorActual; ?>
+                                <div class="col-xs-12 detail" >
+                                    <h2>Please select a <?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>:</h2>
+                            <?php } ?>
+                            <button> <?php echo ucwords($modulo->data_modifiers[$c]->descripcion_modificador); ?></button>
+                            <?php if ($tipoModificadorActual != $tipoModificadorSiguiente) { ?>
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
+                        <?php array_splice($modulo->data_modifiers, $c, 1); ?>
+                    <?php } ?>
 
-                    <div class="col-xs-12 detail" >
-                        <h2>Please select a size:</h2>
-                        <button>X-Small</button>
-                        <button> Small</button>
-                        <button> Large</button>
-                        <a href="#" ><h5>Size Chart</h5></a>
-                    </div>
+<!--                    <div class="col-xs-12 detail" >-->
+<!--                        <h2>Please select a size:</h2>-->
+<!--                        <button>X-Small</button>-->
+<!--                        <button> Small</button>-->
+<!--                        <button> Large</button>-->
+<!--                        <a href="#" ><h5>Size Chart</h5></a>-->
+<!--                    </div>-->
+
 <!--                    <div class="col-xs-12 detail" >-->
 <!--                        <h3>$5.95 Flat-Rate Standard Shipping</h3>-->
 <!--                    </div>-->
