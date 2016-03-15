@@ -64,14 +64,18 @@ class C_Store_Product extends CI_Controller {
             "yellow"        => "#ffff00",
             "brown"         => "#654321",
             "purple"        => "#800080",
-            "pink"          => "#ff007f",
+            "pink"          => "#fbcce7", // #ff007f
             "orange"        => "#ff4f00",
             "red"           => "#ff0000",
             "green"         => "#00ff00",
             "blue"          => "#0000ff",
+            "navy blue"     => "#000080",
             "gray"          => "#808080",
             "cyan"          => "#00ffff",
-            "light blue"    => "#00ffff",
+            "sky blue"      => "#87ceeb",
+            "golden"        => "#ffd700",
+            "gold"          => "#ffd700",
+            "silver"        => "#c0c0c0",
             "mustard"       => "#ffdb58"
         );
 
