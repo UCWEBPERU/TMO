@@ -70,8 +70,10 @@
                             <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                                 <?php if (isset($modifier->color_rgb)) {
                                     if ($contador == 1) { $contador++; ?>
-                                        <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
-                                <?php } } ?>
+                                        <h2>Color</h2>
+                                <?php } ?>
+                                    <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                                <?php } ?>
                             <?php } ?>
                         <?php } ?>
                     </div>
