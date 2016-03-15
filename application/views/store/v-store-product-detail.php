@@ -63,12 +63,14 @@
                         <?php } ?>
                     </div>
                     <div class="col-xs-12 detail" id="color">
-                        <h2>Color</h2>
-                        <?php foreach ($modulo->data_modifiers as $modifier) { ?>
+                        <?php
+                            $contador = 1;
+                            foreach ($modulo->data_modifiers as $modifier) { ?>
                             <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
-                                <?php if (isset($modifier->color_rgb)) { ?>
-                                    <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
-                                <?php } ?>
+                                <?php if (isset($modifier->color_rgb)) {
+                                    if ($contador == 1) { $contador++; ?>
+                                        <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                                <?php } } ?>
                             <?php } ?>
                         <?php } ?>
                     </div>
