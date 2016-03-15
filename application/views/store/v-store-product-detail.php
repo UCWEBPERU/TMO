@@ -81,18 +81,17 @@
                                 $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
                             }
                         ?>
-                        <?php if (trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador)) != "color") { ?>
-                            <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
-                                $tipoModificadorAnterior = $tipoModificadorActual; ?>
-                                <div class="col-xs-12 detail" >
-                                    <h2>Please select a <?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>:</h2>
+                            <?php if ($tipoModificadorActual != "color") { ?>
+                                <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
+                                    $tipoModificadorAnterior = $tipoModificadorActual; ?>
+                                    <div class="col-xs-12 detail" >
+                                        <h2>Please select a <?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>:</h2>
+                                <?php } ?>
+                                <button> <?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></button>
+                                <?php if ($tipoModificadorActual != $tipoModificadorSiguiente) { ?>
+                                    </div>
+                                <?php } ?>
                             <?php } ?>
-                            <button> <?php echo ucwords($modulo->data_modifiers[$c]->descripcion_modificador); ?></button>
-                            <?php if ($tipoModificadorActual != $tipoModificadorSiguiente) { ?>
-                                </div>
-                            <?php } ?>
-                        <?php } ?>
-                        <?php array_splice($modulo->data_modifiers, $c, 1); ?>
                     <?php } ?>
 
 <!--                    <div class="col-xs-12 detail" >-->
