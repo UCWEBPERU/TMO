@@ -73,8 +73,13 @@
                     <?php
                         $tipoModificadorAnterior = "";
                         for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
-                        $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
-                        $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
+                            $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
+                            if ($c + 1 > sizeof($modulo->data_modifiers) + 1)  {
+                                $tipoModificadorSiguiente = "";
+                            } else {
+                                $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
+                            }
+                            $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
                         ?>
                         <?php if (trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador)) != "color") { ?>
                             <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
