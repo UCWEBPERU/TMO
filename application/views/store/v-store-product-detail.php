@@ -64,12 +64,15 @@
                     </div>
                     <div class="col-xs-12 detail" id="color">
                         <h2>Color</h2>
-                        <?php foreach ($modulo->data_modifiers as $modifier) { ?>
-                            <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
+                        <?php for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) { ?>
+                            <?php if (trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador)) == "color") { ?>
                                 <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
                             <?php } ?>
+                            <?php array_splice($modulo->data_modifiers, $c, 1); ?>
                         <?php } ?>
                     </div>
+                    <?php var_dump($modulo->data_modifiers); ?>
+
                     <div class="col-xs-12 detail" >
                         <h2>Please select a size:</h2>
                         <button>X-Small</button>
