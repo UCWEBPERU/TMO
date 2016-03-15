@@ -139,11 +139,11 @@
 	<div id="footer">
 		<div class="boximage">
 			<a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/homes.png" class="images" alt="" /></a>
-			<h2><a href="#" onclick="">Home</a></h2>
+			<h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Home</a></h2>
 		</div>
 		<div class="boximage">
 			<a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-			<h1><a href="#" onclick="">Find</a></h1>
+			<h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Find</a></h1>
 		</div>
 		<div class="boximage">
 			<a href="cart.html"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>

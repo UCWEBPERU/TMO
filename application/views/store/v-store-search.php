@@ -56,19 +56,11 @@
         <!-- Loading Screen -->
         <div data-u="slides" id="slide" >
             <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
-                <?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
-                    <div style="background:#FFF;">
-                        <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>" style="color:#000;">
-                            <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-                        </a>
-                    </div>
-                <?php } else { ?>
-                    <div>
-                        <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
-                            <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-                        </a>
-                    </div>
-                <?php } ?>
+                <div>
+                    <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
+                        <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
+                    </a>
+                </div>
             <?php } ?>
         </div>
     </div>
@@ -131,11 +123,11 @@
     <div id="footer">
         <div class="boximage">
             <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/homes.png" class="images" alt="" /></a>
-            <h2><a href="#" onclick="">Home</a></h2>
+            <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Home</a></h2>
         </div>
         <div class="boximage">
             <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-            <h1><a href="#" onclick="">Find</a></h1>
+            <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Find</a></h1>
         </div>
         <div class="boximage">
             <a href="cart.html"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
