@@ -6,6 +6,7 @@ class C_Store_Product extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->helper('store/h_store');
         $this->load->library('session');
         $this->load->model('store/M_Store');
     }
@@ -55,102 +56,5 @@ class C_Store_Product extends CI_Controller {
 
         $this->load->view('store/v-store-product-detail', $data);
     }
-
-//    public function configurarColorModificadores($dataModifiers) {
-//        $paletaColores = array(
-//            "white"         => "#ffffff",
-//            "black"         => "#000000",
-//            "yellow"        => "#ffff00",
-//            "brown"         => "#654321",
-//            "purple"        => "#800080",
-//            "pink"          => "#fbcce7", // #ff007f
-//            "orange"        => "#ff4f00",
-//            "red"           => "#ff0000",
-//            "green"         => "#00ff00",
-//            "blue"          => "#0000ff",
-//            "navy blue"     => "#000080",
-//            "gray"          => "#808080",
-//            "cyan"          => "#00ffff",
-//            "sky blue"      => "#87ceeb",
-//            "golden"        => "#ffd700",
-//            "gold"          => "#ffd700",
-//            "silver"        => "#c0c0c0",
-//            "mustard"       => "#ffdb58"
-//        );
-//
-//        foreach ($dataModifiers as $modificador) {
-//            $tipo_modificador = trim(strtolower($modificador->tipo_modificador));
-//            $descripcion_modificador = trim(strtolower($modificador->descripcion_modificador));
-//            if ($tipo_modificador == "color") {
-//                foreach ($paletaColores as $nombreColor => $color) {
-//                    if ($nombreColor == $descripcion_modificador) {
-//                        $modificador->color_rgb = $color;
-//                    }
-//                }
-//            }
-//        }
-//
-//        return $dataModifiers;
-//    }
-//
-//    public function cargarDatosCategoriasPrincipales() {
-//        return $this->M_Store->getPrimaryCategories($this->uri->segment(2));
-//    }
-//
-//    public function cargarDatosProducto($idProducto) {
-//        $dataProductos = $this->M_Store->getProduct(
-//            array(
-//                "id_empresa"    => $this->uri->segment(2),
-//                "id_tienda"     => $this->uri->segment(4),
-//                "id_producto"   => $idProducto
-//            )
-//        );
-//        return $dataProductos;
-//    }
-//
-//    public function cargarGaleriaPorProducto($producto) {
-//        $geleriaProducto = $this->M_Store->getGalleryByProduct(
-//            array(
-//                "id_producto"    => $producto->id_producto
-//            )
-//        );
-//
-//        if (sizeof($geleriaProducto) > 0) {
-//            $producto->galeria_producto = $geleriaProducto;
-//        } else {
-//            $galeria = new stdClass();
-//            $galeria->url_archivo = base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png";
-//            $producto->galeria_producto = array($galeria);
-//        }
-//        return $producto;
-//    }
-//
-//    public function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior){
-//        $idCategoria         = $id_categoria;
-//        $idCategoriaSuperior = $id_categoria_superior;
-//        $urlIdCategorias     = intval($idCategoria);
-//
-//        while ( $idCategoriaSuperior != 0 ) {
-//            $dataCategoria = $this->M_Store->getCategory(
-//                array(
-//                    "id_categoria"          => $idCategoriaSuperior,
-//                    "id_empresa"            => $this->uri->segment(2)
-//                )
-//            );
-//
-//            if ( sizeof($dataCategoria) > 0 ) {
-//                $idCategoria            = intval($dataCategoria[0]->id_categoria);
-//                $idCategoriaSuperior    = intval($dataCategoria[0]->id_categoria_superior);
-//                $urlIdCategorias        = $idCategoria.".".$urlIdCategorias;
-//            } else {
-//                $urlIdCategorias = substr($urlIdCategorias, 1);
-//                $idCategoriaSuperior = 0;
-//            }
-//        }
-//
-//        $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
-//
-//        return $urlIdCategorias;
-//    }
 
 }

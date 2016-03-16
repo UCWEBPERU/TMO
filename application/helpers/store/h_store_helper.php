@@ -161,3 +161,62 @@ if ( ! function_exists('generarUrlSubCategoria')) {
     }
 
 }
+
+// ------------------------------------------------------------------------
+
+if ( ! function_exists('configurarColorModificadores')) {
+
+    function configurarColorModificadores($dataModifiers) {
+        $paletaColores = array(
+            "white"         => "#ffffff",
+            "black"         => "#000000",
+            "yellow"        => "#ffff00",
+            "brown"         => "#654321",
+            "purple"        => "#800080",
+            "pink"          => "#fbcce7", // #ff007f
+            "orange"        => "#ff4f00",
+            "red"           => "#ff0000",
+            "green"         => "#00ff00",
+            "blue"          => "#0000ff",
+            "navy blue"     => "#000080",
+            "gray"          => "#808080",
+            "cyan"          => "#00ffff",
+            "sky blue"      => "#87ceeb",
+            "golden"        => "#ffd700",
+            "gold"          => "#ffd700",
+            "silver"        => "#c0c0c0",
+            "mustard"       => "#ffdb58"
+        );
+
+        foreach ($dataModifiers as $modificador) {
+            $tipo_modificador = trim(strtolower($modificador->tipo_modificador));
+            $descripcion_modificador = trim(strtolower($modificador->descripcion_modificador));
+            if ($tipo_modificador == "color") {
+                foreach ($paletaColores as $nombreColor => $color) {
+                    if ($nombreColor == $descripcion_modificador) {
+                        $modificador->color_rgb = $color;
+                    }
+                }
+            }
+        }
+
+        return $dataModifiers;
+    }
+
+}
+
+// ------------------------------------------------------------------------
+
+if ( ! function_exists('filtrarSubCategorias')) {
+
+    function filtrarSubCategorias($dataSubCategorias) {
+        $nuevaListaSubCategorias = array();
+        for ( $c = 0; $c < sizeof($dataSubCategorias); $c++ ) {
+            if ( intval($dataSubCategorias[$c]->nivel_categoria) != 1 ) { // Buscar Sub Categorias
+                array_push($nuevaListaSubCategorias, $dataSubCategorias[$c]);
+            }
+        }
+        return $nuevaListaSubCategorias;
+    }
+
+}
