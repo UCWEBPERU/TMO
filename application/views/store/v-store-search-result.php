@@ -85,15 +85,11 @@
 
 <!-- Content -->
 <content>
-
-    <?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
-        <section id="toplist">
-            <h2> Results for "<?php echo $modulo->keyrwords_search; ?>" </h2>
-        </section>
-    <?php } ?>
+    <section id="toplist">
+        <h2> Results for "<?php echo $modulo->keyrwords_search; ?>" </h2>
+    </section>
 
     <div class="col-xs-12">
-
         <div class="row">
             <div>
                 <?php foreach ($modulo->data_productos as $producto) { ?>
@@ -107,9 +103,7 @@
         </div>
 
         <div class="row" style="height: 50px;"></div>
-
     </div>
-
 </content>
 <footer>
     <div id="footer">

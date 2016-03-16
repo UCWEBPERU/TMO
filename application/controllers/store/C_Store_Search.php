@@ -69,9 +69,9 @@ class C_Store_Search extends CI_Controller {
 
         $dataProductos = $this->M_Store->getProductByName(
             array(
-                "id_empresa"    => $this->uri->segment(2),
-                "id_tienda"     => $this->uri->segment(4),
-                "id_empresa"    => $this->input->get("s")
+                "id_empresa"        => $this->uri->segment(2),
+                "id_tienda"         => $this->uri->segment(4),
+                "nombre_producto"   => $this->input->get("s")
             )
         );
 
