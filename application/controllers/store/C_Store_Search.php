@@ -59,7 +59,7 @@ class C_Store_Search extends CI_Controller {
 //                array_splice($dataSubCategorias, $c, 1);
 //            }
             if ( intval($dataSubCategorias[$c]->nivel_categoria) != 1 ) { // Buscar Sub Categorias
-                array_push($dataSubCategorias, $dataSubCategorias[$c]);
+                array_push($listaSubCategorias, $dataSubCategorias[$c]);
             }
         }
         return $listaSubCategorias;
