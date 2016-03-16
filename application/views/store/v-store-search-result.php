@@ -101,6 +101,8 @@
                     <div class="col-xs-10 findcategories" >
                         <h2>Your search "<?php echo $modulo->keyrwords_search; ?>" did not match any products.</h2>
                     </div>
+                    <div class="col-xs-2 findcategories">
+                    </div>
                 </div>
             </div>
         <?php } ?>
