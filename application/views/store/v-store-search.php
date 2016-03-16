@@ -72,7 +72,9 @@
     <div class="col-xs-12" >
         <div class="row">
             <div class="col-xs-12" id="find">
-                <input type="text" placeholder="Search <?php echo strtoupper($modulo->data_empresa->organization); ?>">
+                <form action="http://www.uc-web.mobi/TMO/company/6/store/1/search" method="GET">
+                    <input type="text" name="s" placeholder="Search <?php echo strtoupper($modulo->data_empresa->organization); ?>">
+                </form>
             </div>
         </div>
         <div class="row">
