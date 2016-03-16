@@ -55,8 +55,8 @@ if ( ! function_exists('cargarDatosProducto')) {
         $CI =& get_instance();
         $dataProductos = $CI->M_Store->getProduct(
             array(
-                "id_empresa"    => $this->uri->segment(2),
-                "id_tienda"     => $this->uri->segment(4),
+                "id_empresa"    => $CI->uri->segment(2),
+                "id_tienda"     => $CI->uri->segment(4),
                 "id_producto"   => $idProducto
             )
         );
