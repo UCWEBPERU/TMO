@@ -44,7 +44,7 @@ class C_Store_Search extends CI_Controller {
         $this->load->view($rutaPlantilla, $data);
     }
 
-    public function cargarVistaBusqueda($modulo, $rutaPlantilla) {
+    public function cargarVistaBusqueda($modulo, &$rutaPlantilla) {
         $rutaPlantilla = "store/v-store-search";
 
         $dataSubCategorias = $this->M_Store->getCategories(
