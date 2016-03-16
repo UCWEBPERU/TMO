@@ -18,7 +18,8 @@
     <!-- Header -->
     <header>
         <div id="title">
-            <h2>Account</h2>
+            <a href="cart.html" >Close</a>
+            <h2>Member Sign In</h2>
         </div>
     </header>
 
@@ -26,36 +27,30 @@
     <content>
 
         <div class="col-xs-12" >
-            <div class="row" id="contenedordetail2">
+            <div class="row" id="contenedordetail">
                 <div>
+
                     <div class="col-xs-12 sign" >
-                        <button>Sign In</button>
-                        <!--<h3>Sign in to see you store credit</h3>-->
+                        <h3>ACCOUNT</h3>
+                        <h2>Welcome!</h2>
+                        <h2>Enter your user account</h2>
+                        <input type="text" placeholder="E-mail or mobile number">
+                        <input type="password" placeholder="Password">
+                        <button >Sign In</button>
+                        <a href="#"><h5>Forgot Password</h5></a>
+                        <br><br><br>
+<!--                        <a href="cart-detail.html"><h5>Go Cart</h5></a>-->
                     </div>
+
+                    <div class="col-xs-12 sign" >
+                        <h2>JOIN INSTANTLY ( AND FOR FREE )</h2>
+                        <button>Join Now</button>
+<!--                        <a href="cart-detail.html"><h5>Go Cart</h5></a>-->
+                    </div>
+                    <div class="col-xs-12 detail" style="height: 200px;"></div>
                 </div>
             </div>
 
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
-                        <a href="item.html" ><h2>My Order</h2></a>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
-                        <a href="item.html" ><h2>My Notifications</h2></a>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </content>
