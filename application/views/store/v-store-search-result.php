@@ -1,4 +1,9 @@
 <!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 <head>
     <title>TMO</title>
@@ -24,8 +29,9 @@
             $SlideDuration: 1600,
             $SlideEasing: $Jease$.$Linear,
             $PauseOnHover: 4,
-            $SlideWidth: 230,
+            $SlideWidth: 300,
             $Cols: 7
+
         };
 
         var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
@@ -51,16 +57,27 @@
 </script>
 
 <header>
-    <!-- Nav lbslider -->
+    <!--	<div id="title">-->
+    <!--		<h2>Fashion Store</h2>-->
+    <!--	</div>-->
+    <!-- Slider -->
     <div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
         <!-- Loading Screen -->
         <div data-u="slides" id="slide" >
             <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
-                <div>
-                    <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
-                        <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-                    </a>
-                </div>
+                <?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
+                    <div style="background:#FFF;">
+                        <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>" style="color:#000;">
+                            <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
+                        </a>
+                    </div>
+                <?php } else { ?>
+                    <div>
+                        <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
+                            <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
+                        </a>
+                    </div>
+                <?php } ?>
             <?php } ?>
         </div>
     </div>
@@ -69,38 +86,30 @@
 <!-- Content -->
 <content>
 
-    <div class="col-xs-12" >
+    <?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
+        <section id="toplist">
+            <h2> Results for "<?php echo $modulo->keyrwords_search; ?>" </h2>
+        </section>
+    <?php } ?>
+
+    <div class="col-xs-12">
+
         <div class="row">
-            <div class="col-xs-12" id="find">
-                <form action="<?php echo $modulo->base_url_store."/search"; ?>" method="GET">
-                    <input type="text" name="s" placeholder="Search <?php echo strtoupper($modulo->data_empresa->organization); ?>">
-                </form>
+            <div>
+                <?php foreach ($modulo->data_productos as $producto) { ?>
+                    <div class="col-xs-6 products" >
+                        <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" ><img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>" class="images" alt="" /></a>
+                        <h2><a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" ><?php echo $producto->nombre_producto; ?></a></h2>
+                        <h3><a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" >$<?php echo $producto->precio_producto; ?></a></h3><h4><strike></strike></h4>
+                    </div>
+                <?php } ?>
             </div>
         </div>
-        <div class="row">
-            <div id="contenedor">
-                <div class="col-xs-9 titlefind" >
-                    <h2>BROWSE BY CATEGORY</h2>
-                </div>
-                <div class="col-xs-3 titlefind"  >
-<!--                    <img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--images/pic00.png" />-->
-                </div>
-            </div>
-        </div>
-        <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
-            <div class="row">
-                <div id="contenedor">
-                    <div class="col-xs-10 findcategories" >
-                        <a href="<?php echo $sub_categoria->url_categoria; ?>" ><h2><?php echo strtoupper($sub_categoria->nombre_categoria); ?></h2></a>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <a href="<?php echo $sub_categoria->url_categoria; ?>" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+
         <div class="row" style="height: 50px;"></div>
+
     </div>
+
 </content>
 <footer>
     <div id="footer">

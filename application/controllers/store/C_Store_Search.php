@@ -34,7 +34,7 @@ class C_Store_Search extends CI_Controller {
         $rutaPlantilla = "";
 
         if ($this->input->get("s")) { // cargar resultados de busquedas
-
+            $this->cargarVistaResultadoBusqueda($modulo, $rutaPlantilla);
         } else { // cargar vista por defecto de busquedas
             $this->cargarVistaBusqueda($modulo, $rutaPlantilla);
         }
@@ -44,7 +44,7 @@ class C_Store_Search extends CI_Controller {
         $this->load->view($rutaPlantilla, $data);
     }
 
-    public function cargarVistaBusqueda($modulo, $rutaPlantilla) {
+    public function cargarVistaBusqueda($modulo, &$rutaPlantilla) {
         $rutaPlantilla = "store/v-store-search";
 
         $dataSubCategorias = $this->M_Store->getCategories(
@@ -58,6 +58,27 @@ class C_Store_Search extends CI_Controller {
 
         foreach ($modulo->data_sub_categorias as $sub_categoria) {
             $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior);
+        }
+    }
+
+    public function cargarVistaResultadoBusqueda($modulo, &$rutaPlantilla) {
+        $rutaPlantilla = "store/v-store-search-result";
+
+        $modulo->keyrwords_search = $this->input->get("s");
+
+
+        $dataProductos = $this->M_Store->getProductByName(
+            array(
+                "id_empresa"    => $this->uri->segment(2),
+                "id_tienda"     => $this->uri->segment(4),
+                "id_empresa"    => $this->input->get("s")
+            )
+        );
+
+        $modulo->data_productos = $dataProductos;
+
+        foreach ($modulo->data_productos as $producto) {
+            $producto = $this->cargarGaleriaPorProducto($producto);
         }
     }
 
@@ -101,6 +122,23 @@ class C_Store_Search extends CI_Controller {
         $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
 
         return $urlIdCategorias;
+    }
+
+    public function cargarGaleriaPorProducto($producto) {
+        $geleriaProducto = $this->M_Store->getGalleryByProduct(
+            array(
+                "id_producto"    => $producto->id_producto
+            )
+        );
+
+        if (sizeof($geleriaProducto) > 0) {
+            $producto->galeria_producto = $geleriaProducto;
+        } else {
+            $galeria = new stdClass();
+            $galeria->url_archivo = base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png";
+            $producto->galeria_producto = array($galeria);
+        }
+        return $producto;
     }
 
 }
