@@ -64,33 +64,33 @@
                     </div>
                     <div class="col-xs-12 detail" id="color">
                         <?php
-                            $contador = 1;
-                            foreach ($modulo->data_modifiers as $modifier) { ?>
+                        $contador = 1;
+                        foreach ($modulo->data_modifiers as $modifier) { ?>
                             <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                                 <?php if (isset($modifier->color_rgb)) {
                                     if ($contador == 1) { $contador++; ?>
                                         <h2>Color</h2>
-                                <?php } ?>
+                                    <?php } ?>
                                     <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
                                 <?php } ?>
                             <?php } ?>
                         <?php } ?>
                     </div>
                     <?php
-                        $tipoModificadorAnterior = "";
-                        for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
-                            $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
-                            if ($c + 1 > sizeof($modulo->data_modifiers) - 1)  {
-                                $tipoModificadorSiguiente = "";
-                            } else {
-                                $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
-                            }
+                    $tipoModificadorAnterior = "";
+                    for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
+                        $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
+                        if ($c + 1 > sizeof($modulo->data_modifiers) - 1)  {
+                            $tipoModificadorSiguiente = "";
+                        } else {
+                            $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
+                        }
                         ?>
                         <?php if ($tipoModificadorActual != "color") { ?>
                             <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
                                 $tipoModificadorAnterior = $tipoModificadorActual; ?>
                                 <div class="col-xs-12 detail" >
-                                    <h2>Please select a <?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>:</h2>
+                                <h2>Please select a <?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>:</h2>
                             <?php } ?>
                             <button> <?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></button>
                             <?php if ($tipoModificadorActual != $tipoModificadorSiguiente) { ?>
@@ -99,36 +99,36 @@
                         <?php } ?>
                     <?php } ?>
 
-<!--                    <div class="col-xs-12 detail" >-->
-<!--                        <h2>Please select a size:</h2>-->
-<!--                        <button>X-Small</button>-->
-<!--                        <button> Small</button>-->
-<!--                        <button> Large</button>-->
-<!--                        <a href="#" ><h5>Size Chart</h5></a>-->
-<!--                    </div>-->
+                    <!--                    <div class="col-xs-12 detail" >-->
+                    <!--                        <h2>Please select a size:</h2>-->
+                    <!--                        <button>X-Small</button>-->
+                    <!--                        <button> Small</button>-->
+                    <!--                        <button> Large</button>-->
+                    <!--                        <a href="#" ><h5>Size Chart</h5></a>-->
+                    <!--                    </div>-->
 
-<!--                    <div class="col-xs-12 detail" >-->
-<!--                        <h3>$5.95 Flat-Rate Standard Shipping</h3>-->
-<!--                    </div>-->
-<!--                    <div class="col-xs-12 detail" >-->
-<!--                        <h4>Ready-to-Ship Item</h4>-->
-<!--                        <a href="#" ><h6>Learn More</h6></a>-->
-<!--                        <h3>Usually ships in 1-2 days</h3>-->
-<!--                    </div>-->
+                    <!--                    <div class="col-xs-12 detail" >-->
+                    <!--                        <h3>$5.95 Flat-Rate Standard Shipping</h3>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="col-xs-12 detail" >-->
+                    <!--                        <h4>Ready-to-Ship Item</h4>-->
+                    <!--                        <a href="#" ><h6>Learn More</h6></a>-->
+                    <!--                        <h3>Usually ships in 1-2 days</h3>-->
+                    <!--                    </div>-->
                     <div class="col-xs-12 detail" >
                         <h4>Description</h4>
                         <?php if (sizeof($modulo->data_productos) > 0) { ?>
                             <h3><?php echo $modulo->data_productos[0]->descripcion_producto; ?></h3>
                         <?php } ?>
-<!--                        <h3>Draped neck knit dress with 3/4 sleeves, seaming detail and a flared skirt</h3>-->
-<!--                        <ul>-->
-<!---->
-<!--                            <li>Model's measurements: Height 5'9", Bust 33", Waist 25", Hips 35#, wearing a size Small</li>-->
-<!--                            <li>Care instrucions: Machine wash</li>-->
-<!--                            <li>Measurements: shoulder to hemline 39", sleeve length 18", taken from size M.</li>-->
-<!--                            <li>Country of origin: United States</li>-->
-<!---->
-<!--                        </ul>-->
+                        <!--                        <h3>Draped neck knit dress with 3/4 sleeves, seaming detail and a flared skirt</h3>-->
+                        <!--                        <ul>-->
+                        <!---->
+                        <!--                            <li>Model's measurements: Height 5'9", Bust 33", Waist 25", Hips 35#, wearing a size Small</li>-->
+                        <!--                            <li>Care instrucions: Machine wash</li>-->
+                        <!--                            <li>Measurements: shoulder to hemline 39", sleeve length 18", taken from size M.</li>-->
+                        <!--                            <li>Country of origin: United States</li>-->
+                        <!---->
+                        <!--                        </ul>-->
                     </div>
                     <div class="col-xs-12 detail" style="height: 110px;"></div>
                 </div>
@@ -165,8 +165,10 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
-<!--    <script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
+    <!--    <script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
     <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
+    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
+    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
 

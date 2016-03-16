@@ -148,6 +148,8 @@
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
 <!--<script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
 <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
 
