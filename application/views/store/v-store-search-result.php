@@ -97,8 +97,15 @@
         </div>
         <?php if (sizeof($modulo->data_productos) == 0) { ?>
             <div class="row">
+                <div class="col-xs-12" id="find">
+                    <form action="<?php echo $modulo->base_url_store."/search"; ?>" method="GET">
+                        <input type="text" name="s" placeholder="Search <?php echo strtoupper($modulo->data_empresa->organization); ?>">
+                    </form>
+                </div>
+            </div>
+            <div class="row">
                 <div id="contenedor">
-                    <div class="col-xs-10 findcategories" style="height: 60px;">
+                    <div class="col-xs-10 findcategories">
                         <h2>Your search "<?php echo $modulo->keyrwords_search; ?>" did not match any products.</h2>
                     </div>
                     <div class="col-xs-2 findcategories">
