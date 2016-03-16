@@ -26,7 +26,7 @@ class C_Store_Home extends CI_Controller {
             redirect("not-found/store");
         }
 
-        $dataCategorias = $this->cargarDatosCategoriasPrincipales();
+        $dataCategorias = cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;
         $modulo->data_navegacion_sub_categorias = array();

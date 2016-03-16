@@ -3,14 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
+//if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
 
     function cargarDatosCategoriasPrincipales() {
         $CI =& get_instance();
         return $CI->M_Store->getPrimaryCategories($CI->uri->segment(2));
     }
 
-}
+//}
 
 // ------------------------------------------------------------------------
 
