@@ -83,6 +83,4 @@ class C_Store_Search extends CI_Controller {
         }
     }
 
-
-
 }
