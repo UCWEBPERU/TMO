@@ -36,7 +36,7 @@ class C_Store_Search extends CI_Controller {
         if ($this->input->get("s")) { // cargar resultados de busquedas
 
         } else { // cargar vista por defecto de busquedas
-            $this->cargarVistaBusqueda($modulo);
+            $this->cargarVistaBusqueda($modulo, $rutaPlantilla);
         }
 
         $data["modulo"] = $modulo;
