@@ -75,46 +75,28 @@
                 <input type="text" placeholder="Search <?php echo strtoupper($modulo->data_empresa->organization); ?>">
             </div>
         </div>
-        <div class="row"  >
+        <div class="row">
             <div id="contenedor">
                 <div class="col-xs-9 titlefind" >
                     <h2>BROWSE BY CATEGORY</h2>
                 </div>
                 <div class="col-xs-3 titlefind"  >
-                    <img src="<?php echo PATH_RESOURCE_STORE; ?>images/pic00.png" />
+<!--                    <img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--images/pic00.png" />-->
                 </div>
             </div>
         </div>
-        <div class="row"  >
-            <div id="contenedor">
-                <div class="col-xs-10 findcategories" >
-                    <a href="cfind.html" ><h2>WOMEN'S CLOTHING</h2></a>
-                </div>
-                <div class="col-xs-2 findcategories"  >
-                    <a href="cfind.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                </div>
-            </div>
-        </div>
-        <div class="row"  >
-            <div id="contenedor">
-                <div class="col-xs-10 findcategories" >
-                    <a href="cfind.html" ><h2>WOMEN'S CLOTHING</h2></a>
-                </div>
-                <div class="col-xs-2 findcategories"  >
-                    <a href="cfind.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" id="images" alt=""  /></a>
+        <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
+            <div class="row">
+                <div id="contenedor">
+                    <div class="col-xs-10 findcategories" >
+                        <a href="<?php echo $sub_categoria->url_categoria; ?>" ><h2><?php echo strtoupper($sub_categoria->nombre_categoria); ?></h2></a>
+                    </div>
+                    <div class="col-xs-2 findcategories"  >
+                        <a href="<?php echo $sub_categoria->url_categoria; ?>" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row"  >
-            <div id="contenedor">
-                <div class="col-xs-10 findcategories" >
-                    <a href="cfind.html" ><h2>WOMEN'S CLOTHING</h2></a>
-                </div>
-                <div class="col-xs-2 findcategories"  >
-                    <a href="cfind.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" id="images" alt=""  /></a>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
         <div class="row" style="height: 50px;"></div>
     </div>
 </content>

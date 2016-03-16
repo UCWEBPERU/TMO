@@ -37,10 +37,12 @@ class C_Store_Search extends CI_Controller {
                 )
             );
 
-            var_dump($dataSubCategorias);
             $dataSubCategorias = $this->seleccionarSubCategorias($dataSubCategorias);
-            var_dump($dataSubCategorias);
+            $modulo->data_sub_categorias = $dataSubCategorias;
 
+            foreach ($modulo->data_sub_categorias as $sub_categoria) {
+                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior);
+            }
         }
 
         $data["modulo"] = $modulo;
@@ -53,16 +55,41 @@ class C_Store_Search extends CI_Controller {
     }
 
     public function seleccionarSubCategorias($dataSubCategorias) {
-        $listaSubCategorias = array();
+        $nuevaListaSubCategorias = array();
         for ( $c = 0; $c < sizeof($dataSubCategorias); $c++ ) {
-//            if ( intval($dataSubCategorias[$c]->nivel_categoria) == 1 ) { // Buscar Categorias principales
-//                array_splice($dataSubCategorias, $c, 1);
-//            }
             if ( intval($dataSubCategorias[$c]->nivel_categoria) != 1 ) { // Buscar Sub Categorias
-                array_push($listaSubCategorias, $dataSubCategorias[$c]);
+                array_push($nuevaListaSubCategorias, $dataSubCategorias[$c]);
             }
         }
-        return $listaSubCategorias;
+        return $nuevaListaSubCategorias;
+    }
+
+    public function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior){
+        $idCategoria         = $id_categoria;
+        $idCategoriaSuperior = $id_categoria_superior;
+        $urlIdCategorias     = intval($idCategoria);
+
+        while ( $idCategoriaSuperior != 0 ) {
+            $dataCategoria = $this->M_Store->getCategory(
+                array(
+                    "id_categoria"          => $idCategoriaSuperior,
+                    "id_empresa"            => $this->uri->segment(2)
+                )
+            );
+
+            if ( sizeof($dataCategoria) > 0 ) {
+                $idCategoria            = intval($dataCategoria[0]->id_categoria);
+                $idCategoriaSuperior    = intval($dataCategoria[0]->id_categoria_superior);
+                $urlIdCategorias        = $idCategoria.".".$urlIdCategorias;
+            } else {
+                $urlIdCategorias = substr($urlIdCategorias, 1);
+                $idCategoriaSuperior = 0;
+            }
+        }
+
+        $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
+
+        return $urlIdCategorias;
     }
 
 }
