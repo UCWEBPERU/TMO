@@ -98,7 +98,7 @@
         <?php if (sizeof($modulo->data_productos) == 0) { ?>
             <div class="row">
                 <div id="contenedor">
-                    <div class="col-xs-10 findcategories" >
+                    <div class="col-xs-10 findcategories" style="height: 60px;">
                         <h2>Your search "<?php echo $modulo->keyrwords_search; ?>" did not match any products.</h2>
                     </div>
                     <div class="col-xs-2 findcategories">
