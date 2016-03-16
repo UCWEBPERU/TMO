@@ -53,12 +53,16 @@ class C_Store_Search extends CI_Controller {
     }
 
     public function seleccionarSubCategorias($dataSubCategorias) {
+        $listaSubCategorias = array();
         for ( $c = 0; $c < sizeof($dataSubCategorias); $c++ ) {
-            if ( intval($dataSubCategorias[$c]->nivel_categoria) == 1 ) { // Buscar Categorias principales
-                array_splice($dataSubCategorias, $c, 1);
+//            if ( intval($dataSubCategorias[$c]->nivel_categoria) == 1 ) { // Buscar Categorias principales
+//                array_splice($dataSubCategorias, $c, 1);
+//            }
+            if ( intval($dataSubCategorias[$c]->nivel_categoria) != 1 ) { // Buscar Sub Categorias
+                array_push($dataSubCategorias, $dataSubCategorias[$c]);
             }
         }
-        return $dataSubCategorias;
+        return $listaSubCategorias;
     }
 
 }
