@@ -52,7 +52,8 @@ if ( ! function_exists('cargarDatosProductos')) {
 if ( ! function_exists('cargarDatosProducto')) {
 
     function cargarDatosProducto($idProducto) {
-        $dataProductos = $this->M_Store->getProduct(
+        $CI =& get_instance();
+        $dataProductos = $CI->M_Store->getProduct(
             array(
                 "id_empresa"    => $this->uri->segment(2),
                 "id_tienda"     => $this->uri->segment(4),
