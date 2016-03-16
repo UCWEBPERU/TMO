@@ -12,10 +12,6 @@ class C_Store_Search extends CI_Controller {
 
     public function index() {
 
-        if ($this->input->get("s")) {
-            var_dump($this->input->get("s"));
-        }
-
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
 
@@ -35,24 +31,34 @@ class C_Store_Search extends CI_Controller {
         $dataCategorias = $this->cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
 
-        if (sizeof($dataCategorias) > 0) {
-            $dataSubCategorias = $this->M_Store->getCategories(
-                array(
-                    "id_empresa"    => $this->uri->segment(2)
-                )
-            );
+        $rutaPlantilla = "";
 
-            $dataSubCategorias = $this->seleccionarSubCategorias($dataSubCategorias);
-            $modulo->data_sub_categorias = $dataSubCategorias;
+        if ($this->input->get("s")) { // cargar resultados de busquedas
 
-            foreach ($modulo->data_sub_categorias as $sub_categoria) {
-                $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior);
-            }
+        } else { // cargar vista por defecto de busquedas
+            $this->cargarVistaBusqueda($modulo);
         }
 
         $data["modulo"] = $modulo;
 
-        $this->load->view('store/v-store-search', $data);
+        $this->load->view($rutaPlantilla, $data);
+    }
+
+    public function cargarVistaBusqueda($modulo, $rutaPlantilla) {
+        $rutaPlantilla = "store/v-store-search";
+
+        $dataSubCategorias = $this->M_Store->getCategories(
+            array(
+                "id_empresa"    => $this->uri->segment(2)
+            )
+        );
+
+        $dataSubCategorias = $this->seleccionarSubCategorias($dataSubCategorias);
+        $modulo->data_sub_categorias = $dataSubCategorias;
+
+        foreach ($modulo->data_sub_categorias as $sub_categoria) {
+            $sub_categoria->url_categoria = $this->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior);
+        }
     }
 
     public function cargarDatosCategoriasPrincipales() {
