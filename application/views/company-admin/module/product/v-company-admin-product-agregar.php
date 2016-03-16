@@ -49,7 +49,8 @@
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtDescripcionProducto">Descripcion</label>
-                                            <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">
+                                            <textarea class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" cols="30" rows="5" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto."></textarea>
+<!--                                            <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">-->
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtPrecioProducto">Precio</label>
