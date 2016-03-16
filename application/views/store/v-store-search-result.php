@@ -93,6 +93,17 @@
                 <?php } ?>
             </div>
         </div>
+        <?php if (sizeof($modulo->data_productos) == 0) { ?>
+            <div class="row">
+                <div id="contenedor">
+                    <div class="col-xs-10 findcategories" >
+                        <h2>Your search "<?php echo strtoupper($modulo->keyrwords_search); ?>" did not match any products.</h2>
+                    </div>
+                    <div class="col-xs-2 findcategories"  >
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
 
         <div class="row" style="height: 50px;"></div>
     </div>
