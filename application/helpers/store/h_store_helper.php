@@ -49,6 +49,23 @@ if ( ! function_exists('cargarDatosProductos')) {
 
 // ------------------------------------------------------------------------
 
+if ( ! function_exists('cargarDatosProducto')) {
+
+    function cargarDatosProducto($idProducto) {
+        $dataProductos = $this->M_Store->getProduct(
+            array(
+                "id_empresa"    => $this->uri->segment(2),
+                "id_tienda"     => $this->uri->segment(4),
+                "id_producto"   => $idProducto
+            )
+        );
+        return $dataProductos;
+    }
+
+}
+
+// ------------------------------------------------------------------------
+
 if ( ! function_exists('cargarGaleriaPorProducto')) {
 
     function cargarGaleriaPorProducto($producto) {

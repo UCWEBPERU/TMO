@@ -6,7 +6,6 @@ class C_Store_Product extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->helper('store/h_store');
         $this->load->library('session');
         $this->load->model('store/M_Store');
     }
@@ -26,28 +25,28 @@ class C_Store_Product extends CI_Controller {
             redirect("not-found/store");
         }
 
-        $dataCategorias = $this->cargarDatosCategoriasPrincipales();
+        $dataCategorias = cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;
 
 
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_productos = $this->cargarDatosProducto($idProducto);
+            $modulo->data_productos = cargarDatosProducto($idProducto);
             if (sizeof($modulo->data_productos) > 0) {
-                $producto = $this->cargarGaleriaPorProducto($modulo->data_productos[0]);
+                $producto = cargarGaleriaPorProducto($modulo->data_productos[0]);
                 $dataCategoria = $this->M_Store->getCategory(
                     array(
                         "id_categoria"          => $modulo->data_productos[0]->id_categoria,
                         "id_empresa"            => $this->uri->segment(2)
                     )
                 );
-                $modulo->url_button_back = $this->generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior);
+                $modulo->url_button_back = generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior);
                 $dataModifiers = $this->M_Store->getModifiers(
                     array(
                         "id_producto" => $producto->id_producto
                     )
                 );
-                $dataModifiers = $this->configurarColorModificadores($dataModifiers);
+                $dataModifiers = configurarColorModificadores($dataModifiers);
                 $modulo->data_modifiers = $dataModifiers;
             }
         }
