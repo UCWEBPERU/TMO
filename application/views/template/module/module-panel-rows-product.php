@@ -10,7 +10,7 @@
 			<?php } ?>
 			<td><?php echo intval($modeloRow->id_producto); ?></td>
 			<td><?php echo $modeloRow->nombre_producto; ?></td>
-			<td><?php echo substr($modeloRow->descripcion_producto, 0, 50)."..." ; ?></td>
+			<td><?php echo substr($modeloRow->descripcion_producto, 0, 50).(strlen($modeloRow->descripcion_producto) > 50 ? "..." : "") ; ?></td>
 			<td><?php echo $modeloRow->stock; ?></td>
 			<td>$<?php echo $modeloRow->precio_producto; ?></td>
 			<td><?php echo $modeloRow->nombre_tienda; ?></td>
