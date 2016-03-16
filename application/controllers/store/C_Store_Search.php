@@ -81,64 +81,64 @@ class C_Store_Search extends CI_Controller {
             $producto = $this->cargarGaleriaPorProducto($producto);
         }
     }
-
-    public function cargarDatosCategoriasPrincipales() {
-        return $this->M_Store->getPrimaryCategories($this->uri->segment(2));
-    }
-
-    public function seleccionarSubCategorias($dataSubCategorias) {
-        $nuevaListaSubCategorias = array();
-        for ( $c = 0; $c < sizeof($dataSubCategorias); $c++ ) {
-            if ( intval($dataSubCategorias[$c]->nivel_categoria) != 1 ) { // Buscar Sub Categorias
-                array_push($nuevaListaSubCategorias, $dataSubCategorias[$c]);
-            }
-        }
-        return $nuevaListaSubCategorias;
-    }
-
-    public function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior){
-        $idCategoria         = $id_categoria;
-        $idCategoriaSuperior = $id_categoria_superior;
-        $urlIdCategorias     = intval($idCategoria);
-
-        while ( $idCategoriaSuperior != 0 ) {
-            $dataCategoria = $this->M_Store->getCategory(
-                array(
-                    "id_categoria"          => $idCategoriaSuperior,
-                    "id_empresa"            => $this->uri->segment(2)
-                )
-            );
-
-            if ( sizeof($dataCategoria) > 0 ) {
-                $idCategoria            = intval($dataCategoria[0]->id_categoria);
-                $idCategoriaSuperior    = intval($dataCategoria[0]->id_categoria_superior);
-                $urlIdCategorias        = $idCategoria.".".$urlIdCategorias;
-            } else {
-                $urlIdCategorias = substr($urlIdCategorias, 1);
-                $idCategoriaSuperior = 0;
-            }
-        }
-
-        $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
-
-        return $urlIdCategorias;
-    }
-
-    public function cargarGaleriaPorProducto($producto) {
-        $geleriaProducto = $this->M_Store->getGalleryByProduct(
-            array(
-                "id_producto"    => $producto->id_producto
-            )
-        );
-
-        if (sizeof($geleriaProducto) > 0) {
-            $producto->galeria_producto = $geleriaProducto;
-        } else {
-            $galeria = new stdClass();
-            $galeria->url_archivo = base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png";
-            $producto->galeria_producto = array($galeria);
-        }
-        return $producto;
-    }
+//
+//    public function cargarDatosCategoriasPrincipales() {
+//        return $this->M_Store->getPrimaryCategories($this->uri->segment(2));
+//    }
+//
+//    public function seleccionarSubCategorias($dataSubCategorias) {
+//        $nuevaListaSubCategorias = array();
+//        for ( $c = 0; $c < sizeof($dataSubCategorias); $c++ ) {
+//            if ( intval($dataSubCategorias[$c]->nivel_categoria) != 1 ) { // Buscar Sub Categorias
+//                array_push($nuevaListaSubCategorias, $dataSubCategorias[$c]);
+//            }
+//        }
+//        return $nuevaListaSubCategorias;
+//    }
+//
+//    public function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior){
+//        $idCategoria         = $id_categoria;
+//        $idCategoriaSuperior = $id_categoria_superior;
+//        $urlIdCategorias     = intval($idCategoria);
+//
+//        while ( $idCategoriaSuperior != 0 ) {
+//            $dataCategoria = $this->M_Store->getCategory(
+//                array(
+//                    "id_categoria"          => $idCategoriaSuperior,
+//                    "id_empresa"            => $this->uri->segment(2)
+//                )
+//            );
+//
+//            if ( sizeof($dataCategoria) > 0 ) {
+//                $idCategoria            = intval($dataCategoria[0]->id_categoria);
+//                $idCategoriaSuperior    = intval($dataCategoria[0]->id_categoria_superior);
+//                $urlIdCategorias        = $idCategoria.".".$urlIdCategorias;
+//            } else {
+//                $urlIdCategorias = substr($urlIdCategorias, 1);
+//                $idCategoriaSuperior = 0;
+//            }
+//        }
+//
+//        $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
+//
+//        return $urlIdCategorias;
+//    }
+//
+//    public function cargarGaleriaPorProducto($producto) {
+//        $geleriaProducto = $this->M_Store->getGalleryByProduct(
+//            array(
+//                "id_producto"    => $producto->id_producto
+//            )
+//        );
+//
+//        if (sizeof($geleriaProducto) > 0) {
+//            $producto->galeria_producto = $geleriaProducto;
+//        } else {
+//            $galeria = new stdClass();
+//            $galeria->url_archivo = base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png";
+//            $producto->galeria_producto = array($galeria);
+//        }
+//        return $producto;
+//    }
 
 }
