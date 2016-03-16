@@ -3,14 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // ------------------------------------------------------------------------
 
-//if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
+if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
 
     function cargarDatosCategoriasPrincipales() {
         $CI =& get_instance();
         return $CI->M_Store->getPrimaryCategories($CI->uri->segment(2));
     }
 
-//}
+}
 
 // ------------------------------------------------------------------------
 
@@ -129,7 +129,7 @@ if ( ! function_exists('generarNavegacionSubCategorias')) {
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
+if ( ! function_exists('generarUrlSubCategoria')) {
 
     function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior) {
         $CI =& get_instance();
