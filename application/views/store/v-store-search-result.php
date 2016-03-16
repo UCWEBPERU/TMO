@@ -77,9 +77,11 @@
 
 <!-- Content -->
 <content>
-    <section id="toplist">
-        <h2> Results for "<?php echo $modulo->keyrwords_search; ?>" </h2>
-    </section>
+    <?php if (sizeof($modulo->data_productos) > 0) { ?>
+        <section id="toplist">
+            <h2> Results for "<?php echo $modulo->keyrwords_search; ?>" </h2>
+        </section>
+    <?php } ?>
 
     <div class="col-xs-12">
         <div class="row">
@@ -97,9 +99,7 @@
             <div class="row">
                 <div id="contenedor">
                     <div class="col-xs-10 findcategories" >
-                        <h2>Your search "<?php echo strtoupper($modulo->keyrwords_search); ?>" did not match any products.</h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
+                        <h2>Your search "<?php echo $modulo->keyrwords_search; ?>" did not match any products.</h2>
                     </div>
                 </div>
             </div>
