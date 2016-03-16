@@ -7,15 +7,14 @@ class C_Store_Product extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
-        $this->load->model('store/M_Store_Home');
-        $this->load->model('store/M_Store_Product');
+        $this->load->model('store/M_Store');
     }
 
     public function viewProduct($idProducto) {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
 
-        $dataEmpresa = $this->M_Store_Home->getCompanyAndStore(
+        $dataEmpresa = $this->M_Store->getCompanyAndStore(
             array(
                 "id_empresa"    => $this->uri->segment(2),
                 "id_tienda"     => $this->uri->segment(4)
@@ -35,14 +34,14 @@ class C_Store_Product extends CI_Controller {
             $modulo->data_productos = $this->cargarDatosProducto($idProducto);
             if (sizeof($modulo->data_productos) > 0) {
                 $producto = $this->cargarGaleriaPorProducto($modulo->data_productos[0]);
-                $dataCategoria = $this->M_Store_Home->getCategory(
+                $dataCategoria = $this->M_Store->getCategory(
                     array(
                         "id_categoria"          => $modulo->data_productos[0]->id_categoria,
                         "id_empresa"            => $this->uri->segment(2)
                     )
                 );
                 $modulo->url_button_back = $this->generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior);
-                $dataModifiers = $this->M_Store_Product->getModifiers(
+                $dataModifiers = $this->M_Store->getModifiers(
                     array(
                         "id_producto" => $producto->id_producto
                     )
@@ -95,11 +94,11 @@ class C_Store_Product extends CI_Controller {
     }
 
     public function cargarDatosCategoriasPrincipales() {
-        return $this->M_Store_Home->getPrimaryCategories($this->uri->segment(2));
+        return $this->M_Store->getPrimaryCategories($this->uri->segment(2));
     }
 
     public function cargarDatosProducto($idProducto) {
-        $dataProductos = $this->M_Store_Product->getProduct(
+        $dataProductos = $this->M_Store->getProduct(
             array(
                 "id_empresa"    => $this->uri->segment(2),
                 "id_tienda"     => $this->uri->segment(4),
@@ -110,7 +109,7 @@ class C_Store_Product extends CI_Controller {
     }
 
     public function cargarGaleriaPorProducto($producto) {
-        $geleriaProducto = $this->M_Store_Home->getGalleryByProduct(
+        $geleriaProducto = $this->M_Store->getGalleryByProduct(
             array(
                 "id_producto"    => $producto->id_producto
             )
@@ -132,7 +131,7 @@ class C_Store_Product extends CI_Controller {
         $urlIdCategorias     = intval($idCategoria);
 
         while ( $idCategoriaSuperior != 0 ) {
-            $dataCategoria = $this->M_Store_Home->getCategory(
+            $dataCategoria = $this->M_Store->getCategory(
                 array(
                     "id_categoria"          => $idCategoriaSuperior,
                     "id_empresa"            => $this->uri->segment(2)
