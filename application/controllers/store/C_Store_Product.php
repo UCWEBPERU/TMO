@@ -6,6 +6,7 @@ class C_Store_Product extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->helper('store/h_store');
         $this->load->library('session');
         $this->load->model('store/M_Store');
     }
