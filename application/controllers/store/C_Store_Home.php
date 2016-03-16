@@ -26,19 +26,19 @@ class C_Store_Home extends CI_Controller {
             redirect("not-found/store");
         }
 
-        $dataCategorias = $this->h_store->cargarDatosCategoriasPrincipales();
+        $dataCategorias = cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;
         $modulo->data_navegacion_sub_categorias = array();
 
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_sub_categorias = $this->h_store->cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
-            $modulo->data_productos = $this->h_store->cargarDatosProductos($dataCategorias[0]->id_categoria);
+            $modulo->data_sub_categorias = cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
+            $modulo->data_productos = cargarDatosProductos($dataCategorias[0]->id_categoria);
             foreach ($modulo->data_productos as $producto) {
-                $producto = $this->h_store->cargarGaleriaPorProducto($producto);
+                $producto = cargarGaleriaPorProducto($producto);
             }
             foreach ($modulo->data_sub_categorias as $sub_categoria) {
-                $sub_categoria->url_categoria = $this->h_store->generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior);
+                $sub_categoria->url_categoria = generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior);
             }
         }
 
