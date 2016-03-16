@@ -14,7 +14,7 @@ if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
+if ( ! function_exists('cargarDatosSubCategorias')) {
 
     function cargarDatosSubCategorias($id_categoria_superior) {
         $CI =& get_instance();
@@ -31,7 +31,7 @@ if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
+if ( ! function_exists('cargarDatosProductos')) {
 
     function cargarDatosProductos($id_categoria) {
         $CI =& get_instance();
@@ -49,7 +49,7 @@ if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
+if ( ! function_exists('cargarGaleriaPorProducto')) {
 
     function cargarGaleriaPorProducto($producto) {
         $CI =& get_instance();
@@ -73,7 +73,7 @@ if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
+if ( ! function_exists('validarListaCategorias')) {
 
     function validarListaCategorias($listaCategorias) {
         $CI =& get_instance();
@@ -92,7 +92,7 @@ if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
+if ( ! function_exists('generarNavegacionSubCategorias')) {
 
     function generarNavegacionSubCategorias($url_store, $listaIdCategorias) {
         $CI =& get_instance();
