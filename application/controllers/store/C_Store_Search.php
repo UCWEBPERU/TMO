@@ -54,7 +54,7 @@ class C_Store_Search extends CI_Controller {
             )
         );
 
-        $dataSubCategorias = seleccionarSubCategorias($dataSubCategorias);
+        $dataSubCategorias = filtrarSubCategorias($dataSubCategorias);
         $modulo->data_sub_categorias = $dataSubCategorias;
 
         foreach ($modulo->data_sub_categorias as $sub_categoria) {
