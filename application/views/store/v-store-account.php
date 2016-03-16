@@ -42,7 +42,7 @@
                         <a href="item.html" ><h2>My Order</h2></a>
                     </div>
                     <div class="col-xs-2 findcategories"  >
-                        <a href="item.html" ><img src="images/right-arrow.png" /></a>
+                        <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                         <a href="item.html" ><h2>My Notifications</h2></a>
                     </div>
                     <div class="col-xs-2 findcategories"  >
-                        <a href="item.html" ><img src="images/right-arrow.png" /></a>
+                        <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
                     </div>
                 </div>
             </div>
