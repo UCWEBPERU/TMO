@@ -63,9 +63,11 @@
                                         <div class="form-group">
                                             <label for="txtDescripcionProducto">Descripcion</label>
                                             <?php if ($modulo->existe_producto) { ?>
-                                                <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" value="<?php echo $modulo->data_producto->descripcion_producto; ?>" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">
+                                                <textarea class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" cols="30" rows="5" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto."><?php echo $modulo->data_producto->descripcion_producto; ?></textarea>
+                                                <!-- <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" value="<?php echo $modulo->data_producto->descripcion_producto; ?>" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">-->
                                             <?php } else { ?>
-                                                <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">
+                                                <textarea class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" cols="30" rows="5" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto."></textarea>
+<!--                                                <input type="text" class="form-control" id="txtDescripcionProducto" name="txtDescripcionProducto" data-parsley-required data-parsley-required-message="Ingrese la descripcion del producto.">-->
                                             <?php } ?>
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
