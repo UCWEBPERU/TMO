@@ -714,6 +714,17 @@
 		font-family: 'Lato';	
 		
 	}
+	.sign a {
+		display: block;
+		margin-top: 10px;
+		background: #000;
+		border: 0px;
+		width: 100%;
+		color: #FFF;
+		font-family: 'Lato';
+		text-align: center;
+		padding: 5px 0px;
+	}
 	.sign h5{
 		float: left;
 		color :#1FA2E3;
