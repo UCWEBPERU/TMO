@@ -11,6 +11,11 @@ class C_Store_Search extends CI_Controller {
     }
 
     public function index() {
+
+        if ($this->input->get("s")) {
+            var_dump($this->input->get("s"));
+        }
+
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
 
