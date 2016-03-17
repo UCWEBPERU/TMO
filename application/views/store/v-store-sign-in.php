@@ -29,7 +29,6 @@
         <div class="col-xs-12" >
             <div class="row" id="contenedordetail">
                 <div>
-
                     <div class="col-xs-12 sign">
                         <h3>ACCOUNT</h3>
                         <h2>Welcome!</h2>
@@ -43,7 +42,7 @@
                     </div>
 
                     <div class="col-xs-12 sign">
-                        <h2>JOIN INSTANTLY ( AND FOR FREE )</h2>
+                        <h2>Join instantly (and for free)</h2>
                         <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/register" >Join Now</a>
 <!--                        <a href="cart-detail.html"><h5>Go Cart</h5></a>-->
                     </div>
