@@ -8,7 +8,7 @@ class C_Store_Sign_In extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('store/h_store');
         $this->load->library('session');
-        $this->load->helper('store/h_store');
+        $this->load->library('user_agent');
         $this->load->model('store/M_Store');
         $this->load->model("M_Archivo");
     }
@@ -16,7 +16,7 @@ class C_Store_Sign_In extends CI_Controller {
     public function index() {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
-        $modulo->previuos_url = $this->input->post('refer_from');
+        $modulo->previuos_url = $this->agent->is_referral() ? $this->agent->referrer() : $modulo->base_url_store;
 
         $dataEmpresa = $this->M_Store->getCompanyAndStore(
             array(
