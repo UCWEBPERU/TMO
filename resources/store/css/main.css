@@ -695,9 +695,9 @@
 	.sign input{
 		width: 100%;
 		background: #E5E5E5;
-		color: #B5B5B5;
+		color: #545454;
 		margin-top: 10px;
-		border: 1px solid;
+		border: 1px solid #b5b5b5;
 		font-family: 'Lato';
 		text-align: left;
 		padding: 5px;
