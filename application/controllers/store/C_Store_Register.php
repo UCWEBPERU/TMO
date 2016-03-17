@@ -38,9 +38,9 @@ class C_Store_Register extends CI_Controller {
 
     public function ajaxRegister() {
         $json 				= new stdClass();
-        $json->type 		= "Modifier Producto";
+        $json->type 		= "User Store";
         $json->presentation = "";
-        $json->action 		= "delete";
+        $json->action 		= "register";
         $json->data 		= array();
         $json->status 		= FALSE;
 
@@ -50,32 +50,17 @@ class C_Store_Register extends CI_Controller {
             $this->input->post("txtPassword") &&
             $this->input->post("txtConfirmPassword")) {
 
-            $resultImageProduct = $this->M_CompanyAdmin_Product->getModifierByProduct(
+            $existeEmail = $this->M_Store->getUserBYEmail(
                 array(
-                    'id_producto'               => trim($this->input->post("id_product", TRUE)),
-                    'id_modifier'  => trim($this->input->post("id_modifier", TRUE))
+                    'email_usuario' => trim($this->input->post("txtEmail", TRUE))
                 )
             );
 
-            if (sizeof($resultImageProduct) > 0) {
-
-                $result = $this->M_CompanyAdmin_Product->deleteDetalleModificadorProductos(
-                    array(
-                        'id_producto' => trim($this->input->post("id_product", TRUE)),
-                        'id_modifier' => trim($this->input->post("id_modifier", TRUE))
-                    )
-                );
-
-                $result = $this->M_CompanyAdmin_Product->deleteModificadorProductos(
-                    array(
-                        'id_modifier' => trim($this->input->post("id_modifier", TRUE))
-                    )
-                );
-
-                $json->message = "El modificador del producto se elimino correctamente.";
+            if (sizeof($existeEmail) == 0) {
+                $json->message = "Su registro de usuario se realizo correctemente.";
                 $json->status = TRUE;
             } else {
-                $json->message = "El modificador del producto que quiere eliminar no existe.";
+                $json->message = "Lo sentimos el email ingresado ya existe, intente de nuevo.";
             }
 
         } else {

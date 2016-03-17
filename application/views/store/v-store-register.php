@@ -128,9 +128,26 @@
                         spinner     : "spinner2"
                     });
 
-                    setTimeout(function(){
+                    var request = $.ajax({
+                        url: "<?php echo $modulo->base_url_store."/ajax/registerClient"; ?>",
+                        method: "POST",
+                        data: $("#frmRegister").serialize(),
+                        dataType: "json"
+                    });
+
+                    request.done(function( response ) {
                         $(".fakeloader").fakeLoaderClose();
-                    }, 5000);
+                        if (response.status) {
+                            $(".register-error").html(response.message);
+                        } else {
+                            $(".register-error").html(response.message);
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        $(".fakeloader").fakeLoaderClose();
+                        $(".register-error").html(response.message);
+                    });
                 }
 
             });
