@@ -13,9 +13,7 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/ie9.css" /><![endif]-->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/fakeLoader.css">
 </head>
-<body>
-
-<div>
+<body style="width: 100%; height: 100%;">
     <!-- Header -->
     <header>
         <div id="title">
@@ -91,5 +89,6 @@
             });
         });
     </script>
+
 </body>
 </html>
