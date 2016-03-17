@@ -89,7 +89,6 @@
 
                 setTimeout(function(){
                     $(".fakeloader").fakeLoaderClose();
-                    $(".fakeloader").attr("style", "");
                 }, 5000);
             });
         });
