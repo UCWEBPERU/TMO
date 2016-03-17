@@ -40,12 +40,12 @@
 			$('form').placeholder();
 
 		// Prioritize "important" elements on mobile.
-			skel.on('+mobile -mobile', function() {
-				$.prioritize(
-					'.important\\28 mobile\\29',
-					skel.breakpoint('mobile').active
-				);
-			});
+		//	skel.on('+mobile -mobile', function() {
+		//		$.prioritize(
+		//			'.important\\28 mobile\\29',
+		//			skel.breakpoint('mobile').active
+		//		);
+		//	});
 
 		// CSS polyfills (IE<9).
 			if (skel.vars.IEVersion < 9)
