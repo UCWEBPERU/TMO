@@ -68,10 +68,9 @@
             </div>
         </div>
     </footer>
-    <div class="fakeLoader"></div>
+    <div class="fakeloader"></div>
     <!-- Scripts -->
-<!--    <script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/jquery.min.js"></script>-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/fakeLoader.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
@@ -85,13 +84,12 @@
         $(document).ready(function(){
             $("#btnRegister").on("click", function(event){
                 event.preventDefault();
-
+                $(".fakeloader").fakeLoader({
+                    timeToHide  : 1200,
+                    bgColor     : "#e74c3c",
+                    spinner     : "spinner2"
+                });
                 alert("asdasdas");
-            });
-            $(".fakeloader").fakeLoader({
-                timeToHide  : 1200,
-                bgColor     : "#e74c3c",
-                spinner     : "spinner2"
             });
         });
     </script>
