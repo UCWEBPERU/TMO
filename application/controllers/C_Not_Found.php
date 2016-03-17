@@ -10,13 +10,21 @@ class C_Not_Found extends CI_Controller {
 	}
 
 	public function store() {
-        
         $modulo = new stdClass();
 		$modulo->titulo     = "Store Not Found";
         $modulo->mensaje    = "La tienda no se encuentra registrado, para mas informacion consulte con el equipo de TMO.";
         
         $data["modulo"] = $modulo;        
         $this->load->view('template/v-not-found', $data);
+	}
+
+	public function company() {
+		$modulo = new stdClass();
+		$modulo->titulo     = "Company Not Found";
+		$modulo->mensaje    = "La empresa no se encuentra registrado, para mas informacion consulte con el equipo de TMO.";
+
+		$data["modulo"] = $modulo;
+		$this->load->view('template/v-not-found', $data);
 	}
 
 }

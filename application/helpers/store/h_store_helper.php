@@ -238,3 +238,21 @@ if ( ! function_exists('filtrarSubCategorias')) {
     }
 
 }
+
+// ------------------------------------------------------------------------
+
+if ( ! function_exists('cargarLogoEmpresa')) {
+
+    function cargarLogoEmpresa($modulo, $dataEmpresa) {
+        $dataLogoEmpresa    = $this->CI->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
+
+        if (sizeof($dataLogoEmpresa) > 0) {
+            $modulo->icono_empresa = $dataLogoEmpresa[0]->url_archivo;
+        } else {
+            $modulo->icono_empresa = PATH_RESOURCE_ADMIN."img/image_not_found.png"; // Colocar logo de store por defecto
+        }
+    }
+
+}
+
+

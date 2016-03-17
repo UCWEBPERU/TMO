@@ -214,7 +214,8 @@ $route['company/(:num)/store/(:num)']                   = 'store/C_Store_Home';
 $route['company/(:num)/store/(:num)/products/(:num)']   = 'store/C_Store_Product/viewProduct/$3';
 $route['company/(:num)/store/(:num)/search']            = 'store/C_Store_Search';
 $route['company/(:num)/store/(:num)/account']           = 'store/C_Store_Account';
-$route['company/(:num)/store/(:num)/signin']           = 'store/C_Store_Sign_In';
+$route['company/(:num)/store/(:num)/signin']            = 'store/C_Store_Sign_In';
+$route['company/(:num)/store/(:num)/register']          = 'store/C_Store_Register';
 
 // url para soportar el anidamiento de las subcategorias
 $route['company/(:num)/store/(:num)/categories/(:num)']                             = 'store/C_Store_Home/viewSubCategorias/$3';
@@ -272,5 +273,6 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num
 | URL -> NOT FOUND PAGE
 | ------------------------------
 */
-$route['not-found/store'] = 'C_Not_Found/store';
-$route['forbidden-access'] = 'C_Forbidden_Access';
+$route['not-found/store']   = 'C_Not_Found/store';
+$route['not-found/company'] = 'C_Not_Found/company';
+$route['forbidden-access']  = 'C_Forbidden_Access';

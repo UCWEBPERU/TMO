@@ -8,6 +8,7 @@ class C_Store_Sign_In extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('store/h_store');
         $this->load->library('session');
+        $this->load->helper('store/h_store');
         $this->load->model('store/M_Store');
     }
 
@@ -25,6 +26,8 @@ class C_Store_Sign_In extends CI_Controller {
         if (sizeof($dataEmpresa) == 0) {
             redirect("not-found/store");
         }
+
+        cargarLogoEmpresa($modulo, $dataEmpresa);
 
         $data["modulo"] = $modulo;
 

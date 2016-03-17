@@ -30,7 +30,8 @@
             <div class="row" id="contenedordetail">
                 <div>
                     <div class="col-xs-12 sign">
-                        <h3>ACCOUNT</h3>
+<!--                        <h3>ACCOUNT</h3>-->
+                        <img class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');" alt="Logo Company" title="Logo Company">
                         <h2>Welcome!</h2>
                         <h2>Enter your user account</h2>
                         <input type="text" placeholder="E-mail or mobile number">

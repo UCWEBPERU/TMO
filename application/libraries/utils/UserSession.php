@@ -18,6 +18,9 @@ class UserSession {
             case 'panel-company-admin':
                 $this->validatePanelStoreAdmin();
                 break;
+            case 'panel-store':
+                $this->validatePanelStore();
+                break;
         }
     }
 
@@ -27,6 +30,8 @@ class UserSession {
                 return 1;
             } else if ($this->CI->session->nombre_tipo_usuario == "Administrador") {
                 return 2;
+            } else if ($this->CI->session->nombre_tipo_usuario == "Cliente") {
+                return 3;
             }
 		} else {
             return FALSE;
@@ -38,8 +43,10 @@ class UserSession {
             redirect("/admin/login");
         } else {
             if ($this->validateTypeUser() == 2) {
-//                redirect("/store/".$this->CI->session->id_empresa."/admin");
                 redirect("/company/".$this->CI->session->id_empresa."/admin");
+            }
+            if ($this->validateTypeUser() == 3) {
+                redirect("/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4));
             }
         }
     }
@@ -60,10 +67,27 @@ class UserSession {
                 if (sizeof($dataEmpresa) > 0) {
                     redirect("forbidden-access");
                 } else {
-                    redirect("not-found/store");
+                    redirect("not-found/company");
                 }
             }
         }
+    }
+
+    private function validatePanelStore() {
+        if (!$this->validateTypeUser()) {
+            redirect("/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin");
+        } else {
+            if ($this->validateTypeUser() != 3) {
+                redirect("/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin");
+            }
+        }
+    }
+
+    public function isClient() {
+        if ($this->validateTypeUser() == 3) {
+            return TRUE;
+        }
+        return FALSE;
     }
 
 }

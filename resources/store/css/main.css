@@ -744,6 +744,14 @@
 		text-align: center;
 		font-weight: 700;
 	}
+	.sign img.logo-company{
+		width: 100px;
+		height: 100px;
+		margin: 10px auto 0px auto;
+		background-position: 50%;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
 
 
 /* Desktop */

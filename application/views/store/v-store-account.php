@@ -26,14 +26,16 @@
     <content>
 
         <div class="col-xs-12" >
-            <div class="row" id="contenedordetail2">
-                <div>
-                    <div class="col-xs-12 sign">
-                        <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signin" >Sign In</a>
-                        <!--<h3>Sign in to see you store credit</h3>-->
+            <?php if ( ! $modulo->has_user_session) { ?>
+                <div class="row" id="contenedordetail2">
+                    <div>
+                        <div class="col-xs-12 sign">
+                            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signin" >Sign In</a>
+                            <!--<h3>Sign in to see you store credit</h3>-->
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
 
             <div class="row">
                 <div id="contenedorc">
