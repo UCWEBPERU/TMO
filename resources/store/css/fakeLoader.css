@@ -49,10 +49,9 @@
     position: relative;
 }
 
-
 .container1 > div, .container2 > div, .container3 > div {
-    width: 6px;
-    height: 6px;
+    width: 10px;
+    height: 10px;
     background-color: #fff;
 
     border-radius: 100%;
