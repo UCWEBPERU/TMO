@@ -93,7 +93,7 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>js/fakeLoader.min.js"></script>
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>js/fakeloader/fakeLoader.min.js"></script>
     <script type="text/javascript">
 
         var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtConfirmPassword"];
