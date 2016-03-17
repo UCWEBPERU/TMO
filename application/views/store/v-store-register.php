@@ -68,7 +68,7 @@
             </div>
         </div>
     </footer>
-    <div id="fakeLoader"></div>
+    <div class="fakeLoader"></div>
     <!-- Scripts -->
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/fakeLoader.min.js"></script>
@@ -81,17 +81,17 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        (function($){
+        $(document).ready(function(){
             $("#btnRegister").on("click", function(event){
                 event.preventDefault();
-                $("#fakeloader").fakeLoader({
+                $(".fakeloader").fakeLoader({
                     timeToHide  : 1200,
                     bgColor     : "#e74c3c",
                     spinner     : "spinner2"
                 });
                 alert("asdasdas");
             });
-        })(jQuery);
+        });
     </script>
 </body>
 </html>
