@@ -16,6 +16,7 @@ class C_Store_Sign_In extends CI_Controller {
     public function index() {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
+        $modulo->previuos_url = $this->input->post('refer_from');
 
         $dataEmpresa = $this->M_Store->getCompanyAndStore(
             array(

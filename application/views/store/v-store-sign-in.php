@@ -18,7 +18,7 @@
     <!-- Header -->
     <header>
         <div id="title">
-            <a href="cart.html" >Close</a>
+            <a href="<?php echo $modulo->previuos_url; ?>" >Close</a>
             <h2>Member Sign In</h2>
         </div>
     </header>
