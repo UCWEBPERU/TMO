@@ -28,7 +28,7 @@ class C_Store_Sign_In extends CI_Controller {
             redirect("not-found/store");
         }
 
-        cargarLogoEmpresa($modulo, $dataEmpresa);
+        cargarLogoEmpresa($modulo, $dataEmpresa[0]);
 
         $data["modulo"] = $modulo;
 
