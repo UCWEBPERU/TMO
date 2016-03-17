@@ -83,12 +83,13 @@
             $("#btnRegister").on("click", function(event){
                 event.preventDefault();
                 $(".fakeloader").fakeLoader({
-                    bgColor     : "rgba(0,0,0,.75)",
+                    bgColor     : "rgba(0,0,0,.85)",
                     spinner     : "spinner2"
                 });
 
                 setTimeout(function(){
                     $(".fakeloader").fakeLoaderClose();
+                    $(".fakeloader").attr("style", "");
                 }, 5000);
             });
         });
