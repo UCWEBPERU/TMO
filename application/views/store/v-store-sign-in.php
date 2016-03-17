@@ -37,7 +37,6 @@
                         <input type="text" placeholder="E-mail or mobile number">
                         <input type="password" placeholder="Password">
                         <button>Sign In</button>
-                        btn-black
                         <a href="#"><h5>Forgot Password</h5></a>
                         <br><br><br>
 <!--                        <a href="cart-detail.html"><h5>Go Cart</h5></a>-->
