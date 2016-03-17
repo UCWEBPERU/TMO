@@ -84,7 +84,11 @@
         (function($){
             $("#btnRegister").on("click", function(event){
                 event.preventDefault();
-                $("#fakeloader").fakeLoader();
+                $(".fakeloader").fakeLoader({
+                    timeToHide  : 1200,
+                    bgColor     : "#e74c3c",
+                    spinner     : "spinner2"
+                });
             });
         })(jQuery);
     </script>
