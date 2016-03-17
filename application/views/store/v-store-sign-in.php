@@ -30,21 +30,22 @@
             <div class="row" id="contenedordetail">
                 <div>
 
-                    <div class="col-xs-12 sign" >
+                    <div class="col-xs-12 sign">
                         <h3>ACCOUNT</h3>
                         <h2>Welcome!</h2>
                         <h2>Enter your user account</h2>
                         <input type="text" placeholder="E-mail or mobile number">
                         <input type="password" placeholder="Password">
-                        <button >Sign In</button>
+                        <button>Sign In</button>
+                        btn-black
                         <a href="#"><h5>Forgot Password</h5></a>
                         <br><br><br>
 <!--                        <a href="cart-detail.html"><h5>Go Cart</h5></a>-->
                     </div>
 
-                    <div class="col-xs-12 sign" >
+                    <div class="col-xs-12 sign">
                         <h2>JOIN INSTANTLY ( AND FOR FREE )</h2>
-                        <button>Join Now</button>
+                        <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/register" >Join Now</a>
 <!--                        <a href="cart-detail.html"><h5>Go Cart</h5></a>-->
                     </div>
                     <div class="col-xs-12 detail" style="height: 200px;"></div>

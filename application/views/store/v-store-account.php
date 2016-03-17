@@ -28,9 +28,8 @@
         <div class="col-xs-12" >
             <div class="row" id="contenedordetail2">
                 <div>
-                    <div class="col-xs-12 sign" >
-                        <button>Sign In</button>
-                        <a href="<?php echo $modulo->base_url_store; ?>/sign-in" >Sign In</a>
+                    <div class="col-xs-12 sign">
+                        <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signin" >Sign In</a>
                         <!--<h3>Sign in to see you store credit</h3>-->
                     </div>
                 </div>

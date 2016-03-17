@@ -214,7 +214,7 @@ $route['company/(:num)/store/(:num)']                   = 'store/C_Store_Home';
 $route['company/(:num)/store/(:num)/products/(:num)']   = 'store/C_Store_Product/viewProduct/$3';
 $route['company/(:num)/store/(:num)/search']            = 'store/C_Store_Search';
 $route['company/(:num)/store/(:num)/account']           = 'store/C_Store_Account';
-$route['company/(:num)/store/(:num)/sign-in']           = 'store/C_Store_Sign_In';
+$route['company/(:num)/store/(:num)/signin']           = 'store/C_Store_Sign_In';
 
 // url para soportar el anidamiento de las subcategorias
 $route['company/(:num)/store/(:num)/categories/(:num)']                             = 'store/C_Store_Home/viewSubCategorias/$3';
