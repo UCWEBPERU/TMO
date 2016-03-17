@@ -37,7 +37,7 @@
                                 <p class="text-error"></p>
                             </div>
                             <div>
-                                <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" data-parsley-required data-parsley-required-message="Enter your first name.">
+                                <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" data-parsley-required data-parsley-required-message="Enter your last name.">
                                 <p class="text-error"></p>
                             </div>
                             <div>
@@ -93,7 +93,7 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>js/fakeloader/fakeLoader.min.js"></script>
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fakeloader/fakeLoader.min.js"></script>
     <script type="text/javascript">
 
         var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtConfirmPassword"];
