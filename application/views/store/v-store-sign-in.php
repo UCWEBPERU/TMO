@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="col-xs-12 sign">
-                        <h2>Join instantly (and for free)</h2>
+                        <h3>Join instantly (and for free)</h3>
                         <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/register" >Join Now</a>
 <!--                        <a href="cart-detail.html"><h5>Go Cart</h5></a>-->
                     </div>

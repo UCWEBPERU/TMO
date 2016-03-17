@@ -32,17 +32,18 @@
                     <div class="col-xs-12 sign">
                         <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
                         <h3>Create Your New Account</h3>
-                        <input type="text" placeholder="First Name">
-                        <input type="text" placeholder="Last Name">
-                        <input type="text" placeholder="Email">
-                        <input type="password" placeholder="Password">
-                        <input type="password" placeholder="Confirm Password">
-                        <button>Register</button>
+                        <form id="frmRegister" name="frmRegister" method="post">
+                            <input type="text" placeholder="First Name">
+                            <input type="text" placeholder="Last Name">
+                            <input type="text" placeholder="Email">
+                            <input type="password" placeholder="Password">
+                            <input type="password" placeholder="Confirm Password">
+                            <button id="btnRegister" type="submit">Register</button>
+                        </form>
                     </div>
                     <div class="col-xs-12 detail" style="height: 200px;"></div>
                 </div>
             </div>
-
         </div>
 
     </content>
@@ -66,9 +67,10 @@
             </div>
         </div>
     </footer>
-
+    <div id="fakeLoader"></div>
     <!-- Scripts -->
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
+    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/fakeLoader.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
     <!--<script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
@@ -77,6 +79,12 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
-
+    <script type="text/javascript">
+        (function($){
+            $("#btnRegister").on("click", function(){
+                $("#fakeloader").fakeLoader();
+            });
+        })(jQuery);
+    </script>
 </body>
 </html>
