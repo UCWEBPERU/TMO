@@ -626,7 +626,7 @@
 		width: 100%;
 		margin-top: 10px;
 		text-align: center;
-		
+
 	}
 	#contenedor{
 		margin: 5px;		
@@ -702,6 +702,14 @@
 		font-family: 'Lato';
 		text-align: left;
 		padding: 5px;
+		outline: none;
+	}
+	.sign p.text-error{
+		color: #eb1e1e;
+		font-family: 'Lato';
+	}
+	.sign input.has-error{
+		 border: 1px solid red;
 	}
 	.sign button{
 		

@@ -32,12 +32,11 @@
                         <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
                         <h3>Create Your New Account</h3>
                         <form id="frmRegister" name="frmRegister" method="post">
-                            <input type="text" placeholder="First Name">
-                            <p>Please enter your first name.</p>
-                            <input type="text" placeholder="Last Name">
-                            <input type="text" placeholder="Email">
-                            <input type="password" placeholder="Password">
-                            <input type="password" placeholder="Confirm Password">
+                            <input type="text" id="txtFirstName" name="txtFirstName" placeholder="First Name" data-parsley-required data-parsley-required-message="Enter your first name.">
+                            <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" data-parsley-required data-parsley-required-message="Enter your first name.">
+                            <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
+                            <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter a password." data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirm password." data-parsley-equalto-message="Passwords do not match.">
+                            <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" placeholder="Confirm Password">
                             <button id="btnRegister" type="submit">Register</button>
                         </form>
                     </div>
@@ -80,37 +79,25 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>js/fakeLoader.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
     <script type="text/javascript">
 
-        function validate(selectorInputsForm){
-            var messagesError = "";
+        var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtConfirmPassword"];
+
+        function validateInputsForm(selectorInputsForm){
+            var countMessagesError = 0;
+            var html = "";
             for (var i = 0; i < selectorInputsForm.length; i++) {
                 if ($(selectorInputsForm[i]).parsley().isValid()) {
-                    if ($(selectorInputsForm[i]).prop('tagName') == "SELECT") {
-                        $(selectorInputsForm[i]).parent().removeClass("has-error");
-                        var node = $(selectorInputsForm[i]).parent().find(".select2-container");
-                        node = $(node).find("span.selection");
-                        node = $(node).children();
-                        $(node).removeClass("border-input-error");
-                    } else {
-                        $(selectorInputsForm[i]).parent().removeClass("has-error");
-                    }
+                    $(selectorInputsForm[i]).removeClass("has-error");
+                    $(selectorInputsForm[i]).after().remove();
                 } else {
-                    if ($(selectorInputsForm[i]).prop('tagName') == "SELECT") {
-                        $(selectorInputsForm[i]).parent().addClass("has-error");
-                        var node = $(selectorInputsForm[i]).parent().find(".select2-container");
-                        node = $(node).find("span.selection");
-                        node = $(node).children();
-                        $(node).addClass("border-input-error");
-                    } else {
-                        $(selectorInputsForm[i]).parent().addClass("has-error");
-                    }
-                    messagesError += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
+                    $(selectorInputsForm[i]).addClass("has-error");
+                    html = "<p class='text-error'>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</p>"
+                    $(selectorInputsForm[i]).after(html);
+                    countMessagesError++;
                 }
             }
-            if (messagesError.length > 0) {
-//                GenericModal.show("danger", "<ul>" + messagesError + "</ul>");
+            if (countMessagesError > 0) {
                 return false;
             }
             return true;
@@ -119,14 +106,18 @@
         $(document).ready(function(){
             $("#btnRegister").on("click", function(event){
                 event.preventDefault();
-                $(".fakeloader").fakeLoader({
-                    bgColor     : "rgba(0,0,0,.85)",
-                    spinner     : "spinner2"
-                });
 
-                setTimeout(function(){
-                    $(".fakeloader").fakeLoaderClose();
-                }, 5000);
+                if (validateInputsForm(selectorInputsForm)) {
+                    $(".fakeloader").fakeLoader({
+                        bgColor     : "rgba(0,0,0,.85)",
+                        spinner     : "spinner2"
+                    });
+
+                    setTimeout(function(){
+                        $(".fakeloader").fakeLoaderClose();
+                    }, 5000);
+                }
+
             });
         });
     </script>
