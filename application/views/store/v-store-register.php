@@ -86,6 +86,10 @@
                     bgColor     : "rgba(0,0,0,.75)",
                     spinner     : "spinner2"
                 });
+
+                setTimeout(function(){
+                    $(".fakeloader").fakeLoaderClose();
+                }, 5000);
             });
         });
     </script>
