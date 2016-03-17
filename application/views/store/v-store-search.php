@@ -14,42 +14,6 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
 </head>
 <body>
-<script>
-    jssor_1_slider_init = function() {
-
-        var jssor_1_options = {
-            //$AutoPlay: true,
-            $Idle: 0,
-            //$AutoPlaySteps: 4,
-            $SlideDuration: 1600,
-            $SlideEasing: $Jease$.$Linear,
-            $PauseOnHover: 4,
-            $SlideWidth: 230,
-            $Cols: 7
-        };
-
-        var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
-        //responsive code begin
-        //you can remove responsive code if you don't want the slider scales while window resizing
-        function ScaleSlider() {
-            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-            if (refSize) {
-                refSize = Math.min(refSize, 809);
-                jssor_1_slider.$ScaleWidth(refSize);
-            }
-            else {
-                window.setTimeout(ScaleSlider, 30);
-            }
-        }
-        ScaleSlider();
-        $Jssor$.$AddEvent(window, "load", ScaleSlider);
-        $Jssor$.$AddEvent(window, "resize", ScaleSlider);
-        $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-        //responsive code end
-    };
-</script>
-
 <header>
     <!-- Nav lbslider -->
     <div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
@@ -123,11 +87,8 @@
     </div>
 </footer>
 
-<script>
-    jssor_1_slider_init();
-</script>
-
 <!-- Scripts -->
+<script type="text/javascript" src="<?php echo PATH_RESOURCE_STORE; ?>js/handler-slider-menu.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
