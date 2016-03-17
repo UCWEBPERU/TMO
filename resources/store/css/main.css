@@ -708,6 +708,10 @@
 		font-family: 'Lato';
 		display: none;
 	}
+	.sign p.register-error {
+		color: #eb1e1e;
+		font-family: 'Lato';
+	}
 	.sign div.has-error p {
 		display: block;
 	}
