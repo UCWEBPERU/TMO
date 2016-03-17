@@ -32,11 +32,26 @@
                         <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
                         <h3>Create Your New Account</h3>
                         <form id="frmRegister" name="frmRegister" method="post">
-                            <input type="text" id="txtFirstName" name="txtFirstName" placeholder="First Name" data-parsley-required data-parsley-required-message="Enter your first name.">
-                            <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" data-parsley-required data-parsley-required-message="Enter your first name.">
-                            <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
-                            <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter a password." data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirm password." data-parsley-equalto-message="Passwords do not match.">
-                            <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" placeholder="Confirm Password">
+                            <div>
+                                <input type="text" id="txtFirstName" name="txtFirstName" placeholder="First Name" data-parsley-required data-parsley-required-message="Enter your first name.">
+                                <p></p>
+                            </div>
+                            <div>
+                                <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" data-parsley-required data-parsley-required-message="Enter your first name.">
+                                <p></p>
+                            </div>
+                            <div>
+                                <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
+                                <p></p>
+                            </div>
+                            <div>
+                                <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter a password.">
+                                <p></p>
+                            </div>
+                            <div>
+                                <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" placeholder="Confirm Password"  data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirm password." data-parsley-equalto-message="Passwords do not match.">
+                                <p></p>
+                            </div>
                             <button id="btnRegister" type="submit">Register</button>
                         </form>
                     </div>
@@ -88,12 +103,11 @@
             var html = "";
             for (var i = 0; i < selectorInputsForm.length; i++) {
                 if ($(selectorInputsForm[i]).parsley().isValid()) {
-                    $(selectorInputsForm[i]).removeClass("has-error");
-                    $(selectorInputsForm[i]).after().remove();
+                    $(selectorInputsForm[i]).parent().removeClass("has-error");
                 } else {
-                    $(selectorInputsForm[i]).addClass("has-error");
+                    $(selectorInputsForm[i]).parent().addClass("has-error");
                     html = "<p class='text-error'>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</p>"
-                    $(selectorInputsForm[i]).after(html);
+                    $(selectorInputsForm[i]).parent().find("p.text-error").html(html);
                     countMessagesError++;
                 }
             }

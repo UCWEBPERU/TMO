@@ -691,7 +691,6 @@
 		margin-top: 12px;
 
 	}
-
 /* Sign*/
 	.sign input{
 		width: 100%;
@@ -704,16 +703,19 @@
 		padding: 5px;
 		outline: none;
 	}
-	.sign p.text-error{
+	.sign div p.text-error{
 		color: #eb1e1e;
 		font-family: 'Lato';
+		display: none;
 	}
-	.sign input.has-error{
-		 border: 1px solid red;
+	.sign div.has-error p {
+		display: block;
+	}
+	.sign div.has-error input {
+		border: 1px solid red;
 	}
 	.sign button{
-		
-		margin-top: 10px;		
+		margin-top: 10px;
 		background: #000;
 		border: 0px;
 		height: 30px;
