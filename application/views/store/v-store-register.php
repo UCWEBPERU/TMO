@@ -81,7 +81,8 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
     <script type="text/javascript">
         (function($){
-            $("#btnRegister").on("click", function(){
+            $("#btnRegister").on("click", function(event){
+                event.preventDefault();
                 $("#fakeloader").fakeLoader();
             });
         })(jQuery);
