@@ -31,7 +31,7 @@
                 <div>
                     <div class="col-xs-12 sign">
                         <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
-                        <h2>Create Your New Account</h2>
+                        <h3>Create Your New Account</h3>
                         <input type="text" placeholder="First Name">
                         <input type="text" placeholder="Last Name">
                         <input type="text" placeholder="Email">

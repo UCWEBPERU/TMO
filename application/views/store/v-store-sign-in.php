@@ -32,7 +32,7 @@
                     <div class="col-xs-12 sign">
 <!--                        <h3>ACCOUNT</h3>-->
                         <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
-                        <h2>Welcome!</h2>
+                        <h3>Welcome!</h3>
                         <h2>Enter your user account</h2>
                         <input type="text" placeholder="E-mail or mobile number">
                         <input type="password" placeholder="Password">
