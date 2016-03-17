@@ -34,23 +34,23 @@
                         <form id="frmRegister" name="frmRegister" method="post">
                             <div>
                                 <input type="text" id="txtFirstName" name="txtFirstName" placeholder="First Name" data-parsley-required data-parsley-required-message="Enter your first name.">
-                                <p></p>
+                                <p class="text-error"></p>
                             </div>
                             <div>
                                 <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" data-parsley-required data-parsley-required-message="Enter your first name.">
-                                <p></p>
+                                <p class="text-error"></p>
                             </div>
                             <div>
                                 <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
-                                <p></p>
+                                <p class="text-error"></p>
                             </div>
                             <div>
                                 <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter a password.">
-                                <p></p>
+                                <p class="text-error"></p>
                             </div>
                             <div>
                                 <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" placeholder="Confirm Password"  data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirm password." data-parsley-equalto-message="Passwords do not match.">
-                                <p></p>
+                                <p class="text-error"></p>
                             </div>
                             <button id="btnRegister" type="submit">Register</button>
                         </form>
@@ -100,14 +100,14 @@
 
         function validateInputsForm(selectorInputsForm){
             var countMessagesError = 0;
-            var html = "";
+            var messageError = "";
             for (var i = 0; i < selectorInputsForm.length; i++) {
                 if ($(selectorInputsForm[i]).parsley().isValid()) {
                     $(selectorInputsForm[i]).parent().removeClass("has-error");
                 } else {
                     $(selectorInputsForm[i]).parent().addClass("has-error");
-                    html = "<p class='text-error'>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</p>"
-                    $(selectorInputsForm[i]).parent().find("p.text-error").html(html);
+                    messageError = ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley());
+                    $(selectorInputsForm[i]).parent().find("p").html(messageError);
                     countMessagesError++;
                 }
             }
