@@ -33,6 +33,7 @@
                         <h3>Create Your New Account</h3>
                         <form id="frmRegister" name="frmRegister" method="post">
                             <input type="text" placeholder="First Name">
+                            <p>Please enter your first name.</p>
                             <input type="text" placeholder="Last Name">
                             <input type="text" placeholder="Email">
                             <input type="password" placeholder="Password">
@@ -69,7 +70,6 @@
     <div class="fakeloader"></div>
     <!-- Scripts -->
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/fakeLoader.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
     <!--<script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
@@ -78,7 +78,44 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>js/fakeLoader.min.js"></script>
+    <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
     <script type="text/javascript">
+
+        function validate(selectorInputsForm){
+            var messagesError = "";
+            for (var i = 0; i < selectorInputsForm.length; i++) {
+                if ($(selectorInputsForm[i]).parsley().isValid()) {
+                    if ($(selectorInputsForm[i]).prop('tagName') == "SELECT") {
+                        $(selectorInputsForm[i]).parent().removeClass("has-error");
+                        var node = $(selectorInputsForm[i]).parent().find(".select2-container");
+                        node = $(node).find("span.selection");
+                        node = $(node).children();
+                        $(node).removeClass("border-input-error");
+                    } else {
+                        $(selectorInputsForm[i]).parent().removeClass("has-error");
+                    }
+                } else {
+                    if ($(selectorInputsForm[i]).prop('tagName') == "SELECT") {
+                        $(selectorInputsForm[i]).parent().addClass("has-error");
+                        var node = $(selectorInputsForm[i]).parent().find(".select2-container");
+                        node = $(node).find("span.selection");
+                        node = $(node).children();
+                        $(node).addClass("border-input-error");
+                    } else {
+                        $(selectorInputsForm[i]).parent().addClass("has-error");
+                    }
+                    messagesError += "<li>" + ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley()) + "</li>";
+                }
+            }
+            if (messagesError.length > 0) {
+//                GenericModal.show("danger", "<ul>" + messagesError + "</ul>");
+                return false;
+            }
+            return true;
+        }
+
         $(document).ready(function(){
             $("#btnRegister").on("click", function(event){
                 event.preventDefault();
