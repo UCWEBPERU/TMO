@@ -745,6 +745,7 @@
 		font-weight: 700;
 	}
 	.sign img.logo-company{
+		display: block;
 		width: 100px;
 		height: 100px;
 		margin: 10px auto 0px auto;
