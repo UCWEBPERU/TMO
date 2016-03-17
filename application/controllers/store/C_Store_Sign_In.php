@@ -10,6 +10,7 @@ class C_Store_Sign_In extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('store/h_store');
         $this->load->model('store/M_Store');
+        $this->load->model("M_Archivo");
     }
 
     public function index() {

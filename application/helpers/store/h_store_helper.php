@@ -244,7 +244,8 @@ if ( ! function_exists('filtrarSubCategorias')) {
 if ( ! function_exists('cargarLogoEmpresa')) {
 
     function cargarLogoEmpresa($modulo, $dataEmpresa) {
-        $dataLogoEmpresa    = $this->CI->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
+        $CI =& get_instance();
+        $dataLogoEmpresa    = $CI->M_Archivo->getByID($dataEmpresa[0]->id_archivo_logo);
 
         if (sizeof($dataLogoEmpresa) > 0) {
             $modulo->icono_empresa = $dataLogoEmpresa[0]->url_archivo;
