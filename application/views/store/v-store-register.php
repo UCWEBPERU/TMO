@@ -84,12 +84,13 @@
         $(document).ready(function(){
             $("#btnRegister").on("click", function(event){
                 event.preventDefault();
-                $(".fakeloader").fakeLoader({
-                    timeToHide  : 1200,
-                    bgColor     : "#e74c3c",
-                    spinner     : "spinner2"
-                });
+
                 alert("asdasdas");
+            });
+            $(".fakeloader").fakeLoader({
+                timeToHide  : 1200,
+                bgColor     : "#e74c3c",
+                spinner     : "spinner2"
             });
         });
     </script>
