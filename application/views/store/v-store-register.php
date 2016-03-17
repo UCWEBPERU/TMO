@@ -83,7 +83,7 @@
             $("#btnRegister").on("click", function(event){
                 event.preventDefault();
                 $(".fakeloader").fakeLoader({
-                    bgColor     : "#e74c3c",
+                    bgColor     : "rgba(0,0,0,.75)",
                     spinner     : "spinner2"
                 });
             });
