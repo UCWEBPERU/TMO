@@ -690,6 +690,9 @@
 		margin-top: 12px;
 
 	}
+	.findcategories h2 strong{
+		font-weight: bold;
+	}
 /* Sign*/
 	.sign input{
 		width: 100%;
