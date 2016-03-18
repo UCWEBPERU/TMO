@@ -8,7 +8,6 @@ class C_Store_Account extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->library('utils/UserSession');
-//        $this->usersession->validateSession("panel-store");
         $this->load->model('store/M_Store');
         $this->load->helper('store/h_store');
         $this->load->model('M_Archivo');
@@ -48,6 +47,7 @@ class C_Store_Account extends CI_Controller {
     }
 
     public function accountSettings() {
+        $this->usersession->validateSession("panel-store");
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
         $modulo->has_user_session = $this->usersession->isClient();
@@ -83,6 +83,7 @@ class C_Store_Account extends CI_Controller {
     }
 
     public function contactUs() {
+        $this->usersession->validateSession("panel-store");
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
         $modulo->has_user_session = $this->usersession->isClient();
@@ -118,6 +119,7 @@ class C_Store_Account extends CI_Controller {
     }
 
     public function myOrders() {
+        $this->usersession->validateSession("panel-store");
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
         $modulo->has_user_session = $this->usersession->isClient();
