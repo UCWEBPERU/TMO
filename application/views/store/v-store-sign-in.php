@@ -34,7 +34,7 @@
                         <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
                         <h3>Welcome!</h3>
                         <h2>Enter your user account</h2>
-                        <form id="frmRegister" name="frmRegister" method="post">
+                        <form id="frmSignIn" name="frmSignIn" method="post">
                             <div>
                                 <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
                                 <p class="text-error"></p>
@@ -131,7 +131,7 @@
                     var request = $.ajax({
                         url: "<?php echo $modulo->base_url_store."/ajax/signIn"; ?>",
                         method: "POST",
-                        data: $("#frmRegister").serialize(),
+                        data: $("#frmSignIn").serialize(),
                         dataType: "json"
                     });
 
@@ -146,7 +146,7 @@
 
                     request.fail(function( jqXHR, textStatus ) {
                         $(".fakeloader").fakeLoaderClose();
-                        $(".register-error").html(response.message);
+                        $(".register-error").html(textStatus);
                     });
                 }
             });
