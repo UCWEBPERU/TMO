@@ -131,7 +131,7 @@
                         });
 
                         var request = $.ajax({
-                            url: "<?php echo $modulo->base_url_store."/ajax/forgotpassword"; ?>",
+                            url: "<?php echo $modulo->base_url_store."/ajax/forgotPassword"; ?>",
                             method: "POST",
                             data: $("#frmForgotPassword").serialize(),
                             dataType: "json"
