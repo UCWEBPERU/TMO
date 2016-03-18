@@ -53,7 +53,7 @@
                         </tr>
                             <?php
 // Create form and send all values in "shopping/update_cart" function.
-                            echo form_open('shopping/update');
+                            echo form_open("<?php echo $modulo->base_url_store; ?>".'shopping/update');
                             $grand_total = 0;
                             $i = 1;
 
