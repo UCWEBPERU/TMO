@@ -255,5 +255,3 @@ if ( ! function_exists('cargarLogoEmpresa')) {
     }
 
 }
-
-

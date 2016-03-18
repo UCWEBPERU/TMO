@@ -168,10 +168,70 @@ class M_Store extends CI_Model {
     }
 
     public function getUserBYEmail($data) {
-        $this->db->where('email_usuario', $data["email_usuario"]);
-        $this->db->where('estado', '1');
+        $this->db->join('Persona', 'Persona.id_usuario = Usuario.id_usuario');
+        $this->db->join('Tipo_Usuario', 'Tipo_Usuario.id_tipo_usuario = Usuario.id_tipo_usuario');
+        $this->db->where('Usuario.email_usuario', $data["email_usuario"]);
+        $this->db->where('Usuario.estado', '1');
+        $this->db->where('Persona.estado', '1');
+        $this->db->where('Tipo_Usuario.estado', '1');
         $query = $this->db->get('Usuario');
         return $query->result();
     }
+
+    public function insertUsuario($data) {
+        $data = array(
+            'id_tipo_usuario'  => 3,
+            'email_usuario'    => $data["email_usuario"],
+            'password_usuario' => $data["password_usuario"]
+        );
+
+        if ($this->db->insert('Usuario', $data)) {
+            return $this->db->insert_id();
+        }
+
+        return FALSE;
+    }
+
+    public function insertPersona($data) {
+        $data = array(
+            'id_usuario'        => $data["id_usuario"],
+            'nombres_persona'   => $data["nombres_persona"],
+            'apellidos_persona' => $data["apellidos_persona"],
+            'celular_personal'  => $data["celular_personal"],
+            'telefono'          => $data["telefono"],
+            'celular_trabajo'   => $data["celular_trabajo"],
+            'direccion_persona' => $data["direccion_persona"],
+            'pais_persona'      => $data["pais_persona"],
+            'region_persona'    => $data["region_persona"],
+            'ciudad_persona'    => $data["ciudad_persona"]
+        );
+
+        if ($this->db->insert('Persona', $data)) {
+            return $this->db->insert_id();
+        }
+
+        return FALSE;
+    }
+
+//    public function updateUsuario($datosUsuario) {
+//        $data = array(
+//            'nombres_persona'   => $datosUsuario["nombres_persona"],
+//            'apellidos_persona' => $datosUsuario["apellidos_persona"],
+//            'celular_personal'	=> $datosUsuario["celular_personal"],
+//            'telefono'	        => $datosUsuario["telefono"],
+//            'celular_trabajo'	=> $datosUsuario["celular_trabajo"],
+//            'direccion_persona' => $datosUsuario["direccion_persona"],
+//            'pais_persona'      => $datosUsuario["pais_persona"],
+//            'region_persona'    => $datosUsuario["region_persona"],
+//            'ciudad_persona'    => $datosUsuario["ciudad_persona"]
+//        );
+//
+//        $this->db->where('Persona.id_usuario', $datosUsuario["id_usuario"]);
+//        if ($this->db->update('Persona', $data)) {
+//            return TRUE;
+//        }
+//
+//        return FALSE;
+//    }
 
 }

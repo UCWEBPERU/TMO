@@ -139,7 +139,7 @@
                     request.done(function( response ) {
                         $(".fakeloader").fakeLoaderClose();
                         if (response.status) {
-                            $(".register-error").html(response.message);
+                            $(location).attr("href", response.data.url_redirect);
                         } else {
                             $(".register-error").html(response.message);
                         }

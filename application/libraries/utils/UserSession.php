@@ -74,12 +74,8 @@ class UserSession {
     }
 
     private function validatePanelStore() {
-        if (!$this->validateTypeUser()) {
+        if (!$this->validateTypeUser() || $this->validateTypeUser() != 3) {
             redirect("/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin");
-        } else {
-            if ($this->validateTypeUser() != 3) {
-                redirect("/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin");
-            }
         }
     }
 

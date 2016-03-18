@@ -37,6 +37,17 @@
                 </div>
             <?php } ?>
 
+            <div class="row" id="contenedordetail">
+                <div>
+                    <div class="col-xs-12 sign">
+<!--                        <div class="logo-company" style="background-image: url('--><?php //echo $modulo->icono_empresa; ?>/*');"  title="Logo Company"></div>*/
+                        <h3>Welcome, <?php echo $modulo->data_usuario->nombres_persona." ".$modulo->data_usuario->apellidos_persona ; ?>!</h3>
+                    </div>
+                </div>
+            </div>
+
+            data_usuario
+
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >

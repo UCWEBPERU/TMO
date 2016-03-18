@@ -8,6 +8,7 @@ class C_Store_Account extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->library('utils/UserSession');
+//        $this->usersession->validateSession("panel-store");
         $this->load->model('store/M_Store');
     }
 
@@ -25,6 +26,18 @@ class C_Store_Account extends CI_Controller {
 
         if (sizeof($dataEmpresa) == 0) {
             redirect("not-found/store");
+        }
+
+        if ($this->usersession->isClient()) {
+            $dataUsuario = $this->M_Store->getUserBYEmail(
+                array(
+                    "email_usuario" => $this->CI->session->email_usuario
+                )
+            );
+
+            if (sizeof($dataUsuario) > 0) {
+                $modulo->data_usuario = $dataUsuario[0];
+            }
         }
 
         $data["modulo"] = $modulo;
