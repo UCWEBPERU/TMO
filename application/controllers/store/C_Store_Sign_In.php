@@ -75,7 +75,7 @@ class C_Store_Sign_In extends CI_Controller {
                         $json->message = "Inicio de sesion existosa.";
                         $json->status 	= TRUE;
                     } else {
-                        $json->message = "Lo sentimos la cuenta de usuario ingresado no esta habilitado para realizar compras, Registrese <a href='$base_url_store/signin'>aqui</a>.";
+                        $json->message = "Lo sentimos la cuenta de usuario ingresado no esta habilitado para realizar compras, Registrese <a href='$base_url_store/register'>aqui</a>.";
                     }
                 } else {
                     $json->message = "La contraseña del usuario es incorrecta, intente de nuevo.";

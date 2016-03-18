@@ -708,7 +708,7 @@
 		font-family: 'Lato';
 		display: none;
 	}
-	.sign p.register-error {
+	.sign p.register-error, .sign p.register-error a {
 		color: #eb1e1e;
 		font-family: 'Lato';
 	}
