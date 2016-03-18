@@ -67,7 +67,7 @@
                             ?>
                         <div class="row" >
 
-                            <div>
+                            <div> 
 
                                 <div class="col-xs-5 list"  id="cartitem" >
                                     <a ><img src="<?php echo $item['options']['url_image']; ?>" id="images" alt=""  /></a>
