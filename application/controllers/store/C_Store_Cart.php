@@ -45,7 +45,7 @@ class C_Store_Cart extends CI_Controller {
         $json->data 		= array();
         $json->status 		= FALSE;
 
-        $dataProducto = $this->M_Store->getProduct(
+        $dataProducto = $this->M_Store->getProductByID(
             array(
                 "id_empresa"    => $this->uri->segment(2),
                 "id_tienda"     => $this->uri->segment(4),
