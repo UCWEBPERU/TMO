@@ -50,7 +50,9 @@
                                 <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" placeholder="Confirm Password"  data-parsley-required data-parsley-equalto="#txtNewPassword" data-parsley-required-message="Confirm password." data-parsley-equalto-message="Passwords do not match.">
                                 <p class="text-error"></p>
                             </div>
-                            <div class="g-recaptcha" data-sitekey="6LdeIxsTAAAAACS6_lRzeXCfr-PRFSQ9_RBDqWSn"></div>
+                            <div class="container-recaptcha">
+                                <div class="g-recaptcha" data-sitekey="6LdeIxsTAAAAACS6_lRzeXCfr-PRFSQ9_RBDqWSn"></div>
+                            </div>
                             <button id="btnSend" type="submit">Send</button>
                             <p class="register-error"></p>
                         </form>
