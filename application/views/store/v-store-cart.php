@@ -77,17 +77,16 @@
                                     <h3><?php echo $item['name']; ?></h3>
                                     <h4>$ <?php echo number_format($item['price'], 2); ?></h4>
                                     <h5>Quantity : <?php echo $item['qty']; ?></h5>
-                                    <h5><?php $grand_total = $grand_total + $item['subtotal']; ?></h5>
+                                    <h5>Subtotal : <?php echo $grand_total = $grand_total + $item['subtotal']; ?></h5>
 
                                 </div>
                             </div>
 
                         </div>
                         <?php endforeach; ?>
-                        $<?php
+                        <h3>$<?php //Grand Total.
+                            echo number_format($grand_total, 2); ?></h3>
 
-                        //Grand Total.
-                        echo number_format($grand_total, 2); ?>
                     <?php endif; ?>
 
 
