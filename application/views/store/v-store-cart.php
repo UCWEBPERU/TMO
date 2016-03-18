@@ -80,7 +80,7 @@
 
                         <div class="col-xs-5 list"  id="cartitem" >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
-                            <a class="btn" onclick="deleteItem(<?php echo $item['rowid'] ?> )">Delete</a>
+                            <a class="btn" onclick="deleteItem('.<?php echo $item['rowid'] ?>.' )" >Delete</a>
                         </div>
                         <div class="col-xs-7 list" id="cartitem" >
                             <h3><?php echo $item['name']; ?></h3>
@@ -178,11 +178,11 @@
 
             var base_url = "<?php echo base_url(); ?>";
 
-            function deleteItem($item) {
+            function deleteItem(item) {
                 evt.preventDefault();
 
                 var formData = new FormData();
-                formData.append("id_producto", $item);
+                formData.append("id_producto", item);
 
                 var request = $.ajax({
                     url: base_url + "shopping/delete",
