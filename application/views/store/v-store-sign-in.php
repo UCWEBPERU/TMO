@@ -46,7 +46,7 @@
                             <button id="btnSignIn" type="submit">Sign In</button>
                             <p class="register-error"></p>
                         </form>
-                        <a href="#"><h5>Forgot Password</h5></a>
+                        <a href="<?php echo $modulo->base_url_store; ?>/forgotpassword"><h5>Forgot Password</h5></a>
                         <br><br><br>
                     </div>
 
