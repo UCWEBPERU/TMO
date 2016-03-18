@@ -51,56 +51,63 @@ class C_Store_Register extends CI_Controller {
             $this->input->post("txtLastName") &&
             $this->input->post("txtEmail") &&
             $this->input->post("txtPassword") &&
-            $this->input->post("txtConfirmPassword")) {
+            $this->input->post("txtConfirmPassword") &&
+            $this->input->post("g-recaptcha-response")) {
 
-            $existeEmail = $this->M_Store->getUserBYEmail(
-                array(
-                    'email_usuario' => trim($this->input->post("txtEmail", TRUE))
-                )
-            );
+            if (strlen(trim($this->input->post("g-recaptcha-response", TRUE))) > 0) {
 
-            if (sizeof($existeEmail) == 0) {
-
-                $idUsuario = $this->M_Store->insertUsuario(
+                $existeEmail = $this->M_Store->getUserBYEmail(
                     array(
-                        'email_usuario'     => trim($this->input->post("txtEmail", TRUE)),
-                        'password_usuario'  => $this->cryptography->Encrypt(trim($this->input->post("txtPassword", TRUE)))
+                        'email_usuario' => trim($this->input->post("txtEmail", TRUE))
                     )
                 );
 
-                $result2 = $this->M_Store->insertPersona(
-                    array(
-                        'id_usuario'        => $idUsuario,
-                        'nombres_persona'   => trim($this->input->post("txtFirstName", TRUE)),
-                        'apellidos_persona' => trim($this->input->post("txtLastName", TRUE)),
-                        'celular_personal'  => NULL,
-                        'telefono'          => NULL,
-                        'celular_trabajo'   => NULL,
-                        'direccion_persona' => NULL,
-                        'pais_persona'      => NULL,
-                        'region_persona'    => NULL,
-                        'ciudad_persona'    => NULL
-                    )
-                );
+                if (sizeof($existeEmail) == 0) {
 
-                $sessionUser = array(
-                    'user_session'          => TRUE,
-                    'id_usuario'            => $idUsuario,
-                    'nombres_usuario'       => trim($this->input->post("txtFirstName", TRUE)),
-                    'apellidos_usuario'	    => trim($this->input->post("txtLastName", TRUE)),
-                    'email_usuario'		    => trim($this->input->post("txtEmail", TRUE)),
-                    'id_tipo_usuario'		=> 3,
-                    'nombre_tipo_usuario'	=> "Cliente",
-                    'id_empresa'            => ""
-                );
+                    $idUsuario = $this->M_Store->insertUsuario(
+                        array(
+                            'email_usuario'     => trim($this->input->post("txtEmail", TRUE)),
+                            'password_usuario'  => $this->cryptography->Encrypt(trim($this->input->post("txtPassword", TRUE)))
+                        )
+                    );
 
-                $this->session->set_userdata($sessionUser);
-                $json->message = "Su registro de usuario se realizo correctemente.";
-                $json->data = array("url_redirect" => $base_url_store."/account");
-                $json->status = TRUE;
+                    $result2 = $this->M_Store->insertPersona(
+                        array(
+                            'id_usuario'        => $idUsuario,
+                            'nombres_persona'   => trim($this->input->post("txtFirstName", TRUE)),
+                            'apellidos_persona' => trim($this->input->post("txtLastName", TRUE)),
+                            'celular_personal'  => NULL,
+                            'telefono'          => NULL,
+                            'celular_trabajo'   => NULL,
+                            'direccion_persona' => NULL,
+                            'pais_persona'      => NULL,
+                            'region_persona'    => NULL,
+                            'ciudad_persona'    => NULL
+                        )
+                    );
+
+                    $sessionUser = array(
+                        'user_session'          => TRUE,
+                        'id_usuario'            => $idUsuario,
+                        'nombres_usuario'       => trim($this->input->post("txtFirstName", TRUE)),
+                        'apellidos_usuario'	    => trim($this->input->post("txtLastName", TRUE)),
+                        'email_usuario'		    => trim($this->input->post("txtEmail", TRUE)),
+                        'id_tipo_usuario'		=> 3,
+                        'nombre_tipo_usuario'	=> "Cliente",
+                        'id_empresa'            => ""
+                    );
+
+                    $this->session->set_userdata($sessionUser);
+                    $json->message = "Su registro de usuario se realizo correctemente.";
+                    $json->data = array("url_redirect" => $base_url_store."/account");
+                    $json->status = TRUE;
+
+                } else {
+                    $json->message = "Lo sentimos el email ingresado ya existe, intente de nuevo.";
+                }
 
             } else {
-                $json->message = "Lo sentimos el email ingresado ya existe, intente de nuevo.";
+                $json->message = "La prueba de seguridad es incorrecta.";
             }
 
         } else {

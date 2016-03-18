@@ -213,6 +213,19 @@ class M_Store extends CI_Model {
         return FALSE;
     }
 
+    public function updatePassWordUsuario($dataUsuario) {
+        $data = array(
+            'password_usuario' => $dataUsuario["password_usuario"]
+        );
+
+        $this->db->where('Usuario.id_usuario', $dataUsuario["id_usuario"]);
+        if ($this->db->update('Usuario', $data)) {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
 //    public function updateUsuario($datosUsuario) {
 //        $data = array(
 //            'nombres_persona'   => $datosUsuario["nombres_persona"],
