@@ -31,8 +31,8 @@ class C_Store_Cart extends CI_Controller {
 
         $data["modulo"] = $modulo;
 
-        $this->load->view('store/v-store-account', $data);
-        //$this->load->view('store/v-store-cart',  $data);
+        //$this->load->view('store/v-store-account', $data);
+        $this->load->view('store/v-store-cart',  $data);
 
     }
 
