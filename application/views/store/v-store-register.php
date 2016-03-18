@@ -139,10 +139,10 @@
                     });
 
                     request.done(function( response ) {
-                        $(".fakeloader").fakeLoaderClose();
                         if (response.status) {
                             $(location).attr("href", response.data.url_redirect);
                         } else {
+                            $(".fakeloader").fakeLoaderClose();
                             $(".register-error").html(response.message);
                         }
                     });
