@@ -15,8 +15,8 @@ class C_Store_Cart extends CI_Controller {
     function index(){
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
-        
-        $this->load->view('store/v-store-cart');
+        $data["modulo"] = $modulo;
+        $this->load->view('store/v-store-cart',  $data);
 
     }
 
