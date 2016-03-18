@@ -88,7 +88,7 @@
                             <h5>Quantity : <?php echo $item['qty']; ?></h5>
                             <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
-                            <?php echo $grand_total = $grand_total + $item['subtotal']; ?>
+                            <?php $grand_total = $grand_total + $item['subtotal']; ?>
 
                         </div>
                     </div>
