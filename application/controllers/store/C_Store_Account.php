@@ -114,7 +114,7 @@ class C_Store_Account extends CI_Controller {
 
         $data["modulo"] = $modulo;
 
-        $this->load->view('store/v-store-account-settings', $data);
+        $this->load->view('store/v-store-account-contact-us', $data);
     }
 
 }
