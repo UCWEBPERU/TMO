@@ -80,7 +80,7 @@
 
                         <div class="col-xs-5 list"  id="cartitem" >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
-                            <!--a class="btn">Edit</a-->
+                            <a id="deleteitem" onclick="deleteItem($item['rowid'])">Delete</a>
                         </div>
                         <div class="col-xs-7 list" id="cartitem" >
                             <h3><?php echo $item['name']; ?></h3>
@@ -174,6 +174,43 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+    <script>
+
+            var base_url = "<?php echo base_url(); ?>";
+
+            function deleteItem($item) {
+                evt.preventDefault();
+
+                var formData = new FormData();
+                formData.append("id_producto", $item);
+
+                var request = $.ajax({
+                    url: base_url + "shopping/delete",
+                    method: "POST",
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                });
+
+                request.done(function( response ) {
+
+                    if (response.status) {
+                        alert(response.message);
+
+                    } else {
+                        alert(response.message);
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    alert(textStatus);
+                });
+            }
+
+
+
+    </script>
 
 </body>
 </html>

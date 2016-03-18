@@ -78,6 +78,7 @@ class C_Store_Cart extends CI_Controller {
 
     }
 
+
     function updateCart(){
 
         // Recieve post values,calcute them and update
@@ -95,6 +96,26 @@ class C_Store_Cart extends CI_Controller {
                 'qty' => $qty
             );
         }
+
+    }
+
+    function deleteitemCart(){
+        $json 				= new stdClass();
+        $json->type 		= "Eliminar Item";
+        $json->presentation = "";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        $result = $this->cart->remove($this->input->post('id_producto'));
+
+        if($result){
+            $json->message = "Item eliminado correctamente";
+            $json->status 	= TRUE;
+        }
+
+
+        echo json_encode($json);
+
 
     }
     
