@@ -12,18 +12,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/fakeLoader.css">
-    <script type="text/javascript">
-        var verifyCallback = function(response) {
-            alert(response);
-        };
-        var onloadCallback = function() {
-            grecaptcha.render('g-recaptcha', {
-                'sitekey' : '6LdeIxsTAAAAACS6_lRzeXCfr-PRFSQ9_RBDqWSn',
-                'callback': verifyCallback
-            });
-        };
-    </script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
 </head>
 <body>
 
@@ -43,7 +32,7 @@
             <div class="row" id="contenedordetail">
                 <div>
                     <div class="col-xs-12 sign">
-                        <h2>Ingrese los siguientes datos para recuperar su contraseña</h2>
+                        <h3>Ingrese los siguientes datos para recuperar su contraseña</h3>
                         <form id="frmSignIn" name="frmSignIn" method="post">
                             <div>
                                 <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
@@ -61,7 +50,7 @@
                                 <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" placeholder="Confirm Password"  data-parsley-required data-parsley-equalto="#txtNewPassword" data-parsley-required-message="Confirm password." data-parsley-equalto-message="Passwords do not match.">
                                 <p class="text-error"></p>
                             </div>
-                            <div id="g-recaptcha"></div>
+                            <div class="g-recaptcha" data-sitekey="6LdeIxsTAAAAACS6_lRzeXCfr-PRFSQ9_RBDqWSn"></div>
                             <button id="btnSend" type="submit">Send</button>
                             <p class="register-error"></p>
                         </form>
@@ -109,7 +98,7 @@
 
     <script type="text/javascript">
 
-        var selectorInputsForm = ["#txtEmail", "#txtPassword"];
+        var selectorInputsForm = ["#txtEmail", "#txtLastPassword", "#txtNewPassword", "#txtConfirmPassword"];
 
         function validateInputsForm(selectorInputsForm){
             var countMessagesError = 0;
@@ -135,31 +124,35 @@
                 event.preventDefault();
 
                 if (validateInputsForm(selectorInputsForm)) {
-                    $(".fakeloader").fakeLoader({
-                        bgColor     : "rgba(0,0,0,.85)",
-                        spinner     : "spinner2"
-                    });
+                    if (grecaptcha.getResponse()) {
+                        $(".fakeloader").fakeLoader({
+                            bgColor     : "rgba(0,0,0,.85)",
+                            spinner     : "spinner2"
+                        });
 
-                    var request = $.ajax({
-                        url: "<?php echo $modulo->base_url_store."/ajax/signIn"; ?>",
-                        method: "POST",
-                        data: $("#frmSignIn").serialize(),
-                        dataType: "json"
-                    });
+                        var request = $.ajax({
+                            url: "<?php echo $modulo->base_url_store."/ajax/signIn"; ?>",
+                            method: "POST",
+                            data: $("#frmSignIn").serialize(),
+                            dataType: "json"
+                        });
 
-                    request.done(function( response ) {
-                        $(".fakeloader").fakeLoaderClose();
-                        if (response.status) {
-                            $(location).attr("href", response.data.url_redirect);
-                        } else {
-                            $(".register-error").html(response.message);
-                        }
-                    });
+                        request.done(function( response ) {
+                            $(".fakeloader").fakeLoaderClose();
+                            if (response.status) {
+                                $(location).attr("href", response.data.url_redirect);
+                            } else {
+                                $(".register-error").html(response.message);
+                            }
+                        });
 
-                    request.fail(function( jqXHR, textStatus ) {
-                        $(".fakeloader").fakeLoaderClose();
-                        $(".register-error").html(textStatus);
-                    });
+                        request.fail(function( jqXHR, textStatus ) {
+                            $(".fakeloader").fakeLoaderClose();
+                            $(".register-error").html(textStatus);
+                        });
+                    } else {
+                        $(".register-error").html("No realizo la prueba de seguridad.");
+                    }
                 }
             });
         });
