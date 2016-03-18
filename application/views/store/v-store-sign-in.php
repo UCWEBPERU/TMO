@@ -97,7 +97,7 @@
 
     <script type="text/javascript">
 
-        var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtConfirmPassword"];
+        var selectorInputsForm = ["#txtEmail", "#txtPassword"];
 
         function validateInputsForm(selectorInputsForm){
             var countMessagesError = 0;
