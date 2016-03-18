@@ -776,6 +776,11 @@
 		background-repeat: no-repeat;
 	}
 
+	.sign .g-recaptcha {
+		width: 100%;
+		margin-top: 10px;
+	}
+
 
 /* Desktop */
 
