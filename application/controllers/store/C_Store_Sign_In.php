@@ -49,7 +49,7 @@ class C_Store_Sign_In extends CI_Controller {
 
         if ($this->input->post("txtEmail") && $this->input->post("txtPassword")) {
 
-            $Usuario = $this->M_Store->getUserStore(
+            $Usuario = $this->M_Store->getUserBYEmail(
                 array(
                     'email_usuario' => trim($this->input->post("txtEmail", TRUE)),
                 )
