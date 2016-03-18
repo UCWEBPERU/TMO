@@ -83,6 +83,10 @@
 
                         </div>
                         <?php endforeach; ?>
+                        $<?php
+
+                        //Grand Total.
+                        echo number_format($grand_total, 2); ?>
                     <?php endif; ?>
 
 
