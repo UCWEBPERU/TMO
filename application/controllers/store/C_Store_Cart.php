@@ -52,7 +52,7 @@ class C_Store_Cart extends CI_Controller {
                 "id_producto"   => intval($this->input->post('id_producto'))
             )
         );
-        var_dump($dataProducto);
+
         cargarGaleriaPorProducto($dataProducto[0]);
 
         // Set array for send data.
