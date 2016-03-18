@@ -19,7 +19,7 @@
     <header>
         <div id="title">
             <a href="<?php echo $modulo->base_url_store; ?>" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/left-arrow.png" class="images" alt="" /></a>
-            <a href="<?php echo $modulo->url_button_back; ?>" >Back</a>
+            
             <h2>Cart</h2>
         </div>
     </header>
@@ -56,8 +56,8 @@
                 <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Find</a></h1>
             </div>
             <div class="boximage">
-                <a href="cart.html"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
-                <h1><a href="#" onclick="">Cart</a></h1>
+                <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
+                <h1><a href="<?php echo $modulo->base_url_store; ?>/cart" onclick="">Cart</a></h1>
             </div>
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>/account"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/setting.png" class="images" alt="" /></a>
