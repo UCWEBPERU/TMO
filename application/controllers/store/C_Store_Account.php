@@ -31,7 +31,7 @@ class C_Store_Account extends CI_Controller {
         if ($this->usersession->isClient()) {
             $dataUsuario = $this->M_Store->getUserBYEmail(
                 array(
-                    "email_usuario" => $this->CI->session->email_usuario
+                    "email_usuario" => $this->session->email_usuario
                 )
             );
 
