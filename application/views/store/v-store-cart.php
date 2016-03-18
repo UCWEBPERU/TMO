@@ -52,7 +52,7 @@
 // Create form and send all values in "shopping/update_cart" function.
                         echo form_open('shopping/update');
                         $grand_total = 0;
-                        $i = 1;
+                        $num = 1;
 
                         foreach ($cart as $item):
                             // echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
@@ -78,14 +78,41 @@
                                     <h4>$ <?php echo number_format($item['price'], 2); ?></h4>
                                     <h5>Quantity : <?php echo $item['qty']; ?></h5>
                                     <h5>Subtotal : <?php echo $grand_total = $grand_total + $item['subtotal']; ?></h5>
-
+                                    <!--?php $num = $num + $item['qty'] ?-->
                                 </div>
                             </div>
 
                         </div>
                         <?php endforeach; ?>
-                        <h3>$<?php //Grand Total.
-                            echo number_format($grand_total, 2); ?></h3>
+
+                        <div class="row" >
+                            <div>
+
+
+                                <div class="col-xs-9 list" id="cartitem2" >
+                                    <h3>Order summary</h3>
+                                    <h5>Items:</h5>
+                                    <h5>Shipping & Handling:</h5>
+                                    <h5>Promotion Applied:</h5>
+                                    <h6>Total Before Tax:</h6>
+                                    <h6>Estimated Tax:</h6>
+                                    <h3>Order Total</h3>
+                                </div>
+                                <div class="col-xs-3 list" id="cartitem2" >
+                                    <h3>$</h3>
+                                    <h5>$<?php echo number_format($grand_total, 2); ?></h5>
+                                    <h5> $0.00</h5>
+                                    <h5> -$0.00</h5>
+                                    <h6>$0.00</h6>
+                                    <h6>$0.00</h6>
+                                    <h3>$<?php echo number_format($grand_total, 2); ?></h3>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
 
                     <?php endif; ?>
 
