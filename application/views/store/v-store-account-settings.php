@@ -42,7 +42,7 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="item.html" ><h2>Name: </h2><?php echo $modulo->data_usuario->nombres_persona; ?></a>
+                        <a href="item.html" ><h2>Name: <strong><?php echo $modulo->data_usuario->nombres_persona; ?></strong></h2></a>
                     </div>
                     <div class="col-xs-2 findcategories"  >
                         <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
@@ -53,7 +53,7 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings"><h2>E-mail: </h2><?php echo $modulo->data_usuario->email_usuario; ?></a>
+                        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings"><h2>E-mail: <strong><?php echo $modulo->data_usuario->email_usuario; ?></strong></h2></a>
                     </div>
                     <div class="col-xs-2 findcategories"  >
                         <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
@@ -64,7 +64,7 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="item.html" ><h2>Password: </h2> **********</a>
+                        <a href="item.html" ><h2>Password: <strong>**********</strong></h2></a>
                     </div>
                     <div class="col-xs-2 findcategories"  >
                         <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
