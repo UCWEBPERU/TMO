@@ -37,12 +37,37 @@
                         if(empty($cart_check)) { ?>
 
                             <div class="col-xs-12 titlecart" >
-                                <h2>To add products to your shopping cart click on "Add to Cart" Button'</h2>
+                                <h2>To add products to your shopping cart click on "Add to Cart" Button</h2>
                             </div>
+                            <div class="col-xs-12 detail" style="height: 150px;"></div>
+
                         <?php } ?>
                     </div>
 
 
+
+                    <div class="row" >
+                        <div>
+
+                            <div class="col-xs-5 list"  id="cartitem" >
+                                <a href="item.html" ><img src="images/pic00.png" id="images" alt=""  /></a>
+                                <a class="btn">Edit</a>
+                            </div>
+                            <div class="col-xs-7 list" id="cartitem" >
+                                <h3>Fashionable Women's Jacket Classic</h3>
+                                <h4>$58.50</h4>
+                                <h5>Quantity : 1</h5>
+                                <h5>Color : White</h5>
+                                <h5>Size : M</h5>
+                                <h6>Ready-to-Ship Item</h6>
+                                <h5>Estimated Delivery:
+                                    Feb 26, 2015 to Feb-28,2015</h5>
+                                <h6>Returnable</h6>
+                                <h5>Gift Options: None Selected</h5>
+                            </div>
+                        </div>
+
+                    </div>
 
 
 
