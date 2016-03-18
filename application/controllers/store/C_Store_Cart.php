@@ -9,6 +9,7 @@ class C_Store_Cart extends CI_Controller {
         $this->load->library('session');
         $this->load->library('utils/UserSession');
         $this->load->model('store/M_Store');
+        $this->load->helper('store/h_store');
         $this->load->library('cart');
         $this->load->helper('form');
     }
