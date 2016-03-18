@@ -66,6 +66,27 @@ class C_Store_Cart extends CI_Controller {
 
 
     }
+
+    function updateCart()
+        
+    {
+
+// Recieve post values,calcute them and update
+        $cart_info = $_POST['cart'];
+        foreach ($cart_info as $id => $cart) {
+            $rowid = $cart['rowid'];
+            $price = $cart['price'];
+            $amount = $price * $cart['qty'];
+            $qty = $cart['qty'];
+
+            $data = array(
+                'rowid' => $rowid,
+                'price' => $price,
+                'amount' => $amount,
+                'qty' => $qty
+            );
+        }
+    }
     
 }
 ?>

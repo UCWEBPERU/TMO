@@ -36,7 +36,24 @@
                         // If cart is empty, this will show below message.
                         if(empty($cart_check)) {
                             echo 'To add products to your shopping cart click on "Add to Cart" Button';
-                        } ?> </div>
+                        } ?>
+                    </div>
+
+                    <table id="table" border="0" cellpadding="5px" cellspacing="1px">
+                        <?php
+                        // All values of cart store in "$cart".
+                        //if ($cart = $this->cart->contents()): ?>
+                        <tr id= "main_heading">
+                            <td>Serial</td>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Qty</td>
+                            <td>Amount</td>
+                            <td>Cancel Product</td>
+                        </tr>
+                     </table>
+
+
 
 
 
