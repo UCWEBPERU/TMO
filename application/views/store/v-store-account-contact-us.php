@@ -42,7 +42,7 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories">
-                        <h2>Nombre Empresa: <strong><?php echo $modulo->data_empresa->organization; ?></strong></h2>
+                        <h2>Empresa: <strong><?php echo $modulo->data_empresa->organization; ?></strong></h2>
                     </div>
                     <div class="col-xs-2 findcategories"></div>
                 </div>
@@ -51,7 +51,7 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories">
-                        <h2>Nombre Representante: <strong><?php echo $modulo->data_empresa->nombres_representante; ?>, <?php echo $modulo->data_empresa->apellidos_representante; ?></strong></h2>
+                        <h2>Representante: <strong><?php echo $modulo->data_empresa->nombres_representante; ?>, <?php echo $modulo->data_empresa->apellidos_representante; ?></strong></h2>
                     </div>
                     <div class="col-xs-2 findcategories"></div>
                 </div>

@@ -42,10 +42,11 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="item.html" ><h2>Name: <strong><?php echo $modulo->data_usuario->nombres_persona; ?></strong></h2></a>
+<!--                        <a href="item.html" ><h2>Name: <strong>--><?php //echo $modulo->data_usuario->nombres_persona; ?><!--</strong></h2></a>-->
+                        <h2>Name: <strong><?php echo $modulo->data_usuario->nombres_persona; ?></strong></h2>
                     </div>
                     <div class="col-xs-2 findcategories"  >
-                        <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+<!--                        <a href="item.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--images/right-arrow.png" /></a>-->
                     </div>
                 </div>
             </div>
@@ -53,10 +54,11 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings"><h2>E-mail: <strong><?php echo $modulo->data_usuario->email_usuario; ?></strong></h2></a>
+<!--                        <a href="--><?php //echo $modulo->base_url_store; ?><!--/account/account-settings"><h2>E-mail: <strong>--><?php //echo $modulo->data_usuario->email_usuario; ?><!--</strong></h2></a>-->
+                        <h2>E-mail: <strong><?php echo $modulo->data_usuario->email_usuario; ?></strong></h2>
                     </div>
                     <div class="col-xs-2 findcategories"  >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+<!--                        <a href="--><?php //echo $modulo->base_url_store; ?><!--/account/account-settings"><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--images/right-arrow.png" /></a>-->
                     </div>
                 </div>
             </div>
@@ -64,10 +66,11 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="item.html" ><h2>Password: <strong>**********</strong></h2></a>
+<!--                        <a href="item.html" ><h2>Password: <strong>**********</strong></h2></a>-->
+                        <h2>Password: <strong>**********</strong></h2>
                     </div>
                     <div class="col-xs-2 findcategories"  >
-                        <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+<!--                        <a href="item.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--images/right-arrow.png" /></a>-->
                     </div>
                 </div>
             </div>
