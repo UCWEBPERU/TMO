@@ -196,7 +196,9 @@
                         url: base_url + "shopping/add",
                         method: "POST",
                         data: formData,
-                        dataType: 'json'
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
                     });
 
                     request.done(function( response ) {
