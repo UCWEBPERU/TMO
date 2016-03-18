@@ -34,10 +34,14 @@
                         <?php $cart_check = $this->cart->contents();
 
                         // If cart is empty, this will show below message.
-                        if(empty($cart_check)) {
-                            echo 'To add products to your shopping cart click on "Add to Cart" Button';
-                        } ?>
+                        if(empty($cart_check)) { ?>
+                            <h2>To add products to your shopping cart click on "Add to Cart" Button'</h2>
+                        <?php } ?>
                     </div>
+
+                   
+
+
 
                     <table id="table" border="0" cellpadding="5px" cellspacing="1px">
                         <?php
