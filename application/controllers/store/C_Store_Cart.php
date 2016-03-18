@@ -30,10 +30,10 @@ class C_Store_Cart extends CI_Controller {
         );*/
 
         //$result = $this->cart->insert($insert_data);
- 
-            $json->message = "Carrito insertado correctamente";
-            $json->status 	= TRUE;
 
+        $json->message = "Carrito insertado correctamente";
+        $json->status 	= TRUE;
+        echo json_encode($json);
 
 
 
