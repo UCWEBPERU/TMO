@@ -67,6 +67,15 @@
                     </div>
                 </div>
             </div>
+            <?php if ($modulo->has_user_session) { ?>
+                <div class="row" id="contenedordetail2">
+                    <div>
+                        <div class="col-xs-12 sign">
+                            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signout" >Sign Out</a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
 
     </content>

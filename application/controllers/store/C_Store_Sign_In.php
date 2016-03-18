@@ -36,4 +36,20 @@ class C_Store_Sign_In extends CI_Controller {
         $this->load->view('store/v-store-sign-in', $data);
     }
 
+    public function signOut() {
+        $sessionUser = array(
+            'user_session',
+            'id_usuario',
+            'nombres_usuario',
+            'apellidos_usuario',
+            'email_usuario',
+            'id_tipo_usuario',
+            'nombre_tipo_usuario'
+        );
+        $this->session->unset_userdata($sessionUser);
+        $this->session->sess_destroy();
+        $urlAccount = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4)."/account";
+        redirect($urlAccount);
+    }
+
 }
