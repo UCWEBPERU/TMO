@@ -179,8 +179,7 @@
             var base_url = "<?php echo base_url(); ?>";
 
             function deleteItem(item) {
-                evt.preventDefault();
-
+                
                 var formData = new FormData();
                 formData.append("id_producto", item);
 
