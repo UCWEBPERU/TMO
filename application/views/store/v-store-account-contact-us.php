@@ -41,78 +41,64 @@
 
             <div class="row">
                 <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
+                    <div class="col-xs-10 findcategories">
                         <h2>Nombre Empresa: <strong><?php echo $modulo->data_empresa->organization; ?></strong></h2>
                     </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
-                    </div>
+                    <div class="col-xs-2 findcategories"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
+                    <div class="col-xs-10 findcategories">
                         <h2>Nombre Representante: <strong><?php echo $modulo->data_empresa->nombres_representante; ?>, <?php echo $modulo->data_empresa->apellidos_representante; ?></strong></h2>
                     </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
-                    </div>
+                    <div class="col-xs-2 findcategories"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
+                    <div class="col-xs-10 findcategories">
                         <h2>E-mail: <strong><?php echo $modulo->data_empresa->email_representante; ?></strong></h2>
                     </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
-                    </div>
+                    <div class="col-xs-2 findcategories"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
+                    <div class="col-xs-10 findcategories">
                         <h2>Home Phone: <strong><?php echo $modulo->data_empresa->telefono; ?></strong></h2>
                     </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
-                    </div>
+                    <div class="col-xs-2 findcategories"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
+                    <div class="col-xs-10 findcategories">
                         <h2>Fax: <strong><?php echo $modulo->data_empresa->fax; ?></strong></h2>
                     </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
-                    </div>
+                    <div class="col-xs-2 findcategories"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
+                    <div class="col-xs-10 findcategories">
                         <h2>Fax: <strong><?php echo $modulo->data_empresa->fax; ?></strong></h2>
                     </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
-                    </div>
+                    <div class="col-xs-2 findcategories"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
+                    <div class="col-xs-10 findcategories">
                         <h2>Direccion: <strong><?php echo $modulo->data_empresa->direccion; ?></strong></h2>
                     </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
-                    </div>
+                    <div class="col-xs-2 findcategories"></div>
                 </div>
             </div>
             <div class="col-xs-12 detail" style="height: 200px;"></div>
