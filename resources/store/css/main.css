@@ -775,12 +775,10 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 	}
-
-	.sign .container-recaptcha {
-		width: 100%;
+	.sign .g-recaptcha {
 		margin-top: 10px;
 	}
-	.sign .container-recaptcha .g-recaptcha {
+	.sign .g-recaptcha > div > div {
 		margin: 0px auto;
 	}
 
