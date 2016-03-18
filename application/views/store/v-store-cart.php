@@ -19,7 +19,7 @@
     <header>
         <div id="title">
             <a href="<?php echo $modulo->base_url_store; ?>" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/left-arrow.png" class="images" alt="" /></a>
-            
+
             <h2>Cart</h2>
         </div>
     </header>
@@ -30,7 +30,13 @@
         <div class="col-xs-12" >
             <div class="row" id="contenedordetail">
                 <div>
+                    <div id="text">
+                        <?php $cart_check = $this->cart->contents();
 
+                        // If cart is empty, this will show below message.
+                        if(empty($cart_check)) {
+                            echo 'To add products to your shopping cart click on "Add to Cart" Button';
+                        } ?> </div>
 
 
 
