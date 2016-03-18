@@ -131,6 +131,9 @@
                         <!--                        </ul>-->
                     </div>
                     <div class="col-xs-12 detail" style="height: 110px;"></div>
+
+
+
                 </div>
             </div>
 
@@ -139,7 +142,7 @@
     </content>
     <footer>
         <div id="cart">
-            <button><h2>Add to Cart</h2></button>
+            <button id="shoppingcart"><h2>Add to Cart</h2></button>
         </div>
         <div id="footer">
             <div class="boximage">
@@ -171,6 +174,53 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+
+    <script>
+        $(function () {
+
+            var base_url = "<?php echo base_url(); ?>";
+
+            $("#shoppingcart").on("click", function(evt){
+                evt.preventDefault();
+                var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
+                var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
+                var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
+
+                var formData = new FormData();
+                formData.append("id_producto", id_producto);
+                formData.append("nombre_producto", nombre_producto);
+                formData.append("precio_producto", precio_producto);
+
+
+                var request = $.ajax({
+                    url: base_url + "shopping/add",
+                    method: "POST",
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                });
+
+                request.done(function( response ) {
+
+                    if (response.status) {
+                        alert(response.message);
+
+                    } else {
+                        alert(response.message);
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    alert(textStatus);
+                });
+
+
+
+            });
+
+        });
+    </script>
 
 </body>
 </html>
