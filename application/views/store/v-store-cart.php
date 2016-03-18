@@ -30,12 +30,12 @@
         <div class="col-xs-12" >
             <div class="row" id="contenedordetail">
                 <div>
-                    <div id="text">
+                    <div >
                         <?php $cart_check = $this->cart->contents();
 
                         // If cart is empty, this will show below message.
                         if(empty($cart_check)) { ?>
-                            
+
                             <div class="col-xs-12 titlecart" >
                                 <h2>To add products to your shopping cart click on "Add to Cart" Button'</h2>
                             </div>
