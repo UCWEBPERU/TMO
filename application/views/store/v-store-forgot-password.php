@@ -12,7 +12,18 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/fakeLoader.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var verifyCallback = function(response) {
+            alert(response);
+        };
+        var onloadCallback = function() {
+            grecaptcha.render('g-recaptcha', {
+                'sitekey' : '6LdeIxsTAAAAACS6_lRzeXCfr-PRFSQ9_RBDqWSn',
+                'callback': verifyCallback
+            });
+        };
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 </head>
 <body>
 
@@ -20,7 +31,7 @@
     <!-- Header -->
     <header>
         <div id="title">
-            <a href="<?php echo $modulo->previuos_url; ?>" >Back</a>
+            <a href="<?php echo $modulo->previuos_url; ?>" >< Back</a>
             <h2>Forgot password</h2>
         </div>
     </header>
@@ -50,7 +61,7 @@
                                 <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" placeholder="Confirm Password"  data-parsley-required data-parsley-equalto="#txtNewPassword" data-parsley-required-message="Confirm password." data-parsley-equalto-message="Passwords do not match.">
                                 <p class="text-error"></p>
                             </div>
-                            <div class="g-recaptcha" data-sitekey="6LdeIxsTAAAAACS6_lRzeXCfr-PRFSQ9_RBDqWSn"></div>
+                            <div id="g-recaptcha"></div>
                             <button id="btnSend" type="submit">Send</button>
                             <p class="register-error"></p>
                         </form>
