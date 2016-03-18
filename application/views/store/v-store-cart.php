@@ -113,9 +113,9 @@
                             <h5>$<?php echo number_format($grand_total, 2); ?></h5>
                             <h5> $0.00</h5>
                             <h5> -$0.00</h5>
-                            <h6>$0.00</h6>
-                            <h6>$0.00</h6>
-                            <h3>$<?php echo number_format($grand_total, 2); ?></h3>
+                            <h6>$<?php echo number_format($grand_total, 2); ?></h6>
+                            <h6>$8.00</h6>
+                            <h3>$<?php echo number_format($grand_total, 2) - 8; ?></h3>
 
                         </div>
 
