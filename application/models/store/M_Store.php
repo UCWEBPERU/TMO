@@ -92,6 +92,14 @@ class M_Store extends CI_Model {
         return $query->result();
     }
 
+    public function getProductByID($data) {
+        $this->db->where('id_producto', $data["id_producto"]);
+        $this->db->where('estado', '1');
+        $query = $this->db->get('Producto');
+
+        return $query->result();
+    }
+
     public function getGalleryByProduct($data) {
         $this->db->join('Galeria_Producto', 'Galeria_Producto.id_archivo = Archivo.id_archivo');
         $this->db->where('Galeria_Producto.id_producto', $data["id_producto"] );

@@ -232,6 +232,17 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num)']           
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num)']        = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6';
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num)'] = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6.$7';
 
+/*
+| ------------------------------
+| URL -> CART
+| ------------------------------
+*/
+
+$route['company/(:num)/store/(:num)/cart']                     = 'store/C_Store_Cart';
+$route['shopping/add']                                         = 'store/C_Store_Cart/addCart';
+$route['shopping/update']                                     = 'store/C_Store_Cart/updateCart';
+$route['shopping/delete']                                     = 'store/C_Store_Cart/deleteitemCart';
+
 ///*
 //| ------------------------------
 //| URL -> STORE ADMIN
