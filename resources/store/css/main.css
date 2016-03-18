@@ -712,6 +712,10 @@
 		color: #eb1e1e;
 		font-family: 'Lato';
 	}
+	.sign p.register-error a {
+		font-weight: bold;
+		text-decoration: underline;
+	}
 	.sign div.has-error p {
 		display: block;
 	}
