@@ -109,7 +109,7 @@
                             <h3>Order Total</h3>
                         </div>
                         <div class="col-xs-3 list" id="cartitem2" >
-                            <h3 style="color: white">$</h3>
+                            <h3 style="visibility: hidden">$</h3>
                             <h5>$<?php echo number_format($grand_total, 2); ?></h5>
                             <h5> $0.00</h5>
                             <h5> -$0.00</h5>
