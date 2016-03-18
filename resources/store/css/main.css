@@ -670,14 +670,6 @@
 		border-top: 1px solid #BCBCBC;
 		border-bottom: 1px solid #BCBCBC;
 	}
-	.findcategories:first-child {
-		border-top: 1px solid #BCBCBC;
-		border-bottom: none;
-	}
-	.findcategories:last-child {
-		border-top: none;
-		border-bottom: 1px solid #BCBCBC;
-	}
 	.findcategories img{
 		height: 20px;
 		width: 20px;

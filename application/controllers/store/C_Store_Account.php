@@ -71,6 +71,8 @@ class C_Store_Account extends CI_Controller {
             if (sizeof($dataUsuario) > 0) {
                 $modulo->data_usuario = $dataUsuario[0];
             }
+
+            cargarLogoEmpresa($modulo, $dataEmpresa[0]);
         }
 
         $data["modulo"] = $modulo;
