@@ -216,6 +216,7 @@ $route['company/(:num)/store/(:num)/search']                = 'store/C_Store_Sea
 $route['company/(:num)/store/(:num)/account']               = 'store/C_Store_Account';
 $route['company/(:num)/store/(:num)/signin']                = 'store/C_Store_Sign_In';
 $route['company/(:num)/store/(:num)/signout']               = 'store/C_Store_Sign_In/signOut';
+$route['company/(:num)/store/(:num)/forgotpassword']        = 'store/C_Store_Sign_In/forgotPassword';
 $route['company/(:num)/store/(:num)/register']              = 'store/C_Store_Register';
 $route['company/(:num)/store/(:num)/ajax/registerClient']   = 'store/C_Store_Register/ajaxRegister';
 $route['company/(:num)/store/(:num)/ajax/signIn']           = 'store/C_Store_Sign_In/ajaxSignIn';
