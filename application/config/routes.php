@@ -225,6 +225,15 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num)']           
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num)']        = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6';
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num)'] = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6.$7';
 
+
+/*
+| ------------------------------
+| URL -> CART
+| ------------------------------
+*/
+$route['shopping/add']	                        = 'store/C_Store_Cart/addCart';
+//$route['company/(:num)/admin/login']        = 'admin/C_Login';
+
 ///*
 //| ------------------------------
 //| URL -> STORE ADMIN
