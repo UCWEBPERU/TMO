@@ -70,7 +70,7 @@
                             <div>
 
                                 <div class="col-xs-5 list"  id="cartitem" >
-                                    <a href="item.html" ><img src="images/pic00.png" id="images" alt=""  /></a>
+                                    <a ><img src="<?php echo $item['options']['url_image']; ?>" id="images" alt=""  /></a>
                                     <a class="btn">Edit</a>
                                 </div>
                                 <div class="col-xs-7 list" id="cartitem" >
@@ -87,7 +87,7 @@
 
 
 
-                    
+
 
 
 

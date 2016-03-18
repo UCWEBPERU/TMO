@@ -45,12 +45,23 @@ class C_Store_Cart extends CI_Controller {
 
         $json->status 		= FALSE;
 
+        $dataProducto = $this->M_Store->getProduct(
+            array(
+                "id_empresa"    => $this->uri->segment(2),
+                "id_tienda"     => $this->uri->segment(4),
+                "id_producto"   => $this->input->post('id_producto')
+            )
+        );
+
+        cargarGaleriaPorProducto($dataProducto[0]);
+
         // Set array for send data.
         $insert_data = array(
             'id' => $this->input->post('id_producto'),
             'name' => $this->input->post('nombre_producto'),
             'price' => $this->input->post('precio_producto'),
-            'qty' => 1
+            'qty' => 1,
+            'options' => array('url_image' => $dataProducto[0]->galeria_producto[0])
         );
 
         $result = $this->cart->insert($insert_data);
