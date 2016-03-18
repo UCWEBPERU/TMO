@@ -80,7 +80,7 @@
 
                         <div class="col-xs-5 list"  id="cartitem" >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
-                            <a class="btn" onclick="deleteItem($item['rowid'])">Delete</a>
+                            <a class="btn" onclick="deleteItem(<?php echo $item['rowid']; ?>)">Delete</a>
                         </div>
                         <div class="col-xs-7 list" id="cartitem" >
                             <h3><?php echo $item['name']; ?></h3>
