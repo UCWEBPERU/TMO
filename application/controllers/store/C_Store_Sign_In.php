@@ -49,9 +49,9 @@ class C_Store_Sign_In extends CI_Controller {
 
         if ($this->input->post("txtEmail") && $this->input->post("txtPassword")) {
 
-            $Usuario = $this->M_Store->getUserBYEmail(
+            $Usuario = $this->M_Store->getUserStore(
                 array(
-                    'email_usuario' => trim($this->input->post("txtEmail", TRUE))
+                    'email_usuario' => trim($this->input->post("txtEmail", TRUE)),
                 )
             );
 
@@ -69,10 +69,14 @@ class C_Store_Sign_In extends CI_Controller {
                         'id_empresa'            => ""
                     );
 
-                    $this->session->set_userdata($sessionUser);
-                    $json->data = array("url_redirect" => $base_url_store."/account");
-                    $json->message = "Inicio de sesion existosa.";
-                    $json->status 	= TRUE;
+                    if (intval($Usuario->id_tipo_usuario) == 3) {
+                        $this->session->set_userdata($sessionUser);
+                        $json->data = array("url_redirect" => $base_url_store."/account");
+                        $json->message = "Inicio de sesion existosa.";
+                        $json->status 	= TRUE;
+                    } else {
+                        $json->message = "Lo sentimos la cuenta de usuario ingresado no esta habilitado para realizar compras, Registrese <a href='$base_url_store/signin'>aqui</a>.";
+                    }
                 } else {
                     $json->message = "La contraseña del usuario es incorrecta, intente de nuevo.";
                 }
