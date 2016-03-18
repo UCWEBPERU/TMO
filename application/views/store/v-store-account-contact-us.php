@@ -101,7 +101,6 @@
                     <div class="col-xs-2 findcategories"></div>
                 </div>
             </div>
-            <div class="col-xs-12 detail" style="height: 200px;"></div>
         </div>
 
     </content>
