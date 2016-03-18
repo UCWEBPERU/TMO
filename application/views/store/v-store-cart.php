@@ -27,112 +27,85 @@
     <!-- Content -->
     <content>
 
+
         <div class="col-xs-12" >
+
             <div class="row" >
-            <div class="row" id="contenedordetail">
                 <div>
-                    <div >
-                        <?php $cart_check = $this->cart->contents();
+                    <div class="col-xs-12 cartinformation" >
+                        <h2>Shipping Information</h2>
 
-                        // If cart is empty, this will show below message.
-                        if(empty($cart_check)) { ?>
-
-                            <div class="col-xs-12 titlecart" >
-                                <h2>To add products to your shopping cart click on "Add to Cart" Button</h2>
-                            </div>
-                            <div class="col-xs-12 detail" style="height: 150px;"></div>
-
-                        <?php } ?>
                     </div>
 
 
-                    <?php
-                    // All values of cart store in "$cart".
-                    if ($cart = $this->cart->contents()): ?>
-                        <?php
-// Create form and send all values in "shopping/update_cart" function.
-                        echo form_open('shopping/update');
-                        $grand_total = 0;
-                        $num = 1;
+                </div>
 
-                        foreach ($cart as $item):
-                            // echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
-                            // Will produce the following output.
-                            // <input type="hidden" name="cart[1][id]" value="1" />
+            </div>
+            <div class="row" >
+                <div>
 
-                            echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
-                            echo form_hidden('cart[' . $item['id'] . '][rowid]', $item['rowid']);
-                            echo form_hidden('cart[' . $item['id'] . '][name]', $item['name']);
-                            echo form_hidden('cart[' . $item['id'] . '][price]', $item['price']);
-                            echo form_hidden('cart[' . $item['id'] . '][qty]', $item['qty']);
-                            ?>
-                        <div class="row" >
+                    <div class="col-xs-5 list"  id="cartitem" >
+                        <a href="item.html" ><img src="images/pic00.png" id="images" alt=""  /></a>
+                        <a class="btn">Edit</a>
+                    </div>
 
-                            <div>
+                    <div class="col-xs-7 list" id="cartitem" >
+                        <h3>Fashionable Women's Jacket Classic</h3>
+                        <h4>$58.50</h4>
+                        <h5>Quantity : 1</h5>
+                        <h5>Color : White</h5>
+                        <h5>Size : M</h5>
+                        <h6>Ready-to-Ship Item</h6>
+                        <h5>Estimated Delivery:
+                            Feb 26, 2015 to Feb-28,2015</h5>
+                        <h6>Returnable</h6>
+                        <h5>Gift Options: None Selected</h5>
+                    </div>
+                </div>
 
-                                <div class="col-xs-5 list"  id="cartitem" >
-                                    <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
-                                    <!--a class="btn">Edit</a-->
-                                </div>
-                                <div class="col-xs-7 list" id="cartitem" >
-                                    <h3><?php echo $item['name']; ?></h3>
-                                    <h4>$ <?php echo number_format($item['price'], 2); ?></h4>
-                                    <h5>Quantity : <?php echo $item['qty']; ?></h5>
-                                    <h5>Subtotal : <?php echo $grand_total = $grand_total + $item['subtotal']; ?></h5>
-                                    <!--?php $num = $num + $item['qty'] ?-->
-                                </div>
-                            </div>
-
-                        </div>
-                        <?php endforeach; ?>
-
-                        <div class="row" >
-                            <div>
+            </div>
+            <div class="row" >
+                <div>
 
 
-                                <div class="col-xs-9 list" id="cartitem2" >
-                                    <h3>Order summary</h3>
-                                    <h5>Items:</h5>
-                                    <h5>Shipping & Handling:</h5>
-                                    <h5>Promotion Applied:</h5>
-                                    <h6>Total Before Tax:</h6>
-                                    <h6>Estimated Tax:</h6>
-                                    <h3>Order Total</h3>
-                                </div>
-                                <div class="col-xs-3 list" id="cartitem2" >
-                                    <h3>$</h3>
-                                    <h5>$<?php echo number_format($grand_total, 2); ?></h5>
-                                    <h5> $0.00</h5>
-                                    <h5> -$0.00</h5>
-                                    <h6>$0.00</h6>
-                                    <h6>$0.00</h6>
-                                    <h3>$<?php echo number_format($grand_total, 2); ?></h3>
+                    <div class="col-xs-9 list" id="cartitem2" >
+                        <h3>Order summary</h3>
+                        <h5>Items:</h5>
+                        <h5>Shipping & Handling:</h5>
+                        <h5>Promotion Applied:</h5>
+                        <h6>Total Before Tax:</h6>
+                        <h6>Estimated Tax:</h6>
+                        <h3>Order Total</h3>
+                    </div>
+                    <div class="col-xs-3 list" id="cartitem2" >
+                        <h3>$</h3>
+                        <h5>$58.50</h5>
+                        <h5> $3.99</h5>
+                        <h5> -$3.99</h5>
+                        <h6>$58.50</h6>
+                        <h6>$8.00</h6>
+                        <h3>$66.50</h3>
 
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                    <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
+                    </div>
 
                 </div>
+
             </div>
+
+
+            <div class="row" style="height:120px; background:#FFF;">
+
             </div>
+
+
+
+
+
+
         </div>
 
     </content>
+
     <footer>
         <div id="cart">
             <button id="placeorder"><h2>Place Order</h2></button>
