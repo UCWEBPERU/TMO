@@ -19,20 +19,23 @@ class C_Store_Cart extends CI_Controller {
         $json->presentation = "";
         $json->data 		= array();
 
-        //$json->status 		= FALSE;
+        $json->status 		= FALSE;
 
         // Set array for send data.
-        /*$insert_data = array(
+        $insert_data = array(
             'id' => $this->input->post('id_producto'),
             'name' => $this->input->post('nombre_producto'),
             'price' => $this->input->post('precio_producto'),
             'qty' => 1
-        );*/
+        );
 
-        //$result = $this->cart->insert($insert_data);
+        $result = $this->cart->insert($insert_data);
+        if($result){
+            $json->message = "Carrito insertado correctamente";
+            $json->status 	= TRUE;
+        }
 
-        $json->message = "Carrito insertado correctamente";
-        $json->status 	= TRUE;
+
         echo json_encode($json);
 
 
