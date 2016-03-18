@@ -69,7 +69,7 @@
 
                             <div>
 
-                                <div class="col-xs-5 list"  id="cartitem" >
+                                <div class="col-xs-5 list"  id="cartitem" > 
                                     <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
                                     <a class="btn">Edit</a>
                                 </div>
