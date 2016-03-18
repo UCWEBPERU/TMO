@@ -214,6 +214,7 @@ $route['company/(:num)/store/(:num)']                       = 'store/C_Store_Hom
 $route['company/(:num)/store/(:num)/products/(:num)']       = 'store/C_Store_Product/viewProduct/$3';
 $route['company/(:num)/store/(:num)/search']                = 'store/C_Store_Search';
 $route['company/(:num)/store/(:num)/account']               = 'store/C_Store_Account';
+$route['company/(:num)/store/(:num)/account/account-settings']  = 'store/C_Store_Account/accountSettings';
 $route['company/(:num)/store/(:num)/signin']                = 'store/C_Store_Sign_In';
 $route['company/(:num)/store/(:num)/signout']               = 'store/C_Store_Sign_In/signOut';
 $route['company/(:num)/store/(:num)/forgotpassword']        = 'store/C_Store_Sign_In/forgotPassword';
