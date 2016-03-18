@@ -54,7 +54,6 @@
                             </div>
                             <button id="btnRegister" type="submit">Register</button>
                             <p class="register-error"></p>
-
                         </form>
                     </div>
                     <div class="col-xs-12 detail" style="height: 200px;"></div>

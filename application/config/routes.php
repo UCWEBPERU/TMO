@@ -218,6 +218,7 @@ $route['company/(:num)/store/(:num)/signin']                = 'store/C_Store_Sig
 $route['company/(:num)/store/(:num)/signout']               = 'store/C_Store_Sign_In/signOut';
 $route['company/(:num)/store/(:num)/register']              = 'store/C_Store_Register';
 $route['company/(:num)/store/(:num)/ajax/registerClient']   = 'store/C_Store_Register/ajaxRegister';
+$route['company/(:num)/store/(:num)/ajax/signIn']           = 'store/C_Store_Sign_In/ajaxSignIn';
 
 // url para soportar el anidamiento de las subcategorias
 $route['company/(:num)/store/(:num)/categories/(:num)']                             = 'store/C_Store_Home/viewSubCategorias/$3';

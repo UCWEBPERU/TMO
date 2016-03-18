@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/fakeLoader.css">
 </head>
 <body>
 
@@ -30,22 +31,28 @@
             <div class="row" id="contenedordetail">
                 <div>
                     <div class="col-xs-12 sign">
-<!--                        <h3>ACCOUNT</h3>-->
                         <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
                         <h3>Welcome!</h3>
                         <h2>Enter your user account</h2>
-                        <input type="text" placeholder="E-mail or mobile number">
-                        <input type="password" placeholder="Password">
-                        <button>Sign In</button>
+                        <form id="frmRegister" name="frmRegister" method="post">
+                            <div>
+                                <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
+                                <p class="text-error"></p>
+                            </div>
+                            <div>
+                                <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter your password.">
+                                <p class="text-error"></p>
+                            </div>
+                            <button id="btnSignIn" type="submit">Sign In</button>
+                            <p class="register-error"></p>
+                        </form>
                         <a href="#"><h5>Forgot Password</h5></a>
                         <br><br><br>
-<!--                        <a href="cart-detail.html"><h5>Go Cart</h5></a>-->
                     </div>
 
                     <div class="col-xs-12 sign">
                         <h3>Join instantly (and for free)</h3>
                         <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/register" >Join Now</a>
-<!--                        <a href="cart-detail.html"><h5>Go Cart</h5></a>-->
                     </div>
                     <div class="col-xs-12 detail" style="height: 200px;"></div>
                 </div>
@@ -74,7 +81,7 @@
             </div>
         </div>
     </footer>
-
+    <div class="fakeloader"></div>
     <!-- Scripts -->
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
@@ -85,6 +92,65 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fakeloader/fakeLoader.min.js"></script>
 
+    <script type="text/javascript">
+
+        var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtConfirmPassword"];
+
+        function validateInputsForm(selectorInputsForm){
+            var countMessagesError = 0;
+            var messageError = "";
+            for (var i = 0; i < selectorInputsForm.length; i++) {
+                if ($(selectorInputsForm[i]).parsley().isValid()) {
+                    $(selectorInputsForm[i]).parent().removeClass("has-error");
+                } else {
+                    $(selectorInputsForm[i]).parent().addClass("has-error");
+                    messageError = ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley());
+                    $(selectorInputsForm[i]).parent().find("p").html(messageError);
+                    countMessagesError++;
+                }
+            }
+            if (countMessagesError > 0) {
+                return false;
+            }
+            return true;
+        }
+
+        $(document).ready(function(){
+            $("#btnSignIn").on("click", function(event){
+                event.preventDefault();
+
+                if (validateInputsForm(selectorInputsForm)) {
+                    $(".fakeloader").fakeLoader({
+                        bgColor     : "rgba(0,0,0,.85)",
+                        spinner     : "spinner2"
+                    });
+
+                    var request = $.ajax({
+                        url: "<?php echo $modulo->base_url_store."/ajax/signIn"; ?>",
+                        method: "POST",
+                        data: $("#frmRegister").serialize(),
+                        dataType: "json"
+                    });
+
+                    request.done(function( response ) {
+                        $(".fakeloader").fakeLoaderClose();
+                        if (response.status) {
+                            $(location).attr("href", response.data.url_redirect);
+                        } else {
+                            $(".register-error").html(response.message);
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        $(".fakeloader").fakeLoaderClose();
+                        $(".register-error").html(response.message);
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

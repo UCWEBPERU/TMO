@@ -36,6 +36,57 @@ class C_Store_Sign_In extends CI_Controller {
         $this->load->view('store/v-store-sign-in', $data);
     }
 
+    public function ajaxSignIn() {
+        $this->load->library('security/Cryptography');
+        $json 				= new stdClass();
+        $json->type 		= "User Store";
+        $json->presentation = "";
+        $json->action 		= "register";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        $base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
+
+        if ($this->input->post("txtEmail") && $this->input->post("txtPassword")) {
+
+            $Usuario = $this->M_Store->getUserBYEmail(
+                array(
+                    'email_usuario' => trim($this->input->post("txtEmail", TRUE))
+                )
+            );
+
+            if (sizeof($Usuario) > 0) {
+                $Usuario = $Usuario[0];
+                if ($this->cryptography->validateHash($Usuario->password_usuario, trim($this->input->post("txtPassword", TRUE)))) {
+                    $sessionUser = array(
+                        'user_session'          => TRUE,
+                        'id_usuario'            => intval($Usuario->id_usuario),
+                        'nombres_usuario'       => $Usuario->nombres_persona,
+                        'apellidos_usuario'	    => $Usuario->apellidos_persona,
+                        'email_usuario'		    => $Usuario->email_usuario,
+                        'id_tipo_usuario'		=> $Usuario->id_tipo_usuario,
+                        'nombre_tipo_usuario'	=> $Usuario->nombre_tipo_usuario,
+                        'id_empresa'            => ""
+                    );
+
+                    $this->session->set_userdata($sessionUser);
+                    $json->data = array("url_redirect" => $base_url_store."/account");
+                    $json->message = "Inicio de sesion existosa.";
+                    $json->status 	= TRUE;
+                } else {
+                    $json->message = "La contraseña del usuario es incorrecta, intente de nuevo.";
+                }
+            } else {
+                $json->message = "Lo sentimos la cuenta de usuario no existe, intente de nuevo.";
+            }
+
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+        echo json_encode($json);
+    }
+
     public function signOut() {
         $sessionUser = array(
             'user_session',
