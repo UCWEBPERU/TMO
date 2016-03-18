@@ -77,6 +77,7 @@
                                     <h3><?php echo $item['name']; ?></h3>
                                     <h4>$ <?php echo number_format($item['price'], 2); ?></h4>
                                     <h5>Quantity : <?php echo $item['qty']; ?></h5>
+                                    <h5><?php $grand_total = $grand_total + $item['subtotal']; ?></h5>
 
                                 </div>
                             </div>
