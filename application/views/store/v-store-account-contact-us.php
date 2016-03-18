@@ -7,10 +7,10 @@
     <!-- Path -->
     <base href="<?php echo base_url();?>">
     <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/ie9.css" /><![endif]-->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
 </head>
 <body>
 
@@ -18,7 +18,8 @@
     <!-- Header -->
     <header>
         <div id="title">
-            <h2>Account</h2>
+            <a href="<?php echo $modulo->base_url_store; ?>/account" >< Back</a>
+            <h2>Contact Us</h2>
         </div>
     </header>
 
@@ -30,29 +31,21 @@
                 <div class="row" id="contenedordetail">
                     <div>
                         <div class="col-xs-12 sign">
-                            <!-- <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div> -->
-                            <h3 style="padding: 10px;">Welcome, <?php echo $modulo->data_usuario->nombres_persona." ".$modulo->data_usuario->apellidos_persona ; ?></h3>
+                            <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
+                            <h3 style="padding: 10px;">Informacion de la empresa</h3>
                         </div>
                     </div>
                 </div>
             <?php } else { ?>
-                <div class="row" id="contenedordetail2">
-                    <div>
-                        <div class="col-xs-12 sign">
-                            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signin" >Sign In</a>
-                            <!--<h3>Sign in to see you store credit</h3>-->
-                        </div>
-                    </div>
-                </div>
             <?php } ?>
 
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="item.html" ><h2>My orders</h2></a>
+                        <h2>Nombre Empresa: <strong><?php echo $modulo->data_empresa->organization; ?></strong></h2>
                     </div>
                     <div class="col-xs-2 findcategories"  >
-                        <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
                     </div>
                 </div>
             </div>
@@ -60,10 +53,10 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings"><h2>My accounts settings</h2></a>
+                        <h2>Nombre Representante: <strong><?php echo $modulo->data_empresa->nombres_representante; ?>, <?php echo $modulo->data_empresa->apellidos_representante; ?></strong></h2>
                     </div>
                     <div class="col-xs-2 findcategories"  >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
                     </div>
                 </div>
             </div>
@@ -71,22 +64,58 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/contact-us" ><h2>Contact Us</h2></a>
+                        <h2>E-mail: <strong><?php echo $modulo->data_empresa->email_representante; ?></strong></h2>
                     </div>
                     <div class="col-xs-2 findcategories"  >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/contact-us" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
                     </div>
                 </div>
             </div>
-            <?php if ($modulo->has_user_session) { ?>
-                <div class="row" id="contenedordetail2">
-                    <div>
-                        <div class="col-xs-12 sign">
-                            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signout" >Sign Out</a>
-                        </div>
+
+            <div class="row">
+                <div id="contenedorc">
+                    <div class="col-xs-10 findcategories" >
+                        <h2>Home Phone: <strong><?php echo $modulo->data_empresa->telefono; ?></strong></h2>
+                    </div>
+                    <div class="col-xs-2 findcategories"  >
+                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
                     </div>
                 </div>
-            <?php } ?>
+            </div>
+
+            <div class="row">
+                <div id="contenedorc">
+                    <div class="col-xs-10 findcategories" >
+                        <h2>Fax: <strong><?php echo $modulo->data_empresa->fax; ?></strong></h2>
+                    </div>
+                    <div class="col-xs-2 findcategories"  >
+                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="contenedorc">
+                    <div class="col-xs-10 findcategories" >
+                        <h2>Fax: <strong><?php echo $modulo->data_empresa->fax; ?></strong></h2>
+                    </div>
+                    <div class="col-xs-2 findcategories"  >
+                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="contenedorc">
+                    <div class="col-xs-10 findcategories" >
+                        <h2>Direccion: <strong><?php echo $modulo->data_empresa->direccion; ?></strong></h2>
+                    </div>
+                    <div class="col-xs-2 findcategories"  >
+                        <img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 detail" style="height: 200px;"></div>
         </div>
 
     </content>
@@ -110,7 +139,7 @@
             </div>
         </div>
     </footer>
-
+    <div class="fakeloader"></div>
     <!-- Scripts -->
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
@@ -121,6 +150,5 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
-
 </body>
 </html>
