@@ -30,17 +30,7 @@
 
         <div class="col-xs-12" >
 
-            <div class="row" >
-                <div>
-                    <div class="col-xs-12 cartinformation" >
-                        <h2>Shipping Information</h2>
 
-                    </div>
-
-
-                </div>
-
-            </div>
             <div class="row">
                 <?php $cart_check = $this->cart->contents();
 
@@ -57,6 +47,17 @@
             <?php
             // All values of cart store in "$cart".
             if ($cart = $this->cart->contents()): ?>
+                <div class="row" >
+                    <div>
+                        <div class="col-xs-12 cartinformation" >
+                            <h2>Shipping Information</h2>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
             <?php
             // Create form and send all values in "shopping/update_cart" function.
             echo form_open('shopping/update');
