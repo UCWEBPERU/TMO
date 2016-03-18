@@ -196,6 +196,7 @@
 
                     if (response.status) {
                         alert(response.message);
+                        location.reload();
 
                     } else {
                         alert(response.message);

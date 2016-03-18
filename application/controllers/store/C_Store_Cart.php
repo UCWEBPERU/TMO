@@ -113,7 +113,7 @@ class C_Store_Cart extends CI_Controller {
             $json->status 	= TRUE;
         }
 
-
+        
         echo json_encode($json);
 
 
