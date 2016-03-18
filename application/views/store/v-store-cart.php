@@ -28,6 +28,7 @@
     <content>
 
         <div class="col-xs-12" >
+            <div class="row" >
             <div class="row" id="contenedordetail">
                 <div>
                     <div >
@@ -128,7 +129,7 @@
 
                 </div>
             </div>
-
+            </div>
         </div>
 
     </content>
