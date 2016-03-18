@@ -32,8 +32,8 @@
             <div class="row" id="contenedordetail">
                 <div>
                     <div class="col-xs-12 sign">
-                        <h3>Ingrese los siguientes datos para recuperar su contraseña</h3>
-                        <form id="frmSignIn" name="frmSignIn" method="post">
+                        <h3>Enter the following details to recover your password.</h3>
+                        <form id="frmForgotPassword" name="frmForgotPassword" method="post">
                             <div>
                                 <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
                                 <p class="text-error"></p>
@@ -43,7 +43,7 @@
                                 <p class="text-error"></p>
                             </div>
                             <div>
-                                <input type="password" id="txtNewPassword" name="txtNewPassword" placeholder="Last Password" data-parsley-required data-parsley-required-message="Enter your new password.">
+                                <input type="password" id="txtNewPassword" name="txtNewPassword" placeholder="New Password" data-parsley-required data-parsley-required-message="Enter your new password.">
                                 <p class="text-error"></p>
                             </div>
                             <div>
@@ -133,7 +133,7 @@
                         var request = $.ajax({
                             url: "<?php echo $modulo->base_url_store."/ajax/signIn"; ?>",
                             method: "POST",
-                            data: $("#frmSignIn").serialize(),
+                            data: $("#frmForgotPassword").serialize(),
                             dataType: "json"
                         });
 
