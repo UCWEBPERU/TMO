@@ -10,6 +10,7 @@ class C_Store_Account extends CI_Controller {
         $this->load->library('utils/UserSession');
 //        $this->usersession->validateSession("panel-store");
         $this->load->model('store/M_Store');
+        $this->load->helper('store/h_store');
     }
 
     public function index() {
