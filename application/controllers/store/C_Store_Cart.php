@@ -12,6 +12,13 @@ class C_Store_Cart extends CI_Controller {
         $this->load->library('cart');
     }
 
+    function index(){
+        
+        
+        $this->load->view('store/v-store-cart');
+
+    }
+
     function addCart()
     {
         $json 				= new stdClass();
@@ -30,6 +37,7 @@ class C_Store_Cart extends CI_Controller {
         );
 
         $result = $this->cart->insert($insert_data);
+        
         if($result){
             $json->message = "Carrito insertado correctamente";
             $json->status 	= TRUE;

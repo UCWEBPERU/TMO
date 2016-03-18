@@ -231,6 +231,7 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num
 | URL -> CART
 | ------------------------------
 */
+$route['cart']	                                = 'store/C_Store_Cart';
 $route['shopping/add']	                        = 'store/C_Store_Cart/addCart';
 //$route['company/(:num)/admin/login']        = 'admin/C_Login';
 
