@@ -19,7 +19,7 @@
     <header>
         <div id="title">
             <a href="<?php echo $modulo->base_url_store; ?>/account" >< Back</a>
-            <h2>Contact Us</h2>
+            <h2>My Orders</h2>
         </div>
     </header>
 
@@ -27,77 +27,11 @@
     <content>
 
         <div class="col-xs-12" >
-            <?php if ($modulo->has_user_session) { ?>
-                <div class="row" id="contenedordetail">
-                    <div>
-                        <div class="col-xs-12 sign">
-                            <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
-                            <h3 style="padding: 10px;">Informacion de la empresa</h3>
-                        </div>
+            <div class="row" id="contenedordetail">
+                <div>
+                    <div class="col-xs-12 sign">
+                        <h3 style="padding: 10px;">No tiene compras realizadas.</h3>
                     </div>
-                </div>
-            <?php } ?>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories">
-                        <h2>Empresa: <strong><?php echo $modulo->data_empresa->organization; ?></strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories">
-                        <h2>Representante: <strong><?php echo $modulo->data_empresa->nombres_representante; ?>, <?php echo $modulo->data_empresa->apellidos_representante; ?></strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories">
-                        <h2>E-mail: <strong><?php echo $modulo->data_empresa->email_representante; ?></strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories">
-                        <h2>Home Phone: <strong><?php echo $modulo->data_empresa->telefono; ?></strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories">
-                        <h2>Fax: <strong><?php echo $modulo->data_empresa->fax; ?></strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories">
-                        <h2>Fax: <strong><?php echo $modulo->data_empresa->fax; ?></strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories">
-                        <h2>Direccion: <strong><?php echo $modulo->data_empresa->direccion; ?></strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"></div>
                 </div>
             </div>
             <div class="col-xs-12 detail" style="height: 50px;"></div>

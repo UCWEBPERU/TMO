@@ -210,19 +210,20 @@ $route['company/(:num)/admin/category/ajax/updateImageCategory']    = 'company-a
 | URL -> STORE
 | ------------------------------
 */
-$route['company/(:num)/store/(:num)']                       = 'store/C_Store_Home';
-$route['company/(:num)/store/(:num)/products/(:num)']       = 'store/C_Store_Product/viewProduct/$3';
-$route['company/(:num)/store/(:num)/search']                = 'store/C_Store_Search';
-$route['company/(:num)/store/(:num)/account']               = 'store/C_Store_Account';
+$route['company/(:num)/store/(:num)']                           = 'store/C_Store_Home';
+$route['company/(:num)/store/(:num)/products/(:num)']           = 'store/C_Store_Product/viewProduct/$3';
+$route['company/(:num)/store/(:num)/search']                    = 'store/C_Store_Search';
+$route['company/(:num)/store/(:num)/account']                   = 'store/C_Store_Account';
 $route['company/(:num)/store/(:num)/account/account-settings']  = 'store/C_Store_Account/accountSettings';
-$route['company/(:num)/store/(:num)/account/contact-us']  = 'store/C_Store_Account/contactUs';
-$route['company/(:num)/store/(:num)/signin']                = 'store/C_Store_Sign_In';
-$route['company/(:num)/store/(:num)/signout']               = 'store/C_Store_Sign_In/signOut';
-$route['company/(:num)/store/(:num)/forgotpassword']        = 'store/C_Store_Sign_In/forgotPassword';
-$route['company/(:num)/store/(:num)/register']              = 'store/C_Store_Register';
-$route['company/(:num)/store/(:num)/ajax/registerClient']   = 'store/C_Store_Register/ajaxRegister';
-$route['company/(:num)/store/(:num)/ajax/signIn']           = 'store/C_Store_Sign_In/ajaxSignIn';
-$route['company/(:num)/store/(:num)/ajax/forgotPassword']   = 'store/C_Store_Sign_In/ajaxForgotPassword';
+$route['company/(:num)/store/(:num)/account/contact-us']        = 'store/C_Store_Account/contactUs';
+$route['company/(:num)/store/(:num)/account/my-orders']         = 'store/C_Store_Account/myOrders';
+$route['company/(:num)/store/(:num)/signin']                    = 'store/C_Store_Sign_In';
+$route['company/(:num)/store/(:num)/signout']                   = 'store/C_Store_Sign_In/signOut';
+$route['company/(:num)/store/(:num)/forgotpassword']            = 'store/C_Store_Sign_In/forgotPassword';
+$route['company/(:num)/store/(:num)/register']                  = 'store/C_Store_Register';
+$route['company/(:num)/store/(:num)/ajax/registerClient']       = 'store/C_Store_Register/ajaxRegister';
+$route['company/(:num)/store/(:num)/ajax/signIn']               = 'store/C_Store_Sign_In/ajaxSignIn';
+$route['company/(:num)/store/(:num)/ajax/forgotPassword']       = 'store/C_Store_Sign_In/ajaxForgotPassword';
 
 // url para soportar el anidamiento de las subcategorias
 $route['company/(:num)/store/(:num)/categories/(:num)']                             = 'store/C_Store_Home/viewSubCategorias/$3';

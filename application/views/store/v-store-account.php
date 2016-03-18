@@ -49,10 +49,10 @@
             <div class="row">
                 <div id="contenedorc">
                     <div class="col-xs-10 findcategories" >
-                        <a href="item.html" ><h2>My orders</h2></a>
+                        <a href="<?php echo $modulo->base_url_store; ?>/account/my-orders" ><h2>My orders</h2></a>
                     </div>
                     <div class="col-xs-2 findcategories"  >
-                        <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+                        <a href="<?php echo $modulo->base_url_store; ?>/account/my-orders" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
                     </div>
                 </div>
             </div>
