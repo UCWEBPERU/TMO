@@ -27,45 +27,41 @@
     <content>
 
         <div class="col-xs-12" >
-            <div class="row" id="contenedordetail">
-                <div>
-                    <div class="col-xs-12 sign">
-                        <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
-                        <h3>Change Name, E-mail or Password</h3>
-                        <div class="row">
-                            <div id="contenedorc">
-                                <div class="col-xs-10 findcategories" >
-                                    <a href="item.html" ><p>Name: </p> </a>
-                                </div>
-                                <div class="col-xs-2 findcategories"  >
-                                    <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                                </div>
-                            </div>
+            <div class="col-xs-12 sign">
+                <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
+                <h3>Change Name, E-mail or Password</h3>
+                <div class="row">
+                    <div id="contenedorc">
+                        <div class="col-xs-10 findcategories" >
+                            <a href="item.html" ><p>Name: </p> </a>
                         </div>
-                        <div class="row">
-                            <div id="contenedorc">
-                                <div class="col-xs-10 findcategories" >
-                                    <a href="item.html" ><p>E-mail: </p> </a>
-                                </div>
-                                <div class="col-xs-2 findcategories"  >
-                                    <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div id="contenedorc">
-                                <div class="col-xs-10 findcategories" >
-                                    <a href="item.html" ><p>Password: </p> ********</a>
-                                </div>
-                                <div class="col-xs-2 findcategories"  >
-                                    <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                                </div>
-                            </div>
+                        <div class="col-xs-2 findcategories"  >
+                            <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
                         </div>
                     </div>
-                    <div class="col-xs-12 detail" style="height: 200px;"></div>
+                </div>
+                <div class="row">
+                    <div id="contenedorc">
+                        <div class="col-xs-10 findcategories" >
+                            <a href="item.html" ><p>E-mail: </p> </a>
+                        </div>
+                        <div class="col-xs-2 findcategories"  >
+                            <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="contenedorc">
+                        <div class="col-xs-10 findcategories" >
+                            <a href="item.html" ><p>Password: </p> ********</a>
+                        </div>
+                        <div class="col-xs-2 findcategories"  >
+                            <a href="item.html" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="col-xs-12 detail" style="height: 200px;"></div>
 
         </div>
 
