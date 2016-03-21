@@ -131,7 +131,6 @@
                         <!--                        </ul>-->
                     </div>
                     <div class="col-xs-12 detail" style="height: 110px;"></div>
-
                 </div>
             </div>
 
