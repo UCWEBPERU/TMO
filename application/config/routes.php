@@ -238,7 +238,7 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num)']                  
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num)']               = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5';
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num)']        = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6';
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num)'] = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6.$7';
-
+ 
 /*
 | ------------------------------
 | URL -> CART
