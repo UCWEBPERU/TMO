@@ -102,20 +102,20 @@
 
                         <div class="col-xs-9 list" id="cartitem2" >
                             <h3>Order summary</h3>
-                            <!--h5>Items:</h5>
+                            <h5>Items:</h5>
                             <h5>Shipping & Handling:</h5>
                             <h5>Promotion Applied:</h5>
                             <h6>Total Before Tax:</h6>
-                            <h6>Estimated Tax:</h6-->
+                            <h6>Estimated Tax:</h6>
                             <h3>Order Total</h3>
                         </div>
                         <div class="col-xs-3 list" id="cartitem2" >
                             <h3 style="visibility: hidden">$</h3>
-                            <!--h5>$<?php echo number_format($grand_total, 2); ?></h5>
+                            <h5>$<?php echo number_format($grand_total, 2); ?></h5>
                             <h5> $0.00</h5>
                             <h5> -$0.00</h5>
                             <h6>$<?php echo number_format($grand_total, 2); ?></h6>
-                            <h6>$8.00</h6-->
+                            <h6>$8.00</h6>
                             <h3>$<?php echo number_format($grand_total, 2) + 8; ?></h3>
 
                         </div>
