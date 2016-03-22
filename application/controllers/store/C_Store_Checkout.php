@@ -17,40 +17,11 @@ class C_Store_Checkout extends CI_Controller {
 
     public function index() {
 
-
-        $gateway = Omnipay::create('Stripe');
-        $gateway->setApiKey('sk_test_CrIMteM3hZEr98Qj3KKOiYCm');
-
-        $formData = array('email' => 'mickhve@gmail.com');
-        $response = $gateway->purchase(array('amount' => '10.00', 'currency' => 'USD', 'card' => $formData))->send();
-
-        if ($response->isSuccessful()) {
-            // payment was successful: update database
-            print_r($response);
-        } elseif ($response->isRedirect()) {
-            // redirect to offsite payment gateway
-            $response->redirect();
-        } else {
-            // payment failed: display message to customer
-            echo $response->getMessage();
-        }
-
-//        $gateway = Omnipay::create('PayPal_Express');
-//        $gateway->setUsername('sales@lab.design');
-//        $gateway->setPassword('Hovt100671');
-//        $gateway->setTestMode(true);
+//        $gateway = Omnipay::create('Stripe');
+//        $gateway->setApiKey('sk_test_CrIMteM3hZEr98Qj3KKOiYCm');
 //
-////        $gateway = Omnipay::create('Stripe');
-////        $gateway->setApiKey('abc123');
-//
-////        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
-//        $response = $gateway->purchase(
-//            array(
-//                'amount'    => '10.00',
-//                'currency'  => 'USD',
-//                'returnUrl' => 'http://www.uc-web.mobi/TMO/company/6/store/1/',
-//                'cancelUrl' => 'http://www.uc-web.mobi/TMO/company/6/store/1/'
-//            ))->send();
+//        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
+//        $response = $gateway->purchase(array('amount' => '10.00', 'currency' => 'USD', 'card' => $formData))->send();
 //
 //        if ($response->isSuccessful()) {
 //            // payment was successful: update database
@@ -62,6 +33,33 @@ class C_Store_Checkout extends CI_Controller {
 //            // payment failed: display message to customer
 //            echo $response->getMessage();
 //        }
+
+        $gateway = Omnipay::create('PayPal_Express');
+        $gateway->setUsername('sales@lab.design');
+        $gateway->setPassword('Hovt100671');
+
+//        $gateway = Omnipay::create('Stripe');
+//        $gateway->setApiKey('abc123');
+
+//        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
+        $response = $gateway->purchase(
+            array(
+                'amount'    => '10.00',
+                'currency'  => 'USD',
+                'returnUrl' => 'http://www.uc-web.mobi/TMO/company/6/store/1/',
+                'cancelUrl' => 'http://www.uc-web.mobi/TMO/company/6/store/1/'
+            ))->send();
+
+        if ($response->isSuccessful()) {
+            // payment was successful: update database
+            print_r($response);
+        } elseif ($response->isRedirect()) {
+            // redirect to offsite payment gateway
+            $response->redirect();
+        } else {
+            // payment failed: display message to customer
+            echo $response->getMessage();
+        }
 
         // Create a gateway for the PayPal RestGateway
         // (routes to GatewayFactory::create)
