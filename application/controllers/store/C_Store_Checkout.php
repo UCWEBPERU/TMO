@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-//use Omnipay\Omnipay;
+use Omnipay\Omnipay;
 
 class C_Store_Checkout extends CI_Controller {
 
