@@ -221,6 +221,7 @@ $route['company/(:num)/store/(:num)/signin']                    = 'store/C_Store
 $route['company/(:num)/store/(:num)/signout']                   = 'store/C_Store_Sign_In/signOut';
 $route['company/(:num)/store/(:num)/forgotpassword']            = 'store/C_Store_Sign_In/forgotPassword';
 $route['company/(:num)/store/(:num)/register']                  = 'store/C_Store_Register';
+$route['company/(:num)/store/(:num)/checkout']                  = 'store/C_Store_Checkout';
 $route['company/(:num)/store/(:num)/ajax/registerClient']       = 'store/C_Store_Register/ajaxRegister';
 $route['company/(:num)/store/(:num)/ajax/signIn']               = 'store/C_Store_Sign_In/ajaxSignIn';
 $route['company/(:num)/store/(:num)/ajax/forgotPassword']       = 'store/C_Store_Sign_In/ajaxForgotPassword';
