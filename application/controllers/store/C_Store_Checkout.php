@@ -17,10 +17,10 @@ class C_Store_Checkout extends CI_Controller {
 
     public function index() {
 
-        $gateway = GatewayFactory::create('PayPal_Express');
+        $gateway = Omnipay::create('PayPal_Express');
         $gateway->setUsername('sales@lab.design');
         $gateway->setPassword('Hovt100671');
-        $gateway->setTestMode(false);
+        $gateway->setTestMode(true);
 
 //        $gateway = Omnipay::create('Stripe');
 //        $gateway->setApiKey('abc123');
