@@ -19,9 +19,9 @@ class C_Store_Checkout extends CI_Controller {
 
 
         $gateway = Omnipay::create('Stripe');
-        $gateway->setApiKey('sk_live_Y8KSanX283UzDT2OZ2xpNann');
+        $gateway->setApiKey('sk_test_CrIMteM3hZEr98Qj3KKOiYCm');
 
-        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
+        $formData = array('email' => 'mickhve@gmail.com');
         $response = $gateway->purchase(array('amount' => '10.00', 'currency' => 'USD', 'card' => $formData))->send();
 
         if ($response->isSuccessful()) {
@@ -34,7 +34,6 @@ class C_Store_Checkout extends CI_Controller {
             // payment failed: display message to customer
             echo $response->getMessage();
         }
-
 
 //        $gateway = Omnipay::create('PayPal_Express');
 //        $gateway->setUsername('sales@lab.design');
