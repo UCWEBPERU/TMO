@@ -154,13 +154,6 @@ class M_Store extends CI_Model {
 
         return $query->result();
     }
-    public function getProductByID($data) {
-        $this->db->where('id_producto', $data["id_producto"]);
-        $this->db->where('estado', '1');
-        $query = $this->db->get('Producto');
-
-        return $query->result();
-    }
 
     public function getModifiers($data) {
         $this->db->select("Modificador_Productos.id_modificador_productos,
