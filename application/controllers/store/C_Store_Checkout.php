@@ -20,7 +20,7 @@ class C_Store_Checkout extends CI_Controller {
         $gateway = Omnipay::create('PayPal_Express');
         $gateway->setUsername('sales@lab.design');
         $gateway->setPassword('Hovt100671');
-        $gateway->setTestMode(true);
+//        $gateway->setTestMode(true);
 
 //        $gateway = Omnipay::create('Stripe');
 //        $gateway->setApiKey('abc123');
