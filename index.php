@@ -56,6 +56,7 @@
  */
 	//ini_set('max_execution_time', 0);
 	//ini_set('memory_limit', '512M');
+	ini_set( 'arg_separator.output', '&');
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
