@@ -226,11 +226,11 @@ $route['company/(:num)/store/(:num)/ajax/signIn']               = 'store/C_Store
 $route['company/(:num)/store/(:num)/ajax/forgotPassword']       = 'store/C_Store_Sign_In/ajaxForgotPassword';
 
 
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num)']                   = 'store/C_Store_Product/viewProduct/$3.$4';
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num)']            = 'store/C_Store_Product/viewProduct/$3.$4.$5';
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num)']     = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6';
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num)']     = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7';
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']     = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7.$8';
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num)']                                   = 'store/C_Store_Product/viewProduct/$3.$4';
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num)']                            = 'store/C_Store_Product/viewProduct/$3.$4.$5';
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6';
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num)']              = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7';
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']       = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7.$8';
 
 // url para soportar el anidamiento de las subcategorias
 $route['company/(:num)/store/(:num)/categories/(:num)']                             = 'store/C_Store_Home/viewSubCategorias/$3';
@@ -238,7 +238,7 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num)']                  
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num)']               = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5';
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num)']        = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6';
 $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num)'] = 'store/C_Store_Home/viewSubCategorias/$3.$4.$5.$6.$7';
- 
+
 /*
 | ------------------------------
 | URL -> CART
