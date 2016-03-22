@@ -149,7 +149,7 @@ use Omnipay\PayPal\Message\RefundRequest;
  * @link https://developer.paypal.com/docs/api/#authentication--headers
  * @see Omnipay\PayPal\Message\AbstractRestRequest
  */
-class Gateway extends AbstractGateway
+class RestGateway extends AbstractGateway
 {
 
     // Constants used in plan creation
