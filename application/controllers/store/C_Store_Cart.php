@@ -14,7 +14,7 @@ class C_Store_Cart extends CI_Controller {
         $this->load->helper('form');
     }
 
-    function index(){
+    function index() {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
         $modulo->has_user_session = $this->usersession->isClient();
@@ -37,8 +37,7 @@ class C_Store_Cart extends CI_Controller {
 
     }
 
-    function addCart()
-    {
+    function addCart() {
         $json 				= new stdClass();
         $json->type 		= "Insertar Carrito";
         $json->presentation = "";
@@ -71,16 +70,11 @@ class C_Store_Cart extends CI_Controller {
             $json->status 	= TRUE;
         }
 
-
         echo json_encode($json);
-
-
-
     }
 
 
-    function updateCart(){
-
+    function updateCart() {
         // Recieve post values,calcute them and update
         $cart_info = $_POST['cart'];
         foreach ($cart_info as $id => $cart) {
@@ -96,10 +90,9 @@ class C_Store_Cart extends CI_Controller {
                 'qty' => $qty
             );
         }
-
     }
 
-    function deleteitemCart(){
+    function deleteitemCart() {
         $json 				= new stdClass();
         $json->type 		= "Eliminar Item";
         $json->presentation = "";
@@ -113,11 +106,7 @@ class C_Store_Cart extends CI_Controller {
             $json->status 	= TRUE;
         }
 
-        
         echo json_encode($json);
-
-
     }
     
 }
-?>
