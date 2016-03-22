@@ -37,7 +37,7 @@
                 // If cart is empty, this will show below message.
                 if(empty($cart_check)) { ?>
 
-                    <div class="col-xs-12 titlecart" >
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
                         <h2>To add products to your shopping cart click on "Add to Cart" Button</h2>
                     </div>
                     <div class="col-xs-12 detail" style="height: 150px;"></div>
