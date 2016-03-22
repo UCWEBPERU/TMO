@@ -24,12 +24,11 @@ class C_Store_Checkout extends CI_Controller {
 //        $gateway = Omnipay::create('Stripe');
 //        $gateway->setApiKey('abc123');
 
-        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
+//        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
         $response = $gateway->purchase(
             array(
                 'amount'    => '10.00',
                 'currency'  => 'USD',
-                'card'      => $formData,
                 'returnUrl' => 'http://www.uc-web.mobi/TMO/company/6/store/1/',
                 'cancelUrl' => 'http://www.uc-web.mobi/TMO/company/6/store/1/'
             ))->send();
