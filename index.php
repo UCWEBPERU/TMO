@@ -297,4 +297,6 @@ echo SELF."<br>";
 echo BASEPATH."<br>";
 echo SYSDIR."<br>";
 echo APPPATH."<br>";
+echo APPPATH."<br>";
+require FCPATH.'vendor/autoload.php';
 require_once BASEPATH.'core/CodeIgniter.php';
