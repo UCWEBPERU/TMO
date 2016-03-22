@@ -19,11 +19,10 @@ class C_Store_Checkout extends CI_Controller {
 
 
         $gateway = Omnipay::create('Stripe');
-        $gateway->setApiKey('sk_test_CrIMteM3hZEr98Qj3KKOiYCm');
+        $gateway->setApiKey('sk_live_Y8KSanX283UzDT2OZ2xpNann');
 
-//        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
-//        $response = $gateway->purchase(array('amount' => '10.00', 'currency' => 'USD', 'card' => $formData))->send();
-        $response = $gateway->purchase(array('amount' => '10.00', 'currency' => 'USD'))->send();
+        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
+        $response = $gateway->purchase(array('amount' => '10.00', 'currency' => 'USD', 'card' => $formData))->send();
 
         if ($response->isSuccessful()) {
             // payment was successful: update database
