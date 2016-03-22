@@ -30,7 +30,8 @@ class C_Store_Checkout extends CI_Controller {
                 'amount'    => '10.00',
                 'currency'  => 'USD',
                 'card'      => $formData,
-                'returnUrl' => 'http://www.uc-web.mobi/TMO/company/6/store/1/'
+                'returnUrl' => 'http://www.uc-web.mobi/TMO/company/6/store/1/',
+                'cancelUrl' => 'http://www.uc-web.mobi/TMO/company/6/store/1/'
             ))->send();
 
         if ($response->isSuccessful()) {
