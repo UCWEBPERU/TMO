@@ -292,11 +292,5 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
-echo FCPATH."<br>";
-echo SELF."<br>";
-echo BASEPATH."<br>";
-echo SYSDIR."<br>";
-echo APPPATH."<br>";
-echo APPPATH."<br>";
-require_once 'vendor/autoload.php';
+require_once __DIR__.'/vendor/autoload.php';
 require_once BASEPATH.'core/CodeIgniter.php';
