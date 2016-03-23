@@ -12,6 +12,7 @@ class C_Store_Cart extends CI_Controller {
         $this->load->helper('store/h_store');
         $this->load->library('cart');
         $this->load->helper('form');
+        $this->load->library('user_agent');
     }
 
     function index() {
