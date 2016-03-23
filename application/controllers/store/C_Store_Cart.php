@@ -69,8 +69,8 @@ class C_Store_Cart extends CI_Controller {
 
         $option = array("url_image", $dataProducto[0]->galeria_producto[0]->url_archivo);
         $modifiers = $this->input->post('modifiers[]');
-        //var_dump($this->input->post());
-        foreach($modifiers as $posicion=>$item){
+        var_dump($modifiers);
+        foreach($modifiers as $item){
             //array_push($option, $item);
             var_dump($item);
 

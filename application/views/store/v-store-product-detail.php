@@ -237,7 +237,7 @@
                 formData.append("precio_producto", precio_producto);
                 for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
                     formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
-                    //console.log(listaModificadoresSeleccionados[c].id);
+                    
                 }
 
 
