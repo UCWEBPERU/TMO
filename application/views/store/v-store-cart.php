@@ -92,7 +92,7 @@
                                 var_dump($options);
                                 foreach ($options as $modifier):
                                     if(isset($modifier["modifier"])){ ?>
-                                        <h5><?php echo $modifier["modifier"][0]; ?> : <?php echo $modifier["modifier"][1]; ?></h5>
+                                        <h5><?php echo $modifier["modifier"][0][0]; ?> : <?php echo $modifier["modifier"][0][1]; ?></h5>
                                     <?php } ?>
                             <?php endforeach; ?>
 
