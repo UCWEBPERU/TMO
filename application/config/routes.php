@@ -221,7 +221,6 @@ $route['company/(:num)/store/(:num)/signin']                    = 'store/C_Store
 $route['company/(:num)/store/(:num)/signout']                   = 'store/C_Store_Sign_In/signOut';
 $route['company/(:num)/store/(:num)/forgotpassword']            = 'store/C_Store_Sign_In/forgotPassword';
 $route['company/(:num)/store/(:num)/register']                  = 'store/C_Store_Register';
-$route['company/(:num)/store/(:num)/checkout']                  = 'store/C_Store_Checkout';
 $route['company/(:num)/store/(:num)/ajax/registerClient']       = 'store/C_Store_Register/ajaxRegister';
 $route['company/(:num)/store/(:num)/ajax/signIn']               = 'store/C_Store_Sign_In/ajaxSignIn';
 $route['company/(:num)/store/(:num)/ajax/forgotPassword']       = 'store/C_Store_Sign_In/ajaxForgotPassword';
@@ -241,6 +240,7 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num
 
 $route['company/(:num)/store/(:num)/cart']                      = 'store/C_Store_Cart';
 $route['company/(:num)/store/(:num)/cart/payment-method']       = 'store/C_Store_Cart/addPaymentMethod';
+$route['company/(:num)/store/(:num)/ajax/checkout']             = 'store/C_Store_Checkout/ajaxCheckout';
 $route['shopping/add']                                          = 'store/C_Store_Cart/addCart';
 $route['shopping/update']                                       = 'store/C_Store_Cart/updateCart';
 $route['shopping/delete']                                       = 'store/C_Store_Cart/deleteitemCart';
