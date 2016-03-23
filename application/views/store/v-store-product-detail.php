@@ -65,15 +65,18 @@
                     <div class="col-xs-12 detail" id="color">
                         <?php
                         $contador = 1;
+                        $i = 1;
                         foreach ($modulo->data_modifiers as $modifier) { ?>
                             <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                                 <?php if (isset($modifier->color_rgb)) {
+
                                     if ($contador == 1) { $contador++; ?>
                                         <h2>Color</h2>
                                     <?php } ?>
-                                    <button id="btn.'<?php echo $contador; ?>'." style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                                    <button id="btn<?php echo $i; ?>" style="background: <?php echo $modifier->color_rgb; ?>;"></button>
                                 <?php } ?>
                             <?php } ?>
+                            $i = $i + 1;
                         <?php } ?>
                     </div>
                     <?php
