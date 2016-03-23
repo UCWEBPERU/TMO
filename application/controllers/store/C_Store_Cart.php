@@ -30,6 +30,18 @@ class C_Store_Cart extends CI_Controller {
             redirect("not-found/store");
         }
 
+        if ($this->usersession->isClient()) {
+            $dataUsuario = $this->M_Store->getUserBYEmail(
+                array(
+                    "email_usuario" => $this->session->email_usuario
+                )
+            );
+
+            if (sizeof($dataUsuario) > 0) {
+                $modulo->data_usuario = $dataUsuario[0];
+            }
+        }
+
         $data["modulo"] = $modulo;
 
         //$this->load->view('store/v-store-account', $data);
