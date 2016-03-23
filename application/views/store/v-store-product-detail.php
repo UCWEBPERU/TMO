@@ -235,11 +235,9 @@
                 var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
                 var formData = new FormData();
                 formData.append("id_producto", id_producto);
-
                 formData.append("nombre_producto", nombre_producto);
                 formData.append("precio_producto", precio_producto);
                 formData.append("modifiers[]", listaModificadoresSeleccionados);
-
 
 
                 var request = $.ajax({
