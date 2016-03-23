@@ -35,6 +35,7 @@ class C_Store_Checkout extends CI_Controller {
             $dataStore      = $this->getStoreData();
 
             if (strlen($dataStore->pay_id) > 0) {
+                $this->cart->destroy();
                 $json->message = $validarPago["message"];
                 $json->data = array("transacttion_reference" => $validarPago["transacttion_reference"]);
                 $json->status = $validarPago["status"];
