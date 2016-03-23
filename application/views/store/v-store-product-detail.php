@@ -145,14 +145,14 @@
     <footer>
         <div id="cart">
             <button id="shoppingcart"><h2>Add to Cart</h2></button>
-        </div> 
+        </div>
         <div id="footer">
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/homes.png" class="images" alt="" /></a>
                 <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Home</a></h2>
             </div>
             <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
+                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/homes.png" class="images" alt="" /></a>
                 <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Home</a></h2>
             </div>
             <div class="boximage">
