@@ -734,7 +734,7 @@
 		font-family: 'Lato';	
 		
 	}
-	.sign a.btn-black {
+	.sign a.btn-black, #cart a.btn-black{
 		display: block;
 		margin-top: 10px;
 		background: #000;
