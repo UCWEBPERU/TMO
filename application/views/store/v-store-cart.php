@@ -60,7 +60,7 @@
                 </div>
             <?php
             // Create form and send all values in "shopping/update_cart" function.
-            echo form_open('shopping/update');
+            echo form_open('<?php echo $modulo->base_url_store'.'/ajax/shopping/update');
             $grand_total = 0;
             $num = 1;
 
@@ -182,7 +182,7 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
     <script>
 
-            var base_url = "<?php echo base_url(); ?>";
+           
 
             function deleteItem(item) {
 
@@ -190,7 +190,7 @@
                 formData.append("id_producto", item);
 
                 var request = $.ajax({
-                    url: base_url + "shopping/delete",
+                    url: "<?php echo $modulo->base_url_store."/ajax/shopping/delete"; ?>",
                     method: "POST",
                     data: formData,
                     dataType: 'json',

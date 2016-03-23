@@ -185,7 +185,7 @@
     <script>
         $(function () {
 
-            var base_url = "<?php echo base_url(); ?>";
+
 
             $("#shoppingcart").on("click", function(evt){
                 evt.preventDefault();
@@ -200,7 +200,7 @@
 
 
                 var request = $.ajax({
-                    url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
+                    url: "<?php echo $modulo->base_url_store."/ajax/shopping/delete"; ?>",
                     method: "POST",
                     data: formData,
                     dataType: 'json',
