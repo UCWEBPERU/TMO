@@ -694,7 +694,7 @@
 		font-weight: bold;
 	}
 /* Sign*/
-	.sign input{
+	.sign input, .sign select {
 		width: 100%;
 		background: #E5E5E5;
 		color: #545454;

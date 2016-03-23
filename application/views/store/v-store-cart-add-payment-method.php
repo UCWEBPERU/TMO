@@ -33,7 +33,7 @@
                     <!--<h3>Set Payment </h3>-->
                     <form id="frmRegister" name="frmRegister" method="post">
                         <div>
-                            <input type="text" id="txtCreditCardNumber" name="txtCreditCardNumber" placeholder="Credit card number" data-parsley-required data-parsley-type="number" data-parsley-minlength="16" data-parsley-maxlength="16" data-parsley-required-message="Enter your credit card number." data-parsley-minlength-message="Invalid credit card number." data-parsley-maxlength-message="Invalid credit card number." data-parsley-type-message="Credit card number is only numbers.">
+                            <input type="text" id="txtCreditCardNumber" name="txtCreditCardNumber" placeholder="Credit card number" maxlength="16" data-parsley-required data-parsley-type="number" data-parsley-minlength="16" data-parsley-maxlength="16" data-parsley-required-message="Enter your credit card number." data-parsley-minlength-message="Invalid credit card number." data-parsley-maxlength-message="Invalid credit card number." data-parsley-type-message="Credit card number is only numbers.">
                             <p class="text-error"></p>
                         </div>
                         <div>
