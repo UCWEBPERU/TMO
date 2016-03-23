@@ -236,8 +236,8 @@
                 formData.append("nombre_producto", nombre_producto);
                 formData.append("precio_producto", precio_producto);
                 for(var i = 0 ; i< listaModificadoresSeleccionados.length; i++){
-                    formData.append("modificador", listaModificadoresSeleccionados[i].id);
-                    console.log("modificador".concat(i)); 
+                    formData.append("modificador".concat(i), listaModificadoresSeleccionados[i].id);
+
                 }
                 //formData.append("modificadores_producto", listaModificadoresSeleccionados);
 
