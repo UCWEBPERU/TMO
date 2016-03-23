@@ -72,7 +72,7 @@
                                     if ($contador == 1) { $contador++; ?>
                                         <h2>Color</h2>
                                     <?php } ?>
-                                    <button  onclick="addColor(<?php echo $modifier->color_rgb; ?>)" style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                                    <button  onclick="addColor('<?php echo $modifier->color_rgb; ?>')" style="background: <?php echo $modifier->color_rgb; ?>;"></button>
                                 <?php } ?>
                             <?php } ?>
 
