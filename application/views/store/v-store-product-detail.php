@@ -236,7 +236,11 @@
 
                 formData.append("nombre_producto", nombre_producto);
                 formData.append("precio_producto", precio_producto);
+                for(var i = 0 ; i< listaModificadoresSeleccionados.length; i++){
+                    //var m = "modificador".concat(i);
+                    formData.append("modificador".concat(i), listaModificadoresSeleccionados[i].id);
 
+                }
 
 
                 var request = $.ajax({

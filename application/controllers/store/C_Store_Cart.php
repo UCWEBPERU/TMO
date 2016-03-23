@@ -54,7 +54,7 @@ class C_Store_Cart extends CI_Controller {
         );
 
         cargarGaleriaPorProducto($dataProducto[0]);
-        //var_dump($this->input->post());
+        var_dump($this->input->post());
         // Set array for send data.
         $insert_data = array(
             'id' => $this->input->post('id_producto'),
