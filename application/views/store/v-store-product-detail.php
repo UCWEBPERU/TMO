@@ -65,7 +65,6 @@
                     <div class="col-xs-12 detail" id="color">
                         <?php
                         $contador = 1;
-                        $i = 1;
                         foreach ($modulo->data_modifiers as $modifier) { ?>
                             <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                                 <?php if (isset($modifier->color_rgb)) {
@@ -73,9 +72,9 @@
                                     if ($contador == 1) { $contador++; ?>
                                         <h2>Color</h2>
                                     <?php } ?>
-                                    <button id="btn<?php echo $i; ?>" style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                                    <button  onclick="addColor(<?php echo $modifier->color_rgb; ?>)" style="background: <?php echo $modifier->color_rgb; ?>;"></button>
                                 <?php } ?>
-                            <?php $i = $i + 1; } ?>
+                            <?php } ?>
 
                         <?php } ?>
                     </div>
@@ -188,7 +187,9 @@
     <script>
         $(function () {
 
-
+            function addColor(color) {
+                alert(color);
+            }
 
             $("#shoppingcart").on("click", function(evt){
                 evt.preventDefault();
