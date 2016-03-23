@@ -47,7 +47,7 @@
                         </div>
                         <div>
                             <select id="cboExpirationYear" name="cboExpirationYear" data-parsley-required data-parsley-required-message="Enter expiration year.">
-                                <option selected="selected" value="">Expiration Month</option>
+                                <option selected="selected" value="">Expiration Year</option>
                                 <?php for ($c = intval(date('Y')); $c < intval(date('Y')) + 50; $c++) { ?>
                                     <option value="<?php echo $c; ?>"><?php echo $c; ?></option>
                                 <?php } ?>
