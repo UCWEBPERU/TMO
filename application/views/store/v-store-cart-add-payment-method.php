@@ -55,7 +55,7 @@
                             <p class="text-error"></p>
                         </div>
                         <div>
-                            <input type="email" id="txtCVC" name="txtCVC" placeholder="CVC" data-parsley-required-message="Cardholder's name" data-parsley-type-message="Enter cardholder's name.">
+                            <input type="email" id="txtCVC" name="txtCVC" placeholder="CVC" data-parsley-required data-parsley-type="number" data-parsley-required-message="Enter cardholder's name." data-parsley-type-message="Credit card number is only numbers.">
                             <p class="text-error"></p>
                         </div>
                         <button id="btnDone" type="submit">Done</button>
