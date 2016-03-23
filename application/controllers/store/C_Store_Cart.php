@@ -71,7 +71,7 @@ class C_Store_Cart extends CI_Controller {
             'qty' => 1,
             'options' => $option
         );
-        var_dump($insert_data);
+        var_dump($modifiers);
 
 
         $result = $this->cart->insert($insert_data);
