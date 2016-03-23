@@ -193,9 +193,10 @@
         }
 
         function addModifier(idModifier, tipoModifier) {
-            if ( validarModificadorEnLista(idModifier, tipoModifier) ) {
-                listaModificadoresSeleccionados[c].id = idModifier;
-                listaModificadoresSeleccionados[c].tipo = tipoModifier;
+            var indiceModificador = validarModificadorEnLista(tipoModifier);
+            if ( indiceModificador != -1 ) {
+                listaModificadoresSeleccionados[indiceModificador].id = idModifier;
+                listaModificadoresSeleccionados[indiceModificador].tipo = tipoModifier;
             } else {
                 datosModificador = {
                     "id"    : idModifier,
@@ -206,15 +207,15 @@
             }
         }
         
-        function validarModificadorEnLista(idModifier, tipoModifier) {
-            var result = false;
+        function validarModificadorEnLista(tipoModifier) {
+            var indiceModificador = -1;
             for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
                 if (listaModificadoresSeleccionados[c].tipo == tipoModifier) {
-                    result = true;
+                    result = c;
                     break;
                 }
             }
-            return result;
+            return indiceModificador;
         }
 
         $(function () {
