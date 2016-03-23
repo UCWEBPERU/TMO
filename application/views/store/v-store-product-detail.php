@@ -210,9 +210,7 @@
         function validarModificadorEnLista(tipoModifier) {
             var indiceModificador = -1;
             for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
-                console.log(listaModificadoresSeleccionados[c].tipo);
-                console.log(tipoModifier);
-                console.log((listaModificadoresSeleccionados[c].tipo == tipoModifier) ? true : false);
+               
                 if (listaModificadoresSeleccionados[c].tipo == tipoModifier) {
                     indiceModificador = c;
                     break;
@@ -231,7 +229,8 @@
             $("#shoppingcart").on("click", function(evt){
                 evt.preventDefault();
                 var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
-
+                var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
+                var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
                 var formData = new FormData();
                 formData.append("id_producto", id_producto);
 
