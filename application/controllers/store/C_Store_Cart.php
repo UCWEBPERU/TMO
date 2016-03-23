@@ -69,12 +69,13 @@ class C_Store_Cart extends CI_Controller {
 
         $option = array("url_image", $dataProducto[0]->galeria_producto[0]->url_archivo);
         $modifiers = $this->input->post('modifiers[]');
-        var_dump($modifiers);
+        //var_dump($modifiers);
         foreach($modifiers as $item){
-            //array_push($option, $item);
-            var_dump($item);
+            array_push($option, $item);
+
 
         };
+        var_dump($option);
         // Set array for send data.
 
 
