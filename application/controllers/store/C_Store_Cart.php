@@ -54,14 +54,16 @@ class C_Store_Cart extends CI_Controller {
         );
 
         cargarGaleriaPorProducto($dataProducto[0]);
-
+        var_dump($this->input->post());
         // Set array for send data.
         $insert_data = array(
             'id' => $this->input->post('id_producto'),
             'name' => $this->input->post('nombre_producto'),
             'price' => $this->input->post('precio_producto'),
             'qty' => 1,
-            'options' => array('url_image' => $dataProducto[0]->galeria_producto[0]->url_archivo)
+            'options' => array(
+                'url_image' => $dataProducto[0]->galeria_producto[0]->url_archivo
+            )
         );
 
         $result = $this->cart->insert($insert_data);
