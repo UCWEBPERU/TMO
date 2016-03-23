@@ -210,6 +210,9 @@
         function validarModificadorEnLista(tipoModifier) {
             var indiceModificador = -1;
             for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
+                console.log(listaModificadoresSeleccionados[c].tipo);
+                console.log(tipoModifier);
+                console.log((listaModificadoresSeleccionados[c].tipo == tipoModifier) ? true : false);
                 if (listaModificadoresSeleccionados[c].tipo == tipoModifier) {
                     result = c;
                     break;
