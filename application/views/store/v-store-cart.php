@@ -90,6 +90,7 @@
 
                             <?php
                                 $modifiers = $this->cart->product_options($item['rowid']);
+                                var_dump($modifiers);
                                 foreach ($modifiers as $modifier):
                                     if(isset($modifier["modifier"])){ ?>
                                         <h5><?php echo $modifier["modifier"][0]; ?> : <?php echo $modifier["modifier"][1]; ?></h5>
