@@ -154,7 +154,7 @@
                             confirmButtonText: "Accept",
                             closeOnConfirm: false
                         }, function(){
-                            $(location).attr("href", <?php echo $modulo->base_url_store; ?>);
+                            $(location).attr("href", "<?php echo $modulo->base_url_store; ?>");
                         });
 
                     } else {
