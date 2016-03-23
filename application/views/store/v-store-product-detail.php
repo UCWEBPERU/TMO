@@ -224,7 +224,6 @@
             $(".btnAddModifier").on("click", function (e){
                 e.preventDefault();
                 addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
-                //$(this).style.color = "BLACK";
             });
 
             $("#shoppingcart").on("click", function(evt){
@@ -234,14 +233,10 @@
                 var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
                 var formData = new FormData();
                 formData.append("id_producto", id_producto);
+
                 formData.append("nombre_producto", nombre_producto);
                 formData.append("precio_producto", precio_producto);
-                for(var i = 0 ; i< listaModificadoresSeleccionados.length; i++){
-                    //var m = "modificador".concat(i);
-                    formData.append("modificador", listaModificadoresSeleccionados[i].id);
-
-                }
-                //formData.append("modificadores_producto", listaModificadoresSeleccionados);
+                
 
 
                 var request = $.ajax({
