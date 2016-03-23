@@ -501,6 +501,9 @@
 		color:#fff;
 		height: 50px;
 		float: left;
+		width: 100%;
+		padding-right: 5px;
+		padding-left: 5px;
 	}
 	.boximage{
 		
