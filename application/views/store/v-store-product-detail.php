@@ -71,7 +71,7 @@
                                     if ($contador == 1) { $contador++; ?>
                                         <h2>Color</h2>
                                     <?php } ?>
-                                    <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                                    <button id="btn.'<?php echo $contador; ?>'." style="background: <?php echo $modifier->color_rgb; ?>;"></button>
                                 <?php } ?>
                             <?php } ?>
                         <?php } ?>

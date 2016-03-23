@@ -60,7 +60,7 @@
                 </div>
             <?php
             // Create form and send all values in "shopping/update_cart" function.
-            echo form_open('<?php echo $modulo->base_url_store'.'/ajax/shopping/update');
+            echo form_open("<?php echo $modulo->base_url_store".'/ajax/shopping/update');
             $grand_total = 0;
             $num = 1;
 
