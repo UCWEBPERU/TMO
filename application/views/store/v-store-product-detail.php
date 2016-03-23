@@ -219,7 +219,7 @@
             return indiceModificador;
         }
 
-        $(function () {
+
 
             $(".btnAddModifier").on("click", function (e){
                 e.preventDefault();
@@ -267,7 +267,7 @@
 
             });
 
-        });
+       
     </script>
 
 </body>
