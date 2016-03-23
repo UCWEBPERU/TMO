@@ -214,7 +214,7 @@
                 console.log(tipoModifier);
                 console.log((listaModificadoresSeleccionados[c].tipo == tipoModifier) ? true : false);
                 if (listaModificadoresSeleccionados[c].tipo == tipoModifier) {
-                    result = c;
+                    indiceModificador = c;
                     break;
                 }
             }
