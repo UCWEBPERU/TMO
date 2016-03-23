@@ -240,7 +240,7 @@
 
 
                 var request = $.ajax({
-                    url: "<?php echo $modulo->base_url_store."/ajax/shopping/delete"; ?>",
+                    url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
                     method: "POST",
                     data: formData,
                     dataType: 'json',
