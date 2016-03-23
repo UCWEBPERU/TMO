@@ -89,8 +89,9 @@
                             <h5>Quantity : <?php echo $item['qty']; ?></h5>
 
                             <?php
-                                var_dump($options);
+                                
                                 foreach ($options as $modifier):
+                                    var_dump($modifier);
                                     if(isset($modifier["modifier"])){ ?>
                                         <h5><?php echo $modifier["modifier"][0][0]; ?> : <?php echo $modifier["modifier"][0][1]; ?></h5>
                                     <?php } ?>
