@@ -75,8 +75,8 @@
                                     <?php } ?>
                                     <button id="btn<?php echo $i; ?>" style="background: <?php echo $modifier->color_rgb; ?>;"></button>
                                 <?php } ?>
-                            <?php } ?>
-                            $i = $i + 1;
+                            <?php $i = $i + 1; } ?>
+
                         <?php } ?>
                     </div>
                     <?php
