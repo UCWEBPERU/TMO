@@ -72,7 +72,7 @@
                                     if ($contador == 1) { $contador++; ?>
                                         <h2>Color</h2>
                                     <?php } ?>
-                                    <button style="background: <?php echo $modifier->color_rgb; ?>;" class="btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"></button>
+                                    <button style="background: <?php echo $modifier->color_rgb; ?>;" class="btnAddModifier" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></button>
                                 <?php } ?>
                             <?php } ?>
 
