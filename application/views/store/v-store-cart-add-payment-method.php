@@ -146,7 +146,17 @@
                 request.done(function( response ) {
                     $(".fakeloader").fakeLoaderClose();
                     if (response.status) {
-                        swal("Checkout!", response.message, "success");
+//                        swal("Checkout", response.message, "success");
+                        swal({
+                            title: "Checkout",
+                            text: response.message,
+                            type: "success",
+                            confirmButtonText: "Accept",
+                            closeOnConfirm: false
+                        }, function(){
+                            $(location).attr("href", <?php echo $modulo->base_url_store; ?>);
+                        });
+
                     } else {
                         $(".register-error").html(response.message);
                     }
