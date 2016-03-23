@@ -142,7 +142,7 @@
         </div>
 
     </content>
-    <footer>
+    <footer> 
         <div id="cart">
             <button id="shoppingcart"><h2>Add to Cart</h2></button>
         </div>
