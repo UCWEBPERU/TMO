@@ -154,7 +154,7 @@
 
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Promotions</a></h1>
+                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Offers</a></h1>
             </div>
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
