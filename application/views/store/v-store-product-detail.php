@@ -224,6 +224,7 @@
             $(".btnAddModifier").on("click", function (e){
                 e.preventDefault();
                 addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+                $(this).style.borderColor = "BLACK";
             });
 
             $("#shoppingcart").on("click", function(evt){
