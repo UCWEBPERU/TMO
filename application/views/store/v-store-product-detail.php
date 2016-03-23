@@ -185,11 +185,12 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
 
     <script>
+        function addColor(color) {
+            alert(color);
+        }
         $(function () {
 
-            function addColor(color) {
-                alert(color);
-            }
+
 
             $("#shoppingcart").on("click", function(evt){
                 evt.preventDefault();
