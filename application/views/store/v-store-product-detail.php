@@ -72,7 +72,7 @@
                                     if ($contador == 1) { $contador++; ?>
                                         <h2>Color</h2>
                                     <?php } ?>
-                                    <button onclick="addColor('<?php echo$modifier->color_rgb; ?>' )"  style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                                    <button style="background: <?php echo $modifier->color_rgb; ?>;" class="btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"></button>
                                 <?php } ?>
                             <?php } ?>
 
@@ -94,7 +94,7 @@
                                 <div class="col-xs-12 detail" >
                                 <h2>Please select a <?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>:</h2>
                             <?php } ?>
-                            <button> <?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></button>
+                            <button class="btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"> <?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></button>
                             <?php if ($tipoModificadorActual != $tipoModificadorSiguiente) { ?>
                                 </div>
                             <?php } ?>
@@ -185,12 +185,44 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
 
     <script>
-        function addColor(color) {
-            alert(color);
+
+        var listaModificadoresSeleccionados = [];
+        var datosModificador = {
+            "id"    : 0,
+            "tipo"  : ""
         }
+
+        function addModifier(idModifier, tipoModifier) {
+            if ( validarModificadorEnLista(idModifier, tipoModifier) ) {
+                listaModificadoresSeleccionados[c].id = idModifier;
+                listaModificadoresSeleccionados[c].tipo = tipoModifier;
+            } else {
+                datosModificador = {
+                    "id"    : idModifier,
+                    "tipo"  : tipoModifier
+                }
+                listaModificadoresSeleccionados.push(datosModificador);
+                console.log(listaModificadoresSeleccionados);
+            }
+        }
+        
+        function validarModificadorEnLista(idModifier, tipoModifier) {
+            var result = false;
+            for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
+                if (listaModificadoresSeleccionados[c].tipo == tipoModifier) {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
+        }
+
         $(function () {
 
-
+            $(".btnAddModifier").on("click", function (e){
+                e.preventDefault();
+                addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+            });
 
             $("#shoppingcart").on("click", function(evt){
                 evt.preventDefault();
