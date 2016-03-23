@@ -206,11 +206,11 @@
             }
             console.log(listaModificadoresSeleccionados);
         }
-        
+
         function validarModificadorEnLista(tipoModifier) {
             var indiceModificador = -1;
             for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
-               
+
                 if (listaModificadoresSeleccionados[c].tipo == tipoModifier) {
                     indiceModificador = c;
                     break;
@@ -236,7 +236,7 @@
 
                 formData.append("nombre_producto", nombre_producto);
                 formData.append("precio_producto", precio_producto);
-                
+
 
 
                 var request = $.ajax({
