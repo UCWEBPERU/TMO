@@ -76,7 +76,7 @@ class C_Store_Checkout extends CI_Controller {
         // Create a credit card object
         // DO NOT USE THESE CARD VALUES -- substitute your own
         // see the documentation in the class header.
-        $card = new CreditCard(array(
+        $card = array(
             'firstName' => 'Example',
             'lastName' => 'User',
             'number' => '4111111111111111',
@@ -88,7 +88,7 @@ class C_Store_Checkout extends CI_Controller {
             'billingCity'           => 'Scrubby Creek',
             'billingPostcode'       => '4999',
             'billingState'          => 'QLD',
-        ));
+        );
 
         // Do an authorisation transaction on the gateway
         $transaction = $gateway->authorize(array(
