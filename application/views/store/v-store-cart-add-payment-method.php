@@ -101,6 +101,7 @@
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fakeloader/fakeLoader.min.js"></script>
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
 
     var selectorInputsForm = ["#txtCreditCardNumber", "#cboExpirationMonth", "#cboExpirationYear", "#txtCVC"];
@@ -141,10 +142,10 @@
                 });
 
                 request.done(function( response ) {
+                    $(".fakeloader").fakeLoaderClose();
                     if (response.status) {
-                        $(location).attr("href", response.data.url_redirect);
+                        swal("Checkout!", response.message, "success");
                     } else {
-                        $(".fakeloader").fakeLoaderClose();
                         $(".register-error").html(response.message);
                     }
                 });
