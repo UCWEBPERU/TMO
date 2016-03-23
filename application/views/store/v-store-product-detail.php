@@ -224,8 +224,6 @@
             $(".btnAddModifier").on("click", function (e){
                 e.preventDefault();
                 addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
-                
-
             });
 
             $("#shoppingcart").on("click", function(evt){
@@ -237,8 +235,10 @@
                 formData.append("id_producto", id_producto);
                 formData.append("nombre_producto", nombre_producto);
                 formData.append("precio_producto", precio_producto);
-                formData.append("modifiers[]", listaModificadoresSeleccionados);
-                console.log(formData);
+                for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
+                    formData.append("modifiers[]", listaModificadoresSeleccionados[c].id,listaModificadoresSeleccionados[c].tipo );
+                }
+
 
                 var request = $.ajax({
                     url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",

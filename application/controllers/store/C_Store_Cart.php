@@ -68,12 +68,12 @@ class C_Store_Cart extends CI_Controller {
         cargarGaleriaPorProducto($dataProducto[0]);
 
         $option = array("url_image", $dataProducto[0]->galeria_producto[0]->url_archivo);
-        $modifiers = $this->input->post('modifiers');
-        //print_r($this->input->post('modifiers[]'));
-        foreach($modifiers as $posicion=>$item){
+        //$modifiers = $this->input->post('modifiers');
+        print_r($this->input->post('modifiers[]'));
+        /*foreach($modifiers as $posicion=>$item){
             //array_push($option, $item);
 
-        };
+        };*/
         // Set array for send data.
 
 
