@@ -18,7 +18,8 @@ class C_Store_Checkout extends CI_Controller {
     public function index() {
 
         $gateway = Omnipay::create('Stripe');
-        $gateway->setApiKey('sk_live_Y8KSanX283UzDT2OZ2xpNann');
+        $gateway->setApiKey('pk_test_9VcwnH8VeFZ1kF2ace5KYXbb');
+//        $gateway->setApiKey('sk_live_Y8KSanX283UzDT2OZ2xpNann');
 
         $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
 //        $formData = array('number' => '4761739001010010', 'expiryMonth' => '12', 'expiryYear' => '2018', 'cvv' => '201');
