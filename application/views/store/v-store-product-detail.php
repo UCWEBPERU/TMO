@@ -238,7 +238,7 @@
                 formData.append("nombre_producto", nombre_producto);
                 formData.append("precio_producto", precio_producto);
                 formData.append("modifiers[]", listaModificadoresSeleccionados);
-
+                console.log(formData);
 
                 var request = $.ajax({
                     url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
