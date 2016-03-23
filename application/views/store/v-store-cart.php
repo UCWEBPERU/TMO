@@ -133,7 +133,7 @@
     <footer>
         <div id="cart">
 <!--            <button id="placeorder"><h2>Place Order</h2></button>-->
-            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signout" >Place Order</a>
+            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/cart/payment-method" >Place Order</a>
         </div>
         <div id="footer">
             <div class="boximage">

@@ -239,10 +239,11 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num
 | ------------------------------
 */
 
-$route['company/(:num)/store/(:num)/cart']                     = 'store/C_Store_Cart';
-$route['shopping/add']                                         = 'store/C_Store_Cart/addCart';
-$route['shopping/update']                                     = 'store/C_Store_Cart/updateCart';
-$route['shopping/delete']                                     = 'store/C_Store_Cart/deleteitemCart';
+$route['company/(:num)/store/(:num)/cart']                      = 'store/C_Store_Cart';
+$route['company/(:num)/store/(:num)/cart/payment-method']       = 'store/C_Store_Cart/addPaymentMethod';
+$route['shopping/add']                                          = 'store/C_Store_Cart/addCart';
+$route['shopping/update']                                       = 'store/C_Store_Cart/updateCart';
+$route['shopping/delete']                                       = 'store/C_Store_Cart/deleteitemCart';
 
 ///*
 //| ------------------------------
