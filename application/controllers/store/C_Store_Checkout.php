@@ -26,7 +26,7 @@ class C_Store_Checkout extends CI_Controller {
         if ($response->isSuccessful()) {
             // payment was successful: update database
             echo $auth_id = $response->getTransactionReference();
-            print_r($response);
+            var_dump($response);
         } elseif ($response->isRedirect()) {
             // redirect to offsite payment gateway
             $response->redirect();
