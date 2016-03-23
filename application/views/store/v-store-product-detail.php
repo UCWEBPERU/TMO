@@ -224,6 +224,8 @@
             $(".btnAddModifier").on("click", function (e){
                 e.preventDefault();
                 addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+                $(this).style.color='#003366';
+
             });
 
             $("#shoppingcart").on("click", function(evt){
@@ -237,7 +239,7 @@
                 formData.append("nombre_producto", nombre_producto);
                 formData.append("precio_producto", precio_producto);
                 formData.append("modifiers[]", listaModificadoresSeleccionados);
-                
+
 
 
                 var request = $.ajax({
