@@ -20,13 +20,13 @@ class C_Store_Checkout extends CI_Controller {
         $gateway = Omnipay::create('Stripe');
         $gateway->setApiKey('sk_live_Y8KSanX283UzDT2OZ2xpNann');
 
-//        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
-        $formData = array('number' => '4761739001010010', 'expiryMonth' => '12', 'expiryYear' => '2018', 'cvv' => '201');
+        $formData = array('number' => '4242424242424242', 'expiryMonth' => '6', 'expiryYear' => '2016', 'cvv' => '123');
+//        $formData = array('number' => '4761739001010010', 'expiryMonth' => '12', 'expiryYear' => '2018', 'cvv' => '201');
         $response = $gateway->purchase(array('amount' => '10.00', 'currency' => 'USD', 'card' => $formData))->send();
 
         if ($response->isSuccessful()) {
             // payment was successful: update database
-            echo $auth_id = $response->getTransactionReference();
+            var_dump($response->getTransactionReference());
             var_dump($response);
         } elseif ($response->isRedirect()) {
             // redirect to offsite payment gateway
