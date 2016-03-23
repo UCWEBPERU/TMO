@@ -67,11 +67,18 @@ class C_Store_Checkout extends CI_Controller {
         $gateway = Omnipay::create('PayPal_Rest');
 
         // Initialise the gateway
+//        $gateway->initialize(array(
+//            'clientId' => 'AVg1I_sUtJ0o9EAjrOc0RcqTUPIZWScTjc_Goj7A0DSkbeIEts0oEf6w9zECrdSe-p8opzJtUCKdWab8',
+//            'secret'   => 'EDpduhPbvFGXfWV23YvnifwEGrnHg3hA-v-RvgL1K9uk_xkDaat4XYNOVguvkENCercJYC8Je-12CYXH',
+//            'testMode' => true, // Or false when you are ready for live transactions
+//        ));
         $gateway->initialize(array(
-            'clientId' => 'AVg1I_sUtJ0o9EAjrOc0RcqTUPIZWScTjc_Goj7A0DSkbeIEts0oEf6w9zECrdSe-p8opzJtUCKdWab8',
-            'secret'   => 'EDpduhPbvFGXfWV23YvnifwEGrnHg3hA-v-RvgL1K9uk_xkDaat4XYNOVguvkENCercJYC8Je-12CYXH',
+            'clientId' => 'Ac-DjRm6aIjZdRWOUt4TbynQUlVfErqzMjh_7cxJB2Dc-dYqlDZoBSptF8yZ8eOTwscMcZD6eAYFwUj9',
+            'secret'   => 'EJRC21ay3VTyuoMguOHEnt8d3vwLR4kuI7eejaYAUbYLAG5ogrcrQd1T1YcIV5IxuGHIrkOZ-rhLjng6',
             'testMode' => true, // Or false when you are ready for live transactions
         ));
+
+
 
         // Create a credit card object
         // DO NOT USE THESE CARD VALUES -- substitute your own
