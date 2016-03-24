@@ -89,11 +89,7 @@
                             <h5>Quantity : <?php echo $item['qty']; ?></h5>
                             <?php
                             $modifiers = $this->cart->product_options($item['rowid']);
-                            foreach ($modifiers as $modifier):
-                                if(isset($modifier["modifier"])){ ?>
-                                    <h5><?php echo $modifier["modifier"][0]; ?> : <?php echo $modifier["modifier"][1]; ?></h5>
-                                <?php } ?>
-                            <?php endforeach; ?>
+                            var_dump($modifiers);?>
                             <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
                             <?php $grand_total = $grand_total + $item['subtotal']; ?>
