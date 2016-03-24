@@ -75,6 +75,7 @@ class C_Store_Cart extends CI_Controller {
             $datamodificador = obtenerModificadorByID($item);
             array_push($option,
                  array(
+                     "modifier",
                      $datamodificador->tipo_modificador,
                     $datamodificador->descripcion_modificador,
                     $datamodificador->costo_modificador
