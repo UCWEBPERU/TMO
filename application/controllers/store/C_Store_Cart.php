@@ -73,12 +73,11 @@ class C_Store_Cart extends CI_Controller {
 
         foreach($modifiers as $item){
             $datamodificador = obtenerModificadorByID($item);
-            array_push($option, array(
-                "modifier" => array(
+            array_push($option["modifier"],
+                 array(
                     $datamodificador->tipo_modificador,
                     $datamodificador->descripcion_modificador,
-                    $datamodificador->costo_modificador)
-            ));
+                    $datamodificador->costo_modificador) );
         };
         var_dump($option);
         // Set array for send data.
