@@ -80,14 +80,6 @@
                     <div>
 
                         <div class="col-xs-5 list"  id="cartitem" >
-                            <?php
-                            $modifiers = $this->cart->product_options($item['rowid']);
-                            foreach ($modifiers as $modifier):
-                                var_dump($modifier);
-                                if(isset($modifier["modifier"])){ ?>
-                                    <h5><?php echo $modifier["modifier"][0][0]; ?> : <?php echo $modifier["modifier"][0][1]; ?></h5>
-                                <?php } ?>
-                            <?php endforeach; ?>
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
                             <a class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>' )" >Delete</a>
                         </div>
@@ -95,9 +87,13 @@
                             <h3><?php echo $item['name']; ?></h3>
                             <h4>$ <?php echo number_format($item['price'], 2); ?></h4>
                             <h5>Quantity : <?php echo $item['qty']; ?></h5>
-
-                            
-
+                            <?php
+                            $modifiers = $this->cart->product_options($item['rowid']);
+                            foreach ($modifiers as $modifier):
+                                if(isset($modifier["modifier"])){ ?>
+                                    <h5><?php echo $modifier["modifier"][0]; ?> : <?php echo $modifier["modifier"][1]; ?></h5>
+                                <?php } ?>
+                            <?php endforeach; ?>
                             <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
                             <?php $grand_total = $grand_total + $item['subtotal']; ?>

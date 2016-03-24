@@ -79,7 +79,7 @@ class C_Store_Cart extends CI_Controller {
                     $datamodificador->descripcion_modificador,
                     $datamodificador->costo_modificador) );
         };
-        var_dump($option);
+//        var_dump($option);
         // Set array for send data.
 
         $insert_data = array(
