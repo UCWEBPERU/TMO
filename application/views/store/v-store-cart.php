@@ -98,9 +98,11 @@
                             <?php   $addtional += $modifier[3];
                                     $addtionals = $addtional  * $item['qty'];
 
+
+                                //echo $addtionals;
+                            endforeach;
                                     $totaladditional += $addtionals;
-                                echo $totaladditional;
-                            endforeach; ?>
+                            ?>
                             <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
                             <?php $grand_total = $grand_total + $item['subtotal']; ?>
