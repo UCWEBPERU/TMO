@@ -100,7 +100,7 @@ class C_Store_Cart extends CI_Controller {
         $result = $this->cart->insert($insert_data);
         
         if($result){
-            $json->message = "Carrito insertado correctamente";
+            $json->message = "Item added successfully";
             $json->status 	= TRUE;
         }
 
