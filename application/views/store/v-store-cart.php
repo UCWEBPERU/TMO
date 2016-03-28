@@ -78,8 +78,8 @@
                 <div class="row" >
 
                     <div>
-                   
-                        <div class="col-xs-5 list"  id="cartitem" >
+
+                        <div class="col-xs-5 list"  >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
                             <a class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>' )" >Delete</a>
                         </div>
@@ -101,8 +101,8 @@
                             endforeach;
                             ?>
                             <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></h5>
-                            <!--?php $num = $num + $item['qty'] ?-->
-                            <?php $grand_total = $grand_total + $item['subtotal'];
+
+                            <?php $grand_total += + $item['subtotal'];
                             $totaladditional += $addtionals;?>
 
                         </div>
@@ -150,6 +150,7 @@
 
 
         </div>
+        <?php $this->load->view("store/v-alert"); ?>
 
     </content>
 
@@ -213,11 +214,16 @@
                 request.done(function( response ) {
 
                     if (response.status) {
-                        alert(response.message);
+                        $('.modal-title').html("Delete Item");
+                        $('.modal-body').html(response.message);
+                        $('#modalAlert').modal({show:true});
                         location.reload();
 
                     } else {
                         alert(response.message);
+                        $('.modal-title').html("Delete Item");
+                        $('.modal-body').html(response.message);
+                        $('#modalAlert').modal({show:true});
                     }
                 });
 
