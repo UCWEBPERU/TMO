@@ -369,11 +369,9 @@
 		}
 
 	.detail{
-
 		padding: 0;
 		margin: 0;
 		line-height:normal;
-
 	}
 	#contenedordetail2{
 		background: #FFF;
@@ -406,13 +404,13 @@
 			width: 25px;
 		}
 		.detail button{
-			height: 25px;			
+			width: 25px;
+			height: 25px;
 			float: left;
 			margin-left: 10px;
 			background: #FFF;
 			border-color: #000;
 			border-width: 1px;
-	
 		}
 		#titledetail h2{
 			color: #000;
