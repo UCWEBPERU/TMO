@@ -99,7 +99,7 @@ class C_Store_Cart extends CI_Controller {
             'options' => $option
         );
         //var_dump($modifiers);
-        var_dump($this->input->post('precio_producto') + $totaladditional);
+        //var_dump($this->input->post('precio_producto') + $totaladditional);
 
         $result = $this->cart->insert($insert_data);
         
