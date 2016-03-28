@@ -188,21 +188,21 @@ if ( ! function_exists('configurarColorModificadores')) {
         $paletaColores = array(
             "white"         => "#ffffff",
             "black"         => "#000000",
-            "yellow"        => "#ffff00",
-            "brown"         => "#654321",
-            "purple"        => "#800080",
-            "pink"          => "#fbcce7", // #ff007f
-            "orange"        => "#ff4f00",
-            "red"           => "#ff0000",
-            "green"         => "#00ff00",
-            "blue"          => "#0000ff",
+            "yellow"        => "#ffe100",
+            "brown"         => "#654321", // falta
+            "purple"        => "#8f00ff",
+            "pink"          => "#ff0074", // #ff007f
+            "orange"        => "#ff5500",
+            "red"           => "#eb1e1e",
+            "green"         => "#12d63c",
+            "blue"          => "#005fe5",
             "navy blue"     => "#000080",
-            "gray"          => "#808080",
+            "gray"          => "#7c7c7c",
             "cyan"          => "#00ffff",
-            "sky blue"      => "#87ceeb",
-            "golden"        => "#ffd700",
-            "gold"          => "#ffd700",
-            "silver"        => "#c0c0c0",
+            "sky blue"      => "#37d2dc",
+            "golden"        => "#b4af00",
+            "gold"          => "#b4af00",
+            "silver"        => "#e5e5e5",
             "mustard"       => "#ffdb58"
         );
 
