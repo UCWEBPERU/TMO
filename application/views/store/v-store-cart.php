@@ -91,7 +91,7 @@
                             $modifiers = $this->cart->product_options($item['rowid']);
                             foreach ($modifiers as $modifier):
                                     if($modifier[0] == "modifier"){ ?>
-                                    <h5><?php echo $modifier[1]; ?> : <?php echo $modifier[2]; ?></h5>
+                                    <h5><?php echo $modifier[1]; ?> : <?php echo $modifier[2]; ?> ( <?php echo $modifier[3]; ?> ) </h5>
                                 <?php } ?>
                             <?php endforeach; ?>
                             <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) ?></h5>
