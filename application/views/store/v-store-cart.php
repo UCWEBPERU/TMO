@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
 </head>
 <body>
 
@@ -82,7 +84,7 @@
 
                         <div class="col-xs-5 list"  id="cartitem" >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
-                            <a class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>' )" >Delete</a>
+                            <a class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')" >Delete</a>
                         </div>
                         <div class="col-xs-7 list" id="cartitem" >
                             <h3><?php echo $item['name']; ?></h3>
@@ -211,11 +213,13 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
     <script>
 
            
 
-            function deleteItem(item) {
+            function deleteItem(btn, item) {
 
                 var formData = new FormData();
                 formData.append("id_producto", item);
@@ -232,23 +236,24 @@
                 request.done(function( response ) {
 
                     if (response.status) {
-                        $('.modal-title').html("Delete Item");
-                        $('.modal-body').html(response.message);
-                        $('#modalAlert').modal({show:true});
-                        location.reload();
+
+
+                        $(btn).parent().parent().parent().hide(function () {
+                            $(btn).parent().parent().parent().remove();
+                        });
+                        swal("Delete Item", response.message, "success");
+
+                        //location.reload();
 
                     } else {
-                        $('.modal-title').html("Delete Item");
-                        $('.modal-body').html(response.message);
-                        $('#modalAlert').modal({show:true});
+                        swal("Delete Item", response.message, "danger");
+
                     }
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
+                    swal("Delete Item", textStatus, "danger");
                    
-                    $('.modal-title').html("Delete Item");
-                    $('.modal-body').html(textStatus);
-                    $('#modalAlert').modal({show:true});
                 });
             }
 
