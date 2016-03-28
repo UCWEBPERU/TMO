@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
 </head>
 <body>
 
@@ -144,27 +146,7 @@
         </div>
 
     </content>
-    <!-- Modal -->
-    <div id="modalAlert" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body">
-                    <p></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
+    
     <footer>
         <div id="cart">
             <button id="shoppingcart"><h2>Add to Cart</h2></button>
@@ -204,7 +186,8 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
-
+    <!-- Sweet Alert -->
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
     <script>
 
         var listaModificadoresSeleccionados = [];
@@ -274,22 +257,14 @@
                 request.done(function( response ) {
 
                     if (response.status) {
-                        $('.modal-title').html("Add Item");
-                        $('.modal-body').html(response.message);
-                        $('#modalAlert').modal({show:true});
-
+                        swal("Add Item", response.message, "success");
                     } else {
-                        $('.modal-title').html("Add Item");
-                        $('.modal-body').html(response.message);
-                        $('#modalAlert').modal({show:true});
+                        swal("Add Item", response.message, "danger");
                     }
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
-                   
-                    $('.modal-title').html("Add Item");
-                    $('.modal-body').html(textStatus);
-                    $('#modalAlert').modal({show:true});
+                    swal("Add Item", textStatus, "danger");
                 });
 
 
