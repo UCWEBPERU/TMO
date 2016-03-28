@@ -102,7 +102,7 @@
                                     $addtionals = $addtional  * $item['qty'];
 
                             endforeach; ?>
-                            <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) - $addtionals ?></h5>
+                            <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
                             <?php $grand_total += + $item['subtotal'];
                             $totaladditional += $addtionals;?>
@@ -238,12 +238,12 @@
                     if (response.status) {
 
 
-                        $(btn).parent().parent().parent().hide(function () {
-                            $(btn).parent().parent().parent().remove();
-                        });
+                        //$(btn).parent().parent().parent().hide(function () {
+                            //$(btn).parent().parent().parent().remove();
+                        //});
                         swal("Delete Item", response.message, "success");
 
-                        //location.reload();
+                        location.reload();
 
                     } else {
                         swal("Delete Item", response.message, "danger");

@@ -69,7 +69,9 @@ class C_Store_Cart extends CI_Controller {
         cargarGaleriaPorProducto($dataProducto[0]);
 
         $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo);
-        $totaladditional = 0;
+       
+       
+
         //var_dump($modifiers);
         if($this->input->post('modifiers[]')){
             $modifiers = $this->input->post('modifiers[]');
@@ -82,8 +84,12 @@ class C_Store_Cart extends CI_Controller {
                         $datamodificador->descripcion_modificador,
                         $datamodificador->costo_modificador
                     ));
-                $totaladditional += $datamodificador->costo_modificador;
+                
             };
+
+               
+
+
         }
 
 
@@ -94,7 +100,7 @@ class C_Store_Cart extends CI_Controller {
         $insert_data = array(
             'id' => $this->input->post('id_producto'),
             'name' => $this->input->post('nombre_producto'),
-            'price' => $this->input->post('precio_producto') + $totaladditional,
+            'price' => $this->input->post('precio_producto'),
             'qty' => 1,
             'options' => $option
         );
