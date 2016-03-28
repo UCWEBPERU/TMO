@@ -15,7 +15,7 @@ class C_Store_Cart extends CI_Controller {
     }
 
     function index(){
-        $this->usersession->validateSession("panel-store");
+        //$this->usersession->validateSession("panel-store");
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
         $modulo->has_user_session = $this->usersession->isClient();
