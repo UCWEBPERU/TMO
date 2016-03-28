@@ -45,7 +45,7 @@ class C_Store_Cart extends CI_Controller {
 
         $data["modulo"] = $modulo;
 
-        //$this->load->view('store/v-store-account', $data);
+
         $this->load->view('store/v-store-cart',  $data);
 
     }
@@ -69,7 +69,7 @@ class C_Store_Cart extends CI_Controller {
         cargarGaleriaPorProducto($dataProducto[0]);
 
         $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo);
-
+        $totaladditional = 0;
         //var_dump($modifiers);
         if($this->input->post('modifiers[]')){
             $modifiers = $this->input->post('modifiers[]');
@@ -82,8 +82,11 @@ class C_Store_Cart extends CI_Controller {
                         $datamodificador->descripcion_modificador,
                         $datamodificador->costo_modificador
                     ));
+                $totaladditional += $datamodificador->costo_modificador;
             };
         }
+
+        var_dump($totaladditional);
 
 //        var_dump($option);
         // Set array for send data.
