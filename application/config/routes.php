@@ -49,9 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'C_Home';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['default_controller']    = 'C_Home';
+$route['404_override']          = '';
+$route['translate_uri_dashes']  = FALSE;
 
 /*
 | ------------------------------
@@ -68,7 +68,7 @@ $route['admin/signOut']			= 'admin/C_Login/signOut';
 | URL -> MAIN API-REST
 | ------------------------------
 */
-$route['api-rest/geo-data/getRegionsByCountry']	= 'api-rest/C_GEO_Data/ajaxGetRegionsByCountry';
+$route['api-rest/geo-data/getRegionsByCountry']	        = 'api-rest/C_GEO_Data/ajaxGetRegionsByCountry';
 $route['api-rest/geo-data/getCitiesByRegionAndCountry']	= 'api-rest/C_GEO_Data/ajaxGetCitiesByRegionAndCountry';
 
 /*
@@ -93,11 +93,11 @@ $route['admin/empresa/ajax/generatePassword']   = 'admin/module/empresa/C_Admin_
 */
 $route['admin/tipo-empresa']				= 'admin/module/tipoempresa/C_Admin_TipoEmpresa/index';
 $route['admin/tipo-empresa/agregar']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa/agregar';
-$route['admin/tipo-empresa/crear']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa/insert';
-$route['admin/tipo-empresa/editar']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa/update';
-$route['admin/tipo-empresa/(:num)']  	= "admin/module/tipoempresa/C_Admin_TipoEmpresa/edit/$1";
-$route['admin/tipo-empresa/delete']	    = 'admin/module/tipoempresa/C_Admin_TipoEmpresa/delete';
-$route['admin/tipo-empresa/page']		= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
+$route['admin/tipo-empresa/crear']		    = 'admin/module/tipoempresa/C_Admin_TipoEmpresa/insert';
+$route['admin/tipo-empresa/editar']		    = 'admin/module/tipoempresa/C_Admin_TipoEmpresa/update';
+$route['admin/tipo-empresa/(:num)']  	    = "admin/module/tipoempresa/C_Admin_TipoEmpresa/edit/$1";
+$route['admin/tipo-empresa/delete']	        = 'admin/module/tipoempresa/C_Admin_TipoEmpresa/delete';
+$route['admin/tipo-empresa/page']		    = 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 $route['admin/tipo-empresa/page/(:num)']	= 'admin/module/tipoempresa/C_Admin_TipoEmpresa';
 
 /*
