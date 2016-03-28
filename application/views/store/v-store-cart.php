@@ -79,7 +79,7 @@
                 <div class="row" >
 
                     <div>
-                    
+
                         <div class="col-xs-5 list"  id="cartitem" >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
                             <a class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>' )" >Delete</a>
@@ -245,7 +245,10 @@
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
-                    alert(textStatus);
+                   
+                    $('.modal-title').html("Delete Item");
+                    $('.modal-body').html(textStatus);
+                    $('#modalAlert').modal({show:true});
                 });
             }
 
