@@ -32,7 +32,7 @@
 
         <div class="col-xs-12" >
 
-            <?php if ($modulo->has_user_session) { ?>
+
             <div class="row">
                 <?php $cart_check = $this->cart->contents();
 
@@ -141,19 +141,7 @@
 
 
             <?php endif; ?>
-            <?php } else { ?>
-                <div class="row">
 
-
-                        <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
-                            <h2>Sign in to see your Cart</h2>
-                        </div>
-                        <div class="col-xs-12 detail" style="height: 150px;background: #FFFFFF"></div>
-
-
-                </div>
-
-            <?php } ?>
 
             <div class="row" style="height:120px; background:#FFF;">
 
@@ -265,7 +253,7 @@
 
                 request.fail(function( jqXHR, textStatus ) {
                     swal("Delete Item", textStatus, "danger");
-
+                   
                 });
             }
 
