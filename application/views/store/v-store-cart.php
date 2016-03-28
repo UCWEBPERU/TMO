@@ -234,11 +234,15 @@
                 request.done(function( response ) {
 
                     if (response.status) {
-                        alert(response.message);
+                        $('.modal-title').html("Delete Item");
+                        $('.modal-body').html(response.message);
+                        $('#modalAlert').modal({show:true});
                         location.reload();
 
                     } else {
-                        alert(response.message);
+                        $('.modal-title').html("Delete Item");
+                        $('.modal-body').html(response.message);
+                        $('#modalAlert').modal({show:true});
                     }
                 });
 
