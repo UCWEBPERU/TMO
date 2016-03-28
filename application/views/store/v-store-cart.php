@@ -78,7 +78,7 @@
                 <div class="row" >
 
                     <div>
-
+                    <?php $totaladditional= 0 ?>
                         <div class="col-xs-5 list"  id="cartitem" >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
                             <a class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>' )" >Delete</a>
@@ -92,12 +92,14 @@
                             $addtional = 0;
                             foreach ($modifiers as $modifier):
                                     if($modifier[0] == "modifier"){ ?>
-                                    <h5><?php echo $modifier[1]; ?> : <?php echo $modifier[2]; ?> -( <?php echo $modifier[3]; ?> ) </h5>
+                                    <h5><?php echo $modifier[1]; ?> : <?php echo $modifier[2]; ?> - ( $ <?php echo $modifier[3]; ?> ) </h5>
                                 <?php } ?>
 
-                            <?php $addtional += $modifier[3];
+                            <?php   $addtional += $modifier[3];
+                                    $addtionals = $addtional  * $item['qty'];
+                                    $totaladditional += $addtionals;
                             endforeach; ?>
-                            <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtional * $item['qty'] ?></h5>
+                            <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
                             <?php $grand_total = $grand_total + $item['subtotal']; ?>
 
@@ -113,8 +115,7 @@
                         <div class="col-xs-9 list" id="cartitem2" >
                             <h3>Order summary</h3>
                             <h5>Items:</h5>
-                            <h5>Shipping & Handling:</h5>
-                            <h5>Promotion Applied:</h5>
+                            <h5>Additional Cost:</h5>
                             <h6>Total Before Tax:</h6>
                             <h6>Estimated Tax:</h6>
                             <h3>Order Total</h3>
@@ -122,11 +123,10 @@
                         <div class="col-xs-3 list" id="cartitem2" >
                             <h3 style="visibility: hidden">$</h3>
                             <h5>$<?php echo number_format($grand_total, 2); ?></h5>
-                            <h5> $0.00</h5>
-                            <h5> -$0.00</h5>
-                            <h6>$<?php echo number_format($grand_total, 2); ?></h6>
+                            <h5>$<?php echo number_format($totaladditional, 2); ?></h5>
+                            <h6>$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?></h6>
                             <h6>$8.00</h6>
-                            <h3>$<?php echo number_format($grand_total, 2) + 8; ?></h3>
+                            <h3>$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2) + 8; ?></h3>
 
                         </div>
 
