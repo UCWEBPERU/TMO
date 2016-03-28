@@ -86,7 +86,7 @@ class C_Store_Cart extends CI_Controller {
             };
         }
 
-        var_dump($totaladditional);
+
 
 //        var_dump($option);
         // Set array for send data.
@@ -94,12 +94,12 @@ class C_Store_Cart extends CI_Controller {
         $insert_data = array(
             'id' => $this->input->post('id_producto'),
             'name' => $this->input->post('nombre_producto'),
-            'price' => $this->input->post('precio_producto'),
+            'price' => $this->input->post('precio_producto') + $totaladditional,
             'qty' => 1,
             'options' => $option
         );
         //var_dump($modifiers);
-
+        var_dump($this->input->post('precio_producto') + $totaladditional);
 
         $result = $this->cart->insert($insert_data);
         
