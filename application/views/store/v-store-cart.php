@@ -92,12 +92,12 @@
                             $addtional = 0;
                             foreach ($modifiers as $modifier):
                                     if($modifier[0] == "modifier"){ ?>
-                                    <h5><?php echo $modifier[1]; ?> : <?php echo $modifier[2]; ?> - Additional Cost( <?php echo $modifier[3]; ?> ) </h5>
+                                    <h5><?php echo $modifier[1]; ?> : <?php echo $modifier[2]; ?> -( <?php echo $modifier[3]; ?> ) </h5>
                                 <?php } ?>
 
                             <?php $addtional += $modifier[3];
                             endforeach; ?>
-                            <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtional ?></h5>
+                            <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtional * $item['qty'] ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
                             <?php $grand_total = $grand_total + $item['subtotal']; ?>
 
