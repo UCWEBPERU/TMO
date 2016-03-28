@@ -63,7 +63,7 @@
             echo form_open("<?php echo $modulo->base_url_store".'/ajax/shopping/update');
             $grand_total = 0;
             $num = 1;
-
+            $totaladditional= 0
             foreach ($cart as $item):
                 // echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
                 // Will produce the following output.
@@ -78,7 +78,7 @@
                 <div class="row" >
 
                     <div>
-                    <?php $totaladditional= 0 ?>
+
                         <div class="col-xs-5 list"  id="cartitem" >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
                             <a class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>' )" >Delete</a>
@@ -101,11 +101,12 @@
 
                                 //echo $addtionals;
                             endforeach;
-                                    $totaladditional += $addtionals;
                             ?>
                             <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
-                            <?php $grand_total = $grand_total + $item['subtotal']; ?>
+                            <?php   $grand_total = $grand_total + $item['subtotal'];
+                                    $totaladditional += $addtionals;
+                            ?>
 
                         </div>
                     </div>
