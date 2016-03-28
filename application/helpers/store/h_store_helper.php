@@ -189,7 +189,7 @@ if ( ! function_exists('configurarColorModificadores')) {
             "white"         => "#ffffff",
             "black"         => "#000000",
             "yellow"        => "#ffe100",
-            "brown"         => "#654321", // falta
+            "brown"         => "#4b320a",
             "purple"        => "#8f00ff",
             "pink"          => "#ff0074", // #ff007f
             "orange"        => "#ff5500",
@@ -203,7 +203,7 @@ if ( ! function_exists('configurarColorModificadores')) {
             "golden"        => "#b4af00",
             "gold"          => "#b4af00",
             "silver"        => "#e5e5e5",
-            "mustard"       => "#ffdb58"
+            "mustard"       => "#b08101"
         );
 
         foreach ($dataModifiers as $modificador) {
