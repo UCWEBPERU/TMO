@@ -63,7 +63,7 @@
             echo form_open("<?php echo $modulo->base_url_store".'/ajax/shopping/update');
             $grand_total = 0;
             $num = 1;
-            $totaladditional = 0;
+
             foreach ($cart as $item):
                 // echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
                 // Will produce the following output.
@@ -78,8 +78,8 @@
                 <div class="row" >
 
                     <div>
-
-                        <div class="col-xs-5 list"  >
+                    <?php $totaladditional= 0 ?>
+                        <div class="col-xs-5 list"  id="cartitem" >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
                             <a class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>' )" >Delete</a>
                         </div>
@@ -97,13 +97,11 @@
 
                             <?php   $addtional += $modifier[3];
                                     $addtionals = $addtional  * $item['qty'];
-
-                            endforeach;
-                            ?>
+                                    $totaladditional += $addtionals;
+                            endforeach; ?>
                             <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></h5>
-
-                            <?php $grand_total += + $item['subtotal'];
-                            $totaladditional += $addtionals;?>
+                            <!--?php $num = $num + $item['qty'] ?-->
+                            <?php $grand_total = $grand_total + $item['subtotal']; ?>
 
                         </div>
                     </div>
@@ -151,28 +149,7 @@
 
         </div>
 
-
     </content>
-    <!-- Modal -->
-    <!--div id="modalAlert" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content>
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body">
-                    <p></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div-->
 
     <footer>
         <div id="cart">
@@ -234,16 +211,11 @@
                 request.done(function( response ) {
 
                     if (response.status) {
-                        $('.modal-title').html("Delete Item");
-                        $('.modal-body').html(response.message);
-                        $('#modalAlert').modal({show:true});
+                        alert(response.message);
                         location.reload();
 
                     } else {
                         alert(response.message);
-                        $('.modal-title').html("Delete Item");
-                        $('.modal-body').html(response.message);
-                        $('#modalAlert').modal({show:true});
                     }
                 });
 
