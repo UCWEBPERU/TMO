@@ -61,8 +61,9 @@
             <?php
             // Create form and send all values in "shopping/update_cart" function.
             echo form_open("<?php echo $modulo->base_url_store".'/ajax/shopping/update');
-            $grand_total = 0;
-            $num = 1;
+                $grand_total = 0;
+                $num = 1;
+                $totaladditional = 0;
 
             foreach ($cart as $item):
                 // echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
@@ -97,11 +98,12 @@
 
                             <?php   $addtional += $modifier[3];
                                     $addtionals = $addtional  * $item['qty'];
-                                    $totaladditional += $addtionals;
+
                             endforeach; ?>
                             <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
-                            <?php $grand_total = $grand_total + $item['subtotal']; ?>
+                            <?php $grand_total += + $item['subtotal'];
+                            $totaladditional += $addtionals;?>
 
                         </div>
                     </div>
@@ -128,6 +130,7 @@
                             <h6>$8.00</h6>
                             <h3>$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2) + 8; ?></h3>
 
+
                         </div>
 
                     </div>
@@ -150,6 +153,7 @@
         </div>
 
     </content>
+    
 
     <footer>
         <div id="cart">
