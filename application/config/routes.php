@@ -225,7 +225,7 @@ $route['company/(:num)/store/(:num)/ajax/registerClient']       = 'store/C_Store
 $route['company/(:num)/store/(:num)/ajax/signIn']               = 'store/C_Store_Sign_In/ajaxSignIn';
 $route['company/(:num)/store/(:num)/ajax/forgotPassword']       = 'store/C_Store_Sign_In/ajaxForgotPassword';
 
-$route['company/(:num)/store/(:num)/products/(:num)']                                               = 'store/C_Store_Product/viewProduct/$3';
+
 $route['company/(:num)/store/(:num)/products/(:num)/tags/(:num)']                                   = 'store/C_Store_Product/viewProduct/$3.$4';
 $route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num)']                            = 'store/C_Store_Product/viewProduct/$3.$4.$5';
 $route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6';
