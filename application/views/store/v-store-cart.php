@@ -154,7 +154,7 @@
                         <h2>Sign in to view your cart</h2>
                     </div>
                     <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
-                        <a class="btn" id="signin" onclick="redireccionar()" style="margin-bottom: 5px">Sign In</a>
+                        <a class="btn" id="signin" onclick="redireccionar()"  style="margin-bottom: 5px">Sign In</a>
                     </div>
                     <div class="col-xs-12 detail" style="height: 50px;background: #FFFFFF"></div>
 
