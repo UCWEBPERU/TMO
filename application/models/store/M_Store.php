@@ -177,6 +177,26 @@ class M_Store extends CI_Model {
         return $query->result();
     }
 
+    public function getModifierByID($data) {
+        $this->db->select("Modificador_Productos.id_modificador_productos,
+                    Modificador_Productos.tipo_modificador,
+                    Detalle_Modificador_Productos.descripcion_modificador,
+                    Detalle_Modificador_Productos.costo_modificador,
+                    Detalle_Modificador_Productos.stock");
+        $this->db->join('Modificador_Productos', 'Modificador_Productos.id_modificador_productos = Detalle_Modificador_Productos.id_modificador_productos');
+        $this->db->join('Producto', 'Producto.id_producto = Detalle_Modificador_Productos.id_producto');
+        $this->db->where('Modificador_Productos.id_modificador_productos', $data["id_modificador"]);
+        $this->db->where('Producto.estado', '1');
+        $this->db->where('Producto.estado', '1');
+        $this->db->where('Modificador_Productos.estado', '1');
+        $this->db->where('Detalle_Modificador_Productos.estado', '1');
+        $this->db->order_by('Modificador_Productos.tipo_modificador', 'asc');
+        $this->db->order_by('Detalle_Modificador_Productos.descripcion_modificador', 'asc');
+        $this->db->group_by('Detalle_Modificador_Productos.descripcion_modificador');
+        $query = $this->db->get('Detalle_Modificador_Productos');
+        return $query->result();
+    }
+
     public function getUserBYEmail($data) {
         $this->db->join('Persona', 'Persona.id_usuario = Usuario.id_usuario');
         $this->db->join('Tipo_Usuario', 'Tipo_Usuario.id_tipo_usuario = Usuario.id_tipo_usuario');

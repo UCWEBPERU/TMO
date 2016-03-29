@@ -98,6 +98,8 @@
             <?php endforeach; ?>
                 <div class="row" >
                     <div>
+
+
                         <div class="col-xs-9 list" id="cartitem2" >
                             <h3>Order summary</h3>
                             <!--h5>Items:</h5>
@@ -114,17 +116,26 @@
                             <h5> -$0.00</h5>
                             <h6>$<?php echo number_format($grand_total, 2); ?></h6>
                             <h6>$8.00</h6-->
-                            <h3>$<?php echo number_format($grand_total, 2); ?></h3>
+                            <h3>$<?php echo number_format($grand_total, 2) + 8; ?></h3>
+
                         </div>
+
                     </div>
 
                 </div>
 
+
             <?php endif; ?>
+
 
             <div class="row" style="height:120px; background:#FFF;">
 
             </div>
+
+
+
+
+
 
         </div>
 

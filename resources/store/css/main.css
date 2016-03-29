@@ -38,6 +38,7 @@
     }
     footer{
 		height: 100px;
+
 		
     }
 
@@ -494,12 +495,14 @@
 		color:#fff;
 		height: 50px;
 		float: left;
+		width: 100%;
+
 	}
 	.boximage{
 		
 		height:60px;
-		width: 60px;		
-		margin: 4px 10px 0 10px;
+		width: 17%;
+		margin: 4px 5px 0 5px;
 		float: left;
 
 	}

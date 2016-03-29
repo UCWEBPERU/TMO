@@ -31,7 +31,20 @@ class C_Store_Cart extends CI_Controller {
             redirect("not-found/store");
         }
 
+        if ($this->usersession->isClient()) {
+            $dataUsuario = $this->M_Store->getUserBYEmail(
+                array(
+                    "email_usuario" => $this->session->email_usuario
+                )
+            );
+
+            if (sizeof($dataUsuario) > 0) {
+                $modulo->data_usuario = $dataUsuario[0];
+            }
+        }
+
         $data["modulo"] = $modulo;
+
 
         $this->load->view('store/v-store-cart',  $data);
 
@@ -54,19 +67,48 @@ class C_Store_Cart extends CI_Controller {
 
         cargarGaleriaPorProducto($dataProducto[0]);
 
+        $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo);
+
+
+
+        //var_dump($modifiers);
+        if($this->input->post('modifiers[]')){
+            $modifiers = $this->input->post('modifiers[]');
+            foreach($modifiers as $item){
+                $datamodificador = obtenerModificadorByID($item);
+                array_push($option,
+                    array(
+                        "modifier",
+                        $datamodificador->tipo_modificador,
+                        $datamodificador->descripcion_modificador,
+                        $datamodificador->costo_modificador
+                    ));
+
+            };
+
+
+
+
+        }
+
+
+
+//        var_dump($option);
         // Set array for send data.
         $insert_data = array(
             'id' => $this->input->post('id_producto'),
             'name' => $this->input->post('nombre_producto'),
             'price' => $this->input->post('precio_producto'),
             'qty' => 1,
-            'options' => array('url_image' => $dataProducto[0]->galeria_producto[0]->url_archivo)
+            'options' => $option
         );
+        //var_dump($modifiers);
+        //var_dump($this->input->post('precio_producto') + $totaladditional);
 
         $result = $this->cart->insert($insert_data);
         
         if($result){
-            $json->message = "Carrito insertado correctamente";
+            $json->message = "Item added successfully";
             $json->status 	= TRUE;
         }
 
@@ -106,6 +148,7 @@ class C_Store_Cart extends CI_Controller {
             $json->status 	= TRUE;
         }
 
+        
         echo json_encode($json);
     }
 
@@ -145,3 +188,4 @@ class C_Store_Cart extends CI_Controller {
     }
     
 }
+?>

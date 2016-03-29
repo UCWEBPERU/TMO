@@ -49,9 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller']    = 'C_Home';
-$route['404_override']          = '';
-$route['translate_uri_dashes']  = FALSE;
+$route['default_controller'] = 'C_Home';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
 
 /*
 | ------------------------------
@@ -225,6 +225,13 @@ $route['company/(:num)/store/(:num)/ajax/registerClient']       = 'store/C_Store
 $route['company/(:num)/store/(:num)/ajax/signIn']               = 'store/C_Store_Sign_In/ajaxSignIn';
 $route['company/(:num)/store/(:num)/ajax/forgotPassword']       = 'store/C_Store_Sign_In/ajaxForgotPassword';
 
+
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num)']                                   = 'store/C_Store_Product/viewProduct/$3.$4';
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num)']                            = 'store/C_Store_Product/viewProduct/$3.$4.$5';
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6';
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num)']              = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7';
+$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']       = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7.$8';
+
 // url para soportar el anidamiento de las subcategorias
 $route['company/(:num)/store/(:num)/categories/(:num)']                             = 'store/C_Store_Home/viewSubCategorias/$3';
 $route['company/(:num)/store/(:num)/categories/(:num).(:num)']                      = 'store/C_Store_Home/viewSubCategorias/$3.$4';
@@ -240,10 +247,10 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num
 
 $route['company/(:num)/store/(:num)/cart']                      = 'store/C_Store_Cart';
 $route['company/(:num)/store/(:num)/cart/payment-method']       = 'store/C_Store_Cart/addPaymentMethod';
-$route['company/(:num)/store/(:num)/ajax/checkout']             = 'store/C_Store_Checkout/ajaxCheckout';
-$route['shopping/add']                                          = 'store/C_Store_Cart/addCart';
-$route['shopping/update']                                       = 'store/C_Store_Cart/updateCart';
-$route['shopping/delete']                                       = 'store/C_Store_Cart/deleteitemCart';
+$route['company/(:num)/store/(:num)/ajax/checkout']                           = 'store/C_Store_Cart';
+$route['company/(:num)/store/(:num)/ajax/shopping/add']             = 'store/C_Store_Cart/addCart';
+$route['company/(:num)/store/(:num)/ajax/shopping/update']          = 'store/C_Store_Cart/updateCart';
+$route['company/(:num)/store/(:num)/ajax/shopping/delete']          = 'store/C_Store_Cart/deleteitemCart';
 
 ///*
 //| ------------------------------

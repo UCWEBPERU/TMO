@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
 </head>
 <body>
 
@@ -68,12 +70,14 @@
                         foreach ($modulo->data_modifiers as $modifier) { ?>
                             <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                                 <?php if (isset($modifier->color_rgb)) {
+
                                     if ($contador == 1) { $contador++; ?>
                                         <h2>Color</h2>
                                     <?php } ?>
-                                    <button style="background: <?php echo $modifier->color_rgb; ?>;"></button>
+                                    <button style="background: <?php echo $modifier->color_rgb; ?>;" class="btnAddModifier" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></button>
                                 <?php } ?>
                             <?php } ?>
+
                         <?php } ?>
                     </div>
                     <?php
@@ -92,7 +96,7 @@
                                 <div class="col-xs-12 detail" >
                                 <h2>Please select a <?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>:</h2>
                             <?php } ?>
-                            <button> <?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></button>
+                            <button class="btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"> <?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></button>
                             <?php if ($tipoModificadorActual != $tipoModificadorSiguiente) { ?>
                                 </div>
                             <?php } ?>
@@ -142,18 +146,24 @@
         </div>
 
     </content>
+    
     <footer>
         <div id="cart">
             <button id="shoppingcart"><h2>Add to Cart</h2></button>
         </div>
         <div id="footer">
             <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/homes.png" class="images" alt="" /></a>
-                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Home</a></h2>
+                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
+                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
+            </div>
+
+            <div class="boximage">
+                <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
+                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Promotions</a></h1>
             </div>
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Find</a></h1>
+                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
             </div>
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
@@ -176,52 +186,99 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
-
+    <!-- Sweet Alert -->
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
     <script>
-        $(function () {
 
-            var base_url = "<?php echo base_url(); ?>";
+        var listaModificadoresSeleccionados = [];
+        var datosModificador = {
+            "id"    : 0,
+            "tipo"  : ""
+        }
+
+        function addModifier(idModifier, tipoModifier) {
+            var indiceModificador = validarModificadorEnLista(tipoModifier);
+            if ( indiceModificador != -1 ) {
+                listaModificadoresSeleccionados[indiceModificador].id = idModifier;
+                listaModificadoresSeleccionados[indiceModificador].tipo = tipoModifier;
+            } else {
+                datosModificador = {
+                    "id"    : idModifier,
+                    "tipo"  : tipoModifier
+                }
+                listaModificadoresSeleccionados.push(datosModificador);
+            }
+            console.log(listaModificadoresSeleccionados);
+        }
+
+        function validarModificadorEnLista(tipoModifier) {
+            var indiceModificador = -1;
+            for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
+
+                if (listaModificadoresSeleccionados[c].tipo == tipoModifier) {
+                    indiceModificador = c;
+                    break;
+                }
+            }
+            return indiceModificador;
+        }
+
+
+
+            $(".btnAddModifier").on("click", function (e){
+                e.preventDefault();
+                addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+            });
 
             $("#shoppingcart").on("click", function(evt){
                 evt.preventDefault();
-                var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
-                var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
-                var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
+                var session = "<?php echo $modulo->has_user_session; ?>";
+                if(session){
+                    var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
+                    var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
+                    var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
+                    var formData = new FormData();
+                    formData.append("id_producto", id_producto);
+                    formData.append("nombre_producto", nombre_producto);
+                    formData.append("precio_producto", precio_producto);
+                    for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
+                        formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
 
-                var formData = new FormData();
-                formData.append("id_producto", id_producto);
-                formData.append("nombre_producto", nombre_producto);
-                formData.append("precio_producto", precio_producto);
-
-
-                var request = $.ajax({
-                    url: base_url + "shopping/add",
-                    method: "POST",
-                    data: formData,
-                    dataType: 'json',
-                    processData: false,
-                    contentType: false,
-                });
-
-                request.done(function( response ) {
-
-                    if (response.status) {
-                        alert(response.message);
-
-                    } else {
-                        alert(response.message);
                     }
-                });
 
-                request.fail(function( jqXHR, textStatus ) {
-                    alert(textStatus);
-                });
+
+                    var request = $.ajax({
+                        url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
+                        method: "POST",
+                        data: formData,
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
+                    });
+
+                    request.done(function( response ) {
+
+                        if (response.status) {
+                            swal("Add Item", response.message, "success");
+                        } else {
+                            swal("Add Item", response.message, "danger");
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        swal("Add Item", textStatus, "danger");
+                    });
+
+                }else{
+                    $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signin");
+                }
+
 
 
 
             });
 
-        });
+
     </script>
 
 </body>

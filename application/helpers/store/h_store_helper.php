@@ -181,6 +181,19 @@ if ( ! function_exists('generarUrlSubCategoria')) {
 }
 
 // ------------------------------------------------------------------------
+if ( ! function_exists('obtenerModificadorByID')) {
+    function obtenerModificadorByID($idmodifier){
+        $CI =& get_instance();
+        $dataModifier = $CI->M_Store->getModifierByID(
+            array(
+                "id_modificador" => $idmodifier
+            )
+        );
+        return $dataModifier[0];
+    }
+}
+
+// ------------------------------------------------------------------------
 
 if ( ! function_exists('configurarColorModificadores')) {
 
