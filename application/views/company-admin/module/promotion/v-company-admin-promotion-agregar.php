@@ -61,11 +61,11 @@
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtFechaInicio">Fecha Inicio</label>
-                                            <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" disabled data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                                            <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtFechaFin">Fecha Fin</label>
-                                            <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" disabled data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                                            <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
                                         </div><!-- /.form-group -->
                                     </div>
 
@@ -153,7 +153,7 @@
             autoclose: true
         });
 
-        $('.datepicker').on("keydown", function(event){
+        $('.datepicker').on("keypress", function(event){
            event.preventDefault();
         });
 
