@@ -76,7 +76,6 @@
 </footer>
 
 <!-- Scripts -->
-<script type="text/javascript" src="<?php echo PATH_RESOURCE_STORE; ?>js/handler-slider-menu.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
