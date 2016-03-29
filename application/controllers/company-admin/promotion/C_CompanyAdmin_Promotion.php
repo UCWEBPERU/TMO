@@ -125,7 +125,6 @@ class C_CompanyAdmin_Promotion extends CI_Controller {
 
         if ( $this->input->post("cboProducto") &&
             $this->input->post("txtPrecioPromocion") &&
-            $this->input->post("txtDescripcionPromocion") &&
             $this->input->post("txtFechaInicio") &&
             $this->input->post("txtFechaFin")) {
 
