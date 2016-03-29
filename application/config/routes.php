@@ -258,7 +258,7 @@ $route['company/(:num)/store/(:num)/ajax/shopping/delete']          = 'store/C_S
 | URL -> PROMOTIONS
 | ------------------------------
 */
-$route['company/(:num)/store/(:num)/promotions']                                                      = 'store/C_Store_Home/';
+$route['company/(:num)/store/(:num)/promotions']                                                      = 'store/C_Store_Home/promotions';
 $route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num)']                                   = 'store/C_Store_Product/viewProductPromotions/$3.$4';
 $route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num)']                            = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5';
 $route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6';
