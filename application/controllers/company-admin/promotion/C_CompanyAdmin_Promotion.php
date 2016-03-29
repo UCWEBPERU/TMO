@@ -72,8 +72,6 @@ class C_CompanyAdmin_Promotion extends CI_Controller {
     }
 
     public function addPromotion() {
-        $this->load->model("company-admin/M_CompanyAdmin_Product");
-
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
         $modulo->titulo 			= "Product";
@@ -81,7 +79,7 @@ class C_CompanyAdmin_Promotion extends CI_Controller {
         $modulo->url_module_panel   = $modulo->url_main_panel."/promotion";
         $modulo->menu               = array("menu" => 4, "submenu" => 0);
 
-        $modulo->data_productos    = $this->M_CompanyAdmin_Product->getTotalProduct($this->session->id_empresa);
+        $modulo->data_productos     = $this->M_CompanyAdmin_Promotion->getProducts($this->session->id_empresa);
 
         $data["modulo"] 		    = $modulo;
 
