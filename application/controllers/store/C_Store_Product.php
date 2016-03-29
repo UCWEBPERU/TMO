@@ -25,7 +25,7 @@ class C_Store_Product extends CI_Controller {
         );
 
         if (sizeof($dataEmpresa) == 0) {
-            redirect("not-found/store");
+            redirect("not-found/store"); 
         }
 
         $dataCategorias = cargarDatosCategoriasPrincipales();

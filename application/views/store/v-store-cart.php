@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
 </head>
 <body>
 
@@ -30,17 +32,17 @@
 
         <div class="col-xs-12" >
 
-
+            <?php if ($modulo->has_user_session) { ?>
             <div class="row">
                 <?php $cart_check = $this->cart->contents();
 
                 // If cart is empty, this will show below message.
                 if(empty($cart_check)) { ?>
 
-                    <div class="col-xs-12 titlecart" >
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
                         <h2>To add products to your shopping cart click on "Add to Cart" Button</h2>
                     </div>
-                    <div class="col-xs-12 detail" style="height: 150px;"></div>
+                    <div class="col-xs-12 detail" style="height: 150px;background: #FFFFFF"></div>
 
                 <?php } ?>
             </div>
@@ -60,9 +62,10 @@
                 </div>
             <?php
             // Create form and send all values in "shopping/update_cart" function.
-            echo form_open('shopping/update');
-            $grand_total = 0;
-            $num = 1;
+            echo form_open("<?php echo $modulo->base_url_store".'/ajax/shopping/update');
+                $grand_total = 0;
+                $num = 1;
+                $totaladditional = 0;
 
             foreach ($cart as $item):
                 // echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
@@ -81,15 +84,28 @@
 
                         <div class="col-xs-5 list"  id="cartitem" >
                             <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
-                            <a class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>' )" >Delete</a>
+                            <a class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')" >Delete</a>
                         </div>
                         <div class="col-xs-7 list" id="cartitem" >
                             <h3><?php echo $item['name']; ?></h3>
                             <h4>$ <?php echo number_format($item['price'], 2); ?></h4>
                             <h5>Quantity : <?php echo $item['qty']; ?></h5>
-                            <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) ?></h5>
+                            <?php
+                            $modifiers = $this->cart->product_options($item['rowid']);
+                            $addtional = 0;
+                            foreach ($modifiers as $modifier):
+                                    if($modifier[0] == "modifier"){ ?>
+                                    <h5><?php echo $modifier[1]; ?> : <?php echo $modifier[2]; ?> - ( $ <?php echo $modifier[3]; ?> ) </h5>
+                                <?php } ?>
+
+                            <?php   $addtional += $modifier[3];
+                                    $addtionals = $addtional  * $item['qty'];
+
+                            endforeach; ?>
+                            <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></h5>
                             <!--?php $num = $num + $item['qty'] ?-->
-                            <?php $grand_total = $grand_total + $item['subtotal']; ?>
+                            <?php $grand_total += + $item['subtotal'];
+                            $totaladditional += $addtionals;?>
 
                         </div>
                     </div>
@@ -102,21 +118,20 @@
 
                         <div class="col-xs-9 list" id="cartitem2" >
                             <h3>Order summary</h3>
-                            <!--h5>Items:</h5>
-                            <h5>Shipping & Handling:</h5>
-                            <h5>Promotion Applied:</h5>
-                            <h6>Total Before Tax:</h6>
+                            <h5>Items:</h5>
+                            <h5>Additional Cost:</h5>
+                            <!--h6>Total Before Tax:</h6>
                             <h6>Estimated Tax:</h6-->
                             <h3>Order Total</h3>
                         </div>
                         <div class="col-xs-3 list" id="cartitem2" >
                             <h3 style="visibility: hidden">$</h3>
-                            <!--h5>$<?php echo number_format($grand_total, 2); ?></h5>
-                            <h5> $0.00</h5>
-                            <h5> -$0.00</h5>
-                            <h6>$<?php echo number_format($grand_total, 2); ?></h6>
-                            <h6>$8.00</h6-->
-                            <h3>$<?php echo number_format($grand_total, 2) + 8; ?></h3>
+                            <h5>$<?php echo number_format($grand_total, 2); ?></h5>
+                            <h5>$<?php echo number_format($totaladditional, 2); ?></h5>
+                            <!--h6>$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?></h6>
+                            <h6>$8.00</h6!-->
+                            <h3>$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?></h3>
+
 
                         </div>
 
@@ -131,7 +146,21 @@
             <div class="row" style="height:120px; background:#FFF;">
 
             </div>
+            <?php } else { ?>
+                <div class="row">
 
+
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
+                        <h2>Sign in to view your cart</h2>
+                    </div>
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
+                        <a class="btn" href="<?php echo $modulo->base_url_store; ?>/signin" style="margin-bottom: 5px">Sign In</a>
+                    </div>
+                    <div class="col-xs-12 detail" style="height: 50px;background: #FFFFFF"></div>
+
+
+                </div>
+            <?php } ?>
 
 
 
@@ -141,18 +170,26 @@
 
     </content>
 
+
     <footer>
+        <?php if ($modulo->has_user_session) { ?>
         <div id="cart">
             <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/cart/payment-method" >Place Order</a>
         </div>
+        <?php } ?>
         <div id="footer">
             <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/homes.png" class="images" alt="" /></a>
-                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Home</a></h2>
+                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
+                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
+            </div>
+
+            <div class="boximage">
+                <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
+                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Promotions</a></h1>
             </div>
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Find</a></h1>
+                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
             </div>
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
@@ -175,17 +212,19 @@
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
     <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
     <script>
 
-            var base_url = "<?php echo base_url(); ?>";
+           
 
-            function deleteItem(item) {
+           function deleteItem(btn, item) {
 
                 var formData = new FormData();
                 formData.append("id_producto", item);
 
                 var request = $.ajax({
-                    url: base_url + "shopping/delete",
+                    url: "<?php echo $modulo->base_url_store."/ajax/shopping/delete"; ?>",
                     method: "POST",
                     data: formData,
                     dataType: 'json',
@@ -196,18 +235,27 @@
                 request.done(function( response ) {
 
                     if (response.status) {
-                        alert(response.message);
+
+
+                        //$(btn).parent().parent().parent().hide(function () {
+                            //$(btn).parent().parent().parent().remove();
+                        //});
+                        swal("Delete Item", response.message, "success");
+
                         location.reload();
 
                     } else {
-                        alert(response.message);
+                        swal("Delete Item", response.message, "danger");
+
                     }
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
-                    alert(textStatus);
+                    swal("Delete Item", textStatus, "danger");
+
                 });
             }
+            
 
 
 
