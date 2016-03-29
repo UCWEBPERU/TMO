@@ -110,7 +110,7 @@ class C_CompanyAdmin_Promotion extends CI_Controller {
 
         $data["modulo"] 		    = $modulo;
 
-        $this->load->view('company-admin/module/promotion/v-company-admin-promotion-agregar', $data);
+        $this->load->view('company-admin/module/promotion/v-company-admin-promotion-editar', $data);
     }
 
     /* <---------------- AJAX ----------------> */
