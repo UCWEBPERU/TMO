@@ -155,7 +155,7 @@
                     </div>
                     <div class="col-xs-12 detail" style="height: 150px;background: #FFFFFF"></div>
 
- 
+
                 </div>
             <?php } ?>
 
@@ -166,29 +166,14 @@
         </div>
 
     </content>
-    <!-- Modal -->
-    <div id="modalAlert" class="modal fade" role="dialog">
-        <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body">
-                    <p></p>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
 
     <footer>
+        <?php if ($modulo->has_user_session) { ?>
         <div id="cart">
             <button id="placeorder"><h2>Place Order</h2></button>
         </div>
+        <?php } ?>
         <div id="footer">
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
