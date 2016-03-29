@@ -153,7 +153,10 @@
                     <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
                         <h2>Sign in to view your cart</h2>
                     </div>
-                    <div class="col-xs-12 detail" style="height: 150px;background: #FFFFFF"></div>
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF; text-align: center" >
+                        <a class="btn" id="signin">Sign In</a>
+                    </div>
+                    <div class="col-xs-12 detail" style="height: 200px;background: #FFFFFF"></div>
 
 
                 </div>
