@@ -154,7 +154,7 @@
                         <h2>Sign in to view your cart</h2>
                     </div>
                     <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
-                        <a class="btn" id="signin"   style="margin-bottom: 5px">Sign In</a>
+                        <a class="btn" href="<?php echo $modulo->base_url_store; ?>/signin" style="margin-bottom: 5px">Sign In</a>
                     </div>
                     <div class="col-xs-12 detail" style="height: 50px;background: #FFFFFF"></div>
 
@@ -216,13 +216,7 @@
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
     <script>
 
-           function redireccionar(){
-               //redirect("<?php echo "/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin" ?>");
-               alert("aqui");
-           }
-           $( "#signin" ).click(function() {
-               alert( "Handler for .click() called." );
-           }); 
+           
 
            function deleteItem(btn, item) {
 
