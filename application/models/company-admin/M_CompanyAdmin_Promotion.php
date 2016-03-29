@@ -141,7 +141,7 @@ class M_CompanyAdmin_Promotion extends CI_Model {
         );
 
         $this->db->where('id_oferta', $promotion["id_oferta"]);
-        if ($this->db->update('Producto', $data)) {
+        if ($this->db->update('Oferta', $data)) {
             return TRUE;
         }
 
