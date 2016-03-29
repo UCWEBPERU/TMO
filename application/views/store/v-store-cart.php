@@ -255,6 +255,9 @@
 
                 });
             }
+            $( "#signin" ).click(function() {
+                redirect("/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin");
+            }
 
 
 
