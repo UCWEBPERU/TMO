@@ -146,7 +146,7 @@
                 formData.append("txtFechaFin",              $("#txtFechaFin").val());
 
                 var request = $.ajax({
-                    url: "<?php echo $modulo->url_module_panel."/ajax/addPromotion"; ?>",
+                    url: "<?php echo $modulo->url_module_panel."/ajax/editPromotion"; ?>",
                     method: "POST",
                     data: formData,
                     dataType: "json",
