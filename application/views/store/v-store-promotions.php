@@ -44,24 +44,26 @@
 <!-- Content -->
 <content>
 
-  
+    <?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
+        <section id="toplist">
+            <h2>
+                <?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
+                    <?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
+                        <?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?>
+                    <?php } else { ?>
+                        <a href="<?php echo $modulo->data_navegacion_sub_categorias[$c]->url_id_categorias; ?>">
+                            <?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?> >
+                        </a>
+                    <?php } ?>
+                <?php } ?>
+            </h2>
+        </section>
+    <?php } ?>
 
     <div class="col-xs-12">
 
 
-        <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
-            <div class="row">
-                <div>
-                    <div class="col-xs-5 list" >
-                        <a href="<?php echo $sub_categoria->url_categoria; ?>" ><img src="<?php echo $sub_categoria->url_archivo; ?>" id="images" alt="" /></a>
-                    </div>
-                    <div class="col-xs-7 list" >
-                        <a href="<?php echo $sub_categoria->url_categoria; ?>" ><h2><?php echo strtoupper($sub_categoria->nombre_categoria); ?></h2></a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
-
+       
         <div class="row">
             <div>
                 <?php foreach ($modulo->data_productos as $producto) { ?>
