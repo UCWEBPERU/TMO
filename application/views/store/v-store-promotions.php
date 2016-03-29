@@ -9,71 +9,46 @@
     <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
-    <script type="text/javascript" src="<?php echo PATH_RESOURCE_STORE; ?>js/jssor.slider.min.js"></script>
+
     <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
 </head>
 <body>
 <header>
-    <!--	<div id="title">-->
-    <!--		<h2>Fashion Store</h2>-->
-    <!--	</div>-->
-    <!-- Slider -->
-    <div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
-        <!-- Loading Screen -->
-        <div data-u="slides" id="slide" >
-            <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
-                <div>
-                    <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
-                        <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-                    </a>
-                </div>
-            <?php } ?>
-        </div>
+    <div id="title">
+        <h2>Promotions</h2>
+
     </div>
+
+
+
 </header>
 
 <!-- Content -->
 <content>
-    <?php if (sizeof($modulo->data_productos) > 0) { ?>
-        <section id="toplist">
-            <h2> Results for "<?php echo $modulo->keyrwords_search; ?>" </h2>
-        </section>
-    <?php } ?>
+
+
 
     <div class="col-xs-12">
+
+
+
         <div class="row">
             <div>
                 <?php foreach ($modulo->data_productos as $producto) { ?>
                     <div class="col-xs-6 products" >
-                        <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" ><img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>" class="images" alt="" /></a>
-                        <h2><a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" ><?php echo $producto->nombre_producto; ?></a></h2>
-                        <h3><a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" >$<?php echo $producto->precio_producto; ?></a></h3><h4><strike></strike></h4>
+                        <a href="<?php echo $modulo->base_url_store."/promotions/".intval($producto->id_producto); ?>" ><img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>" class="images" alt="" /></a>
+                        <h2><a href="<?php echo $modulo->base_url_store."/promotions/".intval($producto->id_producto); ?>" ><?php echo $producto->nombre_producto; ?></a></h2>
+                        <h3><a href="<?php echo $modulo->base_url_store."/promotions/".intval($producto->id_producto); ?>" >$<?php echo $producto->precio_oferta; ?></a></h3><h4><strike></strike></h4>
                     </div>
                 <?php } ?>
             </div>
         </div>
-        <?php if (sizeof($modulo->data_productos) == 0) { ?>
-            <div class="row">
-                <div class="col-xs-12" id="find">
-                    <form action="<?php echo $modulo->base_url_store."/search"; ?>" method="GET">
-                        <input type="text" name="s" placeholder="Search <?php echo strtoupper($modulo->data_empresa->organization); ?>">
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div id="contenedor">
-                    <div class="col-xs-10 findcategories">
-                        <h2>Your search "<?php echo $modulo->keyrwords_search; ?>" did not match any products.</h2>
-                    </div>
-                    <div class="col-xs-2 findcategories">
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
 
         <div class="row" style="height: 50px;"></div>
+
     </div>
+
 </content>
 <footer>
     <div id="footer">
@@ -101,7 +76,6 @@
 </footer>
 
 <!-- Scripts -->
-<script type="text/javascript" src="<?php echo PATH_RESOURCE_STORE; ?>js/handler-slider-menu.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>

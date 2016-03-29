@@ -246,6 +246,7 @@ $route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num)'] 
 $route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num)']              = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7';
 $route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']       = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7.$8';
 
+
 // url para soportar el anidamiento de las subcategorias
 $route['company/(:num)/store/(:num)/categories/(:num)']                             = 'store/C_Store_Home/viewSubCategorias/$3';
 $route['company/(:num)/store/(:num)/categories/(:num).(:num)']                      = 'store/C_Store_Home/viewSubCategorias/$3.$4';
@@ -265,6 +266,18 @@ $route['company/(:num)/store/(:num)/ajax/checkout']                 = 'store/C_S
 $route['company/(:num)/store/(:num)/ajax/shopping/add']             = 'store/C_Store_Cart/addCart';
 $route['company/(:num)/store/(:num)/ajax/shopping/update']          = 'store/C_Store_Cart/updateCart';
 $route['company/(:num)/store/(:num)/ajax/shopping/delete']          = 'store/C_Store_Cart/deleteitemCart';
+
+/*
+| ------------------------------
+| URL -> PROMOTIONS
+| ------------------------------
+*/
+$route['company/(:num)/store/(:num)/promotions']                                                      = 'store/C_Store_Home/promotions';
+$route['company/(:num)/store/(:num)/promotions/(:num)']                                               = 'store/C_Store_Product/viewProductPromotions/$3';
+$route['company/(:num)/store/(:num)/promotions/(:num).(:num)']                                        = 'store/C_Store_Product/viewProductPromotions/$3.$4';
+$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6';
+$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num).(:num)']              = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6.$7';
+$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']       = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6.$7.$8';
 
 ///*
 //| ------------------------------

@@ -20,8 +20,8 @@
     <!-- Header -->
     <header>
         <div id="title">
-            <a href="<?php echo $modulo->base_url_store; ?>" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/left-arrow.png" class="images" alt="" /></a>
-            <a href="<?php echo $modulo->url_button_back; ?>" >Back</a>
+            <a href="<?php echo $modulo->base_url_store; ?>/promotions" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/left-arrow.png" class="images" alt="" /></a>
+            <a href="<?php echo $modulo->base_url_store; ?>/promotions" >Back</a>
             <h2>Details</h2>
         </div>
     </header>
@@ -61,7 +61,7 @@
                     <div class="col-xs-12 detail" id="titledetail">
                         <?php if (sizeof($modulo->data_productos) > 0) { ?>
                             <h2><?php echo $modulo->data_productos[0]->nombre_producto; ?></h2>
-                            <h3>$<?php echo $modulo->data_productos[0]->precio_producto; ?></h3><h4><strike></strike></h4>
+                            <h3>$<?php echo $modulo->data_productos[0]->precio_oferta; ?></h3><h4>$<del><?php echo $modulo->data_productos[0]->precio_producto; ?></del></h4>
                         <?php } ?>
                     </div>
                     <div class="col-xs-12 detail" id="color">
@@ -122,6 +122,7 @@
                     <div class="col-xs-12 detail" >
                         <h4>Description</h4>
                         <?php if (sizeof($modulo->data_productos) > 0) { ?>
+                            
                             <h3><?php echo $modulo->data_productos[0]->descripcion_producto; ?></h3>
                         <?php } ?>
                         <!--                        <h3>Draped neck knit dress with 3/4 sleeves, seaming detail and a flared skirt</h3>-->
@@ -146,7 +147,7 @@
         </div>
 
     </content>
-    
+
     <footer>
         <div id="cart">
             <button id="shoppingcart"><h2>Add to Cart</h2></button>
@@ -224,58 +225,58 @@
 
 
 
-            $(".btnAddModifier").on("click", function (e){
-                e.preventDefault();
-                addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
-            });
+        $(".btnAddModifier").on("click", function (e){
+            e.preventDefault();
+            addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+        });
 
-            $("#shoppingcart").on("click", function(evt){
-                evt.preventDefault();
-                var session = "<?php echo $modulo->has_user_session; ?>";
-                if(session){
-                    var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
-                    var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
-                    var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
-                    var formData = new FormData();
-                    formData.append("id_producto", id_producto);
-                    formData.append("nombre_producto", nombre_producto);
-                    formData.append("precio_producto", precio_producto);
-                    for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
-                        formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
+        $("#shoppingcart").on("click", function(evt){
+            evt.preventDefault();
+            var session = "<?php echo $modulo->has_user_session; ?>";
+            if(session){
+                var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
+                var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
+                var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_oferta; ?>";
+                var formData = new FormData();
+                formData.append("id_producto", id_producto);
+                formData.append("nombre_producto", nombre_producto);
+                formData.append("precio_producto", precio_producto);
+                for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
+                    formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
 
-                    }
-
-
-                    var request = $.ajax({
-                        url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
-                        method: "POST",
-                        data: formData,
-                        dataType: 'json',
-                        processData: false,
-                        contentType: false,
-                    });
-
-                    request.done(function( response ) {
-
-                        if (response.status) {
-                            swal("Add Item", response.message, "success");
-                        } else {
-                            swal("Add Item", response.message, "danger");
-                        }
-                    });
-
-                    request.fail(function( jqXHR, textStatus ) {
-                        swal("Add Item", textStatus, "danger");
-                    });
-
-                }else{
-                    $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signin");
                 }
 
 
+                var request = $.ajax({
+                    url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
+                    method: "POST",
+                    data: formData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                });
+
+                request.done(function( response ) {
+
+                    if (response.status) {
+                        swal("Add Item", response.message, "success");
+                    } else {
+                        swal("Add Item", response.message, "danger");
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    swal("Add Item", textStatus, "danger");
+                });
+
+            }else{
+                $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signin");
+            }
 
 
-            });
+
+
+        });
 
 
     </script>
