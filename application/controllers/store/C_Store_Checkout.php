@@ -82,7 +82,7 @@ class C_Store_Checkout extends CI_Controller {
         );
 
 //        $response = $gateway->purchase(array('amount' => $this->cart->total(), 'currency' => 'USD', 'card' => $formData))->send();
-        $response = $gateway->purchase(array('amount' => trim($this->input->post("amountCart", TRUE)), 'currency' => 'USD', 'card' => $formData))->send();
+        $response = $gateway->purchase(array('amount' => number_format(trim($this->input->post("amountCart", TRUE)), 2), 'currency' => 'USD', 'card' => $formData))->send();
 
         if ($response->isSuccessful()) {
             // payment was successful: update database
