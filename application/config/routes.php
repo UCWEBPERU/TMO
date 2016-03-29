@@ -250,6 +250,14 @@ $route['company/(:num)/store/(:num)/ajax/shopping/add']             = 'store/C_S
 $route['company/(:num)/store/(:num)/ajax/shopping/update']          = 'store/C_Store_Cart/updateCart';
 $route['company/(:num)/store/(:num)/ajax/shopping/delete']          = 'store/C_Store_Cart/deleteitemCart';
 
+/*
+| ------------------------------
+| URL -> PROMOTIONS
+| ------------------------------
+*/
+
+$route['company/(:num)/store/(:num)/promotions']                     = 'store/C_Store_Product/';
+
 ///*
 //| ------------------------------
 //| URL -> STORE ADMIN
