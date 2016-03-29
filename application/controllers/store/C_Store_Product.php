@@ -60,6 +60,7 @@ class C_Store_Product extends CI_Controller {
     }
 
     public function viewProductPromotions($idProducto) {
+        var_dump($idProducto);
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
         $modulo->has_user_session = $this->usersession->isClient();
@@ -96,7 +97,7 @@ class C_Store_Product extends CI_Controller {
                         "id_producto" => $idProducto
                     )
                 );
-                var_dump($dataModifiers);
+
                 $dataModifiers = configurarColorModificadores($dataModifiers);
                 $modulo->data_modifiers = $dataModifiers;
             }
