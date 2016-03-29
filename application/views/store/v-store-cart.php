@@ -153,8 +153,8 @@
                     <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
                         <h2>Sign in to view your cart</h2>
                     </div>
-                    <div class="col-xs-12 titlecart" style="background: #FFFFFF; margin-bottom: 5px;" >
-                        <a class="btn" id="signin">Sign In</a>
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
+                        <a class="btn" id="signin" onclick="redireccionar()" style="margin-bottom: 5px">Sign In</a>
                     </div>
                     <div class="col-xs-12 detail" style="height: 50px;background: #FFFFFF"></div>
 
@@ -216,7 +216,9 @@
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
     <script>
 
-           
+           function redireccionar(){
+               redirect("/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin");
+           }
 
             function deleteItem(btn, item) {
 
@@ -255,9 +257,7 @@
 
                 });
             }
-            $( "#signin" ).click(function() {
-                redirect("/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin");
-            }
+            
 
 
 
