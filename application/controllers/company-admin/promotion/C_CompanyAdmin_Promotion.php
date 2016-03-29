@@ -81,7 +81,7 @@ class C_CompanyAdmin_Promotion extends CI_Controller {
         $modulo->url_module_panel   = $modulo->url_main_panel."/promotion";
         $modulo->menu               = array("menu" => 4, "submenu" => 0);
 
-        $modulo->data_productos    = $this->M_CompanyAdmin_Product->getTotalProduct(array("id_empresa" => $this->session->id_empresa));
+        $modulo->data_productos    = $this->M_CompanyAdmin_Product->getTotalProduct($this->session->id_empresa);
 
         $data["modulo"] 		    = $modulo;
 
