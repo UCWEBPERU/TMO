@@ -239,12 +239,11 @@ $route['company/(:num)/store/(:num)/ajax/registerClient']       = 'store/C_Store
 $route['company/(:num)/store/(:num)/ajax/signIn']               = 'store/C_Store_Sign_In/ajaxSignIn';
 $route['company/(:num)/store/(:num)/ajax/forgotPassword']       = 'store/C_Store_Sign_In/ajaxForgotPassword';
 
-
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num)']                                   = 'store/C_Store_Product/viewProduct/$3.$4';
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num)']                            = 'store/C_Store_Product/viewProduct/$3.$4.$5';
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6';
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num)']              = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7';
-$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']       = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7.$8';
+//$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num)']                                   = 'store/C_Store_Product/viewProduct/$3.$4';
+//$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num)']                            = 'store/C_Store_Product/viewProduct/$3.$4.$5';
+//$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6';
+//$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num)']              = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7';
+//$route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']       = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6.$7.$8';
 
 
 // url para soportar el anidamiento de las subcategorias
@@ -272,56 +271,13 @@ $route['company/(:num)/store/(:num)/ajax/shopping/delete']          = 'store/C_S
 | URL -> PROMOTIONS
 | ------------------------------
 */
-$route['company/(:num)/store/(:num)/promotions']                                                      = 'store/C_Store_Home/promotions';
-$route['company/(:num)/store/(:num)/promotions/(:num)']                                               = 'store/C_Store_Product/viewProductPromotions/$3';
-$route['company/(:num)/store/(:num)/promotions/(:num).(:num)']                                        = 'store/C_Store_Product/viewProductPromotions/$3.$4';
-$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6';
-$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num).(:num)']              = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6.$7';
-$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']       = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6.$7.$8';
-
-///*
-//| ------------------------------
-//| URL -> STORE ADMIN
-//| ------------------------------
-//*/
-//$route['store/(:num)/admin']	   = 'company-admin/C_StoreAdmin';
-//$route['store/(:num)/admin/login'] = 'admin/C_Login';
-//// $route['store/signIn']			   = 'company-admin/C_Login/signIn';
-//// $route['store/signOut']			   = 'company-admin/C_Login/signOut';
-//
-///*
-//| ------------------------------
-//| URL -> STORE ADMIN - PERFIL EMPRESA
-//| ------------------------------
-//*/
-//$route['store/(:num)/admin/perfil-store']                   = 'company-admin/module/empresa/C_StoreAdmin_Empresa';
-//$route['store/(:num)/admin/perfil-store/updatePerfilStore'] = 'company-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosStore';
-//$route['store/(:num)/admin/perfil-store/updatePayAccount']  = 'company-admin/module/empresa/C_StoreAdmin_Empresa/updateDatosPayAccount';
-//$route['store/(:num)/admin/perfil-store/updateLogoStore']   = 'company-admin/module/empresa/C_StoreAdmin_Empresa/updateLogoStore';
-//
-//
-//
-///*
-//| ------------------------------
-//| URL -> STORE ADMIN - PERFIL USUARIO
-//| ------------------------------
-//*/
-//$route['store/(:num)/admin/user-profile']                        = 'company-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario';
-//$route['store/(:num)/admin/user-profile/ajax/updateUserProfile'] = 'company-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserProfile';
-//$route['store/(:num)/admin/user-profile/ajax/updateUserAccount'] = 'company-admin/module/perfil-usuario/C_StoreAdmin_Perfil_Usuario/ajaxUpdateUserAccount';
-//
-///*
-//| ------------------------------
-//| URL -> STORE ADMIN - PRODUCTOS
-//| ------------------------------
-//*/
-//$route['store/(:num)/admin/products']                       = 'company-admin/module/productos/C_StoreAdmin_Productos';
-//$route['store/(:num)/admin/products/page']                  = 'company-admin/module/productos/C_StoreAdmin_Productos';
-//$route['store/(:num)/admin/products/page/(:num)']           = 'company-admin/module/productos/C_StoreAdmin_Productos';
-//$route['store/(:num)/admin/products/add']                   = 'company-admin/module/productos/C_StoreAdmin_Productos/addProduct';
-//$route['store/(:num)/admin/products/edit/(:num)']           = 'company-admin/module/productos/C_StoreAdmin_Productos/editProduct/$2';
-//$route['store/(:num)/admin/products/ajax/addProduct']       = 'company-admin/module/productos/C_StoreAdmin_Productos/ajaxAddProduct';
-//$route['store/(:num)/admin/products/ajax/getSubCategorys']  = 'company-admin/module/productos/C_StoreAdmin_Productos/ajaxGetSubCategorysByIDCategory';
+$route['company/(:num)/store/(:num)/promotions']        = 'store/C_Store_Home/promotions';
+$route['company/(:num)/store/(:num)/promotions/(:num)'] = 'store/C_Store_Product/viewProductPromotions/$3';
+//$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num)']                                   = 'store/C_Store_Product/viewProductPromotions/$3.$4';
+//$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num)']                            = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5';
+//$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6';
+//$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num).(:num)']              = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6.$7';
+//$route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']       = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6.$7.$8';
 
 /*
 | ------------------------------
