@@ -61,7 +61,7 @@
                     <div class="col-xs-12 detail" id="titledetail">
                         <?php if (sizeof($modulo->data_productos) > 0) { ?>
                             <h2><?php echo $modulo->data_productos[0]->nombre_producto; ?></h2>
-                            <h3>$<?php echo $modulo->data_productos[0]->precio_producto; ?></h3><h4><strike></strike></h4>
+                            <h3>$<?php echo $modulo->data_productos[0]->precio_oferta; ?></h3><h4><strike><?php echo $modulo->data_productos[0]->precio_producto; ?></strike></h4>
                         <?php } ?>
                     </div>
                     <div class="col-xs-12 detail" id="color">
@@ -235,7 +235,7 @@
             if(session){
                 var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
                 var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
-                var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
+                var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_oferta; ?>";
                 var formData = new FormData();
                 formData.append("id_producto", id_producto);
                 formData.append("nombre_producto", nombre_producto);
