@@ -32,7 +32,7 @@
 
         <div class="col-xs-12" >
 
-
+            <?php if ($modulo->has_user_session) { ?>
             <div class="row">
                 <?php $cart_check = $this->cart->contents();
 
@@ -146,7 +146,18 @@
             <div class="row" style="height:120px; background:#FFF;">
 
             </div>
+            <?php } else { ?>
+                <div class="row">
 
+
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
+                        <h2>Sign in to view your cart</h2>
+                    </div>
+                    <div class="col-xs-12 detail" style="height: 150px;background: #FFFFFF"></div>
+
+
+                </div>
+            <?php } ?>
 
 
 
