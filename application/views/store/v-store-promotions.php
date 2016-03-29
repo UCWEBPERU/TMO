@@ -61,20 +61,7 @@
     <?php } ?>
 
     <div class="col-xs-12">
-        <P>PROMOTIONS</P>
-
-        <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
-            <div class="row">
-                <div>
-                    <div class="col-xs-5 list" >
-                        <a href="<?php echo $sub_categoria->url_categoria; ?>" ><img src="<?php echo $sub_categoria->url_archivo; ?>" id="images" alt="" /></a>
-                    </div>
-                    <div class="col-xs-7 list" >
-                        <a href="<?php echo $sub_categoria->url_categoria; ?>" ><h2><?php echo strtoupper($sub_categoria->nombre_categoria); ?></h2></a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+        
 
         <div class="row">
             <div>
