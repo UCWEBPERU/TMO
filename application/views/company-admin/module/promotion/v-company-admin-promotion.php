@@ -102,7 +102,7 @@
             if ( $(this).attr("data-row-action") == "delete") {
                 evt.preventDefault();
                 urlApi = "<?php echo $modulo->url_module_panel."/ajax/deletePromotion"; ?>";
-                formData.append("id_oferta", $(this).attr("id-oferta"));
+                formData.append("id_oferta", $(this).attr("data-row-id-oferta"));
                 formData.append("id_producto", $(this).attr("data-row-id-product"));
 
                 swal({

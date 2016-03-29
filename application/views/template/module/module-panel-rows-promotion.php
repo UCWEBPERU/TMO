@@ -16,7 +16,7 @@
             <td>$<?php echo $modeloRow->precio_oferta; ?></td>
             <td><?php echo $modeloRow->nombre_tienda; ?></td>
             <td>
-                <a href="<?php echo $modulo->url_module_panel."/edit/".intval($modeloRow->id_producto) ?>" data-row-type="user" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_producto; ?>" class="btnActionRow"><span class="label label-primary">Editar</span></a>&nbsp;&nbsp;
+                <a href="<?php echo $modulo->url_module_panel."/edit/".intval($modeloRow->id_oferta) ?>" data-row-type="user" data-row-action="edit" data-row-id="<?php echo $modeloRow->id_producto; ?>" class="btnActionRow"><span class="label label-primary">Editar</span></a>&nbsp;&nbsp;
                 <a href="#" data-row-type="promotion" data-row-action="delete" data-row-id-product="<?php echo $modeloRow->id_producto; ?>" data-row-id-oferta="<?php echo $modeloRow->id_oferta; ?>" class="btnActionRow"><span class="label label-danger">Eliminar</span></a>
             </td>
         </tr>

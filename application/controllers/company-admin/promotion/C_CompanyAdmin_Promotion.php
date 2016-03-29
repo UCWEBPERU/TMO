@@ -203,7 +203,7 @@ class C_CompanyAdmin_Promotion extends CI_Controller {
         $json 				= new stdClass();
         $json->type 		= "Promotion";
         $json->presentation = "";
-        $json->action 		= "update";
+        $json->action 		= "delete";
         $json->data 		= array();
         $json->status 		= FALSE;
 
