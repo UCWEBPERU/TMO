@@ -226,7 +226,7 @@ class M_Store extends CI_Model {
         $this->db->where('Modificador_Productos.estado', '1');
         $this->db->where('Detalle_Modificador_Productos.estado', '1');
         $this->db->where('Oferta.estado', '1');
-        $this->db->where("NOW() BETWEEN Oferta.fecha_inicio AND Oferta.fecha_fin");
+
         $this->db->order_by('Modificador_Productos.tipo_modificador', 'asc');
         $this->db->order_by('Detalle_Modificador_Productos.descripcion_modificador', 'asc');
         $this->db->group_by('Detalle_Modificador_Productos.descripcion_modificador');
