@@ -40,6 +40,7 @@
                         <a href="<?php echo $modulo->base_url_store."/promotions/".intval($producto->id_producto); ?>" ><img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>" class="images" alt="" /></a>
                         <h2><a href="<?php echo $modulo->base_url_store."/promotions/".intval($producto->id_producto); ?>" ><?php echo $producto->nombre_producto; ?></a></h2>
                         <h3><a href="<?php echo $modulo->base_url_store."/promotions/".intval($producto->id_producto); ?>" >$<?php echo $producto->precio_oferta; ?></a></h3><h4><strike></strike></h4>
+                        <h4>$<del><?php echo $producto->precio_producto; ?></del></h4>
                     </div>
                 <?php } ?>
             </div>
