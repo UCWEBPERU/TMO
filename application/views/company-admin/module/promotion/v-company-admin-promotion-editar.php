@@ -54,20 +54,8 @@
                                         <div class="form-group">
                                             <label for="cboProducto">Producto</label>
                                             <select class="form-control select2" style="width: 100%;" id="cboProducto" name="cboProducto" data-parsley-required data-parsley-required-message="Seleccione un producto." disabled>
-                                                <?php if ($modulo->existe_promocion) { ?>
-                                                    <?php foreach($modulo->data_productos as $producto): ?>
-                                                        <?php if ($modulo->data_promocion->id_producto == $producto->id_producto) { ?>
-                                                            <option value="<?php echo $producto->id_producto; ?>" selected="selected"><?php echo $producto->nombre_producto; ?></option>
-                                                        <?php } else { ?>
-                                                            <option value="<?php echo $producto->id_producto; ?>"><?php echo $producto->nombre_producto; ?></option>
-                                                        <?php } ?>
-                                                    <?php endforeach; ?>
-                                                <?php } else { ?>
-                                                    <option selected="selected" value="">Seleccione</option>
-                                                    <?php foreach($modulo->data_productos as $producto): ?>
-                                                        <option value="<?php echo $producto->id_producto; ?>"><?php echo $producto->nombre_producto; ?></option>
-                                                    <?php endforeach; ?>
-                                                <?php } ?>
+                                                <option value="">Seleccione</option>
+                                                <option value="<?php echo $modulo->data_promocion->id_producto; ?>" selected="selected"><?php echo $modulo->data_promocion->nombre_producto; ?></option>
                                             </select>
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
