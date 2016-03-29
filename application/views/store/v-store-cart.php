@@ -158,7 +158,7 @@
                     </div>
                     <div class="col-xs-12 detail" style="height: 50px;background: #FFFFFF"></div>
 
-
+ 
                 </div>
             <?php } ?>
 
@@ -216,7 +216,7 @@
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
     <script>
 
-           
+
 
            function deleteItem(btn, item) {
 
