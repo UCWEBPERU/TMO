@@ -225,7 +225,7 @@ $route['company/(:num)/store/(:num)/ajax/registerClient']       = 'store/C_Store
 $route['company/(:num)/store/(:num)/ajax/signIn']               = 'store/C_Store_Sign_In/ajaxSignIn';
 $route['company/(:num)/store/(:num)/ajax/forgotPassword']       = 'store/C_Store_Sign_In/ajaxForgotPassword';
 
-
+$route['company/(:num)/store/(:num)/products/(:num)']                                               = 'store/C_Store_Product/viewProduct/$3';
 $route['company/(:num)/store/(:num)/products/(:num)/tags/(:num)']                                   = 'store/C_Store_Product/viewProduct/$3.$4';
 $route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num)']                            = 'store/C_Store_Product/viewProduct/$3.$4.$5';
 $route['company/(:num)/store/(:num)/products/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProduct/$3.$4.$5.$6';
@@ -259,8 +259,8 @@ $route['company/(:num)/store/(:num)/ajax/shopping/delete']          = 'store/C_S
 | ------------------------------
 */
 $route['company/(:num)/store/(:num)/promotions']                                                      = 'store/C_Store_Home/promotions';
-$route['company/(:num)/store/(:num)/promotions/(:num)']                                   = 'store/C_Store_Product/viewProductPromotions/$3';
-$route['company/(:num)/store/(:num)/promotions/(:num).(:num)']                            = 'store/C_Store_Product/viewProductPromotions/$3.$4';
+$route['company/(:num)/store/(:num)/promotions/(:num)']                                               = 'store/C_Store_Product/viewProductPromotions/$3';
+$route['company/(:num)/store/(:num)/promotions/(:num).(:num)']                                        = 'store/C_Store_Product/viewProductPromotions/$3.$4';
 $route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num)']                     = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6';
 $route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num).(:num)']              = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6.$7';
 $route['company/(:num)/store/(:num)/promotions/(:num)/tags/(:num).(:num).(:num).(:num).(:num)']       = 'store/C_Store_Product/viewProductPromotions/$3.$4.$5.$6.$7.$8';
