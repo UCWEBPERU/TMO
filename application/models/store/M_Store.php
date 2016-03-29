@@ -153,7 +153,7 @@ class M_Store extends CI_Model {
         $this->db->where('Producto.id_categoria', $data["id_categoria"]);
         $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
         $this->db->where('Categoria_Productos.estado', '1');
-        $this->db->where('Producto.id_oferta', NULL, true);
+        $this->db->where('Producto.id_oferta', 'Oferta.id_oferta');
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
         $this->db->order_by('Producto.nombre_producto', 'asc');
