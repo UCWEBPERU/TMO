@@ -154,6 +154,10 @@
             autoclose: true
         });
 
+        $('.datepicker').on("keydown", function(event){
+           event.preventDefault();
+        });
+
     });
 </script>
 </body>
