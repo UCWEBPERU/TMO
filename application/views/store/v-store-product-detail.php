@@ -232,40 +232,47 @@
 
             $("#shoppingcart").on("click", function(evt){
                 evt.preventDefault();
-                var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
-                var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
-                var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
-                var formData = new FormData();
-                formData.append("id_producto", id_producto);
-                formData.append("nombre_producto", nombre_producto);
-                formData.append("precio_producto", precio_producto);
-                for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
-                    formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
-                    
+                var session = "<?php echo $modulo->has_user_session; ?>";
+                if(session){
+                    var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
+                    var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
+                    var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
+                    var formData = new FormData();
+                    formData.append("id_producto", id_producto);
+                    formData.append("nombre_producto", nombre_producto);
+                    formData.append("precio_producto", precio_producto);
+                    for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
+                        formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
+
+                    }
+
+
+                    var request = $.ajax({
+                        url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
+                        method: "POST",
+                        data: formData,
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
+                    });
+
+                    request.done(function( response ) {
+
+                        if (response.status) {
+                            swal("Add Item", response.message, "success");
+                        } else {
+                            swal("Add Item", response.message, "danger");
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        swal("Add Item", textStatus, "danger");
+                    });
+
+                }else{
+                    $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signin");
                 }
 
-
-                var request = $.ajax({
-                    url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
-                    method: "POST",
-                    data: formData,
-                    dataType: 'json',
-                    processData: false,
-                    contentType: false,
-                });
-
-                request.done(function( response ) {
-
-                    if (response.status) {
-                        swal("Add Item", response.message, "success");
-                    } else {
-                        swal("Add Item", response.message, "danger");
-                    }
-                });
-
-                request.fail(function( jqXHR, textStatus ) {
-                    swal("Add Item", textStatus, "danger");
-                });
 
 
 
