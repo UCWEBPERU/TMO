@@ -61,11 +61,11 @@
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtFechaInicio">Fecha Inicio</label>
-                                            <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                                            <input type="date" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtFechaFin">Fecha Fin</label>
-                                            <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                                            <input type="date" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
                                         </div><!-- /.form-group -->
                                     </div>
 
