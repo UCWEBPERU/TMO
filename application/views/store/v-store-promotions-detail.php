@@ -208,7 +208,7 @@
                 }
                 listaModificadoresSeleccionados.push(datosModificador);
             }
-            console.log(listaModificadoresSeleccionados);
+            //console.log(listaModificadoresSeleccionados);
         }
 
         function validarModificadorEnLista(tipoModifier) {
