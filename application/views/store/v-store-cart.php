@@ -153,10 +153,10 @@
                     <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
                         <h2>Sign in to view your cart</h2>
                     </div>
-                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF; padding-top: 0px;" >
                         <a class="btn" id="signin">Sign In</a>
                     </div>
-                    
+
 
 
                 </div>
