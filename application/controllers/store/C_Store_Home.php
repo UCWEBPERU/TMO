@@ -80,7 +80,7 @@ class C_Store_Home extends CI_Controller {
 
         $data["modulo"] = $modulo;
 
-        $this->load->view('store/v-store-home', $data);
+        $this->load->view('store/v-store-promotions', $data);
     }
 
     public function viewSubCategorias($listaCategorias) {
