@@ -174,7 +174,7 @@
     <footer>
         <?php if ($modulo->has_user_session) { ?>
         <div id="cart">
-            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/cart/payment-method" >Place Order</a>
+            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/cart/payment-method?amount=<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?>" >Place Order</a>
         </div>
         <?php } ?>
         <div id="footer">
