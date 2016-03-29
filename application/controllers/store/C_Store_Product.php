@@ -79,9 +79,8 @@ class C_Store_Product extends CI_Controller {
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;
 
-
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_productos = cargarDatosProducto($idProducto);
+            $modulo->data_productos = cargarDatosProductosConPromocion($idProducto);
             if (sizeof($modulo->data_productos) > 0) {
                 $producto = cargarGaleriaPorProducto($modulo->data_productos[0]);
                 $dataCategoria = $this->M_Store->getCategory(
