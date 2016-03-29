@@ -89,7 +89,7 @@
                                         <div class="form-group">
                                             <label for="txtFechaInicio">Fecha Inicio</label>
                                             <?php if ($modulo->existe_promocion) { ?>
-                                                <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" value="<?php echo $modulo->data_promocion->fecha_inicio; ?>" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                                                <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" value="<?php $date = new DateTime($modulo->data_promocion->fecha_inicio); echo date_format($date, "Y-m-d"); ?>" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
                                             <?php } else { ?>
                                                 <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
                                             <?php } ?>
@@ -97,7 +97,7 @@
                                         <div class="form-group">
                                             <label for="txtFechaFin">Fecha Fin</label>
                                             <?php if ($modulo->existe_promocion) { ?>
-                                                <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" value="<?php echo $modulo->data_promocion->fecha_fin; ?>" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                                                <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" value="<?php $date = new DateTime($modulo->data_promocion->fecha_fin); echo date_format($date, "Y-m-d"); ?>" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
                                             <?php } else { ?>
                                                 <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
                                             <?php } ?>
