@@ -9,6 +9,7 @@ class C_Store_Product extends CI_Controller {
         $this->load->helper('store/h_store');
         $this->load->library('session');
         $this->load->model('store/M_Store');
+        $this->load->library('utils/UserSession');
     }
 
     public function viewProduct($idProducto) {
