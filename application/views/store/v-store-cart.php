@@ -155,7 +155,7 @@
                     </div>
                     <div class="col-xs-12 detail" style="height: 150px;background: #FFFFFF"></div>
 
-
+ 
                 </div>
             <?php } ?>
 
