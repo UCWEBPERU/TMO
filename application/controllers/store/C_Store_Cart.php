@@ -108,7 +108,7 @@ class C_Store_Cart extends CI_Controller {
         $result = $this->cart->insert($insert_data);
         
         if($result){
-            $json->message = "Item added successfully";
+            $json->message = "Item successfully added";
             $json->status 	= TRUE;
         }
 
@@ -144,7 +144,7 @@ class C_Store_Cart extends CI_Controller {
         $result = $this->cart->remove($this->input->post('id_producto'));
 
         if($result){
-            $json->message = "Item eliminado correctamente";
+            $json->message = "Item successfully deleted";
             $json->status 	= TRUE;
         }
 
