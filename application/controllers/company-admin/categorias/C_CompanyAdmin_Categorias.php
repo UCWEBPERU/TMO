@@ -60,7 +60,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     public function listAllCategories() {
         $modulo = $this->paneladmin->loadPanelCompany();
-        $modulo->menu = array("menu" => 4, "submenu" => 0);
+        $modulo->menu = array("menu" => 5, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Categorias";
 
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
@@ -90,7 +90,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     public function addCategory() {
         $modulo = $this->paneladmin->loadPanelCompany();
-        $modulo->menu = array("menu" => 4, "submenu" => 0);
+        $modulo->menu = array("menu" => 5, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Agregar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
@@ -103,7 +103,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     public function editCategory($id_category) {
         $modulo = $this->paneladmin->loadPanelCompany();
-        $modulo->menu = array("menu" => 4, "submenu" => 0);
+        $modulo->menu = array("menu" => 5, "submenu" => 0);
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Editar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
@@ -127,7 +127,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     public function listSubCategoriesByCategory($id_category) {
         $modulo = $this->paneladmin->loadPanelCompany();
-        $modulo->menu = array("menu" => 4, "submenu" => 0);
+        $modulo->menu = array("menu" => 5, "submenu" => 0);
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
         $datosCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(

@@ -179,6 +179,21 @@ $route['company/(:num)/admin/product/ajax/deleteModifierProduct']   = 'company-a
 
 /*
 | ------------------------------
+| URL -> COMPANY ADMIN - PROMOTIONS
+| ------------------------------
+*/
+$route['company/(:num)/admin/promotion']                              = 'company-admin/promotion/C_CompanyAdmin_Promotion';
+$route['company/(:num)/admin/promotion/page']                         = 'company-admin/promotion/C_CompanyAdmin_Promotion';
+$route['company/(:num)/admin/promotion/page/(:num)']                  = 'company-admin/promotion/C_CompanyAdmin_Promotion';
+//$route['company/(:num)/admin/promotion/add']                          = 'company-admin/promotion/C_CompanyAdmin_Promotion/addProduct';
+//$route['company/(:num)/admin/promotion/edit/(:num)']                  = 'company-admin/promotion/C_CompanyAdmin_Promotion/editProduct/$2';
+//$route['company/(:num)/admin/promotion/ajax/addProduct']              = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxAddProduct';
+//$route['company/(:num)/admin/promotion/ajax/editProduct']             = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxEditProduct';
+//$route['company/(:num)/admin/promotion/ajax/deleteImageProduct']      = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxDeleteImageProduct';
+//$route['company/(:num)/admin/promotion/ajax/deleteModifierProduct']   = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxDeleteModifierProduct';
+
+/*
+| ------------------------------
 | URL -> COMPANY ADMIN - USER
 | ------------------------------
 */
