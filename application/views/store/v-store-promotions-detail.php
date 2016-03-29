@@ -122,6 +122,7 @@
                     <div class="col-xs-12 detail" >
                         <h4>Description</h4>
                         <?php if (sizeof($modulo->data_productos) > 0) { ?>
+                            </br>
                             <h3><?php echo $modulo->data_productos[0]->descripcion_producto; ?></h3>
                         <?php } ?>
                         <!--                        <h3>Draped neck knit dress with 3/4 sleeves, seaming detail and a flared skirt</h3>-->
