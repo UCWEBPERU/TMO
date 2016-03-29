@@ -217,10 +217,11 @@
     <script>
 
            function redireccionar(){
-               redirect("<?php echo "/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin" ?>");
+               //redirect("<?php echo "/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin" ?>");
+               alert("aqui");
            }
 
-            function deleteItem(btn, item) {
+           function deleteItem(btn, item) {
 
                 var formData = new FormData();
                 formData.append("id_producto", item);
