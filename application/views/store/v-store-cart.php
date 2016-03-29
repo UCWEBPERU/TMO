@@ -182,8 +182,8 @@
         <?php } ?>
         <div id="footer">
             <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
-                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
+                <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
+                <h2><a href="<?php echo $modulo->base_url_store; ?>/promotions" onclick="">Products</a></h2>
             </div>
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
