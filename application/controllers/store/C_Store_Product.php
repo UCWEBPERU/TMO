@@ -81,6 +81,7 @@ class C_Store_Product extends CI_Controller {
 
         if (sizeof($dataCategorias) > 0) {
             $modulo->data_productos = cargarDatosProductosConPromocion($idProducto);
+            var_dump($modulo);
             if (sizeof($modulo->data_productos) > 0) {
                 $producto = cargarGaleriaPorProducto($modulo->data_productos[0]);
                 $dataCategoria = $this->M_Store->getCategory(
@@ -98,7 +99,6 @@ class C_Store_Product extends CI_Controller {
                 
                 $dataModifiers = configurarColorModificadores($dataModifiers);
                 $modulo->data_modifiers = $dataModifiers;
-                var_dump($modulo);
             }
         }
 
