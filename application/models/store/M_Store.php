@@ -146,7 +146,7 @@ class M_Store extends CI_Model {
                     Producto.precio_producto,
                     Producto.fecha_registro,
                     Oferta.id_oferta,
-                    Oferta.fecha_inicio
+                    Oferta.fecha_inicio,
                     Oferta.fecha_fin,
                     Oferta.precio_oferta
                     
@@ -162,7 +162,7 @@ class M_Store extends CI_Model {
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
         $this->db->where('Oferta.estado', '1');
-        
+        $this->db->where("NOW() BETWEEN Oferta.fecha_inicio AND Oferta.fecha_fin");
         $this->db->order_by('Producto.nombre_producto', 'asc');
         $query = $this->db->get('Producto');
 
