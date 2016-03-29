@@ -29,7 +29,7 @@ class C_CompanyAdmin_Promotion extends CI_Controller {
         $modulo->ruta_plantilla_registro 	= "template/module/module-panel-rows-promotion";
         $modulo->menu 						= array("menu" => 4, "submenu" => 0);
         $modulo->navegacion 				= array(
-            array("nombre" => "Product",
+            array("nombre" => "Promotion",
                 "url" => "",
                 "activo" => TRUE)
         );
@@ -71,28 +71,22 @@ class C_CompanyAdmin_Promotion extends CI_Controller {
         $this->load->view('company-admin/module/promotion/v-company-admin-promotion', $data);
     }
 
-//    public function addProduct() {
-//        $this->load->model("M_GEO_Data");
-//        $this->load->model("admin/M_Admin_Paquetes_TMO");
-//        $this->load->model('M_Tipo_Empresa');
-//        $this->load->model('company-admin/M_CompanyAdmin_Categorias');
-//
-//        /* Datos de la cabecera del panel de administrador*/
-//        $modulo                     = $this->paneladmin->loadPanelCompany();
-//        $modulo->titulo 			= "Product";
-//        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Add Product";
-//        $modulo->url_module_panel   = $modulo->url_main_panel."/product";
-//        $modulo->menu               = array("menu" => 3, "submenu" => 0);
-//
-//        $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
-//        $modulo->data_tiendas       = $this->M_CompanyAdmin_Promotion->getAllStore($this->session->id_empresa);
-//
-//        $modulo->data_categorias    = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
-//
-//        $data["modulo"] 		    = $modulo;
-//
-//        $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
-//    }
+    public function addPromotion() {
+        $this->load->model("company-admin/M_CompanyAdmin_Product");
+
+        /* Datos de la cabecera del panel de administrador*/
+        $modulo                     = $this->paneladmin->loadPanelCompany();
+        $modulo->titulo 			= "Product";
+        $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Add Promotion";
+        $modulo->url_module_panel   = $modulo->url_main_panel."/promotion";
+        $modulo->menu               = array("menu" => 4, "submenu" => 0);
+
+        $modulo->data_productos    = $this->M_CompanyAdmin_Product->getTotalProduct(array("id_empresa" => $this->session->id_empresa));
+
+        $data["modulo"] 		    = $modulo;
+
+        $this->load->view('company-admin/module/promotion/v-company-admin-promotion-agregar', $data);
+    }
 //
 //    public function editProduct($id_producto) {
 //        $this->load->model('company-admin/M_CompanyAdmin_Categorias');

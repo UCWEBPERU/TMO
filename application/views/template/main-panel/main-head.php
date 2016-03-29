@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>select2/select2.min.css">
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>datepicker/datepicker3.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_DIST; ?>css/AdminLTE.min.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
