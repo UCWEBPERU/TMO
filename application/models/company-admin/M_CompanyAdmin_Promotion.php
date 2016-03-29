@@ -12,6 +12,7 @@ class M_CompanyAdmin_Promotion extends CI_Model {
                             Producto.descripcion_producto,
                             Producto.stock,
                             Producto.precio_producto,
+                            Oferta.precio_oferta,
 							Tienda.nombre_tienda");
         $this->db->join('Sucursales', 'Sucursales.id_empresa = Empresa.id_empresa');
         $this->db->join('Tienda', 'Tienda.id_tienda = Sucursales.id_tienda');
