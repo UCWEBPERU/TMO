@@ -222,7 +222,7 @@
            }
            $( "#signin" ).click(function() {
                alert( "Handler for .click() called." );
-           });
+           }); 
 
            function deleteItem(btn, item) {
 
