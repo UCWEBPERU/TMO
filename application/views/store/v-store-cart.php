@@ -42,6 +42,9 @@
                     <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
                         <h2>To add products to your shopping cart click on "Add to Cart" Button</h2>
                     </div>
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
+                        <a class="btn" href="<?php echo $modulo->base_url_store; ?>" style="margin-bottom: 5px">Continue Shopping</a>
+                    </div>
                     <div class="col-xs-12 detail" style="height: 150px;background: #FFFFFF"></div>
 
                 <?php } ?>
@@ -172,7 +175,7 @@
 
 
     <footer>
-        <?php if ($modulo->has_user_session) { ?>
+        <?php if ($modulo->has_user_session && $this->cart->contents()) { ?>
         <div id="cart">
             <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/cart/payment-method?amount=<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?>" >Place Order</a>
         </div>
