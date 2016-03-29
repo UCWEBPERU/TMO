@@ -217,7 +217,7 @@
     <script>
 
            function redireccionar(){
-               redirect("/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin");
+               redirect("<?php echo "/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin" ?>");
            }
 
             function deleteItem(btn, item) {
