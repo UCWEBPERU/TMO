@@ -245,9 +245,9 @@ $route['company/(:num)/store/(:num)/categories/(:num).(:num).(:num).(:num).(:num
 | ------------------------------
 */
 
-$route['company/(:num)/store/(:num)/cart']                      = 'store/C_Store_Cart';
-$route['company/(:num)/store/(:num)/cart/payment-method']       = 'store/C_Store_Cart/addPaymentMethod';
-$route['company/(:num)/store/(:num)/ajax/checkout']                           = 'store/C_Store_Cart';
+$route['company/(:num)/store/(:num)/cart']                          = 'store/C_Store_Cart';
+$route['company/(:num)/store/(:num)/cart/payment-method']           = 'store/C_Store_Cart/addPaymentMethod';
+$route['company/(:num)/store/(:num)/ajax/checkout']                 = 'store/C_Store_Checkout/ajaxCheckout';
 $route['company/(:num)/store/(:num)/ajax/shopping/add']             = 'store/C_Store_Cart/addCart';
 $route['company/(:num)/store/(:num)/ajax/shopping/update']          = 'store/C_Store_Cart/updateCart';
 $route['company/(:num)/store/(:num)/ajax/shopping/delete']          = 'store/C_Store_Cart/deleteitemCart';
