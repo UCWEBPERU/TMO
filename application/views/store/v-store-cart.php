@@ -42,6 +42,9 @@
                     <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
                         <h2>To add products to your shopping cart click on "Add to Cart" Button</h2>
                     </div>
+                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
+                        <a class="btn" href="<?php echo $modulo->base_url_store; ?>" style="margin-bottom: 5px">Continue Shopping</a>
+                    </div>
                     <div class="col-xs-12 detail" style="height: 150px;background: #FFFFFF"></div>
 
                 <?php } ?>
@@ -158,7 +161,7 @@
                     </div>
                     <div class="col-xs-12 detail" style="height: 50px;background: #FFFFFF"></div>
 
- 
+
                 </div>
             <?php } ?>
 
@@ -172,9 +175,9 @@
 
 
     <footer>
-        <?php if ($modulo->has_user_session) { ?>
+        <?php if ($modulo->has_user_session && $this->cart->contents()) { ?>
         <div id="cart">
-            <button id="placeorder"><h2>Place Order</h2></button>
+            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/cart/payment-method?amount=<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?>" >Place Order</a>
         </div>
         <?php } ?>
         <div id="footer">
@@ -182,7 +185,6 @@
                 <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
                 <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
             </div>
-
             <div class="boximage">
                 <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
                 <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Promotions</a></h1>
@@ -216,7 +218,7 @@
     <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
     <script>
 
-
+           
 
            function deleteItem(btn, item) {
 

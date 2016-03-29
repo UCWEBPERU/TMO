@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CodeIgniter
  *
@@ -55,6 +56,7 @@
  */
 	//ini_set('max_execution_time', 0);
 	//ini_set('memory_limit', '512M');
+//	ini_set( 'arg_separator.output', '&');
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
@@ -291,4 +293,5 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
+require_once __DIR__.'/vendor/autoload.php';
 require_once BASEPATH.'core/CodeIgniter.php';

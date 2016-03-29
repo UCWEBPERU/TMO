@@ -370,11 +370,9 @@
 		}
 
 	.detail{
-
 		padding: 0;
 		margin: 0;
 		line-height:normal;
-
 	}
 	#contenedordetail2{
 		background: #FFF;
@@ -407,13 +405,13 @@
 			width: 25px;
 		}
 		.detail button{
-			height: 25px;			
+			min-width: 25px;
+			height: 25px;
 			float: left;
 			margin-left: 10px;
 			background: #FFF;
 			border-color: #000;
 			border-width: 1px;
-	
 		}
 		#titledetail h2{
 			color: #000;
@@ -421,8 +419,6 @@
 			font-weight: 700;
 			text-align: justify;
 			padding: 10px;
-			
-			
 		}
 		#titledetail h3{
 			color: #000;
@@ -430,7 +426,6 @@
 			margin-left: 10px;			
 			margin-top: 0;
 			float: left;
-
 		}
 		#titledetail h4{
 			color: #444646;
@@ -445,7 +440,6 @@
 			color :#1FA2E3;
 			font-weight: 700;
 			margin-left: 10px;
-			
 		}
 		.detail h3{
 			color: #000;
@@ -579,15 +573,13 @@
 	}
 	.titlecart a{
 		margin-left: 35%;
-		margin-top: 100px;		
+		margin-top: 100px;
 		background: #000;
 		border: 0px;
 		height: 30px;
-		width: 100px;
 		color: #FFF;
 		font-family: 'Lato';
 		text-align: center;
-		line-height:25px;
 		vertical-align: middle;
 		display: inline-block;
 	}
@@ -697,7 +689,7 @@
 		font-weight: bold;
 	}
 /* Sign*/
-	.sign input{
+	.sign input, .sign select {
 		width: 100%;
 		background: #E5E5E5;
 		color: #545454;
@@ -737,7 +729,7 @@
 		font-family: 'Lato';	
 		
 	}
-	.sign a.btn-black {
+	.sign a.btn-black, #cart a.btn-black{
 		display: block;
 		margin-top: 10px;
 		background: #000;

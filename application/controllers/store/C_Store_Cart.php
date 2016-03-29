@@ -12,10 +12,10 @@ class C_Store_Cart extends CI_Controller {
         $this->load->helper('store/h_store');
         $this->load->library('cart');
         $this->load->helper('form');
+        $this->load->library('user_agent');
     }
 
-    function index(){
-        //$this->usersession->validateSession("panel-store");
+    function index() {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
         $modulo->has_user_session = $this->usersession->isClient();
@@ -50,8 +50,7 @@ class C_Store_Cart extends CI_Controller {
 
     }
 
-    function addCart()
-    {
+    function addCart() {
         $json 				= new stdClass();
         $json->type 		= "Insertar Carrito";
         $json->presentation = "";
@@ -69,8 +68,8 @@ class C_Store_Cart extends CI_Controller {
         cargarGaleriaPorProducto($dataProducto[0]);
 
         $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo);
-       
-       
+
+
 
         //var_dump($modifiers);
         if($this->input->post('modifiers[]')){
@@ -84,10 +83,10 @@ class C_Store_Cart extends CI_Controller {
                         $datamodificador->descripcion_modificador,
                         $datamodificador->costo_modificador
                     ));
-                
+
             };
 
-               
+
 
 
         }
@@ -96,7 +95,6 @@ class C_Store_Cart extends CI_Controller {
 
 //        var_dump($option);
         // Set array for send data.
-
         $insert_data = array(
             'id' => $this->input->post('id_producto'),
             'name' => $this->input->post('nombre_producto'),
@@ -114,16 +112,11 @@ class C_Store_Cart extends CI_Controller {
             $json->status 	= TRUE;
         }
 
-
         echo json_encode($json);
-
-
-
     }
 
 
-    function updateCart(){
-
+    function updateCart() {
         // Recieve post values,calcute them and update
         $cart_info = $_POST['cart'];
         foreach ($cart_info as $id => $cart) {
@@ -139,10 +132,9 @@ class C_Store_Cart extends CI_Controller {
                 'qty' => $qty
             );
         }
-
     }
 
-    function deleteitemCart(){
+    function deleteitemCart() {
         $json 				= new stdClass();
         $json->type 		= "Eliminar Item";
         $json->presentation = "";
@@ -158,9 +150,42 @@ class C_Store_Cart extends CI_Controller {
 
         
         echo json_encode($json);
+    }
 
+    function addPaymentMethod() {
+        $this->usersession->validateSession("panel-store");
+        $modulo = new stdClass();
+        $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
+        $modulo->has_user_session = $this->usersession->isClient();
+        $modulo->previuos_url = $this->agent->referrer();
+        $modulo->amount_cart = $this->input->get("amount");
 
+        $dataEmpresa = $this->M_Store->getCompanyAndStore(
+            array(
+                "id_empresa"    => $this->uri->segment(2),
+                "id_tienda"     => $this->uri->segment(4)
+            )
+        );
+
+        if (sizeof($dataEmpresa) == 0) {
+            redirect("not-found/store");
+        }
+
+        if ($this->usersession->isClient()) {
+            $dataUsuario = $this->M_Store->getUserBYEmail(
+                array(
+                    "email_usuario" => $this->session->email_usuario
+                )
+            );
+
+            if (sizeof($dataUsuario) > 0) {
+                $modulo->data_usuario = $dataUsuario[0];
+            }
+        }
+
+        $data["modulo"] = $modulo;
+
+        $this->load->view('store/v-store-cart-add-payment-method', $data);
     }
     
 }
-?>

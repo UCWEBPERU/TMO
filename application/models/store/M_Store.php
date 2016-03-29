@@ -9,10 +9,12 @@ class M_Store extends CI_Model {
     public function getCompanyAndStore($data) {
         $this->db->join('Sucursales', 'Sucursales.id_empresa = Empresa.id_empresa');
         $this->db->join('Tienda', 'Tienda.id_tienda = Sucursales.id_tienda');
-        $this->db->where('Empresa.id_empresa', $data["id_empresa"]);
+        $this->db->join('Pay_Account', 'Pay_Account.id_pay_account = Tienda.id_tienda');
         $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
+        $this->db->where('Empresa.id_empresa', $data["id_empresa"]);
         $this->db->where('Empresa.estado', '1');
         $this->db->where('Tienda.estado', '1');
+        $this->db->where('Pay_Account.estado', '1');
         $query = $this->db->get('Empresa');
 
         return $query->result();
@@ -84,6 +86,7 @@ class M_Store extends CI_Model {
         $this->db->where('Categoria_Productos.id_categoria', $data["id_categoria"]);
         $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
         $this->db->where('Categoria_Productos.estado', '1');
+        $this->db->where('Producto.id_oferta', NULL);
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
         $this->db->order_by('Producto.nombre_producto', 'asc');
