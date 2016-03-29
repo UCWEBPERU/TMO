@@ -573,15 +573,13 @@
 	}
 	.titlecart a{
 		margin-left: 35%;
-		margin-top: 100px;		
+		margin-top: 100px;
 		background: #000;
 		border: 0px;
 		height: 30px;
-		width: 100px;
 		color: #FFF;
 		font-family: 'Lato';
 		text-align: center;
-		line-height:25px;
 		vertical-align: middle;
 		display: inline-block;
 	}
