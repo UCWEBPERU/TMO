@@ -61,7 +61,7 @@
                     <div class="col-xs-12 detail" id="titledetail">
                         <?php if (sizeof($modulo->data_productos) > 0) { ?>
                             <h2><?php echo $modulo->data_productos[0]->nombre_producto; ?></h2>
-                            <h3>$<?php echo $modulo->data_productos[0]->precio_oferta; ?></h3><h4><strike><?php echo $modulo->data_productos[0]->precio_producto; ?></strike></h4>
+                            <h3>$<?php echo $modulo->data_productos[0]->precio_oferta; ?></h3><h4>$<del><?php echo $modulo->data_productos[0]->precio_producto; ?></del></h4>
                         <?php } ?>
                     </div>
                     <div class="col-xs-12 detail" id="color">
