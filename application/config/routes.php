@@ -182,15 +182,14 @@ $route['company/(:num)/admin/product/ajax/deleteModifierProduct']   = 'company-a
 | URL -> COMPANY ADMIN - PROMOTIONS
 | ------------------------------
 */
-$route['company/(:num)/admin/promotion']                              = 'company-admin/promotion/C_CompanyAdmin_Promotion';
-$route['company/(:num)/admin/promotion/page']                         = 'company-admin/promotion/C_CompanyAdmin_Promotion';
-$route['company/(:num)/admin/promotion/page/(:num)']                  = 'company-admin/promotion/C_CompanyAdmin_Promotion';
-$route['company/(:num)/admin/promotion/add']                          = 'company-admin/promotion/C_CompanyAdmin_Promotion/addPromotion';
-$route['company/(:num)/admin/promotion/edit/(:num)']                  = 'company-admin/promotion/C_CompanyAdmin_Promotion/editPromotion/$2';
-//$route['company/(:num)/admin/promotion/ajax/addProduct']              = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxAddProduct';
-//$route['company/(:num)/admin/promotion/ajax/editProduct']             = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxEditProduct';
-//$route['company/(:num)/admin/promotion/ajax/deleteImageProduct']      = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxDeleteImageProduct';
-//$route['company/(:num)/admin/promotion/ajax/deleteModifierProduct']   = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxDeleteModifierProduct';
+$route['company/(:num)/admin/promotion']                                = 'company-admin/promotion/C_CompanyAdmin_Promotion';
+$route['company/(:num)/admin/promotion/page']                           = 'company-admin/promotion/C_CompanyAdmin_Promotion';
+$route['company/(:num)/admin/promotion/page/(:num)']                    = 'company-admin/promotion/C_CompanyAdmin_Promotion';
+$route['company/(:num)/admin/promotion/add']                            = 'company-admin/promotion/C_CompanyAdmin_Promotion/addPromotion';
+$route['company/(:num)/admin/promotion/edit/(:num)']                    = 'company-admin/promotion/C_CompanyAdmin_Promotion/editPromotion/$2';
+$route['company/(:num)/admin/promotion/ajax/addPromotion']              = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxAddPromotion';
+$route['company/(:num)/admin/promotion/ajax/editProduct']               = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxEditPromotion';
+$route['company/(:num)/admin/promotion/ajax/deletePromotion']           = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxDeletePromotion';
 
 /*
 | ------------------------------

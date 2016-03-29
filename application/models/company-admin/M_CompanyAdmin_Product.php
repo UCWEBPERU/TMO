@@ -18,7 +18,6 @@ class M_CompanyAdmin_Product extends CI_Model {
         $this->db->join('Catalogo_Productos', 'Catalogo_Productos.id_tienda = Tienda.id_tienda');
         $this->db->join('Producto', 'Producto.id_producto = Catalogo_Productos.id_producto');
         $this->db->where('Empresa.id_empresa', $id_empresa);
-        $this->db->where('Producto.id_oferta', NULL);
         $this->db->where('Empresa.estado', '1');
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
@@ -75,7 +74,6 @@ class M_CompanyAdmin_Product extends CI_Model {
         $this->db->join('Catalogo_Productos', 'Catalogo_Productos.id_tienda = Tienda.id_tienda');
         $this->db->join('Producto', 'Producto.id_producto = Catalogo_Productos.id_producto');
         $this->db->where('Empresa.id_empresa', $id_empresa);
-        $this->db->where('Producto.id_oferta', NULL);
         $this->db->where('Empresa.estado', '1');
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');

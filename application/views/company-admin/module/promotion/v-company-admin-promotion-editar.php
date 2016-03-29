@@ -16,13 +16,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Agregar Promocion
+                Editar Promocion
                 <small><a href="<?php echo $modulo->url_module_panel; ?>">Regresar</a></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
                 <li><a href="<?php echo $modulo->url_module_panel; ?>"> Promociones</a></li>
-                <li> Agregar</li>
+                <li> Editar</li>
             </ol>
         </section>
         <!-- Main content -->
@@ -37,35 +37,70 @@
                         <!-- /.box-header -->
                         <!-- form start -->
                         <form role="form" id="frmDatosCategoria">
+                            <?php if ($modulo->existe_promocion) { ?>
+                                <input type="hidden" id="id_oferta" name="id_oferta" value="<?php echo $modulo->data_promocion->id_oferta; ?>">
+                            <?php } ?>
                             <div class="box-body">
-
+                                <?php if (!$modulo->existe_promocion) { ?>
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <h4><i class="icon fa fa-ban"></i> No existe la promocion!</h4>
+                                        Lo sentimos la promocion que desea editar no existe.<br>
+                                        <strong>No intente modificar la direccion url :D</strong>
+                                    </div>
+                                <?php } ?>
                                 <div class="row">
 
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="cboProducto">Producto</label>
-                                            <select class="form-control select2" style="width: 100%;" id="cboProducto" name="cboProducto" data-parsley-required data-parsley-required-message="Seleccione un producto.">
-                                                <option selected="selected" value="">Seleccione</option>
-                                                <?php foreach($modulo->data_productos as $producto): ?>
-                                                    <option value="<?php echo $producto->id_producto; ?>"><?php echo $producto->nombre_producto; ?></option>
-                                                <?php endforeach; ?>
+                                            <select class="form-control select2" style="width: 100%;" id="cboProducto" name="cboProducto" data-parsley-required data-parsley-required-message="Seleccione un producto." disabled>
+                                                <?php if ($modulo->existe_promocion) { ?>
+                                                    <?php foreach($modulo->data_productos as $producto): ?>
+                                                        <?php if ($modulo->data_promocion->id_producto == $producto->id_producto) { ?>
+                                                            <option value="<?php echo $producto->id_producto; ?>" selected="selected"><?php echo $producto->nombre_producto; ?></option>
+                                                        <?php } else { ?>
+                                                            <option value="<?php echo $producto->id_producto; ?>"><?php echo $producto->nombre_producto; ?></option>
+                                                        <?php } ?>
+                                                    <?php endforeach; ?>
+                                                <?php } else { ?>
+                                                    <option selected="selected" value="">Seleccione</option>
+                                                    <?php foreach($modulo->data_productos as $producto): ?>
+                                                        <option value="<?php echo $producto->id_producto; ?>"><?php echo $producto->nombre_producto; ?></option>
+                                                    <?php endforeach; ?>
+                                                <?php } ?>
                                             </select>
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtPrecioPromocion">Precio</label>
-                                            <input type="text" class="form-control" id="txtPrecioPromocion" name="txtPrecioPromocion" data-parsley-required data-parsley-required-message="Ingrese el precio de promocion.">
+                                            <?php if ($modulo->existe_promocion) { ?>
+                                                <input type="text" class="form-control" id="txtPrecioPromocion" name="txtPrecioPromocion" value="<?php echo $modulo->data_promocion->precio_oferta; ?>" data-parsley-required data-parsley-required-message="Ingrese el precio de promocion.">
+                                            <?php } else { ?>
+                                                <input type="text" class="form-control" id="txtPrecioPromocion" name="txtPrecioPromocion" data-parsley-required data-parsley-required-message="Ingrese el precio de promocion.">
+                                            <?php } ?>
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtDescripcionPromocion">Descripcion</label>
-                                            <textarea class="form-control" id="txtDescripcionPromocion" name="txtDescripcionPromocion" cols="30" rows="5" data-parsley-required-message="Ingrese la descripcion de la promocion."></textarea>
+                                            <?php if ($modulo->existe_promocion) { ?>
+                                                <textarea class="form-control" id="txtDescripcionPromocion" name="txtDescripcionPromocion" cols="30" rows="5" data-parsley-required-message="Ingrese la descripcion de la promocion."><?php echo $modulo->data_promocion->descripcion_oferta; ?></textarea>
+                                            <?php } else { ?>
+                                                <textarea class="form-control" id="txtDescripcionPromocion" name="txtDescripcionPromocion" cols="30" rows="5" data-parsley-required-message="Ingrese la descripcion de la promocion."></textarea>
+                                            <?php } ?>
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtFechaInicio">Fecha Inicio</label>
-                                            <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                                            <?php if ($modulo->existe_promocion) { ?>
+                                                <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" value="<?php echo $modulo->data_promocion->fecha_inicio; ?>" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                                            <?php } else { ?>
+                                                <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                                            <?php } ?>
                                         </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="txtFechaFin">Fecha Fin</label>
-                                            <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                                            <?php if ($modulo->existe_promocion) { ?>
+                                                <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" value="<?php echo $modulo->data_promocion->fecha_fin; ?>" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                                            <?php } else { ?>
+                                                <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                                            <?php } ?>
                                         </div><!-- /.form-group -->
                                     </div>
 
@@ -73,7 +108,7 @@
 
                             </div><!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="button-effect-1" id="btnAgregar" >Agregar</button>
+                                <button type="submit" class="button-effect-1" id="btnGuardar" >Guardar</button>
                             </div>
                         </form>
                     </div><!-- /.box -->
@@ -109,12 +144,13 @@
         var selectorInputsForm = ["#cboProducto", "#txtPrecioPromocion", "#txtDescripcionPromocion", "#txtFechaInicio", "#txtFechaFin"];
         var formData = new FormData();
 
-        $("#btnAgregar").on("click", function(evt) {
+        $("#btnGuardar").on("click", function(evt) {
             evt.preventDefault();
 
             if ( ValidateInputFormWithParsley.validate(selectorInputsForm)) {
                 waitingDialog.show('Guardando Promocion...');
 
+                formData.append("id_oferta",                $("#id_oferta").val());
                 formData.append("cboProducto",              $("#cboProducto").val());
                 formData.append("txtPrecioPromocion",       $("#txtPrecioPromocion").val());
                 formData.append("txtDescripcionPromocion",  $("#txtDescripcionPromocion").val());
@@ -154,7 +190,7 @@
         });
 
         $('.datepicker').on("keypress", function(event){
-           event.preventDefault();
+            event.preventDefault();
         });
 
     });

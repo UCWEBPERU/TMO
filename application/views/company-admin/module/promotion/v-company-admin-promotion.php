@@ -101,8 +101,9 @@
 
             if ( $(this).attr("data-row-action") == "delete") {
                 evt.preventDefault();
-                urlApi = baseUrl + "<?php echo $modulo->base_url; ?>delete";
-                formData.append("id_promocion", $(this).attr("data-row-id"));
+                urlApi = "<?php echo $modulo->url_module_panel."/ajax/deletePromotion"; ?>";
+                formData.append("id_oferta", $(this).attr("id-oferta"));
+                formData.append("id_producto", $(this).attr("data-row-id-product"));
 
                 swal({
                         title: "Eliminar Promocion",
