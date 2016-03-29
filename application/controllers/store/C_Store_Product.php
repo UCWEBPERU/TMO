@@ -80,8 +80,7 @@ class C_Store_Product extends CI_Controller {
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;
 
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_productos = cargarDatosProductosConPromocion($idProducto);
-            var_dump($modulo);
+            $modulo->data_productos = cargarDatosProductoConPromocion($idProducto);
             if (sizeof($modulo->data_productos) > 0) {
                 $producto = cargarGaleriaPorProducto($modulo->data_productos[0]);
                 $dataCategoria = $this->M_Store->getCategory(
@@ -93,7 +92,7 @@ class C_Store_Product extends CI_Controller {
                 $modulo->url_button_back = generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior);
                 $dataModifiers = $this->M_Store->getModifiers(
                     array(
-                        "id_producto" => $idProducto
+                        "id_producto" => $producto->id_producto
                     )
                 );
                 

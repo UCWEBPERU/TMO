@@ -49,42 +49,6 @@ if ( ! function_exists('cargarDatosProductos')) {
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('cargarDatosProductosConPromocion')) {
-
-    function cargarDatosProductosConPromocion($id_categoria) {
-        $CI =& get_instance();
-        $dataProductos = $CI->M_Store->getProductPromotion(
-            array(
-                "id_empresa"    => $CI->uri->segment(2),
-                "id_tienda"     => $CI->uri->segment(4),
-                "id_categoria"  => $id_categoria
-            )
-        );
-        return $dataProductos;
-    }
-
-}
-
-// ------------------------------------------------------------------------
-
-if ( ! function_exists('cargarDatosProductosConPromocion')) {
-
-    function cargarDatosProductosConPromocion($id_categoria) {
-        $CI =& get_instance();
-        $dataProductos = $CI->M_Store->getProductPromotion(
-            array(
-                "id_empresa"    => $CI->uri->segment(2),
-                "id_tienda"     => $CI->uri->segment(4),
-                "id_categoria"  => $id_categoria
-            )
-        );
-        return $dataProductos;
-    }
-
-}
-
-// ------------------------------------------------------------------------
-
 if ( ! function_exists('cargarDatosProducto')) {
 
     function cargarDatosProducto($idProducto) {
@@ -100,6 +64,42 @@ if ( ! function_exists('cargarDatosProducto')) {
     }
 
 }
+
+// ------------------------------------------------------------------------
+
+if ( ! function_exists('cargarDatosProductosConPromocion')) {
+
+    function cargarDatosProductosConPromocion() {
+        $CI =& get_instance();
+        $dataProductos = $CI->M_Store->getProductsPromotion(
+            array(
+                "id_empresa"    => $CI->uri->segment(2),
+                "id_tienda"     => $CI->uri->segment(4)
+            )
+        );
+        return $dataProductos;
+    }
+
+}
+
+// ------------------------------------------------------------------------
+
+if ( ! function_exists('cargarDatosProductoConPromocion')) {
+
+    function cargarDatosProductoConPromocion($idProducto) {
+        $CI =& get_instance();
+        $dataProductos = $CI->M_Store->getProductPromotion(
+            array(
+                "id_empresa"    => $CI->uri->segment(2),
+                "id_tienda"     => $CI->uri->segment(4),
+                "id_producto"   => $idProducto
+            )
+        );
+        return $dataProductos;
+    }
+
+}
+
 
 // ------------------------------------------------------------------------
 
