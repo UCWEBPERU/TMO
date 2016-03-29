@@ -28,7 +28,7 @@
 
     <!-- Content -->
     <content>
-        <p>HOLA</p>
+
         <div class="col-xs-12" >
             <div class="row" id="contenedordetail">
                 <div>

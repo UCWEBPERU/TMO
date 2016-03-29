@@ -96,6 +96,7 @@ class C_Store_Product extends CI_Controller {
                         "id_producto" => $producto->id_producto
                     )
                 );
+                var_dump($dataModifiers);
                 $dataModifiers = configurarColorModificadores($dataModifiers);
                 $modulo->data_modifiers = $dataModifiers;
             }
