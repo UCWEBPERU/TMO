@@ -220,6 +220,9 @@
                //redirect("<?php echo "/company/".$this->CI->uri->segment(2)."/store/".$this->CI->uri->segment(4)."/signin" ?>");
                alert("aqui");
            }
+           $( "#signin" ).click(function() {
+               alert( "Handler for .click() called." );
+           });
 
            function deleteItem(btn, item) {
 
