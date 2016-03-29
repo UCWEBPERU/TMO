@@ -15,36 +15,19 @@
 </head>
 <body>
 <header>
-    <!--	<div id="title">-->
-    <!--		<h2>Fashion Store</h2>-->
-    <!--	</div>-->
-    <!-- Slider -->
-    <div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
-        <!-- Loading Screen -->
-        <div data-u="slides" id="slide" >
-            <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
-                <?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
-                    <div style="background:#FFF;">
-                        <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>" style="color:#000;">
-                            <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-                        </a>
-                    </div>
-                <?php } else { ?>
-                    <div>
-                        <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
-                            <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-                        </a>
-                    </div>
-                <?php } ?>
-            <?php } ?>
-        </div>
+    <div id="title">
+        <h2>Promotions</h2>
+
     </div>
+
+
+
 </header>
 
 <!-- Content -->
 <content>
 
-    
+
 
     <div class="col-xs-12">
 
