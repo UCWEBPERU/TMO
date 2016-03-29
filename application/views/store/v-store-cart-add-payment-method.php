@@ -34,6 +34,7 @@
                     <!--<div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>-->
                     <!--<h3>Set Payment </h3>-->
                     <form id="frmPaymentMethod" name="frmPaymentMethod" method="post">
+                        <input type="hidden" name="amountCart" value="<?php echo $modulo->amount_cart; ?>">
                         <div>
                             <input type="text" id="txtCreditCardNumber" name="txtCreditCardNumber" placeholder="Credit card number" maxlength="16" data-parsley-required data-parsley-type="number" data-parsley-minlength="16" data-parsley-maxlength="16" data-parsley-required-message="Enter your credit card number." data-parsley-minlength-message="Invalid credit card number." data-parsley-maxlength-message="Invalid credit card number." data-parsley-type-message="Credit card number is only numbers.">
                             <p class="text-error"></p>

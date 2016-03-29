@@ -29,6 +29,7 @@ class C_Store_Checkout extends CI_Controller {
         if ( $this->input->post("txtCreditCardNumber") &&
             $this->input->post("cboExpirationMonth") &&
             $this->input->post("cboExpirationYear") &&
+            $this->input->post("amountCart") &&
             $this->input->post("txtCVC")) {
 
             $validarPago    = $this->payWithStripe();
@@ -80,7 +81,8 @@ class C_Store_Checkout extends CI_Controller {
             'shippingPhone'         => $userData->celular_personal
         );
 
-        $response = $gateway->purchase(array('amount' => $this->cart->total(), 'currency' => 'USD', 'card' => $formData))->send();
+//        $response = $gateway->purchase(array('amount' => $this->cart->total(), 'currency' => 'USD', 'card' => $formData))->send();
+        $response = $gateway->purchase(array('amount' => trim($this->input->post("amountCart", TRUE)), 'currency' => 'USD', 'card' => $formData))->send();
 
         if ($response->isSuccessful()) {
             // payment was successful: update database
