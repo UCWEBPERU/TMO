@@ -153,6 +153,8 @@ class C_Store_Cart extends CI_Controller {
     }
 
     function addPaymentMethod() {
+
+        var_dump($this->input->get("amount"));
         $this->usersession->validateSession("panel-store");
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
