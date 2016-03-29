@@ -156,7 +156,7 @@
                     <div class="col-xs-12 titlecart" style="background: #FFFFFF; margin-bottom: 5px;" >
                         <a class="btn" id="signin">Sign In</a>
                     </div>
-
+                    <div class="col-xs-12 detail" style="height: 50px;background: #FFFFFF"></div>
 
 
                 </div>
