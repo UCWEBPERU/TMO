@@ -144,7 +144,13 @@ class M_Store extends CI_Model {
                     Producto.descripcion_producto,
                     Producto.stock,
                     Producto.precio_producto,
-                    Producto.fecha_registro");
+                    Producto.fecha_registro,
+                    Oferta.id_oferta,
+                    Oferta.fecha_inicio
+                    Oferta.fecha_fin,
+                    Oferta.precio_oferta
+                    
+                    ");
         $this->db->join('Catalogo_Productos', 'Catalogo_Productos.id_producto = Producto.id_producto');
         $this->db->join('Oferta', 'Oferta.id_oferta = Producto.id_oferta');
         $this->db->join('Tienda', 'Tienda.id_tienda = Catalogo_Productos.id_tienda');
@@ -155,6 +161,8 @@ class M_Store extends CI_Model {
         $this->db->where('Categoria_Productos.estado', '1');
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
+        $this->db->where('Oferta.estado', '1');
+        $this->db->where("NOW() BETWEEN Oferta.fecha_inicio AND Oferta.fecha_fin");
         $this->db->order_by('Producto.nombre_producto', 'asc');
         $query = $this->db->get('Producto');
 
