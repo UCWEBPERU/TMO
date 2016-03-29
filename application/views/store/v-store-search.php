@@ -66,7 +66,7 @@
         <div class="row" style="height: 50px;"></div>
     </div>
 </content>
-<footer>
+<footer> 
     <div id="footer">
         <div class="boximage">
             <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
