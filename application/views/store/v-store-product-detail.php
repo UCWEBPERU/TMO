@@ -25,9 +25,10 @@
         <div class="name-product">WHITE BEAR JACKET</div>
         <div class="price-product">$76.00</div>
     </div>
-    <div id="swGalleryProduct" class="swiper-container">
-        <div class="swiper-wrapper">
-            <?php if (sizeof($modulo->data_productos) > 0) { ?>
+    <?php if (sizeof($modulo->data_productos) > 0) { ?>
+        <div id="swGalleryProduct" class="swiper-container">
+            <div class="swiper-wrapper">
+
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
                 <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
                     <div class="swiper-slide">
@@ -36,11 +37,12 @@
 
                 <?php } ?>
 
-            <?php } ?>
+
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-    </div>
+    <?php } ?>
     <div class="description-product">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui dolor, eleifend pellentesque leo ut, accumsan malesuada augue. Etiam tristique massa eu tellus vehicula congue. Maecenas imperdiet vel enim volutpat ullamcorper. Cras at nulla quam. Aenean scelerisque vitae arcu et porta.
     </div>
