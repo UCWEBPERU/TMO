@@ -231,7 +231,8 @@ body {
 	height: 100px;
 }
 
-#panelSignIn .logo-text h3{
+#panelSignIn .logo-text2{
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 20px;
 
 }
