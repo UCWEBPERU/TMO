@@ -219,6 +219,12 @@ body {
 	overflow-y: auto;
 	padding: 10px 0px 10px 0px;
 }
+#panelSignIn .logo{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
 #panelSignIn .logo img {
 	display: flex;
 	align-items: center;
@@ -226,6 +232,7 @@ body {
 	min-width: 60px;
 	height: 60px;
 }
+
 
 
 /* ******************** */
