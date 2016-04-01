@@ -16,8 +16,9 @@
         <?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
             <?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
                 <?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
-                <?php } else { ?>
                     <a href="<?php echo $modulo->data_navegacion_sub_categorias[$c]->url_id_categorias; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
+
+                <?php } else { ?>
                 <?php } ?>
             <?php } ?>
         <?php } ?>
@@ -40,19 +41,55 @@
 </div>
 
 <div id="panelResultProduct">
-    <div class="item-list">
-        <a href="holi.html">
-            <div class="image-list">
-                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
+    <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
+
+            <div class="item-list">
+                <a href="<?php echo $sub_categoria->url_categoria; ?>">
+                    <div class="image-list">
+                        <img src="<?php echo $sub_categoria->url_archivo; ?>">
+                    </div>
+                    <div class="text-list">
+                        <?php echo strtoupper($sub_categoria->nombre_categoria); ?>
+                    </div>
+                    <div class="arrow-list">
+                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+                    </div>
+                </a>
             </div>
-            <div class="text-list">
-                CLOTING
+
+
+
+    <?php } ?>
+
+    <?php foreach ($modulo->data_productos as $producto) { ?>
+
+            <div class="item-product-row">
+                <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
+                    <div>
+                        <div class="image-product">
+                            <img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
+                        </div>
+                        <div class="content-product">
+                            <div>
+                                <div class="name-product">
+                                    <?php echo $producto->nombre_producto; ?>
+                                </div>
+                                <div class="price-product">
+                                    $<?php echo $producto->precio_producto; ?>
+                                </div>
+                            </div>
+                            <div class="description-product">
+                                <?php echo $producto->descripcion_producto; ?>
+                            </div>
+                        </div>
+                        <div class="arrow-product">
+                            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="arrow-list">
-                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-            </div>
-        </a>
-    </div>
+        
+    <?php } ?>
 </div>
 
 
