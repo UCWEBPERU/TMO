@@ -65,6 +65,24 @@ if ( ! function_exists('cargarDatosProductos')) {
 
 // ------------------------------------------------------------------------
 
+if ( ! function_exists('cargarDatosProductosbyCategory')) {
+
+    function cargarDatosProductosbyCategory($id_categoria) {
+        $CI =& get_instance();
+        $dataProductos = $CI->M_Store->getProductsbyCategory(
+            array(
+                "id_empresa"    => $CI->uri->segment(2),
+                "id_tienda"     => $CI->uri->segment(4),
+                "id_categoria"  => $id_categoria
+            )
+        );
+        return $dataProductos;
+    }
+
+}
+
+// ------------------------------------------------------------------------
+
 if ( ! function_exists('cargarDatosProducto')) {
 
     function cargarDatosProducto($idProducto) {
