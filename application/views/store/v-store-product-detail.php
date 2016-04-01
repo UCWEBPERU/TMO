@@ -59,11 +59,10 @@
 
                     if ($contador == 1) { $contador++; ?>
                         <div class="name-modifier">SELECT COLOR</div>
+                    <?php } ?>
                         <div class="content-modifier">
                             <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
                         </div>
-
-                    <?php } ?>
                 <?php } ?>
             <?php } ?>
 
