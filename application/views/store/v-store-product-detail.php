@@ -47,11 +47,11 @@
             <div class="swiper-pagination"></div>
         </div>
     <?php } ?>
-    <?php if ($modulo->data_productos[0]->descripcion_producto == "") { ?>
-        <div class="description-product">
-            <?php echo $modulo->data_productos[0]->descripcion_producto; ?>
-        </div>
-    <?php } ?>
+
+    <div class="description-product">
+        <?php echo $modulo->data_productos[0]->descripcion_producto; ?>
+    </div>
+
     <?php if(sizeof($modulo->data_modifiers) != 0){ ?>
         <div class="box-modifier">
 
