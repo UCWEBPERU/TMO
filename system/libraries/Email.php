@@ -782,7 +782,7 @@ class CI_Email {
 	{
 		if ($this->multipart !== 'related')
 		{
-			$this->multipart = 'related'; // Thunderbird need this for inline images
+			$this->multipart = 'related'; // Thunderbird need this for inline img
 		}
 
 		for ($i = 0, $c = count($this->_attachments); $i < $c; $i++)

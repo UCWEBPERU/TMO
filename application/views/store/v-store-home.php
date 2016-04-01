@@ -17,7 +17,7 @@
 	</div>
 	<div class="title-header">TAKE MY ORDER</div>
 	<div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
-		<img src="icon_tableview.png">
+		<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png">
 	</div>
 </div>
 <!-- Swiper -->
@@ -37,7 +37,7 @@
 			<div class="item-list">
 				<a href="sub-categories.html">
 					<div class="image-list">
-						<img src="image-category-1.jpg">
+						<img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
 					</div>
 					<div class="text-list">
 						CLOTING

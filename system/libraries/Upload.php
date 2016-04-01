@@ -542,7 +542,7 @@ class CI_Upload {
 		 * Run the file through the XSS hacking filter
 		 * This helps prevent malicious code from being
 		 * embedded within a file. Scripts can easily
-		 * be disguised as images or other file types.
+		 * be disguised as img or other file types.
 		 */
 		if ($this->xss_clean && $this->do_xss_clean() === FALSE)
 		{

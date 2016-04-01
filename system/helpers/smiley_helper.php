@@ -142,7 +142,7 @@ if ( ! function_exists('get_clickable_smileys'))
 	 * Returns an array of image tag links that can be clicked to be inserted
 	 * into a form field.
 	 *
-	 * @param	string	the URL to the folder containing the smiley images
+	 * @param	string	the URL to the folder containing the smiley img
 	 * @param	array
 	 * @return	array
 	 */
@@ -191,7 +191,7 @@ if ( ! function_exists('parse_smileys'))
 	 * Takes a string as input and swaps any contained smileys for the actual image
 	 *
 	 * @param	string	the text to be parsed
-	 * @param	string	the URL to the folder containing the smiley images
+	 * @param	string	the URL to the folder containing the smiley img
 	 * @param	array
 	 * @return	string
 	 */
