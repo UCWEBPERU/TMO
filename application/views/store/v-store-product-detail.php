@@ -123,42 +123,26 @@
 
 <!-- Initialize Swiper -->
 <script>
-    var swMainMenu = new Swiper('#swMainMenu', {
-        slidesPerView: 'auto',
+    var swGalleryProduct = new Swiper('#swGalleryProduct', {
+        pagination: '.swiper-pagination',
+        grabCursor: true,
+        paginationClickable: true,
         centeredSlides: true,
-        spaceBetween: 0,
-        loop: true,
-        slideToClickedSlide: true,
-        onSlideChangeEnd: function(swiper){
-            for (var c = 0; c < swiper.slides.length; c++) {
-                $(swiper.slides[c]).css({"color": "#959595"});
-            }
-            $(swiper.slides[swiper.activeIndex]).css({"color": "#FFFFFF"});
-        }
+        spaceBetween: 160,
+        slidesPerView: 3,
+        loop: true
     });
-
-    var swMainPanel = new Swiper('#swMainPanel', {
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 0,
-        loop: true,
-        longSwipes: false
-    });
-
-    swMainMenu.params.control = swMainPanel;
-    swMainPanel.params.control = swMainMenu;
-
     $("#btnChangeViewProduct").on("click", function() {
         if ( $(this).attr("data-current-view") == "row" ) {
             $(".item-product-row").addClass("item-product-block");
             $(".item-product-row").removeClass("item-product-row");
             $(this).attr("data-current-view", "block");
-            $(this).children("img").attr("src","<?php echo PATH_RESOURCE_STORE; ?>img/icon_lineview.png" );
+            $(this).children("img").attr("src", "icon_lineview.png");
         } else if ( $(this).attr("data-current-view") == "block" ) {
             $(".item-product-block").addClass("item-product-row");
             $(".item-product-block").removeClass("item-product-block");
             $(this).attr("data-current-view", "row");
-            $(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
+            $(this).children("img").attr("src", "icon_tableview.png");
         }
 
     });
