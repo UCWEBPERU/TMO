@@ -62,6 +62,36 @@
 
 					<?php } ?>
 				<?php } ?>
+
+				<?php foreach ($modulo->data_productos as $producto) { ?>
+					<?php if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){?>
+						<div class="item-product-row">
+						<a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
+							<div>
+								<div class="image-product">
+									<img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
+								</div>
+								<div class="content-product">
+									<div>
+										<div class="name-product">
+											<?php echo $producto->nombre_producto; ?>
+										</div>
+										<div class="price-product">
+											$<?php echo $producto->precio_producto; ?>
+										</div>
+									</div>
+									<div class="description-product">
+										<?php echo $producto->descripcion_producto; ?>
+									</div>
+								</div>
+								<div class="arrow-product">
+									<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+								</div>
+							</div>
+						</a>
+					</div>
+					<?php } ?>
+				<?php } ?>
 				
 
 
