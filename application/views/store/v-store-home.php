@@ -30,10 +30,15 @@
 						<?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
 					</a>
 				</div>
-			<?php }  ?>
-
+			<?php } else { ?>
+				<div>
+					<a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
+						<p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
+					</a>
+				</div>
+			<?php } ?>
 		<?php } ?>
-
+		
 	</div>
 </div>
 <!-- Swiper -->
