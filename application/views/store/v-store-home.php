@@ -41,10 +41,41 @@
 <div id="swMainPanel" class="swiper-container">
 	<div class="swiper-wrapper">
 		<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
-			<div class="swiper-slide" ><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></div>
+			<div class="swiper-slide" >
+				<div class="item-list">
+					<a href="<?php echo $sub_categoria->url_categoria; ?>">
+						<div class="image-list">
+							<img src="<?php echo $sub_categoria->url_archivo; ?>">
+						</div>
+						<div class="text-list">
+							<?php echo strtoupper($sub_categoria->nombre_categoria); ?>
+						</div>
+						<div class="arrow-list">
+							<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+						</div>
+					</a>
+				</div>
+
+				<?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
+					<div class="item-list">
+						<a href="<?php echo $sub_categoria->url_categoria; ?>">
+							<div class="image-list">
+								<img src="<?php echo $sub_categoria->url_archivo; ?>">
+							</div>
+							<div class="text-list">
+								<?php echo strtoupper($sub_categoria->nombre_categoria); ?>
+							</div>
+							<div class="arrow-list">
+								<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+							</div>
+						</a>
+					</div>
+				<?php } ?>
+
+			</div>
 		<?php } ?>
 
-		
+
 	</div>
 </div>
 <div id="menuApp">
