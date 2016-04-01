@@ -248,12 +248,15 @@ body {
 	flex: 1 100%;
 	margin: 10px;
 	padding: 5px;
+	outline: none;
 	text-decoration: none;
 }
 .sign-in-input button{
 	flex: 1 100%;
 	margin: 10px;
 	padding: 5px;
+	border: none;
+	outline: none;
 	text-decoration: none;
 	background: #000000;
 	color: #FFFFFF;
