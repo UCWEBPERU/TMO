@@ -23,7 +23,7 @@
 
 <div id="panelResultProduct">
     <div class="item-list">
-        <a href="search-result.html">
+        <a href="">
             <div class="image-list">
                 <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
             </div>
