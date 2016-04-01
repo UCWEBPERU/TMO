@@ -6,8 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 	<!-- Link Swiper's CSS -->
-	<link rel="stylesheet" href="swiper.min.css">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/swiper.min.css" />
+	<link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
+
 </head>
 <body>
 <div id="mainHeader">
@@ -531,7 +532,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <!-- Swiper JS -->
-<script src="swiper.min.js"></script>
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
+
 
 <!-- Initialize Swiper -->
 <script>
