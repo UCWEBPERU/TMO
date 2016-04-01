@@ -33,13 +33,12 @@ if ( ! function_exists('cargarDatosSubCategorias')) {
 
 if ( ! function_exists('cargarDatosProductos')) {
 
-    function cargarDatosProductos($id_categoria) {
+    function cargarDatosProductos() {
         $CI =& get_instance();
         $dataProductos = $CI->M_Store->getProducts(
             array(
                 "id_empresa"    => $CI->uri->segment(2),
-                "id_tienda"     => $CI->uri->segment(4),
-                "id_categoria"  => $id_categoria
+                "id_tienda"     => $CI->uri->segment(4)
             )
         );
         return $dataProductos;

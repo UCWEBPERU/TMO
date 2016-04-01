@@ -34,7 +34,8 @@ class C_Store_Home extends CI_Controller {
         if (sizeof($dataCategorias) > 0) {
             
             $modulo->data_sub_categorias = cargarDatosSubCategorias();
-            $modulo->data_productos = cargarDatosProductos($dataCategorias[0]->id_categoria);
+            $modulo->data_productos = cargarDatosProductos();
+            var_dump(cargarDatosProductos());
             foreach ($modulo->data_productos as $producto) {
                 $producto = cargarGaleriaPorProducto($producto);
             }
