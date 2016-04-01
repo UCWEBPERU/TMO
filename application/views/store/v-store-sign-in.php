@@ -47,7 +47,7 @@
     <br>
     <div class="logo-text">Join instantly (and for free)</div>
     <div class="sign-in-form">
-        <a href="<?php echo $modulo->base_url_store; ?>/register" >Join Now</a>
+        <a class="join-button" href="<?php echo $modulo->base_url_store; ?>/register" >Join Now</a>
     </div>
     
 

@@ -267,7 +267,7 @@ body {
 	background: #000000;
 	color: #FFFFFF;
 }
-.sign-in-form a{
+.sign-in-form .join-button{
 	font-size: 20px;
 	flex: 1 100%;
 	display: flex;
