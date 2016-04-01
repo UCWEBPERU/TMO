@@ -16,12 +16,12 @@ if ( ! function_exists('cargarDatosCategoriasPrincipales')) {
 
 if ( ! function_exists('cargarDatosSubCategorias')) {
 
-    function cargarDatosSubCategorias($id_categoria_superior) {
+    function cargarDatosSubCategorias() {
         $CI =& get_instance();
         $dataSubCategorias = $CI->M_Store->getSubCategories(
             array(
-                "id_empresa"            => $CI->uri->segment(2),
-                "id_categoria_superior" => $id_categoria_superior
+                "id_empresa"            => $CI->uri->segment(2)
+                
             )
         );
         return $dataSubCategorias;

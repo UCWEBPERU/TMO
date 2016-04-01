@@ -42,7 +42,7 @@
 	<div class="swiper-wrapper">
 		<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
 			<div class="swiper-slide" >
-
+				
 				<?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
 					<div class="item-list">
 						<a href="<?php echo $sub_categoria->url_categoria; ?>">
