@@ -5,9 +5,11 @@
     <title>TMO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
 
 </head>
 <body>
@@ -45,60 +47,57 @@
             <div class="swiper-pagination"></div>
         </div>
     <?php } ?>
-    <div class="description-product">
-        <?php echo $modulo->data_productos[0]->descripcion_producto; ?>
-    </div>
-    <div class="box-modifier">
-    <?php if(sizeof($modulo->data_modifiers) != 0){ ?>
-        <div class="name-modifier">SELECT COLOR</div>
-        <div class="content-modifier">
-            <?php
-            foreach ($modulo->data_modifiers as $modifier) { ?>
-                <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
-                    <?php if (isset($modifier->color_rgb)) { ?>
-                        <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
-                    <?php } ?>
-                <?php } ?>
-            <?php } ?>
+    <?php if ($modulo->data_productos[0]->descripcion_producto == "") { ?>
+        <div class="description-product">
+            <?php echo $modulo->data_productos[0]->descripcion_producto; ?>
         </div>
     <?php } ?>
+    <?php if(sizeof($modulo->data_modifiers) != 0){ ?>
+        <div class="box-modifier">
 
-
-    </div>
-
-    <div class="box-modifier">
-
-        <div class="content-modifier">
-        <?php
-        $tipoModificadorAnterior = "";
-        for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
-            $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
-            if ($c + 1 > sizeof($modulo->data_modifiers) - 1)  {
-                $tipoModificadorSiguiente = "";
-            } else {
-                $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
-            }
-            ?>
-            <?php if ($tipoModificadorActual != "color") { ?>
-                <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
-                    $tipoModificadorAnterior = $tipoModificadorActual; ?>
-                    <div class="name-modifier"><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
-
+            <div class="name-modifier">SELECT COLOR</div>
+            <div class="content-modifier">
+                <?php
+                foreach ($modulo->data_modifiers as $modifier) { ?>
+                    <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
+                        <?php if (isset($modifier->color_rgb)) { ?>
+                            <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
+                        <?php } ?>
+                    <?php } ?>
                 <?php } ?>
-                    <div class="item-modifier btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
-
-
-            <?php } ?>
-        <?php } ?>
-
+            </div>
 
         </div>
-    </div>
+
+        <div class="box-modifier">
+            <div class="content-modifier">
+            <?php
+            $tipoModificadorAnterior = "";
+            for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
+                $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
+                if ($c + 1 > sizeof($modulo->data_modifiers) - 1)  {
+                    $tipoModificadorSiguiente = "";
+                } else {
+                    $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
+                }
+                ?>
+                <?php if ($tipoModificadorActual != "color") { ?>
+                    <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
+                        $tipoModificadorAnterior = $tipoModificadorActual; ?>
+                        <div class="name-modifier"><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
+                    <?php } ?>
+                        <div class="item-modifier btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
+                <?php } ?>
+            <?php } ?>
+
+            </div>
+        </div>
+    <?php } ?>
 
 </div>
 
 <div id="panelAddCart">
-    <button>ADD TO CART</button>
+    <button id="shoppingcart">ADD TO CART</button>
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
@@ -136,6 +135,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <!-- Swiper JS -->
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
+<!-- Sweet Alert -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 
 
 <!-- Initialize Swiper -->
@@ -163,6 +164,97 @@
         }
 
     });
+
+
+    var listaModificadoresSeleccionados = [];
+    var datosModificador = {
+        "id"    : 0,
+        "tipo"  : ""
+    }
+
+    function addModifier(idModifier, tipoModifier) {
+        var indiceModificador = validarModificadorEnLista(tipoModifier);
+        if ( indiceModificador != -1 ) {
+            listaModificadoresSeleccionados[indiceModificador].id = idModifier;
+            listaModificadoresSeleccionados[indiceModificador].tipo = tipoModifier;
+        } else {
+            datosModificador = {
+                "id"    : idModifier,
+                "tipo"  : tipoModifier
+            }
+            listaModificadoresSeleccionados.push(datosModificador);
+        }
+        //console.log(listaModificadoresSeleccionados);
+    }
+
+    function validarModificadorEnLista(tipoModifier) {
+        var indiceModificador = -1;
+        for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
+
+            if (listaModificadoresSeleccionados[c].tipo == tipoModifier) {
+                indiceModificador = c;
+                break;
+            }
+        }
+        return indiceModificador;
+    }
+
+
+
+    $(".btnAddModifier").on("click", function (e){
+        e.preventDefault();
+        addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+    });
+
+    $("#shoppingcart").on("click", function(evt){
+        evt.preventDefault();
+        var session = "<?php echo $modulo->has_user_session; ?>";
+        if(session){
+            var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
+            var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
+            var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
+            var formData = new FormData();
+            formData.append("id_producto", id_producto);
+            formData.append("nombre_producto", nombre_producto);
+            formData.append("precio_producto", precio_producto);
+            for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
+                formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
+
+            }
+
+
+            var request = $.ajax({
+                url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
+                method: "POST",
+                data: formData,
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+            });
+
+            request.done(function( response ) {
+
+                if (response.status) {
+                    swal("Add Item", response.message, "success");
+                } else {
+                    swal("Add Item", response.message, "danger");
+                }
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                swal("Add Item", textStatus, "danger");
+            });
+
+        }else{
+            $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signin");
+        }
+
+
+
+
+    });
+
+
 </script>
 </body>
 </html>
