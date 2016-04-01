@@ -97,7 +97,7 @@
 </div>
 
 <div id="panelBtnBottom">
-    <button id="shoppingcart">ADD TO CART</button>
+    <button id="shoppingcart" class="btn-green">ADD TO CART</button>
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
