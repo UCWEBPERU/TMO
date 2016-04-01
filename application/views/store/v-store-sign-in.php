@@ -44,6 +44,7 @@
         </div>
         
     </form>
+    <br>
     <div class="logo-text">Join instantly (and for free)</div>
     <div class="sign-in-input">
         <button id="btnSignIn" type="submit">Join Now</button>
@@ -51,6 +52,38 @@
     
 
 
+</div>
+<div id="menuApp">
+    <div id="changeStyleProduct" class="menu-item">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <div>PRODUCTS</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <div>PROMOTION</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/search">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <div>SEARCH</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <div>ACCOUNT</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/cart">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <div>CART</div>
+        </a>
+    </div>
 </div>
 
 
@@ -63,44 +96,59 @@
 
 <!-- Initialize Swiper -->
 <script>
-    var swMainMenu = new Swiper('#swMainMenu', {
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 0,
-        loop: true,
-        slideToClickedSlide: true,
-        onSlideChangeEnd: function(swiper){
-            for (var c = 0; c < swiper.slides.length; c++) {
-                $(swiper.slides[c]).css({"color": "#959595"});
+    var selectorInputsForm = ["#txtEmail", "#txtPassword"];
+
+    function validateInputsForm(selectorInputsForm){
+        var countMessagesError = 0;
+        var messageError = "";
+        for (var i = 0; i < selectorInputsForm.length; i++) {
+            if ($(selectorInputsForm[i]).parsley().isValid()) {
+                $(selectorInputsForm[i]).parent().removeClass("has-error");
+            } else {
+                $(selectorInputsForm[i]).parent().addClass("has-error");
+                messageError = ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley());
+                $(selectorInputsForm[i]).parent().find("p").html(messageError);
+                countMessagesError++;
             }
-            $(swiper.slides[swiper.activeIndex]).css({"color": "#FFFFFF"});
         }
-    });
-
-    var swMainPanel = new Swiper('#swMainPanel', {
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 0,
-        loop: true,
-        longSwipes: false
-    });
-
-    swMainMenu.params.control = swMainPanel;
-    swMainPanel.params.control = swMainMenu;
-
-    $("#btnChangeViewProduct").on("click", function() {
-        if ( $(this).attr("data-current-view") == "row" ) {
-            $(".item-product-row").addClass("item-product-block");
-            $(".item-product-row").removeClass("item-product-row");
-            $(this).attr("data-current-view", "block");
-            $(this).children("img").attr("src","<?php echo PATH_RESOURCE_STORE; ?>img/icon_lineview.png" );
-        } else if ( $(this).attr("data-current-view") == "block" ) {
-            $(".item-product-block").addClass("item-product-row");
-            $(".item-product-block").removeClass("item-product-block");
-            $(this).attr("data-current-view", "row");
-            $(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
+        if (countMessagesError > 0) {
+            return false;
         }
+        return true;
+    }
 
+    $(document).ready(function(){
+        $("#btnSignIn").on("click", function(event){
+            event.preventDefault();
+
+            if (validateInputsForm(selectorInputsForm)) {
+                $(".fakeloader").fakeLoader({
+                    bgColor     : "rgba(0,0,0,.85)",
+                    spinner     : "spinner2"
+                });
+
+                var request = $.ajax({
+                    url: "<?php echo $modulo->base_url_store."/ajax/signIn"; ?>",
+                    method: "POST",
+                    data: $("#frmSignIn").serialize(),
+                    dataType: "json"
+                });
+
+                request.done(function( response ) {
+                    if (response.status) {
+                        $(location).attr("href", response.data.url_redirect);
+                    } else {
+                        $(".fakeloader").fakeLoaderClose();
+                        $(".register-error").html(response.message);
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    $(".fakeloader").fakeLoaderClose();
+                    $(".register-error").html(textStatus);
+                });
+            }
+        });
     });
 </script>
 </body>
