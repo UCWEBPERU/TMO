@@ -63,31 +63,40 @@
         </div>
     <?php } ?>
 
+
     </div>
+
     <div class="box-modifier">
-        <div class="name-modifier">SELECT SIZE</div>
+
         <div class="content-modifier">
+        <?php
+        $tipoModificadorAnterior = "";
+        for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
+            $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
+            if ($c + 1 > sizeof($modulo->data_modifiers) - 1)  {
+                $tipoModificadorSiguiente = "";
+            } else {
+                $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
+            }
+            ?>
+            <?php if ($tipoModificadorActual != "color") { ?>
+                <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
+                    $tipoModificadorAnterior = $tipoModificadorActual; ?>
+                    <div class="name-modifier"><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
+
+                <?php } ?>
+                    <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"></div>
+
+                
+            <?php } ?>
+        <?php } ?>
+
+
             <div class="item-modifier">2T</div>
-            <div class="item-modifier active">3T</div>
-            <div class="item-modifier">4T</div>
-            <div class="item-modifier">2T</div>
-            <div class="item-modifier active">3T</div>
-            <div class="item-modifier">4T</div>
-            <div class="item-modifier">2T</div>
-            <div class="item-modifier active">3T</div>
-            <div class="item-modifier">4T</div>
-            <div class="item-modifier">2T</div>
-            <div class="item-modifier active">3T</div>
-            <div class="item-modifier">4T</div>
+
         </div>
     </div>
-    <div class="box-modifier">
-        <div class="name-modifier">SELECT CONDITION</div>
-        <div class="content-modifier">
-            <div class="item-modifier">NEW</div>
-            <div class="item-modifier">USED</div>
-        </div>
-    </div>
+
 </div>
 
 <div id="panelAddCart">
