@@ -49,25 +49,19 @@
         <?php echo $modulo->data_productos[0]->descripcion_producto; ?>
     </div>
     <div class="box-modifier">
-
-
-        <?php
-        $contador = 1;
-        foreach ($modulo->data_modifiers as $modifier) { ?>
-            <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
-                <?php if (isset($modifier->color_rgb)) {
-
-                    if ($contador == 1) { $contador++; ?>
-                        <div class="name-modifier">SELECT COLOR</div>
+    <?php if(sizeof($modulo->data_modifiers) != 0){ ?>
+        <div class="name-modifier">SELECT COLOR</div>
+        <div class="content-modifier">
+            <?php
+            foreach ($modulo->data_modifiers as $modifier) { ?>
+                <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
+                    <?php if (isset($modifier->color_rgb)) { ?>
+                        <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
                     <?php } ?>
-                        <div class="content-modifier">
-                            <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
-                        </div>
                 <?php } ?>
             <?php } ?>
-
-        <?php } ?>
-
+        </div>
+    <?php } ?>
 
     </div>
     <div class="box-modifier">
