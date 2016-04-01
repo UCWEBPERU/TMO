@@ -13,7 +13,7 @@
 <body>
 <div id="mainHeader">
     <div class="btn-Left">
-        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png">
+        <a href=""><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
     </div>
     <div class="title-header">DETAIL</div>
     <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
@@ -27,15 +27,16 @@
     </div>
     <div id="swGalleryProduct" class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
-            </div>
+            <?php if (sizeof($modulo->data_productos) > 0) { ?>
+                <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
+                        <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+
+                    <?php } ?>
+                </div>
+            <?php } ?>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
