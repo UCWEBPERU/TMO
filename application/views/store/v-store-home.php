@@ -43,7 +43,7 @@
 						CLOTING
 					</div>
 					<div class="arrow-list">
-						<img src="icon_arrow.png">
+						<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
 					</div>
 				</a>
 			</div>
@@ -154,7 +154,7 @@
 			$(this).children("img").attr("src","<?php echo PATH_RESOURCE_STORE; ?>img/icon_lineview.png" );
 		} else if ( $(this).attr("data-current-view") == "block" ) {
 			$(".item-product-block").addClass("item-product-row");
-			$(".item-product-block").removeClass("<?php echo PATH_RESOURCE_STORE; ?>img/item-product-block.png");
+			$(".item-product-block").removeClass("item-product-block");
 			$(this).attr("data-current-view", "row");
 			$(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
 		}
