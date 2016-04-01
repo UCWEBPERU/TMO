@@ -60,12 +60,12 @@
 				<?php } ?>
 
 				<?php foreach ($modulo->data_productos as $producto) { ?>
-					
+
 					<div class="item-product-row">
 						<a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
 							<div>
 								<div class="image-product">
-									<img src="<img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
+									<img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
 								</div>
 								<div class="content-product">
 									<div>
@@ -81,7 +81,7 @@
 									</div>
 								</div>
 								<div class="arrow-product">
-									<img src="icon_arrow.png">
+									<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
 								</div>
 							</div>
 						</a>
