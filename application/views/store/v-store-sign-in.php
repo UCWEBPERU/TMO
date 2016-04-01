@@ -22,7 +22,8 @@
         <!--img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png"-->
     </div>
 </div>
-<div id="panelProductDetail">
+<div id="panelSignIn">
+    <img src="<?php echo $modulo->icono_empresa; ?>" alt="">
 
 </div>
 
