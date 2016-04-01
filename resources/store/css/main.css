@@ -237,7 +237,7 @@ body {
 	font-size: 14px;
 
 }
-.sign-in-input{
+.sign-in-form{
 	width: 100%;
 	height: 8%;
 	display: flex;
@@ -245,15 +245,17 @@ body {
 	justify-content: center;
 	font-size: 16px;
 }
-.sign-in-input input{
+.sign-in-form input{
 	flex: 1 100%;
 	margin: 10px;
 	padding: 5px;
 	outline: none;
 	text-decoration: none;
 	border: 1px solid #b5b5b5;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
 }
-.sign-in-input button{
+.sign-in-form button{
 	font-size: 20px;
 	flex: 1 100%;
 	margin: 10px;
@@ -264,7 +266,7 @@ body {
 	background: #000000;
 	color: #FFFFFF;
 }
-.sign-in-input p{
+.sign-in-form p{
 	color: #eb1e1e;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 12px;
