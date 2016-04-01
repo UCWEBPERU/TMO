@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>TMO</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-
+	<base href="<?php echo base_url();?>">
 	<!-- Link Swiper's CSS -->
 	<link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
 	<link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
