@@ -20,90 +20,65 @@
         <!--img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png"-->
     </div>
 </div>
-<!-- Swiper -->
-<div id="swMainMenu" class="swiper-container">
-    <div class="swiper-wrapper">
-        <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
-            <?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
-                <div class="swiper-slide">
-                    <?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
-                </div>
-            <?php } else { ?>
-                <div class="swiper-slide">
-                    <?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
-                </div>
-            <?php } ?>
-        <?php } ?>
-
+<div id="panelProductDetail">
+    <div>
+        <div class="name-product">WHITE BEAR JACKET</div>
+        <div class="price-product">$76.00</div>
+    </div>
+    <div id="swGalleryProduct" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="image-category-3.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img src="image-category-3.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img src="image-category-3.jpg">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="description-product">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui dolor, eleifend pellentesque leo ut, accumsan malesuada augue. Etiam tristique massa eu tellus vehicula congue. Maecenas imperdiet vel enim volutpat ullamcorper. Cras at nulla quam. Aenean scelerisque vitae arcu et porta.
+    </div>
+    <div class="box-modifier">
+        <div class="name-modifier">SELECT COLOR</div>
+        <div class="content-modifier">
+            <div class="item-modifier" style="background: green;"></div>
+            <div class="item-modifier" style="background: blue;"></div>
+            <div class="item-modifier" style="background: pink;"></div>
+        </div>
+    </div>
+    <div class="box-modifier">
+        <div class="name-modifier">SELECT SIZE</div>
+        <div class="content-modifier">
+            <div class="item-modifier">2T</div>
+            <div class="item-modifier active">3T</div>
+            <div class="item-modifier">4T</div>
+            <div class="item-modifier">2T</div>
+            <div class="item-modifier active">3T</div>
+            <div class="item-modifier">4T</div>
+            <div class="item-modifier">2T</div>
+            <div class="item-modifier active">3T</div>
+            <div class="item-modifier">4T</div>
+            <div class="item-modifier">2T</div>
+            <div class="item-modifier active">3T</div>
+            <div class="item-modifier">4T</div>
+        </div>
+    </div>
+    <div class="box-modifier">
+        <div class="name-modifier">SELECT CONDITION</div>
+        <div class="content-modifier">
+            <div class="item-modifier">NEW</div>
+            <div class="item-modifier">USED</div>
+        </div>
     </div>
 </div>
-<!-- Swiper -->
-<div id="swMainPanel" class="swiper-container">
-    <div class="swiper-wrapper">
-        <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
-            <div class="swiper-slide" >
 
-                <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
-                    <?php if($modulo->data_categorias[$c]->id_categoria == $sub_categoria->id_categoria_superior ){?>
-                        <div class="item-list">
-                            <a href="<?php echo $sub_categoria->url_categoria; ?>">
-                                <div class="image-list">
-                                    <img src="<?php echo $sub_categoria->url_archivo; ?>">
-                                </div>
-                                <div class="text-list">
-                                    <?php echo strtoupper($sub_categoria->nombre_categoria); ?>
-                                </div>
-                                <div class="arrow-list">
-                                    <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                                </div>
-                            </a>
-                        </div>
-
-
-                    <?php } ?>
-                <?php } ?>
-
-                <?php foreach ($modulo->data_productos as $producto) { ?>
-                    <?php if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){?>
-                        <div class="item-product-row">
-                            <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
-                                <div>
-                                    <div class="image-product">
-                                        <img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
-                                    </div>
-                                    <div class="content-product">
-                                        <div>
-                                            <div class="name-product">
-                                                <?php echo $producto->nombre_producto; ?>
-                                            </div>
-                                            <div class="price-product">
-                                                $<?php echo $producto->precio_producto; ?>
-                                            </div>
-                                        </div>
-                                        <div class="description-product">
-                                            <?php echo $producto->descripcion_producto; ?>
-                                        </div>
-                                    </div>
-                                    <div class="arrow-product">
-                                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    <?php } ?>
-                <?php } ?>
-
-
-
-
-
-
-
-            </div>
-        <?php } ?>
-
-
-    </div>
+<div id="panelAddCart">
+    <button>ADD TO CART</button>
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
