@@ -151,7 +151,7 @@ class M_Store extends CI_Model {
         $this->db->join('Catalogo_Productos', 'Catalogo_Productos.id_producto = Producto.id_producto');
         $this->db->join('Oferta', 'Oferta.id_oferta = Producto.id_oferta');
         $this->db->join('Tienda', 'Tienda.id_tienda = Catalogo_Productos.id_tienda');
-        $this->db->join('Categoria_Productos', 'Categoria_Productos.id_categoria = Producto.id_categoria');
+        $this->db->where('Categoria_Productos.id_empresa', $data["id_empresa"]);
         $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
         $this->db->where('Categoria_Productos.estado', '1');
         $this->db->where('Tienda.estado', '1');
