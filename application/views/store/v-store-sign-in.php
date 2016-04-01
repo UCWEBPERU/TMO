@@ -120,7 +120,7 @@
     $(document).ready(function(){
         $("#btnSignIn").on("click", function(event){
             event.preventDefault();
-            alert("HOLA");
+
             if (validateInputsForm(selectorInputsForm)) {
                 $(".fakeloader").fakeLoader({
                     bgColor     : "rgba(0,0,0,.85)",
