@@ -219,7 +219,7 @@ body {
 	overflow-y: auto;
 	padding: 10px 0px 10px 0px;
 }
-#panelSignIn .logo, #panelSignIn .logo-text{
+#panelSignIn .logo, #panelSignIn .logo-text, #panelSignIn .logo-text2{
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -233,7 +233,7 @@ body {
 
 #panelSignIn .logo-text2{
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 20px;
+	font-size: 12px;
 
 }
 
