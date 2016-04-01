@@ -13,7 +13,7 @@
 <body>
 <div id="mainHeader">
     <div class="btn-Left">
-        <img src="icon_arrow_back.png">
+        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png">
     </div>
     <div class="title-header">TAKE MY ORDER</div>
     <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
