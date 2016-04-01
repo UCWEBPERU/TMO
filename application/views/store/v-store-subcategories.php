@@ -15,7 +15,17 @@
     <div class="btn-Left">
         <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png">
     </div>
-    <div class="title-header">TAKE MY ORDER</div>
+
+
+    <?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
+
+        <?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
+            <?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
+                <div class="title-header"><?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?></div>
+            <?php } ?>
+        <?php } ?>
+
+    <?php } ?>
     <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
         <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png">
     </div>
