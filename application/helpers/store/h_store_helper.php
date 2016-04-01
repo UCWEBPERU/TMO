@@ -31,6 +31,23 @@ if ( ! function_exists('cargarDatosSubCategorias')) {
 
 // ------------------------------------------------------------------------
 
+if ( ! function_exists('cargarDatosSubCategoriaSeleccionada')) {
+
+    function cargarDatosSubCategoriaSeleccionada($id_categoria_superior) {
+        $CI =& get_instance();
+        $dataSubCategorias = $CI->M_Store->getSubCategoriesSelected(
+            array(
+                "id_empresa"            => $CI->uri->segment(2),
+                "id_categoria_superior" => $id_categoria_superior
+            )
+        );
+        return $dataSubCategorias;
+    }
+
+}
+
+// ------------------------------------------------------------------------
+
 if ( ! function_exists('cargarDatosProductos')) {
 
     function cargarDatosProductos() {

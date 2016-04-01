@@ -107,7 +107,7 @@ class C_Store_Home extends CI_Controller {
         $idCategoriaSuperior = intval($listaCategorias[sizeof($listaCategorias) - 1]);
 
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_sub_categorias = cargarDatosSubCategorias($idCategoriaSuperior);
+            $modulo->data_sub_categorias = cargarDatosSubCategoriaSeleccionada($idCategoriaSuperior);
             $modulo->data_productos = cargarDatosProductos($idCategoriaSuperior);
             foreach ($modulo->data_productos as $producto) {
                 $producto = cargarGaleriaPorProducto($producto);
@@ -119,7 +119,7 @@ class C_Store_Home extends CI_Controller {
 
         $data["modulo"] = $modulo;
 
-        $this->load->view('store/v-store-home', $data);
+        $this->load->view('store/v-store-subcategories', $data);
     }
 
 }

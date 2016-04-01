@@ -92,7 +92,7 @@
 					</div>
 					<?php } ?>
 				<?php } ?>
-				
+
 
 
 
@@ -107,31 +107,31 @@
 </div>
 <div id="menuApp">
 	<div id="changeStyleProduct" class="menu-item">
-		<a class="active" href="index.html">
+		<a class="active" href="<?php echo $modulo->base_url_store; ?>">
 			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
 			<div>PRODUCTS</div>
 		</a>
 	</div>
 	<div class="menu-item">
-		<a href="products.html">
+		<a href="<?php echo $modulo->base_url_store; ?>/promotions">
 			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
 			<div>PROMOTION</div>
 		</a>
 	</div>
 	<div class="menu-item">
-		<a href="search.html">
+		<a href="<?php echo $modulo->base_url_store; ?>/search">
 			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
 			<div>SEARCH</div>
 		</a>
 	</div>
 	<div class="menu-item">
-		<a href="account.html">
+		<a href="<?php echo $modulo->base_url_store; ?>/account">
 			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
 			<div>ACCOUNT</div>
 		</a>
 	</div>
 	<div class="menu-item">
-		<a href="cart.html">
+		<a href="<?php echo $modulo->base_url_store; ?>/cart">
 			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
 			<div>CART</div>
 		</a>
