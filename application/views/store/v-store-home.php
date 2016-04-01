@@ -26,15 +26,15 @@
 		<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
 			<?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
 				<div class="swiper-slide">
-					<a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>" style="color:#000;">
+
 						<?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
-					</a>
+
 				</div>
 			<?php } else { ?>
 				<div class="swiper-slide">
-					<a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
+
 						<p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-					</a>
+
 				</div>
 			<?php } ?>
 		<?php } ?>
@@ -86,10 +86,10 @@
 			</div>
 
 		</div>
-		<div class="swiper-slide" style="background: violet;">MEN</div>
+		<div class="swiper-slide" style="background: violet;">DESIGNER</div>
 		<div class="swiper-slide" style="background: green;">HOME</div>
-		<div class="swiper-slide" style="background: yellow;">KIDS</div>
-		<div class="swiper-slide" style="background: red;">DESIGNER</div>
+		<div class="swiper-slide" style="background: yellow;">MEN</div>
+		<div class="swiper-slide" style="background: red;">WOMEN</div>
 	</div>
 </div>
 <div id="menuApp">
