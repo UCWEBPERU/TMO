@@ -146,7 +146,7 @@
         grabCursor: true,
         paginationClickable: true,
         centeredSlides: true,
-        spaceBetween: 160,
+        spaceBetween: 0,
         slidesPerView: 3,
         loop: true
     });
