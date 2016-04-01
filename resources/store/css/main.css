@@ -250,6 +250,7 @@ body {
 	padding: 5px;
 	outline: none;
 	text-decoration: none;
+	border: 1px solid #b5b5b5;
 }
 .sign-in-input button{
 	flex: 1 100%;
@@ -260,6 +261,7 @@ body {
 	text-decoration: none;
 	background: #000000;
 	color: #FFFFFF;
+	width: 15%;
 }
 
 
