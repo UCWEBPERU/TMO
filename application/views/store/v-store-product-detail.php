@@ -22,8 +22,10 @@
 </div>
 <div id="panelProductDetail">
     <div>
-        <div class="name-product">WHITE BEAR JACKET</div>
-        <div class="price-product">$76.00</div>
+        <?php if (sizeof($modulo->data_productos) > 0) { ?>
+            <div class="name-product"><?php echo $modulo->data_productos[0]->nombre_producto; ?></div>
+            <div class="price-product">$<?php echo $modulo->data_productos[0]->precio_producto; ?></div>
+        <?php } ?>
     </div>
     <?php if (sizeof($modulo->data_productos) > 0) { ?>
         <div id="swGalleryProduct" class="swiper-container">
@@ -44,15 +46,30 @@
         </div>
     <?php } ?>
     <div class="description-product">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui dolor, eleifend pellentesque leo ut, accumsan malesuada augue. Etiam tristique massa eu tellus vehicula congue. Maecenas imperdiet vel enim volutpat ullamcorper. Cras at nulla quam. Aenean scelerisque vitae arcu et porta.
+        <?php echo $modulo->data_productos[0]->descripcion_producto; ?>
     </div>
     <div class="box-modifier">
-        <div class="name-modifier">SELECT COLOR</div>
-        <div class="content-modifier">
-            <div class="item-modifier" style="background: green;"></div>
-            <div class="item-modifier" style="background: blue;"></div>
-            <div class="item-modifier" style="background: pink;"></div>
-        </div>
+
+
+        <?php
+        $contador = 1;
+        foreach ($modulo->data_modifiers as $modifier) { ?>
+            <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
+                <?php if (isset($modifier->color_rgb)) {
+
+                    if ($contador == 1) { $contador++; ?>
+                        <div class="name-modifier">SELECT COLOR</div>
+                        <div class="content-modifier">
+                            <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
+                        </div>
+
+                    <?php } ?>
+                <?php } ?>
+            <?php } ?>
+
+        <?php } ?>
+
+
     </div>
     <div class="box-modifier">
         <div class="name-modifier">SELECT SIZE</div>
