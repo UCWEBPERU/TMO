@@ -23,7 +23,10 @@
     </div>
 </div>
 <div id="panelSignIn">
-    <img src="<?php echo $modulo->icono_empresa; ?>" alt="">
+    <div class="logo">
+        <img src="<?php echo $modulo->icono_empresa; ?>" alt="">
+    </div>
+
 
 </div>
 
