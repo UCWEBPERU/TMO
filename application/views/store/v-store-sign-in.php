@@ -93,6 +93,7 @@
 <!-- Swiper JS -->
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fakeloader/fakeLoader.min.js"></script>
 
 
 <!-- Initialize Swiper -->
