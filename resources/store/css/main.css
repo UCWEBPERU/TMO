@@ -223,14 +223,18 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	color: #000000;
+	font-size: 25px;
 
 }
 #panelSignIn .logo img {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 60px;
-	height: 60px;
+	min-width: 100px;
+	height: 100px;
+}
+
+#panelSignIn .logo h3{
+	font-size: 20px;
+
 }
 
 

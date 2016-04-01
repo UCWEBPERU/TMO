@@ -25,6 +25,8 @@
 <div id="panelSignIn">
     <div class="logo">
         <img src="<?php echo $modulo->icono_empresa; ?>" alt="">
+        <h2>WELCOME!</h2>
+        <h3>Enter your user account</h3>
     </div>
 
 
