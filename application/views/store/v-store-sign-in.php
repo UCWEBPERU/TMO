@@ -25,10 +25,11 @@
 <div id="panelSignIn">
     <div class="logo">
         <img src="<?php echo $modulo->icono_empresa; ?>" alt="">
+        
     </div>
     <div class="logo-text">WELCOME!</div>
     <div class="logo-text2">Enter your user account</div>
-
+    
 
 
 </div>
