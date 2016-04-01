@@ -13,16 +13,11 @@
 <body>
 <div id="mainHeader">
     <div class="btn-Left">
-        <?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
-            <?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
-                <?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
-
-
-                <?php } else {?>
-                    <a href="<?php echo $modulo->data_navegacion_sub_categorias[$c]->url_id_categorias; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
-
-                <?php } ?>
-                <?php } ?>
+        <?php if (sizeof($modulo->data_navegacion_sub_categorias) >= 3) { ?>
+            <?php $ipenultimacategoria = sizeof($modulo->data_navegacion_sub_categorias) - 2; ?>
+            <a href="<?php echo $modulo->data_navegacion_sub_categorias[$ipenultimacategoria]->url_id_categorias; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
+        <?php } else if (sizeof($modulo->data_navegacion_sub_categorias) == 2) {?>
+            <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
         <?php } ?>
 
     </div>
