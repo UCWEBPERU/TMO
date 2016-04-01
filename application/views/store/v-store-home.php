@@ -47,154 +47,12 @@
 					</div>
 				</a>
 			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-2.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-3.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-1.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-2.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-3.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-1.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-2.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-3.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-1.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-2.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="image-category-3.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="icon_arrow.png">
-					</div>
-				</a>
-			</div>
+
 			<div class="item-product-row">
 				<a href="product-detail.html">
 					<div>
 						<div class="image-product">
-							<img src="image-category-1.jpg">
+							<img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
 						</div>
 						<div class="content-product">
 							<div>
@@ -210,286 +68,12 @@
 							</div>
 						</div>
 						<div class="arrow-product">
-							<img src="icon_arrow.png">
+							<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
 						</div>
 					</div>
 				</a>
 			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-2.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-3.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-1.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-2.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-3.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-1.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-2.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-3.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-1.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-2.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="image-category-3.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
+
 		</div>
 		<div class="swiper-slide" style="background: violet;">MEN</div>
 		<div class="swiper-slide" style="background: green;">HOME</div>
@@ -500,31 +84,31 @@
 <div id="menuApp">
 	<div id="changeStyleProduct" class="menu-item">
 		<a class="active" href="index.html">
-			<img src="icon_menu_products.png" alt="">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
 			<div>PRODUCTS</div>
 		</a>
 	</div>
 	<div class="menu-item">
 		<a href="products.html">
-			<img src="icon_menu_promotion.png" alt="">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
 			<div>PROMOTION</div>
 		</a>
 	</div>
 	<div class="menu-item">
 		<a href="search.html">
-			<img src="icon_menu_search.png" alt="">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
 			<div>SEARCH</div>
 		</a>
 	</div>
 	<div class="menu-item">
 		<a href="account.html">
-			<img src="icon_menu_account.png" alt="">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
 			<div>ACCOUNT</div>
 		</a>
 	</div>
 	<div class="menu-item">
 		<a href="cart.html">
-			<img src="icon_menu_cart.png" alt="">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
 			<div>CART</div>
 		</a>
 	</div>
@@ -567,12 +151,12 @@
 			$(".item-product-row").addClass("item-product-block");
 			$(".item-product-row").removeClass("item-product-row");
 			$(this).attr("data-current-view", "block");
-			$(this).children("img").attr("src", "icon_lineview.png");
+			$(this).children("img").attr("src","<?php echo PATH_RESOURCE_STORE; ?>img/icon_lineview.png" );
 		} else if ( $(this).attr("data-current-view") == "block" ) {
 			$(".item-product-block").addClass("item-product-row");
-			$(".item-product-block").removeClass("item-product-block");
+			$(".item-product-block").removeClass("<?php echo PATH_RESOURCE_STORE; ?>img/item-product-block.png");
 			$(this).attr("data-current-view", "row");
-			$(this).children("img").attr("src", "icon_tableview.png");
+			$(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
 		}
 
 	});
