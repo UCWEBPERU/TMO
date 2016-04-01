@@ -85,9 +85,9 @@
                     <div class="name-modifier"><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
 
                 <?php } ?>
-                    <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"></div>
+                    <div class="item-modifier btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"></div>
 
-                
+
             <?php } ?>
         <?php } ?>
 
