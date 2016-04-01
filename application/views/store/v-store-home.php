@@ -26,15 +26,11 @@
 		<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
 			<?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
 				<div class="swiper-slide">
-
-						<?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
-
+					<?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
 				</div>
 			<?php } else { ?>
 				<div class="swiper-slide">
-
-						<p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-
+					<?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
 				</div>
 			<?php } ?>
 		<?php } ?>
@@ -44,52 +40,11 @@
 <!-- Swiper -->
 <div id="swMainPanel" class="swiper-container">
 	<div class="swiper-wrapper">
-		<div class="swiper-slide">
-			<div class="item-list">
-				<a href="sub-categories.html">
-					<div class="image-list">
-						<img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
-					</div>
-					<div class="text-list">
-						CLOTING
-					</div>
-					<div class="arrow-list">
-						<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-					</div>
-				</a>
-			</div>
+		<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
+			<div class="swiper-slide" ><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></div>
+		<?php } ?>
 
-			<div class="item-product-row">
-				<a href="product-detail.html">
-					<div>
-						<div class="image-product">
-							<img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
-						</div>
-						<div class="content-product">
-							<div>
-								<div class="name-product">
-									MILITARY FASHION
-								</div>
-								<div class="price-product">
-									$999.99
-								</div>
-							</div>
-							<div class="description-product">
-								Brand new design for 2015, the women specific Sharksin.
-							</div>
-						</div>
-						<div class="arrow-product">
-							<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-						</div>
-					</div>
-				</a>
-			</div>
-
-		</div>
-		<div class="swiper-slide" style="background: violet;">DESIGNER</div>
-		<div class="swiper-slide" style="background: green;">HOME</div>
-		<div class="swiper-slide" style="background: yellow;">MEN</div>
-		<div class="swiper-slide" style="background: red;">WOMEN</div>
+		
 	</div>
 </div>
 <div id="menuApp">
