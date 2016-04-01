@@ -23,10 +23,9 @@
 
 <div id="panelResultProduct">
     <div class="item-list">
-        <a href="">
+        <a href="holi.html">
             <div class="image-list">
                 <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
-            </div>
             </div>
             <div class="text-list">
                 CLOTING
@@ -36,7 +35,6 @@
             </div>
         </a>
     </div>
-
 </div>
 
 
