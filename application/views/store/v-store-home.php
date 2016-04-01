@@ -23,11 +23,17 @@
 <!-- Swiper -->
 <div id="swMainMenu" class="swiper-container">
 	<div class="swiper-wrapper">
-		<div class="swiper-slide">WOMEN</div>
-		<div class="swiper-slide">MEN</div>
-		<div class="swiper-slide">HOME</div>
-		<div class="swiper-slide">KIDS</div>
-		<div class="swiper-slide">DESIGNER</div>
+		<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
+			<?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
+				<div class="swiper-slide">
+					<a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>" style="color:#000;">
+						<?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
+					</a>
+				</div>
+			<?php }  ?>
+
+		<?php } ?>
+
 	</div>
 </div>
 <!-- Swiper -->
