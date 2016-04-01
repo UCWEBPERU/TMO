@@ -1,160 +1,111 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>TMO</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Path -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/fakeLoader.css">
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
+
 </head>
 <body>
+<div id="mainHeader">
+    <div class="btn-Left">
+        <a href="<?php echo $modulo->previuos_url; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
+    </div>
+    <div class="title-header">MEMBER SIGN IN</div>
+    <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
+        <!--img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png"-->
+    </div>
+</div>
+<div id="panelProductDetail">
 
-<div>
-    <!-- Header -->
-    <header>
-        <div id="title">
-            <a href="<?php echo $modulo->previuos_url; ?>" >Close</a>
-            <h2>Member Sign In</h2>
-        </div>
-    </header>
+</div>
 
-    <!-- Content -->
-    <content>
 
-        <div class="col-xs-12" >
-            <div class="row" id="contenedordetail">
-                <div>
-                    <div class="col-xs-12 sign">
-                        <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
-                        <h3>Welcome!</h3>
-                        <h2>Enter your user account</h2>
-                        <form id="frmSignIn" name="frmSignIn" method="post">
-                            <div>
-                                <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
-                                <p class="text-error"></p>
-                            </div>
-                            <div>
-                                <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter your password.">
-                                <p class="text-error"></p>
-                            </div>
-                            <button id="btnSignIn" type="submit">Sign In</button>
-                            <p class="register-error"></p>
-                        </form>
-                        <a href="<?php echo $modulo->base_url_store; ?>/forgotpassword"><h5>Forgot Password</h5></a>
-                        <br><br><br>
-                    </div>
+<div id="menuApp">
+    <div id="changeStyleProduct" class="menu-item">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <div>PRODUCTS</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <div>PROMOTION</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/search">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <div>SEARCH</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <div>ACCOUNT</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/cart">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <div>CART</div>
+        </a>
+    </div>
+</div>
 
-                    <div class="col-xs-12 sign">
-                        <h3>Join instantly (and for free)</h3>
-                        <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/register" >Join Now</a>
-                    </div>
-                    <div class="col-xs-12 detail" style="height: 200px;"></div>
-                </div>
-            </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- Swiper JS -->
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
 
-        </div>
 
-    </content>
-    <footer>
-        <div id="footer">
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
-                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/promotions" onclick="">Promotions</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/cart" onclick="">Cart</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/account"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/setting.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/account" onclick="">Account</a></h1>
-            </div>
-        </div>
-    </footer>
-    <div class="fakeloader"></div>
-    <!-- Scripts -->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
-    <!--<script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fakeloader/fakeLoader.min.js"></script>
-
-    <script type="text/javascript">
-
-        var selectorInputsForm = ["#txtEmail", "#txtPassword"];
-
-        function validateInputsForm(selectorInputsForm){
-            var countMessagesError = 0;
-            var messageError = "";
-            for (var i = 0; i < selectorInputsForm.length; i++) {
-                if ($(selectorInputsForm[i]).parsley().isValid()) {
-                    $(selectorInputsForm[i]).parent().removeClass("has-error");
-                } else {
-                    $(selectorInputsForm[i]).parent().addClass("has-error");
-                    messageError = ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley());
-                    $(selectorInputsForm[i]).parent().find("p").html(messageError);
-                    countMessagesError++;
-                }
+<!-- Initialize Swiper -->
+<script>
+    var swMainMenu = new Swiper('#swMainMenu', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 0,
+        loop: true,
+        slideToClickedSlide: true,
+        onSlideChangeEnd: function(swiper){
+            for (var c = 0; c < swiper.slides.length; c++) {
+                $(swiper.slides[c]).css({"color": "#959595"});
             }
-            if (countMessagesError > 0) {
-                return false;
-            }
-            return true;
+            $(swiper.slides[swiper.activeIndex]).css({"color": "#FFFFFF"});
+        }
+    });
+
+    var swMainPanel = new Swiper('#swMainPanel', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 0,
+        loop: true,
+        longSwipes: false
+    });
+
+    swMainMenu.params.control = swMainPanel;
+    swMainPanel.params.control = swMainMenu;
+
+    $("#btnChangeViewProduct").on("click", function() {
+        if ( $(this).attr("data-current-view") == "row" ) {
+            $(".item-product-row").addClass("item-product-block");
+            $(".item-product-row").removeClass("item-product-row");
+            $(this).attr("data-current-view", "block");
+            $(this).children("img").attr("src","<?php echo PATH_RESOURCE_STORE; ?>img/icon_lineview.png" );
+        } else if ( $(this).attr("data-current-view") == "block" ) {
+            $(".item-product-block").addClass("item-product-row");
+            $(".item-product-block").removeClass("item-product-block");
+            $(this).attr("data-current-view", "row");
+            $(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
         }
 
-        $(document).ready(function(){
-            $("#btnSignIn").on("click", function(event){
-                event.preventDefault();
-
-                if (validateInputsForm(selectorInputsForm)) {
-                    $(".fakeloader").fakeLoader({
-                        bgColor     : "rgba(0,0,0,.85)",
-                        spinner     : "spinner2"
-                    });
-
-                    var request = $.ajax({
-                        url: "<?php echo $modulo->base_url_store."/ajax/signIn"; ?>",
-                        method: "POST",
-                        data: $("#frmSignIn").serialize(),
-                        dataType: "json"
-                    });
-
-                    request.done(function( response ) {
-                        if (response.status) {
-                            $(location).attr("href", response.data.url_redirect);
-                        } else {
-                            $(".fakeloader").fakeLoaderClose();
-                            $(".register-error").html(response.message);
-                        }
-                    });
-
-                    request.fail(function( jqXHR, textStatus ) {
-                        $(".fakeloader").fakeLoaderClose();
-                        $(".register-error").html(textStatus);
-                    });
-                }
-            });
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
