@@ -32,13 +32,13 @@
     <form id="frmSignIn" name="frmSignIn" method="post">
         <div class="sign-in-form">
             <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
+            <p class="text-error"></p>
         </div>
-        <div class="sign-in-form"><p class="text-error"></p></div>
 
         <div class="sign-in-form">
             <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter your password.">
+            <p class="text-error"></p>
         </div>
-        <div class="sign-in-form"><p class="text-error"></p></div>
         <div class="sign-in-form">
             <button id="btnSignIn" type="submit">Sign In</button>
         </div>

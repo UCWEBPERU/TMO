@@ -215,7 +215,7 @@ body {
 
 #panelSignIn {
 	width: 100%;
-	height: 84%;
+	height: 76%;
 	overflow-y: auto;
 	padding: 10px 0px 10px 0px;
 }
@@ -281,6 +281,7 @@ body {
 }
 .sign-in-form p{
 	color: #eb1e1e;
+	flex: 1 100%;
 	font-family: Helvetica, Arial, sans-serif;
 	display: flex;
 	align-items: center;
