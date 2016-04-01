@@ -27,8 +27,10 @@
         <img src="<?php echo $modulo->icono_empresa; ?>" alt="">
         
     </div>
-    <div class="logo-text">WELCOME!</div>
-    <div class="logo-text2">Enter your user account</div>
+    <div class="logo-text">
+        <h2>WELCOME!</h2>
+        <h3>Enter your user account</h3>
+    </div>
     
 
 
