@@ -1,133 +1,579 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>TMO</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!-- Path -->
-	<base href="<?php echo base_url();?>">
-	<!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
-	<link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
-	<script type="text/javascript" src="<?php echo PATH_RESOURCE_STORE; ?>js/jssor.slider.min.js"></script>
-	<!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
-	<!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="swiper.min.css">
+	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-<header>
-<!--	<div id="title">-->
-<!--		<h2>Fashion Store</h2>-->
-<!--	</div>-->
-	<!-- Slider -->
-	<div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
-		<!-- Loading Screen -->
-		<div data-u="slides" id="slide" >
-			<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
-				<?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
-					<div style="background:#FFF;">
-						<a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>" style="color:#000;">
-							<p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-						</a>
+<div id="mainHeader">
+	<div class="btn-Left">
+		<!-- <img src="icon_arrow_back.png"> -->
+	</div>
+	<div class="title-header">TAKE MY ORDER</div>
+	<div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
+		<img src="icon_tableview.png">
+	</div>
+</div>
+<!-- Swiper -->
+<div id="swMainMenu" class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">WOMEN</div>
+		<div class="swiper-slide">MEN</div>
+		<div class="swiper-slide">HOME</div>
+		<div class="swiper-slide">KIDS</div>
+		<div class="swiper-slide">DESIGNER</div>
+	</div>
+</div>
+<!-- Swiper -->
+<div id="swMainPanel" class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-1.jpg">
 					</div>
-				<?php } else { ?>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-2.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-3.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-1.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-2.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-3.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-1.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-2.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-3.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-1.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-2.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-list">
+				<a href="sub-categories.html">
+					<div class="image-list">
+						<img src="image-category-3.jpg">
+					</div>
+					<div class="text-list">
+						CLOTING
+					</div>
+					<div class="arrow-list">
+						<img src="icon_arrow.png">
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
 					<div>
-						<a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
-							<p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-						</a>
+						<div class="image-product">
+							<img src="image-category-1.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
 					</div>
-				<?php } ?>
-			<?php } ?>
-		</div>
-	</div>
-</header>
-
-<!-- Content -->
-<content>
-
-	<?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
-		<section id="toplist">
-			<h2>
-			<?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
-				<?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
-					<?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?>
-				<?php } else { ?>
-					<a href="<?php echo $modulo->data_navegacion_sub_categorias[$c]->url_id_categorias; ?>">
-						<?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?> >
-					</a>
-				<?php } ?>
-			<?php } ?>
-			</h2>
-		</section>
-	<?php } ?>
-
-	<div class="col-xs-12">
-
-		<?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
-			<div class="row">
-				<div>
-					<div class="col-xs-5 list" >
-						<a href="<?php echo $sub_categoria->url_categoria; ?>" ><img src="<?php echo $sub_categoria->url_archivo; ?>" id="images" alt="" /></a>
-					</div>
-					<div class="col-xs-7 list" >
-						<a href="<?php echo $sub_categoria->url_categoria; ?>" ><h2><?php echo strtoupper($sub_categoria->nombre_categoria); ?></h2></a>
-					</div>
-				</div>
+				</a>
 			</div>
-		<?php } ?>
-
-		<div class="row">
-			<div>
-			<?php foreach ($modulo->data_productos as $producto) { ?>
-				<div class="col-xs-6 products" >
-					<a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" ><img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>" class="images" alt="" /></a>
-					<h2><a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" ><?php echo $producto->nombre_producto; ?></a></h2>
-					<h3><a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" >$<?php echo $producto->precio_producto; ?></a></h3><h4><strike></strike></h4>
-				</div>
-			<?php } ?>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-2.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-3.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-1.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-2.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-3.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-1.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-2.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-3.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-1.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-2.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="item-product-row">
+				<a href="product-detail.html">
+					<div>
+						<div class="image-product">
+							<img src="image-category-3.jpg">
+						</div>
+						<div class="content-product">
+							<div>
+								<div class="name-product">
+									MILITARY FASHION
+								</div>
+								<div class="price-product">
+									$999.99
+								</div>
+							</div>
+							<div class="description-product">
+								Brand new design for 2015, the women specific Sharksin.
+							</div>
+						</div>
+						<div class="arrow-product">
+							<img src="icon_arrow.png">
+						</div>
+					</div>
+				</a>
 			</div>
 		</div>
-
-		<div class="row" style="height: 50px;"></div>
-
+		<div class="swiper-slide" style="background: violet;">MEN</div>
+		<div class="swiper-slide" style="background: green;">HOME</div>
+		<div class="swiper-slide" style="background: yellow;">KIDS</div>
+		<div class="swiper-slide" style="background: red;">DESIGNER</div>
 	</div>
-
-</content>
-<footer>
-	<div id="footer">
-		<div class="boximage">
-			<a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
-			<h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
-		</div>
-		<div class="boximage">
-			<a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
-			<h1><a href="<?php echo $modulo->base_url_store; ?>/promotions" onclick="">Promotions</a></h1>
-		</div>
-		<div class="boximage">
-			<a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-			<h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
-		</div>
-		<div class="boximage">
-			<a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
-			<h1><a href="<?php echo $modulo->base_url_store; ?>/cart" onclick="">Cart</a></h1>
-		</div>
-		<div class="boximage">
-			<a href="<?php echo $modulo->base_url_store; ?>/account"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/setting.png" class="images" alt="" /></a>
-			<h1><a href="<?php echo $modulo->base_url_store; ?>/account" onclick="">Account</a></h1>
-		</div>
+</div>
+<div id="menuApp">
+	<div id="changeStyleProduct" class="menu-item">
+		<a class="active" href="index.html">
+			<img src="icon_menu_products.png" alt="">
+			<div>PRODUCTS</div>
+		</a>
 	</div>
-</footer>
+	<div class="menu-item">
+		<a href="products.html">
+			<img src="icon_menu_promotion.png" alt="">
+			<div>PROMOTION</div>
+		</a>
+	</div>
+	<div class="menu-item">
+		<a href="search.html">
+			<img src="icon_menu_search.png" alt="">
+			<div>SEARCH</div>
+		</a>
+	</div>
+	<div class="menu-item">
+		<a href="account.html">
+			<img src="icon_menu_account.png" alt="">
+			<div>ACCOUNT</div>
+		</a>
+	</div>
+	<div class="menu-item">
+		<a href="cart.html">
+			<img src="icon_menu_cart.png" alt="">
+			<div>CART</div>
+		</a>
+	</div>
+</div>
 
-<!-- Scripts -->
-<script type="text/javascript" src="<?php echo PATH_RESOURCE_STORE; ?>js/handler-slider-menu.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
-<!--<script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
-<!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- Swiper JS -->
+<script src="swiper.min.js"></script>
 
+<!-- Initialize Swiper -->
+<script>
+	var swMainMenu = new Swiper('#swMainMenu', {
+		slidesPerView: 'auto',
+		centeredSlides: true,
+		spaceBetween: 0,
+		loop: true,
+		slideToClickedSlide: true,
+		onSlideChangeEnd: function(swiper){
+			for (var c = 0; c < swiper.slides.length; c++) {
+				$(swiper.slides[c]).css({"color": "#959595"});
+			}
+			$(swiper.slides[swiper.activeIndex]).css({"color": "#FFFFFF"});
+		}
+	});
+
+	var swMainPanel = new Swiper('#swMainPanel', {
+		slidesPerView: 'auto',
+		centeredSlides: true,
+		spaceBetween: 0,
+		loop: true,
+		longSwipes: false
+	});
+
+	swMainMenu.params.control = swMainPanel;
+	swMainPanel.params.control = swMainMenu;
+
+	$("#btnChangeViewProduct").on("click", function() {
+		if ( $(this).attr("data-current-view") == "row" ) {
+			$(".item-product-row").addClass("item-product-block");
+			$(".item-product-row").removeClass("item-product-row");
+			$(this).attr("data-current-view", "block");
+			$(this).children("img").attr("src", "icon_lineview.png");
+		} else if ( $(this).attr("data-current-view") == "block" ) {
+			$(".item-product-block").addClass("item-product-row");
+			$(".item-product-block").removeClass("item-product-block");
+			$(this).attr("data-current-view", "row");
+			$(this).children("img").attr("src", "icon_tableview.png");
+		}
+
+	});
+</script>
 </body>
 </html>
