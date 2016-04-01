@@ -257,6 +257,7 @@ body {
 	font-size: 12px;
 }
 .sign-in-form button{
+	flex: 1 100%;
 	font-size: 20px;
 	flex: 1 100%;
 	margin: 10px;
@@ -282,6 +283,7 @@ body {
 	color: #FFFFFF;
 }
 .sign-in-form p{
+	flex: 1 100%;
 	color: #eb1e1e;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 12px;
