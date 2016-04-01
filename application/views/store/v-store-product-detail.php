@@ -29,13 +29,13 @@
         <div class="swiper-wrapper">
             <?php if (sizeof($modulo->data_productos) > 0) { ?>
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
-                <!-- Carousel items -->
-                <div class="carousel-inner">
-                    <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
+                <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
+                    <div class="swiper-slide">
                         <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+                    </div>
 
-                    <?php } ?>
-                </div>
+                <?php } ?>
+
             <?php } ?>
         </div>
         <!-- Add Pagination -->
