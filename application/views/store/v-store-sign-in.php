@@ -29,6 +29,21 @@
     </div>
     <div class="logo-text">WELCOME!</div>
     <div class="logo-text2">Enter your user account</div>
+    <form id="frmSignIn" name="frmSignIn" method="post">
+        <div class="sign-in-input">
+            <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
+            <p class="text-error"></p>
+        </div>
+        <div class="sign-in-input">
+            <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter your password.">
+            <p class="text-error"></p>
+        </div>
+        <div class="sign-in-input">
+            <button id="btnSignIn" type="submit">Sign In</button>
+            <p class="register-error"></p>
+        </div>
+        
+    </form>
     
 
 

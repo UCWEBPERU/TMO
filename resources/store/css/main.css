@@ -220,6 +220,7 @@ body {
 	padding: 10px 0px 10px 0px;
 }
 #panelSignIn .logo, #panelSignIn .logo-text, #panelSignIn .logo-text2{
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -233,8 +234,22 @@ body {
 
 #panelSignIn .logo-text2{
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 
+}
+.sign-in-input{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.sign-in-input input{
+	flex: 1 100%;
+	margin: 10px;
+	padding: 5px;
+	border: none;
+	outline: none;
+	text-decoration: none;
 }
 
 
