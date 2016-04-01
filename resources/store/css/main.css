@@ -239,6 +239,7 @@ body {
 }
 .sign-in-input{
 	width: 100%;
+	height: 8%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -262,8 +263,14 @@ body {
 	text-decoration: none;
 	background: #000000;
 	color: #FFFFFF;
-	height: 8%;
 }
+.sign-in-input p{
+	color: #eb1e1e;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+
+}
+
 
 
 

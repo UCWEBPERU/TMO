@@ -44,6 +44,10 @@
         </div>
         
     </form>
+    <div class="logo-text">Join instantly (and for free)</div>
+    <div class="sign-in-input">
+        <button id="btnSignIn" type="submit">Join Now</button>
+    </div>
     
 
 
