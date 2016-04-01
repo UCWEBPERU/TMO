@@ -1,131 +1,105 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>TMO</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Path -->
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/ie9.css" /><![endif]-->
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
 </head>
 <body>
+<div id="mainHeader">
+    <div class="btn-Left">
+        <!-- <img src="icon_arrow_back.png"> -->
+    </div>
+    <div class="title-header">ACCOUNT</div>
+    <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
+        <!-- <img src="icon_tableview.png"> -->
+    </div>
+</div>
+<div id="panelAccount">
 
-<div>
-    <!-- Header -->
-    <header>
-        <div id="title">
-            <h2>Account</h2>
-        </div>
-    </header>
+</div>
+<div id="menuApp">
+    <div id="changeStyleProduct" class="menu-item">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <div>PRODUCTS</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <div>PROMOTION</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/search">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <div>SEARCH</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <div>ACCOUNT</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/cart">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <div>CART</div>
+        </a>
+    </div>
+</div>
 
-    <!-- Content -->
-    <content>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- Swiper JS -->
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
 
-        <div class="col-xs-12" >
-            <?php if ($modulo->has_user_session) { ?>
-                <div class="row" id="contenedordetail">
-                    <div>
-                        <div class="col-xs-12 sign">
-                            <!-- <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div> -->
-                            <h3 style="padding: 10px;">Welcome, <?php echo $modulo->data_usuario->nombres_persona." ".$modulo->data_usuario->apellidos_persona ; ?></h3>
-                        </div>
-                    </div>
-                </div>
-            <?php } else { ?>
-                <div class="row" id="contenedordetail2">
-                    <div>
-                        <div class="col-xs-12 sign">
-                            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signin" >Sign In</a>
-                            <!--<h3>Sign in to see you store credit</h3>-->
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
+<!-- Initialize Swiper -->
+<script>
+    var swMainMenu = new Swiper('#swMainMenu', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 0,
+        loop: true,
+        slideToClickedSlide: true,
+        onSlideChangeEnd: function(swiper){
+            for (var c = 0; c < swiper.slides.length; c++) {
+                $(swiper.slides[c]).css({"color": "#959595"});
+            }
+            $(swiper.slides[swiper.activeIndex]).css({"color": "#FFFFFF"});
+        }
+    });
 
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/my-orders" ><h2>My orders</h2></a>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/my-orders" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                    </div>
-                </div>
-            </div>
+    var swMainPanel = new Swiper('#swMainPanel', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 0,
+        loop: true,
+        longSwipes: false
+    });
 
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings"><h2>My accounts settings</h2></a>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                    </div>
-                </div>
-            </div>
+    swMainMenu.params.control = swMainPanel;
+    swMainPanel.params.control = swMainMenu;
 
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/contact-us" ><h2>Contact Us</h2></a>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
-                        <a href="<?php echo $modulo->base_url_store; ?>/account/contact-us" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/right-arrow.png" /></a>
-                    </div>
-                </div>
-            </div>
-            <?php if ($modulo->has_user_session) { ?>
-                <div class="row" id="contenedordetail2">
-                    <div>
-                        <div class="col-xs-12 sign">
-                            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signout" >Sign Out</a>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
+    $("#btnChangeViewProduct").on("click", function() {
+        if ( $(this).attr("data-current-view") == "row" ) {
+            $(".item-product-row").addClass("item-product-block");
+            $(".item-product-row").removeClass("item-product-row");
+            $(this).attr("data-current-view", "block");
+            $(this).children("img").attr("src", "icon_lineview.png");
+        } else if ( $(this).attr("data-current-view") == "block" ) {
+            $(".item-product-block").addClass("item-product-row");
+            $(".item-product-block").removeClass("item-product-block");
+            $(this).attr("data-current-view", "row");
+            $(this).children("img").attr("src", "icon_tableview.png");
+        }
 
-    </content>
-    <footer>
-        <div id="footer">
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
-                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
-            </div>
-
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/promotions" onclick="">Promotions</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/cart" onclick="">Cart</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/account"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/setting.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/account" onclick="">Account</a></h1>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
-    <!--<script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
-
+    });
+</script>
 </body>
 </html>

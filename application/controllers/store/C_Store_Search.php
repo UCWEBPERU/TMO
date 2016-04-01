@@ -16,33 +16,34 @@ class C_Store_Search extends CI_Controller {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
 
-        $dataEmpresa = $this->M_Store->getCompanyAndStore(
-            array(
-                "id_empresa"    => $this->uri->segment(2),
-                "id_tienda"     => $this->uri->segment(4)
-            )
-        );
-
-        if (sizeof($dataEmpresa) == 0) {
-            redirect("not-found/store");
-        }
-
-        $modulo->data_empresa = $dataEmpresa[0];
-
-        $dataCategorias = cargarDatosCategoriasPrincipales();
-        $modulo->data_categorias = $dataCategorias;
-
-        $rutaPlantilla = "";
-
-        if ($this->input->get("s")) { // cargar resultados de busquedas
-            $this->cargarVistaResultadoBusqueda($modulo, $rutaPlantilla);
-        } else { // cargar vista por defecto de busquedas
-            $this->cargarVistaBusqueda($modulo, $rutaPlantilla);
-        }
+//        $dataEmpresa = $this->M_Store->getCompanyAndStore(
+//            array(
+//                "id_empresa"    => $this->uri->segment(2),
+//                "id_tienda"     => $this->uri->segment(4)
+//            )
+//        );
+//
+//        if (sizeof($dataEmpresa) == 0) {
+//            redirect("not-found/store");
+//        }
+//
+//        $modulo->data_empresa = $dataEmpresa[0];
+//
+//        $dataCategorias = cargarDatosCategoriasPrincipales();
+//        $modulo->data_categorias = $dataCategorias;
+//
+//        $rutaPlantilla = "";
+//
+//        if ($this->input->get("s")) { // cargar resultados de busquedas
+//            $this->cargarVistaResultadoBusqueda($modulo, $rutaPlantilla);
+//        } else { // cargar vista por defecto de busquedas
+//            $this->cargarVistaBusqueda($modulo, $rutaPlantilla);
+//        }
 
         $data["modulo"] = $modulo;
 
-        $this->load->view($rutaPlantilla, $data);
+//        $this->load->view($rutaPlantilla, $data);
+        $this->load->view("store/v-store-search", $data);
     }
 
     public function cargarVistaBusqueda($modulo, &$rutaPlantilla) {

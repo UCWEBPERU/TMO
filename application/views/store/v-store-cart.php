@@ -1,267 +1,215 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>TMO</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Path -->
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
-    <!-- Sweet Alert -->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
 </head>
 <body>
-
-<div>
-    <!-- Header -->
-    <header>
-        <div id="title">
-            <a href="<?php echo $modulo->base_url_store; ?>" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/left-arrow.png" class="images" alt="" /></a>
-
-            <h2>Cart</h2>
+<div id="mainHeader">
+    <div class="btn-Left">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png">
+        </a>
+    </div>
+    <div class="title-header">PLACE ORDER</div>
+    <div class="btn-right"></div>
+</div>
+<!-- <div id="panelCartEmpty">
+<div class="content-message">YOUR CART IS EMPTY</div>
+</div>
+<div id="panelBtnBottom">
+<button class="btn-black">CONTINUE SHOPPING</button>
+</div> -->
+<div id="panelCart">
+    <div class="shipping-information">
+        <span>Shipping Information</span><br>
+        <span>Shipping Option.</span><span> Standard U.S.Shipping</span>
+    </div>
+    <div class="container-products">
+        <ul data-role="listview" id="list" class="ui-listview">
+            <li>
+					<span class="delete">
+						<p class="btn">
+                            Delete
+                        </p>
+					</span>
+                <a href="#" draggable="false">
+                    <div class="content-product">
+                        <div class="image-product">
+                            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-3.jpg">
+                        </div>
+                        <div class="detail-product">
+                            <div class="head-detail">
+                                <span>Women Jacket</span>
+                                <span>$50.00</span>
+                            </div>
+                            <div class="more-detail">
+                                <span>Quantity: 1</span><br>
+                                <span>Color: White</span><br>
+                                <span>Size: M</span><br>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+					<span class="delete">
+						<p class="btn">
+                            Delete
+                        </p>
+					</span>
+                <a href="#" draggable="false">
+                    <div class="content-product">
+                        <div class="image-product">
+                            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-3.jpg">
+                        </div>
+                        <div class="detail-product">
+                            <div class="head-detail">
+                                <span>Women Jacket</span>
+                                <span>$50.00</span>
+                            </div>
+                            <div class="more-detail">
+                                <span>Quantity: 1</span><br>
+                                <span>Color: White</span><br>
+                                <span>Size: M</span><br>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container-shipping-detail">
+        <span class="bold">Orden Summary</span><br>
+        <div class="item">
+            <span>Items:</span>
+            <span>$50.00</span>
         </div>
-    </header>
-
-    <!-- Content -->
-    <content>
-
-
-        <div class="col-xs-12" >
-
-            <?php if ($modulo->has_user_session) { ?>
-            <div class="row">
-                <?php $cart_check = $this->cart->contents();
-
-                // If cart is empty, this will show below message.
-                if(empty($cart_check)) { ?>
-
-                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
-                        <h2>To add products to your shopping cart click on "Add to Cart" Button</h2>
-                    </div>
-                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
-                        <a class="btn" href="<?php echo $modulo->base_url_store; ?>" style="margin-bottom: 5px">Continue Shopping</a>
-                    </div>
-                    <div class="col-xs-12 detail" style="height: 150px;background: #FFFFFF"></div>
-
-                <?php } ?>
-            </div>
-            <?php
-            // All values of cart store in "$cart".
-            if ($cart = $this->cart->contents()): ?>
-                <div class="row" >
-                    <div>
-                        <div class="col-xs-12 cartinformation" >
-                            <h2>Shipping Information</h2>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-            <?php
-            // Create form and send all values in "shopping/update_cart" function.
-            echo form_open("<?php echo $modulo->base_url_store".'/ajax/shopping/update');
-                $grand_total = 0;
-                $num = 1;
-                $totaladditional = 0;
-
-            foreach ($cart as $item):
-                // echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
-                // Will produce the following output.
-                // <input type="hidden" name="cart[1][id]" value="1" />
-
-                echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
-                echo form_hidden('cart[' . $item['id'] . '][rowid]', $item['rowid']);
-                echo form_hidden('cart[' . $item['id'] . '][name]', $item['name']);
-                echo form_hidden('cart[' . $item['id'] . '][price]', $item['price']);
-                echo form_hidden('cart[' . $item['id'] . '][qty]', $item['qty']);
-                ?>
-                <div class="row" >
-
-                    <div>
-
-                        <div class="col-xs-5 list"  id="cartitem" >
-                            <a ><img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>" id="images" alt=""  /></a>
-                            <a class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')" >Delete</a>
-                        </div>
-                        <div class="col-xs-7 list" id="cartitem" >
-                            <h3><?php echo $item['name']; ?></h3>
-                            <h4>$ <?php echo number_format($item['price'], 2); ?></h4>
-                            <h5>Quantity : <?php echo $item['qty']; ?></h5>
-                            <?php
-                            $modifiers = $this->cart->product_options($item['rowid']);
-                            $addtional = 0;
-                            foreach ($modifiers as $modifier):
-                                    if($modifier[0] == "modifier"){ ?>
-                                    <h5><?php echo $modifier[1]; ?> : <?php echo $modifier[2]; ?> - ( $ <?php echo $modifier[3]; ?> ) </h5>
-                                <?php } ?>
-
-                            <?php   $addtional += $modifier[3];
-                                    $addtionals = $addtional  * $item['qty'];
-
-                            endforeach; ?>
-                            <h5>Subtotal : $ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></h5>
-                            <!--?php $num = $num + $item['qty'] ?-->
-                            <?php $grand_total += + $item['subtotal'];
-                            $totaladditional += $addtionals;?>
-
-                        </div>
-                    </div>
-
-                </div>
-            <?php endforeach; ?>
-                <div class="row" >
-                    <div>
-
-
-                        <div class="col-xs-9 list" id="cartitem2" >
-                            <h3>Order summary</h3>
-                            <h5>Items:</h5>
-                            <h5>Additional Cost:</h5>
-                            <!--h6>Total Before Tax:</h6>
-                            <h6>Estimated Tax:</h6-->
-                            <h3>Order Total</h3>
-                        </div>
-                        <div class="col-xs-3 list" id="cartitem2" >
-                            <h3 style="visibility: hidden">$</h3>
-                            <h5>$<?php echo number_format($grand_total, 2); ?></h5>
-                            <h5>$<?php echo number_format($totaladditional, 2); ?></h5>
-                            <!--h6>$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?></h6>
-                            <h6>$8.00</h6!-->
-                            <h3>$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?></h3>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            <?php endif; ?>
-
-
-            <div class="row" style="height:120px; background:#FFF;">
-
-            </div>
-            <?php } else { ?>
-                <div class="row">
-
-
-                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
-                        <h2>Sign in to view your cart</h2>
-                    </div>
-                    <div class="col-xs-12 titlecart" style="background: #FFFFFF" >
-                        <a class="btn" href="<?php echo $modulo->base_url_store; ?>/signin" style="margin-bottom: 5px">Sign In</a>
-                    </div>
-                    <div class="col-xs-12 detail" style="height: 50px;background: #FFFFFF"></div>
-
-
-                </div>
-            <?php } ?>
-
-
-
-
-
+        <div class="item">
+            <span>Shipping & Handling:</span>
+            <span>$3.99</span>
         </div>
-
-    </content>
-
-
-    <footer>
-        <?php if ($modulo->has_user_session && $this->cart->contents()) { ?>
-        <div id="cart">
-            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/cart/payment-method?amount=<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?>" >Place Order</a>
+        <div class="item">
+            <span>Promotion Applied:</span>
+            <span>-$3.99</span>
         </div>
-        <?php } ?>
-        <div id="footer">
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
-                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/promotions" onclick="">Promotions</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/cart" onclick="">Cart</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/account"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/setting.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/account" onclick="">Account</a></h1>
-            </div>
+        <div class="item item-last">
+            <span class="bold">Order Total:</span>
+            <span class="bold">$53.99</span>
         </div>
-    </footer>
+    </div>
+</div>
+<div id="panelBtnBottom">
+    <button class="btn-green">PLACE ORDER</button>
+</div>
+<div id="menuApp">
+    <div id="changeStyleProduct" class="menu-item">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <div>PRODUCTS</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <div>PROMOTION</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/search">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <div>SEARCH</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <div>ACCOUNT</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/cart">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <div>CART</div>
+        </a>
+    </div>
+</div>
 
-    <!-- Scripts -->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
-    <!--    <script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
-    <!-- Sweet Alert -->
-    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
-    <script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/hammer.min.js"></script>
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.hammer.js"></script>
+<!-- Swiper JS -->
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
 
-           
+<!-- Initialize Swiper -->
+<script>
+    $("#btnChangeViewProduct").on("click", function() {
+        if ( $(this).attr("data-current-view") == "row" ) {
+            $(".item-product-row").addClass("item-product-block");
+            $(".item-product-row").removeClass("item-product-row");
+            $(this).attr("data-current-view", "block");
+            $(this).children("img").attr("src", "icon_lineview.png");
+        } else if ( $(this).attr("data-current-view") == "block" ) {
+            $(".item-product-block").addClass("item-product-row");
+            $(".item-product-block").removeClass("item-product-block");
+            $(this).attr("data-current-view", "row");
+            $(this).children("img").attr("src", "icon_tableview.png");
+        }
 
-           function deleteItem(btn, item) {
-
-                var formData = new FormData();
-                formData.append("id_producto", item);
-
-                var request = $.ajax({
-                    url: "<?php echo $modulo->base_url_store."/ajax/shopping/delete"; ?>",
-                    method: "POST",
-                    data: formData,
-                    dataType: 'json',
-                    processData: false,
-                    contentType: false,
-                });
-
-                request.done(function( response ) {
-
-                    if (response.status) {
-
-
-                        //$(btn).parent().parent().parent().hide(function () {
-                            //$(btn).parent().parent().parent().remove();
-                        //});
-                        swal("Delete Item", response.message, "success");
-
-                        location.reload();
-
-                    } else {
-                        swal("Delete Item", response.message, "danger");
-
-                    }
-                });
-
-                request.fail(function( jqXHR, textStatus ) {
-                    swal("Delete Item", textStatus, "danger");
-
-                });
-            }
-            
-
-
-
-    </script>
-
+    });
+    $("ul li a").hammer().bind("swipeleft", function(event){
+        $("ul li a").each(function() {
+            $(this).prevAll("span").removeClass("show");
+            $(this).css({
+                transform: "translateX(0)"
+            }).blur();
+        });
+        $(this).prevAll("span").addClass("show");
+        $(this).off("click").blur();
+        $(this).css({
+            transform: "translateX(-300px)"
+        }).one("transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd", function () {
+            $("ul li a").one("swiperight", function () {
+                $(this).prevAll("span").removeClass("show");
+                $(this).css({
+                    transform: "translateX(0)"
+                }).blur();
+            });
+        });
+    });
+    $("ul li, ul li a").hammer().bind("tap", function(event){
+        $("ul li a").each(function() {
+            $(this).prevAll("span").removeClass("show");
+            $(this).css({
+                transform: "translateX(0)"
+            }).blur();
+        });
+    });
+    $("ul li span.delete").on("click", function () {
+        var listview = $(this).closest("ul");
+        $(".ui-content").css({
+            overflow: "hidden"
+        });
+        $(this).parent().css({
+            display: "block"
+        }).animate({
+            opacity: 0
+        }, {
+            duration: 250,
+            queue: false
+        }).animate({
+            height: 0
+        }, 300, function () {
+            $(this).remove();
+            listview.listview("refresh");
+            $(".ui-content").removeAttr("style");
+        });
+    });
+</script>
 </body>
 </html>
