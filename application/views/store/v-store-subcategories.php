@@ -16,11 +16,12 @@
         <?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
             <?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
                 <?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
+
+
+                <?php } else {?>
                     <a href="<?php echo $modulo->data_navegacion_sub_categorias[$c]->url_id_categorias; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
 
-                <?php } else { ?>
                 <?php } ?>
-            <?php } ?>
         <?php } ?>
 
     </div>
@@ -88,7 +89,7 @@
                     </div>
                 </a>
             </div>
-        
+
     <?php } ?>
 </div>
 

@@ -1,284 +1,189 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>TMO</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Path -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
-    <!-- Sweet Alert -->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
+
 </head>
 <body>
-
-<div>
-    <!-- Header -->
-    <header>
-        <div id="title">
-            <a href="<?php echo $modulo->base_url_store; ?>" ><img src="<?php echo PATH_RESOURCE_STORE; ?>images/left-arrow.png" class="images" alt="" /></a>
-            <a href="<?php echo $modulo->url_button_back; ?>" >Back</a>
-            <h2>Details</h2>
-        </div>
-    </header>
-
-    <!-- Content -->
-    <content>
-
-        <div class="col-xs-12" >
-            <div class="row" id="contenedordetail">
-                <div>
-                    <div id="contenedorCarousel">
-                        <div id="myCarousel" class="carousel slide">
-                            <?php if (sizeof($modulo->data_productos) > 0) { ?>
-                                <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
-                                <ol class="carousel-indicators">
-                                    <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
-                                        <?php if ($c == 0) { ?>
-                                            <li data-target="#myCarousel" data-slide-to="<?php echo $c; ?>" class="active"></li>
-                                        <?php } else { ?>
-                                            <li data-target="#myCarousel" data-slide-to="<?php echo $c; ?>"></li>
-                                        <?php } ?>
-                                    <?php } ?>
-                                </ol>
-                                <!-- Carousel items -->
-                                <div class="carousel-inner">
-                                    <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
-                                        <?php if ($c == 0) { ?>
-                                            <div class="active item"><img  src="<?php echo $galeriaProducto[$c]->url_archivo; ?>" alt="banner1" /></div>
-                                        <?php } else { ?>
-                                            <div class="item"><img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>" alt="banner2" /></div>
-                                        <?php } ?>
-                                    <?php } ?>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 detail" id="titledetail">
-                        <?php if (sizeof($modulo->data_productos) > 0) { ?>
-                            <h2><?php echo $modulo->data_productos[0]->nombre_producto; ?></h2>
-                            <h3>$<?php echo $modulo->data_productos[0]->precio_producto; ?></h3><h4><strike></strike></h4>
-                        <?php } ?>
-                    </div>
-                    <div class="col-xs-12 detail" id="color">
-                        <?php
-                        $contador = 1;
-                        foreach ($modulo->data_modifiers as $modifier) { ?>
-                            <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
-                                <?php if (isset($modifier->color_rgb)) {
-
-                                    if ($contador == 1) { $contador++; ?>
-                                        <h2>Color</h2>
-                                    <?php } ?>
-                                    <button style="background: <?php echo $modifier->color_rgb; ?>;" class="btnAddModifier" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></button>
-                                <?php } ?>
-                            <?php } ?>
-
-                        <?php } ?>
-                    </div>
-                    <?php
-                    $tipoModificadorAnterior = "";
-                    for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
-                        $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
-                        if ($c + 1 > sizeof($modulo->data_modifiers) - 1)  {
-                            $tipoModificadorSiguiente = "";
-                        } else {
-                            $tipoModificadorSiguiente = trim(strtolower($modulo->data_modifiers[$c + 1]->tipo_modificador));
-                        }
-                        ?>
-                        <?php if ($tipoModificadorActual != "color") { ?>
-                            <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
-                                $tipoModificadorAnterior = $tipoModificadorActual; ?>
-                                <div class="col-xs-12 detail" >
-                                <h2>Please select a <?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>:</h2>
-                            <?php } ?>
-                            <button class="btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"> <?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></button>
-                            <?php if ($tipoModificadorActual != $tipoModificadorSiguiente) { ?>
-                                </div>
-                            <?php } ?>
-                        <?php } ?>
-                    <?php } ?>
-
-                    <!--                    <div class="col-xs-12 detail" >-->
-                    <!--                        <h2>Please select a size:</h2>-->
-                    <!--                        <button>X-Small</button>-->
-                    <!--                        <button> Small</button>-->
-                    <!--                        <button> Large</button>-->
-                    <!--                        <a href="#" ><h5>Size Chart</h5></a>-->
-                    <!--                    </div>-->
-
-                    <!--                    <div class="col-xs-12 detail" >-->
-                    <!--                        <h3>$5.95 Flat-Rate Standard Shipping</h3>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="col-xs-12 detail" >-->
-                    <!--                        <h4>Ready-to-Ship Item</h4>-->
-                    <!--                        <a href="#" ><h6>Learn More</h6></a>-->
-                    <!--                        <h3>Usually ships in 1-2 days</h3>-->
-                    <!--                    </div>-->
-                    <div class="col-xs-12 detail" >
-                        <h4>Description</h4>
-                        <?php if (sizeof($modulo->data_productos) > 0) { ?>
-                            <h3><?php echo $modulo->data_productos[0]->descripcion_producto; ?></h3>
-                        <?php } ?>
-                        <!--                        <h3>Draped neck knit dress with 3/4 sleeves, seaming detail and a flared skirt</h3>-->
-                        <!--                        <ul>-->
-                        <!---->
-                        <!--                            <li>Model's measurements: Height 5'9", Bust 33", Waist 25", Hips 35#, wearing a size Small</li>-->
-                        <!--                            <li>Care instrucions: Machine wash</li>-->
-                        <!--                            <li>Measurements: shoulder to hemline 39", sleeve length 18", taken from size M.</li>-->
-                        <!--                            <li>Country of origin: United States</li>-->
-                        <!---->
-                        <!--                        </ul>-->
-                    </div>
-                    <div class="col-xs-12 detail" style="height: 110px;"></div>
-
-
-
-
-
+<div id="mainHeader">
+    <div class="btn-Left">
+        <img src="icon_arrow_back.png">
+    </div>
+    <div class="title-header">DETAIL</div>
+    <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
+        <!--img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png"-->
+    </div>
+</div>
+<!-- Swiper -->
+<div id="swMainMenu" class="swiper-container">
+    <div class="swiper-wrapper">
+        <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
+            <?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
+                <div class="swiper-slide">
+                    <?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
                 </div>
-            </div>
+            <?php } else { ?>
+                <div class="swiper-slide">
+                    <?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
+                </div>
+            <?php } ?>
+        <?php } ?>
 
-        </div>
+    </div>
+</div>
+<!-- Swiper -->
+<div id="swMainPanel" class="swiper-container">
+    <div class="swiper-wrapper">
+        <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
+            <div class="swiper-slide" >
 
-    </content>
-    
-    <footer>
-        <div id="cart">
-            <button id="shoppingcart"><h2>Add to Cart</h2></button>
-        </div>
-        <div id="footer">
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
-                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/promotions" onclick="">Promotions</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/cart" onclick="">Cart</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/account"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/setting.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/account" onclick="">Account</a></h1>
-            </div>
-        </div>
-    </footer>
+                <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
+                    <?php if($modulo->data_categorias[$c]->id_categoria == $sub_categoria->id_categoria_superior ){?>
+                        <div class="item-list">
+                            <a href="<?php echo $sub_categoria->url_categoria; ?>">
+                                <div class="image-list">
+                                    <img src="<?php echo $sub_categoria->url_archivo; ?>">
+                                </div>
+                                <div class="text-list">
+                                    <?php echo strtoupper($sub_categoria->nombre_categoria); ?>
+                                </div>
+                                <div class="arrow-list">
+                                    <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+                                </div>
+                            </a>
+                        </div>
 
-    <!-- Scripts -->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
-    <!--    <script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
-    <!-- Sweet Alert -->
-    <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
-    <script>
 
-        var listaModificadoresSeleccionados = [];
-        var datosModificador = {
-            "id"    : 0,
-            "tipo"  : ""
-        }
+                    <?php } ?>
+                <?php } ?>
 
-        function addModifier(idModifier, tipoModifier) {
-            var indiceModificador = validarModificadorEnLista(tipoModifier);
-            if ( indiceModificador != -1 ) {
-                listaModificadoresSeleccionados[indiceModificador].id = idModifier;
-                listaModificadoresSeleccionados[indiceModificador].tipo = tipoModifier;
-            } else {
-                datosModificador = {
-                    "id"    : idModifier,
-                    "tipo"  : tipoModifier
-                }
-                listaModificadoresSeleccionados.push(datosModificador);
+                <?php foreach ($modulo->data_productos as $producto) { ?>
+                    <?php if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){?>
+                        <div class="item-product-row">
+                            <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
+                                <div>
+                                    <div class="image-product">
+                                        <img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
+                                    </div>
+                                    <div class="content-product">
+                                        <div>
+                                            <div class="name-product">
+                                                <?php echo $producto->nombre_producto; ?>
+                                            </div>
+                                            <div class="price-product">
+                                                $<?php echo $producto->precio_producto; ?>
+                                            </div>
+                                        </div>
+                                        <div class="description-product">
+                                            <?php echo $producto->descripcion_producto; ?>
+                                        </div>
+                                    </div>
+                                    <div class="arrow-product">
+                                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
+
+
+
+
+
+
+
+            </div>
+        <?php } ?>
+
+
+    </div>
+</div>
+<div id="menuApp">
+    <div id="changeStyleProduct" class="menu-item">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <div>PRODUCTS</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <div>PROMOTION</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/search">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <div>SEARCH</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <div>ACCOUNT</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/cart">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <div>CART</div>
+        </a>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- Swiper JS -->
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
+
+
+<!-- Initialize Swiper -->
+<script>
+    var swMainMenu = new Swiper('#swMainMenu', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 0,
+        loop: true,
+        slideToClickedSlide: true,
+        onSlideChangeEnd: function(swiper){
+            for (var c = 0; c < swiper.slides.length; c++) {
+                $(swiper.slides[c]).css({"color": "#959595"});
             }
-            //console.log(listaModificadoresSeleccionados);
+            $(swiper.slides[swiper.activeIndex]).css({"color": "#FFFFFF"});
+        }
+    });
+
+    var swMainPanel = new Swiper('#swMainPanel', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 0,
+        loop: true,
+        longSwipes: false
+    });
+
+    swMainMenu.params.control = swMainPanel;
+    swMainPanel.params.control = swMainMenu;
+
+    $("#btnChangeViewProduct").on("click", function() {
+        if ( $(this).attr("data-current-view") == "row" ) {
+            $(".item-product-row").addClass("item-product-block");
+            $(".item-product-row").removeClass("item-product-row");
+            $(this).attr("data-current-view", "block");
+            $(this).children("img").attr("src","<?php echo PATH_RESOURCE_STORE; ?>img/icon_lineview.png" );
+        } else if ( $(this).attr("data-current-view") == "block" ) {
+            $(".item-product-block").addClass("item-product-row");
+            $(".item-product-block").removeClass("item-product-block");
+            $(this).attr("data-current-view", "row");
+            $(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
         }
 
-        function validarModificadorEnLista(tipoModifier) {
-            var indiceModificador = -1;
-            for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
-
-                if (listaModificadoresSeleccionados[c].tipo == tipoModifier) {
-                    indiceModificador = c;
-                    break;
-                }
-            }
-            return indiceModificador;
-        }
-
-
-
-            $(".btnAddModifier").on("click", function (e){
-                e.preventDefault();
-                addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
-            });
-
-            $("#shoppingcart").on("click", function(evt){
-                evt.preventDefault();
-                var session = "<?php echo $modulo->has_user_session; ?>";
-                if(session){
-                    var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
-                    var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
-                    var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
-                    var formData = new FormData();
-                    formData.append("id_producto", id_producto);
-                    formData.append("nombre_producto", nombre_producto);
-                    formData.append("precio_producto", precio_producto);
-                    for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
-                        formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
-
-                    }
-
-
-                    var request = $.ajax({
-                        url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
-                        method: "POST",
-                        data: formData,
-                        dataType: 'json',
-                        processData: false,
-                        contentType: false,
-                    });
-
-                    request.done(function( response ) {
-
-                        if (response.status) {
-                            swal("Add Item", response.message, "success");
-                        } else {
-                            swal("Add Item", response.message, "danger");
-                        }
-                    });
-
-                    request.fail(function( jqXHR, textStatus ) {
-                        swal("Add Item", textStatus, "danger");
-                    });
-
-                }else{
-                    $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signin");
-                }
-
-
-
-
-            });
-
-
-    </script>
-
+    });
+</script>
 </body>
 </html>
