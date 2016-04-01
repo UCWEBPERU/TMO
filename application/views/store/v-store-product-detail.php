@@ -13,7 +13,7 @@
 <body>
 <div id="mainHeader">
     <div class="btn-Left">
-        <img src="icon_arrow_back.png">
+        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png">
     </div>
     <div class="title-header">DETAIL</div>
     <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
@@ -28,13 +28,13 @@
     <div id="swGalleryProduct" class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="image-category-3.jpg">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
             </div>
             <div class="swiper-slide">
-                <img src="image-category-3.jpg">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
             </div>
             <div class="swiper-slide">
-                <img src="image-category-3.jpg">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
             </div>
         </div>
         <!-- Add Pagination -->
