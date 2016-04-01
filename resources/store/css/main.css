@@ -33,7 +33,7 @@ body {
 	flex-flow: row nowrap;
 	display: flex;
 }
-#mainHeader .btn-Left img{
+#mainHeader .btn-Left a img{
 	width: 12px;
 	height: 20px;
 }
