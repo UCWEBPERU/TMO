@@ -22,6 +22,7 @@
                     <a href="<?php echo $modulo->data_navegacion_sub_categorias[$c]->url_id_categorias; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
 
                 <?php } ?>
+                <?php } ?>
         <?php } ?>
 
     </div>
