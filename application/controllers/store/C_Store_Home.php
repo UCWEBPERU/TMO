@@ -34,7 +34,7 @@ class C_Store_Home extends CI_Controller {
         if (sizeof($dataCategorias) > 0) {
             
             $modulo->data_sub_categorias = cargarDatosSubCategorias();
-            $modulo->data_productos = cargarDatosProductosbyCategory();
+            $modulo->data_productos = cargarDatosProductos();
             foreach ($modulo->data_productos as $producto) {
                 $producto = cargarGaleriaPorProducto($producto);
             }
@@ -108,7 +108,7 @@ class C_Store_Home extends CI_Controller {
 
         if (sizeof($dataCategorias) > 0) {
             $modulo->data_sub_categorias = cargarDatosSubCategoriaSeleccionada($idCategoriaSuperior);
-            $modulo->data_productos = cargarDatosProductos($idCategoriaSuperior);
+            $modulo->data_productos = cargarDatosProductosbyCategory($idCategoriaSuperior);
             foreach ($modulo->data_productos as $producto) {
                 $producto = cargarGaleriaPorProducto($producto);
             }
