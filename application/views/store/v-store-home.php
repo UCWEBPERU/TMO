@@ -59,6 +59,36 @@
 					</div>
 				<?php } ?>
 
+				<?php foreach ($modulo->data_productos as $producto) { ?>
+					
+					<div class="item-product-row">
+						<a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
+							<div>
+								<div class="image-product">
+									<img src="<img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
+								</div>
+								<div class="content-product">
+									<div>
+										<div class="name-product">
+											<?php echo $producto->nombre_producto; ?>
+										</div>
+										<div class="price-product">
+											$<?php echo $producto->precio_producto; ?>
+										</div>
+									</div>
+									<div class="description-product">
+										<?php echo $producto->descripcion_producto; ?>
+									</div>
+								</div>
+								<div class="arrow-product">
+									<img src="icon_arrow.png">
+								</div>
+							</div>
+						</a>
+					</div>
+				<?php } ?>
+
+
 			</div>
 		<?php } ?>
 
