@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="mainHeader">
-    <form action="<?php echo $modulo->base_url_store; ?>/search">input
+    <form action="<?php echo $modulo->base_url_store; ?>/search">
         <input class="input-search" text="search" name="searchProduct" placeholder="Search by Products" />
         <button class="btn-cancel">CANCEL</button>
     </form>
