@@ -109,7 +109,7 @@
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
-        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+        <ahref="<?php echo $modulo->base_url_store; ?>">
             <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
             <div>PRODUCTS</div>
         </a>
@@ -133,7 +133,7 @@
         </a>
     </div>
     <div class="menu-item">
-        <a href="<?php echo $modulo->base_url_store; ?>/cart">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>/cart">
             <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
             <div>CART</div>
         </a>
