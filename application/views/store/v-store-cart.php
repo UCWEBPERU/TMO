@@ -245,11 +245,9 @@ if ($cart = $this->cart->contents()): ?>
         });
         request.done(function( response ) {
             if (response.status) {
-                //$(btn).parent().parent().parent().hide(function () {
-                //$(btn).parent().parent().parent().remove();
-                //});
+
                 swal({
-                        title: "Eliminado",
+                        title: "Delete Item",
                         text: response.message,
                         type: "success",
                         showCancelButton: false,
@@ -258,7 +256,7 @@ if ($cart = $this->cart->contents()): ?>
                     function(){
                         location.reload(); }
                 );
-               
+
 
             } else {
                 swal("Delete Item", response.message, "danger");
