@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
 </head>
 <body>
 <div id="mainHeader">
@@ -161,6 +163,8 @@ if(empty($cart)) : ?>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.hammer.js"></script>
 <!-- Swiper JS -->
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
+<!-- Sweet Alert -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 
 <!-- Initialize Swiper -->
 <script>
