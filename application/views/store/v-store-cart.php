@@ -122,10 +122,11 @@
         <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signin">SIGN IN</a>
     </div>
 <?php } ?>
-
+<?php if ($modulo->has_user_session && $this->cart->contents()) { ?>
 <div id="panelBtnBottom">
     <button class="btn-green">PLACE ORDER</button>
 </div>
+<?php } ?>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>">
