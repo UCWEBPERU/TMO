@@ -226,6 +226,36 @@ if(empty($cart)) : ?>
             $(".ui-content").removeAttr("style");
         });
     });
+
+    function deleteItem(btn, item) {
+        var formData = new FormData();
+        formData.append("id_producto", item);
+        var request = $.ajax({
+            url: "<?php echo $modulo->base_url_store."/ajax/shopping/delete"; ?>",
+            method: "POST",
+            data: formData,
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+        });
+        request.done(function( response ) {
+            if (response.status) {
+                //$(btn).parent().parent().parent().hide(function () {
+                //$(btn).parent().parent().parent().remove();
+                //});
+                swal("Delete Item", response.message, "success");
+                location.reload();
+            } else {
+                swal("Delete Item", response.message, "danger");
+            }
+        });
+        request.fail(function( jqXHR, textStatus ) {
+            swal("Delete Item", textStatus, "danger");
+        });
+    }
+    
+    
+    
 </script>
 </body>
 </html>
