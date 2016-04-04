@@ -83,7 +83,8 @@ if ($cart = $this->cart->contents()): ?>
                                     <span>Subtotal :$ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></span><br>
                                     <?php $grand_total +=  $item['subtotal'];
                                     $totaladditional += $addtionals;
-                                    echo "grand total"+$grand_total ;
+                                    echo $grand_total ;
+                                    echo " - ";
                                     echo $totaladditional ;
                                     ?>
 
