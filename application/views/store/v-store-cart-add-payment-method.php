@@ -21,7 +21,7 @@
     <div class="title-header">SET PAYMENT METHOD</div>
     <div class="btn-right"></div>
 </div>
-<div id="panelSignIn">
+<div id="panelPayment">
     <form id="frmPaymentMethod" name="frmPaymentMethod" method="post">
         <input type="hidden" name="amountCart" value="<?php echo $modulo->amount_cart; ?>">
         <div>
