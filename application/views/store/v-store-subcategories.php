@@ -70,7 +70,11 @@
                                         <?php echo $producto->nombre_producto; ?>
                                     </div>
                                     <div class="price-product">
+                                        <?php if ($modulo->tipo_sub_categorias == "products") { ?>
                                         $<?php echo $producto->precio_producto; ?>
+                                        <?php } else if ($modulo->tipo_sub_categorias == "promotions") { ?>
+                                        $<?php echo $producto->precio_oferta; ?>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="description-product">
