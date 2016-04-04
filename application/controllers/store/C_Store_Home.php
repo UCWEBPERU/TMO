@@ -107,6 +107,8 @@ class C_Store_Home extends CI_Controller {
         $modulo->data_navegacion_sub_categorias = generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias);
         $idCategoriaSuperior = intval($listaCategorias[sizeof($listaCategorias) - 1]);
 
+        $modulo->tipo_sub_categorias = "products";
+
         if (sizeof($dataCategorias) > 0) {
             $modulo->data_sub_categorias = cargarDatosSubCategoriaSeleccionada($idCategoriaSuperior);
             $modulo->data_productos = cargarDatosProductosbyCategory($idCategoriaSuperior);

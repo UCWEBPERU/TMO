@@ -85,7 +85,7 @@
 
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
-        <?php if ($modulo->isSubCategoriasProducts) { ?>
+        <?php if ($modulo->tipo_sub_categorias == "products") { ?>
             <a class="active" href="<?php echo $modulo->base_url_store; ?>">
         <?php } else { ?>
             <a href="<?php echo $modulo->base_url_store; ?>">
@@ -95,7 +95,7 @@
         </a>
     </div>
     <div class="menu-item">
-        <?php if ($modulo->isSubCategoriasProducts) { ?>
+        <?php if ($modulo->tipo_sub_categorias == "promotion") { ?>
             <a class="active" href="<?php echo $modulo->base_url_store; ?>/promotions">
         <?php } else { ?>
             <a href="<?php echo $modulo->base_url_store; ?>/promotions">
@@ -137,12 +137,17 @@
         spaceBetween: 0,
         loop: true,
         slideToClickedSlide: true,
+        onSlideChangeStart: function(swiper){
+            $('body').scrollTo('#panelResultProducts');
+        },
         onSlideChangeEnd: function(swiper){
             for (var c = 0; c < swiper.slides.length; c++) {
                 $(swiper.slides[c]).css({"color": "#959595"});
             }
             $(swiper.slides[swiper.activeIndex]).css({"color": "#FFFFFF"});
         }
+
+
     });
 
     var swMainPanel = new Swiper('#swMainPanel', {
