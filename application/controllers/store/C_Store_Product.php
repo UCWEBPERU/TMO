@@ -103,7 +103,7 @@ class C_Store_Product extends CI_Controller {
 
         $data["modulo"] = $modulo;
 
-        $this->load->view('store/v-store-product-detail', $data);
+        $this->load->view('store/v-store-promotions-detail', $data);
     }
 
 }

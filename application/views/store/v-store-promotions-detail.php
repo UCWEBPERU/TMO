@@ -219,9 +219,7 @@
             formData.append("precio_producto", precio_producto);
             for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
                 formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
-
             }
-
 
             var request = $.ajax({
                 url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
@@ -233,7 +231,6 @@
             });
 
             request.done(function( response ) {
-
                 if (response.status) {
                     swal("Add Item", response.message, "success");
                 } else {
@@ -248,9 +245,6 @@
         }else{
             $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signin");
         }
-
-
-
 
     });
 
