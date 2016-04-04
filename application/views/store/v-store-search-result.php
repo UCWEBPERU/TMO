@@ -13,16 +13,16 @@
 <div id="mainHeader">
     <div class="btn-Left">
         <a href="<?php echo $modulo->base_url_store; ?>/search">
-            <img src="icon_arrow_back.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png">
         </a>
     </div>
     <div class="title-header">RESULTS</div>
     <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
-        <img src="icon_tableview.png">
+        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png">
     </div>
 </div>
 <div id="panelResultProduct">
-    <div class="text-result"><?php sizeof($modulo->data_productos) ?> RESULTS FOR '<?php strtoupper($modulo->keyrwords_search) ?>'</div>
+    <div class="text-result"><?php echo sizeof($modulo->data_productos) ?> RESULTS FOR '<?php echo strtoupper($modulo->keyrwords_search) ?>'</div>
     <?php foreach ($modulo->data_productos as $producto) { ?>
         <div class="item-product-row">
             <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
