@@ -50,7 +50,7 @@ if(empty($cart)) : ?>
                             Delete
                         </p>
 					</span>
-                    <a href="#" draggable="false">
+                    <a  draggable="false">
                         <div class="content-product">
                             <div class="image-product">
                                 <img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>">
