@@ -26,13 +26,7 @@
 
 <!-- Content -->
 <content>
-
-
-
     <div class="col-xs-12">
-
-
-
         <div class="row">
             <div>
                 <?php foreach ($modulo->data_productos as $producto) { ?>
