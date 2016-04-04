@@ -108,7 +108,7 @@ class C_Store_Home extends CI_Controller {
         $idCategoriaSuperior = intval($listaCategorias[sizeof($listaCategorias) - 1]);
 
         $modulo->tipo_sub_categorias = "products";
-        var_dump($idCategoriaSuperior);
+
         if (sizeof($dataCategorias) > 0) {
             $modulo->data_sub_categorias = cargarDatosSubCategoriaSeleccionada($idCategoriaSuperior);
             $modulo->data_productos = cargarDatosProductosbyCategory($idCategoriaSuperior);

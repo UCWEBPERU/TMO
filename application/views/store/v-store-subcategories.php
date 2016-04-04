@@ -36,7 +36,6 @@
 </div>
 
 <div id="panelResultProduct">
-    <?php var_dump($modulo->data_sub_categorias); ?>
     <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
             <div class="item-list">
                 <a href="<?php echo $sub_categoria->url_categoria; ?>">
@@ -53,7 +52,6 @@
             </div>
     <?php } ?>
 
-    <?php var_dump($modulo->data_productos); ?>
     <?php if (sizeof($modulo->data_sub_categorias) == 0) { ?>
         <?php foreach ($modulo->data_productos as $producto) { ?>
                 <div class="item-product-row">
