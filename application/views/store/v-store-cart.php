@@ -250,11 +250,10 @@ if(empty($cart)) : ?>
                 //});
                 swal("Delete Item", response.message, "success");
 
-                /*var cart  = "<?php $cart= $this->cart->contents(); ?>";
+                var cart  = "<?php $cart= $this->cart->contents(); ?>";
                 var price = "<?php echo number_format($grand_total, 2); ?>";
                 $( ".cartPrices" ).empty();
-                $( "#priceitem" ).html($+price);*/
-
+                $( "#priceitem" ).html($+price);
                 //location.reload();
             } else {
                 swal("Delete Item", response.message, "danger");
