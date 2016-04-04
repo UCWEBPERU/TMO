@@ -72,7 +72,7 @@ if ($cart = $this->cart->contents()): ?>
                                     $addtionals = 0;
                                     foreach ($modifiers as $modifier):
                                         if($modifier[0] == "modifier"){ ?>
-                                            <span><?php echo $modifier[1]; ?>: <?php echo $modifier[2]; ?> - ( $ <?php echo $modifier[3]; ?> )</span><br>
+                                            <span><?php echo $modifier[1]; ?>: <?php echo $modifier[2]; if ($modifier[3] != "0.00"){ echo "- ( $ " . $modifier[3]." )"; }?> </span><br>
                                         <?php } ?>
 
                                         <?php   $addtional += $modifier[3];
@@ -83,7 +83,6 @@ if ($cart = $this->cart->contents()): ?>
                                     <span>Subtotal :$ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></span><br>
                                     <?php $grand_total +=  $item['subtotal'];
                                     $totaladditional += $addtionals;
-                                    
                                     ?>
 
                                 </div>
