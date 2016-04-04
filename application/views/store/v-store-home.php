@@ -41,7 +41,6 @@
 	<div class="swiper-wrapper">
 		<?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
 			<div class="swiper-slide" >
-
 				<?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
 					<?php if($modulo->data_categorias[$c]->id_categoria == $sub_categoria->id_categoria_superior ){?>
 						<div class="item-list">
@@ -57,45 +56,10 @@
 								</div>
 							</a>
 						</div>
-
-
-					<?php } ?>
-				<?php } ?>
-
-				<?php if (sizeof($modulo->data_productos) == 0) { ?>
-					<?php foreach ($modulo->data_productos as $producto) { ?>
-						<?php if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){?>
-							<div class="item-product-row">
-							<a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
-								<div>
-									<div class="image-product">
-										<img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
-									</div>
-									<div class="content-product">
-										<div>
-											<div class="name-product">
-												<?php echo $producto->nombre_producto; ?>
-											</div>
-											<div class="price-product">
-												$<?php echo $producto->precio_producto; ?>
-											</div>
-										</div>
-										<div class="description-product">
-											<?php echo $producto->descripcion_producto; ?>
-										</div>
-									</div>
-									<div class="arrow-product">
-										<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-									</div>
-								</div>
-							</a>
-						</div>
-						<?php } ?>
 					<?php } ?>
 				<?php } ?>
 			</div>
 		<?php } ?>
-
 	</div>
 </div>
 <div id="menuApp">
