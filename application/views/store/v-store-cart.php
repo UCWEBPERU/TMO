@@ -34,7 +34,7 @@
             <div class="content-message">YOUR CART IS EMPTY</div>
         </div>
         <div id="panelBtnBottom">
-            <button class="btn-black" href="<?php echo $modulo->base_url_store; ?>">CONTINUE SHOPPING</button>
+            <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>">CONTINUE SHOPPING</a>
         </div>
     <?php endif; ?>
     <?php if ($cart): ?>
@@ -119,7 +119,7 @@
         <div class="content-message">SIGN IN TO VIEW YOUR CART</div>
     </div>
     <div id="panelBtnBottom">
-        <button class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signin">SIGN IN</button>
+        <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>/signin">SIGN IN</a>
     </div>
 <?php } ?>
 
