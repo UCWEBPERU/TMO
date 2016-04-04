@@ -664,11 +664,17 @@ body {
 	line-height: 15px;
 }
 
-/* PANEL SIGN IN */
+/* PANEL SIGN IN  AND PAYMENT*/
 
-#panelSignIn , #panelPayment {
+#panelSignIn  {
 	width: 100%;
 	height: 82%;
+	overflow-y: auto;
+	padding: 10px 0px 10px 0px;
+}
+#panelPayment{
+	width: 100%;
+	height: 84%;
 	overflow-y: auto;
 	padding: 10px 0px 10px 0px;
 }
