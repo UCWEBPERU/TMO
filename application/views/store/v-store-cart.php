@@ -229,10 +229,7 @@ if(empty($cart)) : ?>
             $(".ui-content").removeAttr("style");
         });
     });
-    function redireccionar() {
-        setTimeout("location.reload(), 2000);
-    }
-
+  
     function deleteItem(btn, item) {
         var formData = new FormData();
         formData.append("id_producto", item);
