@@ -155,7 +155,6 @@ body {
 	outline: none;
 	color: #ffffff;
 	font-size: 30px;
-	text-decoration: none;
 
 }
 
@@ -165,6 +164,7 @@ body {
 
 #panelBtnBottom > a.btn-black {
 	background: #000000;
+	text-decoration: none;
 	text-align: center;
 }
 
