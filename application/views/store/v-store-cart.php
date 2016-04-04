@@ -78,6 +78,8 @@ if ($cart = $this->cart->contents()): ?>
                                         <?php   $addtional += $modifier[3];
                                         $addtionals = $addtional  * $item['qty'];
                                     endforeach; ?>
+                                    <?php $grand_total += + $item['subtotal'];
+                                    $totaladditional += $addtionals;?>
 
                                 </div>
                             </div>
