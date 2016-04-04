@@ -23,9 +23,9 @@
 </div>
 <?php if ($modulo->has_user_session) { ?>
 
-<?php $cart= $this->cart->contents();
-// If cart is empty, this will show below message.
-if(empty($cart)) : ?>
+<?php $cart_check = $this->cart->contents();
+    // If cart is empty, this will show below message.
+    if(empty($cart_check)) : ?>
     <div id="panelCartEmpty">
         <div class="content-message">YOUR CART IS EMPTY</div>
     </div>
@@ -33,7 +33,9 @@ if(empty($cart)) : ?>
         <a class="btn-black" href="<?php echo $modulo->base_url_store; ?>">CONTINUE SHOPPING</a>
     </div>
 <?php endif; ?>
-<?php if ($cart){ ?>
+<?php
+// All values of cart store in "$cart".
+if ($cart = $this->cart->contents()): ?>
 <div id="panelCart">
     <div class="shipping-information">
         <span>Shipping Information</span><br>
@@ -48,7 +50,7 @@ if(empty($cart)) : ?>
             foreach ($cart as $item): ?>
                 <li>
 					<span class="delete">
-						<p class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')">
+						<p class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>')">
                             Delete
                         </p>
 					</span>
@@ -96,20 +98,20 @@ if(empty($cart)) : ?>
             <span>Items:</span>
             <span>$<?php echo number_format($grand_total, 2); ?></span>
         </div>
-        <div class="item">
+        <!--<div class="item">
             <span>Shipping & Handling:</span>
-            <span>$<?php echo number_format($totaladditional, 2); ?></span>
-        </div>
+            <span>$<?php /*echo number_format($totaladditional, 2); */?></span>
+        </div>-->
         <div class="item">
             <span>Promotion Applied:</span>
-            <span>-$3.99</span>
+            <span>$<?php echo number_format($totaladditional, 2); ?></span>
         </div>
         <div class="item item-last">
             <span class="bold">Order Total:</span>
             <span class="bold">$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?></span>
         </div>
     </div>
-    <?php } ?>
+    <?php endif; ?>
     <?php } else { ?>
         <div id="panelCartEmpty">
             <div class="content-message">SIGN IN TO VIEW YOUR CART</div>
@@ -230,7 +232,7 @@ if(empty($cart)) : ?>
         });
     });
 
-    function deleteItem(btn, item) {
+    function deleteItem(item) {
         var formData = new FormData();
         formData.append("id_producto", item);
         var request = $.ajax({
