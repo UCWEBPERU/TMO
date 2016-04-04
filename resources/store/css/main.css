@@ -707,6 +707,15 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 12px;
 }
+.sign-in-form select{
+	flex: 1 100%;
+	padding: 8px;
+	outline: none;
+	text-decoration: none;
+	border: 1px solid #b5b5b5;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
 .sign-in-form button{
 	font-size: 20px;
 	height: 8%;
