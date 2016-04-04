@@ -48,7 +48,7 @@ if(empty($cart)) : ?>
             foreach ($cart as $item): ?>
                 <li>
 					<span class="delete">
-						<p class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>')">
+						<p class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')">
                             Delete
                         </p>
 					</span>
@@ -94,7 +94,7 @@ if(empty($cart)) : ?>
         <span class="bold">Orden Summary</span><br>
         <div class="item">
             <span>Items:</span>
-            <span> $<?php echo number_format($grand_total, 2); ?></span>
+            <span>$<?php echo number_format($grand_total, 2); ?></span>
         </div>
         <div class="item">
             <span>Shipping & Handling:</span>
@@ -166,7 +166,6 @@ if(empty($cart)) : ?>
 <!-- Sweet Alert -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 
-
 <!-- Initialize Swiper -->
 <script>
     $("#btnChangeViewProduct").on("click", function() {
@@ -227,12 +226,11 @@ if(empty($cart)) : ?>
             height: 0
         }, 300, function () {
             $(this).remove();
-            //listview.listview("refresh");
             $(".ui-content").removeAttr("style");
         });
     });
 
-    function deleteItem(item) {
+    function deleteItem(btn, item) {
         var formData = new FormData();
         formData.append("id_producto", item);
         var request = $.ajax({
