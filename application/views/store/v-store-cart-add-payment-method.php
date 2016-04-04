@@ -24,12 +24,13 @@
 <div id="panelPayment">
     <form id="frmPaymentMethod" name="frmPaymentMethod" method="post">
         <input type="hidden" name="amountCart" value="<?php echo $modulo->amount_cart; ?>">
-        <div>
-            <input class="sign-in-form" type="text" id="txtCreditCardNumber" name="txtCreditCardNumber" placeholder="Credit card number" maxlength="16" data-parsley-required data-parsley-type="number" data-parsley-minlength="16" data-parsley-maxlength="16" data-parsley-required-message="Enter your credit card number." data-parsley-minlength-message="Invalid credit card number." data-parsley-maxlength-message="Invalid credit card number." data-parsley-type-message="Credit card number is only numbers.">
+        <div class="sign-in-form">
+            <input  type="text" id="txtCreditCardNumber" name="txtCreditCardNumber" placeholder="Credit card number" maxlength="16" data-parsley-required data-parsley-type="number" data-parsley-minlength="16" data-parsley-maxlength="16" data-parsley-required-message="Enter your credit card number." data-parsley-minlength-message="Invalid credit card number." data-parsley-maxlength-message="Invalid credit card number." data-parsley-type-message="Credit card number is only numbers.">
             <p class="text-error"></p>
         </div>
-        <div>
-            <select class="sign-in-form" id="cboExpirationMonth" name="cboExpirationMonth" data-parsley-required data-parsley-required-message="Enter expiration month.">
+
+        <div class="sign-in-form">
+            <select id="cboExpirationMonth" name="cboExpirationMonth" data-parsley-required data-parsley-required-message="Enter expiration month.">
                 <option selected="selected" value="">Expiration Month</option>
                 <?php for ($c = 1; $c < 13; $c++) { ?>
                     <option value="<?php echo $c; ?>"><?php echo $c; ?></option>
@@ -37,8 +38,8 @@
             </select>
             <p class="text-error"></p>
         </div>
-        <div>
-            <select class="sign-in-form" id="cboExpirationYear" name="cboExpirationYear" data-parsley-required data-parsley-required-message="Enter expiration year.">
+        <div class="sign-in-form">
+            <select id="cboExpirationYear" name="cboExpirationYear" data-parsley-required data-parsley-required-message="Enter expiration year.">
                 <option selected="selected" value="">Expiration Year</option>
                 <?php for ($c = intval(date('Y')); $c < intval(date('Y')) + 50; $c++) { ?>
                     <option value="<?php echo $c; ?>"><?php echo $c; ?></option>
@@ -46,12 +47,14 @@
             </select>
             <p class="text-error"></p>
         </div>
-        <div>
-            <input class="sign-in-form" id="txtCVC" name="txtCVC" placeholder="CVC" maxlength="3" data-parsley-required data-parsley-type="number" data-parsley-required-message="Enter cardholder's name." data-parsley-type-message="Cardholder's name is only numbers.">
+        <div class="sign-in-form">
+            <input id="txtCVC" name="txtCVC" placeholder="CVC" maxlength="3" data-parsley-required data-parsley-type="number" data-parsley-required-message="Enter cardholder's name." data-parsley-type-message="Cardholder's name is only numbers.">
             <p class="text-error"></p>
         </div>
-        <button id="btnDone" type="submit">Done</button>
-        <p class="register-error"></p>
+        <div class="sign-in-form">
+            <button id="btnDone" type="submit">Done</button>
+        </div>
+        <div class="sign-in-form"><p class="register-error"></p></div>
     </form>
     
 </div>
