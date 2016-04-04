@@ -272,7 +272,7 @@ $route['company/(:num)/store/(:num)/ajax/shopping/delete']          = 'store/C_S
 | ------------------------------
 */
 $route['company/(:num)/store/(:num)/promotions']                                    = 'store/C_Store_Home/promotions';
-$route['company/(:num)/store/(:num)/promotions/(:num)']                             = 'store/C_Store_Product/viewProductPromotions/$3';
+$route['company/(:num)/store/(:num)/promotions/products/(:num)']                    = 'store/C_Store_Product/viewProductPromotions/$3';
 $route['company/(:num)/store/(:num)/promotions/(:num)']                             = 'store/C_Store_Home/viewSubCategoriasPromotions/$3';
 $route['company/(:num)/store/(:num)/promotions/(:num).(:num)']                      = 'store/C_Store_Home/viewSubCategoriasPromotions/$3.$4';
 $route['company/(:num)/store/(:num)/promotions/(:num).(:num).(:num)']               = 'store/C_Store_Home/viewSubCategoriasPromotions/$3.$4.$5';

@@ -55,7 +55,11 @@
     <?php if (sizeof($modulo->data_sub_categorias) == 0) { ?>
         <?php foreach ($modulo->data_productos as $producto) { ?>
                 <div class="item-product-row">
+                    <?php if ($modulo->tipo_sub_categorias == "products") { ?>
                     <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
+                    <?php } else if ($modulo->tipo_sub_categorias == "promotions") { ?>
+                    <a href="<?php echo $modulo->base_url_store."/promotions/products/".intval($producto->id_producto); ?>">
+                    <?php } ?>
                         <div>
                             <div class="image-product">
                                 <img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
