@@ -48,9 +48,9 @@ if(empty($cart)) : ?>
             foreach ($cart as $item): ?>
                 <li>
 					<span class="delete">
-						<p class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')">
+						<a class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')">
                             Delete
-                        </p>
+                        </a>
 					</span>
                     <a  draggable="false">
                         <div class="content-product">
