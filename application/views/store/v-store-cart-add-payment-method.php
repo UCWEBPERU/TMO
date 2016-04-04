@@ -160,7 +160,7 @@
 
                 request.fail(function( jqXHR, textStatus ) {
                     $(".fakeloader").fakeLoaderClose();
-                    $(".register-error").html(response.message);
+                    $(".register-error").html(textStatus);
                 });
             }
 
