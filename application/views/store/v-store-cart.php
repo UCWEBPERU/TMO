@@ -166,6 +166,7 @@ if(empty($cart)) : ?>
 <!-- Sweet Alert -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 
+
 <!-- Initialize Swiper -->
 <script>
     $("#btnChangeViewProduct").on("click", function() {
@@ -249,10 +250,10 @@ if(empty($cart)) : ?>
                 //});
                 swal("Delete Item", response.message, "success");
 
-                var cart  = "<?php $cart= $this->cart->contents(); ?>";
+                /*var cart  = "<?php $cart= $this->cart->contents(); ?>";
                 var price = "<?php echo number_format($grand_total, 2); ?>";
                 $( ".cartPrices" ).empty();
-                $( "#priceitem" ).html($+price);
+                $( "#priceitem" ).html($+price);*/
 
                 //location.reload();
             } else {
