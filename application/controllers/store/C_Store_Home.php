@@ -109,7 +109,7 @@ class C_Store_Home extends CI_Controller {
         $dataCategorias = cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $listaCategorias[0];
-        $modulo->data_navegacion_sub_categorias = generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias);
+        $modulo->data_navegacion_sub_categorias = generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias, "products");
         $idCategoriaSuperior = intval($listaCategorias[sizeof($listaCategorias) - 1]);
 
         $modulo->tipo_sub_categorias = "products";
@@ -149,7 +149,7 @@ class C_Store_Home extends CI_Controller {
         $dataCategorias = cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $listaCategorias[0];
-        $modulo->data_navegacion_sub_categorias = generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias);
+        $modulo->data_navegacion_sub_categorias = generarNavegacionSubCategorias($modulo->base_url_store, $listaCategorias, "promotions");
         $idCategoriaSuperior = intval($listaCategorias[sizeof($listaCategorias) - 1]);
 
         $modulo->tipo_sub_categorias = "promotions";

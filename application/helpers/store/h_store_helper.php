@@ -183,7 +183,7 @@ if ( ! function_exists('validarListaCategorias')) {
 
 if ( ! function_exists('generarNavegacionSubCategorias')) {
 
-    function generarNavegacionSubCategorias($url_store, $listaIdCategorias) {
+    function generarNavegacionSubCategorias($url_store, $listaIdCategorias, $tipoSubCategoria) {
         $CI =& get_instance();
         $lista = array();
         $urlIdCategorias = "";
@@ -203,7 +203,11 @@ if ( ! function_exists('generarNavegacionSubCategorias')) {
             }
 
             if (sizeof($dataCategoria) > 0) {
-                $dataCategoria[0]->url_id_categorias = $url_store."/categories/".$urlIdCategorias;
+                if ($tipoSubCategoria == "products") {
+                    $dataCategoria[0]->url_id_categorias = $url_store."/categories/".$urlIdCategorias;
+                } else if ($tipoSubCategoria == "promotions") {
+                    $dataCategoria[0]->url_id_categorias = $url_store."/promotions/".$urlIdCategorias;
+                }
                 array_push($lista, $dataCategoria[0]);
             } else {
                 $lista = array();
