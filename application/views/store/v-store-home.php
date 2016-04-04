@@ -15,9 +15,9 @@
 	<div class="btn-Left">
 		<!-- <img src="icon_arrow_back.png"> -->
 	</div>
-	<div class="title-header">TAKE MY ORDER</div>
+	<div class="title-header"><?php echo $modulo->data_empresa->organization; ?></div>
 	<div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
-		<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png">
+<!--		<img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--img/icon_tableview.png">-->
 	</div>
 </div>
 <!-- Swiper -->
@@ -34,7 +34,6 @@
 				</div>
 			<?php } ?>
 		<?php } ?>
-
 	</div>
 </div>
 <!-- Swiper -->
@@ -63,39 +62,39 @@
 					<?php } ?>
 				<?php } ?>
 
-				<?php foreach ($modulo->data_productos as $producto) { ?>
-					<?php if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){?>
-						<div class="item-product-row">
-						<a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
-							<div>
-								<div class="image-product">
-									<img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
-								</div>
-								<div class="content-product">
-									<div>
-										<div class="name-product">
-											<?php echo $producto->nombre_producto; ?>
+				<?php if (sizeof($modulo->data_productos) == 0) { ?>
+					<?php foreach ($modulo->data_productos as $producto) { ?>
+						<?php if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){?>
+							<div class="item-product-row">
+							<a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
+								<div>
+									<div class="image-product">
+										<img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
+									</div>
+									<div class="content-product">
+										<div>
+											<div class="name-product">
+												<?php echo $producto->nombre_producto; ?>
+											</div>
+											<div class="price-product">
+												$<?php echo $producto->precio_producto; ?>
+											</div>
 										</div>
-										<div class="price-product">
-											$<?php echo $producto->precio_producto; ?>
+										<div class="description-product">
+											<?php echo $producto->descripcion_producto; ?>
 										</div>
 									</div>
-									<div class="description-product">
-										<?php echo $producto->descripcion_producto; ?>
+									<div class="arrow-product">
+										<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
 									</div>
 								</div>
-								<div class="arrow-product">
-									<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-								</div>
-							</div>
-						</a>
-					</div>
+							</a>
+						</div>
+						<?php } ?>
 					<?php } ?>
 				<?php } ?>
-
 			</div>
 		<?php } ?>
-
 
 	</div>
 </div>
@@ -176,7 +175,6 @@
 			$(this).attr("data-current-view", "row");
 			$(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
 		}
-
 	});
 </script>
 </body>

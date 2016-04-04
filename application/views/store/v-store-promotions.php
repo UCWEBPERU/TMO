@@ -17,11 +17,7 @@
 <header>
     <div id="title">
         <h2>Promotions</h2>
-
     </div>
-
-
-
 </header>
 
 <!-- Content -->

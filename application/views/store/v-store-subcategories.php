@@ -19,9 +19,7 @@
         <?php } else if (sizeof($modulo->data_navegacion_sub_categorias) == 2) {?>
             <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
         <?php } ?>
-
     </div>
-
 
     <?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
 
@@ -39,7 +37,6 @@
 
 <div id="panelResultProduct">
     <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
-
             <div class="item-list">
                 <a href="<?php echo $sub_categoria->url_categoria; ?>">
                     <div class="image-list">
@@ -53,52 +50,56 @@
                     </div>
                 </a>
             </div>
-
-
-
     <?php } ?>
 
-    <?php foreach ($modulo->data_productos as $producto) { ?>
-
-            <div class="item-product-row">
-                <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
-                    <div>
-                        <div class="image-product">
-                            <img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
-                        </div>
-                        <div class="content-product">
-                            <div>
-                                <div class="name-product">
-                                    <?php echo $producto->nombre_producto; ?>
+    <?php if (sizeof($modulo->data_sub_categorias) == 0) { ?>
+        <?php foreach ($modulo->data_productos as $producto) { ?>
+                <div class="item-product-row">
+                    <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
+                        <div>
+                            <div class="image-product">
+                                <img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
+                            </div>
+                            <div class="content-product">
+                                <div>
+                                    <div class="name-product">
+                                        <?php echo $producto->nombre_producto; ?>
+                                    </div>
+                                    <div class="price-product">
+                                        $<?php echo $producto->precio_producto; ?>
+                                    </div>
                                 </div>
-                                <div class="price-product">
-                                    $<?php echo $producto->precio_producto; ?>
+                                <div class="description-product">
+                                    <?php echo $producto->descripcion_producto; ?>
                                 </div>
                             </div>
-                            <div class="description-product">
-                                <?php echo $producto->descripcion_producto; ?>
+                            <div class="arrow-product">
+                                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
                             </div>
                         </div>
-                        <div class="arrow-product">
-                            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                        </div>
-                    </div>
-                </a>
-            </div>
-
+                    </a>
+                </div>
+        <?php } ?>
     <?php } ?>
 </div>
 
-
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
-        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+        <?php if ($modulo->isSubCategoriasProducts) { ?>
+            <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+        <?php } else { ?>
+            <a href="<?php echo $modulo->base_url_store; ?>">
+        <?php } ?>
             <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
             <div>PRODUCTS</div>
         </a>
     </div>
     <div class="menu-item">
-        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+        <?php if ($modulo->isSubCategoriasProducts) { ?>
+            <a class="active" href="<?php echo $modulo->base_url_store; ?>/promotions">
+        <?php } else { ?>
+            <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+        <?php } ?>
             <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
             <div>PROMOTION</div>
         </a>
