@@ -19,102 +19,45 @@
 <!-- Swiper -->
 <div id="swMainMenu" class="swiper-container">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">WOMEN</div>
-        <div class="swiper-slide">MEN</div>
-        <div class="swiper-slide">HOME</div>
-        <div class="swiper-slide">KIDS</div>
-        <div class="swiper-slide">DESIGNER</div>
+        <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
+            <?php if ($modulo->data_categorias[$c]->id_categoria == $modulo->id_categoria_raiz) { ?>
+                <div class="swiper-slide">
+                    <?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
+                </div>
+            <?php } else { ?>
+                <div class="swiper-slide">
+                    <?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?>
+                </div>
+            <?php } ?>
+        <?php } ?>
     </div>
 </div>
 <!-- Swiper -->
 <div id="swMainPanel" class="swiper-container">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <div class="item-list">
-                <a href="search-result.html">
-                    <div class="image-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
-                    </div>
-                    <div class="text-list">
-                        CLOTING
-                    </div>
-                    <div class="arrow-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                    </div>
-                </a>
+        <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
+            <div class="swiper-slide" >
+                <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
+                    <?php if($modulo->data_categorias[$c]->id_categoria == $sub_categoria->id_categoria_superior ){?>
+                        <div class="item-list">
+                            <a href="<?php echo $sub_categoria->url_categoria; ?>">
+                                <div class="image-list">
+                                    <img src="<?php echo $sub_categoria->url_archivo; ?>">
+                                </div>
+                                <div class="text-list">
+                                    <?php echo strtoupper($sub_categoria->nombre_categoria); ?>
+                                </div>
+                                <div class="arrow-list">
+                                    <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+                                </div>
+                            </a>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
             </div>
-            <div class="item-list">
-                <a href="">
-                    <div class="image-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-2.jpg">
-                    </div>
-                    <div class="text-list">
-                        CLOTING
-                    </div>
-                    <div class="arrow-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                    </div>
-                </a>
-            </div>
-            <div class="item-list">
-                <a href="">
-                    <div class="image-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-3.jpg">
-                    </div>
-                    <div class="text-list">
-                        CLOTING
-                    </div>
-                    <div class="arrow-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                    </div>
-                </a>
-            </div>
-            <div class="item-list">
-                <a href="search-result.html">
-                    <div class="image-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-1.jpg">
-                    </div>
-                    <div class="text-list">
-                        CLOTING
-                    </div>
-                    <div class="arrow-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                    </div>
-                </a>
-            </div>
-            <div class="item-list">
-                <a href="">
-                    <div class="image-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-2.jpg">
-                    </div>
-                    <div class="text-list">
-                        CLOTING
-                    </div>
-                    <div class="arrow-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                    </div>
-                </a>
-            </div>
-            <div class="item-list">
-                <a href="">
-                    <div class="image-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-3.jpg">
-                    </div>
-                    <div class="text-list">
-                        CLOTING
-                    </div>
-                    <div class="arrow-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="swiper-slide" style="background: violet;">MEN</div>
-        <div class="swiper-slide" style="background: green;">HOME</div>
-        <div class="swiper-slide" style="background: yellow;">KIDS</div>
-        <div class="swiper-slide" style="background: red;">DESIGNER</div>
+        <?php } ?>
     </div>
-</div>
+</div>>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>">

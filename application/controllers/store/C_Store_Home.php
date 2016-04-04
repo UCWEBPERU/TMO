@@ -66,7 +66,6 @@ class C_Store_Home extends CI_Controller {
 
         $modulo->data_empresa = $dataEmpresa[0];
 
-
         $dataCategorias = cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;
