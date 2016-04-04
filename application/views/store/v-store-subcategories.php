@@ -180,7 +180,6 @@
             $(this).attr("data-current-view", "row");
             $(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
         }
-
     });
 </script>
 </body>

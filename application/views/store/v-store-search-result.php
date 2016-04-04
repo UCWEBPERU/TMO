@@ -95,12 +95,12 @@
             $(".item-product-row").addClass("item-product-block");
             $(".item-product-row").removeClass("item-product-row");
             $(this).attr("data-current-view", "block");
-            $(this).children("img").attr("src", "icon_lineview.png");
+            $(this).children("img").attr("src","<?php echo PATH_RESOURCE_STORE; ?>img/icon_lineview.png" );
         } else if ( $(this).attr("data-current-view") == "block" ) {
             $(".item-product-block").addClass("item-product-row");
             $(".item-product-block").removeClass("item-product-block");
             $(this).attr("data-current-view", "row");
-            $(this).children("img").attr("src", "icon_tableview.png");
+            $(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
         }
     });
 </script>
