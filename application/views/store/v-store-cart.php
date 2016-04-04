@@ -248,8 +248,18 @@ if ($cart = $this->cart->contents()): ?>
                 //$(btn).parent().parent().parent().hide(function () {
                 //$(btn).parent().parent().parent().remove();
                 //});
-                swal("Delete Item", response.message, "success");
-                location.reload();
+                swal({
+                        title: "Eliminado",
+                        text: response.message,
+                        type: "success",
+                        showCancelButton: false,
+                        confirmButtonText: "OK",
+                        closeOnConfirm: true },
+                    function(){
+                        location.reload(); }
+                );
+               
+
             } else {
                 swal("Delete Item", response.message, "danger");
             }
