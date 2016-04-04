@@ -137,9 +137,6 @@
         spaceBetween: 0,
         loop: true,
         slideToClickedSlide: true,
-        onSlideChangeStart: function(swiper){
-            $('body').scrollTo('#panelResultProducts');
-        },
         onSlideChangeEnd: function(swiper){
             for (var c = 0; c < swiper.slides.length; c++) {
                 $(swiper.slides[c]).css({"color": "#959595"});

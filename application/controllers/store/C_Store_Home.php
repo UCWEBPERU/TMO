@@ -69,6 +69,8 @@ class C_Store_Home extends CI_Controller {
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;
         $modulo->data_navegacion_sub_categorias = array();
 
+        $modulo->tipo_sub_categorias = "promotions";
+
         if (sizeof($dataCategorias) > 0) {
             $modulo->data_sub_categorias = cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
             $modulo->data_productos = cargarDatosProductosConPromocion();
