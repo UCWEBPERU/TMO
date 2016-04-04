@@ -146,6 +146,7 @@ body {
 	padding: 8px 25px 8px 25px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 #panelBtnBottom > button.btn-green, #panelBtnBottom > a.btn-black {
@@ -155,6 +156,7 @@ body {
 	outline: none;
 	color: #ffffff;
 	font-size: 30px;
+	text-decoration: none;
 }
 
 #panelBtnBottom > button.btn-green {
