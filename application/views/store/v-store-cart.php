@@ -122,62 +122,7 @@
         <button class="btn-black">SIGN IN</button>
     </div>
 <?php } ?>
-<div id="panelCart">
-    <div class="shipping-information">
-        <span>Shipping Information</span><br>
-        <span>Shipping Option.</span><span> Standard U.S.Shipping</span>
-    </div>
-    <div class="container-products">
-        <ul data-role="listview" id="list" class="ui-listview">
-            <li>
-					<span class="delete">
-						<p class="btn">
-                            Delete
-                        </p>
-					</span>
-                <a href="#" draggable="false">
-                    <div class="content-product">
-                        <div class="image-product">
-                            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/image-category-3.jpg">
-                        </div>
-                        <div class="detail-product">
-                            <div class="head-detail">
-                                <span>Women Jacket</span>
-                                <span>$50.00</span>
-                            </div>
-                            <div class="more-detail">
-                                <span>Quantity: 1</span><br>
-                                <span>Color: White</span><br>
-                                <span>Size: M</span><br>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
 
-        </ul>
-    </div>
-    <div class="container-shipping-detail">
-        <span class="bold">Orden Summary</span><br>
-        <div class="item">
-            <span>Items:</span>
-            <span>$50.00</span>
-        </div>
-        <div class="item">
-            <span>Shipping & Handling:</span>
-            <span>$3.99</span>
-        </div>
-        <div class="item">
-            <span>Promotion Applied:</span>
-            <span>-$3.99</span>
-        </div>
-        <div class="item item-last">
-            <span class="bold">Order Total:</span>
-            <span class="bold">$53.99</span>
-        </div>
-    </div>
-
-</div>
 <div id="panelBtnBottom">
     <button class="btn-green">PLACE ORDER</button>
 </div>
