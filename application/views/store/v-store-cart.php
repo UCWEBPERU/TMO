@@ -94,19 +94,19 @@ if(empty($cart)) : ?>
         <span class="bold">Orden Summary</span><br>
         <div class="item">
             <span>Items:</span>
-            <span class="cartPrices" id="priceitem">$<?php echo number_format($grand_total, 2); ?></span>
+            <span> $<?php echo number_format($grand_total, 2); ?></span>
         </div>
         <div class="item">
             <span>Shipping & Handling:</span>
-            <span class="cartPrices" id="shippingitem">$<?php echo number_format($totaladditional, 2); ?></span>
+            <span>$<?php echo number_format($totaladditional, 2); ?></span>
         </div>
         <div class="item">
             <span>Promotion Applied:</span>
-            <span class="cartPrices" id="promotionitem">-$3.99</span>
+            <span>-$3.99</span>
         </div>
         <div class="item item-last">
             <span class="bold">Order Total:</span>
-            <span class="bold cartPrices" id="totalitem">$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?></span>
+            <span class="bold">$<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?></span>
         </div>
     </div>
     <?php } ?>
@@ -250,11 +250,8 @@ if(empty($cart)) : ?>
                 //});
                 swal("Delete Item", response.message, "success");
 
-                var cart  = "<?php $cart= $this->cart->contents(); ?>";
-                var price = "<?php echo number_format($grand_total, 2); ?>";
-                $( ".cartPrices" ).empty();
-                $( "#priceitem" ).html("$"+price);
-                //location.reload();
+
+                location.reload();
             } else {
                 swal("Delete Item", response.message, "danger");
             }
