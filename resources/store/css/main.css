@@ -148,7 +148,7 @@ body {
 	align-items: center;
 }
 
-#panelBtnBottom > button.btn-green, #panelBtnBottom > a.btn-black {
+#panelBtnBottom > button.btn-green, #panelBtnBottom > a.btn-black, #panelBtnBottom > a.btn-green {
 	width: 100%;
 	height: 100%;
 	border: none;
@@ -164,6 +164,11 @@ body {
 
 #panelBtnBottom > a.btn-black {
 	background: #000000;
+	text-decoration: none;
+	text-align: center;
+}
+#panelBtnBottom > a.btn-green {
+	background: #00be19;
 	text-decoration: none;
 	text-align: center;
 }

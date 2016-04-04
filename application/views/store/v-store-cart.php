@@ -72,7 +72,7 @@ if ($cart = $this->cart->contents()): ?>
                                     $addtionals = 0;
                                     foreach ($modifiers as $modifier):
                                         if($modifier[0] == "modifier"){ ?>
-                                            <span><?php echo $modifier[1]; ?>: <?php echo $modifier[2]; if ($modifier[3] != "0.00"){ echo "- ( $ " . $modifier[3]." )"; }?> </span><br>
+                                            <span><?php echo $modifier[1]; ?>: <?php echo $modifier[2]; if ($modifier[3] != "0.00"){ echo " - ( $ " . $modifier[3]." )"; }?> </span><br>
                                         <?php } ?>
 
                                         <?php   $addtional += $modifier[3];
@@ -129,7 +129,7 @@ if ($cart = $this->cart->contents()): ?>
 </div>
 <?php if ($modulo->has_user_session && $this->cart->contents()) { ?>
     <div id="panelBtnBottom">
-        <button class="btn-green">PLACE ORDER</button>
+        <a class="btn-green" href="<?php echo $modulo->base_url_store; ?>/cart/payment-method?amount=<?php echo number_format($grand_total, 2) + number_format($totaladditional, 2); ?>">PLACE ORDER</a>
     </div>
 <?php } ?>
 <div id="menuApp">
