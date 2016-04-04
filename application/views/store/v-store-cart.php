@@ -229,6 +229,9 @@ if(empty($cart)) : ?>
             $(".ui-content").removeAttr("style");
         });
     });
+    function redireccionar() {
+        setTimeout("location.reload()", 2000);
+    }
 
     function deleteItem(btn, item) {
         var formData = new FormData();
@@ -247,7 +250,7 @@ if(empty($cart)) : ?>
                 //$(btn).parent().parent().parent().remove();
                 //});
                 swal("Delete Item", response.message, "success");
-                location.reload();
+                redireccionar();
             } else {
                 swal("Delete Item", response.message, "danger");
             }
