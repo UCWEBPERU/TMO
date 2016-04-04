@@ -1,116 +1,108 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>TMO</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Path -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
-    <script type="text/javascript" src="<?php echo PATH_RESOURCE_STORE; ?>js/jssor.slider.min.js"></script>
-    <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
 </head>
 <body>
-<header>
-    <!--	<div id="title">-->
-    <!--		<h2>Fashion Store</h2>-->
-    <!--	</div>-->
-    <!-- Slider -->
-    <div id="jssor_1" style="position: relative; left: 0px; width: 980px; height: 100px; ">
-        <!-- Loading Screen -->
-        <div data-u="slides" id="slide" >
-            <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
+<div id="mainHeader">
+    <div class="btn-Left">
+        <a href="<?php echo $modulo->base_url_store; ?>/search">
+            <img src="icon_arrow_back.png">
+        </a>
+    </div>
+    <div class="title-header">RESULTS</div>
+    <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
+        <img src="icon_tableview.png">
+    </div>
+</div>
+<div id="panelResultProduct">
+    <div class="text-result"><?php sizeof($modulo->data_productos) ?> RESULTS FOR '<?php strtoupper($modulo->keyrwords_search) ?>'</div>
+    <?php foreach ($modulo->data_productos as $producto) { ?>
+        <div class="item-product-row">
+            <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
                 <div>
-                    <a href="<?php echo $modulo->base_url_store."/categories/".intval($modulo->data_categorias[$c]->id_categoria); ?>">
-                        <p><?php echo strtoupper($modulo->data_categorias[$c]->nombre_categoria); ?></p>
-                    </a>
+                    <div class="image-product">
+                        <img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
+                    </div>
+                    <div class="content-product">
+                        <div>
+                            <div class="name-product">
+                                <?php echo $producto->nombre_producto; ?>
+                            </div>
+                            <div class="price-product">
+                                $<?php echo $producto->precio_producto; ?>
+                            </div>
+                        </div>
+                        <div class="description-product">
+                            <?php echo $producto->descripcion_producto; ?>
+                        </div>
+                    </div>
+                    <div class="arrow-product">
+                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+                    </div>
                 </div>
-            <?php } ?>
+            </a>
         </div>
-    </div>
-</header>
-
-<!-- Content -->
-<content>
-    <?php if (sizeof($modulo->data_productos) > 0) { ?>
-        <section id="toplist">
-            <h2> Results for "<?php echo $modulo->keyrwords_search; ?>" </h2>
-        </section>
     <?php } ?>
-
-    <div class="col-xs-12">
-        <div class="row">
-            <div>
-                <?php foreach ($modulo->data_productos as $producto) { ?>
-                    <div class="col-xs-6 products" >
-                        <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" ><img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>" class="images" alt="" /></a>
-                        <h2><a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" ><?php echo $producto->nombre_producto; ?></a></h2>
-                        <h3><a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>" >$<?php echo $producto->precio_producto; ?></a></h3><h4><strike></strike></h4>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-        <?php if (sizeof($modulo->data_productos) == 0) { ?>
-            <div class="row">
-                <div class="col-xs-12" id="find">
-                    <form action="<?php echo $modulo->base_url_store."/search"; ?>" method="GET">
-                        <input type="text" name="s" placeholder="Search <?php echo strtoupper($modulo->data_empresa->organization); ?>">
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div id="contenedor">
-                    <div class="col-xs-10 findcategories">
-                        <h2>Your search "<?php echo $modulo->keyrwords_search; ?>" did not match any products.</h2>
-                    </div>
-                    <div class="col-xs-2 findcategories">
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
-
-        <div class="row" style="height: 50px;"></div>
+</div>
+<div id="menuApp">
+    <div id="changeStyleProduct" class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <div>PRODUCTS</div>
+        </a>
     </div>
-</content>
-<footer>
-    <div id="footer">
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
-            <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
-        </div>
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
-            <h1><a href="<?php echo $modulo->base_url_store; ?>/promotions" onclick="">Promotions</a></h1>
-        </div>
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-            <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
-        </div>
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
-            <h1><a href="<?php echo $modulo->base_url_store; ?>/cart" onclick="">Cart</a></h1>
-        </div>
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>/account"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/setting.png" class="images" alt="" /></a>
-            <h1><a href="<?php echo $modulo->base_url_store; ?>/account" onclick="">Account</a></h1>
-        </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <div>PROMOTION</div>
+        </a>
     </div>
-</footer>
+    <div class="menu-item">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>/search">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <div>SEARCH</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <div>ACCOUNT</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/cart">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <div>CART</div>
+        </a>
+    </div>
+</div>
 
-<!-- Scripts -->
-<script type="text/javascript" src="<?php echo PATH_RESOURCE_STORE; ?>js/handler-slider-menu.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
-<!--<script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
-<!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- Swiper JS -->
+<script src="swiper.min.js"></script>
 
+<!-- Initialize Swiper -->
+<script>
+    $("#btnChangeViewProduct").on("click", function() {
+        if ( $(this).attr("data-current-view") == "row" ) {
+            $(".item-product-row").addClass("item-product-block");
+            $(".item-product-row").removeClass("item-product-row");
+            $(this).attr("data-current-view", "block");
+            $(this).children("img").attr("src", "icon_lineview.png");
+        } else if ( $(this).attr("data-current-view") == "block" ) {
+            $(".item-product-block").addClass("item-product-row");
+            $(".item-product-block").removeClass("item-product-block");
+            $(this).attr("data-current-view", "row");
+            $(this).children("img").attr("src", "icon_tableview.png");
+        }
+    });
+</script>
 </body>
 </html>

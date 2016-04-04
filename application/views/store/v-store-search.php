@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Swiper demo</title>
+    <title>TMO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
@@ -12,7 +12,7 @@
 <body>
 <div id="mainHeader">
     <form action="<?php echo $modulo->base_url_store; ?>/search">
-        <input class="input-search" text="search" name="searchProduct" placeholder="Search by Products" />
+        <input class="input-search" text="search" name="s" placeholder="Search by Products" />
         <button class="btn-cancel">CANCEL</button>
     </form>
 </div>
@@ -57,7 +57,7 @@
             </div>
         <?php } ?>
     </div>
-</div>>
+</div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>">
