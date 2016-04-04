@@ -102,103 +102,70 @@
 
 <!-- Initialize Swiper -->
 <script>
-    $("#btnChangeViewProduct").on("click", function() {
-        if ( $(this).attr("data-current-view") == "row" ) {
-            $(".item-product-row").addClass("item-product-block");
-            $(".item-product-row").removeClass("item-product-row");
-            $(this).attr("data-current-view", "block");
-            $(this).children("img").attr("src", "icon_lineview.png");
-        } else if ( $(this).attr("data-current-view") == "block" ) {
-            $(".item-product-block").addClass("item-product-row");
-            $(".item-product-block").removeClass("item-product-block");
-            $(this).attr("data-current-view", "row");
-            $(this).children("img").attr("src", "icon_tableview.png");
-        }
+    var selectorInputsForm = ["#txtCreditCardNumber", "#cboExpirationMonth", "#cboExpirationYear", "#txtCVC"];
 
-    });
-    $("ul li a").hammer().bind("swipeleft", function(event){
-        $("ul li a").each(function() {
-            $(this).prevAll("span").removeClass("show");
-            $(this).css({
-                transform: "translateX(0)"
-            }).blur();
-        });
-        $(this).prevAll("span").addClass("show");
-        $(this).off("click").blur();
-        $(this).css({
-            transform: "translateX(-300px)"
-        }).one("transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd", function () {
-            $("ul li a").one("swiperight", function () {
-                $(this).prevAll("span").removeClass("show");
-                $(this).css({
-                    transform: "translateX(0)"
-                }).blur();
-            });
-        });
-    });
-    $("ul li, ul li a").hammer().bind("tap", function(event){
-        $("ul li a").each(function() {
-            $(this).prevAll("span").removeClass("show");
-            $(this).css({
-                transform: "translateX(0)"
-            }).blur();
-        });
-    });
-    $("ul li span.delete").on("click", function () {
-        var listview = $(this).closest("ul");
-        $(".ui-content").css({
-            overflow: "hidden"
-        });
-        $(this).parent().css({
-            display: "block"
-        }).animate({
-            opacity: 0
-        }, {
-            duration: 250,
-            queue: false
-        }).animate({
-            height: 0
-        }, 300, function () {
-            $(this).remove();
-            $(".ui-content").removeAttr("style");
-        });
-    });
-
-    function deleteItem(item) {
-        var formData = new FormData();
-        formData.append("id_producto", item);
-        var request = $.ajax({
-            url: "<?php echo $modulo->base_url_store."/ajax/shopping/delete"; ?>",
-            method: "POST",
-            data: formData,
-            dataType: 'json',
-            processData: false,
-            contentType: false,
-        });
-        request.done(function( response ) {
-            if (response.status) {
-
-                swal({
-                        title: "Delete Item",
-                        text: response.message,
-                        type: "success",
-                        showCancelButton: false,
-                        confirmButtonText: "OK",
-                        closeOnConfirm: true },
-                    function(){
-                        location.reload(); }
-                );
-
-
+    function validateInputsForm(selectorInputsForm){
+        var countMessagesError = 0;
+        var messageError = "";
+        for (var i = 0; i < selectorInputsForm.length; i++) {
+            if ($(selectorInputsForm[i]).parsley().isValid()) {
+                $(selectorInputsForm[i]).parent().removeClass("has-error");
             } else {
-                swal("Delete Item", response.message, "danger");
+                $(selectorInputsForm[i]).parent().addClass("has-error");
+                messageError = ParsleyUI.getErrorsMessages($(selectorInputsForm[i]).parsley());
+                $(selectorInputsForm[i]).parent().find("p").html(messageError);
+                countMessagesError++;
             }
-        });
-        request.fail(function( jqXHR, textStatus ) {
-            swal("Delete Item", textStatus, "danger");
-        });
+        }
+        if (countMessagesError > 0) {
+            return false;
+        }
+        return true;
     }
 
+    $(document).ready(function(){
+        $("#btnDone").on("click", function(event){
+            event.preventDefault();
+
+            if (validateInputsForm(selectorInputsForm)) {
+                $(".fakeloader").fakeLoader({
+                    bgColor     : "rgba(0,0,0,.85)",
+                    spinner     : "spinner2"
+                });
+                var request = $.ajax({
+                    url: "<?php echo $modulo->base_url_store."/ajax/checkout"; ?>",
+                    method: "POST",
+                    data: $("#frmPaymentMethod").serialize(),
+                    dataType: "json"
+                });
+
+                request.done(function( response ) {
+                    $(".fakeloader").fakeLoaderClose();
+                    if (response.status) {
+//                        swal("Checkout", response.message, "success");
+                        swal({
+                            title: "Checkout",
+                            text: response.message,
+                            type: "success",
+                            confirmButtonText: "Accept",
+                            closeOnConfirm: false
+                        }, function(){
+                            $(location).attr("href", "<?php echo $modulo->base_url_store; ?>");
+                        });
+
+                    } else {
+                        $(".register-error").html(response.message);
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    $(".fakeloader").fakeLoaderClose();
+                    $(".register-error").html(response.message);
+                });
+            }
+
+        });
+    });
 
 
 </script>
