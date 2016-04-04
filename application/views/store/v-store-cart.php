@@ -227,7 +227,7 @@ if(empty($cart)) : ?>
             height: 0
         }, 300, function () {
             $(this).remove();
-            listview.listview("refresh");
+            //listview.listview("refresh");
             $(".ui-content").removeAttr("style");
         });
     });
