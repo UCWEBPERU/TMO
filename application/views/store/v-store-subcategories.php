@@ -95,7 +95,7 @@
         </a>
     </div>
     <div class="menu-item">
-        <?php if ($modulo->tipo_sub_categorias == "promotion") { ?>
+        <?php if ($modulo->tipo_sub_categorias == "promotions") { ?>
             <a class="active" href="<?php echo $modulo->base_url_store; ?>/promotions">
         <?php } else { ?>
             <a href="<?php echo $modulo->base_url_store; ?>/promotions">

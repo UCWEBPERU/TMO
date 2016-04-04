@@ -103,12 +103,13 @@ if ( ! function_exists('cargarDatosProducto')) {
 
 if ( ! function_exists('cargarDatosProductosConPromocion')) {
 
-    function cargarDatosProductosConPromocion() {
+    function cargarDatosProductosConPromocion($id_categoria) {
         $CI =& get_instance();
         $dataProductos = $CI->M_Store->getProductsPromotion(
             array(
                 "id_empresa"    => $CI->uri->segment(2),
-                "id_tienda"     => $CI->uri->segment(4)
+                "id_tienda"     => $CI->uri->segment(4),
+                "id_categoria"  => $id_categoria
             )
         );
         return $dataProductos;
