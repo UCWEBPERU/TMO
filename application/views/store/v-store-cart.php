@@ -48,9 +48,9 @@ if(empty($cart)) : ?>
             foreach ($cart as $item): ?>
                 <li>
 					<span class="delete">
-						<a class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')">
+						<p class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')">
                             Delete
-                        </a>
+                        </p>
 					</span>
                     <a  draggable="false">
                         <div class="content-product">
@@ -229,7 +229,7 @@ if(empty($cart)) : ?>
             $(".ui-content").removeAttr("style");
         });
     });
-  
+
     function deleteItem(btn, item) {
         var formData = new FormData();
         formData.append("id_producto", item);
