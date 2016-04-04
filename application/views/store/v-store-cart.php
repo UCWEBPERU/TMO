@@ -77,11 +77,15 @@ if ($cart = $this->cart->contents()): ?>
 
                                         <?php   $addtional += $modifier[3];
                                         $addtionals = $addtional  * $item['qty'];
+                                        var_dump($addtional) ;
+                                        var_dump($addtionals) ;
                                     endforeach; ?>
 
                                     <span>Subtotal :$ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></span><br>
                                     <?php $grand_total +=  $item['subtotal'];
-                                    $totaladditional += $addtionals;?>
+                                    $totaladditional += $addtionals;
+
+                                    ?>
 
                                 </div>
                             </div>
