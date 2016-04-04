@@ -48,7 +48,7 @@ if(empty($cart)) : ?>
             foreach ($cart as $item): ?>
                 <li>
 					<span class="delete">
-						<p class="btn" onclick="deleteItem(this, '<?php echo $item['rowid'] ?>')">
+						<p class="btn" onclick="deleteItem('<?php echo $item['rowid'] ?>')">
                             Delete
                         </p>
 					</span>
@@ -232,7 +232,7 @@ if(empty($cart)) : ?>
         });
     });
 
-    function deleteItem(btn, item) {
+    function deleteItem(item) {
         var formData = new FormData();
         formData.append("id_producto", item);
         var request = $.ajax({
@@ -249,8 +249,6 @@ if(empty($cart)) : ?>
                 //$(btn).parent().parent().parent().remove();
                 //});
                 swal("Delete Item", response.message, "success");
-
-
                 location.reload();
             } else {
                 swal("Delete Item", response.message, "danger");
