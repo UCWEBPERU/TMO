@@ -128,7 +128,7 @@
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
-        <ahref="<?php echo $modulo->base_url_store; ?>">
+        <a href="<?php echo $modulo->base_url_store; ?>">
             <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
             <div>PRODUCTS</div>
         </a>
