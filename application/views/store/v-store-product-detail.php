@@ -239,7 +239,8 @@
         if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))){
             $(this).css("border-color", "black" );
             console.log($(this).parent().children());
-            $($(this).parent().children()).each(function () {
+            var nodes = $(this).parent().children();
+            $(nodes).each(function () {
                $(this).css("border-color", "none" );
             });
         }
