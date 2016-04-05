@@ -90,7 +90,7 @@
         </a>
     </div>
 </div>
-
+<div class="fakeloader"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/hammer.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.hammer.js"></script>
