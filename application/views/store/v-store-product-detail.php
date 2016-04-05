@@ -236,15 +236,17 @@
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
 //        $(".item-modifier").css("border-color", "none" );
+        addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))
         $(this).parent().children(".item-modifier").each(function () {
             $(this).css("border-color", "none" );
         });
+        $(this).css("border-color", "black" );
         console.log($(this).parent().children(".item-modifier"));
-        if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))){
-            $(this).css("border-color", "black" );
-
-
-        }
+//        if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))){
+//            $(this).css("border-color", "black" );
+//
+//
+//        }
         
     });
 
