@@ -243,18 +243,19 @@ body {
 /* PANEL ACCOUNT */
 
 #panelAccount .item-menu-account {
-	display: flex;
-	flex-flow: row nowrap;
+	width: 100%;
 	height: 106px;
 }
 
 #panelAccount .item-menu-account .text-menu {
-	flex: 1 80%;
+	float: left;
+	width: 80%;
 	font-size: 34px;
 }
 
 #panelAccount .item-menu-account .arrow-menu {
-	flex: 1 20%;
+	float: left;
+	width: 20%;
 }
 
 #panelAccount .item-menu-account .arrow-menu > img{
