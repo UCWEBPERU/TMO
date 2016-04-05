@@ -250,6 +250,11 @@ body {
 	border-bottom: 1px solid rgba(51,51,51, 0.23);
 }
 
+#panelAccount .item-menu-account a {
+	color: #000000;
+}
+
+
 #panelAccount .item-menu-account .text-menu {
 	float: left;
 	width: 80%;
@@ -544,7 +549,8 @@ body {
 	-ms-transition: all .5s ease-in-out;
 }
 .item-list:hover, .item-list:focus, .item-list:active,
-.item-product-row:hover, .item-product-row:focus, .item-product-row:active
+.item-product-row:hover, .item-product-row:focus, .item-product-row:active,
+#panelAccount .item-menu-account:hover, #panelAccount .item-menu-account:focus, #panelAccount .item-menu-account:active,
 .item-product-block > div:hover, .item-product-block > div:focus, .item-product-block > div:active {
 	background-color: #f1f1f1;
 }

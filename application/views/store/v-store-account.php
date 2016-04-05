@@ -22,9 +22,31 @@
 <div id="panelAccount">
     <div class="item-menu-account">
         <a href="<?php echo $modulo->base_url_store; ?>">
-            <div class="text-menu">
-                MY ORDERS
+            <div class="text-menu"> MY ORDERS </div>
+            <div class="arrow-menu">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
             </div>
+        </a>
+    </div>
+    <div class="item-menu-account">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <div class="text-menu"> MY EMAIL SETTINGS </div>
+            <div class="arrow-menu">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+            </div>
+        </a>
+    </div>
+    <div class="item-menu-account">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <div class="text-menu"> LEGAL INFORMATION </div>
+            <div class="arrow-menu">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+            </div>
+        </a>
+    </div>
+    <div class="item-menu-account">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <div class="text-menu"> HELP </div>
             <div class="arrow-menu">
                 <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
             </div>
