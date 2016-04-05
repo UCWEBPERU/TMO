@@ -145,16 +145,19 @@
 
 <!-- Initialize Swiper -->
 <script>
-    $('.fancybox').fancybox({
-        padding: 0,
-        openEffect : 'elastic',
-        openSpeed  : 150,
-        closeEffect : 'elastic',
-        closeSpeed  : 150,
-        closeClick : true,
-        helpers : {
-            overlay : null
-        }
+
+    $(document).ready(function() {
+        $('.fancybox').fancybox({
+            padding: 0,
+            openEffect : 'elastic',
+            openSpeed  : 150,
+            closeEffect : 'elastic',
+            closeSpeed  : 150,
+            closeClick : true,
+            helpers : {
+                overlay : null
+            }
+        });
     });
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
