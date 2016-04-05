@@ -240,9 +240,13 @@
             $(this).css("border-color", "black" );
             console.log($(this).parent().children());
             var nodes = $(this).parent().children();
-            $(nodes).each(function () {
-               $(this).css("border-color", "none" );
-            });
+            for (var c = 0; c < nodes.length; c++) {
+                $(nodes[c]).css("border-color", "none" );
+            }
+//
+//            $(nodes).each(function () {
+//               $(this).css("border-color", "none" );
+//            });
         }
         
     });
