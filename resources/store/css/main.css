@@ -379,6 +379,7 @@ body {
 	color: #333333;
 	text-transform: uppercase;
 	text-align: center;
+	font-size: 18px;
 }
 
 #panelOrders .item-order .content-order {
@@ -393,6 +394,7 @@ body {
 
 #panelOrders .item-order .content-order > div {
 	width: 100%;
+	overflow: hidden;
 }
 
 #panelOrders .item-order .content-order > div:nth-child(2) {
