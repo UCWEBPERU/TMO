@@ -49,12 +49,12 @@
                 <span>Amount: <?php echo $modulo->data_orders[$c]->cantidad; ?></span>
             </div>
         </div>
-        <?php if($idVenta != $modulo->data_orders[$c + 1]->fecha_venta) { ?>
+        <?php $counterItemProduct++; ?>
+        <?php if(isset($modulo->data_orders[$c + 1]) && $idVenta != $modulo->data_orders[$c + 1]->fecha_venta) { ?>
             <?php $counterItemProduct = 0; ?>
                 <div class="total-order">TOTAL: $<?php echo $modulo->data_orders[$c]->total; ?></div>
             </div>
         <?php } ?>
-        <?php $counterItemProduct++; ?>
     <?php } ?>
 
 <!--    <div class="item-order">-->
