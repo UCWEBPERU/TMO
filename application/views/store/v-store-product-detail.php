@@ -49,8 +49,7 @@
 
 
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+            
         </div>
     <?php } ?>
 
@@ -175,7 +174,7 @@
     });
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
-        grabCursor: true, 
+        grabCursor: true,
         centeredSlides: true,
         spaceBetween: 0,
         slidesPerView: 3,
