@@ -202,17 +202,19 @@
         "tipo"  : ""
     }
 
-    function addModifier(idModifier, tipoModifier) {
+    function addModifier(btn,idModifier, tipoModifier) {
         var indiceModificador = validarModificadorEnLista(tipoModifier);
         if ( indiceModificador != -1 ) {
             listaModificadoresSeleccionados[indiceModificador].id = idModifier;
             listaModificadoresSeleccionados[indiceModificador].tipo = tipoModifier;
+            $(btn).css( "border-color", "none" );
         } else {
             datosModificador = {
                 "id"    : idModifier,
                 "tipo"  : tipoModifier
             }
             listaModificadoresSeleccionados.push(datosModificador);
+            $(btn).css( "border-color", "black" );
         }
         //console.log(listaModificadoresSeleccionados);
     }
@@ -233,8 +235,8 @@
 
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
-        addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
-        $(this).css( "border-color", "black" );
+        addModifier(this, $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+
     });
 
     $("#shoppingcart").on("click", function(evt){
