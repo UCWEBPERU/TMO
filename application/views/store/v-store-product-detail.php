@@ -164,7 +164,6 @@
             closeSpeed  : 150,
             closeClick : true,
             helpers	: {
-                overlay : null,
                 thumbs	: {
                     width	: 50,
                     height	: 50
