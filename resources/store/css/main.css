@@ -632,7 +632,7 @@ body {
 	padding: 10px;
 	overflow: hidden;
 	min-height: 50px;
-	z-index: 9999999;
+	/*z-index: 9999999;*/
 	flex: 0 9%;
 }
 #menuApp .menu-item {
