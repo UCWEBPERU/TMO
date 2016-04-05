@@ -52,7 +52,7 @@
                 <span>Amount: 1</span>
             </div>
         </div>
-<!--        <div class="total-order">TOTAL: $19.98</div>-->
+        <div class="total-order">TOTAL: $19.98</div>
     </div>
 </div>
 <div id="menuApp">
