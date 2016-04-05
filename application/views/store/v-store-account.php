@@ -17,7 +17,7 @@
 </div>
 <div id="panelAccount">
     <?php if ($modulo->has_user_session) { ?>
-        <div class="text-welcome">WELCOME, <?php echo $modulo->data_usuario->nombres_persona.", ".$modulo->data_usuario->apellidos_persona; ?></div>
+        <div class="text-welcome">WELCOME, <?php echo $modulo->data_usuario->nombres_persona." ".$modulo->data_usuario->apellidos_persona; ?></div>
         <div class="container-button">
             <button class="btn">SIGN OUT</button>
         </div>
