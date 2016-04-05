@@ -175,7 +175,7 @@
     });
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
-        grabCursor: true
+        grabCursor: true, 
         centeredSlides: true,
         spaceBetween: 0,
         slidesPerView: 3,
