@@ -250,12 +250,19 @@ body {
 #panelAccount .item-menu-account .text-menu {
 	float: left;
 	width: 80%;
+	height: 100%;
 	font-size: 34px;
+	display: flex;
+	justify-content: flex-start;
 }
 
 #panelAccount .item-menu-account .arrow-menu {
 	float: left;
 	width: 20%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #panelAccount .item-menu-account .arrow-menu > img{
