@@ -244,8 +244,7 @@ body {
 
 #panelAccount .item-menu-account {
 	display: flex;
-	flex-flow: row nowrap;
-	width: 100%;
+	flex-flow: column nowrap;
 	height: 106px;
 }
 
