@@ -1,106 +1,111 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>TMO</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Path -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/ie9.css" /><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/fakeLoader.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
+    <!-- Recaptcha Script -->
     <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+
 </head>
-<body style="width: 100%; height: 100%;">
-<!-- Header -->
-<header>
-    <div id="title">
-        <a href="<?php echo $modulo->previuos_url; ?>" >Close</a>
-        <h2>Member Sign In</h2>
+<body>
+<div id="mainHeader">
+    <div class="btn-Left">
+        <a href="<?php echo $modulo->previuos_url; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
     </div>
-</header>
-
-<!-- Content -->
-<content>
-
-    <div class="col-xs-12" >
-        <div class="row" id="contenedordetail">
-            <div>
-                <div class="col-xs-12 sign">
-                    <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
-                    <h3>Create Your New Account</h3>
-                    <form id="frmRegister" name="frmRegister" method="post">
-                        <div>
-                            <input type="text" id="txtFirstName" name="txtFirstName" placeholder="First Name" data-parsley-required data-parsley-required-message="Enter your first name.">
-                            <p class="text-error"></p>
-                        </div>
-                        <div>
-                            <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" data-parsley-required data-parsley-required-message="Enter your last name.">
-                            <p class="text-error"></p>
-                        </div>
-                        <div>
-                            <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
-                            <p class="text-error"></p>
-                        </div>
-                        <div>
-                            <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter a password.">
-                            <p class="text-error"></p>
-                        </div>
-                        <div>
-                            <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" placeholder="Confirm Password"  data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirm password." data-parsley-equalto-message="Passwords do not match.">
-                            <p class="text-error"></p>
-                        </div>
-                        <div class="g-recaptcha" data-sitekey="6LdeIxsTAAAAACS6_lRzeXCfr-PRFSQ9_RBDqWSn"></div>
-                        <button id="btnRegister" type="submit">Register</button>
-                        <p class="register-error"></p>
-                    </form>
-                </div>
-                <div class="col-xs-12 detail" style="height: 200px;"></div>
-            </div>
-        </div>
+    <div class="title-header">MEMBER REGISTER</div>
+    <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
+        <!--img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png"-->
     </div>
+</div>
+<div id="panelSignIn">
 
-</content>
-<footer>
-    <div id="footer">
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
-            <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
+    <div class="logo-text2">Create Your New Account</div>
+    <form id="frmRegister" name="frmRegister" method="post">
+        <div class="sign-in-form">
+            <input type="text" id="txtFirstName" name="txtFirstName" placeholder="First Name" data-parsley-required data-parsley-required-message="Enter your first name.">
+            <p class="text-error"></p>
         </div>
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
-            <h1><a href="<?php echo $modulo->base_url_store; ?>/promotions" onclick="">Promotions</a></h1>
+        <div class="sign-in-form">
+            <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" data-parsley-required data-parsley-required-message="Enter your last name.">
+            <p class="text-error"></p>
         </div>
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-            <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
+        <div class="sign-in-form">
+            <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" data-parsley-required data-parsley-type="email" data-parsley-required-message="Enter your email." data-parsley-type-message="Email incorrect.">
+            <p class="text-error"></p>
         </div>
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
-            <h1><a href="<?php echo $modulo->base_url_store; ?>/cart" onclick="">Cart</a></h1>
+        <div class="sign-in-form">
+            <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" data-parsley-required data-parsley-required-message="Enter a password.">
+            <p class="text-error"></p>
         </div>
-        <div class="boximage">
-            <a href="<?php echo $modulo->base_url_store; ?>/account"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/setting.png" class="images" alt="" /></a>
-            <h1><a href="<?php echo $modulo->base_url_store; ?>/account" onclick="">Account</a></h1>
+        <div class="sign-in-form">
+            <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" placeholder="Confirm Password"  data-parsley-required data-parsley-equalto="#txtPassword" data-parsley-required-message="Confirm password." data-parsley-equalto-message="Passwords do not match.">
+            <p class="text-error"></p>
         </div>
+        <div class="sign-in-form">
+            <div class="g-recaptcha" data-sitekey="6LdeIxsTAAAAACS6_lRzeXCfr-PRFSQ9_RBDqWSn"></div>
+        </div>
+        <div class="sign-in-form">
+            <button id="btnRegister" type="submit">Register</button>
+            <p class="register-error"></p>
+        </div>
+
+    </form>
+
+
+
+
+</div>
+<div id="menuApp">
+    <div id="changeStyleProduct" class="menu-item">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <div>PRODUCTS</div>
+        </a>
     </div>
-</footer>
-<div class="fakeloader"></div>
-<!-- Scripts -->
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
-<!--<script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
-<!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
-<script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <div>PROMOTION</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/search">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <div>SEARCH</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <div>ACCOUNT</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/cart">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <div>CART</div>
+        </a>
+    </div>
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- Swiper JS -->
+<script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fakeloader/fakeLoader.min.js"></script>
+
+
+<!-- Initialize -->
 <script type="text/javascript">
 
     var selectorInputsForm = ["#txtFirstName", "#txtLastName", "#txtEmail", "#txtPassword", "#txtConfirmPassword"];
@@ -163,6 +168,5 @@
         });
     });
 </script>
-
 </body>
 </html>
