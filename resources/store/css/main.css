@@ -268,7 +268,7 @@ body {
 	padding: 5px;
 	border: none;
 	outline: none;
-	background: #000000;
+	background: #333333;
 	color: #FFFFFF;
 	font-size: 25px;
 }
@@ -278,7 +278,7 @@ body {
 }
 
 #panelAccount .item-menu-account a {
-	color: #000000;
+	color: #333333;
 }
 
 #panelAccount .item-menu-account .text-menu {
