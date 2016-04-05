@@ -236,7 +236,7 @@
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
 //        $(".item-modifier").css("border-color", "none" );
-        $(this).parent().children().each(function () {
+        $(this).parent().children(".item-modifier").each(function () {
             $(this).css("border-color", "none" );
         });
         if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))){
