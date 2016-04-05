@@ -44,14 +44,6 @@
         <p>ADDRESS</p>
         <p><?php echo $modulo->data_empresa->direccion; ?></p>
     </div>
-    <div class="container-button">
-        <a href="<?php echo $modulo->base_url_store; ?>">
-            <div class="text-button">CHANGE PASSWORD</div>
-            <div class="arrow-button">
-                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-            </div>
-        </a>
-    </div>
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">

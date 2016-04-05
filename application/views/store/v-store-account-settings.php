@@ -22,7 +22,7 @@
 <div id="panelEmailSettings">
     <div class="text-info">
         <p>NAME</p>
-        <p><?php echo $modulo->data_usuario->nombres_persona." ".$modulo->data_usuario->apellidos_persona; ?></p>
+        <p><?php echo $modulo->data_usuario->nombres_persona.", ".$modulo->data_usuario->apellidos_persona; ?></p>
     </div>
     <div class="text-info">
         <p>EMAIL</p>
