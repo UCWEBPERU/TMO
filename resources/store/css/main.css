@@ -315,6 +315,10 @@ body {
 	padding: 10px 20px 10px 20px;
 }
 
+#panelEmailSettings .text-info p {
+	margin: 0px;
+}
+
 #panelEmailSettings .text-info p:first-child {
 	font-size: 15px;
 }

@@ -11,9 +11,7 @@
 </head>
 <body>
 <div id="mainHeader">
-    <div class="btn-Left">
-        <!-- <img src="icon_arrow_back.png"> -->
-    </div>
+    <div class="btn-Left"></div>
     <div class="title-header">ACCOUNT</div>
     <div class="btn-right"></div>
 </div>

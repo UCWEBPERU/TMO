@@ -12,7 +12,9 @@
 <body>
 <div id="mainHeader">
     <div class="btn-Left">
-         <img src="icon_arrow_back.png">
+        <a href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png">
+        </a>
     </div>
     <div class="title-header">EMAIL SETTINGS</div>
     <div class="btn-right"></div>
