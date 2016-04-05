@@ -164,7 +164,6 @@
             nextEffect		: 'none',
             closeSpeed      : 150,
             closeClick      : true,
-            height          : '45%',
             helpers	        : {
                 thumbs	: {
                     width	: 50,
