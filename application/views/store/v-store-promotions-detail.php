@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
+    <!-- FancyBox -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" media="screen">
 
 </head>
 <body>
@@ -36,15 +39,15 @@
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
                 <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
                     <div class="swiper-slide">
-                        <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+                        <a class="fancybox" rel="fancybox-thumb" href="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+                            <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+                        </a>
                     </div>
 
                 <?php } ?>
 
 
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
         </div>
     <?php } ?>
 
@@ -61,7 +64,7 @@
                 foreach ($modulo->data_modifiers as $modifier) { ?>
                     <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                         <?php if (isset($modifier->color_rgb)) { ?>
-                            <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
+                            <div class="item-modifier btnAddModifier" style="border-color:grey ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
                         <?php } ?>
                     <?php } ?>
                 <?php } ?>
@@ -137,14 +140,16 @@
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
 <!-- Sweet Alert -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
-
+<!-- FancyBox -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/mousewheel-3.0.6.pack.js"></script>
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
 <!-- Initialize Swiper -->
 <script>
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
         grabCursor: true,
-        paginationClickable: true,
         centeredSlides: true,
         spaceBetween: 0,
         slidesPerView: 3,
@@ -204,6 +209,8 @@
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
         addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+        $(".btnAddModifier").parent().children().css("border-color", "grey" );
+        $(this).css("border-color", "black" );
     });
 
     $("#shoppingcart").on("click", function(evt){
