@@ -763,5 +763,11 @@ body {
 	flex: 1 100%;
 
 }
+.sign-in-form .g-recaptcha{
+	flex: 1 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 
