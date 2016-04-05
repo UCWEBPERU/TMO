@@ -165,7 +165,6 @@
             closeSpeed      : 150,
             closeClick      : true,
             height          : '45%',
-            minHeight       : '60%',
             helpers	        : {
                 thumbs	: {
                     width	: 50,
