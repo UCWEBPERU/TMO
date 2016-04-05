@@ -145,7 +145,9 @@
 
 <!-- Initialize Swiper -->
 <script>
-    $('.fancybox').fancybox();
+    $('.fancybox').fancybox({
+        width: 100%
+    });
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
         grabCursor: true,
