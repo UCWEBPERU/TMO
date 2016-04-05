@@ -45,7 +45,6 @@
         </div>
 
     </form>
-    <br>
     <div class="sign-in-form">
         <a class="forgot-link" href="<?php echo $modulo->base_url_store; ?>/forgotpassword">Forgot Password</a>
     </div>
@@ -101,7 +100,7 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fakeloader/fakeLoader.min.js"></script>
 
 
-<!-- Initialize Swiper -->
+<!-- Initialize -->
 <script>
     var selectorInputsForm = ["#txtEmail", "#txtPassword"];
 
