@@ -239,14 +239,9 @@
         if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))){
             $(this).css("border-color", "black" );
             console.log($(this).parent().children());
-            var nodes = $(this).parent().children();
-            for (var c = 0; c < nodes.length; c++) {
-                $(nodes[c]).css("border-color", "none" );
-            }
-//
-//            $(nodes).each(function () {
-//               $(this).css("border-color", "none" );
-//            });
+            $(this).parent().children().each(function () {
+               $(this).css("border-color", "none" );
+            });
         }
         
     });
