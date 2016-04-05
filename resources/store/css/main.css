@@ -413,6 +413,14 @@ body {
 	float: left;
 	width: 30%;
 	font-size: 22px;
+	text-align: right;
+}
+
+#panelOrders .item-order .content-order .name-product,
+#panelOrders .item-order .content-order .price-product {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 /* ******************** */
