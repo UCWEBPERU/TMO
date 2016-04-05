@@ -667,18 +667,13 @@ body {
 
 /* PANEL SIGN IN  AND PAYMENT*/
 
-#panelSignIn  {
+#panelSignIn, #panelPayment  {
 	width: 100%;
 	height: 83%;
 	overflow-y: auto;
 	padding: 10px 0px 10px 0px;
 }
-#panelPayment{
-	width: 100%;
-	height: 83%;
-	overflow-y: auto;
-	padding: 10px 0px 10px 0px;
-}
+
 #panelSignIn .logo, #panelSignIn .logo-text, #panelSignIn .logo-text2{
 	width: 100%;
 	display: flex;

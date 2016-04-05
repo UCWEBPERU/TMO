@@ -41,10 +41,9 @@
         </div>
         <div class="sign-in-form">
             <button id="btnSignIn" type="submit">Sign In</button>
+            <p class="register-error"></p>
         </div>
-        <div class="sign-in-form"><p class="register-error"></p></div>
 
-        
     </form>
     <br>
     <div class="logo-text">Join instantly (and for free)</div>
