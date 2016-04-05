@@ -28,7 +28,7 @@
                 <div class="price-product">$9.99+$3.00</div>
             </div>
             <div>
-                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span>
+                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span><br>
                 <span>Amount: 1</span>
             </div>
         </div>
@@ -38,7 +38,7 @@
                 <div class="price-product">$9.99+$3.00</div>
             </div>
             <div>
-                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span>
+                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span><br>
                 <span>Amount: 1</span>
             </div>
         </div>
@@ -48,10 +48,11 @@
                 <div class="price-product">$9.99+$3.00</div>
             </div>
             <div>
-                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span>
+                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span><br>
                 <span>Amount: 1</span>
             </div>
         </div>
+        <div class="total-order">TOTAL: $19.98</div>
     </div>
 </div>
 <div id="menuApp">

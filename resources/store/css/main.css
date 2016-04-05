@@ -382,6 +382,13 @@ body {
 	font-size: 18px;
 }
 
+#panelOrders .item-order .total-order {
+	color: #333333;
+	text-transform: uppercase;
+	text-align: right;
+	font-size: 24px;
+}
+
 #panelOrders .item-order .content-order {
 	color: #333333;
 	padding: 10px 20px 10px 20px;
