@@ -405,4 +405,17 @@ class M_Store extends CI_Model {
         return FALSE;
     }
 
+    public function getVentas($data) {
+        $this->db->join('Usuario', 'Usuario.id_usuario = Venta.id_cliente');
+        $this->db->join('Tienda', 'Tienda.id_tienda = Venta.id_tienda');
+        $this->db->join('Detalle_Venta', 'Detalle_Venta.id_tienda = Venta.id_tienda');
+        $this->db->join('Producto', 'Producto.id_producto = Detalle_Venta.id_producto');
+        $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
+        $this->db->where('Usuario.id_usuario', $data["id_usuario"]);
+        $this->db->where('Usuario.estado', '1');
+        $this->db->where('Tienda.estado', '1');
+        $query = $this->db->get('Venta');
+        return $query->result();
+    }
+
 }
