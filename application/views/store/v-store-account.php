@@ -133,12 +133,12 @@
 
     $("#btnSignIn").on("click", function(event) {
         event.preventDefault();
-        $(location).href("<?php echo $modulo->base_url_store; ?>/signin");
+        $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signin");
     });
 
     $("#btnSignOut").on("click", function(event) {
         event.preventDefault();
-        $(location).href("<?php echo $modulo->base_url_store; ?>/signout");
+        $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signout");
     });
 </script>
 </body>
