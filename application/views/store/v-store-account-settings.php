@@ -33,7 +33,7 @@
         <p><?php echo $modulo->data_usuario->celular_personal; ?></p>
     </div>
     <div class="container-button">
-        <a href="<?php echo $modulo->base_url_store; ?>forgotpassword">
+        <a href="<?php echo $modulo->base_url_store; ?>/forgotpassword">
             <div class="text-button">CHANGE PASSWORD</div>
             <div class="arrow-button">
                 <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
