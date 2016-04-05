@@ -22,6 +22,9 @@
 <div id="panelOrders">
     <?php
         $counterItemProduct = 0;
+        if (sizeof($modulo->data_orders) > 0) {
+            $idVenta = intval($modulo->data_orders[0]->id_venta);
+        }
     ?>
     <?php for ($c = 0; $c < sizeof($modulo->data_orders); $c++) { ?>
         <?php $date = new DateTime($modulo->data_orders[$c]->fecha_venta); ?>
@@ -47,11 +50,12 @@
             </div>
         </div>
         <?php $counterItemProduct++; ?>
-        <?php if(isset($modulo->data_orders[$c + 1]) && $modulo->data_orders[$c]->fecha_venta == $modulo->data_orders[$c + 1]->fecha_venta) { ?>
+        <?php if(isset($modulo->data_orders[$c + 1]) && $idVenta != intval($modulo->data_orders[$c + 1]->fecha_venta)) { ?>
             <?php $counterItemProduct = 0; ?>
                 <div class="total-order">TOTAL: $<?php echo $modulo->data_orders[$c]->total; ?></div>
             </div>
         <?php } ?>
+        <?php $idVenta = $modulo->data_orders[$c + 1]->fecha_venta; ?>
     <?php } ?>
 
 <!--    <div class="item-order">-->
