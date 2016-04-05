@@ -36,6 +36,7 @@ class C_Store_Checkout extends CI_Controller {
             $dataStore      = $this->getStoreData();
 
             if (strlen($dataStore->pay_id) > 0) {
+                $this->registerSale();
                 $this->cart->destroy();
                 $json->message = $validarPago["message"];
                 $json->data = array("transacttion_reference" => $validarPago["transacttion_reference"]);
@@ -210,6 +211,58 @@ class C_Store_Checkout extends CI_Controller {
         );
 
         return $dataEmpresa[0];
+    }
+
+    public function registerSale() {
+        $sales      = $this->cart->contents();
+        $subtotal   = $this->getSubTotalCart();
+        $dataUsuario = $this->getUserData();
+
+        $IDSale = $this->M_Store->insertSale(
+            array(
+                'id_tienda'     => $this->uri->segment(4),
+                'id_cliente'    => $dataUsuario->id_usuario,
+                'sub_total'     => $subtotal,
+                'total'         => $this->cart->total()
+            )
+        );
+
+        $itemCount = 1;
+        foreach ($sales as $sale) {
+            $modifiers = "";
+            $totalModifiers = 0;
+            foreach ($sale["options"] as $modifier) {
+                if (isset($modifier[0]) && $modifier[0] == "modifier") {
+                    $modifiers += $modifier[1].", ";
+                    $totalModifiers += $modifier[3];
+                }
+            }
+
+            $modifiers = substr($modifiers, 0, -2);
+
+            $insertProduct = $this->M_Store->insertDetalleVenta(
+                array(
+                    'num_detalle_venta' => $itemCount,
+                    'id_venta'          => $IDSale,
+                    'id_producto'       => $sale["id"],
+                    'cantidad'          => $sale["qty"],
+                    'modifiers'         => $modifiers,
+                    'total_modifiers'   => $totalModifiers,
+                    'precio'            => $sale["price"]
+                )
+            );
+
+            $itemCount++;
+        }
+    }
+
+    public function getSubTotalCart(){
+        $sales = $this->cart->contents();
+        $subtotal = 0;
+        foreach ($sales as $sale) {
+            $subtotal += $sale["subtotal"];
+        }
+        return $subtotal;
     }
 
 }

@@ -372,4 +372,37 @@ class M_Store extends CI_Model {
 //        return FALSE;
 //    }
 
+    public function insertVenta($data) {
+        $data = array(
+            'id_tienda'     => $data["id_tienda"],
+            'id_cliente'    => $data["id_cliente"],
+            'sub_total'     => $data["sub_total"],
+            'total'         => $data["total"]
+        );
+
+        if ($this->db->insert('Venta', $data)) {
+            return $this->db->insert_id();
+        }
+
+        return FALSE;
+    }
+
+    public function insertDetalleVenta($data) {
+        $data = array(
+            'num_detalle_venta' => $data["num_detalle_venta"],
+            'id_venta'          => $data["id_venta"],
+            'id_producto'       => $data["id_producto"],
+            'cantidad'          => $data["cantidad"],
+            'modifiers'         => $data["modifiers"],
+            'total_modifiers'   => $data["total_modifiers"],
+            'precio'            => $data["precio"]
+        );
+
+        if ($this->db->insert('Detalle_Venta', $data)) {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
 }
