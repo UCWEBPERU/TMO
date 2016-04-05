@@ -66,7 +66,7 @@
                 foreach ($modulo->data_modifiers as $modifier) { ?>
                     <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                         <?php if (isset($modifier->color_rgb)) { ?>
-                            <div class="item-modifier btnAddModifier" style="border-color:grey ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
+                            <div class="item-modifier btnAddModifier" style="border-color:grey ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"><?php echo $modifier->descripcion_modificador; ?></div>
                         <?php } ?>
                     <?php } ?>
                 <?php } ?>
@@ -207,14 +207,12 @@
         if ( indiceModificador != -1 ) {
             listaModificadoresSeleccionados[indiceModificador].id = idModifier;
             listaModificadoresSeleccionados[indiceModificador].tipo = tipoModifier;
-            return false;
         } else {
             datosModificador = {
                 "id"    : idModifier,
                 "tipo"  : tipoModifier
             }
             listaModificadoresSeleccionados.push(datosModificador);
-            return true;
         }
         //console.log(listaModificadoresSeleccionados);
     }
@@ -235,10 +233,8 @@
 
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
-        addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))
-        $("div").parent().children().css("border-color", "grey" );
+        $(".btnAddModifier").parent().children().css("border-color", "grey" );
         $(this).css("border-color", "black" );
-
         
     });
 
