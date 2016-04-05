@@ -223,7 +223,7 @@ class C_Store_Checkout extends CI_Controller {
                 'id_tienda'     => $this->uri->segment(4),
                 'id_cliente'    => $dataUsuario->id_usuario,
                 'sub_total'     => $subtotal,
-                'total'         => $this->cart->total()
+                'total'         => $this->cart->total() + $this->getTotalModifiers()
             )
         );
 
@@ -233,7 +233,7 @@ class C_Store_Checkout extends CI_Controller {
             $totalModifiers = 0;
             foreach ($sale["options"] as $modifier) {
                 if (isset($modifier[0]) && $modifier[0] == "modifier") {
-                    $modifiers += $modifier[1].", ";
+                    $modifiers .= $modifier[1].", ";
                     $totalModifiers += $modifier[3];
                 }
             }
@@ -263,6 +263,19 @@ class C_Store_Checkout extends CI_Controller {
             $subtotal += $sale["subtotal"];
         }
         return $subtotal;
+    }
+
+    public function getTotalModifiers(){
+        $sales = $this->cart->contents();
+        $totalModifiers = 0;
+        foreach ($sales as $sale) {
+            foreach ($sale["options"] as $modifier) {
+                if (isset($modifier[0]) && $modifier[0] == "modifier") {
+                    $totalModifiers += $modifier[3];
+                }
+            }
+        }
+        return $totalModifiers;
     }
 
 }
