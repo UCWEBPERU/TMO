@@ -155,15 +155,15 @@
     $(document).ready(function() {
         $('.fancybox').fancybox({
             padding         : 0,
-            openEffect      : 'elastic',
+            openEffect      : 'fade',
             openSpeed       : 150,
-            closeEffect     : 'elastic',
+            closeEffect     : 'fade',
             closeBtn		: false,
             prevEffect		: 'none',
             nextEffect		: 'none',
             closeSpeed      : 150,
             closeClick      : true,
-            height          : '83%',
+            height          : '60%',
             helpers	        : {
                 thumbs	: {
                     width	: 50,
