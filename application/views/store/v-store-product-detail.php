@@ -154,16 +154,17 @@
 
     $(document).ready(function() {
         $('.fancybox').fancybox({
-            padding: 0,
-            openEffect : 'elastic',
-            openSpeed  : 150,
-            closeEffect : 'elastic',
+            padding         : 0,
+            openEffect      : 'elastic',
+            openSpeed       : 150,
+            closeEffect     : 'elastic',
             closeBtn		: false,
             prevEffect		: 'none',
             nextEffect		: 'none',
-            closeSpeed  : 150,
-            closeClick : true,
-            helpers	: {
+            closeSpeed      : 150,
+            closeClick      : true,
+            height          : '83%',
+            helpers	        : {
                 thumbs	: {
                     width	: 50,
                     height	: 50
