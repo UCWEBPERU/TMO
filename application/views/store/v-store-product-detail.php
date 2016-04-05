@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
     <!-- FancyBox -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" media="screen">
 
 </head>
 <body>
@@ -37,7 +38,7 @@
 
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
                 <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
-                    <a class="swiper-slide fancybox">
+                    <a class="swiper-slide fancybox" href="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
                         <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
                     </a>
 
@@ -142,6 +143,8 @@
 <!-- FancyBox -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/mousewheel-3.0.6.pack.js"></script>
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7" media="screen">
+
 
 <!-- Initialize Swiper -->
 <script>
@@ -152,11 +155,19 @@
             openEffect : 'elastic',
             openSpeed  : 150,
             closeEffect : 'elastic',
+            closeBtn		: false,
+            prevEffect		: 'none',
+            nextEffect		: 'none',
             closeSpeed  : 150,
             closeClick : true,
-            helpers : {
-                overlay : null
+            helpers	: {
+                overlay : null,
+                thumbs	: {
+                    width	: 50,
+                    height	: 50
+                }
             }
+
         });
     });
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
