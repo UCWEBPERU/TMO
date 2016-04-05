@@ -160,6 +160,8 @@
             nextEffect		: 'none',
             closeSpeed  : 150,
             closeClick : true,
+            width		: '100%',
+            height		: '83%',
             helpers	: {
                 overlay : null,
                 thumbs	: {
