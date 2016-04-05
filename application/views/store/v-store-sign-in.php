@@ -46,6 +46,10 @@
 
     </form>
     <br>
+    <div class="sign-in-form">
+        <a class="forgot-link" href="<?php echo $modulo->base_url_store; ?>/forgotpassword"><h5>Forgot Password</h5></a>
+    </div>
+    <br>
     <div class="logo-text">Join instantly (and for free)</div>
     <div class="sign-in-form">
         <a class="join-button" href="<?php echo $modulo->base_url_store; ?>/register" >Join Now</a>
