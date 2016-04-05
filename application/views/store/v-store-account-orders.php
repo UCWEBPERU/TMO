@@ -22,7 +22,7 @@
 <div id="panelOrders">
 
     <?php for ($c = 0; $c < sizeof($modulo->data_orders); $c++) { ?>
-        <?php $date = new DateTime($modeloRow->fecha_registro_usuario); ?>
+        <?php $date = new DateTime($modulo->fecha_venta); ?>
         <?php if($c == 0) { ?>
             <div class="item-order">
                 <div class="date-order"><?php echo strtoupper(date_format($date, "D")).". ".date_format($date, "d/m/Y"); ?></div>
