@@ -155,6 +155,7 @@
     $(document).ready(function() {
         $('.fancybox').fancybox({
             padding         : 0,
+            margin          : 0,
             openEffect      : 'fade',
             openSpeed       : 150,
             closeEffect     : 'fade',
@@ -163,7 +164,7 @@
             nextEffect		: 'none',
             closeSpeed      : 150,
             closeClick      : true,
-            height          : '60%',
+            height          : '45%',
             minHeight       : '60%',
             helpers	        : {
                 thumbs	: {
