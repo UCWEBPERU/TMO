@@ -84,6 +84,7 @@
 <!--        </div>-->
 <!--        <div class="total-order">TOTAL: $19.98</div>-->
 <!--    </div>-->
+
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
