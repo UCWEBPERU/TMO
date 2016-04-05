@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
     <!-- Recaptcha Script -->
     <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
-
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/fakeLoader.css">
 </head>
 <body>
 <div id="mainHeader">

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
-
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/fakeLoader.css">
 </head>
 <body>
 <div id="mainHeader">
@@ -130,26 +130,26 @@
                     spinner     : "spinner2"
                 });
 
-//                var request = $.ajax({
-//                    url: "<?php //echo $modulo->base_url_store."/ajax/signIn"; ?>//",
-//                    method: "POST",
-//                    data: $("#frmSignIn").serialize(),
-//                    dataType: "json"
-//                });
-//
-//                request.done(function( response ) {
-//                    if (response.status) {
-//                        $(location).attr("href", response.data.url_redirect);
-//                    } else {
-//                        $(".fakeloader").fakeLoaderClose();
-//                        $(".register-error").html(response.message);
-//                    }
-//                });
-//
-//                request.fail(function( jqXHR, textStatus ) {
-//                    $(".fakeloader").fakeLoaderClose();
-//                    $(".register-error").html(textStatus);
-//                });
+                var request = $.ajax({
+                    url: "<?php echo $modulo->base_url_store."/ajax/signIn"; ?>",
+                    method: "POST",
+                    data: $("#frmSignIn").serialize(),
+                    dataType: "json"
+                });
+
+                request.done(function( response ) {
+                    if (response.status) {
+                        $(location).attr("href", response.data.url_redirect);
+                    } else {
+                        $(".fakeloader").fakeLoaderClose();
+                        $(".register-error").html(response.message);
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    $(".fakeloader").fakeLoaderClose();
+                    $(".register-error").html(textStatus);
+                });
             }
         });
     });
