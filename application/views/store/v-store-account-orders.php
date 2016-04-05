@@ -26,7 +26,7 @@
         <div class="item-order">
             <div class="date-order"><?php echo strtoupper(date_format($date, "D")).". ".date_format($date, "d/m/Y"); ?></div>
 
-            <?php foreach ($modulo->detalle_productos as $detalle) { ?>
+            <?php foreach ($order->detalle_productos as $detalle) { ?>
             <div class="content-order">
                 <div>
                     <div class="name-product"><?php echo $detalle->nombre_producto; ?></div>
