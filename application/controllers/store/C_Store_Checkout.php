@@ -229,7 +229,7 @@ class C_Store_Checkout extends CI_Controller {
 
         $itemCount = 1;
         foreach ($sales as $sale) {
-            $modifiers = "";
+            $modifiers = "none";
             $totalModifiers = 0;
             foreach ($sale["options"] as $modifier) {
                 if (isset($modifier[0]) && $modifier[0] == "modifier") {
