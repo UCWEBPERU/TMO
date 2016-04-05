@@ -11,7 +11,7 @@
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
     <!-- FancyBox -->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/fancybox.css">
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/fancybox.css?v=2.1.5">
 
 </head>
 <body>
@@ -141,7 +141,7 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <!-- FancyBox -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/mousewheel-3.0.6.pack.js"></script>
-<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/fancybox.js"></script>
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/fancybox.js?v=2.1.5"></script>
 
 <!-- Initialize Swiper -->
 <script>
