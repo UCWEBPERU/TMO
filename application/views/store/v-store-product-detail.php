@@ -147,7 +147,8 @@
 <script>
     $('.fancybox').fancybox({
         width		: '100%',
-        height		: '100%'
+        height		: '100%',
+        fitToView	: true
     });
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
