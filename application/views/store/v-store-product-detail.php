@@ -267,7 +267,6 @@
                 if (response.status) {
                     swal("Add Item", response.message, "success");
                     listaModificadoresSeleccionados = [];
-                    console.log(listaModificadoresSeleccionados);
                 } else {
                     swal("Add Item", response.message, "danger");
                 }
