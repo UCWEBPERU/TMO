@@ -414,6 +414,7 @@ class M_Store extends CI_Model {
         $this->db->where('Usuario.id_usuario', $data["id_usuario"]);
         $this->db->where('Usuario.estado', '1');
         $this->db->where('Tienda.estado', '1');
+        $this->db->group_by('Detalle_Venta.id_venta');
         $query = $this->db->get('Venta');
         return $query->result();
     }
