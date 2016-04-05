@@ -21,6 +21,7 @@
 </div>
 <div id="panelAccount">
     <div class="text-welcome">WELCOME, JAMES GREEN</div>
+    <button class="btn">SIGN OUT</button>
     <div class="item-menu-account">
         <a href="<?php echo $modulo->base_url_store; ?>">
             <div class="text-menu"> MY ORDERS </div>
