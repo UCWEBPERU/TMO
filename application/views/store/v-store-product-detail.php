@@ -11,7 +11,7 @@
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
     <!-- FancyBox -->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/jquery.fancybox.css?v=2.1.5">
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
 
 </head>
 <body>
