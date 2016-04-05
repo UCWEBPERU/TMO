@@ -257,12 +257,14 @@ body {
 
 #panelAccount .btn {
 	font-size: 25px;
-	height: 34px;
+	height: 35px;
 	padding: 5px;
 	border: none;
 	outline: none;
 	background: #000000;
 	color: #FFFFFF;
+	width: 100%;
+	margin: 0px 20px 20px 20px;
 }
 
 #panelAccount .item-menu-account:last-child {
