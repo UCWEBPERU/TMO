@@ -218,7 +218,7 @@ class C_Store_Checkout extends CI_Controller {
         $subtotal   = $this->getSubTotalCart();
         $dataUsuario = $this->getUserData();
 
-        $IDSale = $this->M_Store->insertSale(
+        $IDSale = $this->M_Store->insertVenta(
             array(
                 'id_tienda'     => $this->uri->segment(4),
                 'id_cliente'    => $dataUsuario->id_usuario,
