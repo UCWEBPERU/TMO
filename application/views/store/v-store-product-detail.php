@@ -39,7 +39,7 @@
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
                 <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
                     <div class="swiper-slide">
-                        <a class=" fancybox" href="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+                        <a class=" fancybox" rel="fancybox-thumb" href="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
                             <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
                         </a>
                     </div>
@@ -163,8 +163,6 @@
             nextEffect		: 'none',
             closeSpeed  : 150,
             closeClick : true,
-            width		: '100%',
-            height		: '83%',
             helpers	: {
                 overlay : null,
                 thumbs	: {
