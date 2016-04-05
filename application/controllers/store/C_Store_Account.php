@@ -156,7 +156,7 @@ class C_Store_Account extends CI_Controller {
             );
 
             foreach ($dataOrders as $order) {
-                $dataOrders->detalle_productos = $this->M_Store->getDetalleVenta(
+                $order->detalle_productos = $this->M_Store->getDetalleVenta(
                     array(
                         "id_venta" => $order->id_venta
                     )
