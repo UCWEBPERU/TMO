@@ -239,9 +239,10 @@
         $(this).parent().children(".item-modifier").each(function () {
             $(this).css("border-color", "none" );
         });
+        console.log($(this).parent().children(".item-modifier"));
         if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))){
             $(this).css("border-color", "black" );
-            console.log($(this).parent().children());
+
 
         }
         
