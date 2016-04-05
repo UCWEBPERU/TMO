@@ -216,7 +216,7 @@
             listaModificadoresSeleccionados.push(datosModificador);
             return true;
         }
-
+        //console.log(listaModificadoresSeleccionados);
     }
 
     function validarModificadorEnLista(tipoModifier) {
@@ -235,9 +235,9 @@
 
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
-
-        if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))) {
-            $(this).css("border-color", "black");
+        $(this).css( "border-color", "none" );
+        if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))){
+            $(this).css( "border-color", "black" );
         }
 
     });
