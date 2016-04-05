@@ -43,7 +43,7 @@ class C_Store_Product extends CI_Controller {
                         "id_empresa"            => $this->uri->segment(2)
                     )
                 );
-                $modulo->url_button_back = generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior);
+                $modulo->url_button_back = generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior, "products");
                 $dataModifiers = $this->M_Store->getModifiers(
                     array(
                         "id_producto" => $producto->id_producto
@@ -89,7 +89,7 @@ class C_Store_Product extends CI_Controller {
                         "id_empresa"            => $this->uri->segment(2)
                     )
                 );
-                $modulo->url_button_back = generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior);
+                $modulo->url_button_back = generarUrlSubCategoria($modulo->base_url_store, $dataCategoria[0]->id_categoria, $dataCategoria[0]->id_categoria_superior, "promotions");
                 $dataModifiers = $this->M_Store->getModifiers(
                     array(
                         "id_producto" => $producto->id_producto

@@ -103,12 +103,13 @@ if ( ! function_exists('cargarDatosProducto')) {
 
 if ( ! function_exists('cargarDatosProductosConPromocion')) {
 
-    function cargarDatosProductosConPromocion() {
+    function cargarDatosProductosConPromocion($id_categoria) {
         $CI =& get_instance();
         $dataProductos = $CI->M_Store->getProductsPromotion(
             array(
                 "id_empresa"    => $CI->uri->segment(2),
-                "id_tienda"     => $CI->uri->segment(4)
+                "id_tienda"     => $CI->uri->segment(4),
+                "id_categoria"  => $id_categoria
             )
         );
         return $dataProductos;
@@ -182,7 +183,7 @@ if ( ! function_exists('validarListaCategorias')) {
 
 if ( ! function_exists('generarNavegacionSubCategorias')) {
 
-    function generarNavegacionSubCategorias($url_store, $listaIdCategorias) {
+    function generarNavegacionSubCategorias($url_store, $listaIdCategorias, $tipoSubCategoria) {
         $CI =& get_instance();
         $lista = array();
         $urlIdCategorias = "";
@@ -202,7 +203,11 @@ if ( ! function_exists('generarNavegacionSubCategorias')) {
             }
 
             if (sizeof($dataCategoria) > 0) {
-                $dataCategoria[0]->url_id_categorias = $url_store."/categories/".$urlIdCategorias;
+                if ($tipoSubCategoria == "products") {
+                    $dataCategoria[0]->url_id_categorias = $url_store."/categories/".$urlIdCategorias;
+                } else if ($tipoSubCategoria == "promotions") {
+                    $dataCategoria[0]->url_id_categorias = $url_store."/promotions/".$urlIdCategorias;
+                }
                 array_push($lista, $dataCategoria[0]);
             } else {
                 $lista = array();
@@ -219,7 +224,7 @@ if ( ! function_exists('generarNavegacionSubCategorias')) {
 
 if ( ! function_exists('generarUrlSubCategoria')) {
 
-    function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior) {
+    function generarUrlSubCategoria($url_store, $id_categoria, $id_categoria_superior, $tipoSubCategoria) {
         $CI =& get_instance();
         $idCategoria         = $id_categoria;
         $idCategoriaSuperior = $id_categoria_superior;
@@ -243,7 +248,11 @@ if ( ! function_exists('generarUrlSubCategoria')) {
             }
         }
 
-        $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
+        if ($tipoSubCategoria == "products") {
+            $urlIdCategorias = $url_store."/categories/".$urlIdCategorias;
+        } else if ($tipoSubCategoria == "promotions") {
+            $urlIdCategorias = $url_store."/promotions/".$urlIdCategorias;
+        }
 
         return $urlIdCategorias;
     }

@@ -17,20 +17,20 @@
             <?php $ipenultimacategoria = sizeof($modulo->data_navegacion_sub_categorias) - 2; ?>
             <a href="<?php echo $modulo->data_navegacion_sub_categorias[$ipenultimacategoria]->url_id_categorias; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
         <?php } else if (sizeof($modulo->data_navegacion_sub_categorias) == 2) {?>
-            <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
+            <?php if ($modulo->tipo_sub_categorias == "products") { ?>
+                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
+            <?php } else if ($modulo->tipo_sub_categorias == "promotions") { ?>
+                <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
+            <?php } ?>
         <?php } ?>
-
     </div>
 
-
     <?php if (sizeof($modulo->data_navegacion_sub_categorias) > 1) { ?>
-
         <?php for ($c = 0; $c < sizeof($modulo->data_navegacion_sub_categorias); $c++) { ?>
             <?php if ($c == sizeof($modulo->data_navegacion_sub_categorias) - 1) { ?>
                 <div class="title-header"><?php echo $modulo->data_navegacion_sub_categorias[$c]->nombre_categoria; ?></div>
             <?php } ?>
         <?php } ?>
-
     <?php } ?>
     <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
         <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png">
@@ -39,29 +39,29 @@
 
 <div id="panelResultProduct">
     <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
-
-            <div class="item-list">
-                <a href="<?php echo $sub_categoria->url_categoria; ?>">
-                    <div class="image-list">
-                        <img src="<?php echo $sub_categoria->url_archivo; ?>">
-                    </div>
-                    <div class="text-list">
-                        <?php echo strtoupper($sub_categoria->nombre_categoria); ?>
-                    </div>
-                    <div class="arrow-list">
-                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
-                    </div>
-                </a>
-            </div>
-
-
-
+        <div class="item-list">
+            <a href="<?php echo $sub_categoria->url_categoria; ?>">
+                <div class="image-list">
+                    <img src="<?php echo $sub_categoria->url_archivo; ?>">
+                </div>
+                <div class="text-list">
+                    <?php echo strtoupper($sub_categoria->nombre_categoria); ?>
+                </div>
+                <div class="arrow-list">
+                    <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+                </div>
+            </a>
+        </div>
     <?php } ?>
 
-    <?php foreach ($modulo->data_productos as $producto) { ?>
-
+    <?php if (sizeof($modulo->data_sub_categorias) == 0) { ?>
+        <?php foreach ($modulo->data_productos as $producto) { ?>
             <div class="item-product-row">
+                <?php if ($modulo->tipo_sub_categorias == "products") { ?>
                 <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
+                <?php } else if ($modulo->tipo_sub_categorias == "promotions") { ?>
+                <a href="<?php echo $modulo->base_url_store."/promotions/products/".intval($producto->id_producto); ?>">
+                <?php } ?>
                     <div>
                         <div class="image-product">
                             <img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
@@ -72,7 +72,11 @@
                                     <?php echo $producto->nombre_producto; ?>
                                 </div>
                                 <div class="price-product">
+                                    <?php if ($modulo->tipo_sub_categorias == "products") { ?>
                                     $<?php echo $producto->precio_producto; ?>
+                                    <?php } else if ($modulo->tipo_sub_categorias == "promotions") { ?>
+                                    $<?php echo $producto->precio_oferta; ?>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="description-product">
@@ -85,20 +89,27 @@
                     </div>
                 </a>
             </div>
-
+        <?php } ?>
     <?php } ?>
 </div>
 
-
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
-        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+        <?php if ($modulo->tipo_sub_categorias == "products") { ?>
+            <a class="active" href="<?php echo $modulo->base_url_store; ?>">
+        <?php } else { ?>
+            <a href="<?php echo $modulo->base_url_store; ?>">
+        <?php } ?>
             <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
             <div>PRODUCTS</div>
         </a>
     </div>
     <div class="menu-item">
-        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+        <?php if ($modulo->tipo_sub_categorias == "promotions") { ?>
+            <a class="active" href="<?php echo $modulo->base_url_store; ?>/promotions">
+        <?php } else { ?>
+            <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+        <?php } ?>
             <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
             <div>PROMOTION</div>
         </a>
@@ -142,6 +153,8 @@
             }
             $(swiper.slides[swiper.activeIndex]).css({"color": "#FFFFFF"});
         }
+
+
     });
 
     var swMainPanel = new Swiper('#swMainPanel', {
@@ -167,7 +180,6 @@
             $(this).attr("data-current-view", "row");
             $(this).children("img").attr("src", "<?php echo PATH_RESOURCE_STORE; ?>img/icon_tableview.png");
         }
-
     });
 </script>
 </body>
