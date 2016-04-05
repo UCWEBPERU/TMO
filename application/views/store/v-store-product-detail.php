@@ -37,9 +37,9 @@
 
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
                 <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
-                    <div class="swiper-slide fancybox">
+                    <a class="swiper-slide fancybox">
                         <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
-                    </div>
+                    </a>
 
                 <?php } ?>
 
