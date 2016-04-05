@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
+    <!-- FancyBox -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/fancybox.css">
 
 </head>
 <body>
@@ -35,7 +37,7 @@
 
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
                 <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide fancybox">
                         <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
                     </div>
 
@@ -137,7 +139,9 @@
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
 <!-- Sweet Alert -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
-
+<!-- FancyBox -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/mousewheel-3.0.6.pack.js"></script>
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/fancybox.js"></script>
 
 <!-- Initialize Swiper -->
 <script>
