@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Swiper demo</title>
+    <title>TMO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
@@ -15,9 +15,7 @@
         <!-- <img src="icon_arrow_back.png"> -->
     </div>
     <div class="title-header">ACCOUNT</div>
-    <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
-        <!-- <img src="icon_tableview.png"> -->
-    </div>
+    <div class="btn-right"></div>
 </div>
 <div id="panelAccount">
     <div class="text-welcome">WELCOME, JAMES GREEN</div>
@@ -33,7 +31,7 @@
         </a>
     </div>
     <div class="item-menu-account">
-        <a href="<?php echo $modulo->base_url_store; ?>">
+        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings">
             <div class="text-menu">MY EMAIL SETTINGS</div>
             <div class="arrow-menu">
                 <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
@@ -128,21 +126,6 @@
 
     swMainMenu.params.control = swMainPanel;
     swMainPanel.params.control = swMainMenu;
-
-    $("#btnChangeViewProduct").on("click", function() {
-        if ( $(this).attr("data-current-view") == "row" ) {
-            $(".item-product-row").addClass("item-product-block");
-            $(".item-product-row").removeClass("item-product-row");
-            $(this).attr("data-current-view", "block");
-            $(this).children("img").attr("src", "icon_lineview.png");
-        } else if ( $(this).attr("data-current-view") == "block" ) {
-            $(".item-product-block").addClass("item-product-row");
-            $(".item-product-block").removeClass("item-product-block");
-            $(this).attr("data-current-view", "row");
-            $(this).children("img").attr("src", "icon_tableview.png");
-        }
-
-    });
 </script>
 </body>
 </html>

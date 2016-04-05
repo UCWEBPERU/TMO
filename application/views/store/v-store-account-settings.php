@@ -1,118 +1,77 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>TMO</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Path -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>/css/ie9.css" /><![endif]-->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
 </head>
 <body>
-
-<div>
-    <!-- Header -->
-    <header>
-        <div id="title">
-            <a href="<?php echo $modulo->base_url_store; ?>/account" >< Back</a>
-            <h2>Account</h2>
-        </div>
-    </header>
-
-    <!-- Content -->
-    <content>
-
-        <div class="col-xs-12" >
-            <?php if ($modulo->has_user_session) { ?>
-                <div class="row" id="contenedordetail">
-                    <div>
-                        <div class="col-xs-12 sign">
-                             <div class="logo-company" style="background-image: url('<?php echo $modulo->icono_empresa; ?>');"  title="Logo Company"></div>
-                            <h2 style="padding: 10px;">Change Name, E-mail or Password</h2>
-                        </div>
-                    </div>
-                </div>
-            <?php } else { ?>
-            <?php } ?>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
-<!--                        <a href="item.html" ><h2>Name: <strong>--><?php //echo $modulo->data_usuario->nombres_persona; ?><!--</strong></h2></a>-->
-                        <h2>Name: <strong><?php echo $modulo->data_usuario->nombres_persona; ?></strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
-<!--                        <a href="item.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--images/right-arrow.png" /></a>-->
-                    </div>
-                </div>
+<div id="mainHeader">
+    <div class="btn-Left">
+         <img src="icon_arrow_back.png">
+    </div>
+    <div class="title-header">EMAIL SETTINGS</div>
+    <div class="btn-right"></div>
+</div>
+<div id="panelEmailSettings">
+    <div class="text-info">
+        <p>NAME</p>
+        <p>JAMES GREEN</p>
+    </div>
+    <div class="text-info">
+        <p>EMAIL</p>
+        <p>JAMES@YAHOO.COM</p>
+    </div>
+    <div class="text-info">
+        <p>PHONE</p>
+        <p>+ 1 444 333 44 55</p>
+    </div>
+    <div class="container-button">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <div class="text-button">CHANGE PASSWORD</div>
+            <div class="arrow-button">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
             </div>
+        </a>
+    </div>
+</div>
+<div id="menuApp">
+    <div id="changeStyleProduct" class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <div>PRODUCTS</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/promotions">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <div>PROMOTION</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/search">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <div>SEARCH</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <div>ACCOUNT</div>
+        </a>
+    </div>
+    <div class="menu-item">
+        <a href="<?php echo $modulo->base_url_store; ?>/cart">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <div>CART</div>
+        </a>
+    </div>
+</div>
 
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
-<!--                        <a href="--><?php //echo $modulo->base_url_store; ?><!--/account/account-settings"><h2>E-mail: <strong>--><?php //echo $modulo->data_usuario->email_usuario; ?><!--</strong></h2></a>-->
-                        <h2>E-mail: <strong><?php echo $modulo->data_usuario->email_usuario; ?></strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
-<!--                        <a href="--><?php //echo $modulo->base_url_store; ?><!--/account/account-settings"><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--images/right-arrow.png" /></a>-->
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="contenedorc">
-                    <div class="col-xs-10 findcategories" >
-<!--                        <a href="item.html" ><h2>Password: <strong>**********</strong></h2></a>-->
-                        <h2>Password: <strong>**********</strong></h2>
-                    </div>
-                    <div class="col-xs-2 findcategories"  >
-<!--                        <a href="item.html" ><img src="--><?php //echo PATH_RESOURCE_STORE; ?><!--images/right-arrow.png" /></a>-->
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 detail" style="height: 200px;"></div>
-        </div>
-
-    </content>
-    <footer>
-        <div id="footer">
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/home.png" class="images" alt="" /></a>
-                <h2><a href="<?php echo $modulo->base_url_store; ?>" onclick="">Products</a></h2>
-            </div>
-
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/sale.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/promotions" onclick="">Promotions</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/search"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/tool.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/search" onclick="">Search</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/cart"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/cart.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/cart" onclick="">Cart</a></h1>
-            </div>
-            <div class="boximage">
-                <a href="<?php echo $modulo->base_url_store; ?>/account"><img src="<?php echo PATH_RESOURCE_STORE; ?>images/setting.png" class="images" alt="" /></a>
-                <h1><a href="<?php echo $modulo->base_url_store; ?>/account" onclick="">Account</a></h1>
-            </div>
-        </div>
-    </footer>
-    <div class="fakeloader"></div>
-    <!-- Scripts -->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/skel-viewport.min.js"></script>
-    <!--<script src="--><?php //echo PATH_RESOURCE_STORE; ?><!--js/util.js"></script>-->
-    <!--[if lte IE 8]><script src="<?php echo PATH_RESOURCE_STORE; ?>js/ie/respond.min.js"></script><![endif]-->
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.scrolly.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/jquery.placeholder.min.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/main.js"></script>
-    <script src="<?php echo PATH_RESOURCE_STORE; ?>js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </body>
 </html>
