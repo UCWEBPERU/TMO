@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Swiper demo</title>
+    <title>TMO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <base href="<?php echo base_url();?>">
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/main.css" />
@@ -11,16 +11,61 @@
 </head>
 <body>
 <div id="mainHeader">
-    <div class="btn-Left">
-        <!-- <img src="icon_arrow_back.png"> -->
-    </div>
+    <div class="btn-Left"></div>
     <div class="title-header">ACCOUNT</div>
-    <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
-        <!-- <img src="icon_tableview.png"> -->
-    </div>
+    <div class="btn-right"></div>
 </div>
 <div id="panelAccount">
-
+    <?php if ($modulo->has_user_session) { ?>
+        <div class="text-welcome">WELCOME, <?php echo $modulo->data_usuario->nombres_persona." ".$modulo->data_usuario->apellidos_persona; ?></div>
+        <div class="container-button">
+            <button class="btn">SIGN OUT</button>
+        </div>
+    <?php } else { ?>
+        <div class="container-button">
+            <button class="btn">SIGN IN</button>
+        </div>
+    <?php } ?>
+    <div class="item-menu-account">
+        <a href="<?php echo $modulo->base_url_store; ?>/account/orders">
+            <div class="text-menu">MY ORDERS</div>
+            <div class="arrow-menu">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+            </div>
+        </a>
+    </div>
+    <div class="item-menu-account">
+        <a href="<?php echo $modulo->base_url_store; ?>/account/account-settings">
+            <div class="text-menu">MY EMAIL SETTINGS</div>
+            <div class="arrow-menu">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+            </div>
+        </a>
+    </div>
+    <div class="item-menu-account">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <div class="text-menu">LEGAL INFORMATION</div>
+            <div class="arrow-menu">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+            </div>
+        </a>
+    </div>
+    <div class="item-menu-account">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <div class="text-menu">HELP</div>
+            <div class="arrow-menu">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+            </div>
+        </a>
+    </div>
+    <div class="item-menu-account">
+        <a href="<?php echo $modulo->base_url_store; ?>/account/contact-us">
+            <div class="text-menu">CONTACT US</div>
+            <div class="arrow-menu">
+                <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+            </div>
+        </a>
+    </div>
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
@@ -85,21 +130,6 @@
 
     swMainMenu.params.control = swMainPanel;
     swMainPanel.params.control = swMainMenu;
-
-    $("#btnChangeViewProduct").on("click", function() {
-        if ( $(this).attr("data-current-view") == "row" ) {
-            $(".item-product-row").addClass("item-product-block");
-            $(".item-product-row").removeClass("item-product-row");
-            $(this).attr("data-current-view", "block");
-            $(this).children("img").attr("src", "icon_lineview.png");
-        } else if ( $(this).attr("data-current-view") == "block" ) {
-            $(".item-product-block").addClass("item-product-row");
-            $(".item-product-block").removeClass("item-product-block");
-            $(this).attr("data-current-view", "row");
-            $(this).children("img").attr("src", "icon_tableview.png");
-        }
-
-    });
 </script>
 </body>
 </html>

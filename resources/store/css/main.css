@@ -102,7 +102,7 @@ body {
 	flex: 0 77%;
 	overflow-y: auto;
 }
-#panelResultProduct, #panelAccount, #panelCart {
+#panelResultProduct, #panelAccount, #panelCart, #panelEmailSettings, #panelOrders {
 	width: 100%;
 	flex: 0 83%;
 	overflow-y: auto;
@@ -236,6 +236,197 @@ body {
 	border: none;
 	background: #333333;
 	color: #ffffff;
+}
+
+/* ******************** */
+
+/* PANEL ACCOUNT */
+
+#panelAccount .item-menu-account {
+	width: 100%;
+	height: 67px;
+	padding: 0px 20px 0px 20px;
+	border-top: 1px solid rgba(51,51,51, 0.23);
+}
+
+#panelAccount .text-welcome {
+	font-size: 30px;
+	text-align: center;
+	padding: 10px;
+	color: #333333;
+	text-transform: uppercase;
+}
+
+#panelAccount .container-button {
+	width: 100%;
+	height: 35px;
+	padding: 0px 20px 0px 20px;
+	margin-bottom: 20px;
+}
+
+#panelAccount .btn {
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	border: none;
+	outline: none;
+	background: #333333;
+	color: #FFFFFF;
+	font-size: 25px;
+}
+
+#panelAccount .item-menu-account:last-child {
+	border-bottom: 1px solid rgba(51,51,51, 0.23);
+}
+
+#panelAccount .item-menu-account a {
+	color: #333333;
+}
+
+#panelAccount .item-menu-account .text-menu {
+	float: left;
+	width: 80%;
+	height: 100%;
+	font-size: 34px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#panelAccount .item-menu-account .arrow-menu {
+	float: left;
+	width: 20%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#panelAccount .item-menu-account .arrow-menu > img{
+	width: 15px;
+	height: 22px;
+}
+
+/* ******************** */
+
+/* PANEL EMAIL SETTINGS */
+
+#panelEmailSettings .text-info {
+	width: 100%;
+	padding: 10px 20px 10px 20px;
+}
+
+#panelEmailSettings .text-info p {
+	color: #333333;
+	margin: 0px;
+	text-transform: uppercase;
+}
+
+#panelEmailSettings .text-info p:first-child {
+	font-size: 15px;
+}
+
+#panelEmailSettings .text-info p:last-child {
+	font-size: 25px;
+}
+
+#panelEmailSettings .container-button {
+	width: 100%;
+	height: 50px;
+	padding: 0px 20px 0px 20px;
+	border: 1px solid rgba(51,51,51, 0.23);
+}
+
+#panelEmailSettings .container-button a {
+	color: #333333;
+}
+
+#panelEmailSettings .container-button .text-button {
+	float: left;
+	width: 80%;
+	height: 100%;
+	font-size: 25px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#panelEmailSettings .container-button .arrow-button {
+	float: left;
+	width: 20%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#panelEmailSettings .container-button .arrow-button > img{
+	width: 15px;
+	height: 22px;
+}
+
+/* ******************** */
+
+/* PANEL ORDERS */
+
+#panelOrders .item-order {
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
+
+#panelOrders .item-order .date-order {
+	color: #333333;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 18px;
+}
+
+#panelOrders .item-order .total-order {
+	color: #333333;
+	text-transform: uppercase;
+	text-align: right;
+	font-size: 24px;
+	padding: 0px 20px 10px 20px;
+	border-top: 1px solid rgba(51,51,51, 0.23);
+}
+
+#panelOrders .item-order .content-order {
+	color: #333333;
+	padding: 10px 20px 10px 20px;
+	border-top: 1px solid rgba(51,51,51, 0.23);
+}
+
+#panelOrders .item-order .content-order > div {
+	width: 100%;
+	overflow: hidden;
+}
+
+#panelOrders .item-order .content-order > div:nth-child(2) {
+	margin-top: 5px;
+}
+
+#panelOrders .item-order .content-order > div:nth-child(2) span {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#panelOrders .item-order .content-order .name-product{
+	float: left;
+	width: 70%;
+	font-size: 25px;
+}
+
+#panelOrders .item-order .content-order .price-product{
+	float: left;
+	width: 30%;
+	font-size: 22px;
+	text-align: right;
+}
+
+#panelOrders .item-order .content-order .name-product,
+#panelOrders .item-order .content-order .price-product {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 /* ******************** */
@@ -508,7 +699,9 @@ body {
 	-ms-transition: all .5s ease-in-out;
 }
 .item-list:hover, .item-list:focus, .item-list:active,
-.item-product-row:hover, .item-product-row:focus, .item-product-row:active
+.item-product-row:hover, .item-product-row:focus, .item-product-row:active,
+#panelAccount .item-menu-account:hover, #panelAccount .item-menu-account:focus, #panelAccount .item-menu-account:active,
+#panelEmailSettings .container-button:hover, #panelEmailSettings .container-button:focus, #panelEmailSettings .container-button:active,
 .item-product-block > div:hover, .item-product-block > div:focus, .item-product-block > div:active {
 	background-color: #f1f1f1;
 }

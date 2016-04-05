@@ -16,30 +16,30 @@ class C_Store_Account extends CI_Controller {
     public function index() {
         $modulo = new stdClass();
         $modulo->base_url_store = base_url()."company/".$this->uri->segment(2)."/store/".$this->uri->segment(4);
-//        $modulo->has_user_session = $this->usersession->isClient();
-//
-//        $dataEmpresa = $this->M_Store->getCompanyAndStore(
-//            array(
-//                "id_empresa"    => $this->uri->segment(2),
-//                "id_tienda"     => $this->uri->segment(4)
-//            )
-//        );
-//
-//        if (sizeof($dataEmpresa) == 0) {
-//            redirect("not-found/store");
-//        }
-//
-//        if ($this->usersession->isClient()) {
-//            $dataUsuario = $this->M_Store->getUserBYEmail(
-//                array(
-//                    "email_usuario" => $this->session->email_usuario
-//                )
-//            );
-//
-//            if (sizeof($dataUsuario) > 0) {
-//                $modulo->data_usuario = $dataUsuario[0];
-//            }
-//        }
+        $modulo->has_user_session = $this->usersession->isClient();
+
+        $dataEmpresa = $this->M_Store->getCompanyAndStore(
+            array(
+                "id_empresa"    => $this->uri->segment(2),
+                "id_tienda"     => $this->uri->segment(4)
+            )
+        );
+
+        if (sizeof($dataEmpresa) == 0) {
+            redirect("not-found/store");
+        }
+
+        if ($this->usersession->isClient()) {
+            $dataUsuario = $this->M_Store->getUserBYEmail(
+                array(
+                    "email_usuario" => $this->session->email_usuario
+                )
+            );
+
+            if (sizeof($dataUsuario) > 0) {
+                $modulo->data_usuario = $dataUsuario[0];
+            }
+        }
 
         $data["modulo"] = $modulo;
 
@@ -147,6 +147,14 @@ class C_Store_Account extends CI_Controller {
             }
             $modulo->data_empresa = $dataEmpresa[0];
             cargarLogoEmpresa($modulo, $dataEmpresa[0]);
+
+            $modulo->data_orders = $this->M_Store->getVentas(
+                array(
+                    "id_tienda"     => $this->uri->segment(4),
+                    "id_usuario"    => $dataUsuario[0]->id_usuario
+                )
+            );
+
         }
 
         $data["modulo"] = $modulo;

@@ -372,4 +372,50 @@ class M_Store extends CI_Model {
 //        return FALSE;
 //    }
 
+    public function insertVenta($data) {
+        $data = array(
+            'id_tienda'     => $data["id_tienda"],
+            'id_cliente'    => $data["id_cliente"],
+            'sub_total'     => $data["sub_total"],
+            'total'         => $data["total"]
+        );
+
+        if ($this->db->insert('Venta', $data)) {
+            return $this->db->insert_id();
+        }
+
+        return FALSE;
+    }
+
+    public function insertDetalleVenta($data) {
+        $data = array(
+            'num_detalle_venta' => $data["num_detalle_venta"],
+            'id_venta'          => $data["id_venta"],
+            'id_producto'       => $data["id_producto"],
+            'cantidad'          => $data["cantidad"],
+            'modifiers'         => $data["modifiers"],
+            'total_modifiers'   => $data["total_modifiers"],
+            'precio'            => $data["precio"]
+        );
+
+        if ($this->db->insert('Detalle_Venta', $data)) {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
+    public function getVentas($data) {
+        $this->db->join('Usuario', 'Usuario.id_usuario = Venta.id_cliente');
+        $this->db->join('Tienda', 'Tienda.id_tienda = Venta.id_tienda');
+        $this->db->join('Detalle_Venta', 'Detalle_Venta.id_tienda = Venta.id_tienda');
+        $this->db->join('Producto', 'Producto.id_producto = Detalle_Venta.id_producto');
+        $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
+        $this->db->where('Usuario.id_usuario', $data["id_usuario"]);
+        $this->db->where('Usuario.estado', '1');
+        $this->db->where('Tienda.estado', '1');
+        $query = $this->db->get('Venta');
+        return $query->result();
+    }
+
 }
