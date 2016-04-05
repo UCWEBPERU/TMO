@@ -20,10 +20,15 @@
     <div class="btn-right"></div>
 </div>
 <div id="panelOrders">
-    <?php var_dump($modulo->data_orders); ?>
+    <?php
+        $counterItemProduct = 0;
+        if (sizeof($modulo->data_orders) > 0) {
+            $idVenta = $modulo->data_orders[0]->id_venta;
+        }
+    ?>
     <?php for ($c = 0; $c < sizeof($modulo->data_orders); $c++) { ?>
         <?php $date = new DateTime($modulo->data_orders[$c]->fecha_venta); ?>
-        <?php if($c == 0) { ?>
+        <?php if($counterItemProduct == 0) { ?>
             <div class="item-order">
                 <div class="date-order"><?php echo strtoupper(date_format($date, "D")).". ".date_format($date, "d/m/Y"); ?></div>
         <?php } ?>
@@ -44,10 +49,12 @@
                 <span>Amount: <?php echo $modulo->data_orders[$c]->cantidad; ?></span>
             </div>
         </div>
-        <?php if($c == sizeof($modulo->data_orders) - 1) { ?>
+        <?php if($idVenta != $modulo->data_orders[$c + 1]->fecha_venta) { ?>
+            <?php $counterItemProduct = 0; ?>
                 <div class="total-order">TOTAL: $<?php echo $modulo->data_orders[$c]->total; ?></div>
             </div>
         <?php } ?>
+        <?php $counterItemProduct++; ?>
     <?php } ?>
 
 <!--    <div class="item-order">-->
