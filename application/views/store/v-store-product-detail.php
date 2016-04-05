@@ -237,8 +237,8 @@
         e.preventDefault();
 //        $(".item-modifier").css("border-color", "none" );
         if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))){
-            addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))
             $(this).css("border-color", "black" );
+            console.log($(this).parent().children());
             $($(this).parent().children()).each(function () {
                $(this).css("border-color", "none" );
             });
