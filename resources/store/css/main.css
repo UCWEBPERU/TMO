@@ -254,6 +254,7 @@ body {
 	text-align: center;
 	padding: 10px;
 	color: #333333;
+	text-transform: uppercase;
 }
 
 #panelAccount .container-button {

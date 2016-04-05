@@ -16,10 +16,16 @@
     <div class="btn-right"></div>
 </div>
 <div id="panelAccount">
-    <div class="text-welcome">WELCOME, JAMES GREEN</div>
-    <div class="container-button">
-        <button class="btn">SIGN OUT</button>
-    </div>
+    <?php if ($modulo->has_user_session) { ?>
+        <div class="text-welcome">WELCOME, <?php echo $modulo->data_usuario->nombres_persona.", ".$modulo->data_usuario->apellidos_persona; ?></div>
+        <div class="container-button">
+            <button class="btn">SIGN OUT</button>
+        </div>
+    <?php } else { ?>
+        <div class="container-button">
+            <button class="btn">SIGN IN</button>
+        </div>
+    <?php } ?>
     <div class="item-menu-account">
         <a href="<?php echo $modulo->base_url_store; ?>">
             <div class="text-menu">MY ORDERS</div>
