@@ -20,7 +20,7 @@
     <div class="btn-right"></div>
 </div>
 <div id="panelOrders">
-
+    <?php var_dump($modulo->data_orders); ?>
     <?php for ($c = 0; $c < sizeof($modulo->data_orders); $c++) { ?>
         <?php $date = new DateTime($modulo->data_orders[$c]->fecha_venta); ?>
         <?php if($c == 0) { ?>
