@@ -216,7 +216,7 @@
             listaModificadoresSeleccionados.push(datosModificador);
             return true;
         }
-        //console.log(listaModificadoresSeleccionados);
+        console.log(listaModificadoresSeleccionados);
     }
 
     function validarModificadorEnLista(tipoModifier) {
