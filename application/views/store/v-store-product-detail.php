@@ -37,7 +37,7 @@
 
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
                 <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
-                    <div class="swiper-slide fancybox" data-fancybox-group="gallery">
+                    <div class="swiper-slide fancybox">
                         <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
                     </div>
 
@@ -146,9 +146,15 @@
 <!-- Initialize Swiper -->
 <script>
     $('.fancybox').fancybox({
-        width		: '100%',
-        height		: '100%',
-        fitToView	: true
+        padding: 0,
+        openEffect : 'elastic',
+        openSpeed  : 150,
+        closeEffect : 'elastic',
+        closeSpeed  : 150,
+        closeClick : true,
+        helpers : {
+            overlay : null
+        }
     });
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
