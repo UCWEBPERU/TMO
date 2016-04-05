@@ -23,7 +23,7 @@
         </div>
     <?php } else { ?>
         <div class="container-button">
-            <button id="btnSignIn" class="btn">SIGN IN</button>
+            <button id="btnSignIn" class="btn" style="margin-top: 10px;">SIGN IN</button>
         </div>
     <?php } ?>
     <div class="item-menu-account">
