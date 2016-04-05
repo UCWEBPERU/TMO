@@ -636,6 +636,7 @@ body {
 .item-list:hover, .item-list:focus, .item-list:active,
 .item-product-row:hover, .item-product-row:focus, .item-product-row:active,
 #panelAccount .item-menu-account:hover, #panelAccount .item-menu-account:focus, #panelAccount .item-menu-account:active,
+#panelEmailSettings .container-button:hover, #panelEmailSettings .container-button:focus, #panelEmailSettings .container-button:active,
 .item-product-block > div:hover, .item-product-block > div:focus, .item-product-block > div:active {
 	background-color: #f1f1f1;
 }
