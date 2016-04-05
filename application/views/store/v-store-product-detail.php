@@ -163,7 +163,7 @@
             nextEffect		: 'none',
             closeSpeed      : 150,
             closeClick      : true,
-            height          : '75%',
+            height          : '60%',
             minHeight       : '60%',
             helpers	        : {
                 thumbs	: {
