@@ -66,7 +66,7 @@
                 foreach ($modulo->data_modifiers as $modifier) { ?>
                     <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                         <?php if (isset($modifier->color_rgb)) { ?>
-                            <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
+                            <div class="item-modifier btnAddModifier" style="border-color:grey ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
                         <?php } ?>
                     <?php } ?>
                 <?php } ?>
@@ -235,18 +235,10 @@
 
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
-//        $(".item-modifier").css("border-color", "none" );
         addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))
-        $(this).parent().each(function () {
-            $(this).parent().children().css("border-color", "none" );
-        });
+        $("div").parent().children().css("border-color", "grey" );
         $(this).css("border-color", "black" );
-        console.log($(this).parent().children());
-//        if(addModifier( $(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"))){
-//            $(this).parent().children(".item-modifier").each(function () {
-//                $(this).parent().children(".item-modifier").css("border-color", "none" );
-//            });
-//        }
+
         
     });
 
