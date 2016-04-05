@@ -40,7 +40,7 @@
             <p class="text-error"></p>
         </div>
         <div class="sign-in-form">
-            <button id="btnSignIn" type="submit">Sign In</button>
+            <button id="btnSignIn" type="submit" style="background: black">Sign In</button>
             <p class="register-error"></p>
         </div>
 

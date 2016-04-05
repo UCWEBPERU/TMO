@@ -39,7 +39,7 @@
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
                 <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
                     <div class="swiper-slide">
-                        <a class=" fancybox" href="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+                        <a class="fancybox" rel="fancybox-thumb" href="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
                             <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
                         </a>
                     </div>
@@ -49,8 +49,7 @@
 
 
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+
         </div>
     <?php } ?>
 
@@ -67,7 +66,7 @@
                 foreach ($modulo->data_modifiers as $modifier) { ?>
                     <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                         <?php if (isset($modifier->color_rgb)) { ?>
-                            <div class="item-modifier btnAddModifier" style="background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
+                            <div class="item-modifier btnAddModifier" style="border-color:grey ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"><?php echo $modifier->descripcion_modificador; ?></div>
                         <?php } ?>
                     <?php } ?>
                 <?php } ?>
@@ -146,7 +145,7 @@
 <!-- FancyBox -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/mousewheel-3.0.6.pack.js"></script>
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
-<link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7" media="screen">
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
 
 <!-- Initialize Swiper -->
@@ -154,19 +153,17 @@
 
     $(document).ready(function() {
         $('.fancybox').fancybox({
-            padding: 0,
-            openEffect : 'elastic',
-            openSpeed  : 150,
-            closeEffect : 'elastic',
+            padding         : 0,
+            margin          : 0,
+            openEffect      : 'fade',
+            openSpeed       : 150,
+            closeEffect     : 'fade',
             closeBtn		: false,
             prevEffect		: 'none',
             nextEffect		: 'none',
-            closeSpeed  : 150,
-            closeClick : true,
-            width		: '100%',
-            height		: '83%',
-            helpers	: {
-                overlay : null,
+            closeSpeed      : 150,
+            closeClick      : true,
+            helpers	        : {
                 thumbs	: {
                     width	: 50,
                     height	: 50
@@ -178,7 +175,6 @@
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
         grabCursor: true,
-        paginationClickable: true,
         centeredSlides: true,
         spaceBetween: 0,
         slidesPerView: 3,
@@ -237,7 +233,9 @@
 
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
-        addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+        $(".btnAddModifier").parent().children().css("border-color", "grey" );
+        $(this).css("border-color", "black" );
+        
     });
 
     $("#shoppingcart").on("click", function(evt){
@@ -270,6 +268,7 @@
 
                 if (response.status) {
                     swal("Add Item", response.message, "success");
+                    listaModificadoresSeleccionados = [];
                 } else {
                     swal("Add Item", response.message, "danger");
                 }
