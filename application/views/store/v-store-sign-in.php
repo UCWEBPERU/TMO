@@ -41,11 +41,13 @@
         </div>
         <div class="sign-in-form">
             <button id="btnSignIn" type="submit">Sign In</button>
+            <p class="register-error"></p>
         </div>
-        <div class="sign-in-form"><p class="register-error"></p></div>
 
-        
     </form>
+    <div class="sign-in-form">
+        <a class="forgot-link" href="<?php echo $modulo->base_url_store; ?>/forgotpassword">Forgot Password</a>
+    </div>
     <br>
     <div class="logo-text">Join instantly (and for free)</div>
     <div class="sign-in-form">
@@ -98,7 +100,7 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fakeloader/fakeLoader.min.js"></script>
 
 
-<!-- Initialize Swiper -->
+<!-- Initialize -->
 <script>
     var selectorInputsForm = ["#txtEmail", "#txtPassword"];
 

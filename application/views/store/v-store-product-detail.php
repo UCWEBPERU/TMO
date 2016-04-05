@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
+    <!-- FancyBox -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" media="screen">
 
 </head>
 <body>
@@ -36,8 +39,11 @@
                 <?php $galeriaProducto = $modulo->data_productos[0]->galeria_producto; ?>
                 <?php for ($c = 0; $c < sizeof($galeriaProducto); $c++) { ?>
                     <div class="swiper-slide">
-                        <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+                        <a class=" fancybox" href="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+                            <img src="<?php echo $galeriaProducto[$c]->url_archivo; ?>">
+                        </a>
                     </div>
+
 
                 <?php } ?>
 
@@ -137,10 +143,38 @@
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>
 <!-- Sweet Alert -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
+<!-- FancyBox -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/mousewheel-3.0.6.pack.js"></script>
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7" media="screen">
 
 
 <!-- Initialize Swiper -->
 <script>
+
+    $(document).ready(function() {
+        $('.fancybox').fancybox({
+            padding: 0,
+            openEffect : 'elastic',
+            openSpeed  : 150,
+            closeEffect : 'elastic',
+            closeBtn		: false,
+            prevEffect		: 'none',
+            nextEffect		: 'none',
+            closeSpeed  : 150,
+            closeClick : true,
+            width		: '100%',
+            height		: '83%',
+            helpers	: {
+                overlay : null,
+                thumbs	: {
+                    width	: 50,
+                    height	: 50
+                }
+            }
+
+        });
+    });
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
         grabCursor: true,

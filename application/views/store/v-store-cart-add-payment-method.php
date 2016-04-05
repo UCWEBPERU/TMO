@@ -53,8 +53,8 @@
         </div>
         <div class="sign-in-form">
             <button id="btnDone" type="submit">Done</button>
+            <p class="register-error"></p>
         </div>
-        <div class="sign-in-form"><p class="register-error"></p></div>
     </form>
     
 </div>
