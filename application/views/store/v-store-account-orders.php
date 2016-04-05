@@ -16,7 +16,7 @@
             <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png">
         </a>
     </div>
-    <div class="title-header">EMAIL SETTINGS</div>
+    <div class="title-header">MY ORDERS</div>
     <div class="btn-right"></div>
 </div>
 <div id="panelOrders">
