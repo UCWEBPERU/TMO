@@ -183,8 +183,6 @@ class C_Store_Cart extends CI_Controller {
             }
         }
 
-        var_dump($this->cart->contents());
-
         $data["modulo"] = $modulo;
 
         $this->load->view('store/v-store-cart-add-payment-method', $data);
