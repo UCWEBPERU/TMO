@@ -318,6 +318,7 @@ body {
 #panelEmailSettings .text-info p {
 	color: #333333;
 	margin: 0px;
+	text-transform: uppercase;
 }
 
 #panelEmailSettings .text-info p:first-child {

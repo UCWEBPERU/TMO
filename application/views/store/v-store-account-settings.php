@@ -22,15 +22,15 @@
 <div id="panelEmailSettings">
     <div class="text-info">
         <p>NAME</p>
-        <p>JAMES GREEN</p>
+        <p><?php echo $modulo->data_usuario->nombres_persona." ".$modulo->data_usuario->apellidos_persona; ?></p>
     </div>
     <div class="text-info">
         <p>EMAIL</p>
-        <p>JAMES@YAHOO.COM</p>
+        <p><?php echo $modulo->data_usuario->email_usuario; ?></p>
     </div>
     <div class="text-info">
         <p>PHONE</p>
-        <p>+ 1 444 333 44 55</p>
+        <p><?php echo $modulo->data_usuario->celular_personal; ?></p>
     </div>
     <div class="container-button">
         <a href="<?php echo $modulo->base_url_store; ?>">
