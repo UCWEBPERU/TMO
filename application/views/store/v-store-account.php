@@ -27,7 +27,7 @@
         </div>
     <?php } ?>
     <div class="item-menu-account">
-        <a href="<?php echo $modulo->base_url_store; ?>">
+        <a href="<?php echo $modulo->base_url_store; ?>/account/orders">
             <div class="text-menu">MY ORDERS</div>
             <div class="arrow-menu">
                 <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">

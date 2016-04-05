@@ -238,7 +238,9 @@ class C_Store_Checkout extends CI_Controller {
                 }
             }
 
-            $modifiers = substr($modifiers, 0, -2);
+            if (strlen($modifiers) > 0) {
+                $modifiers = substr($modifiers, 0, -2);
+            }
 
             $insertProduct = $this->M_Store->insertDetalleVenta(
                 array(
@@ -271,7 +273,7 @@ class C_Store_Checkout extends CI_Controller {
         foreach ($sales as $sale) {
             foreach ($sale["options"] as $modifier) {
                 if (isset($modifier[0]) && $modifier[0] == "modifier") {
-                    $totalModifiers += $modifier[3];
+                    $totalModifiers += $modifier[3] * $sale["qty"];
                 }
             }
         }
