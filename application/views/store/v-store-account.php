@@ -19,11 +19,11 @@
     <?php if ($modulo->has_user_session) { ?>
         <div class="text-welcome">WELCOME, <?php echo $modulo->data_usuario->nombres_persona." ".$modulo->data_usuario->apellidos_persona; ?></div>
         <div class="container-button">
-            <button class="btn">SIGN OUT</button>
+            <button id="btnSignOut" class="btn">SIGN OUT</button>
         </div>
     <?php } else { ?>
         <div class="container-button">
-            <button class="btn">SIGN IN</button>
+            <button id="btnSignIn" class="btn">SIGN IN</button>
         </div>
     <?php } ?>
     <div class="item-menu-account">
@@ -130,6 +130,16 @@
 
     swMainMenu.params.control = swMainPanel;
     swMainPanel.params.control = swMainMenu;
+
+    $("#btnSignIn").on("click", function(event) {
+        event.preventDefault();
+        $(location).href("<?php echo $modulo->base_url_store; ?>/signin");
+    });
+
+    $("#btnSignOut").on("click", function(event) {
+        event.preventDefault();
+        $(location).href("<?php echo $modulo->base_url_store; ?>/signout");
+    });
 </script>
 </body>
 </html>

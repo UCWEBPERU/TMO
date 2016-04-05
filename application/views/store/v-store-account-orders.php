@@ -50,41 +50,6 @@
         </div>
     <?php } ?>
 
-<!--    <div class="item-order">-->
-<!--        <div class="date-order">MON. 12/06/2015</div>-->
-<!--        <div class="content-order">-->
-<!--            <div>-->
-<!--                <div class="name-product">CRABSBURGER</div>-->
-<!--                <div class="price-product">$9.99+$3.00</div>-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span><br>-->
-<!--                <span>Amount: 1</span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="content-order">-->
-<!--            <div>-->
-<!--                <div class="name-product">CRABSBURGER</div>-->
-<!--                <div class="price-product">$9.99+$3.00</div>-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span><br>-->
-<!--                <span>Amount: 1</span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="content-order">-->
-<!--            <div>-->
-<!--                <div class="name-product">CRABSBURGER</div>-->
-<!--                <div class="price-product">$9.99+$3.00</div>-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span><br>-->
-<!--                <span>Amount: 1</span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="total-order">TOTAL: $19.98</div>-->
-<!--    </div>-->
-
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
