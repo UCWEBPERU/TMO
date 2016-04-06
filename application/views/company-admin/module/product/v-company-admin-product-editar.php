@@ -293,7 +293,7 @@
             checkboxClass: 'icheckbox_flat-blue'
         });
 
-        $('input[type="checkbox"].flat-blue').on('ifChanged', function(event){
+        $('input[type="checkbox"].flat-blue').on('ifToggled', function(event){
             event.preventDefault();
             $("#openDialogPromotion").trigger("click");
         });
