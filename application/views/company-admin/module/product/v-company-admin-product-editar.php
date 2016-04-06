@@ -295,7 +295,7 @@
 
         $('input[type="checkbox"].flat-blue').on('ifClicked', function(event){
             $("#openDialogPromotion").trigger("click");
-            if (this).is(':checked')) {
+            if ($(this).is(':checked')) {
                 $(this).iCheck('uncheck');
             } else {
                 $(this).iCheck('check');
