@@ -294,9 +294,12 @@
         });
 
         $('input[type="checkbox"].flat-blue').on('ifToggled', function(event){
-            event.preventDefault();
+            if ($(this).is(':checked')) {
+                $(this).iCheck('uncheck');
+            } else {
+                $(this).iCheck('check');
+            }
             $("#openDialogPromotion").trigger("click");
-            return false;
         });
 
         GenericModal.config("#genericModal", "");
