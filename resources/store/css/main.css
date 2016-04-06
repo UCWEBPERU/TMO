@@ -686,7 +686,7 @@ body {
 	-webkit-align-items: center;
 	align-items: center;
 	white-space: nowrap;
-	margin: 0 10px;
+	/*margin: 0 10px;*/
 }
 #swMainPanel .swiper-slide{
 	overflow-y: auto;
