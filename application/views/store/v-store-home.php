@@ -108,7 +108,7 @@
 		spaceBetween: 0,
 		loop: true,
 		slideToClickedSlide: true,
-		onSlideChangeStart:  function() {
+		onSlideChangeStart:  function(swiper) {
 			console.log($(swiper));
 		},
 		onSlideChangeEnd: function(swiper){
