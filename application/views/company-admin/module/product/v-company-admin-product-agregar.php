@@ -85,7 +85,7 @@
 
                                         <div class="form-group">
                                             <label for="txtStockProducto">Promocion</label>&nbsp;
-                                            <button id="openDialogPromotion" type='button' class="button-effect-1 hide" data-toggle="modal" href="#responsive">Editar Promocion</button>
+                                            <button id="openDialogPromotion" type='button' class="button-effect-1 hide" data-toggle="modal" href="#modalPromotion">Editar Promocion</button>
                                             <label>
                                                 <input type="checkbox" class="flat-blue">
                                             </label>
@@ -159,7 +159,7 @@
 <?php $this->load->view('template/main-panel/modal-admin'); ?>
 
 <div class="example-modal">
-    <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;" role="dialog">
+    <div id="modalPromotion" class="modal fade" tabindex="-1" data-width="760" style="display: none;" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -460,14 +460,13 @@
         });
 
         $("#btnAgregarPromocion").on("click", function(event) {
-
             if ( ValidateInputFormWithParsley.validate(selectorInputsFormPromocion)) {
                 formDataProduct.append("txtPrecioPromocion",       $("#txtPrecioPromocion").val());
                 formDataProduct.append("txtDescripcionPromocion",  $("#txtDescripcionPromocion").val());
                 formDataProduct.append("txtFechaInicio",           $("#txtFechaInicio").val());
                 formDataProduct.append("txtFechaFin",              $("#txtFechaFin").val());
             }
-
+            $("#openDialogPromotion").trigger("click");
         });
 
     });
