@@ -67,10 +67,10 @@
 <!--                  <div class="info-box-content">-->
 <!--                    <span class="info-box-text">Promotions</span>-->
 <!--                    <span class="info-box-number"></span>-->
-<!--                  </div><!-- /.info-box-content -->-->
-<!--                </div><!-- /.info-box -->-->
+<!--                  </div>-->
+<!--                </div>-->
 <!--              </a>-->
-<!--            </div><!-- /.col -->-->
+<!--            </div>-->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <a class="link-shorcut" href="<?php echo $modulo->url_main_panel; ?>/category">
                 <div class="info-box">
