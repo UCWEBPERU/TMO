@@ -331,6 +331,16 @@
             $("#openDialogPromotion").trigger("click");
         });
 
+        //Date picker
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true
+        });
+
+        $('.datepicker').on("keypress", function(event){
+            event.preventDefault();
+        });
+
         GenericModal.config("#genericModal", "");
 
         var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboCategoria", "#cboTienda"];
