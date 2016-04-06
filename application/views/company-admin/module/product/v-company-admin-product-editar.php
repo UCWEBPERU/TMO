@@ -138,7 +138,7 @@
                                             <label for="txtStockProducto">Promocion</label>&nbsp;
                                             <button id="openDialogPromotion" type='button' class="button-effect-1 hide" data-toggle="modal" href="#responsive">Editar Promocion</button>
                                             <label>
-                                                <input type="checkbox" class="flat-blue">
+                                                <input type="checkbox" class="flat-blue" checked disabled>
                                             </label>
                                         </div><!-- /.form-group -->
 
@@ -293,8 +293,7 @@
             checkboxClass: 'icheckbox_flat-blue'
         });
 
-        $('input[type="checkbox"].flat-blue').on('ifToggled', function(event){
-            event.preventDefault();
+        $('input[type="checkbox"].flat-blue').on('ifClicked', function(event){
             $("#openDialogPromotion").trigger("click");
         });
 
