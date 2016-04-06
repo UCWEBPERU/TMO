@@ -123,9 +123,9 @@
 		loop: true,
 		longSwipes: false,
 		onSlideChangeStart:  function(swiper) {
-			$('html, body').animate({
-				scrollTop: $("#swMainPanel").offset().top
-			}, 2000);
+			$('#swMainPanel').animate({
+				scrollTop: 0
+			}, 0);
 		}
 	});
 
