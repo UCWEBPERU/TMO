@@ -653,6 +653,7 @@
             evt.preventDefault();
 
             if ( ValidateInputFormWithParsley.validate(selectorInputsFormPromocion)) {
+                $("#openDialogPromotion").trigger("click");
                 waitingDialog.show('Guardando Promocion...');
 
                 formDataPromocion.append("id_oferta",                $("#id_oferta").val());
