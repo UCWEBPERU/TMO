@@ -108,6 +108,9 @@
 		spaceBetween: 0,
 		loop: true,
 		slideToClickedSlide: true,
+		onSlideChangeStart:  function() {
+			console.log($(swiper));
+		},
 		onSlideChangeEnd: function(swiper){
 			for (var c = 0; c < swiper.slides.length; c++) {
 				$(swiper.slides[c]).css({"color": "#959595"});
