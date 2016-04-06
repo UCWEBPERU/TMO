@@ -293,9 +293,9 @@
             checkboxClass: 'icheckbox_flat-blue'
         });
 
-        $('input[type="checkbox"].flat-blue').on('ifToggled', function(event){
+        $('input[type="checkbox"].flat-blue').on('ifClicked', function(event){
             $("#openDialogPromotion").trigger("click");
-            if ($('input[type="checkbox"].flat-blue').is(':checked')) {
+            if (this).is(':checked')) {
                 $(this).iCheck('uncheck');
             } else {
                 $(this).iCheck('check');
