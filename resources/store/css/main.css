@@ -688,6 +688,7 @@ body {
 	-ms-flex-align: center;
 	-webkit-align-items: center;
 	align-items: center;
+	white-space: nowrap;
 }
 #swMainPanel .swiper-slide{
 	overflow-y: auto;
