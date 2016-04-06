@@ -103,7 +103,7 @@
 <!-- Initialize Swiper -->
 <script>
 	var swMainMenu = new Swiper('#swMainMenu', {
-		slidesPerView: 'auto',
+		slidesPerView: 4,
 		centeredSlides: true,
 		spaceBetween: 20,
 		loop: true,
