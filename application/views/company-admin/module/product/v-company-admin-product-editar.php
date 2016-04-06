@@ -297,10 +297,10 @@
             $("#openDialogPromotion").trigger("click");
             if ($(this).is(':checked')) {
                 console.log("CHECKED");
-                $(this).iCheck('check');
+                $('input[type="checkbox"].flat-blue').iCheck('check');
             } else {
                 console.log("UNCHECKED");
-                $(this).iCheck('uncheck');
+                $('input[type="checkbox"].flat-blue').iCheck('uncheck');
             }
         });
 
