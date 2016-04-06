@@ -686,17 +686,19 @@ body {
 	-webkit-align-items: center;
 	align-items: center;
 	white-space: nowrap;
-	/*margin: 0 10px;*/
 }
+
 #swMainPanel .swiper-slide{
 	overflow-y: auto;
 }
+
 .item-list, .item-product-row {
 	width: 100%;
 	height: 106px;
 	background-color: #ffffff;
 
 }
+
 .item-product-row {
 	transition: all .5s ease-in-out;
 	-webkit-transition: all .5s ease-in-out;
