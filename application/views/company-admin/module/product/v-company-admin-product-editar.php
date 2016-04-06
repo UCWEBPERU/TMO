@@ -294,12 +294,12 @@
         });
 
         $('input[type="checkbox"].flat-blue').on('ifToggled', function(event){
-            if ($(this).is(':checked')) {
-                $(this).iCheck('uncheck');
-            } else {
-                $(this).iCheck('check');
-            }
             $("#openDialogPromotion").trigger("click");
+            if ($('input[type="checkbox"].flat-blue').is(':checked')) {
+                $('input[type="checkbox"].flat-blue').iCheck('uncheck');
+            } else {
+                $('input[type="checkbox"].flat-blue').iCheck('check');
+            }
         });
 
         GenericModal.config("#genericModal", "");
