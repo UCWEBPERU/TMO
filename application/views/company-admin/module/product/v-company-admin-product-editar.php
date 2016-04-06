@@ -291,7 +291,7 @@
         $(".select2").select2();
 
         //Flat blue color scheme for iCheck
-        $('input[type="checkbox"].flat-blue).iCheck({
+        $('input[type="checkbox"].flat-blue').iCheck({
             checkboxClass: 'icheckbox_flat-blue'
         });
 
