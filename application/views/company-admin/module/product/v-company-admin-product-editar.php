@@ -651,7 +651,6 @@
 
         $("#btnGuardarPromocion").on("click", function(evt) {
             evt.preventDefault();
-
             if ( ValidateInputFormWithParsley.validate(selectorInputsFormPromocion)) {
                 $("#openDialogPromotion").trigger("click");
                 waitingDialog.show('Guardando Promocion...');
@@ -687,6 +686,7 @@
                     GenericModal.show("danger", "<p>" + textStatus + "</p>");
                 });
             }
+            $(".icheckbox_flat-blue").addClass("checked");
         });
 
         $("#btnEliminarPromocion").on("click", function(evt) {
