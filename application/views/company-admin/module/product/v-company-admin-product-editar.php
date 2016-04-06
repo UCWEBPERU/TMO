@@ -633,6 +633,17 @@
             );
         });
 
+        $("#btnAgregarPromocion").on("click", function(event) {
+
+            if ( ValidateInputFormWithParsley.validate(selectorInputsFormPromocion)) {
+                formDataProduct.append("txtPrecioPromocion",       $("#txtPrecioPromocion").val());
+                formDataProduct.append("txtDescripcionPromocion",  $("#txtDescripcionPromocion").val());
+                formDataProduct.append("txtFechaInicio",           $("#txtFechaInicio").val());
+                formDataProduct.append("txtFechaFin",              $("#txtFechaFin").val());
+            }
+
+        });
+
         $("#btnGuardarPromocion").on("click", function(evt) {
             evt.preventDefault();
 

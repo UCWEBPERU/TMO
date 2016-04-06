@@ -447,6 +447,17 @@ class C_CompanyAdmin_Product extends CI_Controller {
                     }
                 }
 
+                $dataProduct = $this->M_CompanyAdmin_Product->getProductByID(
+                    array(
+                        'id_empresa'    => $this->session->id_empresa,
+                        'id_producto'   => $resultIDProducto,
+                    )
+                );
+
+                if ($dataProduct[0]->id_oferta == NULL) {
+                    $this->addPromotion(trim($this->input->post("id_product", TRUE)));
+                }
+
                 $json->message = "El producto se guardo correctamente.";
                 $json->status = TRUE;
             } else {
