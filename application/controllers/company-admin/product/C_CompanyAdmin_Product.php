@@ -96,6 +96,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
     public function editProduct($id_producto) {
         $this->load->model('company-admin/M_CompanyAdmin_Categorias');
+        $this->load->model('company-admin/M_CompanyAdmin_Promotion');
 
         $modulo                     = $this->paneladmin->loadPanelCompany();
         $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Editar Producto";
@@ -153,6 +154,20 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
                 $modulo->data_categoria_producto = $categoria;
             }
+
+            $dataPromocion = $this->M_CompanyAdmin_Promotion->getProductByPromotion(
+                array(
+                    "id_empresa"    => $this->session->id_empresa,
+                    "id_oferta"     => $datosProducto[0]->id_oferta
+                )
+            );
+
+            if (sizeof($dataPromocion) > 0) {
+                $modulo->existe_promocion = TRUE;
+
+                $modulo->data_promocion = $dataPromocion[0];
+            }
+
         } else {
             $modulo->existe_producto = FALSE;
         }
@@ -258,6 +273,8 @@ class C_CompanyAdmin_Product extends CI_Controller {
                             }
                         }
 
+                        $this->addPromotion($resultIDProducto);
+
                         $json->message = "El producto se agrego correctamente.";
                         $json->status = TRUE;
                     } else {
@@ -276,6 +293,41 @@ class C_CompanyAdmin_Product extends CI_Controller {
         }
 
         echo json_encode($json);
+    }
+
+    public function addPromotion($idProducto) {
+        $this->load->model('company-admin/M_CompanyAdmin_Promotion');
+        if ($this->input->post("txtPrecioPromocion") &&
+            $this->input->post("txtFechaInicio") &&
+            $this->input->post("txtFechaFin")) {
+
+            $resultIDPromocion = $this->M_CompanyAdmin_Promotion->insertPromotion(
+                array(
+                    'precio_oferta'         => trim($this->input->post("txtPrecioPromocion", TRUE)),
+                    'fecha_inicio'          => trim($this->input->post("txtFechaInicio", TRUE)),
+                    'fecha_fin'             => trim($this->input->post("txtFechaFin", TRUE)),
+                    'descripcion_oferta'    => trim($this->input->post("txtDescripcionPromocion", TRUE))
+                )
+            );
+
+            if (is_int($resultIDPromocion)) {
+
+                $result = $this->M_CompanyAdmin_Promotion->updatePromotionOnProduct(
+                    array(
+                        'id_oferta'     => $resultIDPromocion,
+                        'id_producto'   => $idProducto
+                    )
+                );
+
+//                $json->message = "La promocion se agrego correctamente.";
+//                $json->status = TRUE;
+            } else {
+//                $json->message = "Ocurrio un error al agregar la promocion, intente de nuevo.";
+            }
+
+        } else {
+//            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
     }
 
     public function ajaxEditProduct() {

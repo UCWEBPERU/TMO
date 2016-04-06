@@ -138,7 +138,11 @@
                                             <label for="txtStockProducto">Promocion</label>&nbsp;
                                             <button id="openDialogPromotion" type='button' class="button-effect-1 hide" data-toggle="modal" href="#responsive">Editar Promocion</button>
                                             <label>
-                                                <input type="checkbox" class="flat-blue">
+                                                <?php if ($modulo->existe_promocion) { ?>
+                                                    <input type="checkbox" class="flat-blue" checked>
+                                                <?php } else { ?>
+                                                    <input type="checkbox" class="flat-blue">
+                                                <?php } ?>
                                             </label>
                                         </div><!-- /.form-group -->
 
@@ -232,6 +236,7 @@
     <?php $this->load->view('template/main-panel/footer'); ?>
 </div><!-- ./wrapper -->
 <?php $this->load->view('template/main-panel/modal-admin'); ?>
+
 <div class="example-modal">
     <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;" role="dialog">
         <div class="modal-dialog">
@@ -243,33 +248,54 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
+                            <?php if ($modulo->existe_promocion) { ?>
+                                <input type="hidden" id="id_oferta" name="id_oferta" value="<?php echo $modulo->data_promocion->id_oferta; ?>">
+                            <?php } ?>
                             <div class="form-group">
                                 <label for="txtPrecioPromocion">Precio</label>
-                                <input type="text" class="form-control" id="txtPrecioPromocion" name="txtPrecioPromocion" data-parsley-required data-parsley-required-message="Ingrese el precio de promocion.">
+                                <?php if ($modulo->existe_promocion) { ?>
+                                    <input type="text" class="form-control" id="txtPrecioPromocion" name="txtPrecioPromocion" value="<?php echo $modulo->data_promocion->precio_oferta; ?>" data-parsley-required data-parsley-required-message="Ingrese el precio de promocion.">
+                                <?php } else { ?>
+                                    <input type="text" class="form-control" id="txtPrecioPromocion" name="txtPrecioPromocion" data-parsley-required data-parsley-required-message="Ingrese el precio de promocion.">
+                                <?php } ?>
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label for="txtDescripcionPromocion">Descripcion</label>
-                                <textarea class="form-control" id="txtDescripcionPromocion" name="txtDescripcionPromocion" cols="30" rows="5" data-parsley-required-message="Ingrese la descripcion de la promocion."></textarea>
+                                <?php if ($modulo->existe_promocion) { ?>
+                                    <textarea class="form-control" id="txtDescripcionPromocion" name="txtDescripcionPromocion" cols="30" rows="5" data-parsley-required-message="Ingrese la descripcion de la promocion."><?php echo $modulo->data_promocion->descripcion_oferta; ?></textarea>
+                                <?php } else { ?>
+                                    <textarea class="form-control" id="txtDescripcionPromocion" name="txtDescripcionPromocion" cols="30" rows="5" data-parsley-required-message="Ingrese la descripcion de la promocion."></textarea>
+                                <?php } ?>
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label for="txtFechaInicio">Fecha Inicio</label>
-                                <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                                <?php if ($modulo->existe_promocion) { ?>
+                                    <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" value="<?php $date = new DateTime($modulo->data_promocion->fecha_inicio); echo date_format($date, "Y-m-d"); ?>" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                                <?php } else { ?>
+                                    <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                                <?php } ?>
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label for="txtFechaFin">Fecha Fin</label>
-                                <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                                <?php if ($modulo->existe_promocion) { ?>
+                                    <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" value="<?php $date = new DateTime($modulo->data_promocion->fecha_fin); echo date_format($date, "Y-m-d"); ?>" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                                <?php } else { ?>
+                                    <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                                <?php } ?>
                             </div><!-- /.form-group -->
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button id="btnGuardarPromocion" type="button" class="btn btn-primary">Guardar</button>
+                    <button id="btnEliminarPromocion" type="button" class="btn btn-primary">Eliminar</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 </div><!-- /.example-modal -->
+
 <?php $this->load->view('template/main-panel/scripts-footer'); ?>
 <!-- Parsley -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
@@ -281,6 +307,10 @@
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
 <!-- iCheck for checkboxes and radio inputs -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/icheck.min.js"></script>
+<!-- Sweet Alert -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>datepicker/bootstrap-datepicker.js"></script>
 <script>
 
     $(function () {
@@ -295,21 +325,16 @@
 
         $('input[type="checkbox"].flat-blue').on('ifClicked', function(event){
             $("#openDialogPromotion").trigger("click");
-            if ($(this).is(':checked')) {
-                console.log("CHECKED");
-                $('input[type="checkbox"].flat-blue').iCheck('check');
-            } else {
-                console.log("UNCHECKED");
-                $('input[type="checkbox"].flat-blue').iCheck('uncheck');
-            }
         });
 
         GenericModal.config("#genericModal", "");
 
         var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboCategoria", "#cboTienda"];
+        var selectorInputsFormPromocion = ["#txtPrecioPromocion", "#txtDescripcionPromocion", "#txtFechaInicio", "#txtFechaFin"];
         var listFileImageProducts = [];
         var listModifiers = [];
         var formDataProduct = new FormData();
+        var formDataPromocion = new FormData();
         var objFile = {};
         var objModifier = {};
         var contadorImagenes = 0;
@@ -607,6 +632,92 @@
                 }
             );
         });
+
+        $("#btnGuardarPromocion").on("click", function(evt) {
+            evt.preventDefault();
+
+            if ( ValidateInputFormWithParsley.validate(selectorInputsFormPromocion)) {
+                waitingDialog.show('Guardando Promocion...');
+
+                formDataPromocion.append("id_oferta",                $("#id_oferta").val());
+                formDataPromocion.append("cboProducto",              $("#id_producto").val());
+                formDataPromocion.append("txtPrecioPromocion",       $("#txtPrecioPromocion").val());
+                formDataPromocion.append("txtDescripcionPromocion",  $("#txtDescripcionPromocion").val());
+                formDataPromocion.append("txtFechaInicio",           $("#txtFechaInicio").val());
+                formDataPromocion.append("txtFechaFin",              $("#txtFechaFin").val());
+
+                var request = $.ajax({
+                    url: "<?php echo $modulo->url_module_panel."/ajax/editPromotion"; ?>",
+                    method: "POST",
+                    data: formDataPromocion,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false
+                });
+
+                request.done(function( response ) {
+                    waitingDialog.hide();
+                    formDataPromocion = new FormData();
+                    if (response.status) {
+                        GenericModal.show("default", "<p>" + response.message + "</p>");
+                    } else {
+                        GenericModal.show("danger", "<p>" + response.message + "</p>");
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    formDataPromocion = new FormData();
+                    GenericModal.show("danger", "<p>" + textStatus + "</p>");
+                });
+            }
+        });
+
+        $("#btnEliminarPromocion").on("click", function(evt) {
+            evt.preventDefault();
+
+            formDataPromocion.append("id_oferta",   $("#id_oferta").val());
+            formDataPromocion.append("id_producto", $("#id_producto").val());
+
+            swal({
+                    title: "Eliminar Promocion",
+                    text: "¿Seguro que desea eliminar la promocion?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#fc0836",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false,
+                    showLoaderOnConfirm: true
+                },
+                function() {
+                    var request = $.ajax({
+                        url: "<?php echo $modulo->url_module_panel."/ajax/deletePromotion"; ?>",
+                        method: "POST",
+                        data: formDataPromocion,
+                        dataType: "json",
+                        processData: false,
+                        contentType: false
+                    });
+
+                    request.done(function( response ) {
+                        waitingDialog.hide();
+                        formDataPromocion = new FormData();
+                        if (response.status) {
+                            swal("Eliminado!", response.message, "success");
+                        } else {
+                            swal("Error", response.message, "error");
+                        }
+                    });
+
+                    request.fail(function( jqXHR, textStatus ) {
+                        waitingDialog.hide();
+                        formDataPromocion = new FormData();
+                        swal("Error", textStatus, "error");
+                    });
+                }
+            );
+
+        });
+
     });
 </script>
 </body>
