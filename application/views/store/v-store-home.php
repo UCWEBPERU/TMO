@@ -63,7 +63,7 @@
 	</div>
 </div>
 <div id="menuApp">
-	<div id="changeStyleProduct" class="menu-item">
+	<div class="menu-item">
 		<a class="active" href="<?php echo $modulo->base_url_store; ?>">
 			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
 			<div>PRODUCTS</div>

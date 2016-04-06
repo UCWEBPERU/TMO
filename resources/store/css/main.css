@@ -663,6 +663,15 @@ body {
 #menuApp a.active{
 	text-decoration: underline;
 }
+
+#menuApp a:nth-child(1) > img {
+	background: url("resources/store/img/icon_menu_inactive_products.png");
+}
+
+#menuApp a:nth-child(2) > img {
+	background: url("resources/store/img/icon_menu_inactive_promotion.png");
+}
+
 #swMainMenu .swiper-slide {
 	text-align: center;
 	font-size: 22px;
