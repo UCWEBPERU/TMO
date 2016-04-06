@@ -147,6 +147,27 @@
 
 <!-- Initialize Swiper -->
 <script>
+    $(document).ready(function() {
+        $('.fancybox').fancybox({
+            padding         : 0,
+            margin          : 0,
+            openEffect      : 'fade',
+            openSpeed       : 150,
+            closeEffect     : 'fade',
+            closeBtn		: false,
+            prevEffect		: 'none',
+            nextEffect		: 'none',
+            closeSpeed      : 150,
+            closeClick      : true,
+            helpers	        : {
+                thumbs	: {
+                    width	: 50,
+                    height	: 50
+                }
+            }
+
+        });
+    });
     var swGalleryProduct = new Swiper('#swGalleryProduct', {
         pagination: '.swiper-pagination',
         grabCursor: true,
