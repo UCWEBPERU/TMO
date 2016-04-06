@@ -239,25 +239,23 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h4>Some Input</h4>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Some More Input</h4>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
-                            <p><input class="form-control" type="text"></p>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtPrecioPromocion">Precio</label>
+                                <input type="text" class="form-control" id="txtPrecioPromocion" name="txtPrecioPromocion" data-parsley-required data-parsley-required-message="Ingrese el precio de promocion.">
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="txtDescripcionPromocion">Descripcion</label>
+                                <textarea class="form-control" id="txtDescripcionPromocion" name="txtDescripcionPromocion" cols="30" rows="5" data-parsley-required-message="Ingrese la descripcion de la promocion."></textarea>
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="txtFechaInicio">Fecha Inicio</label>
+                                <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="txtFechaFin">Fecha Fin</label>
+                                <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                            </div><!-- /.form-group -->
                         </div>
                     </div>
                 </div>
