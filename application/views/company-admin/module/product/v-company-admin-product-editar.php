@@ -296,10 +296,11 @@
         $('input[type="checkbox"].flat-blue').on('ifClicked', function(event){
             $("#openDialogPromotion").trigger("click");
             if ($(this).is(':checked')) {
-                $(this).iCheck('check');
+                console.log("CHECKED");
             } else {
-                $(this).iCheck('uncheck');
+                console.log("UNCHECKED");
             }
+            $(this).iCheck('uncheck');
         });
 
         GenericModal.config("#genericModal", "");
