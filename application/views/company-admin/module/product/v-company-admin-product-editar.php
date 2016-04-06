@@ -293,12 +293,9 @@
             checkboxClass: 'icheckbox_flat-blue'
         });
 
-        $('input[type="checkbox"].flat-blue').on('click', function(event){
-            event.preventDefault();
-        });
-
         $('input[type="checkbox"].flat-blue').on('ifClicked', function(event){
             $("#openDialogPromotion").trigger("click");
+            return false;
         });
 
         GenericModal.config("#genericModal", "");
