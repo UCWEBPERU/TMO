@@ -135,11 +135,10 @@
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group">
-                                            <label for="txtStockProducto">Promocion</label>
+                                            <label for="txtStockProducto">Promocion</label>&nbsp;
 <!--                                            <button type='button' class="button-effect-1" data-toggle="modal" href="#responsive">Editar Promocion</button>-->
                                             <label>
-                                                <input type="checkbox" class="flat-blue" data-toggle="modal" href="#responsive" >
-                                                Editar promocion
+                                                <input type="checkbox" class="flat-blue" data-toggle="modal" href="#responsive">
                                             </label>
                                         </div><!-- /.form-group -->
 
