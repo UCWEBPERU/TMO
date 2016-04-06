@@ -17,7 +17,7 @@
         <section class="content-header">
             <h1>
                 Categoria:
-                <?php if (sizeof($modulo->data_categorias) > 0) { ?>
+                <?php if (sizeof($modulo->data_categoria_superior) > 0) { ?>
                     <?php echo $modulo->data_categoria_superior[0]->nombre_categoria; ?>
                     <small><a href="<?php echo $modulo->url_module_panel; ?>/add?catup=<?php echo intval($modulo->data_categoria_superior[0]->id_categoria); ?>">Agregar</a></small>
                     <?php if (intval($modulo->data_categoria_superior[0]->id_categoria_superior) != 0) { ?>
