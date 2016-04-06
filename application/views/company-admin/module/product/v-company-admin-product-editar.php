@@ -136,9 +136,9 @@
 
                                         <div class="form-group">
                                             <label for="txtStockProducto">Promocion</label>&nbsp;
-<!--                                            <button type='button' class="button-effect-1" data-toggle="modal" href="#responsive">Editar Promocion</button>-->
+                                            <button id="openDialogPromotion" type='button' class="button-effect-1 hide" data-toggle="modal" href="#responsive">Editar Promocion</button>
                                             <label>
-                                                <input type="checkbox" class="flat-blue" data-toggle="modal" href="#responsive">
+                                                <input type="checkbox" class="flat-blue">
                                             </label>
                                         </div><!-- /.form-group -->
 
@@ -291,6 +291,11 @@
         //Flat blue color scheme for iCheck
         $('input[type="checkbox"].flat-blue').iCheck({
             checkboxClass: 'icheckbox_flat-blue'
+        });
+
+        $('input[type="checkbox"].flat-blue').on('ifChecked', function(event){
+            event.preventDefault();
+            $("#openDialogPromotion").trigger("click");
         });
 
         GenericModal.config("#genericModal", "");
