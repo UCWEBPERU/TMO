@@ -282,7 +282,7 @@
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/all.css">
-<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/iCheck.js"></script>
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/icheck.min.js"></script>
 <script>
 
     $(function () {
