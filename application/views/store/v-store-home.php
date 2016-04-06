@@ -109,7 +109,7 @@
 		loop: true,
 		slideToClickedSlide: true,
 		onSlideChangeStart:  function(swiper) {
-			console.log($(swiper));
+			console.log($(swiper.slides[swiper.activeIndex]));
 		},
 		onSlideChangeEnd: function(swiper){
 			for (var c = 0; c < swiper.slides.length; c++) {
