@@ -296,9 +296,9 @@
         $('input[type="checkbox"].flat-blue').on('ifToggled', function(event){
             $("#openDialogPromotion").trigger("click");
             if ($('input[type="checkbox"].flat-blue').is(':checked')) {
-                $(event).iCheck('uncheck');
+                $(this).iCheck('uncheck');
             } else {
-                $(event).iCheck('check');
+                $(this).iCheck('check');
             }
         });
 
