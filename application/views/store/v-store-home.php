@@ -123,7 +123,7 @@
 		loop: true,
 		longSwipes: false,
 		onSlideChangeStart:  function(swiper) {
-			$("#swMainPanel").scrollTop(0);
+			$("#swMainPanel").scrollTo(0);
 		}
 	});
 
