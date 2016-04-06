@@ -169,76 +169,76 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         if ( $this->input->post("txtNombreCategoria") ) {
             $capitalizeCategoryName = ucwords(strtolower(trim($this->input->post("txtNombreCategoria", TRUE))));
 
-            $result = $this->M_CompanyAdmin_Categorias->getCategorysByName(
+//            $result = $this->M_CompanyAdmin_Categorias->getCategorysByName(
+//                array(
+//                    "id_empresa" => $this->session->id_empresa,
+//                    "nombre_categoria" => $capitalizeCategoryName
+//                )
+//            );
+//
+//            if (sizeof($result) == 0) {
+            $nivelCategoria = 1;
+
+            $existeCategoriaSuperior = false;
+
+            $categoriaSuperior = $this->M_CompanyAdmin_Categorias->getCategoryByID(
                 array(
                     "id_empresa" => $this->session->id_empresa,
-                    "nombre_categoria" => $capitalizeCategoryName
+                    "id_categoria" => trim($this->input->post("cboCategoriaSuperior", TRUE))
                 )
             );
 
-            if (sizeof($result) == 0) {
-                $nivelCategoria = 1;
+            if (sizeof($categoriaSuperior) > 0) {
+                $existeCategoriaSuperior = true;
+                $nivelCategoria = intval($categoriaSuperior[0]->nivel_categoria) + 1;
+            }
 
-                $existeCategoriaSuperior = false;
+            if (!$this->input->post("cboCategoriaSuperior") || $existeCategoriaSuperior) {
+                unset($result);
+                $idCategoria = $this->M_CompanyAdmin_Categorias->insertCategory(
+                    array(
+                        'id_categoria_superior'  => $this->input->post("cboCategoriaSuperior") ? trim($this->input->post("cboCategoriaSuperior", TRUE)) : NULL,
+                        'id_empresa'             => $this->session->id_empresa,
+                        'nombre_categoria'       => $capitalizeCategoryName,
+                        'nivel_categoria'        => $nivelCategoria
+                    )
+                );
 
-                $categoriaSuperior = $this->M_CompanyAdmin_Categorias->getCategoryByID(
-                        array(
-                            "id_empresa" => $this->session->id_empresa,
-                            "id_categoria" => trim($this->input->post("cboCategoriaSuperior", TRUE))
-                        )
-                    );
-
-                if (sizeof($categoriaSuperior) > 0) {
-                    $existeCategoriaSuperior = true;
-                    $nivelCategoria = intval($categoriaSuperior[0]->nivel_categoria) + 1;
+                if ( $this->uploadfile->validateFile("imgCategory") ) {
+                    $path = "uploads/company/".$this->session->id_empresa."/categories/".$idCategoria."/logo/";
+                    $path = $this->uploadfile->upload("imgCategory", "logo", $path);
+                } else {
+                    $path = base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png";
                 }
 
-                if (!$this->input->post("cboCategoriaSuperior") || $existeCategoriaSuperior) {
-                    unset($result);
-                    $idCategoria = $this->M_CompanyAdmin_Categorias->insertCategory(
-                        array(
-                            'id_categoria_superior'  => $this->input->post("cboCategoriaSuperior") ? trim($this->input->post("cboCategoriaSuperior", TRUE)) : NULL,
-                            'id_empresa'             => $this->session->id_empresa,
-                            'nombre_categoria'       => $capitalizeCategoryName,
-                            'nivel_categoria'        => $nivelCategoria
-                        )
-                    );
+                $idArchivo = $this->M_Archivo->insert(
+                    array(
+                        "url_archivo"       => $path,
+                        'tipo_archivo'		=> "image/png",
+                        'relacion_recurso'	=> "logo",
+                        'nombre_archivo'	=> ""
+                    )
+                );
 
-                    if ( $this->uploadfile->validateFile("imgCategory") ) {
-                        $path = "uploads/company/".$this->session->id_empresa."/categories/".$idCategoria."/logo/";
-                        $path = $this->uploadfile->upload("imgCategory", "logo", $path);
-                    } else {
-                        $path = base_url().PATH_RESOURCE_ADMIN."img/image_not_found.png";
-                    }
+                $result = $this->M_CompanyAdmin_Categorias->insertIdImageCategory(
+                    array(
+                        "id_categoria"        => $idCategoria,
+                        'id_imagen_categoria' => $idArchivo
+                    )
+                );
 
-                    $idArchivo = $this->M_Archivo->insert(
-                        array(
-                            "url_archivo"       => $path,
-                            'tipo_archivo'		=> "image/png",
-                            'relacion_recurso'	=> "logo",
-                            'nombre_archivo'	=> ""
-                        )
-                    );
-
-                    $result = $this->M_CompanyAdmin_Categorias->insertIdImageCategory(
-                        array(
-                            "id_categoria"        => $idCategoria,
-                            'id_imagen_categoria' => $idArchivo
-                        )
-                    );
-
-                    if (is_int($idCategoria)) {
-                        $json->message = "La categoria se agrego correctamente.";
-                        $json->status = TRUE;
-                    } else {
-                        $json->message = "Ocurrio un error al grabar la categoria, intente de nuevo.";
-                    }
+                if (is_int($idCategoria)) {
+                    $json->message = "La categoria se agrego correctamente.";
+                    $json->status = TRUE;
                 } else {
-                    $json->message = "La categoria superior que selecciono no existe, intente de nuevo.";
+                    $json->message = "Ocurrio un error al grabar la categoria, intente de nuevo.";
                 }
             } else {
-                $json->message = "La categoria que quiere agregar ya existe, intente de nuevo.";
+                $json->message = "La categoria superior que selecciono no existe, intente de nuevo.";
             }
+//            } else {
+//                $json->message = "La categoria que quiere agregar ya existe, intente de nuevo.";
+//            }
 
         } else {
             $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";

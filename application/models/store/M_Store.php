@@ -96,7 +96,7 @@ class M_Store extends CI_Model {
 //        $this->db->where('Producto.id_oferta', NULL);
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
-        $this->db->order_by('Producto.nombre_producto', 'asc');
+//        $this->db->order_by('Producto.nombre_producto', 'asc');
         $query = $this->db->get('Producto');
 
         return $query->result();
@@ -120,7 +120,7 @@ class M_Store extends CI_Model {
         $this->db->where('Producto.id_oferta', NULL);
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
-        $this->db->order_by('Producto.nombre_producto', 'asc');
+//        $this->db->order_by('Producto.nombre_producto', 'asc');
         $query = $this->db->get('Producto');
         return $query->result();
     }
@@ -191,7 +191,7 @@ class M_Store extends CI_Model {
         $this->db->where('Producto.estado', '1');
         $this->db->where('Oferta.estado', '1');
         $this->db->where("NOW() BETWEEN Oferta.fecha_inicio AND Oferta.fecha_fin");
-        $this->db->order_by('Producto.nombre_producto', 'asc');
+//        $this->db->order_by('Producto.nombre_producto', 'asc');
         $query = $this->db->get('Producto');
 
         return $query->result();
@@ -266,7 +266,7 @@ class M_Store extends CI_Model {
         $this->db->where('Modificador_Productos.estado', '1');
         $this->db->where('Detalle_Modificador_Productos.estado', '1');
         $this->db->order_by('Modificador_Productos.tipo_modificador', 'asc');
-        $this->db->order_by('Detalle_Modificador_Productos.descripcion_modificador', 'asc');
+//        $this->db->order_by('Detalle_Modificador_Productos.descripcion_modificador', 'asc');
         $this->db->group_by('Detalle_Modificador_Productos.descripcion_modificador');
         $query = $this->db->get('Detalle_Modificador_Productos');
         return $query->result();
@@ -286,7 +286,6 @@ class M_Store extends CI_Model {
         $this->db->where('Modificador_Productos.estado', '1');
         $this->db->where('Detalle_Modificador_Productos.estado', '1');
         $this->db->order_by('Modificador_Productos.tipo_modificador', 'asc');
-        $this->db->order_by('Detalle_Modificador_Productos.descripcion_modificador', 'asc');
         $this->db->group_by('Detalle_Modificador_Productos.descripcion_modificador');
         $query = $this->db->get('Detalle_Modificador_Productos');
         return $query->result();
