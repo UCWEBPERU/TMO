@@ -672,9 +672,6 @@ body {
 	font-size: 22px;
 	background: #333333;
 	color: #959595;
-	/*width: 100px;*/
-	/*width: auto;*/
-	/*padding: 0px 10px;*/
 	/* Center slide text vertically */
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -689,6 +686,7 @@ body {
 	-webkit-align-items: center;
 	align-items: center;
 	white-space: nowrap;
+	margin: 0 10px;
 }
 #swMainPanel .swiper-slide{
 	overflow-y: auto;
