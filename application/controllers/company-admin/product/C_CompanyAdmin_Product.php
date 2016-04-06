@@ -170,6 +170,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         } else {
             $modulo->existe_producto = FALSE;
+            $modulo->existe_promocion = FALSE;
         }
 
         $data["modulo"] = $modulo;
