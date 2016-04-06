@@ -41,9 +41,17 @@
                                 <div class="form-group">
                                     <label>Categoria Superior</label>
                                     <select class="form-control select2" style="width: 100%;" id="cboCategoriaSuperior" name="cboCategoriaSuperior" disabled>
-                                        <option selected="selected" value="">Seleccione</option>
+                                        <?php if ($modulo->catup == 0) { ?>
+                                            <option selected="selected" value="">Seleccione</option>
+                                        <?php } else { ?>
+                                            <option value="">Seleccione</option>
+                                        <?php } ?>
                                         <?php foreach($modulo->data_categorias as $categoria): ?>
+                                            <?php if ($categoria->id_categoria == $modulo->catup) { ?>
+                                            <option selected="selected" value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                            <?php } else { ?>
                                             <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                            <?php } ?>
                                         <?php endforeach; ?>
                                     </select>
                                 </div><!-- /.form-group -->
@@ -103,8 +111,8 @@
 
             if (ValidateInputFormWithParsley.validate(selectorInputsForm)) {
                 waitingDialog.show('Guardando Categoria...');
-                formData.append("cboCategoriaSuperior", $("#cboCategoriaSuperior").val());
-                formData.append("txtNombreCategoria",   $("#txtNombreCategoria").val());
+                formData.append("cboCategoriaSuperior", <?php echo $modulo->catup; ?>);
+                formData.append("txtNombreCategoria", $("#txtNombreCategoria").val());
                 var request = $.ajax({
                     url: "<?php echo $modulo->url_module_panel."/ajax/addCategory"; ?>",
                     method: "POST",

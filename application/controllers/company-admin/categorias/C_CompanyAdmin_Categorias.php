@@ -94,6 +94,8 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $modulo->titulo_pagina = $modulo->datos_empresa->organization." | Panel Administrativo - Agregar Categoria";
         $modulo->url_module_panel = $modulo->url_main_panel."/category";
 
+        $modulo->catup = $this->input->get("catup") ? intval($this->input->get("catup")) : 0;
+
         $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
         $modulo->data_categorias = $datosCategorias;
 
