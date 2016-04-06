@@ -115,6 +115,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         if (sizeof($datosProducto) > 0) {
             $modulo->existe_producto = TRUE;
+            $modulo->existe_promocion = FALSE;
 
             $modulo->data_producto = $datosProducto[0];
 
@@ -170,7 +171,6 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         } else {
             $modulo->existe_producto = FALSE;
-            $modulo->existe_promocion = FALSE;
         }
 
         $data["modulo"] = $modulo;
