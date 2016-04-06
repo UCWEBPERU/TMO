@@ -297,10 +297,11 @@
             $("#openDialogPromotion").trigger("click");
             if ($(this).is(':checked')) {
                 console.log("CHECKED");
+                $(this).iCheck('check');
             } else {
                 console.log("UNCHECKED");
+                $(this).iCheck('uncheck');
             }
-            $(this).iCheck('uncheck');
         });
 
         GenericModal.config("#genericModal", "");
