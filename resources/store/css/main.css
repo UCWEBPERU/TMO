@@ -661,6 +661,10 @@ body {
 	text-decoration: none;
 }
 
+#menuApp a.active > div{
+	color: #7a7a7a;
+}
+
 #swMainMenu .swiper-slide {
 	text-align: center;
 	font-size: 22px;

@@ -79,7 +79,7 @@
         </a>
     </div>
     <div class="menu-item">
-        <a href="<?php echo $modulo->base_url_store; ?>/account">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>/account">
             <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_active_account.png">
             <div>ACCOUNT</div>
         </a>
