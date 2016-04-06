@@ -123,8 +123,8 @@
 		loop: true,
 		longSwipes: false,
 		onSlideChangeStart:  function(swiper) {
-			console.log($(swiper.slides[swiper.activeIndex]));
-		},
+			$("#swMainPanel").scrollTop(0);
+		}
 	});
 
 	swMainMenu.params.control = swMainPanel;
