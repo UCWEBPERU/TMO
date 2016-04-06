@@ -136,7 +136,7 @@
 
                                         <div class="form-group">
                                             <label for="txtStockProducto">Promocion</label>
-                                            <button class="demo btn btn-primary btn-lg" data-toggle="modal" href="#responsive">View Demo</button>
+                                            <button type='button' class="demo btn btn-primary btn-lg" data-toggle="modal" href="#responsive">View Demo</button>
                                         </div><!-- /.form-group -->
 
                                     </div>
