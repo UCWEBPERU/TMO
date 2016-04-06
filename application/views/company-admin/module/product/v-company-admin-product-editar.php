@@ -288,8 +288,12 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
-                    <button id="btnGuardarPromocion" type="button" class="btn btn-primary">Guardar</button>
-                    <button id="btnEliminarPromocion" type="button" class="btn btn-primary">Eliminar</button>
+                    <?php if ($modulo->existe_promocion) { ?>
+                        <button id="btnGuardarPromocion" type="button" class="btn btn-primary">Guardar</button>
+                        <button id="btnEliminarPromocion" type="button" class="btn btn-primary">Eliminar</button>
+                    <?php } else { ?>
+                        <button id="btnAgregarPromocion" type="button" class="btn btn-primary">Aceptar</button>
+                    <?php } ?>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -640,7 +644,7 @@
                 formDataProduct.append("txtDescripcionPromocion",  $("#txtDescripcionPromocion").val());
                 formDataProduct.append("txtFechaInicio",           $("#txtFechaInicio").val());
                 formDataProduct.append("txtFechaFin",              $("#txtFechaFin").val());
-                $('.icheckbox_flat-blue').addClass("checked");
+                $("#openDialogPromotion").trigger("click");
             }
 
         });
