@@ -647,6 +647,7 @@ body {
 	position: relative;
 	font-size: 15px;
 	text-align: center;
+
 }
 
 #menuApp .menu-item img {
@@ -656,13 +657,13 @@ body {
 	margin-bottom: 1px;
 	display: block;
 }
-#menuApp a{
-	color: #333333;
+#menuApp a {
+	color: #7a7a7a;
 	text-decoration: none;
 }
 
-#menuApp a.active > div{
-	color: #7a7a7a;
+#menuApp a.active {
+	color: #333333;
 }
 
 #swMainMenu .swiper-slide {
