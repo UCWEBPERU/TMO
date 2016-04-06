@@ -701,7 +701,7 @@
 
         $("#btnEliminarPromocion").on("click", function(evt) {
             evt.preventDefault();
-
+            $("#openDialogPromotion").trigger("click");
             formDataPromocion.append("id_oferta",   $("#id_oferta").val());
             formDataPromocion.append("id_producto", $("#id_producto").val());
 
