@@ -108,9 +108,6 @@
 		spaceBetween: 0,
 		loop: true,
 		slideToClickedSlide: true,
-		onSlideChangeStart:  function(swiper) {
-			console.log($(swiper.slides[swiper.activeIndex]));
-		},
 		onSlideChangeEnd: function(swiper){
 			for (var c = 0; c < swiper.slides.length; c++) {
 				$(swiper.slides[c]).css({"color": "#959595"});
@@ -124,7 +121,10 @@
 		centeredSlides: true,
 		spaceBetween: 0,
 		loop: true,
-		longSwipes: false
+		longSwipes: false,
+		onSlideChangeStart:  function(swiper) {
+			console.log($(swiper.slides[swiper.activeIndex]));
+		},
 	});
 
 	swMainMenu.params.control = swMainPanel;
