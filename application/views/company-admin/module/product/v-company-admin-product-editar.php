@@ -640,6 +640,7 @@
                 formDataProduct.append("txtDescripcionPromocion",  $("#txtDescripcionPromocion").val());
                 formDataProduct.append("txtFechaInicio",           $("#txtFechaInicio").val());
                 formDataProduct.append("txtFechaFin",              $("#txtFechaFin").val());
+                $('.icheckbox_flat-blue').addClass("checked");
             }
 
         });
@@ -711,6 +712,7 @@
 
                     request.done(function( response ) {
                         waitingDialog.hide();
+                        $('.icheckbox_flat-blue').removeClass("checked");
                         formDataPromocion = new FormData();
                         if (response.status) {
                             swal("Eliminado!", response.message, "success");

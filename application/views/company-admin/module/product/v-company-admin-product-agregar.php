@@ -226,6 +226,7 @@
 
         $('input[type="checkbox"].flat-blue').on('ifClicked', function(event){
             $("#openDialogPromotion").trigger("click");
+            $('.icheckbox_flat-blue').removeClass("checked");
             $('input[type="checkbox"].flat-blue').iCheck("uncheck");
         });
 
@@ -466,6 +467,7 @@
                 formDataProduct.append("txtDescripcionPromocion",  $("#txtDescripcionPromocion").val());
                 formDataProduct.append("txtFechaInicio",           $("#txtFechaInicio").val());
                 formDataProduct.append("txtFechaFin",              $("#txtFechaFin").val());
+                $('.icheckbox_flat-blue').addClass("checked");
             }
 
         });
