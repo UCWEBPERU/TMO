@@ -188,7 +188,7 @@ $route['company/(:num)/admin/promotion/page/(:num)']                    = 'compa
 $route['company/(:num)/admin/promotion/add']                            = 'company-admin/promotion/C_CompanyAdmin_Promotion/addPromotion';
 $route['company/(:num)/admin/promotion/edit/(:num)']                    = 'company-admin/promotion/C_CompanyAdmin_Promotion/editPromotion/$2';
 $route['company/(:num)/admin/promotion/ajax/addPromotion']              = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxAddPromotion';
-$route['company/(:num)/admin/promotion/ajax/editPromotion']               = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxEditPromotion';
+$route['company/(:num)/admin/promotion/ajax/editPromotion']             = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxEditPromotion';
 $route['company/(:num)/admin/promotion/ajax/deletePromotion']           = 'company-admin/promotion/C_CompanyAdmin_Promotion/ajaxDeletePromotion';
 
 /*

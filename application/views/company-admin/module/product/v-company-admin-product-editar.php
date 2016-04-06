@@ -136,7 +136,11 @@
 
                                         <div class="form-group">
                                             <label for="txtStockProducto">Promocion</label>
-                                            <button type='button' class="demo btn btn-primary btn-lg" data-toggle="modal" href="#responsive">View Demo</button>
+<!--                                            <button type='button' class="button-effect-1" data-toggle="modal" href="#responsive">Editar Promocion</button>-->
+                                            <label>
+                                                <input type="checkbox" class="flat-blue" data-toggle="modal" href="#responsive" >
+                                                Editar promocion
+                                            </label>
                                         </div><!-- /.form-group -->
 
                                     </div>
@@ -276,12 +280,20 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <!-- Validate Input Form With Parsley -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
+<!-- iCheck for checkboxes and radio inputs -->
+<link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/all.css">
+<link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/iCheck.js">
 <script>
 
     $(function () {
 
         //Initialize Select2 Elements
         $(".select2").select2();
+
+        //Flat blue color scheme for iCheck
+        $('input[type="checkbox"].flat-blue).iCheck({
+            checkboxClass: 'icheckbox_flat-blue'
+        });
 
         GenericModal.config("#genericModal", "");
 
