@@ -663,7 +663,7 @@
                 formDataPromocion.append("txtFechaFin",              $("#txtFechaFin").val());
 
                 var request = $.ajax({
-                    url: "<?php echo $modulo->url_module_panel."/ajax/editPromotion"; ?>",
+                    url: "<?php echo $modulo->url_main_panel."/promotion/ajax/editPromotion"; ?>",
                     method: "POST",
                     data: formDataPromocion,
                     dataType: "json",
@@ -706,7 +706,7 @@
                 },
                 function() {
                     var request = $.ajax({
-                        url: "<?php echo $modulo->url_module_panel."/ajax/deletePromotion"; ?>",
+                        url: "<?php echo $modulo->url_main_panel."/promotion/ajax/deletePromotion"; ?>",
                         method: "POST",
                         data: formDataPromocion,
                         dataType: "json",
