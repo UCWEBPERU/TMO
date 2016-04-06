@@ -123,7 +123,9 @@
 		loop: true,
 		longSwipes: false,
 		onSlideChangeStart:  function(swiper) {
-			$("#swMainPanel").scrollTo(0);
+			$('html, body').animate({
+				scrollTop: $("#swMainPanel").offset().top
+			}, 2000);
 		}
 	});
 
