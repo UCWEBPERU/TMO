@@ -105,7 +105,7 @@
 	var swMainMenu = new Swiper('#swMainMenu', {
 		slidesPerView: 'auto',
 		centeredSlides: true,
-		spaceBetween: 0,
+		spaceBetween: 20,
 		loop: true,
 		slideToClickedSlide: true,
 		onSlideChangeEnd: function(swiper){
