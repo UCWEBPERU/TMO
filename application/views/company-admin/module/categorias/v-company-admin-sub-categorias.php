@@ -22,7 +22,11 @@
                 <?php } ?>
                 <small><a href="<?php echo $modulo->url_module_panel; ?>/add">Agregar</a></small>
                 <?php if (sizeof($modulo->data_categorias) > 0) { ?>
-                    <small><a href="<?php echo $modulo->url_module_panel; ?>/view/<?php echo $modulo->data_categoria_superior[0]->id_categoria; ?>">Regresar</a></small>
+                    <?php if (intval($modulo->data_categoria_superior[0]->id_categoria_superior) != 0) { ?>
+                        <small><a href="<?php echo $modulo->url_module_panel; ?>/view/<?php echo $modulo->data_categoria_superior[0]->id_categoria_superior; ?>">Regresar</a></small>
+                    <?php } else { ?>
+                        <small><a href="<?php echo $modulo->url_module_panel; ?>">Regresar</a></small>
+                    <?php } ?>
                 <?php } ?>
             </h1>
             <ol class="breadcrumb">
