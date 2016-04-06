@@ -117,7 +117,7 @@
 	});
 
 	var swMainPanel = new Swiper('#swMainPanel', {
-		slidesPerView: 'auto',
+		slidesPerView: 4,
 		centeredSlides: true,
 		spaceBetween: 0,
 		loop: true,
