@@ -108,9 +108,9 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 "habilitado" => ($listaCategorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
                 "categoria"  => $espacioPorNivel[$listaCategorias[$c]->nivel_categoria - 1].$listaCategorias[$c]->nombre_categoria
             ));
-//            if (sizeof($listaCategorias[$c]->sub_categorias) > 0) {
-//                $this->recorrerSubCategorias($listaCategorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);
-//            }
+            if (sizeof($listaCategorias[$c]->sub_categorias) > 0) {
+                $this->recorrerSubCategorias($listaCategorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);
+            }
         }
         var_dump($data_categorias);
 
@@ -147,6 +147,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         }
 
 //        var_dump($categoriasPrincipales);
+        return $categoriasPrincipales;
     }
 
     public function cargarSubCategorias($categorias) {
