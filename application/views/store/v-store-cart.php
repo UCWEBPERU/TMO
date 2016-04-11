@@ -108,7 +108,7 @@ if ($cart = $this->cart->contents()): ?>
             <span>$<?php /*echo number_format($totaladditional, 2); */?></span>
         </div>-->
         <div class="item">
-            <span>Promotion Applied:</span>
+            <span>Additional Cost:</span>
             <span>$<?php echo number_format($totaladditional, 2); ?></span>
         </div>
         <div class="item item-last">

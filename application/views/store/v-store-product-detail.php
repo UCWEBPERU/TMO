@@ -97,9 +97,9 @@
                 <?php if ($tipoModificadorActual != "color") { ?>
                     <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
                         $tipoModificadorAnterior = $tipoModificadorActual; ?>
-                        <div class="name-modifier"><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
+                        <div class="name-modifier" style="border-color: grey"><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
                     <?php } ?>
-                        <div class="item-modifier btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
+                        <div class="item-modifier btnAddModifier" style="border-color: grey" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
                 <?php } ?>
             <?php } ?>
 
