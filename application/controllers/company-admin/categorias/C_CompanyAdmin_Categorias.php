@@ -416,7 +416,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
             if ( sizeof($dataCategoria) > 0 ) {
                 $idCategoriaSuperior    = intval($dataCategoria[0]->id_categoria_superior);
-                $navegacionCategorias        = $dataCategoria[0]->nombre_categoria." >";
+                $navegacionCategorias   .= $dataCategoria[0]->nombre_categoria." >";
             } else {
                 $navegacionCategorias = substr($navegacionCategorias, 1);
                 $idCategoriaSuperior = 0;
