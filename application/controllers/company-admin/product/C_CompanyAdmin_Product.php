@@ -105,14 +105,14 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         for ($c = 0; $c < sizeof($listaCategorias); $c++) {
             array_push($data_categorias, array(
-                "habilitado" => ($listaCategorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
-                "categoria"  => $espacioPorNivel[$listaCategorias[$c]->nivel_categoria - 1].$listaCategorias[$c]->nombre_categoria
+                "id"            => $listaCategorias[$c]->id_categoria,
+                "categoria"     => $espacioPorNivel[$listaCategorias[$c]->nivel_categoria - 1].$listaCategorias[$c]->nombre_categoria,
+                "habilitado"    => ($listaCategorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
             ));
             if (sizeof($listaCategorias[$c]->sub_categorias) > 0) {
                 $this->recorrerSubCategorias($listaCategorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);
             }
         }
-        var_dump($data_categorias);
 
         $modulo->data_categorias = $data_categorias;
 
@@ -124,8 +124,9 @@ class C_CompanyAdmin_Product extends CI_Controller {
     public function recorrerSubCategorias($categorias, $espacioPorNivel, &$data_categorias) {
         for ($c = 0; $c < sizeof($categorias); $c++) {
             array_push($data_categorias, array(
-                "habilitado" => ($categorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
-                "categoria"  => $espacioPorNivel[$categorias[$c]->nivel_categoria - 1].$categorias[$c]->nombre_categoria
+                "id"            => $categorias[$c]->id_categoria,
+                "categoria"     => $espacioPorNivel[$categorias[$c]->nivel_categoria - 1].$categorias[$c]->nombre_categoria,
+                "habilitado"    => ($categorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
             ));
             if (sizeof($categorias[$c]->sub_categorias) > 0) {
                 $this->recorrerSubCategorias($categorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);

@@ -78,7 +78,11 @@
                                             <select class="form-control select2" style="width: 100%;" id="cboCategoria" name="cboCategoria" data-parsley-required data-parsley-required-message="Seleccione una categoria.">
                                                 <option selected="selected" value="">Seleccione</option>
                                                 <?php foreach($modulo->data_categorias as $categoria): ?>
-                                                    <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                                    <?php if ($categoria["habilitado"]) { ?>
+                                                        <option value="<?php echo $categoria["id"]; ?>"><?php echo $categoria["categoria"]; ?></option>
+                                                    <?php } else { ?>
+                                                        <option value="<?php echo $categoria["id"]; ?>" disabled="disabled"><?php echo $categoria["categoria"]; ?></option>
+                                                    <?php } ?>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div><!-- /.form-group -->
@@ -90,18 +94,6 @@
                                                 <input type="checkbox" class="flat-blue">
                                             </label>
                                         </div><!-- /.form-group -->
-
-                                        <div class="form-group">
-                                            <label for="txtStockProducto">DEMO</label>
-                                            <select class="form-control select2" style="width: 100%;">
-                                                <option value="one" disabled="disabled">First</option>
-                                                <option value="two" disabled="disabled">&nbsp;&nbsp;Second</option>
-                                                <option value="two" >&nbsp;&nbsp;&nbsp;&nbsp;Tercero</option>
-                                                <option value="one" disabled="disabled">First</option>
-                                                <option value="two" >&nbsp;&nbsp;Second</option>
-                                            </select>
-                                        </div><!-- /.form-group -->
-
                                     </div>
 
                                 </div>
