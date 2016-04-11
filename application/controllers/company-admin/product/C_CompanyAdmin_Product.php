@@ -89,9 +89,15 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $modulo->data_tiendas       = $this->M_CompanyAdmin_Product->getAllStore($this->session->id_empresa);
 
 //        $modulo->data_categorias    = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
+        $modulo->data_categorias = $this->cargarCategorias();
 
+        $data["modulo"] = $modulo;
 
-        $listaCategorias = $this->cargarCategorias();
+        $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
+    }
+
+    public function cargarCategorias() {
+        $listaCategorias = $this->getCategorias();
 
         $data_categorias = array();
 
@@ -114,11 +120,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
             }
         }
 
-        $modulo->data_categorias = $data_categorias;
-
-        $data["modulo"] = $modulo;
-
-        $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
+        return $data_categorias;
     }
 
     public function recorrerSubCategorias($categorias, $espacioPorNivel, &$data_categorias) {
@@ -134,7 +136,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         }
     }
 
-    public function cargarCategorias() {
+    public function getCategorias() {
         $categoriasPrincipales = $this->M_Store->getPrimaryCategories($this->uri->segment(2));
         for ($c = 0; $c < sizeof($categoriasPrincipales); $c++) {
             $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
@@ -144,14 +146,13 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 )
             );
             $categoriasPrincipales[$c]->sub_categorias = $subCategorias;
-            $this->cargarSubCategorias($subCategorias);
+            $this->getSubCategorias($subCategorias);
         }
 
-//        var_dump($categoriasPrincipales);
         return $categoriasPrincipales;
     }
 
-    public function cargarSubCategorias($categorias) {
+    public function getSubCategorias($categorias) {
         for ($c = 0; $c < sizeof($categorias); $c++) {
             $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
                 array(
@@ -161,7 +162,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
             );
             $categorias[$c]->sub_categorias = $subCategorias;
             if (sizeof($subCategorias) > 0) {
-                $this->cargarSubCategorias($subCategorias);
+                $this->getSubCategorias($subCategorias);
             }
         }
     }
