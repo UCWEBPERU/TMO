@@ -65,10 +65,21 @@ class C_Store_Cart extends CI_Controller {
                 "id_producto"   => intval($this->input->post('id_producto'))
             )
         );
+        $dataEmpresa = $this->M_Store->getCompanyAndStore(
+            array(
+                "id_empresa"    => $this->uri->segment(2),
+                "id_tienda"     => $this->uri->segment(4)
+            )
+        );
 
         cargarGaleriaPorProducto($dataProducto[0]);
-        
-        $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo, "notes" => $this->input->post("notes_producto"));
+
+        if($dataEmpresa[0]->id_tipo_empresa == 2){
+            $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo, "notes" => $this->input->post("notes_producto"));
+
+        }else{
+            $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo);
+        }
 
 
         if($this->input->post('modifiers[]')){
