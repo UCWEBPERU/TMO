@@ -170,6 +170,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
     public function editProduct($id_producto) {
         $this->load->model('company-admin/M_CompanyAdmin_Categorias');
         $this->load->model('company-admin/M_CompanyAdmin_Promotion');
+        $this->load->model('store/M_Store');
 
         $modulo                     = $this->paneladmin->loadPanelCompany();
         $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Editar Producto";
