@@ -55,7 +55,7 @@
     <?php if($modulo->id_tipo_empresa == 2 ){ ?>
     <div class="add-product">
         <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-less.png">
-        <h3>0</h3>
+        <h3>1</h3>
         <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-plus.png">
     </div>
     <?php } ?>
