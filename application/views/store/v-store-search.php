@@ -116,7 +116,12 @@
         centeredSlides: true,
         spaceBetween: 0,
         loop: true,
-        longSwipes: false
+        longSwipes: false,
+        onSlideChangeStart:  function(swiper) {
+            $('#swMainPanel').animate({
+                scrollTop: 0
+            }, 0);
+        }
     });
 
     swMainMenu.params.control = swMainPanel;

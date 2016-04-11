@@ -76,6 +76,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $this->load->model("admin/M_Admin_Paquetes_TMO");
         $this->load->model('M_Tipo_Empresa');
         $this->load->model('company-admin/M_CompanyAdmin_Categorias');
+        $this->load->model('store/M_Store');
 
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
@@ -87,16 +88,89 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
         $modulo->data_tiendas       = $this->M_CompanyAdmin_Product->getAllStore($this->session->id_empresa);
 
-        $modulo->data_categorias    = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
+//        $modulo->data_categorias    = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
+        $modulo->data_categorias = $this->cargarCategorias();
 
-        $data["modulo"] 		    = $modulo;
+        $data["modulo"] = $modulo;
 
         $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
+    }
+
+    public function cargarCategorias() {
+        $listaCategorias = $this->getCategorias();
+
+        $data_categorias = array();
+
+        $espacioPorNivel = array(
+            "",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        );
+
+        for ($c = 0; $c < sizeof($listaCategorias); $c++) {
+            array_push($data_categorias, array(
+                "id"            => $listaCategorias[$c]->id_categoria,
+                "categoria"     => $espacioPorNivel[$listaCategorias[$c]->nivel_categoria - 1].$listaCategorias[$c]->nombre_categoria,
+                "habilitado"    => (sizeof($listaCategorias[$c]->sub_categorias) == 0) ? TRUE : FALSE,
+            ));
+            if (sizeof($listaCategorias[$c]->sub_categorias) > 0) {
+                $this->recorrerSubCategorias($listaCategorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);
+            }
+        }
+
+        return $data_categorias;
+    }
+
+    public function recorrerSubCategorias($categorias, $espacioPorNivel, &$data_categorias) {
+        for ($c = 0; $c < sizeof($categorias); $c++) {
+            array_push($data_categorias, array(
+                "id"            => $categorias[$c]->id_categoria,
+                "categoria"     => $espacioPorNivel[$categorias[$c]->nivel_categoria - 1].$categorias[$c]->nombre_categoria,
+                "habilitado"    => (sizeof($categorias[$c]->sub_categorias) == 0) ? TRUE : FALSE,
+            ));
+            if (sizeof($categorias[$c]->sub_categorias) > 0) {
+                $this->recorrerSubCategorias($categorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);
+            }
+        }
+    }
+
+    public function getCategorias() {
+        $categoriasPrincipales = $this->M_Store->getPrimaryCategories($this->uri->segment(2));
+        for ($c = 0; $c < sizeof($categoriasPrincipales); $c++) {
+            $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
+                array(
+                    "id_empresa"            => $this->session->id_empresa,
+                    "id_categoria_superior" => $categoriasPrincipales[$c]->id_categoria
+                )
+            );
+            $categoriasPrincipales[$c]->sub_categorias = $subCategorias;
+            $this->getSubCategorias($subCategorias);
+        }
+
+        return $categoriasPrincipales;
+    }
+
+    public function getSubCategorias($categorias) {
+        for ($c = 0; $c < sizeof($categorias); $c++) {
+            $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
+                array(
+                    "id_empresa"            => $this->session->id_empresa,
+                    "id_categoria_superior" => $categorias[$c]->id_categoria
+                )
+            );
+            $categorias[$c]->sub_categorias = $subCategorias;
+            if (sizeof($subCategorias) > 0) {
+                $this->getSubCategorias($subCategorias);
+            }
+        }
     }
 
     public function editProduct($id_producto) {
         $this->load->model('company-admin/M_CompanyAdmin_Categorias');
         $this->load->model('company-admin/M_CompanyAdmin_Promotion');
+        $this->load->model('store/M_Store');
 
         $modulo                     = $this->paneladmin->loadPanelCompany();
         $modulo->titulo_pagina      = $modulo->datos_empresa->organization." | Panel Administrativo - Editar Producto";
@@ -110,7 +184,8 @@ class C_CompanyAdmin_Product extends CI_Controller {
             ));
 
         $datosCategorias            = $this->M_CompanyAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
-        $modulo->data_categorias    = $datosCategorias;
+//        $modulo->data_categorias    = $datosCategorias;
+        $modulo->data_categorias    = $this->cargarCategorias();
         $modulo->data_tiendas       = $this->M_CompanyAdmin_Product->getAllStore($this->session->id_empresa);
 
         if (sizeof($datosProducto) > 0) {
@@ -546,6 +621,38 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 $json->status = TRUE;
             } else {
                 $json->message = "El modificador del producto que quiere eliminar no existe.";
+            }
+
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+        echo json_encode($json);
+    }
+
+    public function ajaxDeleteProduct() {
+        $json 				= new stdClass();
+        $json->type 		= "Producto";
+        $json->presentation = "";
+        $json->action 		= "delete";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        if ( $this->input->post("id_producto") ) {
+
+            $datosProducto = $this->M_CompanyAdmin_Product->getProductByID(
+                array(
+                    "id_empresa"  => $this->session->id_empresa,
+                    "id_producto" => trim($this->input->post("id_producto", TRUE))
+                ));
+
+            if (sizeof($datosProducto) > 0) {
+                $result = $this->M_CompanyAdmin_Product->deleteProducto(trim($this->input->post("id_producto", TRUE)));
+
+                $json->message = "El producto se elimino correctamente.";
+                $json->status = TRUE;
+            } else {
+                $json->message = "Lo sentimos, el producto que desea eliminar no existe.";
             }
 
         } else {

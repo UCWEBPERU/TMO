@@ -78,7 +78,11 @@
                                             <select class="form-control select2" style="width: 100%;" id="cboCategoria" name="cboCategoria" data-parsley-required data-parsley-required-message="Seleccione una categoria.">
                                                 <option selected="selected" value="">Seleccione</option>
                                                 <?php foreach($modulo->data_categorias as $categoria): ?>
-                                                    <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                                    <?php if ($categoria["habilitado"]) { ?>
+                                                        <option value="<?php echo $categoria["id"]; ?>"><?php echo $categoria["categoria"]; ?></option>
+                                                    <?php } else { ?>
+                                                        <option value="<?php echo $categoria["id"]; ?>" disabled="disabled"><?php echo $categoria["categoria"]; ?></option>
+                                                    <?php } ?>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div><!-- /.form-group -->
@@ -90,7 +94,6 @@
                                                 <input type="checkbox" class="flat-blue">
                                             </label>
                                         </div><!-- /.form-group -->
-
                                     </div>
 
                                 </div>
@@ -164,7 +167,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Responsive</h4>
+                    <h4 class="modal-title">Promocion</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">

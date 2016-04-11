@@ -21,9 +21,9 @@
                     <?php echo $modulo->data_categoria_superior[0]->nombre_categoria; ?>
                     <small><a href="<?php echo $modulo->url_module_panel; ?>/add?catup=<?php echo intval($modulo->data_categoria_superior[0]->id_categoria); ?>">Agregar</a></small>
                     <?php if (intval($modulo->data_categoria_superior[0]->id_categoria_superior) != 0) { ?>
-                        <small><a href="<?php echo $modulo->url_module_panel; ?>/view/<?php echo intval($modulo->data_categoria_superior[0]->id_categoria_superior); ?>">Regresar</a></small>
+                        <small><a href="<?php echo $modulo->url_module_panel; ?>/view/<?php echo intval($modulo->data_categoria_superior[0]->id_categoria_superior); ?>"><i class="fa fa-reply"></i></a></small>
                     <?php } else { ?>
-                        <small><a href="<?php echo $modulo->url_module_panel; ?>">Regresar</a></small>
+                        <small><a href="<?php echo $modulo->url_module_panel; ?>"><i class="fa fa-reply"></i></a></small>
                     <?php } ?>
                 <?php } ?>
             </h1>

@@ -119,10 +119,18 @@
                                             <select class="form-control select2" style="width: 100%;" id="cboCategoria" name="cboCategoria" data-parsley-required data-parsley-required-message="Seleccione una categoria.">
                                                 <?php if ($modulo->existe_producto) { ?>
                                                     <?php foreach($modulo->data_categorias as $categoria): ?>
-                                                        <?php if ($categoria->id_categoria == $modulo->data_producto->id_categoria) { ?>
-                                                            <option value="<?php echo $categoria->id_categoria; ?>" selected="selected"><?php echo $categoria->nombre_categoria; ?></option>
+                                                        <?php if ($categoria["habilitado"]) { ?>
+                                                            <?php if (intval($categoria["id"]) == intval($modulo->data_producto->id_categoria)) { ?>
+                                                                <option value="<?php echo $categoria["id"]; ?>" selected="selected"><?php echo $categoria["categoria"]; ?></option>
+                                                            <?php } else { ?>
+                                                                <option value="<?php echo $categoria["id"]; ?>"><?php echo $categoria["categoria"]; ?></option>
+                                                            <?php } ?>
                                                         <?php } else { ?>
-                                                            <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                                            <?php if ($categoria["habilitado"]) { ?>
+                                                                <option value="<?php echo $categoria["id"]; ?>"><?php echo $categoria["categoria"]; ?></option>
+                                                            <?php } else { ?>
+                                                                <option value="<?php echo $categoria["id"]; ?>" disabled="disabled"><?php echo $categoria["categoria"]; ?></option>
+                                                            <?php } ?>
                                                         <?php } ?>
                                                     <?php endforeach; ?>
                                                 <?php } else { ?>
@@ -243,7 +251,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Responsive</h4>
+                    <h4 class="modal-title">Promocion</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">

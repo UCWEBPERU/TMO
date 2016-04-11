@@ -235,7 +235,7 @@
                             </div>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
-                            <button id="btnAgregar" type="submit" class="btn btn-primary">Agregar</button>
+                            <button id="btnAgregar" type="submit" class="btn btn-primary">Guardar</button>
                         </div>
 
                     </div><!-- /.box -->

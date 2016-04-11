@@ -17,7 +17,15 @@
         <section class="content-header">
             <h1>
                 Agregar Categoria
-                <small><a href="<?php echo $modulo->url_module_panel; ?>">Regresar</a></small>
+                <?php if ($modulo->catup == 0) { ?>
+                    <small><a href="<?php echo $modulo->url_module_panel; ?>"><i class="fa fa-reply"></i></a></small>
+                <?php } else { ?>
+                    <?php if ($modulo->catup != 0) { ?>
+                        <small><a href="<?php echo $modulo->url_module_panel; ?>/view/<?php echo $modulo->catup; ?>"><i class="fa fa-reply"></i></a></small>
+                    <?php } else { ?>
+                        <small><a href="<?php echo $modulo->url_module_panel; ?>"><i class="fa fa-reply"></i></a></small>
+                    <?php } ?>
+                <?php } ?>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="<?php echo $modulo->url_main_panel; ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -38,23 +46,26 @@
                         <!-- form start -->
                         <form role="form" id="frmDatosCategoria">
                             <div class="box-body">
-                                <div class="form-group">
-                                    <label>Categoria Superior</label>
-                                    <select class="form-control select2" style="width: 100%;" id="cboCategoriaSuperior" name="cboCategoriaSuperior" disabled>
-                                        <?php if ($modulo->catup == 0) { ?>
-                                            <option selected="selected" value="">Seleccione</option>
-                                        <?php } else { ?>
-                                            <option value="">Seleccione</option>
-                                        <?php } ?>
-                                        <?php foreach($modulo->data_categorias as $categoria): ?>
-                                            <?php if ($categoria->id_categoria == $modulo->catup) { ?>
-                                            <option selected="selected" value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                <?php if ($modulo->catup != 0) { ?>
+                                    <div class="form-group">
+                                        <label>Categoria Superior</label>
+                                        <select class="form-control select2" style="width: 100%;" id="cboCategoriaSuperior" name="cboCategoriaSuperior" disabled>
+                                            <?php if ($modulo->catup == 0) { ?>
+                                                <option selected="selected" value="">Seleccione</option>
                                             <?php } else { ?>
-                                            <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                                <option value="">Seleccione</option>
                                             <?php } ?>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div><!-- /.form-group -->
+                                            <?php foreach($modulo->data_categorias as $categoria): ?>
+                                                <?php if ($categoria->id_categoria == $modulo->catup) { ?>
+                                                    <option selected="selected" value="<?php echo $categoria->id_categoria; ?>"><?php echo $modulo->nombres_categorias_superiores; ?></option>
+                                                <?php } else { ?>
+                                                    <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                                <?php } ?>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div><!-- /.form-group -->
+                                <?php } ?>
+
                                 <div class="form-group">
                                     <label for="txtNombreCategoria">Nombre Categoria</label>
                                     <input type="text" class="form-control" id="txtNombreCategoria" name="txtNombreCategoria" data-parsley-required data-parsley-required-message="Ingrese el nombre de la categoria.">

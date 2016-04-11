@@ -305,6 +305,15 @@ class M_CompanyAdmin_Product extends CI_Model {
         return FALSE;
     }
 
+    public function deleteProducto($idProducto) {
+        $this->db->where('id_producto', $idProducto);
+        if ($this->db->update('Producto', array('estado'=> 0))) {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
     public function deleteImagenProducto($data_galeria_producto) {
         $this->db->where('id_archivo', $data_galeria_producto["id_archivo"]);
         if ($this->db->update('Archivo', array('estado'=> 0))) {
@@ -331,6 +340,16 @@ class M_CompanyAdmin_Product extends CI_Model {
         }
 
         return FALSE;
+    }
+
+    public function getCategoryByCategoriaSuperior($data) {
+        $this->db->where('Categoria_Productos.id_empresa', $data["id_empresa"]);
+//        $this->db->where('Categoria_Productos.id_categoria', $data["id_categoria"]);
+        $this->db->where('Categoria_Productos.id_categoria_superior', $data["id_categoria_superior"]);
+        $this->db->where('Categoria_Productos.estado', '1');
+        $query = $this->db->get('Categoria_Productos');
+
+        return $query->result();
     }
 
 }
