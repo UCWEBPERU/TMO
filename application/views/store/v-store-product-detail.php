@@ -235,10 +235,8 @@
         return indiceModificador;
     }
     function add(delta) {
-
-        valor = eval(formulario.casilla.value);
-
-        formulario.casilla.value = eval(valor+delta);
+        valor = $("#quantity").val();
+        $("#quantity").val(eval(valor+delta));
 
     }
 
