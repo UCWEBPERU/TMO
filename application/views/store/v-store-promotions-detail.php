@@ -99,7 +99,9 @@
                         <div class="item-modifier btnAddModifier" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
                     <?php } ?>
                 <?php } ?>
-
+                <?php if($modulo->id_tipo_empresa == 2 ){ ?>
+                    <textarea id="notes" class="notes" rows="3" placeholder="Notes.." ></textarea>
+                <?php } ?>
             </div>
         </div>
     <?php } ?>
@@ -271,7 +273,7 @@
             formData.append("precio_producto", precio_producto);
             formData.append("cantidad_producto", cantidad_producto);
             formData.append("notes_producto", notas_producto);
-            
+
             for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
                 formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
             }
