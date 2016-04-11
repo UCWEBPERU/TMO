@@ -27,7 +27,7 @@ class C_Store_Product extends CI_Controller {
         if (sizeof($dataEmpresa) == 0) {
             redirect("not-found/store"); 
         }
-
+        var_dump($dataEmpresa[0]->id_tipo_empresa);
         $dataCategorias = cargarDatosCategoriasPrincipales();
         $modulo->data_categorias = $dataCategorias;
         $modulo->id_categoria_raiz = $dataCategorias[0]->id_categoria;
