@@ -157,9 +157,10 @@
 <!-- Initialize Swiper -->
 <script>
     function add(delta) {
-        alert("HOLA");
-        valor = $("#quantity").val();
-        $("#quantity").val(eval(valor+delta));
+
+        valor = $("#quantity").text();
+        alert(valor);
+        $("#quantity").text(eval(valor+delta));
 
     }
     $(document).ready(function() {
