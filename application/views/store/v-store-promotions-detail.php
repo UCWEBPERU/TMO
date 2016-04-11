@@ -18,7 +18,7 @@
 <body>
 <div id="mainHeader">
     <div class="btn-Left">
-        <a href="<?php echo $modulo->url_button_back; ?>"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
+        <a href="<?php echo $modulo->base_url_store; ?>/promotions"><img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow_back.png"></a>
     </div>
     <div class="title-header">DETAIL</div>
     <div id="btnChangeViewProduct" class="btn-right" data-current-view="row">
