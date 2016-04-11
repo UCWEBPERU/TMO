@@ -103,8 +103,7 @@
                 <?php } ?>
             <?php } ?>
             <?php if($modulo->id_tipo_empresa == 2 ){ ?>
-                <textarea id="notes" class="notes" rows="3" cols="50">
-                </textarea>
+                <textarea id="notes" class="notes" rows="3" ></textarea>
             <?php } ?>
             </div>
 
