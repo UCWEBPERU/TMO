@@ -66,8 +66,8 @@ if ($cart = $this->cart->contents()): ?>
                                     <span>$ <?php echo number_format($item['price'], 2); ?></span>
                                 </div>
                                 <div class="more-detail">
-                                    <?php if($modulo->id_tipo_empresa == 2 ){
-                                        if($options['notes'] != ""){?>
+                                    <?php var_dump($modulo->id_tipo_empresa); if($modulo->id_tipo_empresa == 2 ){
+                                        if($options['notes'] !=""){?>
                                             <span>Notes: <?php echo $options['notes']; ?></span><br>
                                     <?php } }?>
                                     <span>Quantity: <?php echo $item['qty']; ?></span><br>
