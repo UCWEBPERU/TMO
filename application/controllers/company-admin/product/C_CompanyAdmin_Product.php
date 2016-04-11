@@ -146,7 +146,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
             $this->cargarSubCategorias($subCategorias);
         }
 
-        var_dump($categoriasPrincipales);
+//        var_dump($categoriasPrincipales);
     }
 
     public function cargarSubCategorias($categorias) {
