@@ -76,11 +76,11 @@ if ($cart = $this->cart->contents()): ?>
                                     $addtional = 0;
                                     $addtionals = 0;
                                     foreach ($modifiers as $modifier):
-                                        if($modifier[1] == "modifier"){ ?>
-                                            <span><?php echo $modifier[2]; ?>: <?php echo $modifier[3]; if ($modifier[4] != "0.00"){ echo " - ( $ " . $modifier[3]." )"; }?> </span><br>
+                                        if($modifier[0] == "modifier"){ ?>
+                                            <span><?php echo $modifier[1]; ?>: <?php echo $modifier[2]; if ($modifier[3] != "0.00"){ echo " - ( $ " . $modifier[3]." )"; }?> </span><br>
                                         <?php } ?>
 
-                                        <?php   $addtional += $modifier[4];
+                                        <?php   $addtional += $modifier[3];
 
                                     endforeach;
                                     $addtionals = $addtional  * $item['qty'];?>
