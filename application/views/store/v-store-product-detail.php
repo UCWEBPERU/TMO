@@ -156,8 +156,14 @@
 
 <!-- Initialize Swiper -->
 <script>
+    function add(delta) {
+        alert("HOLA");
+        valor = $("#quantity").val();
+        $("#quantity").val(eval(valor+delta));
 
+    }
     $(document).ready(function() {
+
         $('.fancybox').fancybox({
             padding         : 0,
             margin          : 0,
@@ -234,11 +240,7 @@
         }
         return indiceModificador;
     }
-    function add(delta) {
-        valor = $("#quantity").val();
-        $("#quantity").val(eval(valor+delta));
 
-    }
 
 
 
