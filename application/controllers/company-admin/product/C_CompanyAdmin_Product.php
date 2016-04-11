@@ -105,7 +105,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
             $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
                 array(
                     "id_empresa"            => $this->session->id_empresa,
-                    "id_categoria_superior" => $categoriasPrincipales[0]->id_categoria_superior
+                    "id_categoria_superior" => $categoriasPrincipales[0]->id_categoria
                 )
             );
             $categoriasPrincipales[$c]->sub_categorias = $subCategorias;
@@ -120,7 +120,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
             $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
                 array(
                     "id_empresa"            => $this->session->id_empresa,
-                    "id_categoria_superior" => $categorias[$c]->id_categoria_superior
+                    "id_categoria_superior" => $categorias[$c]->id_categoria
                 )
             );
             $categorias[$c]->sub_categorias = $subCategorias;
