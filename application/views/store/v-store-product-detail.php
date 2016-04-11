@@ -52,16 +52,18 @@
 
         </div>
     <?php } ?>
-    <?php if($modulo->id_tipo_empresa == 2 ){ ?>
-    <div class="add-product">
-        <img onClick="add(-1);" src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-less.png">
-        <h3 id="quantity">1</h3>
-        <img onClick="add(1);" src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-plus.png">
-    </div>
-    <?php } ?>
+
     <div class="description-product">
         <?php echo $modulo->data_productos[0]->descripcion_producto; ?>
     </div>
+
+    <?php if($modulo->id_tipo_empresa == 2 ){ ?>
+        <div class="add-product">
+            <img onClick="add(-1);" src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-less.png">
+            <h3 id="quantity">1</h3>
+            <img onClick="add(1);" src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-plus.png">
+        </div>
+    <?php } ?>
 
     <?php if(sizeof($modulo->data_modifiers) != 0){ ?>
         <div class="box-modifier">
