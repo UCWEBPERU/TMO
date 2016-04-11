@@ -158,8 +158,7 @@
 <script>
     function add(delta) {
 
-        valor = $("#quantity").text();
-        alert(valor);
+        valor = eval($("#quantity").text());
         $("#quantity").text(eval(valor+delta));
 
     }
