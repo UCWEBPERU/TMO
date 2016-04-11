@@ -109,7 +109,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
                 )
             );
             $categoriasPrincipales[$c]->sub_categorias = $subCategorias;
-//            $this->cargarSubCategorias($subCategorias);
+            $this->cargarSubCategorias($subCategorias);
         }
 
         var_dump($categoriasPrincipales);
