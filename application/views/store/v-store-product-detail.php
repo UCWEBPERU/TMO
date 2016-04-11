@@ -159,8 +159,9 @@
     function add(delta) {
 
         valor = eval($("#quantity").text());
-        if(valor > 0){
-            $("#quantity").text(eval(valor+delta));
+        suma = eval(valor+delta);
+        if(suma >= 1){
+            $("#quantity").text(suma);
         }
 
 
