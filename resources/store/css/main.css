@@ -867,6 +867,16 @@ body {
 	top: -25px;
 	line-height: 15px;
 }
+.add-product{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.add-product > img{
+	width: 10%;
+	height: 10%;
+	margin-right: 5px;
+}
 
 /* PANEL SIGN IN  AND PAYMENT*/
 
@@ -972,5 +982,7 @@ body {
 	display: flex;
 	justify-content: center;
 }
+
+
 
 
