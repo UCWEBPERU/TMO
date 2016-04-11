@@ -104,6 +104,11 @@
             <?php } ?>
 
             </div>
+            <div class="notes">
+                <textarea rows="3" cols="50">
+                </textarea>
+            </div>
+
         </div>
     <?php } ?>
 
