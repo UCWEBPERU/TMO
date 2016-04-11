@@ -41,11 +41,22 @@
     <div class="swiper-wrapper">
         <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
             <div class="swiper-slide" >
+                <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
+
+                    <?php foreach ($modulo->data_productos as $producto) { ?>
+                        <?php if($modulo->data_categorias[$c]->id_categoria == $sub_categoria->id_categoria_superior &&  $producto->id_categoria == $sub_categoria->id_categoria ){
+                            var_dump($modulo->data_categorias[$c]->id_categoria_superior);
+                            var_dump(" - ");
+                            var_dump($sub_categoria->id_categoria_superior);
+                            var_dump(" - ");
+                            var_dump($producto->id_categoria);?>
+                        <?php } ?>
+                    <?php } ?>
+
+                <?php } ?>
                 <?php foreach ($modulo->data_productos as $producto) { ?>
 <!--                --><?php //if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){
-                        var_dump($modulo->data_categorias[$c]->id_categoria_superior);
-                        var_dump(" - ");
-                        var_dump($producto->id_categoria);
+
                         ?>
                     <div class="item-product-row">
                         <?php if ($modulo->tipo_sub_categorias == "products") { ?>
