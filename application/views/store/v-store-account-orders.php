@@ -21,99 +21,64 @@
 </div>
 <div id="panelOrders">
 
-    <?php for ($c = 0; $c < sizeof($modulo->data_orders); $c++) { ?>
-        <?php $date = new DateTime($modeloRow->fecha_registro_usuario); ?>
-        <?php if($c == 0) { ?>
-            <div class="item-order">
-                <div class="date-order"><?php echo strtoupper(date_format($date, "D")).". ".date_format($date, "d/m/Y"); ?></div>
-        <?php } ?>
-        <div class="content-order">
-            <div>
-                <div class="name-product"><?php echo $modulo->data_orders[$c]->nombre_producto; ?></div>
-                <div class="price-product">
-                    <?php
-                        echo "$".$modulo->data_orders[$c]->precio;
-                        if (intval($modulo->data_orders[$c]->total_modifiers) != 0) {
-                            echo "+$".$modulo->data_orders[$c]->precio;
+    <?php foreach ($modulo->data_orders as $order) { ?>
+        <?php $date = new DateTime($order->fecha_venta); ?>
+        <div class="item-order">
+            <div class="date-order"><?php echo strtoupper(date_format($date, "D")).". ".date_format($date, "d/m/Y"); ?></div>
+
+            <?php foreach ($order->detalle_productos as $detalle) { ?>
+            <div class="content-order">
+                <div>
+                    <div class="name-product"><?php echo $detalle->nombre_producto; ?></div>
+                    <div class="price-product">
+                        <?php
+                        echo "$".$detalle->precio;
+                        if (intval($detalle->total_modifiers) != 0) {
+                            echo "+$".$detalle->precio;
                         }
-                    ?>
+                        ?>
+                    </div>
+                </div>
+                <div>
+                    <span>Options: <?php echo $detalle->modifiers; ?></span><br>
+                    <span>Amount: <?php echo $detalle->cantidad; ?></span>
                 </div>
             </div>
-            <div>
-                <span>Options: <?php echo $modulo->data_orders[$c]->modifiers; ?></span><br>
-                <span>Amount: <?php echo $modulo->data_orders[$c]->cantidad; ?></span>
-            </div>
-        </div>
-        <?php if($c == sizeof($modulo->data_orders) - 1) { ?>
-                <div class="total-order">TOTAL: $<?php echo $modulo->data_orders[$c]->total; ?></div>
-            </div>
-        <?php } ?>
-    <?php } ?>
+            <?php } ?>
 
-<!--    <div class="item-order">-->
-<!--        <div class="date-order">MON. 12/06/2015</div>-->
-<!--        <div class="content-order">-->
-<!--            <div>-->
-<!--                <div class="name-product">CRABSBURGER</div>-->
-<!--                <div class="price-product">$9.99+$3.00</div>-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span><br>-->
-<!--                <span>Amount: 1</span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="content-order">-->
-<!--            <div>-->
-<!--                <div class="name-product">CRABSBURGER</div>-->
-<!--                <div class="price-product">$9.99+$3.00</div>-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span><br>-->
-<!--                <span>Amount: 1</span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="content-order">-->
-<!--            <div>-->
-<!--                <div class="name-product">CRABSBURGER</div>-->
-<!--                <div class="price-product">$9.99+$3.00</div>-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <span>Options: Ketchup, Tomato, Onions, Double Cheese, Beef, Parrot, Green Salad, Soult, Peper</span><br>-->
-<!--                <span>Amount: 1</span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="total-order">TOTAL: $19.98</div>-->
-<!--    </div>-->
+            <div class="total-order">TOTAL: $<?php echo $order->total; ?></div>
+        </div>
+    <?php } ?>
 
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_products.png">
             <div>PRODUCTS</div>
         </a>
     </div>
     <div class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>/promotions">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_promotion.png">
             <div>PROMOTION</div>
         </a>
     </div>
     <div class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>/search">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_search.png">
             <div>SEARCH</div>
         </a>
     </div>
     <div class="menu-item">
         <a class="active" href="<?php echo $modulo->base_url_store; ?>/account">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_active_account.png">
             <div>ACCOUNT</div>
         </a>
     </div>
     <div class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>/cart">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_cart.png">
             <div>CART</div>
         </a>
     </div>

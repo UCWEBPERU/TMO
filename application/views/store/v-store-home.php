@@ -63,33 +63,33 @@
 	</div>
 </div>
 <div id="menuApp">
-	<div id="changeStyleProduct" class="menu-item">
+	<div class="menu-item">
 		<a class="active" href="<?php echo $modulo->base_url_store; ?>">
-			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_active_products.png">
 			<div>PRODUCTS</div>
 		</a>
 	</div>
 	<div class="menu-item">
 		<a href="<?php echo $modulo->base_url_store; ?>/promotions">
-			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_promotion.png">
 			<div>PROMOTION</div>
 		</a>
 	</div>
 	<div class="menu-item">
 		<a href="<?php echo $modulo->base_url_store; ?>/search">
-			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_search.png">
 			<div>SEARCH</div>
 		</a>
 	</div>
 	<div class="menu-item">
 		<a href="<?php echo $modulo->base_url_store; ?>/account">
-			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_account.png">
 			<div>ACCOUNT</div>
 		</a>
 	</div>
 	<div class="menu-item">
 		<a href="<?php echo $modulo->base_url_store; ?>/cart">
-			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+			<img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_cart.png">
 			<div>CART</div>
 		</a>
 	</div>
@@ -105,7 +105,7 @@
 	var swMainMenu = new Swiper('#swMainMenu', {
 		slidesPerView: 'auto',
 		centeredSlides: true,
-		spaceBetween: 0,
+		spaceBetween: 20,
 		loop: true,
 		slideToClickedSlide: true,
 		onSlideChangeEnd: function(swiper){
@@ -121,7 +121,12 @@
 		centeredSlides: true,
 		spaceBetween: 0,
 		loop: true,
-		longSwipes: false
+		longSwipes: false,
+		onSlideChangeStart:  function(swiper) {
+			$('#swMainPanel').animate({
+				scrollTop: 0
+			}, 0);
+		}
 	});
 
 	swMainMenu.params.control = swMainPanel;

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/swiper.min.css" />
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.css">
-
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_STORE; ?>css/fakeLoader.css">
 </head>
 <body>
 <div id="mainHeader">
@@ -59,40 +59,37 @@
 </div>
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
-        <a class="active" href="<?php echo $modulo->base_url_store; ?>">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+        <a href="<?php echo $modulo->base_url_store; ?>">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_products.png">
             <div>PRODUCTS</div>
         </a>
     </div>
     <div class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>/promotions">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_promotion.png">
             <div>PROMOTION</div>
         </a>
     </div>
     <div class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>/search">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_search.png">
             <div>SEARCH</div>
         </a>
     </div>
     <div class="menu-item">
-        <a href="<?php echo $modulo->base_url_store; ?>/account">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+        <a class="active" href="<?php echo $modulo->base_url_store; ?>/account">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_active_account.png">
             <div>ACCOUNT</div>
         </a>
     </div>
     <div class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>/cart">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_cart.png">
             <div>CART</div>
         </a>
     </div>
 </div>
-
-
-
-
+<div class="fakeloader"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <!-- Swiper JS -->
 <script src="<?php echo PATH_RESOURCE_STORE; ?>js/swiper.min.js"></script>

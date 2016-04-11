@@ -83,6 +83,14 @@
                                             </select>
                                         </div><!-- /.form-group -->
 
+                                        <div class="form-group">
+                                            <label for="txtStockProducto">Promocion</label>&nbsp;
+                                            <button id="openDialogPromotion" type='button' class="button-effect-1 hide" data-toggle="modal" href="#modalPromotion">Editar Promocion</button>
+                                            <label>
+                                                <input type="checkbox" class="flat-blue">
+                                            </label>
+                                        </div><!-- /.form-group -->
+
                                     </div>
 
                                 </div>
@@ -149,6 +157,46 @@
     <?php $this->load->view('template/main-panel/footer'); ?>
 </div><!-- ./wrapper -->
 <?php $this->load->view('template/main-panel/modal-admin'); ?>
+
+<div class="example-modal">
+    <div id="modalPromotion" class="modal fade" tabindex="-1" data-width="760" style="display: none;" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Responsive</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtPrecioPromocion">Precio</label>
+                                <input type="text" class="form-control" id="txtPrecioPromocion" name="txtPrecioPromocion" data-parsley-required data-parsley-required-message="Ingrese el precio de promocion.">
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="txtDescripcionPromocion">Descripcion</label>
+                                <textarea class="form-control" id="txtDescripcionPromocion" name="txtDescripcionPromocion" cols="30" rows="5" data-parsley-required-message="Ingrese la descripcion de la promocion."></textarea>
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="txtFechaInicio">Fecha Inicio</label>
+                                <input type="text" class="form-control datepicker" id="txtFechaInicio" name="txtFechaInicio" data-parsley-required data-parsley-required-message="Ingrese fecha de inicio de la promocion.">
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="txtFechaFin">Fecha Fin</label>
+                                <input type="text" class="form-control datepicker" id="txtFechaFin" name="txtFechaFin" data-parsley-required data-parsley-required-message="Ingrese fecha de fin de la promocion.">
+                            </div><!-- /.form-group -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                    <button id="btnAgregarPromocion" type="button" class="btn btn-primary">Aceptar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div><!-- /.example-modal -->
+
 <?php $this->load->view('template/main-panel/scripts-footer'); ?>
 <!-- Parsley -->
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>parsleyjs/parsley.min.js"></script>
@@ -158,6 +206,10 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <!-- Validate Input Form With Parsley -->
 <script src="<?php echo PATH_RESOURCE_ADMIN; ?>js/ValidateInputFormWithParsley.js"></script>
+<!-- iCheck for checkboxes and radio inputs -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/icheck.min.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo PATH_RESOURCE_PLUGINS; ?>datepicker/bootstrap-datepicker.js"></script>
 <script>
 
     $(function () {
@@ -167,7 +219,28 @@
 
         GenericModal.config("#genericModal", "");
 
+        //Flat blue color scheme for iCheck
+        $('input[type="checkbox"].flat-blue').iCheck({
+            checkboxClass: 'icheckbox_flat-blue'
+        });
+
+        $('input[type="checkbox"].flat-blue').on('ifClicked', function(event){
+            $("#openDialogPromotion").trigger("click");
+            $('input[type="checkbox"].flat-blue').iCheck("uncheck");
+        });
+
+        //Date picker
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true
+        });
+
+        $('.datepicker').on("keypress", function(event){
+            event.preventDefault();
+        });
+
         var selectorInputsForm = ["#txtNombreProducto", "#txtDescripcionProducto", "#txtStockProducto", "#txtPrecioProducto", "#cboCategoria", "#cboTienda"];
+        var selectorInputsFormPromocion = ["#txtPrecioPromocion", "#txtDescripcionPromocion", "#txtFechaInicio", "#txtFechaFin"];
         var listFileImageProducts = [];
         var listModifiers = [];
         var formDataProduct = new FormData();
@@ -385,6 +458,17 @@
                 }
             );
         });
+
+        $("#btnAgregarPromocion").on("click", function(event) {
+            if ( ValidateInputFormWithParsley.validate(selectorInputsFormPromocion)) {
+                formDataProduct.append("txtPrecioPromocion",       $("#txtPrecioPromocion").val());
+                formDataProduct.append("txtDescripcionPromocion",  $("#txtDescripcionPromocion").val());
+                formDataProduct.append("txtFechaInicio",           $("#txtFechaInicio").val());
+                formDataProduct.append("txtFechaFin",              $("#txtFechaFin").val());
+            }
+            $("#openDialogPromotion").trigger("click");
+        });
+
     });
 </script>
 </body>

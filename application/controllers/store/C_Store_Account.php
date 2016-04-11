@@ -148,13 +148,22 @@ class C_Store_Account extends CI_Controller {
             $modulo->data_empresa = $dataEmpresa[0];
             cargarLogoEmpresa($modulo, $dataEmpresa[0]);
 
-            $modulo->data_orders = $this->M_Store->getVentas(
+            $dataOrders = $this->M_Store->getVentas(
                 array(
                     "id_tienda"     => $this->uri->segment(4),
                     "id_usuario"    => $dataUsuario[0]->id_usuario
                 )
             );
 
+            foreach ($dataOrders as $order) {
+                $order->detalle_productos = $this->M_Store->getDetalleVenta(
+                    array(
+                        "id_venta" => $order->id_venta
+                    )
+                );
+            }
+
+            $modulo->data_orders = $dataOrders;
         }
 
         $data["modulo"] = $modulo;

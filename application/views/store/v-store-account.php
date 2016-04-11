@@ -19,11 +19,11 @@
     <?php if ($modulo->has_user_session) { ?>
         <div class="text-welcome">WELCOME, <?php echo $modulo->data_usuario->nombres_persona." ".$modulo->data_usuario->apellidos_persona; ?></div>
         <div class="container-button">
-            <button class="btn">SIGN OUT</button>
+            <button id="btnSignOut" class="btn">SIGN OUT</button>
         </div>
     <?php } else { ?>
         <div class="container-button">
-            <button class="btn">SIGN IN</button>
+            <button id="btnSignIn" class="btn" style="margin-top: 10px;">SIGN IN</button>
         </div>
     <?php } ?>
     <div class="item-menu-account">
@@ -70,31 +70,31 @@
 <div id="menuApp">
     <div id="changeStyleProduct" class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_products.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_products.png">
             <div>PRODUCTS</div>
         </a>
     </div>
     <div class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>/promotions">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_promotion.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_promotion.png">
             <div>PROMOTION</div>
         </a>
     </div>
     <div class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>/search">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_search.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_search.png">
             <div>SEARCH</div>
         </a>
     </div>
     <div class="menu-item">
         <a class="active" href="<?php echo $modulo->base_url_store; ?>/account">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_account.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_active_account.png">
             <div>ACCOUNT</div>
         </a>
     </div>
     <div class="menu-item">
         <a href="<?php echo $modulo->base_url_store; ?>/cart">
-            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_cart.png">
+            <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_menu_inactive_cart.png">
             <div>CART</div>
         </a>
     </div>
@@ -130,6 +130,16 @@
 
     swMainMenu.params.control = swMainPanel;
     swMainPanel.params.control = swMainMenu;
+
+    $("#btnSignIn").on("click", function(event) {
+        event.preventDefault();
+        $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signin");
+    });
+
+    $("#btnSignOut").on("click", function(event) {
+        event.preventDefault();
+        $(location).attr("href", "<?php echo $modulo->base_url_store; ?>/signout");
+    });
 </script>
 </body>
 </html>

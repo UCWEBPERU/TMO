@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_DIST; ?>css/skins/skin-blue.min.css">
     <!-- My Theme style -->
     <link rel="stylesheet" href="<?php echo PATH_RESOURCE_ADMIN; ?>css/style.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="<?php echo PATH_RESOURCE_PLUGINS; ?>iCheck/all.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

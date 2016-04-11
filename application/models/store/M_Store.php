@@ -93,10 +93,10 @@ class M_Store extends CI_Model {
         $this->db->where('Categoria_Productos.id_empresa', $data["id_empresa"]);
         $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
         $this->db->where('Categoria_Productos.estado', '1');
-        $this->db->where('Producto.id_oferta', NULL);
+//        $this->db->where('Producto.id_oferta', NULL);
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
-        $this->db->order_by('Producto.nombre_producto', 'asc');
+//        $this->db->order_by('Producto.nombre_producto', 'asc');
         $query = $this->db->get('Producto');
 
         return $query->result();
@@ -120,7 +120,7 @@ class M_Store extends CI_Model {
         $this->db->where('Producto.id_oferta', NULL);
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
-        $this->db->order_by('Producto.nombre_producto', 'asc');
+//        $this->db->order_by('Producto.nombre_producto', 'asc');
         $query = $this->db->get('Producto');
         return $query->result();
     }
@@ -157,7 +157,7 @@ class M_Store extends CI_Model {
         $this->db->where('Producto.id_producto', $data["id_producto"]);
         $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
         $this->db->where('Categoria_Productos.estado', '1');
-        $this->db->where('Producto.id_oferta', NULL);
+//        $this->db->where('Producto.id_oferta', NULL);
         $this->db->where('Tienda.estado', '1');
         $this->db->where('Producto.estado', '1');
         $this->db->order_by('Producto.nombre_producto', 'asc');
@@ -191,7 +191,7 @@ class M_Store extends CI_Model {
         $this->db->where('Producto.estado', '1');
         $this->db->where('Oferta.estado', '1');
         $this->db->where("NOW() BETWEEN Oferta.fecha_inicio AND Oferta.fecha_fin");
-        $this->db->order_by('Producto.nombre_producto', 'asc');
+//        $this->db->order_by('Producto.nombre_producto', 'asc');
         $query = $this->db->get('Producto');
 
         return $query->result();
@@ -266,7 +266,7 @@ class M_Store extends CI_Model {
         $this->db->where('Modificador_Productos.estado', '1');
         $this->db->where('Detalle_Modificador_Productos.estado', '1');
         $this->db->order_by('Modificador_Productos.tipo_modificador', 'asc');
-        $this->db->order_by('Detalle_Modificador_Productos.descripcion_modificador', 'asc');
+//        $this->db->order_by('Detalle_Modificador_Productos.descripcion_modificador', 'asc');
         $this->db->group_by('Detalle_Modificador_Productos.descripcion_modificador');
         $query = $this->db->get('Detalle_Modificador_Productos');
         return $query->result();
@@ -286,7 +286,6 @@ class M_Store extends CI_Model {
         $this->db->where('Modificador_Productos.estado', '1');
         $this->db->where('Detalle_Modificador_Productos.estado', '1');
         $this->db->order_by('Modificador_Productos.tipo_modificador', 'asc');
-        $this->db->order_by('Detalle_Modificador_Productos.descripcion_modificador', 'asc');
         $this->db->group_by('Detalle_Modificador_Productos.descripcion_modificador');
         $query = $this->db->get('Detalle_Modificador_Productos');
         return $query->result();
@@ -408,13 +407,20 @@ class M_Store extends CI_Model {
     public function getVentas($data) {
         $this->db->join('Usuario', 'Usuario.id_usuario = Venta.id_cliente');
         $this->db->join('Tienda', 'Tienda.id_tienda = Venta.id_tienda');
-        $this->db->join('Detalle_Venta', 'Detalle_Venta.id_tienda = Venta.id_tienda');
-        $this->db->join('Producto', 'Producto.id_producto = Detalle_Venta.id_producto');
         $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
         $this->db->where('Usuario.id_usuario', $data["id_usuario"]);
         $this->db->where('Usuario.estado', '1');
         $this->db->where('Tienda.estado', '1');
         $query = $this->db->get('Venta');
+        return $query->result();
+    }
+
+    public function getDetalleVenta($data) {
+        $this->db->join('Venta', 'Venta.id_venta = Detalle_Venta.id_venta');
+        $this->db->join('Producto', 'Producto.id_producto = Detalle_Venta.id_producto');
+        $this->db->where('Venta.id_venta', $data["id_venta"]);
+        $this->db->where('Producto.estado', '1');
+        $query = $this->db->get('Detalle_Venta');
         return $query->result();
     }
 
