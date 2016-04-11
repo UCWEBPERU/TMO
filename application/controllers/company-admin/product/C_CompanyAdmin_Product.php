@@ -107,7 +107,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
             array_push($data_categorias, array(
                 "id"            => $listaCategorias[$c]->id_categoria,
                 "categoria"     => $espacioPorNivel[$listaCategorias[$c]->nivel_categoria - 1].$listaCategorias[$c]->nombre_categoria,
-                "habilitado"    => ($listaCategorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
+                "habilitado"    => (sizeof($listaCategorias[$c]->sub_categorias) == 0) ? TRUE : FALSE,
             ));
             if (sizeof($listaCategorias[$c]->sub_categorias) > 0) {
                 $this->recorrerSubCategorias($listaCategorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);
@@ -126,7 +126,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
             array_push($data_categorias, array(
                 "id"            => $categorias[$c]->id_categoria,
                 "categoria"     => $espacioPorNivel[$categorias[$c]->nivel_categoria - 1].$categorias[$c]->nombre_categoria,
-                "habilitado"    => ($categorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
+                "habilitado"    => (sizeof($categorias[$c]->sub_categorias) == 0) ? TRUE : FALSE,
             ));
             if (sizeof($categorias[$c]->sub_categorias) > 0) {
                 $this->recorrerSubCategorias($categorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);
