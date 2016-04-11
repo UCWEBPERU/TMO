@@ -880,6 +880,9 @@ body {
 .add-product > h3{
 	margin-right: 10px;
 }
+.notes{
+	width: 100%;
+}
 
 /* PANEL SIGN IN  AND PAYMENT*/
 

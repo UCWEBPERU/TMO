@@ -102,12 +102,10 @@
                         <div class="item-modifier btnAddModifier" style="border-color: grey" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
                 <?php } ?>
             <?php } ?>
-
-            </div>
-            <div class="notes">
-                <textarea rows="3" cols="50">
+                <textarea class="notes" rows="3" cols="50">
                 </textarea>
             </div>
+
 
         </div>
     <?php } ?>
