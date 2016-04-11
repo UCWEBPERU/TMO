@@ -68,8 +68,9 @@ class C_Store_Cart extends CI_Controller {
 
         cargarGaleriaPorProducto($dataProducto[0]);
 
-        $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo);
-        
+        $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo, "notes" => trim($this->input->post("notes_producto", TRUE)));
+
+
         if($this->input->post('modifiers[]')){
             $modifiers = $this->input->post('modifiers[]');
             foreach($modifiers as $item){
