@@ -26,6 +26,7 @@ class C_Store_Cart extends CI_Controller {
                 "id_tienda"     => $this->uri->segment(4)
             )
         );
+        $modulo->id_tipo_empresa = $dataEmpresa[0]->id_tipo_empresa;
 
         if (sizeof($dataEmpresa) == 0) {
             redirect("not-found/store");
