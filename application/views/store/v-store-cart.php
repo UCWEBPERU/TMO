@@ -59,7 +59,7 @@ if ($cart = $this->cart->contents()): ?>
                             <div class="image-product">
                                 <img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>">
                             </div>
-
+                            <?php var_dump($options) ; ?>
                             <div class="detail-product">
                                 <div class="head-detail">
                                     <span><?php echo $item['name']; ?></span>
