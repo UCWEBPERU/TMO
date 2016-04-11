@@ -88,16 +88,50 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $modulo->data_geo_countries = $this->M_GEO_Data->getAllCountries();
         $modulo->data_tiendas       = $this->M_CompanyAdmin_Product->getAllStore($this->session->id_empresa);
 
-        $modulo->data_categorias    = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
+//        $modulo->data_categorias    = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
 
-        $data["modulo"] 		    = $modulo;
 
-        $this->cargarCategorias();
+        $listaCategorias = $this->cargarCategorias();
+
+        $data_categorias = array();
+
+        $espacioPorNivel = array(
+            "",
+            "&nbsp;&nbsp;",
+            "&nbsp;&nbsp;&nbsp;&nbsp;",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        );
+
+        for ($c = 0; $c < sizeof($listaCategorias); $c++) {
+            array_push($data_categorias, array(
+                "habilitado" => ($listaCategorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
+                "categoria"  => $espacioPorNivel[$listaCategorias[$c]->nivel_categoria - 1].$listaCategorias[$c]->nombre_categoria
+            ));
+            if (sizeof($listaCategorias[$c]->sub_categorias) > 0) {
+                $this->recorrerSubCategorias($listaCategorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);
+            }
+        }
+
+        $modulo->data_categorias = $data_categorias;
+        var_dump($data_categorias);
+
+        $data["modulo"] = $modulo;
 
         $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
     }
 
-    //
+    public function recorrerSubCategorias($categorias, $espacioPorNivel, $data_categorias) {
+        for ($c = 0; $c < sizeof($categorias); $c++) {
+            array_push($data_categorias, array(
+                "habilitado" => ($categorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
+                "categoria"  => $espacioPorNivel[$categorias[$c]->nivel_categoria - 1].$categorias[$c]->nombre_categoria
+            ));
+            if (sizeof($categorias[$c]->sub_categorias) > 0) {
+                $this->recorrerSubCategorias($categorias[$c]->sub_categorias, $espacioPorNivel, $data_categorias);
+            }
+        }
+    }
 
     public function cargarCategorias() {
         $categoriasPrincipales = $this->M_Store->getPrimaryCategories($this->uri->segment(2));
