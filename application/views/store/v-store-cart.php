@@ -66,6 +66,10 @@ if ($cart = $this->cart->contents()): ?>
                                     <span>$ <?php echo number_format($item['price'], 2); ?></span>
                                 </div>
                                 <div class="more-detail">
+                                    <?php if($modulo->id_tipo_empresa == 2 ){
+                                        if($options['notes'] != ""){?>
+                                            <span>Notes: <?php echo $options['notes']; ?></span><br>
+                                    <?php } }?>
                                     <span>Quantity: <?php echo $item['qty']; ?></span><br>
                                     <?php
                                     $modifiers = $this->cart->product_options($item['rowid']);
@@ -80,10 +84,7 @@ if ($cart = $this->cart->contents()): ?>
 
                                     endforeach;
                                     $addtionals = $addtional  * $item['qty'];?>
-                                    <?php if($modulo->id_tipo_empresa == 2 ){
-                                        if($options['notes'] != ""){?>
-                                        <span>Notes: <?php echo $options['notes']; ?></span><br>
-                                    <?php } }?>
+
                                     <span>Subtotal :$ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></span><br>
                                     <?php $grand_total +=  $item['subtotal'];
                                     $totaladditional += $addtionals;
