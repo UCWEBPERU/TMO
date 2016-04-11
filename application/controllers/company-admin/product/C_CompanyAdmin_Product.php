@@ -121,7 +121,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
     }
 
-    public function recorrerSubCategorias($categorias, $espacioPorNivel, $data_categorias) {
+    public function recorrerSubCategorias($categorias, $espacioPorNivel, &$data_categorias) {
         for ($c = 0; $c < sizeof($categorias); $c++) {
             array_push($data_categorias, array(
                 "habilitado" => ($categorias[$c]->sub_categorias == 0) ? TRUE : FALSE,
