@@ -402,6 +402,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
     /* <----------------- * -----------------> */
 
     function generarCategoriasSuperiores($id_categoria) {
+        $this->load->model("store/M_Store");
         $idCategoriaSuperior = $id_categoria;
         $navegacionCategorias     = "";
 
