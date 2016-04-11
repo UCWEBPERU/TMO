@@ -120,7 +120,7 @@
                                                 <?php if ($modulo->existe_producto) { ?>
                                                     <?php foreach($modulo->data_categorias as $categoria): ?>
                                                         <?php if ($categoria["habilitado"]) { ?>
-                                                            <?php if (intval(categoria["id"]) == intval($modulo->data_producto->id_categoria)) { ?>
+                                                            <?php if (intval($categoria["id"]) == intval($modulo->data_producto->id_categoria)) { ?>
                                                                 <option value="<?php echo $categoria["id"]; ?>" selected="selected"><?php echo $categoria["categoria"]; ?></option>
                                                             <?php } else { ?>
                                                                 <option value="<?php echo $categoria["id"]; ?>"><?php echo $categoria["categoria"]; ?></option>
