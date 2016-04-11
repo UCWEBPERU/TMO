@@ -20,7 +20,7 @@
                 <?php if ($modulo->catup == 0) { ?>
                     <small><a href="<?php echo $modulo->url_module_panel; ?>"><i class="fa fa-reply"></i></a></small>
                 <?php } else { ?>
-                    <small><a href="<?php echo $modulo->url_module_panel; ?>/view/<?php echo int_val($modulo->data_categoria[0]->id_categoria_superior); ?>"><i class="fa fa-reply"></i></a></small>
+                    <small><a href="<?php echo $modulo->url_module_panel; ?>/view/<?php echo intval($modulo->data_categoria[0]->id_categoria_superior); ?>"><i class="fa fa-reply"></i></a></small>
                 <?php } ?>
             </h1>
             <ol class="breadcrumb">
