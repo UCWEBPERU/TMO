@@ -45,7 +45,7 @@
 
                     <?php foreach ($modulo->data_productos as $producto) { ?>
 <!--                        --><?php //if($modulo->data_categorias[$c]->id_categoria == $sub_categoria->id_categoria_superior &&  $producto->id_categoria == $sub_categoria->id_categoria ){
-                            var_dump($modulo->data_categorias[$c]->id_categoria_superior);
+                            var_dump($modulo->data_categorias[$c]->id_categoria);
                             var_dump(" - ");
                             var_dump($sub_categoria->id_categoria_superior);
                             var_dump(" - ");
