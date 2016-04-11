@@ -270,6 +270,7 @@
             if(tipo_empresa == 2){
                 var cantidad_producto  = eval($("#quantity").text());
                 var notas_producto  = $("#notes").val();
+                alert(notas_producto);
             }else{
                 var cantidad_producto = 1;
                 var notas_producto  = "";
@@ -286,14 +287,14 @@
                 formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
             }
 
-            var request = $.ajax({
-                url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",
-                method: "POST",
-                data: formData,
-                dataType: 'json',
-                processData: false,
-                contentType: false,
-            });
+//            var request = $.ajax({
+//                url: "<?php //echo $modulo->base_url_store."/ajax/shopping/add"; ?>//",
+//                method: "POST",
+//                data: formData,
+//                dataType: 'json',
+//                processData: false,
+//                contentType: false,
+//            });
 
             request.done(function( response ) {
 
