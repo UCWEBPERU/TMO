@@ -42,7 +42,7 @@
         <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
             <div class="swiper-slide" >
                 <?php foreach ($modulo->data_productos as $producto) { ?>
-                <?php if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){
+<!--                --><?php //if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){
                         var_dump($modulo->data_categorias[$c]->id_categoria);
                         var_dump(" - ");
                         var_dump($producto->id_categoria);
@@ -80,7 +80,7 @@
                                 </div>
                             </a>
                     </div>
-                <?php } ?>
+<!--                --><?php //} ?>
                 <?php } ?>
             </div>
         <?php } ?>
