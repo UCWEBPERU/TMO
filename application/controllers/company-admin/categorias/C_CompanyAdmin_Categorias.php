@@ -99,6 +99,8 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
         $modulo->data_categorias = $datosCategorias;
 
+        $modulo->nombres_categorias_superiores = $this->generarCategoriasSuperiores($modulo->catup);
+
         $data["modulo"] = $modulo;
         $this->load->view('company-admin/module/categorias/v-company-admin-categorias-add', $data);
     }
@@ -397,7 +399,30 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         echo json_encode($json);
     }
 
-
     /* <----------------- * -----------------> */
+
+    function generarCategoriasSuperiores($id_categoria) {
+        $idCategoriaSuperior = $id_categoria;
+        $navegacionCategorias     = "";
+
+        while ( $idCategoriaSuperior != 0 ) {
+            $dataCategoria = $this->M_Store->getCategory(
+                array(
+                    "id_categoria"          => $idCategoriaSuperior,
+                    "id_empresa"            => $this->uri->segment(2)
+                )
+            );
+
+            if ( sizeof($dataCategoria) > 0 ) {
+                $idCategoriaSuperior    = intval($dataCategoria[0]->id_categoria_superior);
+                $navegacionCategorias        = $dataCategoria[0]->nombre_categoria." >";
+            } else {
+                $navegacionCategorias = substr($navegacionCategorias, 1);
+                $idCategoriaSuperior = 0;
+            }
+        }
+
+        return $navegacionCategorias;
+    }
 
 }

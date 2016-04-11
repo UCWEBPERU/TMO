@@ -57,7 +57,7 @@
                                             <?php } ?>
                                             <?php foreach($modulo->data_categorias as $categoria): ?>
                                                 <?php if ($categoria->id_categoria == $modulo->catup) { ?>
-                                                    <option selected="selected" value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
+                                                    <option selected="selected" value="<?php echo $categoria->id_categoria; ?>"><?php echo $modulo->nombres_categorias_superiores; ?></option>
                                                 <?php } else { ?>
                                                     <option value="<?php echo $categoria->id_categoria; ?>"><?php echo $categoria->nombre_categoria; ?></option>
                                                 <?php } ?>
