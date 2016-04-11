@@ -52,7 +52,11 @@
 
         </div>
     <?php } ?>
-
+    <?php if($modulo->id_tipo_empresa == 2){ ?>
+    <div class="description-product">
+        HOLA
+    </div>
+    <?php } ?>
     <div class="description-product">
         <?php echo $modulo->data_productos[0]->descripcion_producto; ?>
     </div>
