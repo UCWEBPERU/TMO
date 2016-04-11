@@ -41,22 +41,40 @@
     <div class="swiper-wrapper">
         <?php for ( $c = 0; $c < sizeof($modulo->data_categorias); $c++) { ?>
             <div class="swiper-slide" >
-                <?php foreach ($modulo->data_sub_categorias as $sub_categoria) { ?>
-                    <?php if($modulo->data_categorias[$c]->id_categoria == $sub_categoria->id_categoria_superior ){?>
-                        <div class="item-list">
-                            <a href="<?php echo $sub_categoria->url_categoria; ?>">
-                                <div class="image-list">
-                                    <img src="<?php echo $sub_categoria->url_archivo; ?>">
-                                </div>
-                                <div class="text-list">
-                                    <?php echo strtoupper($sub_categoria->nombre_categoria); ?>
-                                </div>
-                                <div class="arrow-list">
-                                    <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+                <?php foreach ($modulo->data_productos as $producto) { ?>
+                    <div class="item-product-row">
+                        <?php if ($modulo->tipo_sub_categorias == "products") { ?>
+                        <a href="<?php echo $modulo->base_url_store."/products/".intval($producto->id_producto); ?>">
+                            <?php } else if ($modulo->tipo_sub_categorias == "promotions") { ?>
+                            <a href="<?php echo $modulo->base_url_store."/promotions/products/".intval($producto->id_producto); ?>">
+                                <?php } ?>
+                                <div>
+                                    <div class="image-product">
+                                        <img src="<?php echo $producto->galeria_producto[0]->url_archivo; ?>">
+                                    </div>
+                                    <div class="content-product">
+                                        <div>
+                                            <div class="name-product">
+                                                <?php echo $producto->nombre_producto; ?>
+                                            </div>
+                                            <div class="price-product">
+                                                <?php if ($modulo->tipo_sub_categorias == "products") { ?>
+                                                    $<?php echo $producto->precio_producto; ?>
+                                                <?php } else if ($modulo->tipo_sub_categorias == "promotions") { ?>
+                                                    $<?php echo $producto->precio_oferta; ?>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                        <div class="description-product">
+                                            <?php echo $producto->descripcion_producto; ?>
+                                        </div>
+                                    </div>
+                                    <div class="arrow-product">
+                                        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon_arrow.png">
+                                    </div>
                                 </div>
                             </a>
-                        </div>
-                    <?php } ?>
+                    </div>
                 <?php } ?>
             </div>
         <?php } ?>

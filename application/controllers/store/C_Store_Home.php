@@ -74,14 +74,15 @@ class C_Store_Home extends CI_Controller {
         $modulo->tipo_sub_categorias = "promotions";
 
         if (sizeof($dataCategorias) > 0) {
-            $modulo->data_sub_categorias = cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
-//            $modulo->data_productos = cargarDatosProductosConPromocion();
-//            foreach ($modulo->data_productos as $producto) {
-//                $producto = cargarGaleriaPorProducto($producto);
-//            }
-            foreach ($modulo->data_sub_categorias as $sub_categoria) {
-                $sub_categoria->url_categoria = generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior, "promotions");
+            //$modulo->data_productos = cargarDatosProductosConPromocion($dataCategorias[0]->id_categoria);
+            //$modulo->data_sub_categorias = cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
+            $modulo->data_productos = cargarDatosProductosConPromocion();
+            foreach ($modulo->data_productos as $producto) {
+                $producto = cargarGaleriaPorProducto($producto);
             }
+//            foreach ($modulo->data_sub_categorias as $sub_categoria) {
+//                $sub_categoria->url_categoria = generarUrlSubCategoria($modulo->base_url_store, $sub_categoria->id_categoria, $sub_categoria->id_categoria_superior, "promotions");
+//            }
         }
 
         $data["modulo"] = $modulo;

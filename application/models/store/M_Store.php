@@ -184,7 +184,6 @@ class M_Store extends CI_Model {
         $this->db->join('Tienda', 'Tienda.id_tienda = Catalogo_Productos.id_tienda');
         $this->db->join('Categoria_Productos', 'Categoria_Productos.id_categoria = Producto.id_categoria');
         $this->db->where('Categoria_Productos.id_empresa', $data["id_empresa"]);
-        $this->db->where('Categoria_Productos.id_categoria', $data["id_categoria"]);
         $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
         $this->db->where('Categoria_Productos.estado', '1');
         $this->db->where('Tienda.estado', '1');
@@ -198,6 +197,37 @@ class M_Store extends CI_Model {
     }
 
     public function getProductPromotion($data) {
+        $this->db->select("Tienda.id_tienda,
+                    Producto.id_categoria,
+                    Producto.id_producto,
+                    Producto.nombre_producto,
+                    Producto.descripcion_producto,
+                    Producto.stock,
+                    Producto.precio_producto,
+                    Producto.fecha_registro,
+                    Oferta.id_oferta,
+                    Oferta.fecha_inicio,
+                    Oferta.fecha_fin,
+                    Oferta.precio_oferta");
+        $this->db->join('Catalogo_Productos', 'Catalogo_Productos.id_producto = Producto.id_producto');
+        $this->db->join('Oferta', 'Oferta.id_oferta = Producto.id_oferta');
+        $this->db->join('Tienda', 'Tienda.id_tienda = Catalogo_Productos.id_tienda');
+        $this->db->join('Categoria_Productos', 'Categoria_Productos.id_categoria = Producto.id_categoria');
+        $this->db->where('Categoria_Productos.id_empresa', $data["id_empresa"]);
+        $this->db->where('Producto.id_producto', $data["id_producto"]);
+        $this->db->where('Tienda.id_tienda', $data["id_tienda"]);
+        $this->db->where('Categoria_Productos.estado', '1');
+        $this->db->where('Tienda.estado', '1');
+        $this->db->where('Producto.estado', '1');
+        $this->db->where('Oferta.estado', '1');
+        $this->db->where("NOW() BETWEEN Oferta.fecha_inicio AND Oferta.fecha_fin");
+        $this->db->order_by('Producto.nombre_producto', 'asc');
+        $query = $this->db->get('Producto');
+
+        return $query->result();
+    }
+
+    public function getProductosPromotion($data) {
         $this->db->select("Tienda.id_tienda,
                     Producto.id_categoria,
                     Producto.id_producto,

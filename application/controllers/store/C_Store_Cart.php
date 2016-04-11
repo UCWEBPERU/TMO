@@ -74,7 +74,7 @@ class C_Store_Cart extends CI_Controller {
 
         cargarGaleriaPorProducto($dataProducto[0]);
 
-        if($dataEmpresa[0]->id_tipo_empresa == 2 || $this->input->post("notes_producto") == "" ){
+        if($dataEmpresa[0]->id_tipo_empresa == 2 ){
             $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo, "notes" => $this->input->post("notes_producto"));
 
         }else{
