@@ -112,7 +112,7 @@
                     },
                     function() {
                         var request = $.ajax({
-                            url: "<?php echo $modulo->main_url_panel; ?>/ajax/deleteProduct",
+                            url: "<?php echo $modulo->url_module_panel."/ajax/deleteProduct"; ?>",
                             method: "POST",
                             data: formData,
                             dataType: "json",
