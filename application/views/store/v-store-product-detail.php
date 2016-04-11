@@ -159,7 +159,10 @@
     function add(delta) {
 
         valor = eval($("#quantity").text());
-        $("#quantity").text(eval(valor+delta));
+        if(valor >= 0){
+            $("#quantity").text(eval(valor+delta));
+        }
+
 
     }
     $(document).ready(function() {
