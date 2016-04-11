@@ -54,9 +54,9 @@
     <?php } ?>
     <?php if($modulo->id_tipo_empresa == 2 ){ ?>
     <div class="add-product">
-        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-less.png">
-        <h3>1</h3>
-        <img src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-plus.png">
+        <img onClick="add(-1);" src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-less.png">
+        <h3 id="quantity">1</h3>
+        <img onClick="add(1);" src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-plus.png">
     </div>
     <?php } ?>
     <div class="description-product">
@@ -233,6 +233,13 @@
             }
         }
         return indiceModificador;
+    }
+    function add(delta) {
+
+        valor = eval(formulario.casilla.value);
+
+        formulario.casilla.value = eval(valor+delta);
+
     }
 
 
