@@ -77,7 +77,7 @@ class C_Store_Home extends CI_Controller {
             //$modulo->data_productos = cargarDatosProductosConPromocion($dataCategorias[0]->id_categoria);
             //$modulo->data_sub_categorias = cargarDatosSubCategorias($dataCategorias[0]->id_categoria);
             $modulo->data_productos = cargarDatosProductosConPromocion();
-            //var_dump($modulo->data_productos);
+            var_dump($modulo->data_productos);
             foreach ($modulo->data_productos as $producto) {
                 $producto = cargarGaleriaPorProducto($producto);
             }
