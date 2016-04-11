@@ -59,7 +59,7 @@ if ($cart = $this->cart->contents()): ?>
                             <div class="image-product">
                                 <img src="<?php $options = $this->cart->product_options($item['rowid']); echo $options['url_image'] ?>">
                             </div>
-                            <?php var_dump($options); ?>
+
                             <div class="detail-product">
                                 <div class="head-detail">
                                     <span><?php echo $item['name']; ?></span>
@@ -81,7 +81,7 @@ if ($cart = $this->cart->contents()): ?>
                                     endforeach;
                                     $addtionals = $addtional  * $item['qty'];?>
                                     <?php if($modulo->id_tipo_empresa == 2 ){
-                                        if($options['notes'] == ""){?>
+                                        if($options['notes'] != ""){?>
                                         <span>Notes: <?php echo $options['notes']; ?></span>
                                     <?php } }?>
                                     <span>Subtotal :$ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></span><br>
