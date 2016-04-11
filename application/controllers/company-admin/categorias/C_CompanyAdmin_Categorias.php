@@ -99,7 +99,8 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         $datosCategorias = $this->M_CompanyAdmin_Categorias->getAllCategorys(array("id_empresa" => $this->session->id_empresa));
         $modulo->data_categorias = $datosCategorias;
 
-        $modulo->nombres_categorias_superiores = $this->generarCategoriasSuperiores($modulo->catup);
+        $categoriasSuperiores = $this->getCategoriasSuperiores($modulo->catup);
+        $modulo->nombres_categorias_superiores = $this->getNombresCategoriasSuperiores($categoriasSuperiores);
 
         $data["modulo"] = $modulo;
         $this->load->view('company-admin/module/categorias/v-company-admin-categorias-add', $data);
@@ -401,10 +402,10 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     /* <----------------- * -----------------> */
 
-    function generarCategoriasSuperiores($id_categoria) {
+    function getCategoriasSuperiores($id_categoria) {
         $this->load->model("store/M_Store");
         $idCategoriaSuperior = $id_categoria;
-        $navegacionCategorias     = "";
+        $listaCategorias = array();
 
         while ( $idCategoriaSuperior != 0 ) {
             $dataCategoria = $this->M_Store->getCategory(
@@ -416,14 +417,23 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
             if ( sizeof($dataCategoria) > 0 ) {
                 $idCategoriaSuperior    = intval($dataCategoria[0]->id_categoria_superior);
-                $navegacionCategorias   .= $dataCategoria[0]->nombre_categoria." >";
+                array_push($listaCategorias, $dataCategoria[0]);
             } else {
-                $navegacionCategorias = substr($navegacionCategorias, 1);
                 $idCategoriaSuperior = 0;
             }
         }
 
-        return $navegacionCategorias;
+        return $listaCategorias;
+    }
+
+    function getNombresCategoriasSuperiores($listaCategorias) {
+        $nombresCategorias = "";
+        $listaCategorias = array_reverse($listaCategorias);
+        for ($c = 0; $c < sizeof($listaCategorias); $c++) {
+            $nombresCategorias .= $listaCategorias[$c]->nombre_categoria." > ";
+        }
+        $nombresCategorias = substr($nombresCategorias, 0, -3);
+        return $nombresCategorias;
     }
 
 }
