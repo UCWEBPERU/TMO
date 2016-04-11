@@ -159,13 +159,11 @@
 <!-- Initialize Swiper -->
 <script>
     function add(delta) {
-
         valor = eval($("#quantity").text());
         suma = eval(valor+delta);
         if(suma >= 1){
             $("#quantity").text(suma);
         }
-
 
     }
     $(document).ready(function() {
@@ -256,6 +254,7 @@
         $(this).css("border-color", "black" );
         
     });
+    var tipo_empresa = "<?php echo $modulo->id_tipo_empresa ?>";
 
     $("#shoppingcart").on("click", function(evt){
         evt.preventDefault();
@@ -264,15 +263,21 @@
             var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
             var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
             var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
+            if(tipo_empresa == 2){
+                var cantidad_producto  = eval($("#quantity").text());
+            }else{
+                var cantidad_producto = 1;
+            }
+
             var formData = new FormData();
             formData.append("id_producto", id_producto);
             formData.append("nombre_producto", nombre_producto);
             formData.append("precio_producto", precio_producto);
+            formData.append("cantidad_producto", cantidad_producto);
+
             for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
                 formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
-
             }
-
 
             var request = $.ajax({
                 url: "<?php echo $modulo->base_url_store."/ajax/shopping/add"; ?>",

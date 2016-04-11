@@ -50,7 +50,7 @@ class C_Store_Cart extends CI_Controller {
 
     }
 
-    function addCart() {
+    function addCart(){
         $json 				= new stdClass();
         $json->type 		= "Insertar Carrito";
         $json->presentation = "";
@@ -99,7 +99,7 @@ class C_Store_Cart extends CI_Controller {
             'id' => $this->input->post('id_producto'),
             'name' => $this->input->post('nombre_producto'),
             'price' => $this->input->post('precio_producto'),
-            'qty' => 1,
+            'qty' => $this->input->post('cantidad_producto'),
             'options' => $option
         );
         //var_dump($modifiers);
