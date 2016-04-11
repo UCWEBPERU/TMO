@@ -116,7 +116,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
     }
 
     public function cargarSubCategorias($categorias) {
-        var_dump($categorias);
+//        var_dump($categorias);
         var_dump($categorias[0]->id_categoria);
 //        for ($c = 0; $c < sizeof($categorias); $c++) {
 //            $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
