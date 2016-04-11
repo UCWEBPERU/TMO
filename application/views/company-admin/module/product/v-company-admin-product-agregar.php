@@ -91,6 +91,17 @@
                                             </label>
                                         </div><!-- /.form-group -->
 
+                                        <div class="form-group">
+                                            <label for="txtStockProducto">DEMO</label>&nbsp;
+                                            <select class="js-example-disabled-results">
+                                                <option value="one" disabled="disabled">First</option>
+                                                <option value="two" disabled="disabled">&nbsp&nbsp&nbsp&nbspSecond</option>
+                                                <option value="two" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTercero</option>
+                                                <option value="one" disabled="disabled">First</option>
+                                                <option value="two" >&nbsp&nbsp&nbsp&nbspSecond</option>
+                                            </select>
+                                        </div><!-- /.form-group -->
+
                                     </div>
 
                                 </div>
