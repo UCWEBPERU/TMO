@@ -102,7 +102,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
     public function cargarCategorias() {
         $categoriasPrincipales = $this->M_Store->getPrimaryCategories($this->uri->segment(2));
         for ($c = 0; $c < sizeof($categoriasPrincipales); $c++) {
-            $subCategorias = $this->getCategoryByCategoriaSuperior(
+            $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
                 array(
                     "id_empresa"            => $this->session->id_empresa,
                     "id_categoria_superior" => $categoriasPrincipales[0]->id_categoria_superior
@@ -117,7 +117,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
     public function cargarSubCategorias($categorias) {
         for ($c = 0; $c < sizeof($categorias); $c++) {
-            $subCategorias = $this->getCategoryByCategoriaSuperior(
+            $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
                 array(
                     "id_empresa"            => $this->session->id_empresa,
                     "id_categoria_superior" => $categorias[$c]->id_categoria_superior
