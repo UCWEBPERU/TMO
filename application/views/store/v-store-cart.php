@@ -79,7 +79,9 @@ if ($cart = $this->cart->contents()): ?>
 
                                     endforeach;
                                     $addtionals = $addtional  * $item['qty'];?>
-
+                                    <?php if($modulo->id_tipo_empresa == 2 ){ ?>
+                                        <span>Notes: <?php echo $modifiers[4]; ?></span>
+                                    <?php }?>
                                     <span>Subtotal :$ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></span><br>
                                     <?php $grand_total +=  $item['subtotal'];
                                     $totaladditional += $addtionals;
