@@ -183,7 +183,8 @@ class C_CompanyAdmin_Product extends CI_Controller {
             ));
 
         $datosCategorias            = $this->M_CompanyAdmin_Categorias->getAllCategorys(array( "id_empresa" => $this->session->id_empresa ));
-        $modulo->data_categorias    = $datosCategorias;
+//        $modulo->data_categorias    = $datosCategorias;
+        $modulo->data_categorias    = $this->cargarCategorias();
         $modulo->data_tiendas       = $this->M_CompanyAdmin_Product->getAllStore($this->session->id_empresa);
 
         if (sizeof($datosProducto) > 0) {
