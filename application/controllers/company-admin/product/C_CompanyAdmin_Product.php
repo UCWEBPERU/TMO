@@ -116,18 +116,20 @@ class C_CompanyAdmin_Product extends CI_Controller {
     }
 
     public function cargarSubCategorias($categorias) {
-        for ($c = 0; $c < sizeof($categorias); $c++) {
-            $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
-                array(
-                    "id_empresa"            => $this->session->id_empresa,
-                    "id_categoria_superior" => $categorias[$c]->id_categoria
-                )
-            );
-            $categorias[$c]->sub_categorias = $subCategorias;
-            if (sizeof($subCategorias) > 0) {
-                $this->cargarSubCategorias($subCategorias[$c]);
-            }
-        }
+        var_dump($categorias);
+        var_dump($categorias[0]->id_categoria);
+//        for ($c = 0; $c < sizeof($categorias); $c++) {
+//            $subCategorias = $this->M_CompanyAdmin_Categorias->getCategoryByCategoriaSuperior(
+//                array(
+//                    "id_empresa"            => $this->session->id_empresa,
+//                    "id_categoria_superior" => $categorias[$c]->id_categoria
+//                )
+//            );
+//            $categorias[$c]->sub_categorias = $subCategorias;
+//            if (sizeof($subCategorias) > 0) {
+//                $this->cargarSubCategorias($subCategorias[$c]);
+//            }
+//        }
     }
 
     public function editProduct($id_producto) {
