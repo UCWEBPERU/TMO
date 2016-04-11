@@ -116,6 +116,8 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
             )
         );
 
+        $modulo->catup = $id_category;
+
         if (sizeof($datosCategoria) > 0) {
             $imagenCategoria            = $this->M_Archivo->getByID($datosCategoria[0]->id_imagen_categoria);
             $modulo->imagen_categoria   = $imagenCategoria[0]->url_archivo;
