@@ -402,7 +402,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
 
     /* <----------------- * -----------------> */
 
-    function getCategoriasSuperiores($id_categoria) {
+    public function getCategoriasSuperiores($id_categoria) {
         $this->load->model("store/M_Store");
         $idCategoriaSuperior = $id_categoria;
         $listaCategorias = array();
@@ -426,7 +426,7 @@ class C_CompanyAdmin_Categorias extends CI_Controller {
         return $listaCategorias;
     }
 
-    function getNombresCategoriasSuperiores($listaCategorias) {
+    public function getNombresCategoriasSuperiores($listaCategorias) {
         $nombresCategorias = "";
         $listaCategorias = array_reverse($listaCategorias);
         for ($c = 0; $c < sizeof($listaCategorias); $c++) {

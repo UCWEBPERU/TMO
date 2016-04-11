@@ -76,6 +76,7 @@ class C_CompanyAdmin_Product extends CI_Controller {
         $this->load->model("admin/M_Admin_Paquetes_TMO");
         $this->load->model('M_Tipo_Empresa');
         $this->load->model('company-admin/M_CompanyAdmin_Categorias');
+        $this->load->model('store/M_Store');
 
         /* Datos de la cabecera del panel de administrador*/
         $modulo                     = $this->paneladmin->loadPanelCompany();
@@ -91,7 +92,16 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         $data["modulo"] 		    = $modulo;
 
+        $this->cargarCategorias();
+
         $this->load->view('company-admin/module/product/v-company-admin-product-agregar', $data);
+    }
+
+    //
+
+    public function cargarCategorias() {
+        $categoriasPrincipales = $this->M_Store->getPrimaryCategories($this->uri->segment(2));
+        var_dump($categoriasPrincipales);
     }
 
     public function editProduct($id_producto) {
