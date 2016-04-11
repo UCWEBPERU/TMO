@@ -630,4 +630,36 @@ class C_CompanyAdmin_Product extends CI_Controller {
         echo json_encode($json);
     }
 
+    public function ajaxDeleteProduct() {
+        $json 				= new stdClass();
+        $json->type 		= "Producto";
+        $json->presentation = "";
+        $json->action 		= "delete";
+        $json->data 		= array();
+        $json->status 		= FALSE;
+
+        if ( $this->input->post("id_producto") ) {
+
+            $datosProducto = $this->M_CompanyAdmin_Product->getProductByID(
+                array(
+                    "id_empresa"  => $this->session->id_empresa,
+                    "id_producto" => trim($this->input->post("id_producto", TRUE))
+                ));
+
+            if (sizeof($datosProducto) > 0) {
+                $result = $this->M_CompanyAdmin_Product->deleteProducto(trim($this->input->post("id_producto", TRUE)));
+
+                $json->message = "El producto se elimino correctamente.";
+                $json->status = TRUE;
+            } else {
+                $json->message = "Lo sentimos, el producto que desea eliminar no existe.";
+            }
+
+        } else {
+            $json->message 	= "No se recibio los parametros necesarios para procesar su solicitud.";
+        }
+
+        echo json_encode($json);
+    }
+
 }

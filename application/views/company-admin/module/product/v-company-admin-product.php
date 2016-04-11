@@ -91,8 +91,6 @@
 <script src="<?php echo PATH_RESOURCE_PLUGINS; ?>sweetalert/sweetalert.min.js"></script>
 <script>
     $(function () {
-        var baseUrl   = "<?php echo base_url(); ?>";
-        var urlApi    = "";
         var formData  = new FormData();
 
         $(".btnActionRow").on("click", function(evt){
@@ -101,12 +99,11 @@
 
             if ( $(this).attr("data-row-action") == "delete") {
                 evt.preventDefault();
-                urlApi = baseUrl + "<?php echo $modulo->base_url; ?>delete";
-                formData.append("id_empresa", $(this).attr("data-row-id"));
+                formData.append("id_producto", $(this).attr("data-row-id"));
 
                 swal({
-                        title: "Eliminar Empresa",
-                        text: "¿Seguro que desea eliminar la empresa?",
+                        title: "Eliminar Producto",
+                        text: "¿Seguro que desea eliminar el producto?",
                         type: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#fc0836",
@@ -116,7 +113,7 @@
                     },
                     function() {
                         var request = $.ajax({
-                            url: urlApi,
+                            url: "<?php echo $modulo->main_url_panel; ?>/ajax/deleteProduct",
                             method: "POST",
                             data: formData,
                             dataType: "json",

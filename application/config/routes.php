@@ -176,6 +176,7 @@ $route['company/(:num)/admin/product/ajax/addProduct']              = 'company-a
 $route['company/(:num)/admin/product/ajax/editProduct']             = 'company-admin/product/C_CompanyAdmin_Product/ajaxEditProduct';
 $route['company/(:num)/admin/product/ajax/deleteImageProduct']      = 'company-admin/product/C_CompanyAdmin_Product/ajaxDeleteImageProduct';
 $route['company/(:num)/admin/product/ajax/deleteModifierProduct']   = 'company-admin/product/C_CompanyAdmin_Product/ajaxDeleteModifierProduct';
+$route['company/(:num)/admin/product/ajax/deleteProduct']           = 'company-admin/product/C_CompanyAdmin_Product/ajaxDeleteProduct';
 
 /*
 | ------------------------------
