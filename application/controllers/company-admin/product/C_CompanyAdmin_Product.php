@@ -97,10 +97,10 @@ class C_CompanyAdmin_Product extends CI_Controller {
 
         $espacioPorNivel = array(
             "",
-            "&nbsp;&nbsp;",
             "&nbsp;&nbsp;&nbsp;&nbsp;",
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
         );
 
         for ($c = 0; $c < sizeof($listaCategorias); $c++) {
