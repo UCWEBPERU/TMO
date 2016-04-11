@@ -92,8 +92,8 @@
                                         </div><!-- /.form-group -->
 
                                         <div class="form-group">
-                                            <label for="txtStockProducto">DEMO</label>&nbsp;
-                                            <select class="select2">
+                                            <label for="txtStockProducto">DEMO</label>
+                                            <select class="form-control select2" style="width: 100%;">
                                                 <option value="one" disabled="disabled">First</option>
                                                 <option value="two" disabled="disabled">&nbsp;&nbsp;Second</option>
                                                 <option value="two" >&nbsp;&nbsp;&nbsp;&nbsp;Tercero</option>
