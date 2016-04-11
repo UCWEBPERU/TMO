@@ -102,8 +102,10 @@
                         <div class="item-modifier btnAddModifier" style="border-color: grey" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
                 <?php } ?>
             <?php } ?>
-                <textarea class="notes" rows="3" cols="50">
+            <?php if($modulo->id_tipo_empresa == 2 ){ ?>
+                <textarea id="notes" class="notes" rows="3" cols="50">
                 </textarea>
+            <?php } ?>
             </div>
 
 
@@ -268,8 +270,10 @@
             var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
             if(tipo_empresa == 2){
                 var cantidad_producto  = eval($("#quantity").text());
+                var notas_producto  = eval($("#notes").val());
             }else{
                 var cantidad_producto = 1;
+                var notas_producto  = "";
             }
 
             var formData = new FormData();
@@ -277,6 +281,7 @@
             formData.append("nombre_producto", nombre_producto);
             formData.append("precio_producto", precio_producto);
             formData.append("cantidad_producto", cantidad_producto);
+            formData.append("notes_producto", notas_producto);
 
             for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
                 formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );

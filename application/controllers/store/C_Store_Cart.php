@@ -68,7 +68,11 @@ class C_Store_Cart extends CI_Controller {
         cargarGaleriaPorProducto($dataProducto[0]);
 
         $option = array("url_image" => $dataProducto[0]->galeria_producto[0]->url_archivo);
-
+        if(trim($this->input->post('notes')) != ""){
+            $notes = array("notes" => trim($this->input->post('notes')));
+            array_push($option, $notes ); 
+        }
+        
 
 
         //var_dump($modifiers);
@@ -91,9 +95,6 @@ class C_Store_Cart extends CI_Controller {
 
         }
 
-
-
-//        var_dump($option);
         // Set array for send data.
         $insert_data = array(
             'id' => $this->input->post('id_producto'),
