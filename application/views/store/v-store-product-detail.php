@@ -269,7 +269,7 @@
             var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_producto; ?>";
             if(tipo_empresa == 2){
                 var cantidad_producto  = eval($("#quantity").text());
-                var notas_producto  = eval($("#notes").val());
+                var notas_producto  = $("#notes").val();
             }else{
                 var cantidad_producto = 1;
                 var notas_producto  = "";
