@@ -45,7 +45,7 @@
 <!--                --><?php //if($modulo->data_categorias[$c]->id_categoria == $producto->id_categoria ){
                         var_dump($modulo->data_categorias[$c]->id_categoria);
                         var_dump(" - ");
-                        var_dump($producto->id_categoria);
+                        var_dump($producto->id_categoria_superior);
                         ?>
                     <div class="item-product-row">
                         <?php if ($modulo->tipo_sub_categorias == "products") { ?>
