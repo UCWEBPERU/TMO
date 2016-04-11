@@ -54,6 +54,13 @@
     <div class="description-product">
         <?php echo $modulo->data_productos[0]->descripcion_producto; ?>
     </div>
+    <?php if($modulo->id_tipo_empresa == 2 ){ ?>
+        <div class="add-product">
+            <img onClick="add(-1);" src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-less.png">
+            <h3 id="quantity">1</h3>
+            <img onClick="add(1);" src="<?php echo PATH_RESOURCE_STORE; ?>img/icon-plus.png">
+        </div>
+    <?php } ?>
 
     <?php if(sizeof($modulo->data_modifiers) != 0){ ?>
         <div class="box-modifier">
@@ -147,6 +154,14 @@
 
 <!-- Initialize Swiper -->
 <script>
+    function add(delta) {
+        valor = eval($("#quantity").text());
+        suma = eval(valor+delta);
+        if(suma >= 1){
+            $("#quantity").text(suma);
+        }
+
+    }
     $(document).ready(function() {
         $('.fancybox').fancybox({
             padding         : 0,
@@ -240,11 +255,23 @@
         if(session){
             var id_producto  = "<?php echo $modulo->data_productos[0]->id_producto; ?>";
             var nombre_producto  = "<?php echo $modulo->data_productos[0]->nombre_producto; ?>";
-            var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_oferta; ?>";
+            var precio_producto  = "<?php echo $modulo->data_productos[0]->precio_oferta; ?>"
+            if(tipo_empresa == 2){
+                var cantidad_producto  = eval($("#quantity").text());
+                var notas_producto  = $("#notes").val();
+
+            }else{
+                var cantidad_producto = 1;
+                var notas_producto  = "";
+            }
+
             var formData = new FormData();
             formData.append("id_producto", id_producto);
             formData.append("nombre_producto", nombre_producto);
             formData.append("precio_producto", precio_producto);
+            formData.append("cantidad_producto", cantidad_producto);
+            formData.append("notes_producto", notas_producto);
+            
             for (var c = 0; c < listaModificadoresSeleccionados.length; c++) {
                 formData.append("modifiers[]", listaModificadoresSeleccionados[c].id  );
             }
