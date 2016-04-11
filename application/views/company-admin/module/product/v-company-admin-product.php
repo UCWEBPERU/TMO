@@ -94,7 +94,7 @@
         var formData  = new FormData();
 
         $(".btnActionRow").on("click", function(evt){
-
+            evt.preventDefault();
             var self = this;
 
             if ( $(this).attr("data-row-action") == "delete") {
