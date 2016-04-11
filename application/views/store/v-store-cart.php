@@ -82,7 +82,7 @@ if ($cart = $this->cart->contents()): ?>
                                     $addtionals = $addtional  * $item['qty'];?>
                                     <?php if($modulo->id_tipo_empresa == 2 ){
                                         if($options['notes'] != ""){?>
-                                        <span>Notes: <?php echo $options['notes']; ?></span>
+                                        <span>Notes: <?php echo $options['notes']; ?></span><br>
                                     <?php } }?>
                                     <span>Subtotal :$ <?php echo number_format($item['subtotal'], 2) + $addtionals ?></span><br>
                                     <?php $grand_total +=  $item['subtotal'];
