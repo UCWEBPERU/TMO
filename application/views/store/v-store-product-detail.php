@@ -234,7 +234,7 @@
             }
             listaModificadoresSeleccionados.push(datosModificador);
         }
-        console.log(listaModificadoresSeleccionados);
+
     }
 
     function validarModificadorEnLista(tipoModifier) {
@@ -249,15 +249,13 @@
         return indiceModificador;
     }
 
-
-
-
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
         $(".btnAddModifier").parent().children().css("border-color", "grey" );
+        addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
         $(this).css("border-color", "black" );
-        
     });
+    
     var tipo_empresa = "<?php echo $modulo->id_tipo_empresa ?>";
 
     $("#shoppingcart").on("click", function(evt){
