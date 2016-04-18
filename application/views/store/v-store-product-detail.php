@@ -76,7 +76,7 @@
                     <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
                         <?php if (isset($modifier->color_rgb)) {
                             if($index == 0){?>
-                            <div class="item-modifier btnAddModifier" style="border:1px solid black ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"><?php echo $modifier->descripcion_modificador; ?></div>
+                            <div class="item-modifier btnAddModifier" style="border:2px solid black ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"><?php echo $modifier->descripcion_modificador; ?></div>
                         <?php }else{ ?>
                             <div class="item-modifier btnAddModifier" style="border:1px solid grey ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"><?php echo $modifier->descripcion_modificador; ?></div>
                         <?php } } ?>
@@ -90,6 +90,7 @@
             <div class="content-modifier">
             <?php
             $tipoModificadorAnterior = "";
+            $index2 = 0;
             for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
                 $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
                 if ($c + 1 > sizeof($modulo->data_modifiers) - 1)  {
@@ -101,9 +102,15 @@
                 <?php if ($tipoModificadorActual != "color") { ?>
                     <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
                         $tipoModificadorAnterior = $tipoModificadorActual; ?>
-                        <div class="name-modifier" style="border-color: grey"><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
+                        <div class="name-modifier" ><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
                     <?php } ?>
-                        <div class="item-modifier btnAddModifier" style="border-color: grey" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
+                        <?php if($index == 0){?>
+                            <div class="item-modifier btnAddModifier" style="border: 2px solid black" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
+
+                        <?php }else{ ?>
+                            <div class="item-modifier btnAddModifier" style="border: 1px solid grey" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
+
+                        <?php }  ?>
                 <?php } ?>
             <?php } ?>
             <?php if($modulo->id_tipo_empresa == 2 ){ ?>
