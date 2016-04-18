@@ -87,7 +87,7 @@
         </div>
 
         <div class="box-modifier">
-
+            <div class="content-modifier">
             <?php
             $tipoModificadorAnterior = "";
             $index2 = 0;
@@ -102,23 +102,21 @@
                 <?php if ($tipoModificadorActual != "color") { ?>
                     <?php if ($tipoModificadorAnterior != $tipoModificadorActual) {
                         $tipoModificadorAnterior = $tipoModificadorActual; ?>
-                        <div class="name-modifier" ><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
+                            <div class="name-modifier" ><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
                     <?php } ?>
-                        <div class="content-modifier">
-                        <?php if($index == 0){?>
+                        <?php if($index2 == 0){?>
                             <div class="item-modifier btnAddModifier" style="border: 2px solid black" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
 
                         <?php }else{ ?>
                             <div class="item-modifier btnAddModifier" style="border: 1px solid grey" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
 
                         <?php }  ?>
-                        </div>
                 <?php } ?>
-            <?php } ?>
+            <?php $index2++; } ?>
             <?php if($modulo->id_tipo_empresa == 2 ){ ?>
                 <textarea id="notes" class="notes" rows="3" placeholder="Notes.." ></textarea>
             <?php } ?>
-
+            </div>
 
 
         </div>
