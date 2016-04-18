@@ -248,7 +248,7 @@
         e.preventDefault();
         addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
         $(".btnAddModifier").parent().children().css("border-color", "grey" );
-        $(this).css("border-color", "black" );
+        $(this).css({"border-color": "black", "border-size": "2px"} );
     });
 
     $("#shoppingcart").on("click", function(evt){
