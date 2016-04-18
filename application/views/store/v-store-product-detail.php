@@ -90,7 +90,7 @@
             <div class="content-modifier">
             <?php
             $tipoModificadorAnterior = "";
-            $index2 = 0;
+
             for ($c = 0; $c < sizeof($modulo->data_modifiers); $c++) {
                 $tipoModificadorActual = trim(strtolower($modulo->data_modifiers[$c]->tipo_modificador));
                 if ($c + 1 > sizeof($modulo->data_modifiers) - 1)  {
@@ -104,7 +104,7 @@
                         $tipoModificadorAnterior = $tipoModificadorActual; ?>
                             <div class="name-modifier" ><?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?></div>
                     <?php } ?>
-                        <?php if($index2 == 0){?>
+                        <?php if($c == 0){?>
                             <div class="item-modifier btnAddModifier" style="border: 2px solid black" data-id-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modulo->data_modifiers[$c]->tipo_modificador); ?>"><?php echo $modulo->data_modifiers[$c]->descripcion_modificador; ?></div>
 
                         <?php }else{ ?>
@@ -112,7 +112,7 @@
 
                         <?php }  ?>
                 <?php } ?>
-            <?php $index2++; } ?>
+            <?php } ?>
             <?php if($modulo->id_tipo_empresa == 2 ){ ?>
                 <textarea id="notes" class="notes" rows="3" placeholder="Notes.." ></textarea>
             <?php } ?>
