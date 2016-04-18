@@ -68,7 +68,7 @@
     <?php if(sizeof($modulo->data_modifiers) != 0){ ?>
         <div class="box-modifier">
 
-            <div class="name-modifier">SELECT COLOR</div>
+            <div class="name-modifier namecolor">SELECT COLOR</div>
             <div class="content-modifier">
                 <?php
                 $index = 0;
@@ -87,7 +87,7 @@
         </div>
 
         <div class="box-modifier">
-            <div class="content-modifier">
+            <div class="content-modifier modifierother">
             <?php
             $tipoModificadorAnterior = "";
 
@@ -264,6 +264,8 @@
         e.preventDefault();
         $(".btnAddModifier").parent().children().css("border", "1px solid grey" );
         addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
+
+        $(".name-modifier").css({"border": "none"} );
         $(this).css({"border": "2px solid black"} );
     });
     
