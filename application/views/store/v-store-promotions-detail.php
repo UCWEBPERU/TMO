@@ -68,13 +68,18 @@
             <div class="name-modifier">SELECT COLOR</div>
             <div class="content-modifier">
                 <?php
+                $index = 0;
                 foreach ($modulo->data_modifiers as $modifier) { ?>
                     <?php if (trim(strtolower($modifier->tipo_modificador)) == "color") { ?>
-                        <?php if (isset($modifier->color_rgb)) { ?>
-                            <div class="item-modifier btnAddModifier" style="border-color:grey ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"></div>
-                        <?php } ?>
+                        <?php if (isset($modifier->color_rgb)) {
+                            if($index == 0){?>
+                                <div class="item-modifier btnAddModifier" style="border:2px solid black ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"><?php echo $modifier->descripcion_modificador; ?></div>
+                            <?php }else{ ?>
+                                <div class="item-modifier btnAddModifier" style="border:1px solid grey ;background: <?php echo $modifier->color_rgb; ?>;" data-id-modifier="<?php echo ucwords($modifier->id_modificador_productos); ?>" data-type-modifier="<?php echo ucwords($modifier->tipo_modificador); ?>"><?php echo $modifier->descripcion_modificador; ?></div>
+                            <?php } } ?>
                     <?php } ?>
-                <?php } ?>
+
+                <?php $index++; } ?>
             </div>
 
         </div>
@@ -246,8 +251,10 @@
 
     $(".btnAddModifier").on("click", function (e){
         e.preventDefault();
+        $(".btnAddModifier").parent().children().css("border", "1px solid grey" );
         addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
-        $(".btnAddModifier").parent().children().css("border-color", "grey" );
+
+        $(".name-modifier").css({"border": "none"} );
         $(this).css({"border": "2px solid black"} );
     });
 
