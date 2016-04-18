@@ -253,7 +253,7 @@
         e.preventDefault();
         $(".btnAddModifier").parent().children().css("border-color", "grey" );
         addModifier($(this).attr("data-id-modifier"), $(this).attr("data-type-modifier"));
-        $(this).css("border-color", "black" );
+        $(this).css({"border": "2px solid black"} );
     });
     
     var tipo_empresa = "<?php echo $modulo->id_tipo_empresa ?>";
