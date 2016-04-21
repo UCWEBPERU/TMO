@@ -9,7 +9,8 @@ class UserSession {
         $this->CI->load->helper('url');
         $this->CI->load->library("session");
     }
-    
+
+
     public function validateSession($section_name) {
         switch ($section_name) {
             case 'panel-admin':
